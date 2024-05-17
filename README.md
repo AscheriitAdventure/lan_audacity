@@ -1,7 +1,6 @@
 # Lan Audacity
 
 ## Origine
-
 Dans le cadre d'un projet d'Open Innovation, les élèves ont choisi de développer un outil permettant de gagner du temps pour le paramétrage des matériels réseaux (physiques et virtuels).
 
 Les objectifs de "Lan Audacity" sont :
@@ -11,8 +10,7 @@ Les objectifs de "Lan Audacity" sont :
 - Simplicité de paramétrage
 - Gain de performances grâce à l’automatisation
 
-## Description pour béotiens
-
+## Description pour Béotiens
 Lan Audacity est un outil conçu pour simplifier et accélérer la configuration des équipements réseaux. Que vous soyez un débutant ou ayez peu d'expérience dans le domaine des réseaux, Lan Audacity vous permet de configurer vos appareils de manière rapide et efficace. Grâce à son interface intuitive, il rend les tâches complexes accessibles et faciles à réaliser pour tous.
 
 Il utilise plusieurs protocoles Internet tels que :
@@ -27,28 +25,23 @@ Lan Audacity intègre trois types de vues pour une meilleure visualisation et ge
 De plus, Lan Audacity possède une capacité d'extension qui permet d'ajouter de nouvelles fonctionnalités selon les besoins, offrant ainsi une flexibilité et une évolutivité maximales pour répondre aux diverses exigences des utilisateurs.
 
 ## Description pour professionnels (Techniques)
-
 Lan Audacity est un outil avancé de configuration réseau, conçu pour les techniciens et ingénieurs réseaux. Il supporte une large gamme d'équipements, tant physiques que virtuels, et est conçu pour automatiser de nombreuses tâches de paramétrage, augmentant ainsi l'efficacité et la productivité.
 
 ### Protocoles Supportés
-
 Lan Audacity utilise plusieurs protocoles standard de l'industrie pour garantir une gestion et une configuration réseau optimales :
 - **ICMP (Internet Control Message Protocol)** : Utilisé pour diagnostiquer les problèmes de réseau.
 - **SNMP (Simple Network Management Protocol)** : Utilisé pour la surveillance et la gestion des équipements réseau.
 
 ### Vues Intégrées
-
 Pour une gestion efficace, Lan Audacity propose trois types de vues :
 1. **Vue cartographique physique** : Représente les équipements réseaux physiques avec une précision de 80 % par rapport à la réalité, facilitant ainsi la gestion des infrastructures matérielles.
 2. **Vue cartographique virtuelle** : Représente les réseaux virtuels avec une précision de 80 % par rapport à la réalité, simplifiant la gestion des environnements virtualisés.
 3. **Vue simple** : Offre une vue directe et simplifiée des réseaux, idéale pour un aperçu rapide et une gestion de base.
 
 ### Extensions et Flexibilité
-
 Lan Audacity intègre une capacité à ajouter des extensions, permettant aux professionnels d'adapter et de personnaliser l'outil en fonction des besoins spécifiques de leurs infrastructures réseau. Cette modularité assure une évolutivité et une flexibilité maximales, répondant aux exigences changeantes des environnements réseau modernes.
 
 ### Fonctionnalités Avancées
-
 - **Détection automatique des périphériques** : Identifie et configure automatiquement les équipements réseau.
 - **Configuration en masse** : Permet de configurer plusieurs équipements simultanément, réduisant ainsi le temps de déploiement.
 - **Outils de diagnostic avancés** : Fournit des outils robustes pour diagnostiquer et résoudre rapidement les problèmes réseau.
@@ -56,7 +49,6 @@ Lan Audacity intègre une capacité à ajouter des extensions, permettant aux pr
 Les professionnels apprécieront la robustesse et la fiabilité de Lan Audacity, ainsi que la réduction significative du temps de configuration grâce à ses capacités d'automatisation et à son interface intuitive.
 
 ## Les outils pour Lan Audacity
-
 **Lan Audacity** est un logiciel développé en Python. Le choix de Python s'explique par plusieurs raisons :
 
 - **Accessibilité aux bibliothèques** : Python offre un accès facile à une multitude de bibliothèques, facilitant ainsi le développement de fonctionnalités complexes sans réinventer la roue.
@@ -73,7 +65,6 @@ En utilisant Python, Lan Audacity bénéficie de :
 Grâce à ces avantages, Python s'avère être le choix idéal pour le développement de Lan Audacity, assurant une efficacité optimale et une adaptabilité aux besoins évolutifs du projet.
 
 ### Bibliothèques Utilisées
-
 Avec Python, nous utilisons plusieurs bibliothèques spécifiques pour optimiser les fonctionnalités de Lan Audacity. Voici une justification détaillée du choix de chaque bibliothèque utilisée :
 
 #### PyYAML
@@ -92,3 +83,6 @@ Avec Python, nous utilisons plusieurs bibliothèques spécifiques pour optimiser
 - **Justification** : PyQt5 et PyQt6 sont des bibliothèques utilisées pour créer des interfaces utilisateur graphiques (GUI) en Python. Elles sont basées sur le framework Qt, connu pour sa robustesse et sa flexibilité. En utilisant PyQt, Lan Audacity peut offrir une interface utilisateur intuitive et interactive, rendant l'outil accessible et facile à utiliser pour les utilisateurs, qu'ils soient débutants ou professionnels.
 
 En combinant ces bibliothèques, Lan Audacity bénéficie d'une base technologique solide, assurant des fonctionnalités avancées, une performance optimale et une expérience utilisateur améliorée.
+
+## Auteurs
+
