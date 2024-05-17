@@ -1,14 +1,39 @@
 # Lan Audacity
 
 ## Origine
-Dans le cadre d'un projet d'Open Innovation, les élèves ont choisi de développer un outil permettant de gagner du temps pour le paramétrage des matériels réseaux (physiques et virtuels).
+
+### Contexte
+
+En entreprise, il arrive fréquemment que des appareils réseaux tombent en panne, ce qui peut entraîner une interruption significative des services. Le temps de remise en production après une panne varie considérablement, allant de 1/2 journée à un temps indéterminé, en fonction de la complexité de l'infrastructure et de la disponibilité des ressources nécessaires pour résoudre le problème. Cette variabilité engendre des pertes de productivité, des interruptions de service et des coûts supplémentaires pour l'entreprise.
+
+Ces coûts supplémentaires sont souvent dus à plusieurs facteurs :
+- **Matériel hétérogène** : Les entreprises utilisent souvent des équipements réseau de marques différentes et de qualités variées. Ce mélange de matériel peu coûteux et de différentes marques complique la gestion et le dépannage des réseaux, car chaque appareil peut nécessiter des connaissances spécifiques et des méthodes de configuration différentes.
+- **Recherche et acquisition de connaissances** : Les techniciens doivent consacrer un temps considérable à rechercher des informations et à comprendre les spécificités de chaque équipement. Cela inclut la lecture de la documentation technique, la consultation de forums spécialisés et l'éventuelle formation sur des nouveaux appareils ou technologies.
+- **Délai de diagnostic et réparation** : Identifier la cause exacte d'une panne et mettre en place la solution adéquate peut prendre du temps, surtout si l'infrastructure réseau est complexe. Les techniciens doivent souvent effectuer plusieurs étapes de diagnostic, tester différentes hypothèses et parfois contacter le support technique des fournisseurs, ce qui allonge le délai de remise en production.
+
+Cette situation est aggravée par le fait que le personnel peut être limité en termes de nombre et de niveau de compétence, ce qui amplifie encore les délais et les coûts associés aux pannes de réseau. 
+
+### Impact sur les entreprises
+
+Les interruptions de service dues à des pannes de réseau peuvent avoir des conséquences graves pour les entreprises :
+- **Perte de productivité** : Les employés sont incapables de réaliser leurs tâches lorsque le réseau est en panne, ce qui entraîne une baisse de la productivité.
+- **Interruption des services client** : Pour les entreprises qui dépendent des services en ligne, une panne de réseau peut signifier une interruption des services aux clients, affectant la satisfaction et la fidélité des clients.
+- **Coûts financiers** : En plus des coûts directs liés à la réparation et à la remise en production, les entreprises subissent des pertes financières dues à la baisse de la productivité et aux opportunités manquées pendant les pannes.
+
+### Besoin d'une solution efficace
+
+Face à ces défis, il devient crucial de disposer d'outils efficaces pour la gestion et la configuration des réseaux. Les outils qui permettent d'automatiser les tâches de paramétrage et de diagnostic, de simplifier l'interface utilisateur et de fournir une gestion centralisée des équipements réseaux peuvent réduire considérablement le temps de remise en production et les coûts associés. C'est dans ce contexte que le projet "Lan Audacity" a été conçu, pour répondre à ces besoins spécifiques et améliorer la gestion des infrastructures réseaux en entreprise.
+
+### Mise en projet
+
+Dans le cadre d'un projet d'Open Innovation, les élèves ont choisi de développer un outil permettant de gagner du temps pour le paramétrage des matériels réseaux (physiques et virtuels). Ce projet, nommé "Lan Audacity", vise à répondre aux défis identifiés en entreprise et en environnement pédagogique.
 
 Les objectifs de "Lan Audacity" sont :
-- Gagner du temps pour les techniciens réseaux
-- Simplicité d'utilisation
-- Polyvalence de l'outil
-- Simplicité de paramétrage
-- Gain de performances grâce à l’automatisation
+- Gagner du temps pour les techniciens réseaux : En automatisant des tâches répétitives et en simplifiant les processus de configuration, Lan Audacity réduit le temps nécessaire pour remettre en production les équipements réseau.
+- Simplicité d'utilisation : L'outil est conçu pour être intuitif, permettant même aux utilisateurs ayant peu d'expérience de configurer les réseaux sans difficulté.
+- Polyvalence de l'outil : Lan Audacity est capable de gérer une large gamme d'équipements réseaux, qu'ils soient physiques ou virtuels, et s'adapte aux différents environnements.
+- Simplicité de paramétrage : L'outil facilite le processus de configuration grâce à des interfaces conviviales et des fonctionnalités automatisées.
+- Gain de performances grâce à l’automatisation : En automatisant les tâches courantes de gestion et de configuration des réseaux, Lan Audacity améliore les performances globales et réduit les risques d'erreurs humaines.
 
 ## Description pour Béotiens
 Lan Audacity est un outil conçu pour simplifier et accélérer la configuration des équipements réseaux. Que vous soyez un débutant ou ayez peu d'expérience dans le domaine des réseaux, Lan Audacity vous permet de configurer vos appareils de manière rapide et efficace. Grâce à son interface intuitive, il rend les tâches complexes accessibles et faciles à réaliser pour tous.
