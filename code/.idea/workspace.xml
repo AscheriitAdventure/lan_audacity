@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c52a5fd-54f6-46ea-8834-91462d096175" name="Changes" comment="" />
+    <list default="true" id="afad144f-7fd6-4f53-b681-e8f8c0ca355c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,46 +17,69 @@
       </list>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2gHB4fuHLByRI3sIDsRY99gNmpl" />
+  <component name="ProjectId" id="2ep5XGsja5NeaKKajb0zfwWQB7G" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.lan_audacity.executor": "Debug",
-    "Python.main_app.executor": "Debug",
-    "Python.primarySidePanel.executor": "Debug",
-    "Python.py-nmap.executor": "Debug",
-    "Python.pyqt_views.executor": "Debug",
-    "Python.qta_test.executor": "Debug",
-    "Python.qta_test2.executor": "Debug",
+    "Python.card_vues.executor": "Run",
+    "Python.drag&drop.executor": "Debug",
+    "Python.mdl_managers.executor": "Run",
+    "Python.mdl_obj.executor": "Run",
+    "Python.mvc_test1.executor": "Debug",
+    "Python.settings_vues.executor": "Debug",
+    "Python.test_card.executor": "Run",
+    "Python.test_func60.executor": "Run",
+    "Python.test_func61.executor": "Debug",
+    "Python.test_thread3.executor": "Debug",
+    "Python.test_thread4.executor": "Debug",
+    "Python.test_threads.executor": "Debug",
+    "Python.test_threads2.executor": "Run",
+    "Python.tests_nmap.executor": "Run",
+    "Python.tests_toggle-btn.executor": "Debug",
+    "Python.tree_vues.executor": "Debug",
+    "Python.vues_obj.executor": "Debug",
+    "Python.vues_obj2.executor": "Debug",
+    "Python.vues_obj3.executor": "Run",
+    "Python.vues_obj4.executor": "Run",
+    "Python.vues_test1.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/lan_audacity-v1.1.3"
+    "last_opened_file_path": "/Users/yuna/PycharmProjects/lan_audacity-v1.1.2/_src/tests"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_src/tests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\g.tronche\PycharmProjects\lan_audacity-v1.1.2\_src\_archives" />
+      <recent name="C:\Users\g.tronche\PycharmProjects\lan_audacity-v1.1.2" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7c52a5fd-54f6-46ea-8834-91462d096175" name="Changes" comment="" />
-      <created>1715344432688</created>
+      <changelist id="afad144f-7fd6-4f53-b681-e8f8c0ca355c" name="Changes" comment="" />
+      <created>1712588716644</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1715344432688</updated>
+      <updated>1712588716644</updated>
     </task>
     <servers />
   </component>
