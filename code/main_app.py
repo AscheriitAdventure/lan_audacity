@@ -50,6 +50,7 @@ class SwitchFile:
         config.read(abs_path)
         return config
 
+
 def current_dir():
     try:
         curr_path = os.getcwd()
@@ -59,6 +60,7 @@ def current_dir():
             f"Une erreur s'est produite lors de l'obtention du répertoire de travail actuel : {e}"
         )
         return "Analyse Erreur"
+
 
 class ConfigurationFile:
     def __init__(self, abs_path: str):
@@ -71,9 +73,9 @@ class ConfigurationFile:
         return self.__abs_path
 
     @abs_path.setter
-    def abs_path(self, absPath: str) -> None:
+    def abs_path(self, abs_path: str) -> None:
         if absPath:
-            self.__abs_path = absPath
+            self.__abs_path = abs_path
         else:
             logging.error(
                 "Le chemin du fichier de configuration est vide ou non-renseigné."
@@ -111,6 +113,7 @@ class ConfigurationFile:
         _, file_extension = os.path.splitext(abs_path)
         return file_extension.lower().strip(string.punctuation)
 
+
 class LanguageApp:
     def __init__(self, file_manager: ConfigurationFile):
         self.data_manager = file_manager.data
@@ -133,7 +136,8 @@ class LanguageApp:
         for data in self.data_manager:
             if key in data["string"]:
                 return data[self.language]
-            
+
+
 class ShortcutApp:
     def __init__(self, file_manager: ConfigurationFile):
         self.data_manager = file_manager.data
@@ -143,6 +147,7 @@ class ShortcutApp:
             if shortcut["name_action"] == key:
                 return shortcut["keyshortcut"]
 
+
 class IconsApp:
     def __init__(self, file_manager: ConfigurationFile):
         self.data_manager = file_manager.data
@@ -151,6 +156,7 @@ class IconsApp:
         for icon in self.data_manager:
             if icon['name'] == key:
                 return qta.icon(icon["platform_and_name"])
+
 
 class MainApp(QMainWindow):
     def __init__(self, software_manager: ConfigurationFile, parent=None):
@@ -194,8 +200,10 @@ class MainApp(QMainWindow):
     def initUI(self):
         pass     
 
+
 if __name__ == "__main__":
-    softw_manager = ConfigurationFile(current_dir() + "/conf/config_app.yaml")
+    softw_manager = ConfigurationFile(current_dir() + "\\conf\\config_app.yaml")
+    print(softw_manager.abs_path)
     path_log = f"{current_dir()}/{softw_manager.data['software']['configuration_logs']['path']}"
     logs_manager = ConfigurationFile(path_log)
 
