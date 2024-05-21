@@ -1,0 +1,142 @@
+[
+  {
+    "name": "lan_audacity",
+    "keys": "Ctrl+H"
+  },
+  {
+    "name": "extensionAction",
+    "keys": "Ctrl+Shift+X"
+  },
+  {
+    "name": "userAction",
+    "keys": "Alt+Shift+U"
+  },
+  {
+    "name": "preferencesAction",
+    "keys": "Alt+Shift+P"
+  },
+  {
+    "name": "newProject",
+    "keys": "Ctrl+N"
+  },
+  {
+    "name": "openProject",
+    "keys": "Ctrl+O"
+  },
+  {
+    "name": "saveProject",
+    "keys": "Ctrl+S"
+  },
+  {
+    "name": "saveAsProject",
+    "keys": "Ctrl+Shift+S"
+  },
+  {
+    "name": "closeProject",
+    "keys": "Ctrl+W"
+  },
+  {
+    "name": "exit",
+    "keys": "Alt+F4"
+  },
+  {
+    "name": "undoAction",
+    "keys": "Ctrl+Z"
+  },
+  {
+    "name": "redoAction",
+    "keys": "Ctrl+Y"
+  },
+  {
+    "name": "cutAction",
+    "keys": "Ctrl+X"
+  },
+  {
+    "name": "copyAction",
+    "keys": "Ctrl+C"
+  },
+  {
+    "name": "pasteAction",
+    "keys": "Ctrl+V"
+  },
+  {
+    "name": "deleteAction",
+    "keys": "Del"
+  },
+  {
+    "name": "selectAllAction",
+    "keys": "Ctrl+A"
+  },
+  {
+    "name": "selectNoneAction",
+    "keys": "Ctrl+Shift+A"
+  },
+  {
+    "name": "selectInverseAction",
+    "keys": "Ctrl+I"
+  },
+  {
+    "name": "fileExplorerAction",
+    "keys": "Ctrl+Shift+E"
+  },
+  {
+    "name": "netExplorerAction",
+    "keys": "Ctrl+Shift+N"
+  },
+  {
+    "name": "notificationAction",
+    "keys": "Alt+N"
+  },
+  {
+    "name": "translateAction",
+    "keys": "Ctrl+Shift+L"
+  },
+  {
+    "name": "terminalAction",
+    "keys": "Ctrl+Shift+ù"
+  },
+  {
+    "name": "helpAction",
+    "keys": "F1"
+  },
+  {
+    "name": "aboutAction",
+    "keys": "Ctrl+Shift+M"
+  },
+  {
+    "name": "languageAction",
+    "keys": "Alt+L"
+  },
+  {
+    "name": "shortcutKeyAction",
+    "keys": "Tab+K"
+  },
+  {
+    "name": "searchAction",
+    "keys": "Alt+Shift+F"
+  },
+  {
+    "name": "fullScreenAction",
+    "keys": "F11"
+  },
+  {
+    "name": "exportAction",
+    "keys": "Ctrl+E"
+  },
+  {
+    "name": "exportAsAction",
+    "keys": "Ctrl+Maj+E"
+  },
+  {
+    "name": "newWindowAction",
+    "keys": "Ctrl+Maj+N"
+  },
+  {
+    "name": "toggleTerminalView",
+    "keys": "Ctrl+<"
+  },
+  {
+    "name": "toggleSidePanelView",
+    "keys": "Ctrl+Tabulation+P"
+  }
+]

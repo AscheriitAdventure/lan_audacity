@@ -1,7 +1,7 @@
 version: 1
 system:
   name: Lan Audacity
-  version: 1.1.4
+  version: 1.0.4
   authors: "Geoffrey TRONCHE"
   organization: Student Software Development 2024
   type: application/desktop
@@ -15,22 +15,27 @@ repository:
   url: Don't have a repository yet
 
 software:
-  configuration_logs:
-    path: conf/config_logs.yaml
-    encoding: utf-8
-    version: 1
-  configuration_translate:
-    path: data/translate_text.json
-    encoding: utf-8
-    version: 1
-  configuration_key_shortcuts:
-    path: data/key_shortcut_action.json
-    encoding: utf-8
-    version: 1
-  configuration_icons:
-    path: data/icon_list.json
-    encoding: utf-8
-    version: 1
+  conf:
+    log_app:
+      path: conf/config_logs.yaml
+      encoding: utf-8
+      version: 1
+    translate_app:
+      path: data/translate_text.json
+      encoding: utf-8
+      version: 1
+    shortcuts_app:
+      path: data/shortcut_list.json
+      encoding: utf-8
+      version: 2
+    icons_app:
+      path: data/icon_list.json
+      encoding: utf-8
+      version: 1
+    navBar_app:
+      path: data/navBar_obj.json
+      encoding: utf-8
+      version: 1
 
   
 

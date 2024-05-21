@@ -1,0 +1,180 @@
+[
+  {
+    "name": "lan_audacity",
+    "platform_and_name": ["mdi6.lan","mdi6.scan-helper"],
+    "options": [
+      {
+        "scale_factor": 0.75
+      },
+      {
+        "color": "Black"
+      }
+    ]
+  },
+  {
+    "name": "folder_open",
+    "platform_and_name": ["mdi6.folder-open-outline"],
+    "options": [
+      {
+        "color": "Orange"
+      }
+    ]
+  },
+  {
+    "name": "extensionAction",
+    "platform_and_name": ["mdi6.puzzle"],
+    "options": []
+  },
+  {
+    "name": "userAction",
+    "platform_and_name": ["mdi6.account-settings"],
+    "options": []
+  },
+  {
+    "name": "preferencesAction",
+    "platform_and_name": ["mdi6.cog-outline"],
+    "options": []
+  },
+  {
+    "name": "newProject",
+    "platform_and_name": ["mdi6.new-box"],
+    "options": []
+  },
+  {
+    "name": "openProject",
+    "platform_and_name": ["mdi6.open-in-app"],
+    "options": []
+  },
+  {
+    "name": "saveProject",
+    "platform_and_name": ["mdi6.content-save"],
+    "options": []
+  },
+  {
+    "name": "saveAsProject",
+    "platform_and_name": ["mdi6.content-save-plus"],
+    "options": []
+  },
+  {
+    "name": "closeProject",
+    "platform_and_name": ["mdi6.folder-off"],
+    "options": []
+  },
+  {
+    "name": "exit",
+    "platform_and_name": ["mdi6.exit-to-app"],
+    "options": []
+  },
+  {
+    "name": "undoAction",
+    "platform_and_name": ["fa5s.undo-alt"],
+    "options": []
+  },
+  {
+    "name": "redoAction",
+    "platform_and_name": ["fa5s.redo-alt"],
+    "options": []
+  },
+  {
+    "name": "cutAction",
+    "platform_and_name": ["fa5s.cut"],
+    "options": []
+  },
+  {
+    "name": "copyAction",
+    "platform_and_name": ["fa5s.copy"],
+    "options": []
+  },
+  {
+    "name": "pasteAction",
+    "platform_and_name": ["fa5s.paste"],
+    "options": []
+  },
+  {
+    "name": "deleteAction",
+    "platform_and_name": ["fa5s.eraser"],
+    "options": []
+  },
+  {
+    "name": "selectAllAction",
+    "platform_and_name": ["mdi6.select-all"],
+    "options": []
+  },
+  {
+    "name": "selectNoneAction",
+    "platform_and_name": ["mdi6.selection-off"],
+    "options": []
+  },
+  {
+    "name": "selectInverseAction",
+    "platform_and_name": ["mdi6.select-inverse"],
+    "options": []
+  },
+  {
+    "name": "fileExplorerAction",
+    "platform_and_name": ["mdi6.folder-settings"],
+    "options": []
+  },
+  {
+    "name": "netExplorerAction",
+    "platform_and_name": ["mdi6.wan"],
+    "options": [
+      {
+        "color": "RoyalBlue"
+      }
+    ]
+  },
+  {
+    "name": "notificationAction",
+    "platform_and_name": ["mdi6.bell"],
+    "options": [
+      {
+        "color": "Orange"
+      }
+    ]
+  },
+  {
+    "name": "translateAction",
+    "platform_and_name": ["mdi6.translate"],
+    "options": []
+  },
+  {
+    "name": "terminalAction",
+    "platform_and_name": ["mdi6.console"],
+    "options": []
+  },
+  {
+    "name": "helpAction",
+    "platform_and_name": ["mdi6.chat-question"],
+    "options": []
+  },
+  {
+    "name": "aboutAction",
+    "platform_and_name": ["mdi6.information-variant"],
+    "options": []
+  },
+  {
+    "name": "languageAction",
+    "platform_and_name": ["mdi6.web"],
+    "options": []
+  },
+  {
+    "name": "shortcutKeyAction",
+    "platform_and_name": ["mdi6.keyboard-settings"],
+    "options": []
+  },
+  {
+    "name": "spinnerIcon",
+    "platform_and_name": ["fa5s.circle-notch"],
+    "options": [
+      {
+        "color": "RoyalBlue"
+      }
+    ]
+  },
+  {
+    "name": "searchAction",
+    "platform_and_name": ["fa5s.search"],
+    "options": []
+  }
+]
