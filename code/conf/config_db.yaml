@@ -6,8 +6,6 @@ database:
   password: root
   dbname: map_network
 
-version_app: 2.4.0
-
 network:
   sites:
     - 192.168.2.0/24    # 40 ZAC Expeditions  33/41

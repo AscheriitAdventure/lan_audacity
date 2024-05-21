@@ -9,7 +9,7 @@ import csv
 import configparser
 import string
 import qtawesome as qta
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QMainWindow, QStatusBar, QToolBar, QLineEdit, QWidget, QSizePolicy, QAction
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
 
@@ -215,7 +215,7 @@ class MainApp(QMainWindow):
             )
         )
         # Data MenuBar Manager
-        self.menuBarManger = MenuBarApp(
+        self.menuBarManager = MenuBarApp(
             ConfigurationFile(
                 f"{current_dir()}/{self.softwareManager.data['software']['conf']['navBar_app']['path']}"
             )
@@ -276,7 +276,7 @@ class MainApp(QMainWindow):
         # Add commandLine to infobar
         infobar.addWidget(commandLine)
 
-        for menu in self.menuBarManger.data_manager:
+        for menu in self.menuBarManager.data_manager:
             menu_obj = self.menuBar().addMenu(menu['menu'])
             for action in menu['actions']:
                 act_obj = QAction(action['name'], self)
