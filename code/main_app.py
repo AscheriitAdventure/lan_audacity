@@ -76,7 +76,7 @@ class ConfigurationFile:
 
     @abs_path.setter
     def abs_path(self, abs_path: str) -> None:
-        if absPath:
+        if abs_path:
             self.__abs_path = abs_path
         else:
             logging.error(
@@ -301,7 +301,8 @@ class MainApp(QMainWindow):
 
 
 if __name__ == "__main__":
-    softw_manager = ConfigurationFile(current_dir() + "\\conf\\config_app.yaml")
+    softw_manager = ConfigurationFile(current_dir() + "/conf/config_app.yaml")
+    print(softw_manager.abs_path)
     path_log = f"{current_dir()}/{softw_manager.data['software']['conf']['log_app']['path']}"
     logs_manager = ConfigurationFile(path_log)
 
