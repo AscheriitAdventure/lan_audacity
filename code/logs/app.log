@@ -60,3 +60,5 @@
 2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'terminalAction': object of type 'NoneType' has no len()
 2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'helpAction': object of type 'NoneType' has no len()
 2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'aboutAction': object of type 'NoneType' has no len()
+2024-05-21 22:22:05,024 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 22:22:22,613 - __main__ - INFO - Lan Audacity - version 1.0.4

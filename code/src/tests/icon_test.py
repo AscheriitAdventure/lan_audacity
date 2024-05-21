@@ -13,7 +13,7 @@ class IconTest(QWidget):
 
     def load_icon(self):
         with open(
-            "/Users/yuna/Documents/GitHub/lan_audacity/code/data/icon_list.json"
+                "/data/icon_list.json"
         ) as f:
             data = json.load(f)
         for icon in data:

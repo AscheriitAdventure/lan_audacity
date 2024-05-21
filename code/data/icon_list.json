@@ -1,7 +1,7 @@
 [
   {
     "name": "lan_audacity",
-    "platform_and_name": ["mdi6.lan","mdi6.scan-helper"],
+    "platform_and_name": ["mdi6.lan", "mdi6.scan-helper"],
     "options": [
       {
         "scale_factor": 0.75
@@ -23,97 +23,97 @@
   {
     "name": "extensionAction",
     "platform_and_name": ["mdi6.puzzle"],
-    "options": []
+    "options": null
   },
   {
     "name": "userAction",
     "platform_and_name": ["mdi6.account-settings"],
-    "options": []
+    "options": null
   },
   {
     "name": "preferencesAction",
     "platform_and_name": ["mdi6.cog-outline"],
-    "options": []
+    "options": null
   },
   {
     "name": "newProject",
     "platform_and_name": ["mdi6.new-box"],
-    "options": []
+    "options": null
   },
   {
     "name": "openProject",
     "platform_and_name": ["mdi6.open-in-app"],
-    "options": []
+    "options": null
   },
   {
     "name": "saveProject",
     "platform_and_name": ["mdi6.content-save"],
-    "options": []
+    "options": null
   },
   {
     "name": "saveAsProject",
     "platform_and_name": ["mdi6.content-save-plus"],
-    "options": []
+    "options": null
   },
   {
     "name": "closeProject",
     "platform_and_name": ["mdi6.folder-off"],
-    "options": []
+    "options": null
   },
   {
     "name": "exit",
     "platform_and_name": ["mdi6.exit-to-app"],
-    "options": []
+    "options": null
   },
   {
     "name": "undoAction",
     "platform_and_name": ["fa5s.undo-alt"],
-    "options": []
+    "options": null
   },
   {
     "name": "redoAction",
     "platform_and_name": ["fa5s.redo-alt"],
-    "options": []
+    "options": null
   },
   {
     "name": "cutAction",
     "platform_and_name": ["fa5s.cut"],
-    "options": []
+    "options": null
   },
   {
     "name": "copyAction",
     "platform_and_name": ["fa5s.copy"],
-    "options": []
+    "options": null
   },
   {
     "name": "pasteAction",
     "platform_and_name": ["fa5s.paste"],
-    "options": []
+    "options": null
   },
   {
     "name": "deleteAction",
     "platform_and_name": ["fa5s.eraser"],
-    "options": []
+    "options": null
   },
   {
     "name": "selectAllAction",
     "platform_and_name": ["mdi6.select-all"],
-    "options": []
+    "options": null
   },
   {
     "name": "selectNoneAction",
     "platform_and_name": ["mdi6.selection-off"],
-    "options": []
+    "options": null
   },
   {
     "name": "selectInverseAction",
     "platform_and_name": ["mdi6.select-inverse"],
-    "options": []
+    "options": null
   },
   {
     "name": "fileExplorerAction",
     "platform_and_name": ["mdi6.folder-settings"],
-    "options": []
+    "options": null
   },
   {
     "name": "netExplorerAction",
@@ -136,32 +136,32 @@
   {
     "name": "translateAction",
     "platform_and_name": ["mdi6.translate"],
-    "options": []
+    "options": null
   },
   {
     "name": "terminalAction",
     "platform_and_name": ["mdi6.console"],
-    "options": []
+    "options": null
   },
   {
     "name": "helpAction",
     "platform_and_name": ["mdi6.chat-question"],
-    "options": []
+    "options": null
   },
   {
     "name": "aboutAction",
     "platform_and_name": ["mdi6.information-variant"],
-    "options": []
+    "options": null
   },
   {
     "name": "languageAction",
     "platform_and_name": ["mdi6.web"],
-    "options": []
+    "options": null
   },
   {
     "name": "shortcutKeyAction",
     "platform_and_name": ["mdi6.keyboard-settings"],
-    "options": []
+    "options": null
   },
   {
     "name": "spinnerIcon",
@@ -175,6 +175,6 @@
   {
     "name": "searchAction",
     "platform_and_name": ["fa5s.search"],
-    "options": []
+    "options": null
   }
 ]

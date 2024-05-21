@@ -9,7 +9,15 @@ import csv
 import configparser
 import string
 import qtawesome as qta
-from PyQt5.QtWidgets import QMainWindow, QStatusBar, QToolBar, QLineEdit, QWidget, QSizePolicy, QAction
+from PyQt5.QtWidgets import (
+    QMainWindow,
+    QStatusBar,
+    QToolBar,
+    QLineEdit,
+    QWidget,
+    QSizePolicy,
+    QAction,
+)
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
 
@@ -155,26 +163,22 @@ class IconsApp:
         self.data_manager = file_manager.data
 
     def get_icon(self, key: str) -> QIcon:
-        try:
-            for icon in self.data_manager:
-                if icon['name'] == key:
-                    options = icon["options"] if len(icon["options"]) >= 1 else None
-                    ico_obj = qta.icon(*icon["platform_and_name"], options=options)
-                    logging.debug(ico_obj)
-                    if ico_obj is not None:
-                        return ico_obj
-        except ValueError as e:
-            logger.error(e)
-        except Exception as e:
-            logger.error(f"Une erreur inattendue s'est produite lors de la récupération de l'icône '{key}': {e}")
-        return QIcon()
+        for icon in self.data_manager:
+            if icon["name"] == key:
+                if icon["options"] is None:
+                    ico_obj = qta.icon(*icon["platform_and_name"])
+                else:
+                    ico_obj = qta.icon(
+                        *icon["platform_and_name"], options=icon["options"]
+                    )
+                return ico_obj
 
 
 class MenuBarApp:
     def __init__(self, file_manager: ConfigurationFile):
         self.data_manager = file_manager.data
 
-    def get_menuName(self, key: str) -> str:
+    def get_menu_name(self, key: str) -> str:
         for menu_obj in self.data_manager:
             if menu_obj["name"] == key:
                 return menu_obj["menu"]
@@ -222,9 +226,9 @@ class MainApp(QMainWindow):
         )
 
         # Set the Window title
-        self.setWindowTitle(self.softwareManager.data['system']['name'])
+        self.setWindowTitle(self.softwareManager.data["system"]["name"])
         # Set the Window icon
-        self.setWindowIcon(self.iconsManager.get_icon('lan_audacity'))
+        self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
         # Center the window
         self.centerWindow()
         # Set the navBar
@@ -277,21 +281,27 @@ class MainApp(QMainWindow):
         infobar.addWidget(commandLine)
 
         for menu in self.menuBarManager.data_manager:
-            menu_obj = self.menuBar().addMenu(menu['menu'])
-            for action in menu['actions']:
-                act_obj = QAction(action['name'], self)
-                act_obj.setIcon(self.iconsManager.get_icon(action['icon_name']))
-                act_obj.setShortcut(self.shortcutManager.get_shortcut(action['shortcut_name']))
-                act_obj.setStatusTip(action['status_tip'])
+            menu_obj = self.menuBar().addMenu(menu["menu"])
+            for action in menu["actions"]:
+                act_obj = QAction(action["name"], self)
+                act_obj.setIcon(self.iconsManager.get_icon(action["icon_name"]))
+                act_obj.setShortcut(
+                    self.shortcutManager.get_shortcut(action["shortcut_name"])
+                )
+                act_obj.setStatusTip(action["status_tip"])
                 # act_obj.triggered.connect(action['trigger'])
                 menu_obj.addAction(act_obj)
-                if action['name_low'] == "save_project":
+                if action["name_low"] == "save_project":
                     menu_obj.addSeparator()
-                elif action['name_low'] == "exit":
+                elif action["name_low"] == "exit":
                     menu_obj.addSeparator()
 
             # Add Action to the infobar
-            toggle_pSideBar = QAction(qta.icon("fa5s.window-maximize", rotated=270), "Toggle Primary Side Bar", self)
+            toggle_pSideBar = QAction(
+                qta.icon("fa5s.window-maximize", rotated=270),
+                "Toggle Primary Side Bar",
+                self,
+            )
             toggle_pSideBar.setShortcut("Ctrl+B")
             toggle_pSideBar.setStatusTip("Toggle Primary Side Bar")
             # toggle_pSideBar.triggered.connect(self.toggle_primary_side_bar)  # Define the function to be triggered
@@ -303,7 +313,9 @@ class MainApp(QMainWindow):
 if __name__ == "__main__":
     softw_manager = ConfigurationFile(current_dir() + "/conf/config_app.yaml")
     print(softw_manager.abs_path)
-    path_log = f"{current_dir()}/{softw_manager.data['software']['conf']['log_app']['path']}"
+    path_log = (
+        f"{current_dir()}/{softw_manager.data['software']['conf']['log_app']['path']}"
+    )
     logs_manager = ConfigurationFile(path_log)
 
     logging.config.dictConfig(logs_manager.data)
