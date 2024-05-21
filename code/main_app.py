@@ -262,7 +262,7 @@ class MainApp(QMainWindow):
         # Set the toolbar to a fixed top position
         self.addToolBar(Qt.TopToolBarArea, infobar)
         # Add a Spacer
-        spacerI = QWidget()
+        spacerI = QWidget(self)
         spacerI.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         infobar.addWidget(spacerI)
 
@@ -277,8 +277,6 @@ class MainApp(QMainWindow):
         commandLine.setDragEnabled(True)
         commandLine.setMinimumWidth(75)
         commandLine.setMaximumWidth(250)
-        # Add commandLine to infobar
-        infobar.addWidget(commandLine)
 
         for menu in self.menuBarManager.data_manager:
             menu_obj = self.menuBar().addMenu(menu["menu"])
@@ -295,16 +293,55 @@ class MainApp(QMainWindow):
                     menu_obj.addSeparator()
                 elif action["name_low"] == "exit":
                     menu_obj.addSeparator()
+                if menu["name"] == "edit_menu":
+                    if action["name_low"] == "undo":
+                        infobar.addAction(act_obj)
+                    elif action["name_low"] == "redo":
+                        infobar.addAction(act_obj)
+                        infobar.addWidget(commandLine)
+                        spacerO = QWidget()
+                        spacerO.setSizePolicy(
+                            QSizePolicy.Expanding, QSizePolicy.Expanding
+                        )
+                        infobar.addWidget(spacerO)
+                if menu["name"] == "settings_menu":
+                    if action["name_low"] == "notifications":
+                        self.status_bar.addAction(act_obj)
+                if menu["name"] == "view_menu":
+                    if action["name_low"] == "extension":
+                        toolsbar.addSeparator()
+                    elif action["name_low"] == "user":
+                        spacer = QWidget()
+                        spacer.setSizePolicy(
+                            QSizePolicy.Expanding, QSizePolicy.Expanding
+                        )
+                        toolsbar.addWidget(spacer)
+                    toolsbar.addAction(act_obj)
 
-            # Add Action to the infobar
-            toggle_pSideBar = QAction(
-                qta.icon("fa5s.window-maximize", rotated=270),
-                "Toggle Primary Side Bar",
-                self,
-            )
-            toggle_pSideBar.setShortcut("Ctrl+B")
-            toggle_pSideBar.setStatusTip("Toggle Primary Side Bar")
-            # toggle_pSideBar.triggered.connect(self.toggle_primary_side_bar)  # Define the function to be triggered
+        # Add Action to the infobar
+        toggle_pSideBar = QAction(
+            self.iconsManager.get_icon("toggleSideBar"),
+            "Toggle Primary Side Bar",
+            self,
+        )
+        toggle_pSideBar.setShortcut(
+            self.shortcutManager.get_shortcut("toggleSidePanelView")
+        )
+        toggle_pSideBar.setStatusTip("Toggle Primary Side Bar")
+        # toggle_pSideBar.triggered.connect(self.toggle_primary_side_bar)
+        infobar.addAction(toggle_pSideBar)
+
+        toggle_pPanel = QAction(
+            self.iconsManager.get_icon("togglePanel"),
+            "Toggle Primary Panel",
+            self,
+        )
+        toggle_pPanel.setShortcut(
+            self.shortcutManager.get_shortcut("toggleTerminalView")
+        )
+        toggle_pPanel.setStatusTip("Toggle Primary Panel")
+        # toggle_pPanel.triggered.connect(self.toggle_primary_panel)
+        infobar.addAction(toggle_pPanel)
 
     def initUI_central(self):
         pass
@@ -312,7 +349,6 @@ class MainApp(QMainWindow):
 
 if __name__ == "__main__":
     softw_manager = ConfigurationFile(current_dir() + "/conf/config_app.yaml")
-    print(softw_manager.abs_path)
     path_log = (
         f"{current_dir()}/{softw_manager.data['software']['conf']['log_app']['path']}"
     )

@@ -62,3 +62,73 @@
 2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'aboutAction': object of type 'NoneType' has no len()
 2024-05-21 22:22:05,024 - __main__ - INFO - Lan Audacity - version 1.0.4
 2024-05-21 22:22:22,613 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 22:55:53,843 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 22:56:57,642 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 22:57:36,317 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 22:58:57,445 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 22:58:57,609 - __main__ - DEBUG - &File
+2024-05-21 22:58:57,611 - __main__ - DEBUG - &Edit
+2024-05-21 22:58:57,611 - __main__ - DEBUG - &Select
+2024-05-21 22:58:57,612 - __main__ - DEBUG - &View
+2024-05-21 22:58:57,612 - __main__ - DEBUG - &Settings
+2024-05-21 22:58:57,613 - __main__ - DEBUG - &Terminal
+2024-05-21 22:58:57,613 - __main__ - DEBUG - &Help
+2024-05-21 23:05:16,522 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 23:05:16,698 - __main__ - DEBUG - &File
+2024-05-21 23:05:16,699 - __main__ - DEBUG - &Edit
+2024-05-21 23:05:16,700 - __main__ - DEBUG - &Select
+2024-05-21 23:05:16,701 - __main__ - DEBUG - &View
+2024-05-21 23:05:16,701 - __main__ - DEBUG - &Settings
+2024-05-21 23:05:16,702 - __main__ - DEBUG - &Terminal
+2024-05-21 23:05:16,702 - __main__ - DEBUG - &Help
+2024-05-21 23:07:04,591 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 23:07:04,757 - __main__ - DEBUG - &File
+2024-05-21 23:07:04,758 - __main__ - DEBUG - &Edit
+2024-05-21 23:07:04,759 - __main__ - DEBUG - &Select
+2024-05-21 23:07:04,760 - __main__ - DEBUG - &View
+2024-05-21 23:07:04,760 - __main__ - DEBUG - &Settings
+2024-05-21 23:07:04,761 - __main__ - DEBUG - &Terminal
+2024-05-21 23:07:04,761 - __main__ - DEBUG - &Help
+2024-05-21 23:09:27,014 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 23:09:27,177 - __main__ - DEBUG - &File
+2024-05-21 23:09:27,179 - __main__ - DEBUG - &Edit
+2024-05-21 23:09:27,180 - __main__ - DEBUG - &Select
+2024-05-21 23:09:27,180 - __main__ - DEBUG - &View
+2024-05-21 23:09:27,181 - __main__ - DEBUG - &Settings
+2024-05-21 23:09:27,182 - __main__ - DEBUG - &Terminal
+2024-05-21 23:09:27,182 - __main__ - DEBUG - &Help
+2024-05-21 23:10:37,613 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-21 23:10:37,777 - __main__ - DEBUG - &File
+2024-05-21 23:10:37,777 - root - DEBUG - &File
+2024-05-21 23:10:37,778 - root - DEBUG - &File
+2024-05-21 23:10:37,778 - root - DEBUG - &File
+2024-05-21 23:10:37,778 - root - DEBUG - &File
+2024-05-21 23:10:37,778 - root - DEBUG - &File
+2024-05-21 23:10:37,778 - root - DEBUG - &File
+2024-05-21 23:10:37,778 - __main__ - DEBUG - &Edit
+2024-05-21 23:10:37,779 - root - DEBUG - &Edit
+2024-05-21 23:10:37,779 - root - DEBUG - &Edit
+2024-05-21 23:10:37,779 - root - DEBUG - &Edit
+2024-05-21 23:10:37,779 - root - DEBUG - &Edit
+2024-05-21 23:10:37,779 - root - DEBUG - &Edit
+2024-05-21 23:10:37,779 - root - DEBUG - &Edit
+2024-05-21 23:10:37,779 - __main__ - DEBUG - &Select
+2024-05-21 23:10:37,779 - root - DEBUG - &Select
+2024-05-21 23:10:37,780 - root - DEBUG - &Select
+2024-05-21 23:10:37,780 - root - DEBUG - &Select
+2024-05-21 23:10:37,780 - __main__ - DEBUG - &View
+2024-05-21 23:10:37,780 - root - DEBUG - &View
+2024-05-21 23:10:37,780 - root - DEBUG - &View
+2024-05-21 23:10:37,780 - root - DEBUG - &View
+2024-05-21 23:10:37,780 - root - DEBUG - &View
+2024-05-21 23:10:37,781 - root - DEBUG - &View
+2024-05-21 23:10:37,781 - __main__ - DEBUG - &Settings
+2024-05-21 23:10:37,781 - root - DEBUG - &Settings
+2024-05-21 23:10:37,781 - root - DEBUG - &Settings
+2024-05-21 23:10:37,781 - root - DEBUG - &Settings
+2024-05-21 23:10:37,781 - __main__ - DEBUG - &Terminal
+2024-05-21 23:10:37,781 - root - DEBUG - &Terminal
+2024-05-21 23:10:37,781 - __main__ - DEBUG - &Help
+2024-05-21 23:10:37,781 - root - DEBUG - &Help
+2024-05-21 23:10:37,781 - root - DEBUG - &Help
+2024-05-21 23:12:21,551 - __main__ - INFO - Lan Audacity - version 1.0.4

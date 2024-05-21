@@ -176,5 +176,23 @@
     "name": "searchAction",
     "platform_and_name": ["fa5s.search"],
     "options": null
+  },
+  {
+    "name": "toggleSideBar",
+    "platform_and_name": ["fa5s.window-maximize"],
+    "options": [
+      {
+        "rotated": 270
+      }
+    ]
+  },
+  {
+    "name": "togglePanel",
+    "platform_and_name": ["fa5s.window-maximize"],
+    "options": [
+      {
+        "rotated": 180
+      }
+    ]
   }
 ]
