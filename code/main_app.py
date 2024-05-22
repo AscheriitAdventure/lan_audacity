@@ -625,7 +625,7 @@ class GeneralSidePanel(QWidget):
             parent=None
     ):
         super().__init__(parent)
-        print(parent)
+        logging.info(f"parent:{parent}")
         self.titlePanel = title_panel
         self.extObj = None
         self.langManager = lang_manager
@@ -657,7 +657,7 @@ class GeneralSidePanel(QWidget):
     def setExtendsLs(self) -> list:
         ls_btn = [
             {
-                "icon": qta.icon('fa5s.flag'),
+                "icon": self.iconManager.get_icon("defaultIcon"),
                 "tooltip": "flag",
                 "action": None
             },
@@ -989,7 +989,7 @@ class MainApp(QMainWindow):
             self.shortcutManager.get_shortcut("toggleSidePanelView")
         )
         toggle_pSideBar.setStatusTip("Toggle Primary Side Bar")
-        # toggle_pSideBar.triggered.connect(self.toggle_primary_side_bar)
+        toggle_pSideBar.triggered.connect(self.toggle_primary_side_bar)
         infobar.addAction(toggle_pSideBar)
 
         toggle_pPanel = QAction(
@@ -1001,7 +1001,7 @@ class MainApp(QMainWindow):
             self.shortcutManager.get_shortcut("toggleTerminalView")
         )
         toggle_pPanel.setStatusTip("Toggle Primary Panel")
-        # toggle_pPanel.triggered.connect(self.toggle_primary_panel)
+        toggle_pPanel.triggered.connect(self.toggle_primary_panel)
         infobar.addAction(toggle_pPanel)
 
     def initUI_central(self):
@@ -1081,6 +1081,7 @@ class MainApp(QMainWindow):
 
         if reply == QMessageBox.Yes:
             event.accept()
+            logging.info("End of Application")
         else:
             event.ignore()
 

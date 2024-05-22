@@ -197,40 +197,40 @@
   },
   {
     "name": "newFolderAction",
-    "platform_and_name": ["fa5s.folder", "fa5s.plus"],
+    "platform_and_name": ["fa5s.folder", "fa5s.plus-circle"],
     "options": [
       {
         "scale_factor": 1
       },
       {
         "scale_factor": 0.5,
-        "color": "White"
+        "color": "Lime"
       }
     ]
   },
   {
     "name": "newFileAction",
-    "platform_and_name": ["fa5s.file", "fa5s.plus"],
+    "platform_and_name": ["fa5s.file", "fa5s.plus-circle"],
     "options": [
       {
         "scale_factor": 1
       },
       {
         "scale_factor": 0.5,
-        "color": "White"
+        "color": "Lime"
       }
     ]
   },
   {
     "name": "newLanAction",
-    "platform_and_name": ["fa5s.network-wired", "fa5s.plus"],
+    "platform_and_name": ["fa5s.network-wired", "fa5s.plus-circle"],
     "options": [
       {
         "scale_factor": 1
       },
       {
         "scale_factor": 0.5,
-        "color": "Blue"
+        "color": "Lime"
       }
     ]
   },
@@ -238,5 +238,19 @@
     "name": "newDeviceAction",
     "platform_and_name": ["mdi6.server-plus"],
     "options": null
+  },
+  {
+    "name": "defaultIcon",
+    "platform_and_name": ["fa5s.shapes", "fa5s.question-circle"],
+    "options": [
+      {
+        "scale_factor": 1,
+        "color": "Silver"
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "Blue"
+      }
+    ]
   }
 ]
