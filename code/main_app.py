@@ -6,14 +6,40 @@ import json
 import yaml
 import xmltodict
 import csv
+import uuid
 import configparser
 import string
 import time
 import shutil
 import qtawesome as qta
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import (
+    QApplication,
+    QMainWindow,
+    QWidget,
+    QGridLayout,
+    QLabel,
+    QFrame,
+    QTabWidget,
+    QPushButton,
+    QFileDialog,
+    QTreeView,
+    QFileSystemModel,
+    QStatusBar,
+    QLineEdit,
+    QToolBar,
+    QAction,
+    QStackedWidget,
+    QVBoxLayout,
+    QSizePolicy,
+    QAbstractItemView,
+    QSizePolicy,
+    QDialog,
+    QMessageBox,
+    QHBoxLayout,
+    QSplitter
+)
 from PyQt5.QtCore import Qt, pyqtSignal as Signal, QDir, QFile, QIODevice
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QStandardItemModel, QStandardItem, QFont
 
 
 class SwitchFile:
@@ -706,15 +732,13 @@ class FlsExpl(GeneralSidePanel):
     def setExtendsLs(self) -> list:
         ls_btn = [
             {
-                "icon": qta.icon("fa5s.file", "fa5s.plus",
-                                 options=[{"scale_factor": 1}, {"scale_factor": 0.5, "color": "White"}]),
-                "tooltip": "Add File",
+                "icon": self.iconManager.get_icon("newFileAction"),
+                "tooltip": "New File",
                 "action": self.addFile
             },
             {
-                "icon": qta.icon("fa5s.folder", "fa5s.plus",
-                                 options=[{"scale_factor": 1}, {"scale_factor": 0.5, "color": "White"}]),
-                "tooltip": "Add Folder",
+                "icon": self.iconManager.get_icon("newFolderAction"),
+                "tooltip": "New Folder",
                 "action": self.addFolder
             },
         ]
@@ -789,13 +813,13 @@ class NetExpl(GeneralSidePanel):
     def setExtendsLs(self) -> list:
         ls_btn = [
             {
-                "icon": qta.icon("fa5s.network-wired", "fa5s.plus", options=[{"scale_factor": 1}, {"scale_factor": 0.5, "color": "Blue"}]),
-                "tooltip": "Add Network",
+                "icon": self.iconManager.get_icon("newLanAction"),
+                "tooltip": "New Network",
                 "action": self.addNetworkObj
             },
             {
-                "icon": qta.icon("mdi6.server-plus"),
-                "tooltip": "Add Device",
+                "icon": self.iconManager.get_icon("newDeviceAction"),
+                "tooltip": "New Device",
                 "action": self.addDeviceObj
             },
         ]
@@ -834,6 +858,7 @@ class MainApp(QMainWindow):
     def __init__(self, software_manager: ConfigurationFile, parent=None):
         super().__init__(parent)
         # Software Information
+        self.prj_ls = []
         self.softwareManager = software_manager
         # Data Language Manager
         self.langManager = LanguageApp(
@@ -1019,6 +1044,32 @@ class MainApp(QMainWindow):
         layout.addWidget(self.h_splitter)
         self.central_widget.setLayout(layout)
 
+        # stack widget
+        self.file_explorer = FlsExpl(
+            "File Explorer",
+            lang_manager=self.langManager,
+            icon_manager=self.iconsManager,
+            keys_manager=self.shortcutManager,
+            parent=self
+        )
+        self.network_explorer = NetExpl(
+            "Network Explorer",
+            lang_manager=self.langManager,
+            icon_manager=self.iconsManager,
+            keys_manager=self.shortcutManager,
+            parent=self
+        )
+        self.extends_explorer = GeneralSidePanel(
+            "Extension Explorer",
+            lang_manager=self.langManager,
+            icon_manager=self.iconsManager,
+            keys_manager=self.shortcutManager,
+            parent=self
+        )
+        self.primary_side_bar.addWidget(self.file_explorer)
+        self.primary_side_bar.addWidget(self.network_explorer)
+        self.primary_side_bar.addWidget(self.extends_explorer)
+
     def closeEvent(self, event):
         reply = QMessageBox.question(
             self,
@@ -1044,6 +1095,98 @@ class MainApp(QMainWindow):
             self.primary_panel.hide()
         else:
             self.primary_panel.show()
+
+    # Actions
+    def newProjectAction(self):
+        newpa = NProjectDock()
+        if newpa.exec_() == QDialog.Accepted:
+            data = newpa.get_data()
+            nprjlan = LanAudacity("Lan Audacity", "1.1.3", data["project_name"], data["save_path"], data["author"])
+            logging.info(nprjlan.create_project())
+            # Add the new project to the list
+            self.prj_ls.append(nprjlan)
+            # Add the new project to the file explorer
+            self.file_explorer.extObj = f"{data["save_path"]}/{data["project_name"]}"
+            self.file_explorer.loadDisplayObj()
+            self.primary_side_bar.setCurrentWidget(self.file_explorer)
+            # # Add the new project to the network explorer
+            if nprjlan.networks is not None:
+                # Add the network list to the network explorer
+                self.network_explorer.extObj = nprjlan
+                self.network_explorer.loadDisplayObj()
+            else:
+                # Show a message that there is no network
+                QMessageBox.information(self, "No Network", "There is no network available.")
+            # # Generate a new project
+
+    def openProjectAction(self):
+        directory_project = QFileDialog.getExistingDirectory(self, "Open Project", os.getcwd())
+        if directory_project:
+            project_file = os.path.join(directory_project, "lan_audacity.json")
+            if os.path.exists(project_file):
+                with open(project_file, "r") as file:
+                    data = json.load(file)
+                nprjlan = LanAudacity(
+                    software_name=self.softwareManager.data['system']['name'],
+                    version_software=self.softwareManager.data['system']['version'],
+                    project_name=os.path.basename(directory_project),
+                    save_path=directory_project
+                )
+                logging.info(nprjlan.open_project())
+                self.prj_ls.append(nprjlan)
+                self.file_explorer.extObj = directory_project
+                self.file_explorer.loadDisplayObj()
+                self.primary_side_bar.setCurrentWidget(self.file_explorer)
+                if nprjlan.networks is not None:
+                    self.network_explorer.extObj = nprjlan
+                    self.network_explorer.loadDisplayObj()
+                else:
+                    QMessageBox.information(self, "No Network", "There is no network available.")
+                # Charger l'arborescence dans le QTreeView
+            else:
+                QMessageBox.warning(self, "Error", "lan_audacity.json not found in the selected directory.")
+        # Open a project
+
+    def saveProjectAction(self):
+        logging.debug("Save Action...")
+        # Save the project
+
+    def saveAsProjectAction(self):
+        logging.debug("Save As Action...")
+        # Save the project as
+
+    def closeProjectAction(self):
+        logging.debug("Close Project Action...")
+        # Close the project
+
+    def fileExplorerAction(self):
+        if self.file_explorer.isVisible():
+            self.toggle_primary_side_bar()
+        else:
+            self.primary_side_bar.setCurrentWidget(self.file_explorer)
+        # Open the file explorer
+
+    def netExplorerAction(self):
+        if self.network_explorer.isVisible():
+            self.toggle_primary_side_bar()
+        else:
+            self.primary_side_bar.setCurrentWidget(self.network_explorer)
+        # Show the network explorer
+
+    def extensionAction(self):
+        if self.extends_explorer.isVisible():
+            self.toggle_primary_side_bar()
+        else:
+            self.primary_side_bar.setCurrentWidget(self.extends_explorer)
+        # Open the extension library
+
+    def preferencesAction(self):
+        logging.debug("Preferences Action...")
+        # Open the preferences window
+
+    def userAction(self):
+        logging.debug("User Action...")
+        # Open the user window
 
 
 if __name__ == "__main__":
