@@ -87,3 +87,162 @@
 2024-05-23 17:30:12,611 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
 2024-05-23 17:30:12,612 - root - INFO - test-v3 does exist
 2024-05-23 17:32:01,453 - root - INFO - End of Application
+2024-05-23 20:46:27,696 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 20:46:27,993 - root - INFO - parent:<__main__.MainApp object at 0x1062f0ef0>
+2024-05-23 20:46:27,997 - root - INFO - parent:<__main__.MainApp object at 0x1062f0ef0>
+2024-05-23 20:46:27,997 - root - INFO - parent:<__main__.MainApp object at 0x1062f0ef0>
+2024-05-23 20:46:28,001 - root - INFO - parent:<__main__.MainApp object at 0x1062f0ef0>
+2024-05-23 20:46:28,001 - root - INFO - parent:<__main__.MainApp object at 0x1062f0ef0>
+2024-05-23 20:46:28,001 - root - INFO - parent:<__main__.MainApp object at 0x1062f0ef0>
+2024-05-23 20:47:08,071 - root - INFO - test-v2: Open Project
+2024-05-23 20:47:08,072 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 20:47:08,072 - root - INFO - test-v2 does exist
+2024-05-23 21:22:38,520 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 21:22:38,751 - root - INFO - parent:<__main__.MainApp object at 0x1051f4e60>
+2024-05-23 21:22:38,753 - root - INFO - parent:<__main__.MainApp object at 0x1051f4e60>
+2024-05-23 21:22:38,754 - root - INFO - parent:<__main__.MainApp object at 0x1051f4e60>
+2024-05-23 21:22:38,756 - root - INFO - parent:<__main__.MainApp object at 0x1051f4e60>
+2024-05-23 21:22:38,756 - root - INFO - parent:<__main__.MainApp object at 0x1051f4e60>
+2024-05-23 21:22:38,757 - root - INFO - parent:<__main__.MainApp object at 0x1051f4e60>
+2024-05-23 21:22:44,727 - root - DEBUG - User Action...
+2024-05-23 21:24:00,961 - root - INFO - End of Application
+2024-05-23 22:18:28,189 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:18:28,367 - root - INFO - parent:<__main__.MainApp object at 0x107990e60>
+2024-05-23 22:18:28,368 - root - INFO - parent:<__main__.MainApp object at 0x107990e60>
+2024-05-23 22:18:28,368 - root - INFO - parent:<__main__.MainApp object at 0x107990e60>
+2024-05-23 22:18:28,370 - root - INFO - parent:<__main__.MainApp object at 0x107990e60>
+2024-05-23 22:18:28,370 - root - INFO - parent:<__main__.MainApp object at 0x107990e60>
+2024-05-23 22:18:28,370 - root - INFO - parent:<__main__.MainApp object at 0x107990e60>
+2024-05-23 22:18:39,606 - root - INFO - test-v2: Open Project
+2024-05-23 22:18:39,607 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:18:39,607 - root - INFO - test-v2 does exist
+2024-05-23 22:25:31,702 - root - INFO - End of Application
+2024-05-23 22:25:36,188 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:25:36,358 - root - INFO - parent:<__main__.MainApp object at 0x103235d00>
+2024-05-23 22:25:36,358 - root - INFO - parent:<__main__.MainApp object at 0x103235d00>
+2024-05-23 22:25:36,358 - root - INFO - parent:<__main__.MainApp object at 0x103235d00>
+2024-05-23 22:25:36,360 - root - INFO - parent:<__main__.MainApp object at 0x103235d00>
+2024-05-23 22:25:36,360 - root - INFO - parent:<__main__.MainApp object at 0x103235d00>
+2024-05-23 22:25:36,360 - root - INFO - parent:<__main__.MainApp object at 0x103235d00>
+2024-05-23 22:25:46,744 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:25:46,745 - root - INFO - test-v2 does exist
+2024-05-23 22:27:45,498 - root - INFO - End of Application
+2024-05-23 22:27:48,879 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:27:49,048 - root - INFO - parent:<__main__.MainApp object at 0x102664ef0>
+2024-05-23 22:27:49,048 - root - DEBUG - None
+2024-05-23 22:27:49,048 - root - INFO - parent:<__main__.MainApp object at 0x102664ef0>
+2024-05-23 22:27:49,049 - root - DEBUG - None
+2024-05-23 22:27:49,049 - root - INFO - parent:<__main__.MainApp object at 0x102664ef0>
+2024-05-23 22:27:49,049 - root - DEBUG - None
+2024-05-23 22:27:49,050 - root - INFO - parent:<__main__.MainApp object at 0x102664ef0>
+2024-05-23 22:27:49,050 - root - DEBUG - None
+2024-05-23 22:27:49,050 - root - INFO - parent:<__main__.MainApp object at 0x102664ef0>
+2024-05-23 22:27:49,051 - root - DEBUG - None
+2024-05-23 22:27:49,051 - root - INFO - parent:<__main__.MainApp object at 0x102664ef0>
+2024-05-23 22:27:49,051 - root - DEBUG - None
+2024-05-23 22:27:58,423 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:27:58,424 - root - INFO - test-v2 does exist
+2024-05-23 22:29:45,080 - root - INFO - End of Application
+2024-05-23 22:29:47,740 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:29:47,905 - root - INFO - parent:<__main__.MainApp object at 0x102538ef0>
+2024-05-23 22:29:47,905 - root - DEBUG - None
+2024-05-23 22:29:47,905 - root - INFO - parent:<__main__.MainApp object at 0x102538ef0>
+2024-05-23 22:29:47,906 - root - DEBUG - None
+2024-05-23 22:29:47,906 - root - INFO - parent:<__main__.MainApp object at 0x102538ef0>
+2024-05-23 22:29:47,906 - root - DEBUG - None
+2024-05-23 22:29:47,907 - root - INFO - parent:<__main__.MainApp object at 0x102538ef0>
+2024-05-23 22:29:47,907 - root - DEBUG - None
+2024-05-23 22:29:47,907 - root - INFO - parent:<__main__.MainApp object at 0x102538ef0>
+2024-05-23 22:29:47,907 - root - DEBUG - None
+2024-05-23 22:29:47,907 - root - INFO - parent:<__main__.MainApp object at 0x102538ef0>
+2024-05-23 22:29:47,908 - root - DEBUG - None
+2024-05-23 22:29:57,000 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:29:57,000 - root - INFO - test-v2 does exist
+2024-05-23 22:31:43,849 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:31:44,024 - root - INFO - parent:<__main__.MainApp object at 0x1026ecef0>
+2024-05-23 22:31:44,025 - root - DEBUG - None
+2024-05-23 22:31:44,025 - root - INFO - parent:<__main__.MainApp object at 0x1026ecef0>
+2024-05-23 22:31:44,025 - root - DEBUG - None
+2024-05-23 22:31:44,025 - root - INFO - parent:<__main__.MainApp object at 0x1026ecef0>
+2024-05-23 22:31:44,025 - root - DEBUG - None
+2024-05-23 22:31:44,026 - root - INFO - parent:<__main__.MainApp object at 0x1026ecef0>
+2024-05-23 22:31:44,027 - root - DEBUG - None
+2024-05-23 22:31:44,027 - root - INFO - parent:<__main__.MainApp object at 0x1026ecef0>
+2024-05-23 22:31:44,027 - root - DEBUG - None
+2024-05-23 22:31:44,027 - root - INFO - parent:<__main__.MainApp object at 0x1026ecef0>
+2024-05-23 22:31:44,027 - root - DEBUG - None
+2024-05-23 22:32:04,130 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:32:04,130 - root - INFO - test-v2 does exist
+2024-05-23 22:33:32,605 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:33:32,771 - root - INFO - parent:<__main__.MainApp object at 0x1030a0ef0>
+2024-05-23 22:33:32,772 - root - DEBUG - None
+2024-05-23 22:33:32,772 - root - INFO - parent:<__main__.MainApp object at 0x1030a0ef0>
+2024-05-23 22:33:32,772 - root - DEBUG - None
+2024-05-23 22:33:32,772 - root - INFO - parent:<__main__.MainApp object at 0x1030a0ef0>
+2024-05-23 22:33:32,772 - root - DEBUG - None
+2024-05-23 22:33:32,774 - root - INFO - parent:<__main__.MainApp object at 0x1030a0ef0>
+2024-05-23 22:33:32,774 - root - DEBUG - None
+2024-05-23 22:33:32,775 - root - INFO - parent:<__main__.MainApp object at 0x1030a0ef0>
+2024-05-23 22:33:32,775 - root - DEBUG - None
+2024-05-23 22:33:32,775 - root - INFO - parent:<__main__.MainApp object at 0x1030a0ef0>
+2024-05-23 22:33:32,775 - root - DEBUG - None
+2024-05-23 22:33:42,894 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:33:42,894 - root - INFO - test-v2 does exist
+2024-05-23 22:33:42,894 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:35:26,858 - root - INFO - Add network
+2024-05-23 22:42:35,875 - root - INFO - End of Application
+2024-05-23 22:42:40,132 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:42:40,299 - root - INFO - parent:<__main__.MainApp object at 0x104ed8ef0>
+2024-05-23 22:42:40,299 - root - DEBUG - None
+2024-05-23 22:42:40,299 - root - INFO - parent:<__main__.MainApp object at 0x104ed8ef0>
+2024-05-23 22:42:40,300 - root - DEBUG - None
+2024-05-23 22:42:40,300 - root - INFO - parent:<__main__.MainApp object at 0x104ed8ef0>
+2024-05-23 22:42:40,300 - root - DEBUG - None
+2024-05-23 22:42:40,302 - root - INFO - parent:<__main__.MainApp object at 0x104ed8ef0>
+2024-05-23 22:42:40,302 - root - DEBUG - None
+2024-05-23 22:42:40,302 - root - INFO - parent:<__main__.MainApp object at 0x104ed8ef0>
+2024-05-23 22:42:40,302 - root - DEBUG - None
+2024-05-23 22:42:40,302 - root - INFO - parent:<__main__.MainApp object at 0x104ed8ef0>
+2024-05-23 22:42:40,302 - root - DEBUG - None
+2024-05-23 22:42:48,359 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:42:48,360 - root - INFO - test-v2 does exist
+2024-05-23 22:42:48,360 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:42:48,361 - root - DEBUG - []
+2024-05-23 22:42:48,361 - root - INFO - Load network
+2024-05-23 22:44:55,599 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:44:55,763 - root - INFO - parent:<__main__.MainApp object at 0x1032b4ef0>
+2024-05-23 22:44:55,763 - root - DEBUG - None
+2024-05-23 22:44:55,763 - root - INFO - parent:<__main__.MainApp object at 0x1032b4ef0>
+2024-05-23 22:44:55,764 - root - DEBUG - None
+2024-05-23 22:44:55,764 - root - INFO - parent:<__main__.MainApp object at 0x1032b4ef0>
+2024-05-23 22:44:55,764 - root - DEBUG - None
+2024-05-23 22:44:55,765 - root - INFO - parent:<__main__.MainApp object at 0x1032b4ef0>
+2024-05-23 22:44:55,766 - root - DEBUG - None
+2024-05-23 22:44:55,766 - root - INFO - parent:<__main__.MainApp object at 0x1032b4ef0>
+2024-05-23 22:44:55,766 - root - DEBUG - None
+2024-05-23 22:44:55,766 - root - INFO - parent:<__main__.MainApp object at 0x1032b4ef0>
+2024-05-23 22:44:55,766 - root - DEBUG - None
+2024-05-23 22:45:05,289 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:45:05,289 - root - INFO - test-v2 does exist
+2024-05-23 22:45:05,290 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:45:05,290 - root - DEBUG - []
+2024-05-23 22:45:05,291 - root - INFO - Load network
+2024-05-23 22:50:40,892 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 22:50:41,055 - root - INFO - parent:<__main__.MainApp object at 0x104a88e60>
+2024-05-23 22:50:41,055 - root - DEBUG - None
+2024-05-23 22:50:41,055 - root - INFO - parent:<__main__.MainApp object at 0x104a88e60>
+2024-05-23 22:50:41,055 - root - DEBUG - None
+2024-05-23 22:50:41,055 - root - INFO - parent:<__main__.MainApp object at 0x104a88e60>
+2024-05-23 22:50:41,056 - root - DEBUG - None
+2024-05-23 22:50:41,057 - root - INFO - parent:<__main__.MainApp object at 0x104a88e60>
+2024-05-23 22:50:41,057 - root - DEBUG - None
+2024-05-23 22:50:41,057 - root - INFO - parent:<__main__.MainApp object at 0x104a88e60>
+2024-05-23 22:50:41,057 - root - DEBUG - None
+2024-05-23 22:50:41,057 - root - INFO - parent:<__main__.MainApp object at 0x104a88e60>
+2024-05-23 22:50:41,057 - root - DEBUG - None
+2024-05-23 22:50:48,913 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:50:48,913 - root - INFO - test-v2 does exist
+2024-05-23 22:50:48,913 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-23 22:50:48,914 - root - DEBUG - <__main__.LanAudacity object at 0x1050d84d0>
+2024-05-23 22:50:48,914 - root - INFO - Load network
+2024-05-23 22:51:53,031 - root - INFO - End of Application

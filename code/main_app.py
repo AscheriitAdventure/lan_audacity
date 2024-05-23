@@ -337,7 +337,7 @@ class LanAudacity:
         self.devices = None
         self.pixmap = None
 
-    def create_project(self) -> str:
+    def create_project(self) -> None:
         if not os.path.exists(f"{self.save_path}/{self.project_name}"):
             os.mkdir(f"{self.save_path}/{self.project_name}")
             with open(
@@ -358,21 +358,21 @@ class LanAudacity:
                             "w",
                         ) as f:
                             f.write("")
-            return f"{self.project_name} is created"
+            logging.info(f"{self.project_name} is created")
         else:
-            return f"{self.project_name} already exists"
+            logging.info(f"{self.project_name} already exists")
 
-    def delete_project(self) -> str:
+    def delete_project(self) -> None:
         if os.path.exists(f"{self.save_path}/{self.project_name}"):
             try:
                 shutil.rmtree(f"{self.save_path}/{self.project_name}")
-                return f"{self.project_name} is deleted"
+                logging.info(f"{self.project_name} is deleted")
             except OSError as e:
-                return f"Error remove {self.project_name} : {e}"
+                logging.info(f"Error remove {self.project_name} : {e}")
         else:
-            return f"{self.project_name} doesn't exist"
+            logging.info(f"{self.project_name} doesn't exist")
 
-    def add_network(self, network: Network) -> str:
+    def add_network(self, network: Network) -> None:
         if self.networks is None:
             self.networks = {"path": "interfaces", "obj_ls": []}
         self.networks["obj_ls"].append(
@@ -386,9 +386,9 @@ class LanAudacity:
         self.last_update_unix = time.time()
         with open(f"{self.save_path}/{self.project_name}/lan_audacity.json", "w") as f:
             json.dump(self.__dict__, f, indent=4)
-        return f"{network.name} is added to {self.project_name}"
+        logging.info(f"{network.name} is added to {self.project_name}")
 
-    def remove_network(self, network: Network) -> str:
+    def remove_network(self, network: Network) -> None:
         if self.networks is not None:
             self.networks["obj_ls"].remove(network.uuid)
             self.last_update_unix = time.time()
@@ -396,12 +396,11 @@ class LanAudacity:
                 f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
             ) as f:
                 json.dump(self.__dict__, f, indent=4)
-            return f"{network.name} is removed from {self.project_name}"
+            logging.info(f"{network.name} is removed from {self.project_name}")
         else:
-            return f"{network.name} doesn't exist in {self.project_name}"
+            logging.info(f"{network.name} doesn't exist in {self.project_name}")
 
-    def open_project(self) -> str:
-        logging.info(f"{self.project_name}: Open Project")
+    def open_project(self) -> None:
         logging.info(f"Path: {self.save_path}")
         if os.path.exists(self.save_path):
             with open(
@@ -418,31 +417,31 @@ class LanAudacity:
                 self.author = datas["author"]
                 self.abs_paths = datas["abs_paths"]
                 # Construct all datas
-            return f"{self.project_name} does exist"
+            logging.info(f"{self.project_name} does exist")
         else:
-            return f"{self.project_name} doesn't exist"
+            logging.info(f"{self.project_name} doesn't exist")
 
-    def save_project(self) -> str:
+    def save_project(self) -> None:
         if os.path.exists(self.project_name):
             self.last_update_unix = time.time()
             with open(
                 f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
             ) as f:
                 json.dump(self.__dict__, f, indent=4)
-            return f"{self.project_name} is saved"
+            logging.info(f"{self.project_name} is saved")
         else:
-            return f"{self.project_name} doesn't exist"
+            logging.info(f"{self.project_name} doesn't exist")
 
-    def save_as_project(self, new_path: str, new_project_name: str) -> str:
+    def save_as_project(self, new_path: str, new_project_name: str) -> None:
         if os.path.exists(new_path):
             self.save_path = new_path
             os.rename(self.project_name, new_project_name)
             self.project_name = new_project_name
             with open(f"{new_path}/{self.project_name}/lan_audacity.json", "w") as f:
                 json.dump(self.__dict__, f, indent=4)
-            return f"{self.project_name} is saved as {new_project_name}"
+            logging.info(f"{self.project_name} is saved as {new_project_name}")
         else:
-            return f"{self.project_name} doesn't exist"
+            logging.info(f"{self.project_name} doesn't exist")
 
 
 class NProjectDock(QDialog):
@@ -655,6 +654,7 @@ class GeneralSidePanel(QWidget):
         self.extObjChanged.connect(self.set_extObjDisplay)
 
     def set_extObjDisplay(self):
+        logging.debug(f"{self.extObj}")
         if self.extObj is None:
             self.treeView.hide()
             self.btn_null.show()
@@ -846,9 +846,13 @@ class NetExpl(GeneralSidePanel):
 
     def addDeviceObj(self):
         logging.info("Add device")
+        # Open a QDialog object with a generate Device
+        # Add Device to Network Tree
 
     def addNetworkObj(self):
         logging.info("Add network")
+        # Open a QDialog object with a generate Network
+        # Add Network to Tree
 
     def add_network_to_tree(self, network):
         root = self.treeView.model().invisibleRootItem()
@@ -1180,22 +1184,22 @@ class MainApp(QMainWindow):
         newpa = NProjectDock()
         if newpa.exec_() == QDialog.Accepted:
             data = newpa.get_data()
-            nprjlan = LanAudacity("Lan Audacity", "1.1.3", data["project_name"], data["save_path"], data["author"])
-            logging.info(nprjlan.create_project())
+            nprjlan = LanAudacity(
+                software_name=self.softwareManager.data['system']['name'],
+                version_software=self.softwareManager.data['system']['version'],
+                project_name=data["project_name"],
+                save_path=data["save_path"],
+                author=data["author"]
+            )
+            nprjlan.create_project()
             # Add the new project to the list
             self.prj_ls.append(nprjlan)
             # Add the new project to the file explorer
             self.file_explorer.extObj = f"{data["save_path"]}/{data["project_name"]}"
-            self.file_explorer.loadDisplayObj()
+            self.file_explorer.set_extObjDisplay()
             self.primary_side_bar.setCurrentWidget(self.file_explorer)
-            # # Add the new project to the network explorer
-            if nprjlan.networks is not None:
-                # Add the network list to the network explorer
-                self.network_explorer.extObj = nprjlan
-                self.network_explorer.loadDisplayObj()
-            else:
-                # Show a message that there is no network
-                QMessageBox.information(self, "No Network", "There is no network available.")
+            self.network_explorer.extObj = []
+            self.network_explorer.set_extObjDisplay()
             # # Generate a new project
 
     def openProjectAction(self) -> None:
@@ -1206,21 +1210,21 @@ class MainApp(QMainWindow):
                 with open(project_file, "r") as file:
                     data = json.load(file)
                 nprjlan = LanAudacity(
-                    software_name=self.softwareManager.data['system']['name'],
-                    version_software=self.softwareManager.data['system']['version'],
+                    software_name=data["software"],
+                    version_software=data["version"],
                     project_name=os.path.basename(directory_project),
-                    save_path=directory_project
+                    save_path=directory_project,
+                    author=data["author"]
                 )
-                logging.info(nprjlan.open_project())
+                nprjlan.open_project()
                 self.prj_ls.append(nprjlan)
+
                 self.file_explorer.extObj = directory_project
-                self.file_explorer.loadDisplayObj()
+                self.file_explorer.set_extObjDisplay()
                 self.primary_side_bar.setCurrentWidget(self.file_explorer)
-                if nprjlan.networks is not None:
-                    self.network_explorer.extObj = nprjlan
-                    self.network_explorer.loadDisplayObj()
-                else:
-                    QMessageBox.information(self, "No Network", "There is no network available.")
+
+                self.network_explorer.extObj = nprjlan
+                self.network_explorer.set_extObjDisplay()
                 # Charger l'arborescence dans le QTreeView
             else:
                 QMessageBox.warning(self, "Error", "lan_audacity.json not found in the selected directory.")
@@ -1239,30 +1243,18 @@ class MainApp(QMainWindow):
         # Close the project
 
     def fileExplorerAction(self) -> None:
-        if self.file_explorer.isVisible():
-            self.toggle_primary_side_bar()
-        elif self.file_explorer.isVisible() is False:
+        if self.file_explorer.isVisible() is False:
             self.primary_side_bar.setCurrentWidget(self.file_explorer)
-        else:
-            self.toggle_primary_side_bar()
         # Open the file explorer
 
     def netExplorerAction(self) -> None:
-        if self.network_explorer.isVisible():
-            self.toggle_primary_side_bar()
-        elif self.network_explorer.isVisible() is False:
+        if self.network_explorer.isVisible() is False:
             self.primary_side_bar.setCurrentWidget(self.network_explorer)
-        else:
-            self.toggle_primary_side_bar()
         # Show the network explorer
 
     def extensionAction(self) -> None:
-        if self.extends_explorer.isVisible():
-            self.toggle_primary_side_bar()
-        elif self.extends_explorer.isVisible() is False:
+        if self.extends_explorer.isVisible() is False:
             self.primary_side_bar.setCurrentWidget(self.extends_explorer)
-        else:
-            self.toggle_primary_side_bar()
         # Open the extension library
 
     def preferencesAction(self) -> None:
