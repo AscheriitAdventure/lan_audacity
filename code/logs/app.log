@@ -30,3 +30,60 @@
 2024-05-23 15:16:38,614 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
 2024-05-23 15:16:38,615 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
 2024-05-23 15:16:46,012 - root - INFO - End of Application
+2024-05-23 16:45:53,907 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 16:45:56,162 - root - INFO - parent:<__main__.MainApp object at 0x0000017CD7B936E0>
+2024-05-23 16:45:56,167 - root - INFO - parent:<__main__.MainApp object at 0x0000017CD7B936E0>
+2024-05-23 16:45:56,168 - root - INFO - parent:<__main__.MainApp object at 0x0000017CD7B936E0>
+2024-05-23 16:45:56,182 - root - INFO - parent:<__main__.MainApp object at 0x0000017CD7B936E0>
+2024-05-23 16:45:56,183 - root - INFO - parent:<__main__.MainApp object at 0x0000017CD7B936E0>
+2024-05-23 16:45:56,184 - root - INFO - parent:<__main__.MainApp object at 0x0000017CD7B936E0>
+2024-05-23 16:46:29,938 - root - INFO - test-v3 doesn't exist
+2024-05-23 16:57:43,763 - root - DEBUG - User Action...
+2024-05-23 17:19:16,271 - root - INFO - End of Application
+2024-05-23 17:25:57,426 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 17:25:58,396 - root - INFO - parent:<__main__.MainApp object at 0x000002D4167AF530>
+2024-05-23 17:25:58,405 - root - INFO - parent:<__main__.MainApp object at 0x000002D4167AF530>
+2024-05-23 17:25:58,405 - root - INFO - parent:<__main__.MainApp object at 0x000002D4167AF530>
+2024-05-23 17:25:58,414 - root - INFO - parent:<__main__.MainApp object at 0x000002D4167AF530>
+2024-05-23 17:25:58,415 - root - INFO - parent:<__main__.MainApp object at 0x000002D4167AF530>
+2024-05-23 17:25:58,416 - root - INFO - parent:<__main__.MainApp object at 0x000002D4167AF530>
+2024-05-23 17:26:13,009 - root - INFO - test2: Open Project
+2024-05-23 17:26:13,009 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2/test2
+2024-05-23 17:26:13,009 - root - INFO - test2 doesn't exist
+2024-05-23 17:26:18,705 - root - INFO - End of Application
+2024-05-23 17:26:43,316 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 17:26:43,929 - root - INFO - parent:<__main__.MainApp object at 0x00000269BF51B260>
+2024-05-23 17:26:43,930 - root - INFO - parent:<__main__.MainApp object at 0x00000269BF51B260>
+2024-05-23 17:26:43,931 - root - INFO - parent:<__main__.MainApp object at 0x00000269BF51B260>
+2024-05-23 17:26:43,940 - root - INFO - parent:<__main__.MainApp object at 0x00000269BF51B260>
+2024-05-23 17:26:43,941 - root - INFO - parent:<__main__.MainApp object at 0x00000269BF51B260>
+2024-05-23 17:26:43,942 - root - INFO - parent:<__main__.MainApp object at 0x00000269BF51B260>
+2024-05-23 17:27:09,645 - root - INFO - test2: Open Project
+2024-05-23 17:27:09,645 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2/test2
+2024-05-23 17:27:09,645 - root - INFO - test2 doesn't exist
+2024-05-23 17:28:01,720 - root - INFO - End of Application
+2024-05-23 17:28:07,653 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 17:28:08,565 - root - INFO - parent:<__main__.MainApp object at 0x00000196F1B7F380>
+2024-05-23 17:28:08,567 - root - INFO - parent:<__main__.MainApp object at 0x00000196F1B7F380>
+2024-05-23 17:28:08,568 - root - INFO - parent:<__main__.MainApp object at 0x00000196F1B7F380>
+2024-05-23 17:28:08,577 - root - INFO - parent:<__main__.MainApp object at 0x00000196F1B7F380>
+2024-05-23 17:28:08,578 - root - INFO - parent:<__main__.MainApp object at 0x00000196F1B7F380>
+2024-05-23 17:28:08,578 - root - INFO - parent:<__main__.MainApp object at 0x00000196F1B7F380>
+2024-05-23 17:28:27,955 - root - INFO - test2: Open Project
+2024-05-23 17:28:27,955 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-23 17:28:27,955 - root - INFO - test2 doesn't exist
+2024-05-23 17:29:13,380 - root - INFO - test-v3: Open Project
+2024-05-23 17:29:13,380 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-05-23 17:29:13,381 - root - INFO - test-v3 doesn't exist
+2024-05-23 17:29:56,823 - root - INFO - End of Application
+2024-05-23 17:30:02,611 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 17:30:04,537 - root - INFO - parent:<__main__.MainApp object at 0x00000227DF7D7410>
+2024-05-23 17:30:04,540 - root - INFO - parent:<__main__.MainApp object at 0x00000227DF7D7410>
+2024-05-23 17:30:04,540 - root - INFO - parent:<__main__.MainApp object at 0x00000227DF7D7410>
+2024-05-23 17:30:04,550 - root - INFO - parent:<__main__.MainApp object at 0x00000227DF7D7410>
+2024-05-23 17:30:04,550 - root - INFO - parent:<__main__.MainApp object at 0x00000227DF7D7410>
+2024-05-23 17:30:04,551 - root - INFO - parent:<__main__.MainApp object at 0x00000227DF7D7410>
+2024-05-23 17:30:12,611 - root - INFO - test-v3: Open Project
+2024-05-23 17:30:12,611 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-05-23 17:30:12,612 - root - INFO - test-v3 does exist
+2024-05-23 17:32:01,453 - root - INFO - End of Application

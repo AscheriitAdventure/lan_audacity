@@ -401,9 +401,11 @@ class LanAudacity:
             return f"{network.name} doesn't exist in {self.project_name}"
 
     def open_project(self) -> str:
-        if os.path.exists(self.project_name):
+        logging.info(f"{self.project_name}: Open Project")
+        logging.info(f"Path: {self.save_path}")
+        if os.path.exists(self.save_path):
             with open(
-                f"{self.save_path}/{self.project_name}/lan_audacity.json", "r"
+                f"{self.save_path}/lan_audacity.json", "r"
             ) as f:
                 datas = json.load(f)
                 self.software = datas["software"]
