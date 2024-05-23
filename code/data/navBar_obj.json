@@ -8,48 +8,42 @@
         "name": "&New Project",
         "icon_name": "newProject",
         "shortcut_name": "newProject",
-        "status_tip": "Create a new project",
-        "triggered": null
+        "status_tip": "Create a new project"
       },
       {
         "name_low": "open_project",
         "name": "&Open Project",
         "icon_name": "openProject",
         "shortcut_name": "openProject",
-        "status_tip": "Open a project",
-        "triggered": null
+        "status_tip": "Open a project"
       },
       {
         "name_low": "save_project",
         "name": "&Save Project",
         "icon_name": "saveProject",
         "shortcut_name": "saveProject",
-        "status_tip": "Save the project",
-        "triggered": null
+        "status_tip": "Save the project"
       },
       {
         "name_low": "save_as_project",
         "name": "&Save As Project",
         "icon_name": "saveAsProject",
         "shortcut_name": "saveAsProject",
-        "status_tip": "Save the project as",
-        "triggered": null
+        "status_tip": "Save the project as"
       },
       {
         "name_low": "close_project",
         "name": "&Close Project",
         "icon_name": "closeProject",
         "shortcut_name": "closeProject",
-        "status_tip": "Close the project",
-        "triggered": null
+        "status_tip": "Close the project"
       },
       {
         "name_low": "exit",
         "name": "&Exit",
         "icon_name": "exit",
         "shortcut_name": "exit",
-        "status_tip": "Exit the application",
-        "triggered": null
+        "status_tip": "Exit the application"
       }
     ]
   },
@@ -62,48 +56,42 @@
         "name": "&Undo",
         "icon_name": "undoAction",
         "shortcut_name": "undoAction",
-        "status_tip": "Undo the last action",
-        "triggered": null
+        "status_tip": "Undo the last action"
       },
       {
         "name_low": "redo",
         "name": "&Redo",
         "icon_name": "redoAction",
         "shortcut_name": "redoAction",
-        "status_tip": "Redo the last action",
-        "triggered": null
+        "status_tip": "Redo the last action"
       },
       {
         "name_low": "cut",
         "name": "&Cut",
         "icon_name": "cutAction",
         "shortcut_name": "cutAction",
-        "status_tip": "Cut the selected text",
-        "triggered": null
+        "status_tip": "Cut the selected text"
       },
       {
         "name_low": "copy",
         "name": "&Copy",
         "icon_name": "copyAction",
         "shortcut_name": "copyAction",
-        "status_tip": "Copy the selected text",
-        "triggered": null
+        "status_tip": "Copy the selected text"
       },
       {
         "name_low": "paste",
         "name": "&Paste",
         "icon_name": "pasteAction",
         "shortcut_name": "pasteAction",
-        "status_tip": "Paste the selected text",
-        "triggered": null
+        "status_tip": "Paste the selected text"
       },
       {
         "name_low": "delete",
         "name": "&Delete",
         "icon_name": "deleteAction",
         "shortcut_name": "deleteAction",
-        "status_tip": "Delete the selected text",
-        "triggered": null
+        "status_tip": "Delete the selected text"
       }
     ]
   },
@@ -116,24 +104,21 @@
         "name": "&Select All",
         "icon_name": "selectAllAction",
         "shortcut_name": "selectAllAction",
-        "status_tip": "Select all text",
-        "triggered": null
+        "status_tip": "Select all text"
       },
       {
         "name_low": "select_none",
         "name": "&Select None",
         "icon_name": "selectNoneAction",
         "shortcut_name": "selectNoneAction",
-        "status_tip": "Select none text",
-        "triggered": null
+        "status_tip": "Select none text"
       },
       {
         "name_low": "select_inverse",
         "name": "&Select Inverse",
         "icon_name": "selectInverseAction",
         "shortcut_name": "selectInverseAction",
-        "status_tip": "Select inverse text",
-        "triggered": null
+        "status_tip": "Select inverse text"
       }
     ]
   },
@@ -146,40 +131,35 @@
         "name": "&File Explorer",
         "icon_name": "fileExplorerAction",
         "shortcut_name": "fileExplorerAction",
-        "status_tip": "Open file explorer",
-        "triggered": null
+        "status_tip": "Open file explorer"
       },
       {
         "name_low": "net_explorer",
         "name": "&Network Explorer",
         "icon_name": "netExplorerAction",
         "shortcut_name": "netExplorerAction",
-        "status_tip": "Open network explorer",
-        "triggered": null
+        "status_tip": "Open network explorer"
       },
       {
         "name_low": "extension",
         "name": "&Extension",
         "icon_name": "extensionAction",
         "shortcut_name": "extensionAction",
-        "status_tip": "Show Extension Library",
-        "triggered": null
+        "status_tip": "Show Extension Library"
       },
       {
         "name_low": "user",
         "name": "&User",
         "icon_name": "userAction",
         "shortcut_name": "userAction",
-        "status_tip": "Open Window User",
-        "triggered": null
+        "status_tip": "Open Window User"
       },
       {
         "name_low": "preferences",
         "name": "&Preferences",
         "icon_name": "preferencesAction",
         "shortcut_name": "preferencesAction",
-        "status_tip": "Open Window Preferences",
-        "triggered": null
+        "status_tip": "Open Window Preferences"
       }
     ]
   },
@@ -192,24 +172,21 @@
         "name": "&Language",
         "icon_name": "languageAction",
         "shortcut_name": "languageAction",
-        "status_tip": "Change language",
-        "triggered": null
+        "status_tip": "Change language"
       },
       {
         "name_low": "shortcut_key",
         "name": "&Shortcut Key",
         "icon_name": "shortcutKeyAction",
         "shortcut_name": "shortcutKeyAction",
-        "status_tip": "Change shortcut key",
-        "triggered": null
+        "status_tip": "Change shortcut key"
       },
       {
         "name_low": "notification",
         "name": "&Notification",
         "icon_name": "notificationAction",
         "shortcut_name": "notificationAction",
-        "status_tip": "Show notification",
-        "triggered": null
+        "status_tip": "Show notification"
       }
     ]
   },
@@ -222,8 +199,7 @@
         "name": "&Open Terminal",
         "icon_name": "terminalAction",
         "shortcut_name": "terminalAction",
-        "status_tip": "Open terminal",
-        "triggered": null
+        "status_tip": "Open terminal"
       }
     ]
   },
@@ -236,16 +212,14 @@
         "name": "&Help",
         "icon_name": "helpAction",
         "shortcut_name": "helpAction",
-        "status_tip": "Help",
-        "triggered": null
+        "status_tip": "Help"
       },
       {
         "name_low": "about",
         "name": "&About",
         "icon_name": "aboutAction",
         "shortcut_name": "aboutAction",
-        "status_tip": "About",
-        "triggered": null
+        "status_tip": "About"
       }
     ]
   }

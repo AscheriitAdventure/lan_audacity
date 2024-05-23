@@ -92,6 +92,13 @@ def current_dir():
         return "Analyse Erreur"
 
 
+def get_spcValue(liste_add: list, arg_1: str, obj_src: str) -> dict:
+    for obj_dict in liste_add:
+        if obj_dict[arg_1] == obj_src:
+            return obj_dict
+    return {}
+
+
 class ConfigurationFile:
     def __init__(self, abs_path: str):
         self.__abs_path: str = abs_path
@@ -855,10 +862,12 @@ class NetExpl(GeneralSidePanel):
 
 
 class MainApp(QMainWindow):
-    def __init__(self, software_manager: ConfigurationFile, parent=None):
+    def __init__(self, software_manager: ConfigurationFile, parent=None) -> None:
         super().__init__(parent)
-        # Software Information
+        # Other Information
         self.prj_ls = []
+        self.link_action = self.setLinkAction()
+        # Software Information
         self.softwareManager = software_manager
         # Data Language Manager
         self.langManager = LanguageApp(
@@ -903,7 +912,71 @@ class MainApp(QMainWindow):
 
         self.show()
 
-    def centerWindow(self):
+    def setLinkAction(self) -> list:
+        return [
+            {
+                "name_acte": "new_project",
+                "trigger": self.newProjectAction
+            },
+            {
+                "name_acte": "open_project",
+                "trigger": self.openProjectAction
+            },
+            {
+                "name_acte": "save_project",
+                "trigger": self.saveProjectAction
+            },
+            {
+                "name_acte": "save_as_project",
+                "trigger": self.saveAsProjectAction
+            },
+            {
+                "name_acte": "close_project",
+                "trigger": self.closeProjectAction
+            },
+            {
+                "name_acte": "exit",
+                "trigger": self.quitAction
+            },
+            {
+                "name_acte": "file_explorer",
+                "trigger": self.fileExplorerAction
+            },
+            {
+                "name_acte": "net_explorer",
+                "trigger": self.netExplorerAction
+            },
+            {
+                "name_acte": "extension",
+                "trigger": self.extensionAction
+            },
+            {
+                "name_acte": "user",
+                "trigger": self.userAction
+            },
+            {
+                "name_acte": "preferences",
+                "trigger": self.preferencesAction
+            },
+            # {
+            #     "name_acte": "language",
+            #     "trigger": self.openLanguage
+            # },
+            # {
+            #     "name_acte": "shortcut_key",
+            #     "trigger": self.openShortcutKey
+            # },
+            # {
+            #     "name_acte": "notification",
+            #     "trigger": self.openNotification
+            # },
+            # {
+            #     "name_acte": "open_terminal",
+            #     "trigger": self.openTerminal
+            # },
+        ]
+    
+    def centerWindow(self) -> None:
         # Obtenir la géométrie de l'écran
         screen_geometry = QApplication.desktop().screenGeometry()
 
@@ -917,7 +990,7 @@ class MainApp(QMainWindow):
         # Déplacer la fenêtre
         self.move(x, y)
 
-    def initUI_menu(self):
+    def initUI_menu(self) -> None:
         # Add toolbars
         infobar = QToolBar(self)
         # Set the toolbar to a fixed top position
@@ -948,7 +1021,9 @@ class MainApp(QMainWindow):
                     self.shortcutManager.get_shortcut(action["shortcut_name"])
                 )
                 act_obj.setStatusTip(action["status_tip"])
-                # act_obj.triggered.connect(action['trigger'])
+                dict_trig = get_spcValue(self.link_action, "name_acte", action["name_low"])
+                if dict_trig != {}:
+                    act_obj.triggered.connect(dict_trig['trigger'])
                 menu_obj.addAction(act_obj)
                 if action["name_low"] == "save_project":
                     menu_obj.addSeparator()
@@ -1004,7 +1079,7 @@ class MainApp(QMainWindow):
         toggle_pPanel.triggered.connect(self.toggle_primary_panel)
         infobar.addAction(toggle_pPanel)
 
-    def initUI_central(self):
+    def initUI_central(self) -> None:
         # Central Widget
         self.central_widget = QWidget(self)
         self.setCentralWidget(self.central_widget)
@@ -1013,7 +1088,6 @@ class MainApp(QMainWindow):
         self.primary_side_bar = QStackedWidget(self)
         self.primary_side_bar.setMinimumWidth(100)
         self.primary_side_bar.setMaximumWidth(400)
-        # self.primary_side_bar.hide()
 
         # Primary Center Object (Center with Tab Widget)
         self.primary_center = QTabWidget(self)
@@ -1027,7 +1101,6 @@ class MainApp(QMainWindow):
         self.primary_panel.setMinimumHeight(100)
         self.primary_panel.setTabsClosable(True)
         self.primary_panel.setMovable(True)
-        # self.primary_panel.hide()
 
         # Splitter between Primary Panel and Primary Center
         self.v_splitter = QSplitter(Qt.Vertical)
@@ -1046,21 +1119,21 @@ class MainApp(QMainWindow):
 
         # stack widget
         self.file_explorer = FlsExpl(
-            "File Explorer",
+            "Explorer",
             lang_manager=self.langManager,
             icon_manager=self.iconsManager,
             keys_manager=self.shortcutManager,
             parent=self
         )
         self.network_explorer = NetExpl(
-            "Network Explorer",
+            "Networks",
             lang_manager=self.langManager,
             icon_manager=self.iconsManager,
             keys_manager=self.shortcutManager,
             parent=self
         )
         self.extends_explorer = GeneralSidePanel(
-            "Extension Explorer",
+            "Extensions",
             lang_manager=self.langManager,
             icon_manager=self.iconsManager,
             keys_manager=self.shortcutManager,
@@ -1070,7 +1143,7 @@ class MainApp(QMainWindow):
         self.primary_side_bar.addWidget(self.network_explorer)
         self.primary_side_bar.addWidget(self.extends_explorer)
 
-    def closeEvent(self, event):
+    def closeEvent(self, event) -> None:
         reply = QMessageBox.question(
             self,
             "Message",
@@ -1085,20 +1158,23 @@ class MainApp(QMainWindow):
         else:
             event.ignore()
 
-    def toggle_primary_side_bar(self):
+    def toggle_primary_side_bar(self) -> None:
         if self.primary_side_bar.isVisible():
             self.primary_side_bar.hide()
         else:
             self.primary_side_bar.show()
 
-    def toggle_primary_panel(self):
+    def toggle_primary_panel(self) -> None:
         if self.primary_panel.isVisible():
             self.primary_panel.hide()
         else:
             self.primary_panel.show()
 
     # Actions
-    def newProjectAction(self):
+    def quitAction(self) -> None:
+        self.close()
+
+    def newProjectAction(self) -> None:
         newpa = NProjectDock()
         if newpa.exec_() == QDialog.Accepted:
             data = newpa.get_data()
@@ -1120,7 +1196,7 @@ class MainApp(QMainWindow):
                 QMessageBox.information(self, "No Network", "There is no network available.")
             # # Generate a new project
 
-    def openProjectAction(self):
+    def openProjectAction(self) -> None:
         directory_project = QFileDialog.getExistingDirectory(self, "Open Project", os.getcwd())
         if directory_project:
             project_file = os.path.join(directory_project, "lan_audacity.json")
@@ -1148,44 +1224,50 @@ class MainApp(QMainWindow):
                 QMessageBox.warning(self, "Error", "lan_audacity.json not found in the selected directory.")
         # Open a project
 
-    def saveProjectAction(self):
+    def saveProjectAction(self) -> None:
         logging.debug("Save Action...")
         # Save the project
 
-    def saveAsProjectAction(self):
+    def saveAsProjectAction(self) -> None:
         logging.debug("Save As Action...")
         # Save the project as
 
-    def closeProjectAction(self):
+    def closeProjectAction(self) -> None:
         logging.debug("Close Project Action...")
         # Close the project
 
-    def fileExplorerAction(self):
+    def fileExplorerAction(self) -> None:
         if self.file_explorer.isVisible():
             self.toggle_primary_side_bar()
-        else:
+        elif self.file_explorer.isVisible() is False:
             self.primary_side_bar.setCurrentWidget(self.file_explorer)
+        else:
+            self.toggle_primary_side_bar()
         # Open the file explorer
 
-    def netExplorerAction(self):
+    def netExplorerAction(self) -> None:
         if self.network_explorer.isVisible():
             self.toggle_primary_side_bar()
-        else:
+        elif self.network_explorer.isVisible() is False:
             self.primary_side_bar.setCurrentWidget(self.network_explorer)
+        else:
+            self.toggle_primary_side_bar()
         # Show the network explorer
 
-    def extensionAction(self):
+    def extensionAction(self) -> None:
         if self.extends_explorer.isVisible():
             self.toggle_primary_side_bar()
-        else:
+        elif self.extends_explorer.isVisible() is False:
             self.primary_side_bar.setCurrentWidget(self.extends_explorer)
+        else:
+            self.toggle_primary_side_bar()
         # Open the extension library
 
-    def preferencesAction(self):
+    def preferencesAction(self) -> None:
         logging.debug("Preferences Action...")
         # Open the preferences window
 
-    def userAction(self):
+    def userAction(self) -> None:
         logging.debug("User Action...")
         # Open the user window
 

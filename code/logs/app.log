@@ -1,147 +1,32 @@
-2024-05-21 16:37:08,646 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 16:38:10,097 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 16:38:10,680 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'newProject': object of type 'NoneType' has no len()
-2024-05-21 16:39:36,343 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 16:39:36,449 - root - DEBUG - <PyQt5.QtGui.QIcon object at 0x000001EF9E4A31D0>
-2024-05-21 16:39:36,953 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'newProject': object of type 'NoneType' has no len()
-2024-05-21 16:49:24,126 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 16:49:24,408 - root - DEBUG - <PyQt5.QtGui.QIcon object at 0x000001EAD3E13260>
-2024-05-21 16:49:25,395 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'newProject': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,396 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'openProject': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,396 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'saveProject': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,396 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'saveAsProject': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,397 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'closeProject': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,397 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'exit': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,399 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'undoAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,399 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'redoAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,399 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'cutAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,400 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'copyAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,400 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'pasteAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,400 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'deleteAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,401 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'selectAllAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,401 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'selectNoneAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,402 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'selectInverseAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,402 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'fileExplorerAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,402 - root - DEBUG - <PyQt5.QtGui.QIcon object at 0x000001EAD6CD0680>
-2024-05-21 16:49:25,403 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'extensionAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,403 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'userAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,403 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'preferencesAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,404 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'languageAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,404 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'shortcutKeyAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,404 - root - DEBUG - <PyQt5.QtGui.QIcon object at 0x000001EAD6CD0C20>
-2024-05-21 16:49:25,405 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'terminalAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,405 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'helpAction': object of type 'NoneType' has no len()
-2024-05-21 16:49:25,405 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'aboutAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,569 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 20:48:21,755 - root - DEBUG - <PyQt5.QtGui.QIcon object at 0x102b487a0>
-2024-05-21 20:48:21,882 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'newProject': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,883 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'openProject': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,883 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'saveProject': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,883 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'saveAsProject': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,883 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'closeProject': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,883 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'exit': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,883 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'undoAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,883 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'redoAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'cutAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'copyAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'pasteAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'deleteAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'selectAllAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'selectNoneAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'selectInverseAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'fileExplorerAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,884 - root - DEBUG - <PyQt5.QtGui.QIcon object at 0x102b49e20>
-2024-05-21 20:48:21,889 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'extensionAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,889 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'userAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,889 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'preferencesAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,889 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'languageAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'shortcutKeyAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,890 - root - DEBUG - <PyQt5.QtGui.QIcon object at 0x102b4a3c0>
-2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'terminalAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'helpAction': object of type 'NoneType' has no len()
-2024-05-21 20:48:21,890 - __main__ - ERROR - Une erreur inattendue s'est produite lors de la récupération de l'icône 'aboutAction': object of type 'NoneType' has no len()
-2024-05-21 22:22:05,024 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 22:22:22,613 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 22:55:53,843 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 22:56:57,642 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 22:57:36,317 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 22:58:57,445 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 22:58:57,609 - __main__ - DEBUG - &File
-2024-05-21 22:58:57,611 - __main__ - DEBUG - &Edit
-2024-05-21 22:58:57,611 - __main__ - DEBUG - &Select
-2024-05-21 22:58:57,612 - __main__ - DEBUG - &View
-2024-05-21 22:58:57,612 - __main__ - DEBUG - &Settings
-2024-05-21 22:58:57,613 - __main__ - DEBUG - &Terminal
-2024-05-21 22:58:57,613 - __main__ - DEBUG - &Help
-2024-05-21 23:05:16,522 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 23:05:16,698 - __main__ - DEBUG - &File
-2024-05-21 23:05:16,699 - __main__ - DEBUG - &Edit
-2024-05-21 23:05:16,700 - __main__ - DEBUG - &Select
-2024-05-21 23:05:16,701 - __main__ - DEBUG - &View
-2024-05-21 23:05:16,701 - __main__ - DEBUG - &Settings
-2024-05-21 23:05:16,702 - __main__ - DEBUG - &Terminal
-2024-05-21 23:05:16,702 - __main__ - DEBUG - &Help
-2024-05-21 23:07:04,591 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 23:07:04,757 - __main__ - DEBUG - &File
-2024-05-21 23:07:04,758 - __main__ - DEBUG - &Edit
-2024-05-21 23:07:04,759 - __main__ - DEBUG - &Select
-2024-05-21 23:07:04,760 - __main__ - DEBUG - &View
-2024-05-21 23:07:04,760 - __main__ - DEBUG - &Settings
-2024-05-21 23:07:04,761 - __main__ - DEBUG - &Terminal
-2024-05-21 23:07:04,761 - __main__ - DEBUG - &Help
-2024-05-21 23:09:27,014 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 23:09:27,177 - __main__ - DEBUG - &File
-2024-05-21 23:09:27,179 - __main__ - DEBUG - &Edit
-2024-05-21 23:09:27,180 - __main__ - DEBUG - &Select
-2024-05-21 23:09:27,180 - __main__ - DEBUG - &View
-2024-05-21 23:09:27,181 - __main__ - DEBUG - &Settings
-2024-05-21 23:09:27,182 - __main__ - DEBUG - &Terminal
-2024-05-21 23:09:27,182 - __main__ - DEBUG - &Help
-2024-05-21 23:10:37,613 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-21 23:10:37,777 - __main__ - DEBUG - &File
-2024-05-21 23:10:37,777 - root - DEBUG - &File
-2024-05-21 23:10:37,778 - root - DEBUG - &File
-2024-05-21 23:10:37,778 - root - DEBUG - &File
-2024-05-21 23:10:37,778 - root - DEBUG - &File
-2024-05-21 23:10:37,778 - root - DEBUG - &File
-2024-05-21 23:10:37,778 - root - DEBUG - &File
-2024-05-21 23:10:37,778 - __main__ - DEBUG - &Edit
-2024-05-21 23:10:37,779 - root - DEBUG - &Edit
-2024-05-21 23:10:37,779 - root - DEBUG - &Edit
-2024-05-21 23:10:37,779 - root - DEBUG - &Edit
-2024-05-21 23:10:37,779 - root - DEBUG - &Edit
-2024-05-21 23:10:37,779 - root - DEBUG - &Edit
-2024-05-21 23:10:37,779 - root - DEBUG - &Edit
-2024-05-21 23:10:37,779 - __main__ - DEBUG - &Select
-2024-05-21 23:10:37,779 - root - DEBUG - &Select
-2024-05-21 23:10:37,780 - root - DEBUG - &Select
-2024-05-21 23:10:37,780 - root - DEBUG - &Select
-2024-05-21 23:10:37,780 - __main__ - DEBUG - &View
-2024-05-21 23:10:37,780 - root - DEBUG - &View
-2024-05-21 23:10:37,780 - root - DEBUG - &View
-2024-05-21 23:10:37,780 - root - DEBUG - &View
-2024-05-21 23:10:37,780 - root - DEBUG - &View
-2024-05-21 23:10:37,781 - root - DEBUG - &View
-2024-05-21 23:10:37,781 - __main__ - DEBUG - &Settings
-2024-05-21 23:10:37,781 - root - DEBUG - &Settings
-2024-05-21 23:10:37,781 - root - DEBUG - &Settings
-2024-05-21 23:10:37,781 - root - DEBUG - &Settings
-2024-05-21 23:10:37,781 - __main__ - DEBUG - &Terminal
-2024-05-21 23:10:37,781 - root - DEBUG - &Terminal
-2024-05-21 23:10:37,781 - __main__ - DEBUG - &Help
-2024-05-21 23:10:37,781 - root - DEBUG - &Help
-2024-05-21 23:10:37,781 - root - DEBUG - &Help
-2024-05-21 23:12:21,551 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 08:53:04,683 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 14:28:00,556 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 14:37:57,631 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 14:39:18,644 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 14:40:04,849 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 16:32:42,087 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 17:31:27,205 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 17:32:16,710 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 17:34:58,922 - root - INFO - test2 doesn't exist
-2024-05-22 20:28:47,479 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 20:30:34,721 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 21:25:37,691 - __main__ - INFO - Lan Audacity - version 1.0.4
-2024-05-22 21:26:33,108 - root - INFO - End of Application
+2024-05-23 14:52:47,440 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 14:52:48,053 - root - INFO - parent:<__main__.MainApp object at 0x000001BA1FE4F380>
+2024-05-23 14:52:48,055 - root - INFO - parent:<__main__.MainApp object at 0x000001BA1FE4F380>
+2024-05-23 14:52:48,056 - root - INFO - parent:<__main__.MainApp object at 0x000001BA1FE4F380>
+2024-05-23 14:52:48,061 - root - INFO - parent:<__main__.MainApp object at 0x000001BA1FE4F380>
+2024-05-23 14:52:48,062 - root - INFO - parent:<__main__.MainApp object at 0x000001BA1FE4F380>
+2024-05-23 14:52:48,062 - root - INFO - parent:<__main__.MainApp object at 0x000001BA1FE4F380>
+2024-05-23 14:53:18,053 - root - INFO - test-v3 is created
+2024-05-23 14:59:37,247 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 14:59:38,162 - root - INFO - parent:<__main__.MainApp object at 0x000002A9B6CEB380>
+2024-05-23 14:59:38,162 - root - INFO - parent:<__main__.MainApp object at 0x000002A9B6CEB380>
+2024-05-23 14:59:38,163 - root - INFO - parent:<__main__.MainApp object at 0x000002A9B6CEB380>
+2024-05-23 14:59:38,169 - root - INFO - parent:<__main__.MainApp object at 0x000002A9B6CEB380>
+2024-05-23 14:59:38,170 - root - INFO - parent:<__main__.MainApp object at 0x000002A9B6CEB380>
+2024-05-23 14:59:38,170 - root - INFO - parent:<__main__.MainApp object at 0x000002A9B6CEB380>
+2024-05-23 15:01:52,288 - root - INFO - test-v3 doesn't exist
+2024-05-23 15:15:36,764 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 15:15:37,736 - root - INFO - parent:<__main__.MainApp object at 0x000002516972F380>
+2024-05-23 15:15:37,741 - root - INFO - parent:<__main__.MainApp object at 0x000002516972F380>
+2024-05-23 15:15:37,742 - root - INFO - parent:<__main__.MainApp object at 0x000002516972F380>
+2024-05-23 15:15:37,749 - root - INFO - parent:<__main__.MainApp object at 0x000002516972F380>
+2024-05-23 15:15:37,750 - root - INFO - parent:<__main__.MainApp object at 0x000002516972F380>
+2024-05-23 15:15:37,750 - root - INFO - parent:<__main__.MainApp object at 0x000002516972F380>
+2024-05-23 15:16:34,375 - root - INFO - End of Application
+2024-05-23 15:16:37,988 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-23 15:16:38,605 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
+2024-05-23 15:16:38,608 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
+2024-05-23 15:16:38,608 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
+2024-05-23 15:16:38,613 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
+2024-05-23 15:16:38,614 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
+2024-05-23 15:16:38,615 - root - INFO - parent:<__main__.MainApp object at 0x000002BE3EB0B380>
+2024-05-23 15:16:46,012 - root - INFO - End of Application
