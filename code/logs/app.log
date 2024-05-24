@@ -443,3 +443,23 @@
 2024-05-24 11:57:06,896 - root - INFO - Add network
 2024-05-24 11:57:06,898 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2/db/interfaces
 2024-05-24 11:58:14,718 - root - INFO - End of Application
+2024-05-24 11:58:29,571 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-24 11:58:30,996 - root - INFO - parent:<__main__.MainApp object at 0x0000018122BC7890>
+2024-05-24 11:58:30,998 - root - DEBUG - None
+2024-05-24 11:58:30,998 - root - INFO - parent:<__main__.MainApp object at 0x0000018122BC7890>
+2024-05-24 11:58:30,999 - root - DEBUG - None
+2024-05-24 11:58:30,999 - root - INFO - parent:<__main__.MainApp object at 0x0000018122BC7890>
+2024-05-24 11:58:31,000 - root - DEBUG - None
+2024-05-24 11:58:31,009 - root - INFO - parent:<__main__.MainApp object at 0x0000018122BC7890>
+2024-05-24 11:58:31,010 - root - DEBUG - None
+2024-05-24 11:58:31,010 - root - INFO - parent:<__main__.MainApp object at 0x0000018122BC7890>
+2024-05-24 11:58:31,010 - root - DEBUG - None
+2024-05-24 11:58:31,011 - root - INFO - parent:<__main__.MainApp object at 0x0000018122BC7890>
+2024-05-24 11:58:31,011 - root - DEBUG - None
+2024-05-24 11:58:44,351 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-24 11:58:44,352 - root - INFO - test2 does exist
+2024-05-24 11:58:44,353 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-24 11:58:44,360 - root - DEBUG - <__main__.LanAudacity object at 0x00000181253D3530>
+2024-05-24 11:58:44,360 - root - INFO - Load network
+2024-05-24 11:58:59,468 - root - INFO - Add network
+2024-05-24 12:02:30,415 - root - INFO - End of Application
