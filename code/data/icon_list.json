@@ -236,5 +236,19 @@
         "color": "Blue"
       }
     ]
+  },
+  {
+    "name": "networkDefaultIcon",
+    "platform_and_name": ["mdi6.wan","mdi6.routes"],
+    "options": [
+      {
+        "scale_factor": 1,
+        "color": "RoyalBlue"
+      },
+      {
+        "scale_factor": 0.75,
+        "color": "GreenForest"
+      }
+    ]
   }
 ]
