@@ -868,7 +868,9 @@ class NetExpl(GeneralSidePanel):
                 network_data["dhcp"],
             )
             network.create_network()
-            network.save_network()
+            self.extObj.add_network(network)
+            self.extObj.save_project()
+
             self.add_network_to_tree(network)
         # Add Network to Tree
 
@@ -1349,6 +1351,7 @@ class MainApp(QMainWindow):
                     save_path=directory_project,
                     author=data["author"]
                 )
+
                 nprjlan.open_project()
                 self.prj_ls.append(nprjlan)
 

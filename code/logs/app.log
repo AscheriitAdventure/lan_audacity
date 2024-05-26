@@ -463,3 +463,46 @@
 2024-05-24 11:58:44,360 - root - INFO - Load network
 2024-05-24 11:58:59,468 - root - INFO - Add network
 2024-05-24 12:02:30,415 - root - INFO - End of Application
+2024-05-24 22:11:02,836 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-24 22:11:03,138 - root - INFO - parent:<__main__.MainApp object at 0x1066f99a0>
+2024-05-24 22:11:03,142 - root - DEBUG - None
+2024-05-24 22:11:03,142 - root - INFO - parent:<__main__.MainApp object at 0x1066f99a0>
+2024-05-24 22:11:03,143 - root - DEBUG - None
+2024-05-24 22:11:03,143 - root - INFO - parent:<__main__.MainApp object at 0x1066f99a0>
+2024-05-24 22:11:03,143 - root - DEBUG - None
+2024-05-24 22:11:03,147 - root - INFO - parent:<__main__.MainApp object at 0x1066f99a0>
+2024-05-24 22:11:03,147 - root - DEBUG - None
+2024-05-24 22:11:03,147 - root - INFO - parent:<__main__.MainApp object at 0x1066f99a0>
+2024-05-24 22:11:03,147 - root - DEBUG - None
+2024-05-24 22:11:03,147 - root - INFO - parent:<__main__.MainApp object at 0x1066f99a0>
+2024-05-24 22:11:03,147 - root - DEBUG - None
+2024-05-24 22:11:20,997 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-24 22:11:20,997 - root - INFO - test-v2 does exist
+2024-05-24 22:11:20,997 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/test-v2
+2024-05-24 22:11:21,000 - root - DEBUG - <__main__.LanAudacity object at 0x107de0560>
+2024-05-24 22:11:21,000 - root - INFO - Load network
+2024-05-24 22:14:25,691 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-24 22:14:25,691 - root - INFO - eyrein-industrie_lans does exist
+2024-05-24 22:14:25,691 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-24 22:14:25,692 - root - DEBUG - <__main__.LanAudacity object at 0x107de32f0>
+2024-05-24 22:14:25,692 - root - INFO - Load network
+2024-05-24 22:14:35,443 - root - INFO - End of Application
+2024-05-24 22:14:39,193 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-24 22:14:39,376 - root - INFO - parent:<__main__.MainApp object at 0x1045a5130>
+2024-05-24 22:14:39,376 - root - DEBUG - None
+2024-05-24 22:14:39,377 - root - INFO - parent:<__main__.MainApp object at 0x1045a5130>
+2024-05-24 22:14:39,377 - root - DEBUG - None
+2024-05-24 22:14:39,377 - root - INFO - parent:<__main__.MainApp object at 0x1045a5130>
+2024-05-24 22:14:39,377 - root - DEBUG - None
+2024-05-24 22:14:39,379 - root - INFO - parent:<__main__.MainApp object at 0x1045a5130>
+2024-05-24 22:14:39,380 - root - DEBUG - None
+2024-05-24 22:14:39,380 - root - INFO - parent:<__main__.MainApp object at 0x1045a5130>
+2024-05-24 22:14:39,380 - root - DEBUG - None
+2024-05-24 22:14:39,380 - root - INFO - parent:<__main__.MainApp object at 0x1045a5130>
+2024-05-24 22:14:39,380 - root - DEBUG - None
+2024-05-24 22:14:48,825 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-24 22:14:48,825 - root - INFO - eyrein-industrie_lans does exist
+2024-05-24 22:14:48,825 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-24 22:14:48,826 - root - DEBUG - <__main__.LanAudacity object at 0x1048e0710>
+2024-05-24 22:14:48,826 - root - INFO - Load network
+2024-05-24 22:20:22,458 - root - INFO - End of Application

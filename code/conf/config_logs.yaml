@@ -13,7 +13,7 @@ handlers:
     formatter: simple
     stream: ext://sys.stdout
   file_handler:
-    class: logging.FileHandler.RotatingFileHandler
+    class: logging.handlers.RotatingFileHandler
     level: DEBUG
     formatter: custom
     filename: logs/app.log
