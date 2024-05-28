@@ -1050,9 +1050,11 @@ class NetExpl(GeneralSidePanel):
                 network_dhcp=network_data.get("dhcp")
             )
             network.create_network()
-            if hasattr(self.extObj, 'add_network'):
-                self.extObj.add_network(network)
-                self.add_network_to_tree(network)
+            self.extObj.add_network(network)
+            self.extObj.save_project()
+
+            self.add_network_to_tree(network)
+        # Add Network to Tree
 
     def add_network_to_tree(self, network: Network):
         root = self.treeView.model().invisibleRootItem()
