@@ -401,12 +401,14 @@ class MainApp(QMainWindow):
                     save_path=directory_project,
                     author=data["author"]
                 )
+                logging.debug(data["networks"])
                 if data["networks"] is not None:
                     logging.info(len(data["networks"]["obj_ls"]))
                     # add informations to nprjlan
                     for network in data["networks"]["obj_ls"]:
                         # open network file
                         network_file = os.path.join(network["path"])
+                        logging.debug(network_file)
                         if os.path.exists(network_file):
                             with open(network_file, "r") as file:
                                 data_network = json.load(file)
@@ -433,7 +435,7 @@ class MainApp(QMainWindow):
                 self.primary_side_bar.setCurrentWidget(self.file_explorer)
 
                 self.network_explorer.extObj = nprjlan
-                self.network_explorer.set_extObjDisplay()
+                ## self.network_explorer.set_extObjDisplay()
                 # Charger l'arborescence dans le QTreeView
             else:
                 QMessageBox.warning(self, "Error", "lan_audacity.json not found in the selected directory.")

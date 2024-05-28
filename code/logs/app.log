@@ -30,3 +30,95 @@
 2024-05-28 16:05:39,895 - root - DEBUG - User Action...
 2024-05-28 16:05:40,646 - root - DEBUG - Preferences Action...
 2024-05-28 16:08:08,248 - root - INFO - End of Application
+2024-05-28 18:35:22,876 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 18:35:23,175 - root - DEBUG - None
+2024-05-28 18:35:23,176 - root - DEBUG - None
+2024-05-28 18:35:23,176 - root - DEBUG - None
+2024-05-28 18:35:23,180 - root - DEBUG - None
+2024-05-28 18:35:23,180 - root - DEBUG - None
+2024-05-28 18:35:23,180 - root - DEBUG - None
+2024-05-28 18:35:38,969 - root - INFO - 7
+2024-05-28 18:35:38,969 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:35:38,969 - root - INFO - eyrein-industrie_lans does exist
+2024-05-28 18:35:38,969 - root - INFO - eyrein-industrie_lans doesn't exist
+2024-05-28 18:35:38,969 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:35:38,973 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x106e84680>
+2024-05-28 18:35:38,973 - root - INFO - Load network
+2024-05-28 18:38:35,558 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 18:38:35,804 - root - DEBUG - None
+2024-05-28 18:38:35,804 - root - DEBUG - None
+2024-05-28 18:38:35,804 - root - DEBUG - None
+2024-05-28 18:38:35,806 - root - DEBUG - None
+2024-05-28 18:38:35,807 - root - DEBUG - None
+2024-05-28 18:38:35,807 - root - DEBUG - None
+2024-05-28 18:38:44,945 - root - INFO - 7
+2024-05-28 18:38:44,946 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:38:44,946 - root - INFO - eyrein-industrie_lans does exist
+2024-05-28 18:38:44,946 - root - INFO - eyrein-industrie_lans doesn't exist
+2024-05-28 18:38:44,946 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:38:44,949 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x1071413a0>
+2024-05-28 18:38:44,950 - root - INFO - Load network
+2024-05-28 18:39:21,613 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 18:39:21,792 - root - DEBUG - None
+2024-05-28 18:39:21,792 - root - DEBUG - None
+2024-05-28 18:39:21,792 - root - DEBUG - None
+2024-05-28 18:39:21,794 - root - DEBUG - None
+2024-05-28 18:39:21,794 - root - DEBUG - None
+2024-05-28 18:39:21,794 - root - DEBUG - None
+2024-05-28 18:39:32,577 - root - INFO - 7
+2024-05-28 18:39:32,577 - root - DEBUG - eyrein-industrie_lans/db/interfaces/60da9c78-9404-4116-812b-8f6a83e57d4f.json
+2024-05-28 18:39:32,577 - root - DEBUG - eyrein-industrie_lans/db/interfaces/cfc5645b-e490-4e93-8979-d4b88282d482.json
+2024-05-28 18:39:32,577 - root - DEBUG - eyrein-industrie_lans/db/interfaces/be125bbd-8178-4c43-b9ca-df986c2c0417.json
+2024-05-28 18:39:32,577 - root - DEBUG - eyrein-industrie_lans/db/interfaces/1ea6af3a-c28c-42c6-ab38-34dc159fd59c.json
+2024-05-28 18:39:32,577 - root - DEBUG - eyrein-industrie_lans/db/interfaces/121a775e-52f7-47ee-ac39-100a8ca6a42d.json
+2024-05-28 18:39:32,577 - root - DEBUG - eyrein-industrie_lans/db/interfaces/955f6ffe-7dbc-4b42-82f7-b8651ec1335a.json
+2024-05-28 18:39:32,577 - root - DEBUG - eyrein-industrie_lans/db/interfaces/993e901d-9eb3-4143-ac42-47acd0515d5f.json
+2024-05-28 18:39:32,577 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:39:32,577 - root - INFO - eyrein-industrie_lans does exist
+2024-05-28 18:39:32,577 - root - INFO - eyrein-industrie_lans doesn't exist
+2024-05-28 18:39:32,577 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:39:32,578 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x105500f80>
+2024-05-28 18:39:32,578 - root - INFO - Load network
+2024-05-28 18:40:34,188 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 18:40:34,372 - root - DEBUG - None
+2024-05-28 18:40:34,373 - root - DEBUG - None
+2024-05-28 18:40:34,373 - root - DEBUG - None
+2024-05-28 18:40:34,374 - root - DEBUG - None
+2024-05-28 18:40:34,375 - root - DEBUG - None
+2024-05-28 18:40:34,375 - root - DEBUG - None
+2024-05-28 18:40:43,725 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': '60da9c78-9404-4116-812b-8f6a83e57d4f', 'name': 'ZAC Bureaux', 'path': 'eyrein-industrie_lans/db/interfaces/60da9c78-9404-4116-812b-8f6a83e57d4f.json', 'ls_devices': []}, {'uuid': 'cfc5645b-e490-4e93-8979-d4b88282d482', 'name': 'ZAC Expéditions', 'path': 'eyrein-industrie_lans/db/interfaces/cfc5645b-e490-4e93-8979-d4b88282d482.json', 'ls_devices': []}, {'uuid': 'be125bbd-8178-4c43-b9ca-df986c2c0417', 'name': 'ZAC Invités', 'path': 'eyrein-industrie_lans/db/interfaces/be125bbd-8178-4c43-b9ca-df986c2c0417.json', 'ls_devices': []}, {'uuid': '1ea6af3a-c28c-42c6-ab38-34dc159fd59c', 'name': 'ZI', 'path': 'eyrein-industrie_lans/db/interfaces/1ea6af3a-c28c-42c6-ab38-34dc159fd59c.json', 'ls_devices': []}, {'uuid': '121a775e-52f7-47ee-ac39-100a8ca6a42d', 'name': 'TAZO', 'path': 'eyrein-industrie_lans/db/interfaces/121a775e-52f7-47ee-ac39-100a8ca6a42d.json', 'ls_devices': []}, {'uuid': '955f6ffe-7dbc-4b42-82f7-b8651ec1335a', 'name': 'PARIS', 'path': 'eyrein-industrie_lans/db/interfaces/955f6ffe-7dbc-4b42-82f7-b8651ec1335a.json', 'ls_devices': []}, {'uuid': '993e901d-9eb3-4143-ac42-47acd0515d5f', 'name': 'CHALLENGER', 'path': 'eyrein-industrie_lans/db/interfaces/993e901d-9eb3-4143-ac42-47acd0515d5f.json', 'ls_devices': []}]}
+2024-05-28 18:40:43,725 - root - INFO - 7
+2024-05-28 18:40:43,725 - root - DEBUG - eyrein-industrie_lans/db/interfaces/60da9c78-9404-4116-812b-8f6a83e57d4f.json
+2024-05-28 18:40:43,725 - root - DEBUG - eyrein-industrie_lans/db/interfaces/cfc5645b-e490-4e93-8979-d4b88282d482.json
+2024-05-28 18:40:43,726 - root - DEBUG - eyrein-industrie_lans/db/interfaces/be125bbd-8178-4c43-b9ca-df986c2c0417.json
+2024-05-28 18:40:43,726 - root - DEBUG - eyrein-industrie_lans/db/interfaces/1ea6af3a-c28c-42c6-ab38-34dc159fd59c.json
+2024-05-28 18:40:43,726 - root - DEBUG - eyrein-industrie_lans/db/interfaces/121a775e-52f7-47ee-ac39-100a8ca6a42d.json
+2024-05-28 18:40:43,726 - root - DEBUG - eyrein-industrie_lans/db/interfaces/955f6ffe-7dbc-4b42-82f7-b8651ec1335a.json
+2024-05-28 18:40:43,726 - root - DEBUG - eyrein-industrie_lans/db/interfaces/993e901d-9eb3-4143-ac42-47acd0515d5f.json
+2024-05-28 18:40:43,726 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:40:43,726 - root - INFO - eyrein-industrie_lans does exist
+2024-05-28 18:40:43,726 - root - INFO - eyrein-industrie_lans doesn't exist
+2024-05-28 18:40:43,726 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 18:40:43,727 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x1180ed010>
+2024-05-28 18:40:43,727 - root - INFO - Load network
+2024-05-28 19:06:28,032 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 19:06:28,225 - root - DEBUG - None
+2024-05-28 19:06:28,226 - root - DEBUG - None
+2024-05-28 19:06:28,226 - root - DEBUG - None
+2024-05-28 19:06:28,228 - root - DEBUG - None
+2024-05-28 19:06:28,229 - root - DEBUG - None
+2024-05-28 19:06:28,229 - root - DEBUG - None
+2024-05-28 19:06:41,491 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': '60da9c78-9404-4116-812b-8f6a83e57d4f', 'name': 'ZAC Bureaux', 'path': 'eyrein-industrie_lans/db/interfaces/60da9c78-9404-4116-812b-8f6a83e57d4f.json', 'ls_devices': []}, {'uuid': 'cfc5645b-e490-4e93-8979-d4b88282d482', 'name': 'ZAC Expéditions', 'path': 'eyrein-industrie_lans/db/interfaces/cfc5645b-e490-4e93-8979-d4b88282d482.json', 'ls_devices': []}, {'uuid': 'be125bbd-8178-4c43-b9ca-df986c2c0417', 'name': 'ZAC Invités', 'path': 'eyrein-industrie_lans/db/interfaces/be125bbd-8178-4c43-b9ca-df986c2c0417.json', 'ls_devices': []}, {'uuid': '1ea6af3a-c28c-42c6-ab38-34dc159fd59c', 'name': 'ZI', 'path': 'eyrein-industrie_lans/db/interfaces/1ea6af3a-c28c-42c6-ab38-34dc159fd59c.json', 'ls_devices': []}, {'uuid': '121a775e-52f7-47ee-ac39-100a8ca6a42d', 'name': 'TAZO', 'path': 'eyrein-industrie_lans/db/interfaces/121a775e-52f7-47ee-ac39-100a8ca6a42d.json', 'ls_devices': []}, {'uuid': '955f6ffe-7dbc-4b42-82f7-b8651ec1335a', 'name': 'PARIS', 'path': 'eyrein-industrie_lans/db/interfaces/955f6ffe-7dbc-4b42-82f7-b8651ec1335a.json', 'ls_devices': []}, {'uuid': '993e901d-9eb3-4143-ac42-47acd0515d5f', 'name': 'CHALLENGER', 'path': 'eyrein-industrie_lans/db/interfaces/993e901d-9eb3-4143-ac42-47acd0515d5f.json', 'ls_devices': []}]}
+2024-05-28 19:06:41,491 - root - INFO - 7
+2024-05-28 19:06:41,491 - root - DEBUG - eyrein-industrie_lans/db/interfaces/60da9c78-9404-4116-812b-8f6a83e57d4f.json
+2024-05-28 19:06:41,492 - root - DEBUG - eyrein-industrie_lans/db/interfaces/cfc5645b-e490-4e93-8979-d4b88282d482.json
+2024-05-28 19:06:41,492 - root - DEBUG - eyrein-industrie_lans/db/interfaces/be125bbd-8178-4c43-b9ca-df986c2c0417.json
+2024-05-28 19:06:41,492 - root - DEBUG - eyrein-industrie_lans/db/interfaces/1ea6af3a-c28c-42c6-ab38-34dc159fd59c.json
+2024-05-28 19:06:41,492 - root - DEBUG - eyrein-industrie_lans/db/interfaces/121a775e-52f7-47ee-ac39-100a8ca6a42d.json
+2024-05-28 19:06:41,492 - root - DEBUG - eyrein-industrie_lans/db/interfaces/955f6ffe-7dbc-4b42-82f7-b8651ec1335a.json
+2024-05-28 19:06:41,492 - root - DEBUG - eyrein-industrie_lans/db/interfaces/993e901d-9eb3-4143-ac42-47acd0515d5f.json
+2024-05-28 19:06:41,492 - root - INFO - Path: /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 19:06:41,492 - root - INFO - eyrein-industrie_lans does exist
+2024-05-28 19:06:41,492 - root - INFO - eyrein-industrie_lans doesn't exist
+2024-05-28 19:06:41,492 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
+2024-05-28 20:36:08,946 - root - INFO - End of Application
