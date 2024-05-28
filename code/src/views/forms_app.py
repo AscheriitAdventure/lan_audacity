@@ -229,6 +229,5 @@ class NProject(FormDialog):
         options |= QFileDialog.DontUseNativeDialog
         directory = QFileDialog.getExistingDirectory(self, "Select Save Path", "", options=options)
         if directory:
-            self.fields["project_path"].setText(directory)
+            self.fields["save_path"].setText(directory)
             print("Save Path selected: ", directory)
-
