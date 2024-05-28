@@ -3,19 +3,11 @@ import sys
 import logging
 import logging.config
 import json
-import qtawesome as qta
-from PyQt5.QtWidgets import (
+from qtpy.QtWidgets import (
     QApplication,
     QMainWindow,
     QWidget,
-    QGridLayout,
-    QLabel,
-    QFrame,
-    QTabWidget,
-    QPushButton,
     QFileDialog,
-    QTreeView,
-    QFileSystemModel,
     QStatusBar,
     QLineEdit,
     QToolBar,
@@ -23,19 +15,15 @@ from PyQt5.QtWidgets import (
     QStackedWidget,
     QVBoxLayout,
     QSizePolicy,
-    QAbstractItemView,
     QSizePolicy,
     QDialog,
     QMessageBox,
-    QHBoxLayout,
     QSplitter
 )
-from PyQt5.QtCore import Qt, pyqtSignal as Signal, QDir, QFile, QIODevice
-from PyQt5.QtGui import QStandardItemModel, QStandardItem, QFont
+from qtpy.QtCore import Qt
 
 
 from src.models.configuration_file import ConfigurationFile
-from src.models.device import Device
 from src.models.network import Network
 from src.models.language_app import LanguageApp
 from src.models.shortcut_app import ShortcutApp
@@ -43,8 +31,9 @@ from src.models.icons_app import IconsApp
 from src.models.lan_audacity import LanAudacity
 from src.models.menu_bar_app import MenuBarApp
 
-from src.views.forms_app import NNetwork, NProject
-
+from src.views.forms_app import NProject
+from src.views.tabs_app import TabFactoryWidget as Tab
+from src.views.prm_sd_pnl import FlsExpl, NetExpl, GeneralSidePanel
 
 def current_dir():
     try:
@@ -62,473 +51,6 @@ def get_spcValue(liste_add: list, arg_1: str, obj_src: str) -> dict:
         if obj_dict[arg_1] == obj_src:
             return obj_dict
     return {}
-
-
-class NDevice(QDialog):
-    def __init__(
-            self,
-            dialog_title: str,
-            lan_audacity: LanAudacity,
-            lang_manager: LanguageApp = None,
-            icon_manager: IconsApp = None,
-            parent=None
-    ):
-        super().__init__(parent)
-        self.langManager = lang_manager
-        self.iconManager = icon_manager
-        self.setWindowTitle(dialog_title)
-
-        # layout
-        self.layout = QGridLayout(self)
-        self.setLayout(self.layout)
-
-        # Title
-        self.title = QLabel(dialog_title)
-        self.title.setFont(QFont("Arial", 16, QFont.Bold))
-        self.layout.addWidget(self.title, 0, 0, 1, 3)
-
-        sep = QFrame(self)
-        sep.setFrameShape(QFrame.HLine)
-        sep.setFrameShadow(QFrame.Sunken)
-        self.layout.addWidget(sep, 1, 0, 1, 3)
-
-        self.formUI()
-
-    def formUI(self):
-        obj_ls = [
-            {
-                "n_label": "Device Name:",
-                "n_obj": "device_name",
-                "n_text": "Device 1",
-                "n_placeholder": "Device Name",
-                "required": False
-            },
-            {
-                "n_label": "Device IPv4:",
-                "n_obj": "ipv4",
-                "n_text": None,
-                "n_placeholder": "127.0.0.1",
-                "required": True
-            },
-            {
-                "n_label": "Device Mask IPv4:",
-                "n_obj": "mask_ipv4",
-                "n_text": None,
-                "n_placeholder": "255.0.0.0",
-                "required": True
-            },
-            {
-                "n_label": "Device IPv6:",
-                "n_obj": "ipv6",
-                "n_text": None,
-                "n_placeholder": "::1",
-                "required": False
-            },
-            {
-                "n_label": "Device Mask IPv6:",
-                "n_obj": "mask_ipv6",
-                "n_text": None,
-                "n_placeholder": "ffff:ffff:ffff:ffff::",
-                "required": False
-            },
-            {
-                "n_label": "Device Type:",
-                "n_obj": "device_type",
-                "n_text": None,
-                "n_placeholder": "Router",
-                "required": False
-            },
-            {
-                "n_label": "Device Model:",
-                "n_obj": "device_model",
-                "n_text": None,
-                "n_placeholder": "Cisco",
-                "required": False
-            },
-            {
-                "n_label": "Device Brand:",
-                "n_obj": "device_brand",
-                "n_text": None,
-                "n_placeholder": "Linksys",
-                "required": False
-            },
-            {
-                "n_label": "Device MAC:",
-                "n_obj": "device_mac",
-                "n_text": None,
-                "n_placeholder": "00:00:00:00:00:00",
-                "required": False
-            },
-            {
-                "n_label": "Device Gateway:",
-                "n_obj": "device_gateway",
-                "n_text": None,
-                "n_placeholder": "127.0.0.1",
-                "required": False
-            },
-            {
-                "n_label": "Device DNS:",
-                "n_obj": "device_dns",
-                "n_text": None,
-                "n_placeholder": "127.0.0.1",
-                "required": False
-            },
-            {
-                "n_label": "Device DHCP:",
-                "n_obj": "device_dhcp",
-                "n_text": None,
-                "n_placeholder": "127.0.0.1",
-                "required": False
-            },
-        ]
-
-        self.fields = {}
-
-        for i, obj in enumerate(obj_ls):
-            label = QLabel(obj["n_label"])
-            self.layout.addWidget(label, i + 2, 0)
-            field = QLineEdit(self)
-            field.setPlaceholderText(obj["n_placeholder"])
-            if obj["n_text"]:
-                field.setText(obj["n_text"])
-            if obj["required"]:
-                field.setStyleSheet("border: 1px solid red;")
-            self.layout.addWidget(field, i + 2, 1)
-            self.fields[obj["n_obj"]] = field
-
-        # Validate button
-        self.validate_button = QPushButton("Validate")
-        self.layout.addWidget(self.validate_button, len(obj_ls) + 2, 2, alignment=Qt.AlignCenter)
-        self.validate_button.clicked.connect(self.validate_form)
-
-        # Cancel button
-        self.cancel_button = QPushButton("Cancel")
-        self.layout.addWidget(self.cancel_button, len(obj_ls) + 2, 0, alignment=Qt.AlignCenter)
-        self.cancel_button.clicked.connect(self.reject)
-
-    def validate_form(self):
-        if self.fields["ipv4"].text() and self.fields["mask_ipv4"].text():
-            QMessageBox.information(self, "Confirmation", "All required fields are filled in.")
-            self.accept()
-        else:
-            QMessageBox.warning(self, "Error", "Please fill in all required fields (Device IPv4 and Device Mask IPv4).")
-
-    def get_data(self):
-        data = {key: field.text() for key, field in self.fields.items()}
-        return data
-
-
-class TabFactoryWidget(QTabWidget):
-    def __init__(self, lang_manager: LanguageApp, parent=None):
-        super().__init__(parent)
-        self.langManager = lang_manager
-        self.setMovable(True)
-        self.setTabsClosable(True)
-        self.tabCloseRequested.connect(self.close_tab)
-
-    def close_tab(self, index):
-        self.removeTab(index)
-
-    def add_tab(self, tab: QWidget, title="Non Renseigné"):
-        self.addTab(tab, title)
-        self.setCurrentWidget(tab)
-        tab.show()
-        return tab
-
-    def get_current_tab(self):
-        return self.currentWidget()
-
-    def get_tab(self, index):
-        return self.widget(index)
-
-
-# General View for Primary Side Panel
-class GeneralSidePanel(QWidget):
-    extObjChanged = Signal()
-
-    def __init__(
-            self,
-            title_panel: str,
-            tab_connect: TabFactoryWidget = None,
-            lang_manager: LanguageApp = None,
-            icon_manager: IconsApp = None,
-            keys_manager: ShortcutApp = None,
-            parent=None
-    ):
-        super().__init__(parent)
-        logging.info(f"parent:{parent}")
-        self.titlePanel = title_panel
-        self.extObj = None
-        self.langManager = lang_manager
-        self.iconManager = icon_manager
-        self.keysManager = keys_manager
-        self.tabConnect = tab_connect
-
-        self.glbLayout = QVBoxLayout(self)
-        self.setLayout(self.glbLayout)
-
-        self.initUI()
-        self.initDisplayObj()
-        self.btn_null = QPushButton("Open Project")
-        self.btn_null.clicked.connect(parent.openProjectAction)
-        self.glbLayout.addWidget(self.btn_null)
-        self.set_extObjDisplay()
-
-        self.extObjChanged.connect(self.set_extObjDisplay)
-
-    def set_extObjDisplay(self):
-        logging.debug(f"{self.extObj}")
-        if self.extObj is None:
-            self.treeView.hide()
-            self.btn_null.show()
-        else:
-            self.btn_null.hide()
-            self.treeView.show()
-            self.loadDisplayObj()
-
-    def setExtendsLs(self) -> list:
-        ls_btn = [
-            {
-                "icon": self.iconManager.get_icon("defaultIcon"),
-                "tooltip": "flag",
-                "action": None
-            },
-        ]
-        return ls_btn
-
-    def initUI(self):
-        hwidget = QWidget(self)
-        hbar = QHBoxLayout()
-        # hbar.setContentsMargins(0, 0, 0, 0)
-        hwidget.setLayout(hbar)
-        self.glbLayout.addWidget(hwidget)
-
-        titleUI = QLabel(self.titlePanel.upper())
-        titleUI.setFont(QFont("Arial", 12, QFont.Bold))
-        hbar.addWidget(titleUI)
-
-        hbar.addStretch()
-
-        for infos in self.setExtendsLs():
-            btn = QPushButton(self)
-            btn.setIcon(infos['icon'])
-            btn.setToolTip(infos['tooltip'])
-            if infos['action'] is not None:
-                btn.clicked.connect(infos['action'])
-            hbar.addWidget(btn)
-
-        sep = QFrame(self)
-        sep.setFrameShape(QFrame.HLine)
-        sep.setFrameShadow(QFrame.Sunken)
-        self.glbLayout.addWidget(sep)
-
-    def initDisplayObj(self):
-        self.treeView = QTreeView()
-        self.treeView.setHeaderHidden(True)
-        self.treeView.setAnimated(True)
-        self.glbLayout.addWidget(self.treeView)
-
-    def loadDisplayObj(self):
-        model = QFileSystemModel()
-        model.setRootPath(self.extObj)
-        self.treeView.setModel(model)
-        self.treeView.setRootIndex(model.index(self.extObj))
-        self.treeView.setSortingEnabled(True)
-        self.treeView.sortByColumn(0, Qt.AscendingOrder)
-        self.treeView.setColumnHidden(1, True)
-        self.treeView.setColumnHidden(2, True)
-        self.treeView.setColumnHidden(3, True)
-
-    def openTabObj(self, index):
-        logging.info("Open Tab for Obj in Tree")
-        item = self.treeView.model().itemFromIndex(index)
-        if item is not None:
-            logging.info(f"Item: {item.text()}")
-
-
-# Files Explorer Primary Side Panel
-class FlsExpl(GeneralSidePanel):
-    def __init__(
-            self,
-            title_panel: str,
-            path: str = None,
-            tab_connect: TabFactoryWidget = None,
-            lang_manager: LanguageApp = None,
-            icon_manager: IconsApp = None,
-            keys_manager: ShortcutApp = None,
-            parent=None
-    ):
-        super().__init__(title_panel, tab_connect, lang_manager, icon_manager, keys_manager, parent)
-        self.extObj = path
-
-    def setExtendsLs(self) -> list:
-        ls_btn = [
-            {
-                "icon": self.iconManager.get_icon("newFileAction"),
-                "tooltip": "New File",
-                "action": self.addFile
-            },
-            {
-                "icon": self.iconManager.get_icon("newFolderAction"),
-                "tooltip": "New Folder",
-                "action": self.addFolder
-            },
-        ]
-        return ls_btn
-
-    def loadObjects(self):
-        model = QFileSystemModel()
-        model.setRootPath(self.opex)
-        model.setFilter(QDir.NoDotAndDotDot | QDir.AllDirs | QDir.Files)
-        self.treeView.setModel(model)
-        self.treeView.setRootIndex(model.index(self.opex))
-        self.treeView.setSortingEnabled(True)
-        self.treeView.setColumnHidden(1, True)
-        self.treeView.setColumnHidden(2, True)
-        self.treeView.setColumnHidden(3, True)
-
-        self.treeView.sortByColumn(0, Qt.AscendingOrder)
-        self.treeView.setAnimated(True)
-        self.treeView.setIndentation(20)
-        self.treeView.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.treeView.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.treeView.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.treeView.setDragDropMode(QAbstractItemView.DragDropMode.DragDrop)
-        self.treeView.setContextMenuPolicy(Qt.CustomContextMenu)
-
-    def addFile(self):
-        if self.extObj is None:
-            self.extObj = os.getcwd()
-        # Ouvrir une boîte de dialogue pour choisir l'emplacement et le nom du fichier
-        file_path, _ = QFileDialog.getSaveFileName(
-            self, "Ajouter un fichier", self.extObj
-        )
-        if file_path:
-            # Créer le fichier
-            file = QFile(file_path)
-            if file.open(QIODevice.WriteOnly):
-                file.close()
-                logging.info(f"File '{file_path}' created successfully.")
-            else:
-                logging.error(f"Failed to create file '{file_path}'.")
-
-    def addFolder(self):
-        if self.extObj is None:
-            self.extObj = os.getcwd()
-        # Ouvrir une boîte de dialogue pour choisir l'emplacement et le nom du dossier
-        folder_path = QFileDialog.getExistingDirectory(
-            self, "Ajouter un dossier", self.extObj
-        )
-        if folder_path:
-            # Créer le dossier
-            if QDir().mkdir(folder_path):
-                logging.info(f"Folder '{folder_path}' created successfully.")
-            else:
-                logging.error(f"Failed to create folder '{folder_path}'.")
-
-
-# Network Explorer Primary Side Panel
-class NetExpl(GeneralSidePanel):
-    def __init__(
-            self,
-            title_panel: str,
-            lan_class: LanAudacity = None,
-            tab_connect: TabFactoryWidget = None,
-            lang_manager: LanguageApp = None,
-            icon_manager: IconsApp = None,
-            keys_manager: ShortcutApp = None,
-            parent=None
-    ):
-        super().__init__(title_panel, tab_connect, lang_manager, icon_manager, keys_manager, parent)
-        self.extObj = lan_class
-
-    def setExtendsLs(self) -> list:
-        ls_btn = [
-            {
-                "icon": self.iconManager.get_icon("newLanAction"),
-                "tooltip": "New Network",
-                "action": self.addNetworkObj
-            },
-            {
-                "icon": self.iconManager.get_icon("newDeviceAction"),
-                "tooltip": "New Device",
-                "action": self.addDeviceObj
-            },
-        ]
-        return ls_btn
-
-    def loadDisplayObj(self) -> None:
-        logging.info("Load network")
-        model = QStandardItemModel()
-        self.treeView.setModel(model)
-        if self.extObj is not None and hasattr(self.extObj, 'networks'):
-            for network in self.extObj.networks:
-                logging.debug(network)
-                self.add_network_to_tree(network)
-            if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
-                pass
-
-    def addDeviceObj(self, network: Network = None):
-        logging.info("Add device")
-        new_device = NDevice("New Device", self.extObj, self.langManager, self.iconManager)
-        if new_device.exec_() == QDialog.Accepted:
-            device_data = new_device.get_data()
-            device0 = Device(
-                device_ipv4=device_data["ipv4"],
-                mask_ipv4=device_data["mask_ipv4"],
-                save_path=self.extObj.save_path,
-                device_name=device_data["device_name"],
-                device_ipv6=device_data.get("ipv6"),
-                mask_ipv6=device_data.get("mask_ipv6"),
-                device_type=device_data.get("device_type"),
-                device_model=device_data.get("device_model"),
-                device_brand=device_data.get("device_brand"),
-                device_mac=device_data.get("device_mac"),
-                device_gateway=device_data.get("device_gateway"),
-                device_dns=device_data.get("device_dns"),
-                device_dhcp=device_data.get("device_dhcp")
-            )
-            device0.create_device()
-            if network:
-                network.add_device(device0)
-                network.save_network()
-                self.add_device_to_tree(network, device0)
-
-    def addNetworkObj(self):
-        logging.info("Add network")
-        new_network = NNetwork("New Network", self.extObj, self.langManager, self.iconManager)
-        if new_network.exec_() == QDialog.Accepted:
-            network_data = new_network.get_data()
-            network = Network(
-                network_ipv4=network_data["ipv4"],
-                network_mask_ipv4=network_data["mask_ipv4"],
-                save_path=network_data["path"],
-                network_name=network_data.get("network_name"),
-                network_ipv6=network_data.get("ipv6"),
-                network_gateway=network_data.get("gateway"),
-                network_dns=network_data.get("dns"),
-                network_dhcp=network_data.get("dhcp")
-            )
-            network.create_network()
-            self.extObj.add_network(network)
-            self.extObj.save_project()
-
-            self.add_network_to_tree(network)
-        # Add Network to Tree
-
-    def add_network_to_tree(self, network: Network):
-        root = self.treeView.model().invisibleRootItem()
-        logging.debug(network.name)
-        if network.name is None:
-            network.name = f"Network {len(root)}"
-        item = QStandardItem(network.name)
-        item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
-        root.appendRow(item)
-
-    def add_device_to_tree(self, selected_network, device):
-        item = QStandardItem(device.name)
-        item.setIcon(qta.icon("mdi6.cellphone"))
-        selected_network.appendRow(item)
 
 
 class MainApp(QMainWindow):
@@ -760,22 +282,16 @@ class MainApp(QMainWindow):
         self.primary_side_bar.setMaximumWidth(400)
 
         # Primary Center Object (Center with Tab Widget)
-        self.primary_center = QTabWidget(self)
-        self.primary_center.setMinimumWidth(100)
-        self.primary_center.setMinimumHeight(100)
-        self.primary_center.setTabsClosable(True)
-        self.primary_center.setMovable(True)
+        self.primary_center = Tab(self.langManager, self)
 
         # Primary Panel (Bottom with Tab Widget)
-        self.primary_panel = QTabWidget(self)
-        self.primary_panel.setMinimumHeight(100)
-        self.primary_panel.setTabsClosable(True)
-        self.primary_panel.setMovable(True)
+        self.primary_panel = Tab(self.langManager, self)
 
         # Splitter between Primary Panel and Primary Center
         self.v_splitter = QSplitter(Qt.Vertical)
         self.v_splitter.addWidget(self.primary_center)
         self.v_splitter.addWidget(self.primary_panel)
+        self.v_splitter.setSizes([self.primary_center.height(), self.primary_panel.height()])
 
         # Splitter between Primary Side Bar and V Splitter
         self.h_splitter = QSplitter(Qt.Horizontal)
@@ -952,10 +468,12 @@ class MainApp(QMainWindow):
 
     def preferencesAction(self) -> None:
         logging.debug("Preferences Action...")
+        self.primary_center.add_tab(title="Preferences")
         # Open the preferences window
 
     def userAction(self) -> None:
         logging.debug("User Action...")
+        self.primary_center.add_tab(title="User")
         # Open the user window
 
 

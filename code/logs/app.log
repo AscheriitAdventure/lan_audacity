@@ -1,0 +1,32 @@
+2024-05-28 12:14:05,536 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 12:14:06,723 - root - INFO - parent:<__main__.MainApp object at 0x0000020D2ED7BDA0>
+2024-05-28 12:14:06,734 - root - DEBUG - None
+2024-05-28 12:14:06,734 - root - INFO - parent:<__main__.MainApp object at 0x0000020D2ED7BDA0>
+2024-05-28 12:14:06,736 - root - DEBUG - None
+2024-05-28 12:14:06,736 - root - INFO - parent:<__main__.MainApp object at 0x0000020D2ED7BDA0>
+2024-05-28 12:14:06,737 - root - DEBUG - None
+2024-05-28 12:14:06,746 - root - INFO - parent:<__main__.MainApp object at 0x0000020D2ED7BDA0>
+2024-05-28 12:14:06,747 - root - DEBUG - None
+2024-05-28 12:14:06,747 - root - INFO - parent:<__main__.MainApp object at 0x0000020D2ED7BDA0>
+2024-05-28 12:14:06,748 - root - DEBUG - None
+2024-05-28 12:14:06,749 - root - INFO - parent:<__main__.MainApp object at 0x0000020D2ED7BDA0>
+2024-05-28 12:14:06,750 - root - DEBUG - None
+2024-05-28 16:01:34,531 - root - INFO - End of Application
+2024-05-28 16:01:44,376 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 16:02:34,402 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 16:05:07,710 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-28 16:05:08,593 - root - INFO - parent:<__main__.MainApp object at 0x00000243AFF03E30>
+2024-05-28 16:05:08,618 - root - DEBUG - None
+2024-05-28 16:05:08,619 - root - INFO - parent:<__main__.MainApp object at 0x00000243AFF03E30>
+2024-05-28 16:05:08,620 - root - DEBUG - None
+2024-05-28 16:05:08,620 - root - INFO - parent:<__main__.MainApp object at 0x00000243AFF03E30>
+2024-05-28 16:05:08,621 - root - DEBUG - None
+2024-05-28 16:05:08,633 - root - INFO - parent:<__main__.MainApp object at 0x00000243AFF03E30>
+2024-05-28 16:05:08,635 - root - DEBUG - None
+2024-05-28 16:05:08,635 - root - INFO - parent:<__main__.MainApp object at 0x00000243AFF03E30>
+2024-05-28 16:05:08,636 - root - DEBUG - None
+2024-05-28 16:05:08,636 - root - INFO - parent:<__main__.MainApp object at 0x00000243AFF03E30>
+2024-05-28 16:05:08,637 - root - DEBUG - None
+2024-05-28 16:05:39,895 - root - DEBUG - User Action...
+2024-05-28 16:05:40,646 - root - DEBUG - Preferences Action...
+2024-05-28 16:08:08,248 - root - INFO - End of Application

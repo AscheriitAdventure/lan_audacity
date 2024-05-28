@@ -1,4 +1,4 @@
-from qtpy.QtWidgets import QDialog, QGridLayout, QLabel, QLineEdit, QPushButton, QFrame, QFileDialog
+from qtpy.QtWidgets import QDialog, QGridLayout, QLabel, QLineEdit, QPushButton, QFrame, QFileDialog, QMessageBox
 from qtpy.QtGui import QFont
 from qtpy.QtCore import Qt
 from typing import Any
@@ -231,3 +231,104 @@ class NProject(FormDialog):
         if directory:
             self.fields["save_path"].setText(directory)
             print("Save Path selected: ", directory)
+
+
+class NDevice(FormDialog):
+    def __init__(self, ext_obj: LanAudacity = None, lang_manager: LanguageApp = None, icon_manager: IconsApp = None,
+                 parent=None):
+        super().__init__(
+            "New Device",
+            ext_obj=ext_obj,
+            lang_manager=lang_manager,
+            icon_manager=icon_manager,
+            parent=parent
+        )
+
+    def set_formObj(self) -> list:
+        data = [
+            {
+                "n_label": "Device Name:",
+                "n_obj": "device_name",
+                "n_text": "Device 1",
+                "n_placeholder": "Device Name",
+                "required": False
+            },
+            {
+                "n_label": "Device IPv4:",
+                "n_obj": "ipv4",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": True
+            },
+            {
+                "n_label": "Device Mask IPv4:",
+                "n_obj": "mask_ipv4",
+                "n_text": None,
+                "n_placeholder": "255.0.0.0",
+                "required": True
+            },
+            {
+                "n_label": "Device IPv6:",
+                "n_obj": "ipv6",
+                "n_text": None,
+                "n_placeholder": "::1",
+                "required": False
+            },
+            {
+                "n_label": "Device Mask IPv6:",
+                "n_obj": "mask_ipv6",
+                "n_text": None,
+                "n_placeholder": "ffff:ffff:ffff:ffff::",
+                "required": False
+            },
+            {
+                "n_label": "Device Type:",
+                "n_obj": "device_type",
+                "n_text": None,
+                "n_placeholder": "Router",
+                "required": False
+            },
+            {
+                "n_label": "Device Model:",
+                "n_obj": "device_model",
+                "n_text": None,
+                "n_placeholder": "Cisco",
+                "required": False
+            },
+            {
+                "n_label": "Device Brand:",
+                "n_obj": "device_brand",
+                "n_text": None,
+                "n_placeholder": "Linksys",
+                "required": False
+            },
+            {
+                "n_label": "Device MAC:",
+                "n_obj": "device_mac",
+                "n_text": None,
+                "n_placeholder": "00:00:00:00:00:00",
+                "required": False
+            },
+            {
+                "n_label": "Device Gateway:",
+                "n_obj": "device_gateway",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": False
+            },
+            {
+                "n_label": "Device DNS:",
+                "n_obj": "device_dns",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": False
+            },
+            {
+                "n_label": "Device DHCP:",
+                "n_obj": "device_dhcp",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": False
+            },
+        ]
+        return data
