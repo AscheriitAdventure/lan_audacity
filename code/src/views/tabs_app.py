@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QTabWidget, QWidget, QGridLayout, QVBoxLayout, QPush
 from PyQt5.QtCore import Qt
 from typing import Any
 
+import logging
 from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
 
@@ -84,13 +85,13 @@ class GeneralTabsView(QWidget):
             {
                 "name": "News",
                 "tooltip": "News",
-                "icon": "newspaperBtn",
+                "icon": "defaultIcon",
                 "action": self.notifications_btn
             },
             {
                 "name": "&Preferences",
                 "tooltip": "&Preferences",
-                "icon": "newspaperBtn",
+                "icon": "defaultIcon",
                 "action": self.informations_btn
             }
         ]
@@ -102,3 +103,85 @@ class GeneralTabsView(QWidget):
     def informations_btn(self):
         self.stackedFields.setCurrentWidget(self.info_menu)
 
+class PreferencesTabView(GeneralTabsView):
+    def __init__(self, title_panel: str, ext_obj: Any = None, lang_manager: LanguageApp = None, icons_manager: IconsApp = None, parent=None) -> None:
+        super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
+        logging.debug(parent)
+    
+    def setListBtn(self) -> list:
+        data = [
+            {
+                "name_btn": "General",
+                "tooltip": "General",
+                "icon": "defaultIcon",
+                "action": self.general_btn,
+            },
+            {
+                "name_btn": "Language",
+                "tooltip": "Language",
+                "icon": "defaultIcon",
+                "action": self.language_btn,
+            },
+            {
+                "name_btn": "Palette Shortcut",
+                "tooltip": "Palette Shortcut",
+                "icon": "defaultIcon",
+                "action": self.palette_shortcut_btn,
+            },
+            {
+                "name_btn": "License",
+                "tooltip": "License",
+                "icon": "defaultIcon",
+                "action": self.about_btn,
+            },
+            {
+                "name_btn": "Theme",
+                "tooltip": "Theme",
+                "icon": "defaultIcon",
+                "action": self.theme_btn,
+            },
+            {
+                "name_btn": "Update",
+                "tooltip": "Update",
+                "icon": "defaultIcon",
+                "action": self.update_btn,
+            },
+        ]
+        return data
+    
+    def initDisplay(self):
+        self.general_menu = QWidget(self)
+        self.stacked_layout.addWidget(self.general_menu)
+
+        self.language_menu = QWidget(self)
+        self.stacked_layout.addWidget(self.language_menu)
+
+        self.palette_shortcut_menu = QWidget(self)
+        self.stacked_layout.addWidget(self.palette_shortcut_menu)
+
+        self.about_menu = QWidget(self)
+        self.stacked_layout.addWidget(self.about_menu)
+
+        self.theme_menu = QWidget(self)
+        self.stacked_layout.addWidget(self.theme_menu)
+
+        self.update_menu = QWidget(self)
+        self.stacked_layout.addWidget(self.update_menu)
+
+    def general_btn(self):
+        self.stacked_layout.setCurrentWidget(self.general_menu)
+
+    def language_btn(self):
+        self.stacked_layout.setCurrentWidget(self.language_menu)
+
+    def palette_shortcut_btn(self):
+        self.stacked_layout.setCurrentWidget(self.palette_shortcut_menu)
+
+    def about_btn(self):
+        self.stacked_layout.setCurrentWidget(self.about_menu)
+
+    def theme_btn(self):
+        self.stacked_layout.setCurrentWidget(self.theme_menu)
+
+    def update_btn(self):
+        self.stacked_layout.setCurrentWidget(self.update_menu)
