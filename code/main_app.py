@@ -3,15 +3,6 @@ import sys
 import logging
 import logging.config
 import json
-import yaml
-import xmltodict
-import csv
-import uuid
-import configparser
-import string
-import time
-import shutil
-from typing import Union, Optional
 import qtawesome as qta
 from PyQt5.QtWidgets import (
     QApplication,
@@ -40,47 +31,18 @@ from PyQt5.QtWidgets import (
     QSplitter
 )
 from PyQt5.QtCore import Qt, pyqtSignal as Signal, QDir, QFile, QIODevice
-from PyQt5.QtGui import QIcon, QStandardItemModel, QStandardItem, QFont
+from PyQt5.QtGui import QStandardItemModel, QStandardItem, QFont
 
 
-class SwitchFile:
-    @staticmethod
-    def json(abs_path: str) -> any:
-        with open(abs_path, "r+", encoding="utf-8") as file:
-            return json.load(file)
+from src.models.configuration_file import ConfigurationFile
+from src.models.device import Device
+from src.models.network import Network
+from src.models.language_app import LanguageApp
+from src.models.shortcut_app import ShortcutApp
+from src.models.icons_app import IconsApp
+from src.models.lan_audacity import LanAudacity
 
-    @staticmethod
-    def yaml(abs_path: str) -> any:
-        with open(abs_path, "r+", encoding="utf-8") as file:
-            return yaml.load(file, Loader=yaml.FullLoader)
-
-    @staticmethod
-    def xml(abs_path: str) -> any:
-        with open(abs_path, "r+", encoding="utf-8") as file:
-            return xmltodict.parse(file.read())
-
-    @staticmethod
-    def csv(abs_path: str) -> any:
-        with open(abs_path, "r+", encoding="utf-8") as file:
-            return csv.DictReader(file)
-
-    @staticmethod
-    def txt(abs_path: str) -> any:
-        with open(abs_path, "r+", encoding="utf-8") as file:
-            return file.read()
-
-    @staticmethod
-    def ini(abs_path: str) -> any:
-        config = configparser.ConfigParser()
-        config.read(abs_path, encoding="utf-8")
-        return config
-
-    @staticmethod
-    def conf(abs_path: str) -> any:
-        config = configparser.ConfigParser()
-        config.read(abs_path)
-        return config
-
+from src.views.forms_app import NNetwork, NProject
 
 def current_dir():
     try:
@@ -98,490 +60,6 @@ def get_spcValue(liste_add: list, arg_1: str, obj_src: str) -> dict:
         if obj_dict[arg_1] == obj_src:
             return obj_dict
     return {}
-
-
-class ConfigurationFile:
-    def __init__(self, abs_path: str):
-        self.__abs_path: str = abs_path
-        self.__file: str = os.path.basename(abs_path)
-        self.__data = self.load_file()
-
-    @property
-    def abs_path(self) -> str:
-        return self.__abs_path
-
-    @abs_path.setter
-    def abs_path(self, abs_path: str) -> None:
-        if abs_path:
-            self.__abs_path = abs_path
-        else:
-            logging.error(
-                "Le chemin du fichier de configuration est vide ou non-renseigné."
-            )
-
-    @property
-    def file(self) -> str:
-        return self.__file
-
-    @property
-    def data(self) -> any:
-        return self.__data
-
-    def load_file(self) -> any:
-        switch_file = SwitchFile()
-        if os.path.exists(self.abs_path):
-            return getattr(
-                switch_file,
-                ConfigurationFile.get_extension(self.abs_path),
-                switch_file.txt,
-            )(self.abs_path)
-        else:
-            logging.error(f"Le fichier de configuration {self.file} n'existe pas.")
-            return None
-
-    def get_value(self, key: str) -> str | None:
-        if self.data:
-            return self.data.get(key)
-        else:
-            logging.warning("Aucune configuration chargée ou trouvée.")
-            return None
-
-    @staticmethod
-    def get_extension(abs_path: str) -> str:
-        _, file_extension = os.path.splitext(abs_path)
-        return file_extension.lower().strip(string.punctuation)
-
-
-class Device:
-    def __init__(
-            self,
-            device_ipv4: str,
-            mask_ipv4: str,
-            save_path: str,
-            device_name: Optional[str] = None,
-            device_ipv6: Optional[str] = None,
-            mask_ipv6: Optional[str] = None,
-            device_type: Optional[str] = None,
-            device_os: Optional[str] = None,
-            device_model: Optional[str] = None,
-            device_brand: Optional[str] = None,
-            device_mac: Optional[str] = None,
-            device_gateway: Optional[str] = None,
-            device_dns: Optional[str] = None,
-            device_dhcp: Optional[str] = None,
-            device_snmp: Optional[str] = None,
-            device_ssh: Optional[str] = None,
-            device_logs: Optional[str] = None,
-            device_data: Optional[str] = None,
-            device_uuid: Optional[str] = None
-    ):
-        if device_uuid is not None:
-            self.uuid: str = device_uuid
-        else:
-            self.uuid: str = str(uuid.uuid4())
-        self.name = device_name
-        self.ipv4 = device_ipv4
-        self.mask_ipv4 = mask_ipv4
-        self.ipv6 = device_ipv6
-        self.mask_ipv6 = mask_ipv6
-        self.type = device_type
-        self.os = device_os
-        self.model = device_model
-        self.brand = device_brand
-        self.mac = device_mac
-        self.gateway = device_gateway
-        self.dns = device_dns
-        self.dhcp = device_dhcp
-        self.snmp = device_snmp
-        self.ssh = device_ssh
-        self.logs = device_logs
-        self.data = device_data
-        self.date_unix: float = time.time()
-        self.last_update_unix: float = time.time()
-        self.abs_path = f"{save_path}/{self.uuid}.json"
-
-    def create_device(self) -> None:
-        if not os.path.exists(self.abs_path):
-            with open(self.abs_path, "w") as f:
-                json.dump(self.__dict__, f, indent=4, default=str)
-            logging.info(f"{self.name} is created")
-        else:
-            logging.info(f"{self.name} already exists")
-
-    def open_device(self) -> Optional[dict]:
-        if os.path.exists(self.abs_path):
-            with open(self.abs_path, "r") as f:
-                return json.load(f)
-        else:
-            logging.info(f"{self.name} doesn't exist")
-            return {}
-
-    def save_device(self) -> None:
-        if os.path.exists(self.abs_path):
-            self.last_update_unix = time.time()
-            with open(self.abs_path, "w") as f:
-                json.dump(self.__dict__, f, indent=4, default=str)
-            logging.info(f"{self.name} is saved")
-        else:
-            logging.info(f"{self.name} doesn't exist")
-
-    def delete_device(self) -> None:
-        if os.path.exists(self.abs_path):
-            os.remove(self.abs_path)
-            logging.info(f"{self.name} is deleted")
-        else:
-            logging.info(f"{self.name} doesn't exist")
-
-
-class Network:
-    def __init__(
-            self,
-            network_ipv4: str,
-            network_mask_ipv4: str,
-            save_path: str,
-            network_name: Optional[str] = None,
-            network_ipv6: Optional[str] = None,
-            network_gateway: Optional[str] = None,
-            network_dns: Optional[str] = None,
-            network_dhcp: Optional[str] = None,
-            uuid_str: Optional[str] = None,
-    ):
-        if uuid_str is not None:
-            self.uuid: str = uuid_str
-        else:
-            self.uuid: str = str(uuid.uuid4())
-        self.name: Optional[str] = network_name
-        self.ipv4: str = network_ipv4
-        self.mask_ipv4: str = network_mask_ipv4
-        self.ipv6: Optional[str] = network_ipv6
-        self.gateway: Optional[str] = network_gateway
-        self.dns: Optional[str] = network_dns
-        self.dhcp: Optional[str] = network_dhcp
-        self.date_unix: float = time.time()
-        self.last_update_unix: float = time.time()
-
-        self.devices = []
-
-        if uuid_str is None:
-            self.abs_path = f"{save_path}/{self.uuid}.json"
-            self.create_network()
-        else:
-            self.abs_path = save_path
-            self.open_network()
-
-    def create_network(self) -> None:
-        if not os.path.exists(self.abs_path):
-            logging.debug(self.abs_path)
-            with open(self.abs_path, "w+") as f:
-                json.dump(self.__dict__, f, indent=4, default=str)
-            logging.info(f"{self.name} is created")
-        else:
-            logging.info(f"{self.name} already exists")
-
-    def open_network(self) -> Union[list, dict]:
-        if os.path.exists(self.abs_path):
-            with open(self.abs_path, "r") as f:
-                return json.load(f)
-        else:
-            logging.info(f"{self.name} doesn't exist")
-            return {}
-
-    def save_network(self) -> None:
-        if os.path.exists(self.abs_path):
-            self.last_update_unix = time.time()
-            with open(self.abs_path, "w") as f:
-                json.dump(self.__dict__, f, indent=4, default=str)
-            logging.info(f"{self.name} is saved")
-        else:
-            logging.info(f"{self.name} doesn't exist")
-
-    def add_device(self, device: 'Device') -> None:
-        self.devices.append(device.uuid)
-        self.last_update_unix = time.time()
-        with open(self.abs_path, "w") as f:
-            json.dump(self.__dict__, f, indent=4)
-        logging.info(f"{device.name} is added to {self.name}")
-
-    def remove_device(self, device: 'Device') -> None:
-        self.devices.remove(device.uuid)
-        self.last_update_unix = time.time()
-        device.delete_device()
-        with open(self.abs_path, "w") as f:
-            json.dump(self.__dict__, f, indent=4)
-        logging.info(f"{device.name} is removed from {self.name}")
-
-
-class LanAudacity:
-    def __init__(
-            self,
-            software_name: str,
-            version_software: str,
-            project_name: str,
-            save_path: str,
-            author: str = None,
-    ):
-        self.software = software_name
-        self.version = version_software
-        self.save_path = save_path
-        self.char_table = "utf-8"
-        self.project_name = project_name
-        self.date_unix: float = time.time()
-        self.last_update_unix: float = time.time()
-        self.author = author
-        self.abs_paths = {
-            "conf": {"path": "conf", "folders": [], "files": []},
-            "db": {
-                "path": "db",
-                "folders": ["interfaces", "desktop"],
-                "files": [],
-            },
-            "logs": {"path": "logs", "folders": [], "files": ["lan_audacity.log"]},
-            "pixmap": {"path": "pixmap", "folders": [], "files": []},
-        }
-        self.networks = None
-        self.links = None
-        self.devices = None
-        self.pixmap = None
-
-    def create_project(self) -> None:
-        if not os.path.exists(f"{self.save_path}/{self.project_name}"):
-            os.mkdir(f"{self.save_path}/{self.project_name}")
-            with open(
-                    f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
-            ) as f:
-                json.dump(self.__dict__, f, indent=4)
-            for key, value in self.abs_paths.items():
-                os.mkdir(f"{self.save_path}/{self.project_name}/{value['path']}")
-                if value["folders"]:
-                    for folder in value["folders"]:
-                        os.mkdir(
-                            f"{self.save_path}/{self.project_name}/{value['path']}/{folder}"
-                        )
-                if value["files"]:
-                    for file in value["files"]:
-                        with open(
-                                f"{self.save_path}/{self.project_name}/{value['path']}/{file}",
-                                "w",
-                        ) as f:
-                            f.write("")
-            logging.info(f"{self.project_name} is created")
-        else:
-            logging.info(f"{self.project_name} already exists")
-
-    def delete_project(self) -> None:
-        if os.path.exists(f"{self.save_path}/{self.project_name}"):
-            try:
-                shutil.rmtree(f"{self.save_path}/{self.project_name}")
-                logging.info(f"{self.project_name} is deleted")
-            except OSError as e:
-                logging.info(f"Error remove {self.project_name} : {e}")
-        else:
-            logging.info(f"{self.project_name} doesn't exist")
-
-    def add_network(self, network: Network) -> None:
-        if self.networks is None:
-            self.networks = {"path": "interfaces", "obj_ls": []}
-        self.networks["obj_ls"].append(
-            {
-                "uuid": network.uuid,
-                "name": network.name,
-                "path": network.abs_path,
-                "ls_devices": [],
-            }
-        )
-        self.last_update_unix = time.time()
-        if self.project_name in self.save_path:
-            chemin = f"{self.save_path}/lan_audacity.json"
-        else:
-            chemin = f"{self.save_path}/{self.project_name}/lan_audacity.json"
-        with open(chemin, "w") as f:
-            json.dump(self.__dict__, f, indent=4)
-        logging.info(f"{network.name} is added to {self.project_name}")
-
-    def remove_network(self, network: Network) -> None:
-        if self.networks is not None:
-            self.networks["obj_ls"].remove(network.uuid)
-            self.last_update_unix = time.time()
-            with open(
-                    f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
-            ) as f:
-                json.dump(self.__dict__, f, indent=4)
-            logging.info(f"{network.name} is removed from {self.project_name}")
-        else:
-            logging.info(f"{network.name} doesn't exist in {self.project_name}")
-
-    def open_project(self) -> None:
-        logging.info(f"Path: {self.save_path}")
-        if os.path.exists(self.save_path):
-            with open(
-                    f"{self.save_path}/lan_audacity.json", "r"
-            ) as f:
-                datas = json.load(f)
-                self.software = datas["software"]
-                self.version = datas["version"]
-                self.save_path = datas["save_path"]
-                self.char_table = datas["char_table"]
-                self.project_name = datas["project_name"]
-                self.date_unix = datas["date_unix"]
-                self.last_update_unix = datas["last_update_unix"]
-                self.author = datas["author"]
-                self.abs_paths = datas["abs_paths"]
-                # Construct all datas
-            logging.info(f"{self.project_name} does exist")
-        else:
-            logging.info(f"{self.project_name} doesn't exist")
-
-    def save_project(self) -> None:
-        if os.path.exists(self.project_name):
-            self.last_update_unix = time.time()
-            with open(
-                    f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
-            ) as f:
-                json.dump(self.__dict__, f, indent=4)
-            logging.info(f"{self.project_name} is saved")
-        else:
-            logging.info(f"{self.project_name} doesn't exist")
-
-    def save_as_project(self, new_path: str, new_project_name: str) -> None:
-        if os.path.exists(new_path):
-            self.save_path = new_path
-            os.rename(self.project_name, new_project_name)
-            self.project_name = new_project_name
-            with open(f"{new_path}/{self.project_name}/lan_audacity.json", "w") as f:
-                json.dump(self.__dict__, f, indent=4)
-            logging.info(f"{self.project_name} is saved as {new_project_name}")
-        else:
-            logging.info(f"{self.project_name} doesn't exist")
-
-
-class NProjectDock(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("New Project")
-
-        # layout
-        layout = QGridLayout()
-        self.setLayout(layout)
-
-        # Title
-        self.title = QLabel("New Project")
-        self.title.setFont(QFont("Arial", 16, QFont.Bold))
-        layout.addWidget(self.title, 0, 0, 1, 3)
-
-        sep = QFrame(self)
-        sep.setFrameShape(QFrame.HLine)
-        sep.setFrameShadow(QFrame.Sunken)
-        layout.addWidget(sep, 1, 0, 1, 3)
-
-        # Project Name
-        self.project_name_label = QLabel("Name:")
-        self.project_name = QLineEdit(self)
-        self.project_name.setPlaceholderText("Project Name")
-        layout.addWidget(self.project_name_label, 2, 0)
-        layout.addWidget(self.project_name, 2, 1)
-
-        # Author
-        self.author_label = QLabel("Author:")
-        self.author = QLineEdit(self)
-        self.author.setPlaceholderText("Author")
-        layout.addWidget(self.author_label, 3, 0)
-        layout.addWidget(self.author, 3, 1)
-
-        # Save Path
-        self.save_path_label = QLabel("Path:")
-        self.save_path_button = QPushButton(self)
-        self.save_path_button.setIcon(qta.icon("mdi6.folder-open-outline", color="orange"))
-        self.save_path_button.setToolTip("Select Save Path")
-        self.save_path_text = QLineEdit()
-        self.save_path_text.setReadOnly(True)
-        layout.addWidget(self.save_path_label, 4, 0)
-        layout.addWidget(self.save_path_text, 4, 1)
-        layout.addWidget(self.save_path_button, 4, 2)
-        self.save_path_button.clicked.connect(self.select_save_path)
-        self.save_path = ""
-
-        # Validate button
-        self.validate_button = QPushButton("Validate")
-        layout.addWidget(self.validate_button, 5, 2, alignment=Qt.AlignCenter)
-        self.validate_button.clicked.connect(self.validate_form)
-
-        # Cancel button
-        self.cancel_button = QPushButton("Cancel")
-        layout.addWidget(self.cancel_button, 5, 0, alignment=Qt.AlignCenter)
-        self.cancel_button.clicked.connect(self.reject)
-
-    def select_save_path(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        directory = QFileDialog.getExistingDirectory(self, "Select Save Path", "", options=options)
-        if directory:
-            self.save_path = directory
-            self.save_path_text.setText(self.save_path)
-            print("Save Path selected: ", self.save_path)
-
-    def validate_form(self):
-        if self.project_name.text() and self.author.text() and self.save_path:
-            QMessageBox.information(self, "Confirmation", "All fields are filled in.")
-            self.accept()
-        else:
-            QMessageBox.warning(self, "Error", "Please fill in all fields.")
-
-    def get_data(self):
-        return {
-            "project_name": self.project_name.text(),
-            "author": self.author.text(),
-            "save_path": self.save_path,
-        }
-
-
-class LanguageApp:
-    def __init__(self, file_manager: ConfigurationFile):
-        self.data_manager = file_manager.data
-        self.langManager: str = "english"
-        self.langList = ["english", "français"]
-
-    @property
-    def language(self):
-        return self.langManager
-
-    @language.setter
-    def language(self, lang: str):
-        self.langManager = lang
-
-    @property
-    def language_list(self):
-        return self.langList
-
-    def get_textTranslate(self, key: str):
-        for data in self.data_manager:
-            if key in data["string"]:
-                return data[self.language]
-
-
-class ShortcutApp:
-    def __init__(self, file_manager: ConfigurationFile):
-        self.data_manager = file_manager.data
-
-    def get_shortcut(self, key: str) -> str:
-        for shortcut in self.data_manager:
-            if shortcut["name"] == key:
-                return shortcut["keys"]
-
-
-class IconsApp:
-    def __init__(self, file_manager: ConfigurationFile):
-        self.data_manager = file_manager.data
-
-    def get_icon(self, key: str) -> QIcon:
-        for icon in self.data_manager:
-            if icon["name"] == key:
-                if icon["options"] is None:
-                    ico_obj = qta.icon(*icon["platform_and_name"])
-                else:
-                    ico_obj = qta.icon(
-                        *icon["platform_and_name"], options=icon["options"]
-                    )
-                return ico_obj
 
 
 class MenuBarApp:
@@ -894,7 +372,7 @@ class FlsExpl(GeneralSidePanel):
             title_panel: str,
             path: str = None,
             tab_connect: TabFactoryWidget = None,
-            lang_manager: any = None,
+            lang_manager: LanguageApp = None,
             icon_manager: IconsApp = None,
             keys_manager: ShortcutApp = None,
             parent=None
@@ -998,12 +476,13 @@ class NetExpl(GeneralSidePanel):
         ]
         return ls_btn
 
-    def loadDisplayObj(self):
+    def loadDisplayObj(self) -> None:
         logging.info("Load network")
         model = QStandardItemModel()
         self.treeView.setModel(model)
         if self.extObj is not None and hasattr(self.extObj, 'networks'):
             for network in self.extObj.networks:
+                logging.debug(network)
                 self.add_network_to_tree(network)
             if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
                 pass
@@ -1069,119 +548,6 @@ class NetExpl(GeneralSidePanel):
         item = QStandardItem(device.name)
         item.setIcon(qta.icon("mdi6.cellphone"))
         selected_network.appendRow(item)
-
-
-class NNetwork(QDialog):
-    def __init__(
-            self,
-            dialog_title: str,
-            lan_audacity: LanAudacity,
-            lang_manager: LanguageApp = None,
-            icon_manager: IconsApp = None,
-            parent=None
-    ):
-        super().__init__(parent)
-        self.langManager = lang_manager
-        self.iconManager = icon_manager
-        self.setWindowTitle(dialog_title)
-
-        # layout
-        self.layout = QGridLayout(self)
-        self.setLayout(self.layout)
-
-        # Title
-        self.title = QLabel(dialog_title)
-        self.title.setFont(QFont("Arial", 16, QFont.Bold))
-        self.layout.addWidget(self.title, 0, 0, 1, 3)
-
-        sep = QFrame(self)
-        sep.setFrameShape(QFrame.HLine)
-        sep.setFrameShadow(QFrame.Sunken)
-        self.layout.addWidget(sep, 1, 0, 1, 3)
-
-        # Network path
-        self.save_path = f"{lan_audacity.save_path}/{lan_audacity.project_name}/{lan_audacity.abs_paths['db']['path']}/{lan_audacity.abs_paths['db']['folders'][0]}"
-        self.formUI()
-
-    def formUI(self):
-        # Network Name (optional)
-        self.network_name_label = QLabel("Network Name:")
-        self.layout.addWidget(self.network_name_label, 2, 0)
-        self.network_name = QLineEdit("Network 1")
-        self.network_name.setPlaceholderText("Network Name")
-        self.layout.addWidget(self.network_name, 2, 1, 1, 2)
-
-        # Network IPv4 (required)
-        self.ipv4_label = QLabel("Network IPv4:")
-        self.layout.addWidget(self.ipv4_label, 3, 0)
-        self.ipv4 = QLineEdit("192.168.0.0")
-        self.ipv4.setPlaceholderText("127.0.0.0")
-        self.layout.addWidget(self.ipv4, 3, 1, 1, 2)
-
-        # Network Mask IPv4 (required)
-        self.mask_ipv4_label = QLabel("Network Mask IPv4:")
-        self.layout.addWidget(self.mask_ipv4_label, 4, 2)
-        self.mask_ipv4 = QLineEdit("255.255.255.0")
-        self.mask_ipv4.setPlaceholderText("255.0.0.0")
-        self.layout.addWidget(self.mask_ipv4, 4, 1, 1, 2)
-
-        # Network IPv6 (optional)
-        self.ipv6_label = QLabel("Network IPv6:")
-        self.layout.addWidget(self.ipv6_label, 5, 0)
-        self.ipv6 = QLineEdit(self)
-        self.ipv6.setPlaceholderText("2001:0db8:85a3:0000:0000:8a2e:0370:7334")
-        self.layout.addWidget(self.ipv6, 5, 1, 1, 2)
-
-        # Network Gateway (optional)
-        self.gateway_label = QLabel("Network Gateway:")
-        self.layout.addWidget(self.gateway_label, 6, 0)
-        self.gateway = QLineEdit(self)
-        self.gateway.setPlaceholderText("127.0.0.1")
-        self.layout.addWidget(self.gateway, 6, 1, 1, 2)
-
-        # Network DNS (optional)
-        self.dns_label = QLabel("Network DNS:")
-        self.layout.addWidget(self.dns_label, 7, 0)
-        self.dns = QLineEdit(self)
-        self.dns.setPlaceholderText("127.0.0.1")
-        self.layout.addWidget(self.dns, 7, 1, 1, 2)
-
-        # Network DHCP (optional)
-        self.dhcp_label = QLabel("Network DHCP:")
-        self.layout.addWidget(self.dhcp_label, 8, 0)
-        self.dhcp = QLineEdit(self)
-        self.dhcp.setPlaceholderText("127.0.0.1")
-        self.layout.addWidget(self.dhcp, 8, 1, 1, 2)
-
-        # Validate button
-        self.validate_button = QPushButton("Validate")
-        self.layout.addWidget(self.validate_button, 9, 2, alignment=Qt.AlignCenter)
-        self.validate_button.clicked.connect(self.validate_form)
-
-        # Cancel button
-        self.cancel_button = QPushButton("Cancel")
-        self.layout.addWidget(self.cancel_button, 9, 0, alignment=Qt.AlignCenter)
-        self.cancel_button.clicked.connect(self.reject)
-
-    def validate_form(self):
-        if self.ipv4.text() and self.mask_ipv4.text():
-            QMessageBox.information(self, "Confirmation", "All required fields are filled in.")
-            self.accept()
-        else:
-            QMessageBox.warning(self, "Error",
-                                "Please fill in all required fields (Network IPv4 and Network Mask IPv4).")
-
-    def get_data(self):
-        return {
-            "network_name": self.network_name.text(),
-            "ipv4": self.ipv4.text(),
-            "mask_ipv4": self.mask_ipv4.text(),
-            "ipv6": self.ipv6.text(),
-            "gateway": self.gateway.text(),
-            "dns": self.dns.text(),
-            "dhcp": self.dhcp.text(),
-            "path": self.save_path,
-        }
 
 
 class MainApp(QMainWindow):
@@ -1498,7 +864,7 @@ class MainApp(QMainWindow):
         self.close()
 
     def newProjectAction(self) -> None:
-        newpa = NProjectDock()
+        newpa = NProject()
         if newpa.exec_() == QDialog.Accepted:
             data = newpa.get_data()
             nprjlan = LanAudacity(
@@ -1622,7 +988,7 @@ if __name__ == "__main__":
         f"{softw_manager.data['system']['name']} - version {softw_manager.data['system']['version']}"
     )
 
-    from qtpy.QtWidgets import QApplication
+    from PyQt5.QtWidgets import QApplication
 
     app = QApplication(sys.argv)
     app.setApplicationName(softw_manager.data["system"]["name"])
