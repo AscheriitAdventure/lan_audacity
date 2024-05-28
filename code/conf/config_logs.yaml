@@ -13,12 +13,12 @@ handlers:
     formatter: simple
     stream: ext://sys.stdout
   file_handler:
-    class: logging.FileHandler.RotatingFileHandler
+    class: logging.handlers.RotatingFileHandler
     level: DEBUG
     formatter: custom
     filename: logs/app.log
     encoding: utf-8
-    maxBytes: 10485760  # Taille max en bytes (10 MB ici)
+    maxBytes: 10485760  # Taille max en bytes (10 MB)
     backupCount: 5
 
 loggers:

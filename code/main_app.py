@@ -11,6 +11,7 @@ import configparser
 import string
 import time
 import shutil
+from typing import Union, Optional
 import qtawesome as qta
 from PyQt5.QtWidgets import (
     QApplication,
@@ -157,23 +158,27 @@ class Device:
             device_ipv4: str,
             mask_ipv4: str,
             save_path: str,
-            device_name: str = None,
-            device_ipv6: str = None,
-            mask_ipv6: str = None,
-            device_type: str = None,
-            device_os: str = None,
-            device_model: str = None,
-            device_brand: str = None,
-            device_mac: str = None,
-            device_gateway: str = None,
-            device_dns: str = None,
-            device_dhcp: str = None,
-            device_snmp: str = None,
-            device_ssh: str = None,
-            device_logs: str = None,
-            device_data: str = None,
+            device_name: Optional[str] = None,
+            device_ipv6: Optional[str] = None,
+            mask_ipv6: Optional[str] = None,
+            device_type: Optional[str] = None,
+            device_os: Optional[str] = None,
+            device_model: Optional[str] = None,
+            device_brand: Optional[str] = None,
+            device_mac: Optional[str] = None,
+            device_gateway: Optional[str] = None,
+            device_dns: Optional[str] = None,
+            device_dhcp: Optional[str] = None,
+            device_snmp: Optional[str] = None,
+            device_ssh: Optional[str] = None,
+            device_logs: Optional[str] = None,
+            device_data: Optional[str] = None,
+            device_uuid: Optional[str] = None
     ):
-        self.uuid = uuid.uuid4()
+        if device_uuid is not None:
+            self.uuid: str = device_uuid
+        else:
+            self.uuid: str = str(uuid.uuid4())
         self.name = device_name
         self.ipv4 = device_ipv4
         self.mask_ipv4 = mask_ipv4
@@ -195,42 +200,37 @@ class Device:
         self.last_update_unix: float = time.time()
         self.abs_path = f"{save_path}/{self.uuid}.json"
 
-    def create_device(self):
+    def create_device(self) -> None:
         if not os.path.exists(self.abs_path):
             with open(self.abs_path, "w") as f:
-                json.dump(self.__dict__, f, indent=4)
-            return f"{self.name} is created"
+                json.dump(self.__dict__, f, indent=4, default=str)
+            logging.info(f"{self.name} is created")
         else:
-            return f"{self.name} already exists"
+            logging.info(f"{self.name} already exists")
 
-    def open_device(self):
+    def open_device(self) -> Optional[dict]:
         if os.path.exists(self.abs_path):
             with open(self.abs_path, "r") as f:
                 return json.load(f)
         else:
-            return f"{self.name} doesn't exist"
+            logging.info(f"{self.name} doesn't exist")
+            return {}
 
-    def save_device(self):
+    def save_device(self) -> None:
         if os.path.exists(self.abs_path):
             self.last_update_unix = time.time()
             with open(self.abs_path, "w") as f:
-                json.dump(self.__dict__, f, indent=4)
-            return f"{self.name} is saved"
+                json.dump(self.__dict__, f, indent=4, default=str)
+            logging.info(f"{self.name} is saved")
         else:
-            return f"{self.name} doesn't exist"
+            logging.info(f"{self.name} doesn't exist")
 
-    def delete_device(self):
+    def delete_device(self) -> None:
         if os.path.exists(self.abs_path):
             os.remove(self.abs_path)
-            return f"{self.name} is deleted"
+            logging.info(f"{self.name} is deleted")
         else:
-            return f"{self.name} doesn't exist"
-
-    def ip_to_cidr(self):
-        pass
-
-    def cidr_to_ip(self):
-        pass
+            logging.info(f"{self.name} doesn't exist")
 
 
 class Network:
@@ -239,42 +239,46 @@ class Network:
             network_ipv4: str,
             network_mask_ipv4: str,
             save_path: str,
-            network_name: str = None,
-            network_ipv6: str = None,
-            network_gateway: str = None,
-            network_dns: str = None,
-            network_dhcp: str = None,
-            uuid_str: str = None,
+            network_name: Optional[str] = None,
+            network_ipv6: Optional[str] = None,
+            network_gateway: Optional[str] = None,
+            network_dns: Optional[str] = None,
+            network_dhcp: Optional[str] = None,
+            uuid_str: Optional[str] = None,
     ):
         if uuid_str is not None:
             self.uuid: str = uuid_str
         else:
             self.uuid: str = str(uuid.uuid4())
-        self.name: str = network_name
+        self.name: Optional[str] = network_name
         self.ipv4: str = network_ipv4
         self.mask_ipv4: str = network_mask_ipv4
-        self.ipv6: str = network_ipv6
-        self.gateway: str = network_gateway
-        self.dns: str = network_dns
-        self.dhcp: str = network_dhcp
+        self.ipv6: Optional[str] = network_ipv6
+        self.gateway: Optional[str] = network_gateway
+        self.dns: Optional[str] = network_dns
+        self.dhcp: Optional[str] = network_dhcp
         self.date_unix: float = time.time()
         self.last_update_unix: float = time.time()
 
-        self.abs_path = f"{save_path}/{self.uuid}.json"
         self.devices = []
 
-        self.create_network()
+        if uuid_str is None:
+            self.abs_path = f"{save_path}/{self.uuid}.json"
+            self.create_network()
+        else:
+            self.abs_path = save_path
+            self.open_network()
 
     def create_network(self) -> None:
         if not os.path.exists(self.abs_path):
             logging.debug(self.abs_path)
             with open(self.abs_path, "w+") as f:
-                json.dump(self.__dict__, f, indent=4)
+                json.dump(self.__dict__, f, indent=4, default=str)
             logging.info(f"{self.name} is created")
         else:
             logging.info(f"{self.name} already exists")
 
-    def open_network(self) -> list | dict:
+    def open_network(self) -> Union[list, dict]:
         if os.path.exists(self.abs_path):
             with open(self.abs_path, "r") as f:
                 return json.load(f)
@@ -286,19 +290,19 @@ class Network:
         if os.path.exists(self.abs_path):
             self.last_update_unix = time.time()
             with open(self.abs_path, "w") as f:
-                json.dump(self.__dict__, f, indent=4)
+                json.dump(self.__dict__, f, indent=4, default=str)
             logging.info(f"{self.name} is saved")
         else:
             logging.info(f"{self.name} doesn't exist")
 
-    def add_device(self, device: Device) -> None:
+    def add_device(self, device: 'Device') -> None:
         self.devices.append(device.uuid)
         self.last_update_unix = time.time()
         with open(self.abs_path, "w") as f:
             json.dump(self.__dict__, f, indent=4)
         logging.info(f"{device.name} is added to {self.name}")
 
-    def remove_device(self, device: Device) -> None:
+    def remove_device(self, device: 'Device') -> None:
         self.devices.remove(device.uuid)
         self.last_update_unix = time.time()
         device.delete_device()
@@ -386,7 +390,11 @@ class LanAudacity:
             }
         )
         self.last_update_unix = time.time()
-        with open(f"{self.save_path}/{self.project_name}/lan_audacity.json", "w") as f:
+        if self.project_name in self.save_path:
+            chemin = f"{self.save_path}/lan_audacity.json"
+        else:
+            chemin = f"{self.save_path}/{self.project_name}/lan_audacity.json"
+        with open(chemin, "w") as f:
             json.dump(self.__dict__, f, indent=4)
         logging.info(f"{network.name} is added to {self.project_name}")
 
@@ -595,6 +603,160 @@ class MenuBarApp:
         for action in menu["actions"]:
             if action["name_low"] == key_action:
                 return action
+
+
+class NDevice(QDialog):
+    def __init__(
+            self,
+            dialog_title: str,
+            lan_audacity: LanAudacity,
+            lang_manager: LanguageApp = None,
+            icon_manager: IconsApp = None,
+            parent=None
+    ):
+        super().__init__(parent)
+        self.langManager = lang_manager
+        self.iconManager = icon_manager
+        self.setWindowTitle(dialog_title)
+
+        # layout
+        self.layout = QGridLayout(self)
+        self.setLayout(self.layout)
+
+        # Title
+        self.title = QLabel(dialog_title)
+        self.title.setFont(QFont("Arial", 16, QFont.Bold))
+        self.layout.addWidget(self.title, 0, 0, 1, 3)
+
+        sep = QFrame(self)
+        sep.setFrameShape(QFrame.HLine)
+        sep.setFrameShadow(QFrame.Sunken)
+        self.layout.addWidget(sep, 1, 0, 1, 3)
+
+        self.formUI()
+
+    def formUI(self):
+        obj_ls = [
+            {
+                "n_label": "Device Name:",
+                "n_obj": "device_name",
+                "n_text": "Device 1",
+                "n_placeholder": "Device Name",
+                "required": False
+            },
+            {
+                "n_label": "Device IPv4:",
+                "n_obj": "ipv4",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": True
+            },
+            {
+                "n_label": "Device Mask IPv4:",
+                "n_obj": "mask_ipv4",
+                "n_text": None,
+                "n_placeholder": "255.0.0.0",
+                "required": True
+            },
+            {
+                "n_label": "Device IPv6:",
+                "n_obj": "ipv6",
+                "n_text": None,
+                "n_placeholder": "::1",
+                "required": False
+            },
+            {
+                "n_label": "Device Mask IPv6:",
+                "n_obj": "mask_ipv6",
+                "n_text": None,
+                "n_placeholder": "ffff:ffff:ffff:ffff::",
+                "required": False
+            },
+            {
+                "n_label": "Device Type:",
+                "n_obj": "device_type",
+                "n_text": None,
+                "n_placeholder": "Router",
+                "required": False
+            },
+            {
+                "n_label": "Device Model:",
+                "n_obj": "device_model",
+                "n_text": None,
+                "n_placeholder": "Cisco",
+                "required": False
+            },
+            {
+                "n_label": "Device Brand:",
+                "n_obj": "device_brand",
+                "n_text": None,
+                "n_placeholder": "Linksys",
+                "required": False
+            },
+            {
+                "n_label": "Device MAC:",
+                "n_obj": "device_mac",
+                "n_text": None,
+                "n_placeholder": "00:00:00:00:00:00",
+                "required": False
+            },
+            {
+                "n_label": "Device Gateway:",
+                "n_obj": "device_gateway",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": False
+            },
+            {
+                "n_label": "Device DNS:",
+                "n_obj": "device_dns",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": False
+            },
+            {
+                "n_label": "Device DHCP:",
+                "n_obj": "device_dhcp",
+                "n_text": None,
+                "n_placeholder": "127.0.0.1",
+                "required": False
+            },
+        ]
+
+        self.fields = {}
+
+        for i, obj in enumerate(obj_ls):
+            label = QLabel(obj["n_label"])
+            self.layout.addWidget(label, i + 2, 0)
+            field = QLineEdit(self)
+            field.setPlaceholderText(obj["n_placeholder"])
+            if obj["n_text"]:
+                field.setText(obj["n_text"])
+            if obj["required"]:
+                field.setStyleSheet("border: 1px solid red;")
+            self.layout.addWidget(field, i + 2, 1)
+            self.fields[obj["n_obj"]] = field
+
+        # Validate button
+        self.validate_button = QPushButton("Validate")
+        self.layout.addWidget(self.validate_button, len(obj_ls) + 2, 2, alignment=Qt.AlignCenter)
+        self.validate_button.clicked.connect(self.validate_form)
+
+        # Cancel button
+        self.cancel_button = QPushButton("Cancel")
+        self.layout.addWidget(self.cancel_button, len(obj_ls) + 2, 0, alignment=Qt.AlignCenter)
+        self.cancel_button.clicked.connect(self.reject)
+
+    def validate_form(self):
+        if self.fields["ipv4"].text() and self.fields["mask_ipv4"].text():
+            QMessageBox.information(self, "Confirmation", "All required fields are filled in.")
+            self.accept()
+        else:
+            QMessageBox.warning(self, "Error", "Please fill in all required fields (Device IPv4 and Device Mask IPv4).")
+
+    def get_data(self):
+        data = {key: field.text() for key, field in self.fields.items()}
+        return data
 
 
 class TabFactoryWidget(QTabWidget):
@@ -840,40 +1002,61 @@ class NetExpl(GeneralSidePanel):
         logging.info("Load network")
         model = QStandardItemModel()
         self.treeView.setModel(model)
-        if self.extObj is not None and self.extObj.networks is not None:
+        if self.extObj is not None and hasattr(self.extObj, 'networks'):
             for network in self.extObj.networks:
                 self.add_network_to_tree(network)
-            if self.extObj.devices is not None:
+            if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
                 pass
 
-    def addDeviceObj(self):
+    def addDeviceObj(self, network: Network = None):
         logging.info("Add device")
-        # Open a QDialog object with a generate Device
-        # Add Device to Network Tree
+        new_device = NDevice("New Device", self.extObj, self.langManager, self.iconManager)
+        if new_device.exec_() == QDialog.Accepted:
+            device_data = new_device.get_data()
+            device0 = Device(
+                device_ipv4=device_data["ipv4"],
+                mask_ipv4=device_data["mask_ipv4"],
+                save_path=self.extObj.save_path,
+                device_name=device_data["device_name"],
+                device_ipv6=device_data.get("ipv6"),
+                mask_ipv6=device_data.get("mask_ipv6"),
+                device_type=device_data.get("device_type"),
+                device_model=device_data.get("device_model"),
+                device_brand=device_data.get("device_brand"),
+                device_mac=device_data.get("device_mac"),
+                device_gateway=device_data.get("device_gateway"),
+                device_dns=device_data.get("device_dns"),
+                device_dhcp=device_data.get("device_dhcp")
+            )
+            device0.create_device()
+            if network:
+                network.add_device(device0)
+                network.save_network()
+                self.add_device_to_tree(network, device0)
 
     def addNetworkObj(self):
         logging.info("Add network")
-        # Open a QDialog object with a generate Network
         new_network = NNetwork("New Network", self.extObj, self.langManager, self.iconManager)
         if new_network.exec_() == QDialog.Accepted:
             network_data = new_network.get_data()
             network = Network(
-                network_data["ipv4"],
-                network_data["mask_ipv4"],
-                network_data["path"],
-                network_data["network_name"],
-                network_data["ipv6"],
-                network_data["gateway"],
-                network_data["dns"],
-                network_data["dhcp"],
+                network_ipv4=network_data["ipv4"],
+                network_mask_ipv4=network_data["mask_ipv4"],
+                save_path=network_data["path"],
+                network_name=network_data.get("network_name"),
+                network_ipv6=network_data.get("ipv6"),
+                network_gateway=network_data.get("gateway"),
+                network_dns=network_data.get("dns"),
+                network_dhcp=network_data.get("dhcp")
             )
             network.create_network()
-            network.save_network()
-            self.add_network_to_tree(network)
-        # Add Network to Tree
+            if hasattr(self.extObj, 'add_network'):
+                self.extObj.add_network(network)
+                self.add_network_to_tree(network)
 
-    def add_network_to_tree(self, network):
+    def add_network_to_tree(self, network: Network):
         root = self.treeView.model().invisibleRootItem()
+        logging.debug(network.name)
         if network.name is None:
             network.name = f"Network {len(root)}"
         item = QStandardItem(network.name)
@@ -881,10 +1064,9 @@ class NetExpl(GeneralSidePanel):
         root.appendRow(item)
 
     def add_device_to_tree(self, selected_network, device):
-        root = selected_network
         item = QStandardItem(device.name)
         item.setIcon(qta.icon("mdi6.cellphone"))
-        root.appendRow(item)
+        selected_network.appendRow(item)
 
 
 class NNetwork(QDialog):
@@ -1325,6 +1507,7 @@ class MainApp(QMainWindow):
                 author=data["author"]
             )
             nprjlan.create_project()
+            nprjlan.save_project()
             # Add the new project to the list
             self.prj_ls.append(nprjlan)
             # Add the new project to the file explorer
@@ -1349,7 +1532,31 @@ class MainApp(QMainWindow):
                     save_path=directory_project,
                     author=data["author"]
                 )
+                if data["networks"] is not None:
+                    logging.info(len(data["networks"]["obj_ls"]))
+                    # add informations to nprjlan
+                    for network in data["networks"]["obj_ls"]:
+                        # open network file
+                        network_file = os.path.join(network["path"])
+                        if os.path.exists(network_file):
+                            with open(network_file, "r") as file:
+                                data_network = json.load(file)
+                            net0X = Network(
+                                    network_ipv4=data_network["ipv4"],
+                                    network_mask_ipv4=data_network["mask_ipv4"],
+                                    save_path=data_network["abs_path"],
+                                    network_name=data_network["name"],
+                                    network_ipv6=data_network["ipv6"],
+                                    network_gateway=data_network["gateway"],
+                                    network_dns=data_network["dns"],
+                                    network_dhcp=data_network["dhcp"],
+                                    uuid_str=data_network["uuid"]
+                                )
+                            net0X.date_unix = data_network["date_unix"]
+                            nprjlan.add_network(net0X)
+
                 nprjlan.open_project()
+                nprjlan.save_project()
                 self.prj_ls.append(nprjlan)
 
                 self.file_explorer.extObj = directory_project
