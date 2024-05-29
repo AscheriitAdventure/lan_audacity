@@ -122,3 +122,296 @@
 2024-05-28 19:06:41,492 - root - INFO - eyrein-industrie_lans doesn't exist
 2024-05-28 19:06:41,492 - root - DEBUG - /Users/yuna/Documents/Projet_Perso/eyrein-industrie_lans
 2024-05-28 20:36:08,946 - root - INFO - End of Application
+2024-05-29 08:44:14,293 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 08:44:16,229 - root - DEBUG - None
+2024-05-29 08:44:16,231 - root - DEBUG - None
+2024-05-29 08:44:16,231 - root - DEBUG - None
+2024-05-29 08:44:16,243 - root - DEBUG - None
+2024-05-29 08:44:16,244 - root - DEBUG - None
+2024-05-29 08:44:16,245 - root - DEBUG - None
+2024-05-29 08:44:41,642 - root - DEBUG - Preferences Action...
+2024-05-29 08:49:54,132 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 08:49:54,986 - root - DEBUG - None
+2024-05-29 08:49:54,988 - root - DEBUG - None
+2024-05-29 08:49:54,988 - root - DEBUG - None
+2024-05-29 08:49:54,994 - root - DEBUG - None
+2024-05-29 08:49:54,995 - root - DEBUG - None
+2024-05-29 08:49:54,996 - root - DEBUG - None
+2024-05-29 08:50:00,399 - root - DEBUG - Preferences Action...
+2024-05-29 08:51:30,756 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 08:51:31,320 - root - DEBUG - None
+2024-05-29 08:51:31,321 - root - DEBUG - None
+2024-05-29 08:51:31,322 - root - DEBUG - None
+2024-05-29 08:51:31,327 - root - DEBUG - None
+2024-05-29 08:51:31,327 - root - DEBUG - None
+2024-05-29 08:51:31,329 - root - DEBUG - None
+2024-05-29 08:51:34,972 - root - DEBUG - Preferences Action...
+2024-05-29 08:53:14,470 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 08:53:15,030 - root - DEBUG - None
+2024-05-29 08:53:15,031 - root - DEBUG - None
+2024-05-29 08:53:15,032 - root - DEBUG - None
+2024-05-29 08:53:15,037 - root - DEBUG - None
+2024-05-29 08:53:15,038 - root - DEBUG - None
+2024-05-29 08:53:15,039 - root - DEBUG - None
+2024-05-29 08:53:18,508 - root - DEBUG - Preferences Action...
+2024-05-29 08:53:18,509 - root - DEBUG - {'name_btn': 'General', 'tooltip': 'General', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.general_btn of <src.views.tabs_app.PreferencesTabView object at 0x0000021516EDBEC0>>}
+2024-05-29 08:54:53,907 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 08:54:54,506 - root - DEBUG - None
+2024-05-29 08:54:54,507 - root - DEBUG - None
+2024-05-29 08:54:54,508 - root - DEBUG - None
+2024-05-29 08:54:54,514 - root - DEBUG - None
+2024-05-29 08:54:54,515 - root - DEBUG - None
+2024-05-29 08:54:54,516 - root - DEBUG - None
+2024-05-29 08:54:56,507 - root - DEBUG - Preferences Action...
+2024-05-29 08:54:56,508 - root - DEBUG - {'name': 'General', 'tooltip': 'General', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.general_btn of <src.views.tabs_app.PreferencesTabView object at 0x0000022DFFA7FC80>>}
+2024-05-29 08:54:56,509 - root - DEBUG - {'name': 'Language', 'tooltip': 'Language', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.language_btn of <src.views.tabs_app.PreferencesTabView object at 0x0000022DFFA7FC80>>}
+2024-05-29 08:54:56,509 - root - DEBUG - {'name': 'Palette Shortcut', 'tooltip': 'Palette Shortcut', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.palette_shortcut_btn of <src.views.tabs_app.PreferencesTabView object at 0x0000022DFFA7FC80>>}
+2024-05-29 08:54:56,510 - root - DEBUG - {'name': 'License', 'tooltip': 'License', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.about_btn of <src.views.tabs_app.PreferencesTabView object at 0x0000022DFFA7FC80>>}
+2024-05-29 08:54:56,510 - root - DEBUG - {'name': 'Theme', 'tooltip': 'Theme', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.theme_btn of <src.views.tabs_app.PreferencesTabView object at 0x0000022DFFA7FC80>>}
+2024-05-29 08:54:56,510 - root - DEBUG - {'name': 'Update', 'tooltip': 'Update', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.update_btn of <src.views.tabs_app.PreferencesTabView object at 0x0000022DFFA7FC80>>}
+2024-05-29 08:55:21,230 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 08:55:21,785 - root - DEBUG - None
+2024-05-29 08:55:21,786 - root - DEBUG - None
+2024-05-29 08:55:21,787 - root - DEBUG - None
+2024-05-29 08:55:21,792 - root - DEBUG - None
+2024-05-29 08:55:21,792 - root - DEBUG - None
+2024-05-29 08:55:21,793 - root - DEBUG - None
+2024-05-29 08:55:24,840 - root - DEBUG - Preferences Action...
+2024-05-29 08:55:24,840 - root - DEBUG - {'name': 'General', 'tooltip': 'General', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.general_btn of <src.views.tabs_app.PreferencesTabView object at 0x000001A68A2DFBF0>>}
+2024-05-29 08:55:24,841 - root - DEBUG - {'name': 'Language', 'tooltip': 'Language', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.language_btn of <src.views.tabs_app.PreferencesTabView object at 0x000001A68A2DFBF0>>}
+2024-05-29 08:55:24,842 - root - DEBUG - {'name': 'Palette Shortcut', 'tooltip': 'Palette Shortcut', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.palette_shortcut_btn of <src.views.tabs_app.PreferencesTabView object at 0x000001A68A2DFBF0>>}
+2024-05-29 08:55:24,842 - root - DEBUG - {'name': 'License', 'tooltip': 'License', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.about_btn of <src.views.tabs_app.PreferencesTabView object at 0x000001A68A2DFBF0>>}
+2024-05-29 08:55:24,843 - root - DEBUG - {'name': 'Theme', 'tooltip': 'Theme', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.theme_btn of <src.views.tabs_app.PreferencesTabView object at 0x000001A68A2DFBF0>>}
+2024-05-29 08:55:24,843 - root - DEBUG - {'name': 'Update', 'tooltip': 'Update', 'icon': 'defaultIcon', 'action': <bound method PreferencesTabView.update_btn of <src.views.tabs_app.PreferencesTabView object at 0x000001A68A2DFBF0>>}
+2024-05-29 08:56:34,962 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 08:56:35,563 - root - DEBUG - None
+2024-05-29 08:56:35,565 - root - DEBUG - None
+2024-05-29 08:56:35,566 - root - DEBUG - None
+2024-05-29 08:56:35,572 - root - DEBUG - None
+2024-05-29 08:56:35,573 - root - DEBUG - None
+2024-05-29 08:56:35,575 - root - DEBUG - None
+2024-05-29 08:56:38,223 - root - DEBUG - Preferences Action...
+2024-05-29 08:56:38,225 - root - DEBUG - <__main__.MainApp object at 0x00000138699B3DA0>
+2024-05-29 08:56:57,831 - root - DEBUG - Preferences Action...
+2024-05-29 08:56:57,832 - root - DEBUG - <__main__.MainApp object at 0x00000138699B3DA0>
+2024-05-29 09:01:09,980 - root - DEBUG - Preferences Action...
+2024-05-29 09:01:09,981 - root - DEBUG - <__main__.MainApp object at 0x00000138699B3DA0>
+2024-05-29 09:01:10,484 - root - DEBUG - Preferences Action...
+2024-05-29 09:01:10,485 - root - DEBUG - <__main__.MainApp object at 0x00000138699B3DA0>
+2024-05-29 09:08:11,548 - root - INFO - End of Application
+2024-05-29 09:08:19,975 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:08:45,885 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:12:22,215 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:12:23,172 - root - DEBUG - None
+2024-05-29 09:12:23,173 - root - DEBUG - None
+2024-05-29 09:12:23,174 - root - DEBUG - None
+2024-05-29 09:12:23,182 - root - DEBUG - None
+2024-05-29 09:12:23,182 - root - DEBUG - None
+2024-05-29 09:12:23,183 - root - DEBUG - None
+2024-05-29 09:12:39,974 - root - INFO - End of Application
+2024-05-29 09:13:20,423 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:13:21,378 - root - DEBUG - None
+2024-05-29 09:13:21,379 - root - DEBUG - None
+2024-05-29 09:13:21,380 - root - DEBUG - None
+2024-05-29 09:13:21,386 - root - DEBUG - None
+2024-05-29 09:13:21,387 - root - DEBUG - None
+2024-05-29 09:13:21,388 - root - DEBUG - None
+2024-05-29 09:13:35,192 - root - DEBUG - Preferences Action...
+2024-05-29 09:13:35,197 - root - DEBUG - <__main__.MainApp object at 0x0000021A1158BB60>
+2024-05-29 09:14:28,171 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': '01a430d5-c984-4f95-b655-19e7c28615d3', 'name': 'Network 1', 'path': 'C:/Users/g.tronche/Documents/test_app/test2/db/interfaces/01a430d5-c984-4f95-b655-19e7c28615d3.json', 'ls_devices': []}]}
+2024-05-29 09:14:28,171 - root - INFO - 1
+2024-05-29 09:14:28,172 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2/db/interfaces/01a430d5-c984-4f95-b655-19e7c28615d3.json
+2024-05-29 09:14:28,187 - root - INFO - Network 1 is added to test2
+2024-05-29 09:14:28,188 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 09:14:28,191 - root - INFO - test2 does exist
+2024-05-29 09:14:28,192 - root - INFO - test2 doesn't exist
+2024-05-29 09:14:28,192 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 09:15:19,605 - root - INFO - Add network
+2024-05-29 09:19:39,556 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:19:42,137 - root - DEBUG - None
+2024-05-29 09:19:42,138 - root - DEBUG - None
+2024-05-29 09:19:42,139 - root - DEBUG - None
+2024-05-29 09:19:42,149 - root - DEBUG - None
+2024-05-29 09:19:42,150 - root - DEBUG - None
+2024-05-29 09:19:42,151 - root - DEBUG - None
+2024-05-29 09:24:31,278 - root - INFO - End of Application
+2024-05-29 09:24:35,570 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:26:35,976 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:26:59,021 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:28:24,035 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:36:35,743 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:36:37,387 - root - DEBUG - None
+2024-05-29 09:36:37,388 - root - DEBUG - None
+2024-05-29 09:36:37,389 - root - DEBUG - None
+2024-05-29 09:36:37,397 - root - DEBUG - None
+2024-05-29 09:36:37,397 - root - DEBUG - None
+2024-05-29 09:36:37,398 - root - DEBUG - None
+2024-05-29 09:37:57,497 - root - INFO - End of Application
+2024-05-29 09:42:52,916 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:43:30,300 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:47:35,474 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 09:55:00,857 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 10:09:53,786 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 10:23:45,399 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 10:25:42,547 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 10:27:08,444 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 10:27:09,063 - root - DEBUG - None
+2024-05-29 10:27:09,065 - root - DEBUG - None
+2024-05-29 10:27:09,066 - root - DEBUG - None
+2024-05-29 10:27:09,078 - root - DEBUG - None
+2024-05-29 10:27:09,078 - root - DEBUG - None
+2024-05-29 10:27:09,079 - root - DEBUG - None
+2024-05-29 10:27:14,245 - root - DEBUG - Preferences Action...
+2024-05-29 10:27:14,257 - root - DEBUG - <__main__.MainApp object at 0x000002B755388560>
+2024-05-29 10:27:29,537 - root - DEBUG - Preferences Action...
+2024-05-29 10:27:29,538 - root - DEBUG - <__main__.MainApp object at 0x000002B755388560>
+2024-05-29 10:27:29,891 - root - DEBUG - Preferences Action...
+2024-05-29 10:27:29,892 - root - DEBUG - <__main__.MainApp object at 0x000002B755388560>
+2024-05-29 10:27:52,936 - root - INFO - Network 1 is added to test2
+2024-05-29 10:27:52,936 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 10:27:52,938 - root - INFO - test2 does exist
+2024-05-29 10:27:52,938 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 10:27:52,957 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x000002B7553CFD40>
+2024-05-29 10:27:52,958 - root - INFO - Load network
+2024-05-29 10:27:52,962 - root - DEBUG - path
+2024-05-29 10:29:54,920 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 10:29:56,874 - root - DEBUG - None
+2024-05-29 10:29:56,876 - root - DEBUG - None
+2024-05-29 10:29:56,876 - root - DEBUG - None
+2024-05-29 10:29:56,883 - root - DEBUG - None
+2024-05-29 10:29:56,884 - root - DEBUG - None
+2024-05-29 10:29:56,885 - root - DEBUG - None
+2024-05-29 10:30:09,771 - root - INFO - Network 1 is added to test2
+2024-05-29 10:30:09,771 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 10:30:09,773 - root - INFO - test2 does exist
+2024-05-29 10:30:09,773 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 10:30:09,778 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x00000230B9295340>
+2024-05-29 10:30:09,779 - root - INFO - Load network
+2024-05-29 10:30:09,780 - root - DEBUG - path
+2024-05-29 10:30:09,781 - root - DEBUG - path
+2024-05-29 11:00:28,325 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 11:00:29,073 - root - DEBUG - None
+2024-05-29 11:00:29,074 - root - DEBUG - None
+2024-05-29 11:00:29,075 - root - DEBUG - None
+2024-05-29 11:00:29,083 - root - DEBUG - None
+2024-05-29 11:00:29,084 - root - DEBUG - None
+2024-05-29 11:00:29,085 - root - DEBUG - None
+2024-05-29 11:00:37,154 - root - INFO - Network 1 is added to test2
+2024-05-29 11:00:37,155 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:00:37,157 - root - INFO - test2 does exist
+2024-05-29 11:00:37,157 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:00:37,162 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x0000013C4CAE5DF0>
+2024-05-29 11:00:37,162 - root - INFO - Load network
+2024-05-29 11:00:37,162 - root - DEBUG - path
+2024-05-29 11:00:37,163 - root - DEBUG - path
+2024-05-29 11:01:52,651 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 11:01:53,226 - root - DEBUG - None
+2024-05-29 11:01:53,227 - root - DEBUG - None
+2024-05-29 11:01:53,228 - root - DEBUG - None
+2024-05-29 11:01:53,234 - root - DEBUG - None
+2024-05-29 11:01:53,234 - root - DEBUG - None
+2024-05-29 11:01:53,235 - root - DEBUG - None
+2024-05-29 11:02:01,742 - root - INFO - Network 1 is added to test2
+2024-05-29 11:02:01,742 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:02:01,743 - root - INFO - test2 does exist
+2024-05-29 11:02:01,744 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:02:01,750 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x000001F23E442690>
+2024-05-29 11:02:01,750 - root - INFO - Load network
+2024-05-29 11:02:01,751 - root - DEBUG - path
+2024-05-29 11:02:01,752 - root - DEBUG - path
+2024-05-29 11:04:04,335 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 11:04:05,162 - root - DEBUG - None
+2024-05-29 11:04:05,164 - root - DEBUG - None
+2024-05-29 11:04:05,165 - root - DEBUG - None
+2024-05-29 11:04:05,169 - root - DEBUG - None
+2024-05-29 11:04:05,170 - root - DEBUG - None
+2024-05-29 11:04:05,171 - root - DEBUG - None
+2024-05-29 11:04:13,136 - root - INFO - Network 1 is added to test2
+2024-05-29 11:04:13,137 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:04:13,140 - root - INFO - test2 does exist
+2024-05-29 11:04:13,141 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:04:13,147 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x00000256824854F0>
+2024-05-29 11:04:13,147 - root - INFO - Load network
+2024-05-29 11:04:13,148 - root - DEBUG - path
+2024-05-29 11:04:36,467 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 11:04:37,035 - root - DEBUG - None
+2024-05-29 11:04:37,036 - root - DEBUG - None
+2024-05-29 11:04:37,037 - root - DEBUG - None
+2024-05-29 11:04:37,042 - root - DEBUG - None
+2024-05-29 11:04:37,043 - root - DEBUG - None
+2024-05-29 11:04:37,044 - root - DEBUG - None
+2024-05-29 11:04:43,633 - root - INFO - Network 1 is added to test2
+2024-05-29 11:04:43,634 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:04:43,637 - root - INFO - test2 does exist
+2024-05-29 11:04:43,637 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 11:04:43,642 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x000001BD499B1FD0>
+2024-05-29 11:04:43,642 - root - INFO - Load network
+2024-05-29 11:04:43,643 - root - DEBUG - path
+2024-05-29 11:05:20,580 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 11:05:21,170 - root - DEBUG - None
+2024-05-29 11:05:21,172 - root - DEBUG - None
+2024-05-29 11:05:21,173 - root - DEBUG - None
+2024-05-29 11:05:21,178 - root - DEBUG - None
+2024-05-29 11:05:21,178 - root - DEBUG - None
+2024-05-29 11:05:21,179 - root - DEBUG - None
+2024-05-29 11:05:31,254 - root - INFO - Network 1 is added to test-v3
+2024-05-29 11:05:31,255 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-05-29 11:05:31,256 - root - INFO - test-v3 does exist
+2024-05-29 11:05:31,256 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test-v3
+2024-05-29 11:05:31,267 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x0000023A468C2030>
+2024-05-29 11:05:31,268 - root - INFO - Load network
+2024-05-29 11:05:31,269 - root - DEBUG - path
+2024-05-29 14:55:33,094 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 14:55:34,762 - root - DEBUG - None
+2024-05-29 14:55:34,763 - root - DEBUG - None
+2024-05-29 14:55:34,764 - root - DEBUG - None
+2024-05-29 14:55:34,778 - root - DEBUG - None
+2024-05-29 14:55:34,779 - root - DEBUG - None
+2024-05-29 14:55:34,779 - root - DEBUG - None
+2024-05-29 14:56:10,652 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 14:56:11,523 - root - DEBUG - None
+2024-05-29 14:56:11,524 - root - DEBUG - None
+2024-05-29 14:56:11,525 - root - DEBUG - None
+2024-05-29 14:56:11,534 - root - DEBUG - None
+2024-05-29 14:56:11,535 - root - DEBUG - None
+2024-05-29 14:56:11,536 - root - DEBUG - None
+2024-05-29 14:56:21,741 - root - INFO - Network 1 is added to test2
+2024-05-29 14:56:21,741 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 14:56:21,744 - root - INFO - test2 does exist
+2024-05-29 14:56:21,744 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 14:56:21,762 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x00000279E042D730>
+2024-05-29 14:56:21,763 - root - INFO - Load network
+2024-05-29 14:56:21,766 - root - DEBUG - path
+2024-05-29 15:08:16,001 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 15:08:28,500 - root - INFO - Network 1 is added to test2
+2024-05-29 15:08:28,500 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 15:08:28,502 - root - INFO - test2 does exist
+2024-05-29 15:08:28,521 - root - INFO - Load network
+2024-05-29 15:08:28,525 - root - DEBUG - path
+2024-05-29 15:11:09,036 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 15:11:17,638 - root - INFO - Network 1 is added to test2
+2024-05-29 15:11:17,639 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 15:11:17,640 - root - INFO - test2 does exist
+2024-05-29 15:11:17,648 - root - INFO - Load network
+2024-05-29 15:14:02,306 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 15:14:12,337 - root - INFO - Network 1 is added to test2
+2024-05-29 15:14:12,338 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 15:14:12,339 - root - INFO - test2 does exist
+2024-05-29 15:14:12,345 - root - INFO - Load network
+2024-05-29 15:14:12,345 - root - DEBUG - path
+2024-05-29 15:14:24,867 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 15:14:32,480 - root - INFO - Network 1 is added to test2
+2024-05-29 15:14:32,480 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 15:14:32,481 - root - INFO - test2 does exist
+2024-05-29 15:14:32,487 - root - INFO - Load network
+2024-05-29 15:14:57,076 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 15:15:03,610 - root - INFO - Network 1 is added to test2
+2024-05-29 15:15:03,610 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 15:15:03,611 - root - INFO - test2 does exist
+2024-05-29 15:15:03,617 - root - INFO - Load network
+2024-05-29 15:15:13,317 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-05-29 15:15:19,801 - root - INFO - Network 1 is added to test2
+2024-05-29 15:15:19,801 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-05-29 15:15:19,805 - root - INFO - test2 does exist
+2024-05-29 15:15:19,811 - root - INFO - Load network
+2024-05-29 15:15:19,811 - root - DEBUG - path

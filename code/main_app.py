@@ -3,25 +3,14 @@ import sys
 import logging
 import logging.config
 import json
-from qtpy.QtWidgets import (
-    QApplication,
-    QMainWindow,
-    QWidget,
-    QFileDialog,
-    QStatusBar,
-    QLineEdit,
-    QToolBar,
-    QAction,
-    QStackedWidget,
-    QVBoxLayout,
-    QSizePolicy,
-    QSizePolicy,
-    QDialog,
-    QMessageBox,
-    QSplitter
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QFileDialog,
+    QStatusBar, QLineEdit, QToolBar, QAction,
+    QStackedWidget, QVBoxLayout, QSizePolicy,
+    QDialog, QMessageBox, QSplitter
 )
-from qtpy.QtCore import Qt
-
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QScreen
 
 from src.models.configuration_file import ConfigurationFile
 from src.models.network import Network
@@ -32,8 +21,9 @@ from src.models.lan_audacity import LanAudacity
 from src.models.menu_bar_app import MenuBarApp
 
 from src.views.forms_app import NProject
-from src.views.tabs_app import TabFactoryWidget as Tab
+from src.views.tabs_app import TabFactoryWidget as Tab, PreferencesTabView
 from src.views.prm_sd_pnl import FlsExpl, NetExpl, GeneralSidePanel
+
 
 def current_dir():
     try:
@@ -90,6 +80,8 @@ class MainApp(QMainWindow):
         self.setWindowTitle(self.softwareManager.data["system"]["name"])
         # Set the Window icon
         self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
+        # Set the Window Size
+        self.setGeometry(100, 100, int(1920/2), int(1080/2))
         # Center the window
         self.centerWindow()
         # Set the navBar
@@ -170,7 +162,7 @@ class MainApp(QMainWindow):
 
     def centerWindow(self) -> None:
         # Obtenir la géométrie de l'écran
-        screen_geometry = QApplication.desktop().screenGeometry()
+        screen_geometry = QScreen.availableGeometry(QApplication.primaryScreen())
 
         # Obtenir la géométrie de la fenêtre
         window_geometry = self.geometry()
@@ -305,21 +297,23 @@ class MainApp(QMainWindow):
 
         # stack widget
         self.file_explorer = FlsExpl(
-            "Explorer",
+            title_panel="Explorer",
+            tab_connect=self.primary_center,
             lang_manager=self.langManager,
             icon_manager=self.iconsManager,
             keys_manager=self.shortcutManager,
             parent=self
         )
         self.network_explorer = NetExpl(
-            "Networks",
+            title_panel="Networks",
+            tab_connect=self.primary_center,
             lang_manager=self.langManager,
             icon_manager=self.iconsManager,
             keys_manager=self.shortcutManager,
             parent=self
         )
         self.extends_explorer = GeneralSidePanel(
-            "Extensions",
+            title_panel="Extensions",
             lang_manager=self.langManager,
             icon_manager=self.iconsManager,
             keys_manager=self.shortcutManager,
@@ -328,21 +322,6 @@ class MainApp(QMainWindow):
         self.primary_side_bar.addWidget(self.file_explorer)
         self.primary_side_bar.addWidget(self.network_explorer)
         self.primary_side_bar.addWidget(self.extends_explorer)
-
-    def closeEvent(self, event) -> None:
-        reply = QMessageBox.question(
-            self,
-            "Message",
-            "Are you sure to quit?",
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No,
-        )
-
-        if reply == QMessageBox.Yes:
-            event.accept()
-            logging.info("End of Application")
-        else:
-            event.ignore()
 
     def toggle_primary_side_bar(self) -> None:
         if self.primary_side_bar.isVisible():
@@ -358,6 +337,7 @@ class MainApp(QMainWindow):
 
     # Actions
     def quitAction(self) -> None:
+        logging.info("End of Application")
         self.close()
 
     def newProjectAction(self) -> None:
@@ -388,31 +368,58 @@ class MainApp(QMainWindow):
             # # Generate a new project
 
     def openProjectAction(self) -> None:
-        directory_project = QFileDialog.getExistingDirectory(self, "Open Project", os.getcwd())
-        if directory_project:
-            project_file = os.path.join(directory_project, "lan_audacity.json")
+        folder_dialog = QFileDialog(self)
+        folder_dialog.setFileMode(QFileDialog.FileMode.DirectoryOnly)
+        folder_dialog.setNameFilter("")
+        folder_dialog.exec()
+        folder_path = folder_dialog.selectedFiles()[0]
+        if folder_path:
+            project_file = os.path.join(folder_path, "lan_audacity.json")
             if os.path.exists(project_file):
                 with open(project_file, "r") as file:
-                    data = json.load(file)
-                nprjlan = LanAudacity(
-                    software_name=data["software"],
-                    version_software=data["version"],
-                    project_name=os.path.basename(directory_project),
-                    save_path=directory_project,
-                    author=data["author"]
-                )
-                logging.debug(data["networks"])
+                    try:
+                        data = json.load(file)
+                    except json.JSONDecodeError as e:
+                        msg_box = QMessageBox(self)
+                        msg_box.setIcon(QMessageBox.Warning)
+                        msg_box.setWindowTitle("ERROR")
+                        msg_box.setInformativeText(f"Failed to load project file: {e}")
+                        msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
+                        msg_box.exec()
+                        return
+                try:
+                    nprjlan = LanAudacity(
+                        software_name=data["software"],
+                        version_software=data["version"],
+                        project_name=os.path.basename(folder_path),
+                        save_path=folder_path,
+                        author=data["author"]
+                    )
+                except KeyError as e:
+                    msg_box = QMessageBox(self)
+                    msg_box.setIcon(QMessageBox.Warning)
+                    msg_box.setWindowTitle("ERROR")
+                    msg_box.setInformativeText(f"Missing key in project file: {e}")
+                    msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
+                    msg_box.exec()
+                    return
                 if data["networks"] is not None:
-                    logging.info(len(data["networks"]["obj_ls"]))
-                    # add informations to nprjlan
                     for network in data["networks"]["obj_ls"]:
-                        # open network file
-                        network_file = os.path.join(network["path"])
-                        logging.debug(network_file)
+                        network_file = os.path.join(folder_path, network["path"])
                         if os.path.exists(network_file):
                             with open(network_file, "r") as file:
-                                data_network = json.load(file)
-                            net0X = Network(
+                                try:
+                                    data_network = json.load(file)
+                                except json.JSONDecodeError as e:
+                                    msg_box = QMessageBox(self)
+                                    msg_box.setIcon(QMessageBox.Warning)
+                                    msg_box.setWindowTitle("ERROR")
+                                    msg_box.setInformativeText(f"Failed to load network file: {e}")
+                                    msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
+                                    msg_box.exec()
+                                    return
+                            try:
+                                net0X = Network(
                                     network_ipv4=data_network["ipv4"],
                                     network_mask_ipv4=data_network["mask_ipv4"],
                                     save_path=data_network["abs_path"],
@@ -423,23 +430,30 @@ class MainApp(QMainWindow):
                                     network_dhcp=data_network["dhcp"],
                                     uuid_str=data_network["uuid"]
                                 )
+                            except KeyError as e:
+                                msg_box = QMessageBox(self)
+                                msg_box.setIcon(QMessageBox.Warning)
+                                msg_box.setWindowTitle("ERROR")
+                                msg_box.setInformativeText(f"Missing key in network file: {e}")
+                                msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
+                                msg_box.exec()
+                                return
                             net0X.date_unix = data_network["date_unix"]
                             nprjlan.add_network(net0X)
-
                 nprjlan.open_project()
-                nprjlan.save_project()
                 self.prj_ls.append(nprjlan)
-
-                self.file_explorer.extObj = directory_project
+                self.file_explorer.extObj = folder_path
                 self.file_explorer.set_extObjDisplay()
                 self.primary_side_bar.setCurrentWidget(self.file_explorer)
-
                 self.network_explorer.extObj = nprjlan
-                ## self.network_explorer.set_extObjDisplay()
-                # Charger l'arborescence dans le QTreeView
+                self.network_explorer.set_extObjDisplay()
             else:
-                QMessageBox.warning(self, "Error", "lan_audacity.json not found in the selected directory.")
-        # Open a project
+                msg_box = QMessageBox(self)
+                msg_box.setIcon(QMessageBox.Warning)
+                msg_box.setWindowTitle("ERROR")
+                msg_box.setInformativeText("lan_audacity.json not found in the selected directory.")
+                msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
+                msg_box.exec()
 
     def saveProjectAction(self) -> None:
         logging.debug("Save Action...")
@@ -470,7 +484,15 @@ class MainApp(QMainWindow):
 
     def preferencesAction(self) -> None:
         logging.debug("Preferences Action...")
-        self.primary_center.add_tab(title="Preferences")
+        self.primary_center.add_tab(
+            tab=PreferencesTabView(
+                title_panel="Preferences",
+                lang_manager=self.langManager,
+                icons_manager=self.iconsManager,
+                parent=self
+            ),
+            title="Preferences"
+        )
         # Open the preferences window
 
     def userAction(self) -> None:
@@ -493,7 +515,7 @@ if __name__ == "__main__":
         f"{softw_manager.data['system']['name']} - version {softw_manager.data['system']['version']}"
     )
 
-    from PyQt5.QtWidgets import QApplication
+    from qtpy.QtWidgets import QApplication
 
     app = QApplication(sys.argv)
     app.setApplicationName(softw_manager.data["system"]["name"])

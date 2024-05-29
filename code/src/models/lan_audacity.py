@@ -81,7 +81,7 @@ class LanAudacity:
             {
                 "uuid": network.uuid,
                 "name": network.name,
-                "path": network.abs_path,
+                "path": network.absPath,
                 "ls_devices": [],
             }
         )

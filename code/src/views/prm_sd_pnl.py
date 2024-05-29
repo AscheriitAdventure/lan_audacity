@@ -54,7 +54,7 @@ class GeneralSidePanel(QWidget):
         self.extObjChanged.connect(self.set_extObjDisplay)
 
     def set_extObjDisplay(self):
-        logging.debug(f"{self.extObj}")
+        # logging.debug(f"{self.extObj}")
         if self.extObj is None:
             self.treeView.hide()
             self.btn_null.show()
@@ -76,7 +76,6 @@ class GeneralSidePanel(QWidget):
     def initUI(self):
         hwidget = QWidget(self)
         hbar = QHBoxLayout()
-        # hbar.setContentsMargins(0, 0, 0, 0)
         hwidget.setLayout(hbar)
         self.glbLayout.addWidget(hwidget)
 
@@ -240,14 +239,18 @@ class NetExpl(GeneralSidePanel):
         self.treeView.setModel(model)
         if self.extObj is not None and hasattr(self.extObj, 'networks'):
             for network in self.extObj.networks:
-                logging.debug(network)
+                logging.debug(str(network))
                 self.add_network_to_tree(network)
             if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
                 pass
 
     def addDeviceObj(self, network: Network = None):
         logging.info("Add device")
-        new_device = NDevice("New Device", self.extObj, self.langManager, self.iconManager)
+        new_device = NDevice(
+            ext_obj=self.extObj,
+            lang_manager=self.langManager,
+            icon_manager=self.iconManager,
+        )
         if new_device.exec_() == QDialog.Accepted:
             device_data = new_device.get_data()
             device0 = Device(
@@ -273,7 +276,12 @@ class NetExpl(GeneralSidePanel):
 
     def addNetworkObj(self):
         logging.info("Add network")
-        new_network = NNetwork("New Network", self.extObj, self.langManager, self.iconManager)
+        new_network = NNetwork(
+            ext_obj=self.extObj,
+            lang_manager=self.langManager,
+            icon_manager=self.iconManager,
+            parent=self
+        )
         if new_network.exec_() == QDialog.Accepted:
             network_data = new_network.get_data()
             network = Network(
@@ -294,11 +302,8 @@ class NetExpl(GeneralSidePanel):
         # Add Network to Tree
 
     def add_network_to_tree(self, network: Network):
-        root = self.treeView.model().invisibleRootItem()
         logging.debug(network.name)
-        if network.name is None:
-            network.name = f"Network {len(root)}"
-        item = QStandardItem(network.name)
+        item = QStandardItem("article 1")
         item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
         root.appendRow(item)
 

@@ -1,8 +1,9 @@
 from src.models.configuration_file import ConfigurationFile
 
+
 class MenuBarApp:
     def __init__(self, file_manager: ConfigurationFile):
-        self.data_manager = file_manager.data
+        self.data_manager: list = file_manager.data
 
     def get_menu_name(self, key: str) -> str:
         for menu_obj in self.data_manager:
