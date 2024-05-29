@@ -1,0 +1,48 @@
+version: 1
+system:
+  name: Lan Audacity
+  version: 1.0.4
+  authors: "Geoffrey TRONCHE"
+  organization: Student Software Development 2024
+  type: application/desktop
+  description: "Lan Audacity is a tool for network analysis, visualization and devices settings."
+  version_date: 2024-05-21
+  version_python: 3.12
+  version_pyqt: 5.15.10
+  version_nmap: 7.94
+
+repository:
+  url: Don't have a repository yet
+
+software:
+  conf:
+    log_app:
+      path: conf/config_logs.yaml
+      encoding: utf-8
+      version: 1
+    translate_app:
+      path: data/translate_text.json
+      encoding: utf-8
+      version: 1
+    shortcuts_app:
+      path: data/shortcut_list.json
+      encoding: utf-8
+      version: 2
+    icons_app:
+      path: data/icon_list.json
+      encoding: utf-8
+      version: 1
+    navBar_app:
+      path: data/navBar_obj.json
+      encoding: utf-8
+      version: 1
+
+  
+
+licences:
+  - name: MIT
+    url: https://opensource.org/licenses/MIT
+    description: "The MIT License is a permissive free software license originating at the Massachusetts Institute of Technology (MIT) in the late 1980s."
+  - name: GPL
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+    description: "The GNU General Public License (GNU GPL or GPL) is a series of widely used free software licenses that guarantee end users the freedom to run, study, share, and modify the software."
