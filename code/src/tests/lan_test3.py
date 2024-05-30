@@ -289,6 +289,9 @@ class LanAudacity(FileManagement):
     def updateProject_0(self):
         self.add_folder(self.path)
         self.generate_file("lan_audacity", "json", self.absPath)
+        # dump the project data into the json file
+        SwitchFile2.json_write(os.path.join(self.absPath, self.path, "lan_audacity.json"), self.dict_return())
+
         cl_infos = [
             {
                 "name": "conf"
