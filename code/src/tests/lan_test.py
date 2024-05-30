@@ -164,8 +164,7 @@ class LanAudacity:
             else:
                 self.savePath = new_path
                 logging.info(f"The save path of {self.projectName} is set to {new_path}.")
-                
-    
+              
     def create_project(self) -> None:
         path_part1 = f"{self.savePath}/{self.projectName}"
         if not os.path.exists(path_part1):
