@@ -3,10 +3,8 @@ import logging
 
 class FileManagement:
     def __init__(
-            self, 
-            folder_name: str, 
-            folder_list: list[str] = [],
-            files_list: list[tuple] = []
+            self, folder_name: str, 
+            folder_list: list[str] = [], files_list: list[tuple] = []
         ) -> None:
         self.__path = folder_name
         self.__folders = folder_list
@@ -40,6 +38,9 @@ class FileManagement:
                 os.mkdir(os.path.join(project_path, folder_name))
             else:
                 logging.warning(f"The folder {folder_name} already exists in {project_path}.")
+                # insert the folder into the list of folders if it does not exist
+                if folder_name not in self.folders:
+                    self.add_folder(folder_name)
 
             self.add_folder(folder_name)
         else:
@@ -60,6 +61,10 @@ class FileManagement:
                 self.add_file((file_name, file_type))
             else:
                 logging.warning(f"The file {file_name} already exists in {part2}.")
+                # insert the file into the list of files if it does not exist
+                if (file_name, file_type) not in self.files:
+                    self.add_file((file_name, file_type))
+
         else:
             logging.error(f"The path {abs_path} does not exist or is not a directory.")
     
@@ -226,13 +231,12 @@ import shutil
 class LanAudacity(FileManagement):
     def __init__(
             self, 
-            project_name: str, 
-            abs_path: str = os.getcwd(),
-            folder_list: list[str] = [],
-            files_list: list[tuple] = [],
-            software_name: str = "Lan Audacity",
-            software_version: str = "1.0.4",
-            author: str = "Unknown"
+            project_name: str, abs_path: str = os.getcwd(),
+            folder_list: list[str] = [], files_list: list[tuple] = [],
+            software_name: str = "Lan Audacity", software_version: str = "1.0.4",
+            author: str = "Unknown", clock_manager: ClockManager = ClockManager(),
+            network_list: list[dict] = [], link_list: list[dict] = [],
+            device_list: list[dict] = [], pixmap_list: list[dict] = []
             ) -> None:
         super().__init__(project_name, folder_list, files_list)
         self.__abs_path = abs_path
@@ -242,6 +246,52 @@ class LanAudacity(FileManagement):
         }
         self.__author = author
         self.__objPaths = {}
+        self.__clockManager = clock_manager
+        self.char_table = "utf-8"
+
+        self.__networks = network_list
+        self.__links = link_list
+        self.__devices = device_list
+        self.__pixmap = pixmap_list
+
+        # Update the project with the start data
+        self.create_project()
+    
+    @property
+    def pixmap(self) -> list[dict]:
+        return self.__pixmap
+    
+    def setPixmap(self, value: list[dict]) -> None:
+        # transform value into a list of Pixmap objects
+        self.__pixmap = value
+
+    @property
+    def networks(self) -> list[dict]:
+        return self.__networks
+    
+    def setNetworks(self, value: list[dict]) -> None:
+        # transform value into a list of Network objects
+        self.__networks = value
+
+    @property
+    def links(self) -> list[dict]:
+        return self.__links
+    
+    def setLinks(self, value: list[dict]) -> None:
+        # transform value into a list of Link objects
+        self.__links = value
+    
+    @property
+    def devices(self) -> list[dict]:
+        return self.__devices
+    
+    def setDevices(self, value: list[dict]) -> None:
+        # transform value into a list of Device objects
+        self.__devices = value
+    
+    @property
+    def clockManager(self) -> ClockManager:
+        return self.__clockManager
     
     @property
     def absPath(self) -> str:
@@ -280,104 +330,119 @@ class LanAudacity(FileManagement):
     def dict_return(self) -> dict:
         return {
             "project_name": self.path,
+            "char_table": self.char_table,
             "abs_path": self.absPath,
             "software": self.software,
             "author": self.author,
-            "obj_paths": self.dict_objPaths()
+            "clock_manager": self.clockManager.dict_return(),
+            "obj_paths": self.dict_objPaths(),
+            "networks": self.networks,
+            "links": self.links,
+            "devices": self.devices,
         }
     
-    def updateProject_0(self):
+    def getOneObjPath(self, obj_path: str) -> FileManagement:
+        return self.__objPaths[obj_path]
+
+    def create_project(self):
         self.add_folder(self.path)
         self.generate_file("lan_audacity", "json", self.absPath)
         # dump the project data into the json file
-        SwitchFile2.json_write(os.path.join(self.absPath, self.path, "lan_audacity.json"), self.dict_return())
-
+        self.updateLanAudacity()
+        # Create the folders and files of the project
         cl_infos = [
             {
-                "name": "conf"
+                "name": "conf",
+                "folders": [],
+                "files": []
             },
             {
                 "name": "db",
-                "folders": ["interfaces", "desktop"]
+                "folders": ["interfaces", "desktop"],
+                "files": []
             },
             {
                 "name": "logs",
+                "folders": [],
                 "files": [("lan_audacity", "log")]
             },
             {
-                "name": "pixmap"
+                "name": "pixmap",
+                "folders": [],
+                "files": []
             }
         ]
+
         for cl_info in cl_infos:
             self.__objPaths[cl_info["name"]] = FileManagement(cl_info["name"])
             fls_mng = self.__objPaths[cl_info["name"]]
             self.generate_folder(fls_mng.path , self.absPath)
-            if "folders" in cl_info:
+
+            if cl_info["folders"] != []:
                 # Set the folders attribute using the setter method
                 for folder in cl_info["folders"]:
                     fls_mng.generate_folder(folder, os.path.join(self.absPath, self.path))
-            if "files" in cl_info:
+            else:
+                fls_mng.folders = []
+
+            if cl_info["files"] != []:
                 for file in cl_info["files"]:
                     fls_mng.generate_file(file[0], file[1], os.path.join(self.absPath, self.path))
-            print(fls_mng)
-
-
-"""class LanAudacity:
-    def __init__(
-            self,
-            software_name: str = "Lan Audacity",
-            software_version: str = "1.0.4",
-            project_name: str = "Unknown",
-            save_path: str = os.getcwd(),
-            author: str = "Unknown",
-            clock_manager: ClockManager = ClockManager(),
-            network_list: list[dict] = [],
-            link_list: list[dict] = [],
-            device_list: list[dict] = [],
-            pixmap_list: list[dict] = []
-        ) -> None:
-        # Fichier de référence pour le logiciel "Lan Audacity"
-        self.refFile: tuple = ("lan_audacity","json")
-        self.__softName = software_name
-        self.__softVersion = software_version
-        self.__projectName = project_name
-        self.__savePath = save_path
-        self.__author = author
-        self.__clockManager = clock_manager
-        self.__charTable = "utf-8"
-        self.__objPaths = {
-            "conf": FileManagement("conf"),
-            "db": FileManagement("db", ["interfaces", "desktop"]),
-            "logs": FileManagement("logs", [], ["lan_audacity.log"]),
-            "pixmap": FileManagement("pixmap"),
-        }
-        self.__networks: list = network_list
-        self.__links: list = link_list
-        self.__devices: list = device_list
-        self.__pixmap: list = pixmap_list
+            else:
+                fls_mng.files = []
+            
+        self.updateLanAudacity()
     
-    def dict_return(self) -> dict:
-        return {
-            "software_name": self.__softName,
-            "software_version": self.__softVersion,
-            "project_name": self.__projectName,
-            "save_path": self.__savePath,
-            "char_table": self.__charTable,
-            "author": self.__author,
-            "clock_manager": self.__clockManager.dict_return(),
-            "obj_paths": {
-                "conf": self.__objPaths["conf"].dict_return(),
-                "db": self.__objPaths["db"].dict_return(),
-                "logs": self.__objPaths["logs"].dict_return(),
-                "pixmap": self.__objPaths["pixmap"].dict_return(),
-            },
-            "networks": self.__networks,
-            "links": self.__links,
-            "devices": self.__devices,
-            "pixmap": self.__pixmap
-        }
+    def updateLanAudacity(self):
+        # Update the project with the new data
+        SwitchFile2.json_write(os.path.join(self.absPath, self.path, "lan_audacity.json"), self.dict_return())
+    
+    def delete_project(self) -> None:
+        if os.path.exists(os.path.join(self.absPath, self.path)):
+            try:
+                shutil.rmtree(os.path.join(self.absPath, self.path))
+                logging.info(f"{self.path} is deleted")
+            except OSError as e:
+                logging.error(f"Error remove {self.path} : {e}")
+        else:
+            logging.info(f"{self.path} doesn't exist")
+    
+    def update_project(self, old_path: str = os.getcwd()) -> None:
+        # Search "lan_audacity.json" in the old path
+        if os.path.exists(os.path.join(old_path, "lan_audacity.json")):
+            # Load the data from the old path
+            old_data = SwitchFile2.json_read(os.path.join(old_path, "lan_audacity.json"))
+            # Compare the data from the old path with the current data
+            if old_data != self.dict_return():
+                # Update the project with the new data
+                print(f"abs_path: {old_data['abs_path']}")
+                print(f"char_table: {old_data['char_table']}")
+                print(f"project_name: {old_data['project_name']}")
+                print(f"software: {old_data['software']}")
+                print(f"author: {old_data['author']}")
+                print(f"clock_manager: {old_data['clock_manager']}")
+                print(f"obj_paths: {old_data['obj_paths']}")
+                print(f"networks: {old_data['networks']}")
+                print(f"links: {old_data['links']}")
+                print(f"devices: {old_data['devices']}")
+                print(f"pixmap: {old_data['pixmap']}")
+            else:
+                logging.info(f"{self.path} is already up to date")
+        else:
+            logging.error(f"File 'lan_audacity.json' not found in {old_path}")
+    
+    # def add_network(self, network: dict) -> None:
+    # def remove_network(self, network: dict) -> None:
+    # def add_link(self, link: dict) -> None:
+    # def remove_link(self, link: dict) -> None:
+    # def add_device(self, device: dict) -> None:
+    # def remove_device(self, device: dict) -> None:
+    # def add_pixmap(self, pixmap: dict) -> None:
+    # def remove_pixmap(self, pixmap: dict) -> None:
 
-"""
+                
+
+
 
 # Test de la classe LanAudacity
 
@@ -409,7 +474,7 @@ def test_lan_audacity():
     with open(os.path.join(temp_path, "Test_Lan_Audacity", "lan_audacity.json"), "r") as f:
         project_data = json.load(f)
         assert project_data["project_name"] == "Test_Lan_Audacity", "Le nom du projet dans le fichier est incorrect"
-        assert project_data["abs_path"] == os.path.join(temp_path, "Test_Lan_Audacity"), "Le chemin d'accès du projet dans le fichier est incorrect"
+        assert project_data["abs_path"] == temp_path, "Le chemin d'accès du projet dans le fichier est incorrect"
         assert project_data["software"]["name"] == "Lan Audacity", "Le nom du logiciel dans le fichier est incorrect"
         assert project_data["software"]["version"] == "1.0.0", "La version du logiciel dans le fichier est incorrecte"
         assert project_data["author"] == "John Doe", "Le nom de l'auteur dans le fichier est incorrect"
