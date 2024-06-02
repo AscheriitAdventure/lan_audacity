@@ -3,14 +3,14 @@ import sys
 import logging
 import logging.config
 import json
-from PyQt5.QtWidgets import (
+from qtpy.QtWidgets import (
     QApplication, QMainWindow, QWidget, QFileDialog,
     QStatusBar, QLineEdit, QToolBar, QAction,
     QStackedWidget, QVBoxLayout, QSizePolicy,
     QDialog, QMessageBox, QSplitter
 )
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QScreen
+from qtpy.QtCore import Qt
+from qtpy.QtGui import QScreen
 
 from src.models.configuration_file import ConfigurationFile
 from src.models.network import Network
