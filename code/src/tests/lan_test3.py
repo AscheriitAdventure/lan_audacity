@@ -458,7 +458,7 @@ def test_lan_audacity():
         software_version="1.0.0",
         author="John Doe"
     )
-    lan_audacity.updateProject_0()
+    lan_audacity.create_project()
 
     # Vérification de la création des répertoires et fichiers
     assert os.path.exists(os.path.join(temp_path, "Test_Lan_Audacity")), "Le répertoire du projet n'a pas été créé"
