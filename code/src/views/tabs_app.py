@@ -1,4 +1,11 @@
-from qtpy.QtWidgets import QTabWidget, QWidget, QGridLayout, QVBoxLayout, QPushButton, QStackedLayout
+from qtpy.QtWidgets import (
+    QTabWidget,
+    QWidget,
+    QGridLayout,
+    QVBoxLayout,
+    QPushButton,
+    QStackedLayout,
+)
 from qtpy.QtCore import Qt
 from typing import Any
 
@@ -33,12 +40,12 @@ class TabFactoryWidget(QTabWidget):
 
 class GeneralTabsView(QWidget):
     def __init__(
-            self,
-            title_panel: str,
-            ext_obj: Any = None,
-            lang_manager: LanguageApp = None,
-            icons_manager: IconsApp = None,
-            parent=None
+        self,
+        title_panel: str,
+        ext_obj: Any = None,
+        lang_manager: LanguageApp = None,
+        icons_manager: IconsApp = None,
+        parent=None,
     ) -> None:
         super().__init__(parent)
 
@@ -86,14 +93,14 @@ class GeneralTabsView(QWidget):
                 "name": "News",
                 "tooltip": "News",
                 "icon": "defaultIcon",
-                "action": self.notifications_btn
+                "action": self.notifications_btn,
             },
             {
                 "name": "&Preferences",
                 "tooltip": "&Preferences",
                 "icon": "defaultIcon",
-                "action": self.informations_btn
-            }
+                "action": self.informations_btn,
+            },
         ]
         return data
 
@@ -103,17 +110,25 @@ class GeneralTabsView(QWidget):
     def informations_btn(self):
         self.stackedFields.setCurrentWidget(self.info_menu)
 
+
 class PreferencesTabView(GeneralTabsView):
-    def __init__(self, title_panel: str, ext_obj: Any = None, lang_manager: LanguageApp = None, icons_manager: IconsApp = None, parent=None) -> None:
+    def __init__(
+        self,
+        title_panel: str,
+        ext_obj: Any = None,
+        lang_manager: LanguageApp = None,
+        icons_manager: IconsApp = None,
+        parent=None,
+    ) -> None:
         super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
         logging.debug(parent)
-    
+
     def setListBtn(self) -> list:
         data = [
             {
                 "name": "General",
                 "tooltip": "General",
-                "icon": "defaultIcon",
+                "icon": "generalBtn",
                 "action": self.general_btn,
             },
             {
@@ -148,7 +163,7 @@ class PreferencesTabView(GeneralTabsView):
             },
         ]
         return data
-    
+
     def initDisplay(self):
         self.general_menu = QWidget(self)
         self.stackedFields.addWidget(self.general_menu)

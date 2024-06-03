@@ -239,7 +239,7 @@
   },
   {
     "name": "networkDefaultIcon",
-    "platform_and_name": ["mdi6.wan","mdi6.routes"],
+    "platform_and_name": ["mdi6.wan", "mdi6.routes"],
     "options": [
       {
         "scale_factor": 1,
@@ -248,6 +248,15 @@
       {
         "scale_factor": 0.75,
         "color": "GreenForest"
+      }
+    ]
+  },
+  {
+    "name": "generalBtn",
+    "platform_and_name": ["mdi6.trello"],
+    "options": [
+      {
+        "color": "PaleTurquoise"
       }
     ]
   }

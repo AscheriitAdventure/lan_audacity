@@ -21,7 +21,7 @@ from src.models.lan_audacity import LanAudacity
 from src.models.menu_bar_app import MenuBarApp
 
 from src.views.forms_app import NProject
-from src.views.tabs_app import TabFactoryWidget as Tab, PreferencesTabView
+from src.views.tabs_app import TabFactoryWidget as Tab, PreferencesTabView, GeneralTabsView
 from src.views.prm_sd_pnl import FlsExpl, NetExpl, GeneralSidePanel
 
 
@@ -497,7 +497,9 @@ class MainApp(QMainWindow):
 
     def userAction(self) -> None:
         logging.debug("User Action...")
-        self.primary_center.add_tab(title="User")
+        self.primary_center.add_tab(
+            tab= GeneralTabsView("User", None, self.langManager, self.iconsManager, self),
+            title="User")
         # Open the user window
 
 
