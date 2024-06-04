@@ -3476,3 +3476,21 @@
 2024-05-17 13:31:04,998 - root - DEBUG - 252
 2024-05-17 13:31:04,998 - root - DEBUG - 253
 2024-05-17 13:31:04,999 - root - DEBUG - <src.models.network_map.NetworkMap object at 0x101e43140>
+2024-06-04 15:11:21,796 - __main__ - INFO - Lan Audacity - version 1.1.4
+2024-06-04 15:11:22,334 - root - INFO - Load network
+2024-06-04 15:11:37,496 - root - INFO - Search
+2024-06-04 15:11:39,731 - root - INFO - Projects
+2024-06-04 15:11:42,386 - root - INFO - Search
+2024-06-04 15:11:43,333 - root - INFO - DLC
+2024-06-04 15:11:46,843 - root - INFO - Login
+2024-06-04 15:11:48,402 - root - INFO - Preferences
+2024-06-04 15:11:48,411 - root - DEBUG - {'version': 1, 'system': {'name': 'Lan Audacity', 'version': '1.1.4', 'authors': 'Geoffrey TRONCHE', 'organization': 'Student Software Development 2024', 'type': 'application/desktop', 'description': 'Lan Audacity is a tool for network analysis, visualization and devices settings.', 'version_date': datetime.date(2024, 4, 26), 'version_python': 3.12, 'version_pyqt': '5.15.10', 'version_nmap': 7.94}, 'repository': {'url': "Don't have a repository yet"}, 'software': {'configuration_logs': {'path': 'conf/config_logs.yaml', 'encoding': 'utf-8', 'version': 1}, 'configuration_translate': {'path': 'data/translate_text.json', 'encoding': 'utf-8', 'version': 1}, 'configuration_key_shortcuts': {'path': 'data/key_shortcut_action.json', 'encoding': 'utf-8', 'version': 1}, 'configuration_icons': {'path': 'data/icon_list.json', 'encoding': 'utf-8', 'version': 1}}, 'licences': [{'name': 'MIT', 'url': 'https://opensource.org/licenses/MIT', 'description': 'The MIT License is a permissive free software license originating at the Massachusetts Institute of Technology (MIT) in the late 1980s.'}, {'name': 'GPL', 'url': 'https://www.gnu.org/licenses/gpl-3.0.html', 'description': 'The GNU General Public License (GNU GPL or GPL) is a series of widely used free software licenses that guarantee end users the freedom to run, study, share, and modify the software.'}]}
+2024-06-04 15:11:48,418 - root - DEBUG - <src.models.conf_file.ConfigurationFile object at 0x104e5e660>
+2024-06-04 15:11:48,420 - root - DEBUG - {'version': 1, 'system': {'name': 'Lan Audacity', 'version': '1.1.4', 'authors': 'Geoffrey TRONCHE', 'organization': 'Student Software Development 2024', 'type': 'application/desktop', 'description': 'Lan Audacity is a tool for network analysis, visualization and devices settings.', 'version_date': datetime.date(2024, 4, 26), 'version_python': 3.12, 'version_pyqt': '5.15.10', 'version_nmap': 7.94}, 'repository': {'url': "Don't have a repository yet"}, 'software': {'configuration_logs': {'path': 'conf/config_logs.yaml', 'encoding': 'utf-8', 'version': 1}, 'configuration_translate': {'path': 'data/translate_text.json', 'encoding': 'utf-8', 'version': 1}, 'configuration_key_shortcuts': {'path': 'data/key_shortcut_action.json', 'encoding': 'utf-8', 'version': 1}, 'configuration_icons': {'path': 'data/icon_list.json', 'encoding': 'utf-8', 'version': 1}}, 'licences': [{'name': 'MIT', 'url': 'https://opensource.org/licenses/MIT', 'description': 'The MIT License is a permissive free software license originating at the Massachusetts Institute of Technology (MIT) in the late 1980s.'}, {'name': 'GPL', 'url': 'https://www.gnu.org/licenses/gpl-3.0.html', 'description': 'The GNU General Public License (GNU GPL or GPL) is a series of widely used free software licenses that guarantee end users the freedom to run, study, share, and modify the software.'}]}
+2024-06-04 15:11:59,733 - root - INFO - New Console
+2024-06-04 15:12:31,587 - root - INFO - Projects
+2024-06-04 15:12:32,893 - root - INFO - Add network
+2024-06-04 15:13:00,339 - root - INFO - Open tab object tree
+2024-06-04 15:13:00,340 - root - DEBUG - Device open
+2024-06-04 15:13:03,174 - root - INFO - Open tab object tree
+2024-06-04 15:13:03,175 - root - DEBUG - 192.168.1.0/24 (254) Networkmap open 192.168.1.0/24 (254)
