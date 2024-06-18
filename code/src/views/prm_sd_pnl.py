@@ -237,7 +237,8 @@ class NetExpl(GeneralSidePanel):
         logging.info("Load network")
         model = QStandardItemModel()
         self.treeView.setModel(model)
-        if self.extObj is not None and hasattr(self.extObj, 'networks'):
+        if self.extObj is not None and hasattr(self.extObj, 'networks') and self.extObj.networks is not None:
+            logging.info(self.extObj.networks)
             for network in self.extObj.networks:
                 logging.debug(str(network))
                 self.add_network_to_tree(network)
@@ -302,6 +303,7 @@ class NetExpl(GeneralSidePanel):
         # Add Network to Tree
 
     def add_network_to_tree(self, network: Network):
+        logging.debug(network)
         logging.debug(network.name)
         item = QStandardItem("article 1")
         item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))

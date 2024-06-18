@@ -451,3 +451,135 @@
 2024-06-18 15:01:14,142 - __main__ - INFO - Lan Audacity - version 1.0.4
 2024-06-18 15:01:32,402 - __main__ - INFO - Lan Audacity - version 1.0.4
 2024-06-18 15:02:03,868 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:50:44,275 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:50:46,055 - root - INFO - parent:<__main__.MainApp object at 0x000002D1DFF936E0>
+2024-06-18 15:50:46,062 - root - INFO - parent:<__main__.MainApp object at 0x000002D1DFF936E0>
+2024-06-18 15:50:46,063 - root - INFO - parent:<__main__.MainApp object at 0x000002D1DFF936E0>
+2024-06-18 15:50:46,073 - root - INFO - parent:<__main__.MainApp object at 0x000002D1DFF936E0>
+2024-06-18 15:50:46,074 - root - INFO - parent:<__main__.MainApp object at 0x000002D1DFF936E0>
+2024-06-18 15:50:46,075 - root - INFO - parent:<__main__.MainApp object at 0x000002D1DFF936E0>
+2024-06-18 15:50:56,374 - root - DEBUG - Preferences Action...
+2024-06-18 15:53:10,252 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:53:10,841 - root - INFO - parent:<__main__.MainApp object at 0x000001CB153DF770>
+2024-06-18 15:53:10,843 - root - INFO - parent:<__main__.MainApp object at 0x000001CB153DF770>
+2024-06-18 15:53:10,844 - root - INFO - parent:<__main__.MainApp object at 0x000001CB153DF770>
+2024-06-18 15:53:10,851 - root - INFO - parent:<__main__.MainApp object at 0x000001CB153DF770>
+2024-06-18 15:53:10,852 - root - INFO - parent:<__main__.MainApp object at 0x000001CB153DF770>
+2024-06-18 15:53:10,853 - root - INFO - parent:<__main__.MainApp object at 0x000001CB153DF770>
+2024-06-18 15:53:12,668 - root - DEBUG - Preferences Action...
+2024-06-18 15:53:53,717 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:53:54,352 - root - INFO - parent:<__main__.MainApp object at 0x000001FE1A2EFEC0>
+2024-06-18 15:53:54,355 - root - INFO - parent:<__main__.MainApp object at 0x000001FE1A2EFEC0>
+2024-06-18 15:53:54,356 - root - INFO - parent:<__main__.MainApp object at 0x000001FE1A2EFEC0>
+2024-06-18 15:53:54,362 - root - INFO - parent:<__main__.MainApp object at 0x000001FE1A2EFEC0>
+2024-06-18 15:53:54,363 - root - INFO - parent:<__main__.MainApp object at 0x000001FE1A2EFEC0>
+2024-06-18 15:53:54,363 - root - INFO - parent:<__main__.MainApp object at 0x000001FE1A2EFEC0>
+2024-06-18 15:53:55,701 - root - DEBUG - Preferences Action...
+2024-06-18 15:55:45,914 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:55:46,520 - root - INFO - parent:<__main__.MainApp object at 0x000001CDCB027650>
+2024-06-18 15:55:46,521 - root - INFO - parent:<__main__.MainApp object at 0x000001CDCB027650>
+2024-06-18 15:55:46,522 - root - INFO - parent:<__main__.MainApp object at 0x000001CDCB027650>
+2024-06-18 15:55:46,527 - root - INFO - parent:<__main__.MainApp object at 0x000001CDCB027650>
+2024-06-18 15:55:46,528 - root - INFO - parent:<__main__.MainApp object at 0x000001CDCB027650>
+2024-06-18 15:55:46,529 - root - INFO - parent:<__main__.MainApp object at 0x000001CDCB027650>
+2024-06-18 15:55:48,253 - root - DEBUG - Preferences Action...
+2024-06-18 15:56:12,471 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:56:13,086 - root - INFO - parent:<__main__.MainApp object at 0x0000016EC23E3E30>
+2024-06-18 15:56:13,088 - root - INFO - parent:<__main__.MainApp object at 0x0000016EC23E3E30>
+2024-06-18 15:56:13,089 - root - INFO - parent:<__main__.MainApp object at 0x0000016EC23E3E30>
+2024-06-18 15:56:13,094 - root - INFO - parent:<__main__.MainApp object at 0x0000016EC23E3E30>
+2024-06-18 15:56:13,095 - root - INFO - parent:<__main__.MainApp object at 0x0000016EC23E3E30>
+2024-06-18 15:56:13,096 - root - INFO - parent:<__main__.MainApp object at 0x0000016EC23E3E30>
+2024-06-18 15:56:14,369 - root - DEBUG - Preferences Action...
+2024-06-18 15:58:07,725 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:58:08,308 - root - INFO - parent:<__main__.MainApp object at 0x00000178A90EFC80>
+2024-06-18 15:58:08,310 - root - INFO - parent:<__main__.MainApp object at 0x00000178A90EFC80>
+2024-06-18 15:58:08,311 - root - INFO - parent:<__main__.MainApp object at 0x00000178A90EFC80>
+2024-06-18 15:58:08,316 - root - INFO - parent:<__main__.MainApp object at 0x00000178A90EFC80>
+2024-06-18 15:58:08,317 - root - INFO - parent:<__main__.MainApp object at 0x00000178A90EFC80>
+2024-06-18 15:58:08,318 - root - INFO - parent:<__main__.MainApp object at 0x00000178A90EFC80>
+2024-06-18 15:58:09,927 - root - DEBUG - Preferences Action...
+2024-06-18 15:59:15,277 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 15:59:15,948 - root - INFO - parent:<__main__.MainApp object at 0x0000026D4624BC80>
+2024-06-18 15:59:15,950 - root - INFO - parent:<__main__.MainApp object at 0x0000026D4624BC80>
+2024-06-18 15:59:15,951 - root - INFO - parent:<__main__.MainApp object at 0x0000026D4624BC80>
+2024-06-18 15:59:15,957 - root - INFO - parent:<__main__.MainApp object at 0x0000026D4624BC80>
+2024-06-18 15:59:15,958 - root - INFO - parent:<__main__.MainApp object at 0x0000026D4624BC80>
+2024-06-18 15:59:15,959 - root - INFO - parent:<__main__.MainApp object at 0x0000026D4624BC80>
+2024-06-18 15:59:17,033 - root - DEBUG - Preferences Action...
+2024-06-18 15:59:17,037 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x0000026D46359FD0>
+2024-06-18 15:59:17,039 - root - DEBUG - <__main__.MainApp object at 0x0000026D4624BC80>
+2024-06-18 16:00:04,555 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 16:00:05,164 - root - INFO - parent:<__main__.MainApp object at 0x00000241912EFEC0>
+2024-06-18 16:00:05,166 - root - INFO - parent:<__main__.MainApp object at 0x00000241912EFEC0>
+2024-06-18 16:00:05,167 - root - INFO - parent:<__main__.MainApp object at 0x00000241912EFEC0>
+2024-06-18 16:00:05,172 - root - INFO - parent:<__main__.MainApp object at 0x00000241912EFEC0>
+2024-06-18 16:00:05,173 - root - INFO - parent:<__main__.MainApp object at 0x00000241912EFEC0>
+2024-06-18 16:00:05,174 - root - INFO - parent:<__main__.MainApp object at 0x00000241912EFEC0>
+2024-06-18 16:00:06,497 - root - DEBUG - Preferences Action...
+2024-06-18 16:00:06,502 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x0000024191409730>
+2024-06-18 16:00:06,504 - root - DEBUG - <__main__.MainApp object at 0x00000241912EFEC0>
+2024-06-18 16:18:26,948 - root - INFO - grou is created
+2024-06-18 16:18:26,949 - root - INFO - grou doesn't exist
+2024-06-18 16:18:26,957 - root - INFO - Load network
+2024-06-18 16:18:46,188 - root - INFO - Add network
+2024-06-18 16:22:51,143 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 16:22:52,084 - root - INFO - parent:<__main__.MainApp object at 0x000001FABBD53A40>
+2024-06-18 16:22:52,086 - root - INFO - parent:<__main__.MainApp object at 0x000001FABBD53A40>
+2024-06-18 16:22:52,087 - root - INFO - parent:<__main__.MainApp object at 0x000001FABBD53A40>
+2024-06-18 16:22:52,093 - root - INFO - parent:<__main__.MainApp object at 0x000001FABBD53A40>
+2024-06-18 16:22:52,094 - root - INFO - parent:<__main__.MainApp object at 0x000001FABBD53A40>
+2024-06-18 16:22:52,095 - root - INFO - parent:<__main__.MainApp object at 0x000001FABBD53A40>
+2024-06-18 16:24:17,352 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-18 16:24:17,354 - root - INFO - grou does exist
+2024-06-18 16:24:17,360 - root - INFO - Load network
+2024-06-18 16:31:42,568 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 16:31:44,832 - root - INFO - parent:<__main__.MainApp object at 0x00000114F797FDA0>
+2024-06-18 16:31:44,834 - root - INFO - parent:<__main__.MainApp object at 0x00000114F797FDA0>
+2024-06-18 16:31:44,834 - root - INFO - parent:<__main__.MainApp object at 0x00000114F797FDA0>
+2024-06-18 16:31:44,844 - root - INFO - parent:<__main__.MainApp object at 0x00000114F797FDA0>
+2024-06-18 16:31:44,844 - root - INFO - parent:<__main__.MainApp object at 0x00000114F797FDA0>
+2024-06-18 16:31:44,845 - root - INFO - parent:<__main__.MainApp object at 0x00000114F797FDA0>
+2024-06-18 16:32:04,410 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-18 16:32:04,412 - root - INFO - grou does exist
+2024-06-18 16:32:04,431 - root - INFO - Load network
+2024-06-18 16:32:04,435 - root - INFO - None
+2024-06-18 16:33:31,229 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 16:33:32,519 - root - INFO - parent:<__main__.MainApp object at 0x000002956155BEC0>
+2024-06-18 16:33:32,520 - root - INFO - parent:<__main__.MainApp object at 0x000002956155BEC0>
+2024-06-18 16:33:32,521 - root - INFO - parent:<__main__.MainApp object at 0x000002956155BEC0>
+2024-06-18 16:33:32,528 - root - INFO - parent:<__main__.MainApp object at 0x000002956155BEC0>
+2024-06-18 16:33:32,530 - root - INFO - parent:<__main__.MainApp object at 0x000002956155BEC0>
+2024-06-18 16:33:32,531 - root - INFO - parent:<__main__.MainApp object at 0x000002956155BEC0>
+2024-06-18 16:33:47,841 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-18 16:33:47,843 - root - INFO - grou does exist
+2024-06-18 16:33:47,849 - root - INFO - Load network
+2024-06-18 16:33:54,334 - root - INFO - Add network
+2024-06-18 16:33:54,340 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/grou/db/interfaces
+2024-06-18 17:15:06,563 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 17:15:07,341 - root - INFO - parent:<__main__.MainApp object at 0x000002F8AC2339B0>
+2024-06-18 17:15:07,343 - root - INFO - parent:<__main__.MainApp object at 0x000002F8AC2339B0>
+2024-06-18 17:15:07,344 - root - INFO - parent:<__main__.MainApp object at 0x000002F8AC2339B0>
+2024-06-18 17:15:07,351 - root - INFO - parent:<__main__.MainApp object at 0x000002F8AC2339B0>
+2024-06-18 17:15:07,352 - root - INFO - parent:<__main__.MainApp object at 0x000002F8AC2339B0>
+2024-06-18 17:15:07,353 - root - INFO - parent:<__main__.MainApp object at 0x000002F8AC2339B0>
+2024-06-18 17:15:17,708 - root - INFO - Network 1 is added to test2
+2024-06-18 17:15:17,708 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-06-18 17:15:17,709 - root - INFO - test2 does exist
+2024-06-18 17:15:17,720 - root - INFO - Load network
+2024-06-18 17:15:17,721 - root - INFO - {'path': 'interfaces', 'obj_ls': [{'uuid': '01a430d5-c984-4f95-b655-19e7c28615d3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test2\\db\\interfaces\\01a430d5-c984-4f95-b655-19e7c28615d3.json', 'ls_devices': []}]}
+2024-06-18 17:15:17,721 - root - DEBUG - path
+2024-06-18 17:16:19,264 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 17:16:19,839 - root - INFO - parent:<__main__.MainApp object at 0x00000251984BFF50>
+2024-06-18 17:16:19,841 - root - INFO - parent:<__main__.MainApp object at 0x00000251984BFF50>
+2024-06-18 17:16:19,842 - root - INFO - parent:<__main__.MainApp object at 0x00000251984BFF50>
+2024-06-18 17:16:19,850 - root - INFO - parent:<__main__.MainApp object at 0x00000251984BFF50>
+2024-06-18 17:16:19,851 - root - INFO - parent:<__main__.MainApp object at 0x00000251984BFF50>
+2024-06-18 17:16:19,852 - root - INFO - parent:<__main__.MainApp object at 0x00000251984BFF50>
+2024-06-18 17:16:28,789 - root - INFO - Network 1 is added to test-v3
+2024-06-18 17:16:28,789 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-06-18 17:16:28,791 - root - INFO - test-v3 does exist
+2024-06-18 17:16:28,796 - root - INFO - Load network
+2024-06-18 17:16:28,798 - root - INFO - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}]}
+2024-06-18 17:16:28,798 - root - DEBUG - path
+2024-06-18 17:16:28,798 - root - DEBUG - path

@@ -85,9 +85,9 @@ class CardStackGeneral(QWidget):
 
     def initUI(self):
         # Set the general layout
-        qlayout = QVBoxLayout(self)
-        qlayout.setContentsMargins(0, 0, 0, 0)
-        self.setLayout(qlayout)
+        self.layout = QVBoxLayout(self)
+        self.layout.setContentsMargins(0, 0, 0, 0)
+        self.setLayout(self.layout)
 
         # Set the top widget
         title_widget = QWidget(self)
@@ -101,13 +101,13 @@ class CardStackGeneral(QWidget):
         ttl_wdg_cnt.addStretch()
         # Set the btn view
         btn_grid5_view = QPushButton(qta.icon("fa5s.th"), "")
-        btn_grid5_view.clicked.connect(lambda: self.set_card(5))
+        btn_grid5_view.clicked.connect(lambda: self.setCard(5))
         ttl_wdg_cnt.addWidget(btn_grid5_view)
         btn_grid3_view = QPushButton(qta.icon("fa5s.th-large"), "")
-        btn_grid3_view.clicked.connect(lambda: self.set_card(3))
+        btn_grid3_view.clicked.connect(lambda: self.setCard(3))
         ttl_wdg_cnt.addWidget(btn_grid3_view)
         btn_list_view = QPushButton(qta.icon("fa5s.th-list"), "")
-        btn_list_view.clicked.connect(lambda: self.set_card(1))
+        btn_list_view.clicked.connect(lambda: self.setCard(1))
         ttl_wdg_cnt.addWidget(btn_list_view)
 
         # set the separator
@@ -132,14 +132,14 @@ class CardStackGeneral(QWidget):
         self.card_list = [
             {
                 "icon_card": None,
-                "title": QLabel(self.stackTitle),
-                "image_path": None,
+                "title_card": QLabel(self.stackTitle),
+                "img_card": None,
                 "corps_card": QLineEdit(self),
             },
         ]
 
     def setCard(self, nb_column: int = 5):
-        self.clear_card_layout()
+        self.clearCardLayout()
         for i, card in enumerate(self.card_list):
             self.card_layout.addWidget(Card(**card), i // nb_column, i % nb_column)
 
