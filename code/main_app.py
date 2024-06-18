@@ -487,6 +487,7 @@ class MainApp(QMainWindow):
         self.primary_center.add_tab(
             tab=PreferencesTabView(
                 title_panel="Preferences",
+                ext_obj=self.softwareManager,
                 lang_manager=self.langManager,
                 icons_manager=self.iconsManager,
                 parent=self

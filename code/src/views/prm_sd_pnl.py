@@ -32,8 +32,8 @@ class GeneralSidePanel(QWidget):
             keys_manager: ShortcutApp = None,
             parent=None
     ):
-        super().__init__(parent)
-        # logging.info(f"parent:{parent}")
+        super().__init__(parent=parent)
+        logging.info(f"parent:{parent}")
         self.titlePanel = title_panel
         self.extObj = None
         self.langManager = lang_manager

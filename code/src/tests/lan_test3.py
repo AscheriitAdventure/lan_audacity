@@ -458,6 +458,7 @@ def test_lan_audacity():
         software_version="1.0.0",
         author="John Doe"
     )
+    print(lan_audacity.dict_return())
     lan_audacity.create_project()
 
     # Vérification de la création des répertoires et fichiers

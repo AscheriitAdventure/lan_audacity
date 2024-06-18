@@ -12,6 +12,7 @@ from typing import Any
 import logging
 from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
+from src.views.preferences import PreferencesGeneral
 
 
 class TabFactoryWidget(QTabWidget):
@@ -165,7 +166,12 @@ class PreferencesTabView(GeneralTabsView):
         return data
 
     def initDisplay(self):
-        self.general_menu = QWidget(self)
+        self.general_menu = PreferencesGeneral(
+            "Dashboard",
+            self.langManager,
+            self.extObj,
+            self
+        )
         self.stackedFields.addWidget(self.general_menu)
 
         self.language_menu = QWidget(self)
