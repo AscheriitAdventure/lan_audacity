@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 
 from src.models.device import Device
 from src.models.network import Network
@@ -235,13 +236,16 @@ class NetExpl(GeneralSidePanel):
 
     def loadDisplayObj(self) -> None:
         logging.info("Load network")
-        model = QStandardItemModel()
+        model = QStandardItemModel(self)
         self.treeView.setModel(model)
-        if self.extObj is not None and hasattr(self.extObj, 'networks') and self.extObj.networks is not None:
+        if self.extObj is not None and hasattr(self.extObj, 'networks'):
             logging.info(self.extObj.networks)
-            for network in self.extObj.networks:
-                logging.debug(str(network))
-                self.add_network_to_tree(network)
+            for network in self.extObj.networks.get('obj_ls'):
+                logging.debug(network.get('name'))
+                # transformation du dictionnaire en Network class
+                pass
+                # ajout dans la list des items
+                self.add_network_to_tree()
             if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
                 pass
 

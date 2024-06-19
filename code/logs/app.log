@@ -583,3 +583,76 @@
 2024-06-18 17:16:28,798 - root - INFO - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}]}
 2024-06-18 17:16:28,798 - root - DEBUG - path
 2024-06-18 17:16:28,798 - root - DEBUG - path
+2024-06-18 17:19:03,175 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-18 17:19:04,233 - root - INFO - parent:<__main__.MainApp object at 0x00000252459B39B0>
+2024-06-18 17:19:04,243 - root - INFO - parent:<__main__.MainApp object at 0x00000252459B39B0>
+2024-06-18 17:19:04,245 - root - INFO - parent:<__main__.MainApp object at 0x00000252459B39B0>
+2024-06-18 17:19:04,252 - root - INFO - parent:<__main__.MainApp object at 0x00000252459B39B0>
+2024-06-18 17:19:04,253 - root - INFO - parent:<__main__.MainApp object at 0x00000252459B39B0>
+2024-06-18 17:19:04,254 - root - INFO - parent:<__main__.MainApp object at 0x00000252459B39B0>
+2024-06-19 09:06:06,504 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-19 09:06:08,315 - root - INFO - parent:<__main__.MainApp object at 0x000001672958DE20>
+2024-06-19 09:06:08,316 - root - INFO - parent:<__main__.MainApp object at 0x000001672958DE20>
+2024-06-19 09:06:08,317 - root - INFO - parent:<__main__.MainApp object at 0x000001672958DE20>
+2024-06-19 09:06:08,327 - root - INFO - parent:<__main__.MainApp object at 0x000001672958DE20>
+2024-06-19 09:06:08,328 - root - INFO - parent:<__main__.MainApp object at 0x000001672958DE20>
+2024-06-19 09:06:08,329 - root - INFO - parent:<__main__.MainApp object at 0x000001672958DE20>
+2024-06-19 09:06:21,860 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-19 09:06:21,861 - root - INFO - grou does exist
+2024-06-19 09:06:21,867 - root - INFO - Load network
+2024-06-19 09:07:04,921 - root - INFO - Add network
+2024-06-19 09:07:04,923 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/grou/db/interfaces
+2024-06-19 10:19:18,997 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-19 10:19:20,236 - root - INFO - parent:<__main__.MainApp object at 0x00000275C1973BF0>
+2024-06-19 10:19:20,239 - root - INFO - parent:<__main__.MainApp object at 0x00000275C1973BF0>
+2024-06-19 10:19:20,240 - root - INFO - parent:<__main__.MainApp object at 0x00000275C1973BF0>
+2024-06-19 10:19:20,248 - root - INFO - parent:<__main__.MainApp object at 0x00000275C1973BF0>
+2024-06-19 10:19:20,249 - root - INFO - parent:<__main__.MainApp object at 0x00000275C1973BF0>
+2024-06-19 10:19:20,249 - root - INFO - parent:<__main__.MainApp object at 0x00000275C1973BF0>
+2024-06-19 10:19:30,828 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-19 10:19:30,830 - root - INFO - grou does exist
+2024-06-19 10:19:30,837 - root - INFO - Load network
+2024-06-19 10:20:33,722 - root - INFO - Add network
+2024-06-19 10:20:33,725 - root - DEBUG - C:/Users/g.tronche/Documents/test_app/grou/db/interfaces
+2024-06-19 11:24:44,423 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-19 11:24:46,614 - root - INFO - parent:<__main__.MainApp object at 0x000001FA7BBA3BF0>
+2024-06-19 11:24:46,617 - root - INFO - parent:<__main__.MainApp object at 0x000001FA7BBA3BF0>
+2024-06-19 11:24:46,617 - root - INFO - parent:<__main__.MainApp object at 0x000001FA7BBA3BF0>
+2024-06-19 11:24:46,630 - root - INFO - parent:<__main__.MainApp object at 0x000001FA7BBA3BF0>
+2024-06-19 11:24:46,632 - root - INFO - parent:<__main__.MainApp object at 0x000001FA7BBA3BF0>
+2024-06-19 11:24:46,633 - root - INFO - parent:<__main__.MainApp object at 0x000001FA7BBA3BF0>
+2024-06-19 11:25:01,257 - root - INFO - Network 1 is added to test-v3
+2024-06-19 11:25:01,258 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-06-19 11:25:01,260 - root - INFO - test-v3 does exist
+2024-06-19 11:25:01,267 - root - INFO - Load network
+2024-06-19 11:25:01,268 - root - INFO - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}]}
+2024-06-19 11:25:01,268 - root - DEBUG - path
+2024-06-19 11:25:01,269 - root - DEBUG - path
+2024-06-19 12:42:39,039 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-19 12:42:41,105 - root - INFO - parent:<__main__.MainApp object at 0x000002037F053DA0>
+2024-06-19 12:42:41,109 - root - INFO - parent:<__main__.MainApp object at 0x000002037F053DA0>
+2024-06-19 12:42:41,110 - root - INFO - parent:<__main__.MainApp object at 0x000002037F053DA0>
+2024-06-19 12:42:41,121 - root - INFO - parent:<__main__.MainApp object at 0x000002037F053DA0>
+2024-06-19 12:42:41,122 - root - INFO - parent:<__main__.MainApp object at 0x000002037F053DA0>
+2024-06-19 12:42:41,124 - root - INFO - parent:<__main__.MainApp object at 0x000002037F053DA0>
+2024-06-19 12:42:52,221 - root - INFO - Network 1 is added to test-v3
+2024-06-19 12:42:52,222 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-06-19 12:42:52,225 - root - INFO - test-v3 does exist
+2024-06-19 12:42:52,234 - root - INFO - Load network
+2024-06-19 12:42:52,235 - root - INFO - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}]}
+2024-06-19 12:42:52,236 - root - DEBUG - {'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}
+2024-06-19 12:42:52,236 - root - DEBUG - {'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}
+2024-06-19 16:59:18,784 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-19 16:59:20,273 - root - INFO - parent:<__main__.MainApp object at 0x000001EEB5553EC0>
+2024-06-19 16:59:20,275 - root - INFO - parent:<__main__.MainApp object at 0x000001EEB5553EC0>
+2024-06-19 16:59:20,276 - root - INFO - parent:<__main__.MainApp object at 0x000001EEB5553EC0>
+2024-06-19 16:59:20,290 - root - INFO - parent:<__main__.MainApp object at 0x000001EEB5553EC0>
+2024-06-19 16:59:20,291 - root - INFO - parent:<__main__.MainApp object at 0x000001EEB5553EC0>
+2024-06-19 16:59:20,292 - root - INFO - parent:<__main__.MainApp object at 0x000001EEB5553EC0>
+2024-06-19 16:59:31,359 - root - INFO - Network 1 is added to test-v3
+2024-06-19 16:59:31,359 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-06-19 16:59:31,361 - root - INFO - test-v3 does exist
+2024-06-19 16:59:31,372 - root - INFO - Load network
+2024-06-19 16:59:31,373 - root - INFO - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}]}
+2024-06-19 16:59:31,373 - root - DEBUG - Network 1
+2024-06-19 16:59:31,373 - root - DEBUG - Network 1
