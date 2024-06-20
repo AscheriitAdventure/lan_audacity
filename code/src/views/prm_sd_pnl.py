@@ -12,12 +12,12 @@ from src.models.lan_audacity import LanAudacity
 from src.views.forms_app import NNetwork, NDevice
 from src.views.tabs_app import TabFactoryWidget
 
-from PyQt5.QtWidgets import (
+from qtpy.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame, QTreeView, QFileSystemModel,
     QAbstractItemView, QFileDialog, QPushButton, QDialog
 )
-from PyQt5.QtCore import Qt, pyqtSignal as Signal, QDir, QFile, QIODevice
-from PyQt5.QtGui import QStandardItemModel, QStandardItem, QFont
+from qtpy.QtCore import Qt, pyqtSignal as Signal, QDir, QFile, QIODevice
+from qtpy.QtGui import QStandardItemModel, QStandardItem, QFont
 
 
 # General View for Primary Side Panel

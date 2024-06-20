@@ -656,3 +656,26 @@
 2024-06-19 16:59:31,373 - root - INFO - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3', 'name': 'Network 1', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v3\\db\\interfaces\\e3fb3c3e-e8b6-4a9e-b63c-ad1be1cd3cb3.json', 'ls_devices': []}]}
 2024-06-19 16:59:31,373 - root - DEBUG - Network 1
 2024-06-19 16:59:31,373 - root - DEBUG - Network 1
+2024-06-20 08:31:31,061 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-20 08:31:32,865 - root - INFO - parent:<__main__.MainApp object at 0x000002151F6B3DA0>
+2024-06-20 08:31:32,870 - root - INFO - parent:<__main__.MainApp object at 0x000002151F6B3DA0>
+2024-06-20 08:31:32,872 - root - INFO - parent:<__main__.MainApp object at 0x000002151F6B3DA0>
+2024-06-20 08:31:32,892 - root - INFO - parent:<__main__.MainApp object at 0x000002151F6B3DA0>
+2024-06-20 08:31:32,893 - root - INFO - parent:<__main__.MainApp object at 0x000002151F6B3DA0>
+2024-06-20 08:31:32,895 - root - INFO - parent:<__main__.MainApp object at 0x000002151F6B3DA0>
+2024-06-20 08:32:11,212 - root - INFO - grou is created
+2024-06-20 08:32:11,213 - root - INFO - grou doesn't exist
+2024-06-20 08:32:11,223 - root - INFO - Load network
+2024-06-20 08:32:14,322 - root - INFO - Add network
+2024-06-20 08:34:04,797 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-20 08:34:05,759 - root - INFO - parent:<__main__.MainApp object at 0x0000023F2096BDA0>
+2024-06-20 08:34:05,760 - root - INFO - parent:<__main__.MainApp object at 0x0000023F2096BDA0>
+2024-06-20 08:34:05,761 - root - INFO - parent:<__main__.MainApp object at 0x0000023F2096BDA0>
+2024-06-20 08:34:05,767 - root - INFO - parent:<__main__.MainApp object at 0x0000023F2096BDA0>
+2024-06-20 08:34:05,768 - root - INFO - parent:<__main__.MainApp object at 0x0000023F2096BDA0>
+2024-06-20 08:34:05,769 - root - INFO - parent:<__main__.MainApp object at 0x0000023F2096BDA0>
+2024-06-20 08:34:34,156 - root - INFO - grou is created
+2024-06-20 08:34:34,156 - root - INFO - grou doesn't exist
+2024-06-20 08:34:34,163 - root - INFO - Load network
+2024-06-20 08:34:36,779 - root - INFO - Add network
+2024-06-20 08:34:36,781 - root - DEBUG - []

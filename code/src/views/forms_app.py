@@ -101,7 +101,7 @@ class NNetwork(FormDialog):
             icon_manager=icon_manager,
             parent=parent
         )
-        logging.debug(f"{self.extObj.save_path}/{self.extObj.project_name}/{self.extObj.abs_paths['db']['path']}/{self.extObj.abs_paths['db']['folders'][0]}")
+        logging.debug(self.extObj)
         self.fields["path"] = f"{self.extObj.save_path}/{self.extObj.project_name}/{self.extObj.abs_paths['db']['path']}/{self.extObj.abs_paths['db']['folders'][0]}"
     
     def set_formObj(self) -> list:

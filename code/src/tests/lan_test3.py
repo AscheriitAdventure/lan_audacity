@@ -227,6 +227,7 @@ class ClockManager:
         return f"ClockManager: {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.clockCreated))}"
 
 import shutil
+from src.models.network import Network
 
 class LanAudacity(FileManagement):
     def __init__(
@@ -253,9 +254,6 @@ class LanAudacity(FileManagement):
         self.__links = link_list
         self.__devices = device_list
         self.__pixmap = pixmap_list
-
-        # Update the project with the start data
-        self.create_project()
     
     @property
     def pixmap(self) -> list[dict]:
@@ -347,6 +345,7 @@ class LanAudacity(FileManagement):
     def create_project(self):
         self.add_folder(self.path)
         self.generate_file("lan_audacity", "json", self.absPath)
+        print(self.dict_return())
         # dump the project data into the json file
         self.updateLanAudacity()
         # Create the folders and files of the project
@@ -431,8 +430,57 @@ class LanAudacity(FileManagement):
         else:
             logging.error(f"File 'lan_audacity.json' not found in {old_path}")
     
-    # def add_network(self, network: dict) -> None:
-    # def remove_network(self, network: dict) -> None:
+    def add_network(self, network: dict | Network) -> None:
+        if self.networks is None:
+            self.networks = {"path": "interfaces", "obj_ls": []}
+        if isinstance(network, Network):
+            self.networks["obj_ls"].append(
+                {
+                    "uuid": network.uuid,
+                    "name": network.name,
+                    "path": network.absPath,
+                    "ls_devices": [],
+                })
+            self.last_update_unix = time.time()
+            if self.project_name in self.save_path:
+                chemin = f"{self.save_path}/lan_audacity.json"
+            else:
+                chemin = f"{self.save_path}/{self.project_name}/lan_audacity.json"
+            with open(chemin, "w") as f:
+                json.dump(self.__dict__, f, indent=4)
+            logging.info(f"{network.name} is added to {self.project_name}")
+        elif isinstance(network, dict):
+            print(network)
+        else:
+            logging.error("The network object is not a Network object or a dictionary.")
+    
+    def remove_network(self, network: str | Network) -> None:
+        if isinstance(network, Network):
+            if self.networks is not None:
+                self.networks["obj_ls"].remove(network.uuid)
+                self.last_update_unix = time.time()
+                with open(
+                        f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
+                ) as f:
+                    json.dump(self.__dict__, f, indent=4)
+                logging.info(f"{network.name} is removed from {self.project_name}")
+            else:
+                logging.info(f"{network.name} doesn't exist in {self.project_name}")
+        elif isinstance(network, str):
+            # the network variable is  the uuid of the network
+            if self.networks is not None:
+                self.networks["obj_ls"].remove(network)
+                self.last_update_unix = time.time()
+                with open(
+                        f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
+                ) as f:
+                    json.dump(self.__dict__, f, indent=4)
+                logging.info(f"{network} is removed from {self.project_name}")
+            else:
+                logging.info(f"{network.name} doesn't exist in {self.project_name}")
+        else:  
+            logging.error("The network object is not a Network object or a string.")
+    
     # def add_link(self, link: dict) -> None:
     # def remove_link(self, link: dict) -> None:
     # def add_device(self, device: dict) -> None:
