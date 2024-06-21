@@ -1,0 +1,50 @@
+{
+    "project_name": "Test_Lan_Audacity",
+    "char_table": "utf-8",
+    "abs_path": "C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code",
+    "software": {
+        "name": "Lan Audacity",
+        "version": "1.0.4"
+    },
+    "author": "John Doe",
+    "clock_manager": {
+        "clock_created": 1718980694.5398214,
+        "clock_list": [],
+        "type_time": "Unix Timestamp Format"
+    },
+    "obj_paths": {
+        "conf": {
+            "path": "conf",
+            "folders": [],
+            "files": []
+        },
+        "db": {
+            "path": "db",
+            "folders": [
+                "interfaces",
+                "interfaces",
+                "desktop",
+                "desktop"
+            ],
+            "files": []
+        },
+        "logs": {
+            "path": "logs",
+            "folders": [],
+            "files": [
+                [
+                    "lan_audacity",
+                    "log"
+                ]
+            ]
+        },
+        "pixmap": {
+            "path": "pixmap",
+            "folders": [],
+            "files": []
+        }
+    },
+    "networks": [],
+    "links": [],
+    "devices": []
+}

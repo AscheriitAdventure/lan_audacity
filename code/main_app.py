@@ -17,7 +17,7 @@ from src.models.network import Network
 from src.models.language_app import LanguageApp
 from src.models.shortcut_app import ShortcutApp
 from src.models.icons_app import IconsApp
-from src.models.lan_audacity import LanAudacity
+from src.tests.lan_test3 import LanAudacity
 from src.models.menu_bar_app import MenuBarApp
 
 from src.views.forms_app import NProject
@@ -389,8 +389,8 @@ class MainApp(QMainWindow):
                         return
                 try:
                     nprjlan = LanAudacity(
-                        software_name=data["software"],
-                        version_software=data["version"],
+                        software_name=data["software"]["name"],
+                        version_software=data["software"]["version"],
                         project_name=os.path.basename(folder_path),
                         save_path=folder_path,
                         author=data["author"]

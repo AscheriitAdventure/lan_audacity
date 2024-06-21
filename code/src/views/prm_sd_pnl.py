@@ -16,7 +16,7 @@ from qtpy.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QFrame, QTreeView, QFileSystemModel,
     QAbstractItemView, QFileDialog, QPushButton, QDialog
 )
-from qtpy.QtCore import Qt, pyqtSignal as Signal, QDir, QFile, QIODevice
+from PyQt5.QtCore import Qt, pyqtSignal as Signal, QDir, QFile, QIODevice
 from qtpy.QtGui import QStandardItemModel, QStandardItem, QFont
 
 
@@ -238,8 +238,8 @@ class NetExpl(GeneralSidePanel):
         logging.info("Load network")
         model = QStandardItemModel(self)
         self.treeView.setModel(model)
-        if self.extObj is not None and hasattr(self.extObj, 'networks'):
-            logging.info(self.extObj.networks)
+        if self.extObj.networks != [] and self.extObj is not None and hasattr(self.extObj, 'networks'):
+            logging.info(self.extObj)
             for network in self.extObj.networks.get('obj_ls'):
                 logging.debug(network.get('name'))
                 # transformation du dictionnaire en Network class

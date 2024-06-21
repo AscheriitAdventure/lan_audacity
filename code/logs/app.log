@@ -679,3 +679,130 @@
 2024-06-20 08:34:34,163 - root - INFO - Load network
 2024-06-20 08:34:36,779 - root - INFO - Add network
 2024-06-20 08:34:36,781 - root - DEBUG - []
+2024-06-21 11:24:59,120 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 11:25:00,607 - root - INFO - parent:<__main__.MainApp object at 0x000002952C497DA0>
+2024-06-21 11:25:00,610 - root - INFO - parent:<__main__.MainApp object at 0x000002952C497DA0>
+2024-06-21 11:25:00,611 - root - INFO - parent:<__main__.MainApp object at 0x000002952C497DA0>
+2024-06-21 11:25:00,622 - root - INFO - parent:<__main__.MainApp object at 0x000002952C497DA0>
+2024-06-21 11:25:00,623 - root - INFO - parent:<__main__.MainApp object at 0x000002952C497DA0>
+2024-06-21 11:25:00,624 - root - INFO - parent:<__main__.MainApp object at 0x000002952C497DA0>
+2024-06-21 13:50:36,212 - root - DEBUG - Preferences Action...
+2024-06-21 13:50:36,297 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x000002952C59D550>
+2024-06-21 13:50:36,306 - root - DEBUG - <__main__.MainApp object at 0x000002952C497DA0>
+2024-06-21 13:58:10,900 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-21 13:58:10,903 - root - INFO - grou does exist
+2024-06-21 13:58:10,953 - root - INFO - Load network
+2024-06-21 13:58:10,962 - root - INFO - None
+2024-06-21 14:00:46,877 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 14:00:48,689 - root - INFO - parent:<__main__.MainApp object at 0x000002AAF8267EC0>
+2024-06-21 14:00:48,692 - root - INFO - parent:<__main__.MainApp object at 0x000002AAF8267EC0>
+2024-06-21 14:00:48,694 - root - INFO - parent:<__main__.MainApp object at 0x000002AAF8267EC0>
+2024-06-21 14:00:48,720 - root - INFO - parent:<__main__.MainApp object at 0x000002AAF8267EC0>
+2024-06-21 14:00:48,723 - root - INFO - parent:<__main__.MainApp object at 0x000002AAF8267EC0>
+2024-06-21 14:00:48,726 - root - INFO - parent:<__main__.MainApp object at 0x000002AAF8267EC0>
+2024-06-21 14:17:24,525 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-21 14:17:24,527 - root - INFO - grou does exist
+2024-06-21 14:17:24,546 - root - INFO - Load network
+2024-06-21 14:18:19,171 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 14:18:20,125 - root - INFO - parent:<__main__.MainApp object at 0x0000020F71637EC0>
+2024-06-21 14:18:20,127 - root - INFO - parent:<__main__.MainApp object at 0x0000020F71637EC0>
+2024-06-21 14:18:20,127 - root - INFO - parent:<__main__.MainApp object at 0x0000020F71637EC0>
+2024-06-21 14:18:20,136 - root - INFO - parent:<__main__.MainApp object at 0x0000020F71637EC0>
+2024-06-21 14:18:20,137 - root - INFO - parent:<__main__.MainApp object at 0x0000020F71637EC0>
+2024-06-21 14:18:20,138 - root - INFO - parent:<__main__.MainApp object at 0x0000020F71637EC0>
+2024-06-21 14:18:31,758 - root - INFO - Network 1 is added to test2
+2024-06-21 14:18:31,758 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test2
+2024-06-21 14:18:31,760 - root - INFO - test2 does exist
+2024-06-21 14:18:31,767 - root - INFO - Load network
+2024-06-21 14:18:31,767 - root - INFO - <src.models.lan_audacity.LanAudacity object at 0x0000020F717AA330>
+2024-06-21 14:18:31,768 - root - DEBUG - Network 1
+2024-06-21 14:20:20,278 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 14:20:20,917 - root - INFO - parent:<__main__.MainApp object at 0x000001C3FFD3DE20>
+2024-06-21 14:20:20,918 - root - INFO - parent:<__main__.MainApp object at 0x000001C3FFD3DE20>
+2024-06-21 14:20:20,919 - root - INFO - parent:<__main__.MainApp object at 0x000001C3FFD3DE20>
+2024-06-21 14:20:20,925 - root - INFO - parent:<__main__.MainApp object at 0x000001C3FFD3DE20>
+2024-06-21 14:20:20,926 - root - INFO - parent:<__main__.MainApp object at 0x000001C3FFD3DE20>
+2024-06-21 14:20:20,927 - root - INFO - parent:<__main__.MainApp object at 0x000001C3FFD3DE20>
+2024-06-21 14:20:46,844 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-21 14:20:46,846 - root - INFO - grou does exist
+2024-06-21 14:20:46,854 - root - INFO - Load network
+2024-06-21 14:20:46,854 - root - INFO - <src.models.lan_audacity.LanAudacity object at 0x000001C3FFE24CB0>
+2024-06-21 14:20:56,782 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 14:20:57,357 - root - INFO - parent:<__main__.MainApp object at 0x00000200528FBDA0>
+2024-06-21 14:20:57,359 - root - INFO - parent:<__main__.MainApp object at 0x00000200528FBDA0>
+2024-06-21 14:20:57,360 - root - INFO - parent:<__main__.MainApp object at 0x00000200528FBDA0>
+2024-06-21 14:20:57,365 - root - INFO - parent:<__main__.MainApp object at 0x00000200528FBDA0>
+2024-06-21 14:20:57,366 - root - INFO - parent:<__main__.MainApp object at 0x00000200528FBDA0>
+2024-06-21 14:20:57,367 - root - INFO - parent:<__main__.MainApp object at 0x00000200528FBDA0>
+2024-06-21 14:21:14,584 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-21 14:21:14,585 - root - INFO - grou does exist
+2024-06-21 14:21:14,593 - root - INFO - Load network
+2024-06-21 14:21:14,595 - root - INFO - <src.models.lan_audacity.LanAudacity object at 0x0000020052A64050>
+2024-06-21 14:22:04,567 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 14:22:05,234 - root - INFO - parent:<__main__.MainApp object at 0x0000023B6CCDBDA0>
+2024-06-21 14:22:05,241 - root - INFO - parent:<__main__.MainApp object at 0x0000023B6CCDBDA0>
+2024-06-21 14:22:05,244 - root - INFO - parent:<__main__.MainApp object at 0x0000023B6CCDBDA0>
+2024-06-21 14:22:05,266 - root - INFO - parent:<__main__.MainApp object at 0x0000023B6CCDBDA0>
+2024-06-21 14:22:05,268 - root - INFO - parent:<__main__.MainApp object at 0x0000023B6CCDBDA0>
+2024-06-21 14:22:05,271 - root - INFO - parent:<__main__.MainApp object at 0x0000023B6CCDBDA0>
+2024-06-21 14:22:16,800 - root - INFO - Network 1 is added to test-v3
+2024-06-21 14:22:16,800 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/test-v3
+2024-06-21 14:22:16,802 - root - INFO - test-v3 does exist
+2024-06-21 14:22:16,810 - root - INFO - Load network
+2024-06-21 14:22:16,810 - root - INFO - <src.models.lan_audacity.LanAudacity object at 0x0000023B6CE44140>
+2024-06-21 14:22:16,811 - root - DEBUG - Network 1
+2024-06-21 15:03:25,934 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 15:03:27,107 - root - INFO - parent:<__main__.MainApp object at 0x0000029243E5BDA0>
+2024-06-21 15:03:27,109 - root - INFO - parent:<__main__.MainApp object at 0x0000029243E5BDA0>
+2024-06-21 15:03:27,110 - root - INFO - parent:<__main__.MainApp object at 0x0000029243E5BDA0>
+2024-06-21 15:03:27,122 - root - INFO - parent:<__main__.MainApp object at 0x0000029243E5BDA0>
+2024-06-21 15:03:27,123 - root - INFO - parent:<__main__.MainApp object at 0x0000029243E5BDA0>
+2024-06-21 15:03:27,124 - root - INFO - parent:<__main__.MainApp object at 0x0000029243E5BDA0>
+2024-06-21 15:04:03,605 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-21 15:04:03,606 - root - INFO - grou does exist
+2024-06-21 15:04:40,228 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 15:04:40,807 - root - INFO - parent:<__main__.MainApp object at 0x000001F18C377DA0>
+2024-06-21 15:04:40,808 - root - INFO - parent:<__main__.MainApp object at 0x000001F18C377DA0>
+2024-06-21 15:04:40,809 - root - INFO - parent:<__main__.MainApp object at 0x000001F18C377DA0>
+2024-06-21 15:04:40,817 - root - INFO - parent:<__main__.MainApp object at 0x000001F18C377DA0>
+2024-06-21 15:04:40,817 - root - INFO - parent:<__main__.MainApp object at 0x000001F18C377DA0>
+2024-06-21 15:04:40,819 - root - INFO - parent:<__main__.MainApp object at 0x000001F18C377DA0>
+2024-06-21 15:04:45,172 - root - DEBUG - Preferences Action...
+2024-06-21 15:04:45,180 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x000001F18C485400>
+2024-06-21 15:04:45,182 - root - DEBUG - <__main__.MainApp object at 0x000001F18C377DA0>
+2024-06-21 15:05:08,439 - root - INFO - Path: C:/Users/g.tronche/Documents/test_app/grou
+2024-06-21 15:05:08,440 - root - INFO - grou does exist
+2024-06-21 15:05:08,452 - root - INFO - Load network
+2024-06-21 15:09:00,932 - root - INFO - Add network
+2024-06-21 15:09:00,939 - root - DEBUG - <src.models.lan_audacity.LanAudacity object at 0x000001F18C4E30B0>
+2024-06-21 15:22:17,332 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 15:22:18,218 - root - INFO - parent:<__main__.MainApp object at 0x000001FEC0553DA0>
+2024-06-21 15:22:18,220 - root - INFO - parent:<__main__.MainApp object at 0x000001FEC0553DA0>
+2024-06-21 15:22:18,221 - root - INFO - parent:<__main__.MainApp object at 0x000001FEC0553DA0>
+2024-06-21 15:22:18,227 - root - INFO - parent:<__main__.MainApp object at 0x000001FEC0553DA0>
+2024-06-21 15:22:18,228 - root - INFO - parent:<__main__.MainApp object at 0x000001FEC0553DA0>
+2024-06-21 15:22:18,229 - root - INFO - parent:<__main__.MainApp object at 0x000001FEC0553DA0>
+2024-06-21 15:22:55,139 - root - INFO - gru2 is created
+2024-06-21 15:22:55,139 - root - INFO - gru2 doesn't exist
+2024-06-21 15:22:55,146 - root - INFO - Load network
+2024-06-21 15:57:01,192 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 15:57:03,074 - root - INFO - parent:<__main__.MainApp object at 0x000001EF5EECE450>
+2024-06-21 15:57:03,076 - root - INFO - parent:<__main__.MainApp object at 0x000001EF5EECE450>
+2024-06-21 15:57:03,077 - root - INFO - parent:<__main__.MainApp object at 0x000001EF5EECE450>
+2024-06-21 15:57:03,085 - root - INFO - parent:<__main__.MainApp object at 0x000001EF5EECE450>
+2024-06-21 15:57:03,086 - root - INFO - parent:<__main__.MainApp object at 0x000001EF5EECE450>
+2024-06-21 15:57:03,087 - root - INFO - parent:<__main__.MainApp object at 0x000001EF5EECE450>
+2024-06-21 16:17:35,332 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 16:17:36,345 - root - INFO - parent:<__main__.MainApp object at 0x0000013DEBE04440>
+2024-06-21 16:17:36,347 - root - INFO - parent:<__main__.MainApp object at 0x0000013DEBE04440>
+2024-06-21 16:17:36,348 - root - INFO - parent:<__main__.MainApp object at 0x0000013DEBE04440>
+2024-06-21 16:17:36,355 - root - INFO - parent:<__main__.MainApp object at 0x0000013DEBE04440>
+2024-06-21 16:17:36,355 - root - INFO - parent:<__main__.MainApp object at 0x0000013DEBE04440>
+2024-06-21 16:17:36,357 - root - INFO - parent:<__main__.MainApp object at 0x0000013DEBE04440>
+2024-06-21 16:38:14,593 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-06-21 16:38:15,570 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
+2024-06-21 16:38:15,572 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
+2024-06-21 16:38:15,573 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
+2024-06-21 16:38:15,580 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
+2024-06-21 16:38:15,581 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
+2024-06-21 16:38:15,582 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>

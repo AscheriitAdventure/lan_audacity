@@ -1,16 +1,16 @@
 {
     "project_name": "Test_Lan_Audacity",
     "char_table": "utf-8",
-    "abs_path": "C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity",
+    "abs_path": "C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code\\src\\tests",
     "software": {
         "name": "Lan Audacity",
         "version": "1.0.0"
     },
     "author": "John Doe",
     "clock_manager": {
-        "clock_created": 1718879841.7482953,
+        "clock_created": 1718961913.702062,
         "clock_list": [
-            1718879841.7482953
+            1718961913.702062
         ],
         "type_time": "Unix Timestamp Format"
     },

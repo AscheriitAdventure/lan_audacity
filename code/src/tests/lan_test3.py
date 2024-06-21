@@ -1,14 +1,23 @@
 import os
 import logging
+from typing import Optional, Any
+
 
 class FileManagement:
     def __init__(
-            self, folder_name: str, 
-            folder_list: list[str] = [], files_list: list[tuple] = []
-        ) -> None:
-        self.__path = folder_name
-        self.__folders = folder_list
-        self.__files = files_list
+            self, folder_name: str,
+            folder_list: Optional[list[str]] = None,
+            files_list: Optional[list[tuple]] = None
+    ) -> None:
+        self.__path: str = folder_name
+        if folder_list is None:
+            self.__folders: list[str] = []
+        else:
+            self.__folders: list[str] = folder_list
+        if files_list is None:
+            self.__files: list[tuple] = []
+        else:
+            self.__files: list[tuple] = files_list
     
     @property
     def path(self) -> str:
@@ -85,12 +94,12 @@ class FileManagement:
         str_return = f"Path: {self.__path}\n Folders: {self.__folders}\n  Files: {self.__files}"
         return str_return
 
+
 import json
 import yaml
 import xmltodict
 import csv
 import configparser
-from typing import Any
 
 
 class SwitchFile2:
@@ -173,17 +182,22 @@ class SwitchFile2:
         with open(abs_path, "r+", encoding="utf-8") as file:
             return file.read()
 
+
 import time
+
 
 class ClockManager:
     def __init__(
             self, 
             time_start: float = time.time(),
-            time_list: list[float] = []
-        ) -> None:
+            time_list: Optional[list[float]] = None
+    ) -> None:
         self.__clock_created: float = time_start
-        self.__clock_list: list[float] = time_list
-        if time_list == []:
+        if time_list is None:
+            self.__clock_list: list[float] = []
+        else:
+            self.__clock_list = time_list
+        if time_list == [float]:
             self.__clock_list.append(self.clockCreated)
         self.type_time = "Unix Timestamp Format"
 
@@ -442,13 +456,13 @@ class LanAudacity(FileManagement):
                     "ls_devices": [],
                 })
             self.last_update_unix = time.time()
-            if self.project_name in self.save_path:
-                chemin = f"{self.save_path}/lan_audacity.json"
+            if self.path in self.absPath:
+                chemin = f"{self.absPath}/lan_audacity.json"
             else:
-                chemin = f"{self.save_path}/{self.project_name}/lan_audacity.json"
+                chemin = f"{self.absPath}/lan_audacity.json"
             with open(chemin, "w") as f:
                 json.dump(self.__dict__, f, indent=4)
-            logging.info(f"{network.name} is added to {self.project_name}")
+            logging.info(f"{network.name} is added to {self.path}")
         elif isinstance(network, dict):
             print(network)
         else:
@@ -460,24 +474,24 @@ class LanAudacity(FileManagement):
                 self.networks["obj_ls"].remove(network.uuid)
                 self.last_update_unix = time.time()
                 with open(
-                        f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
+                        f"{self.absPath}/lan_audacity.json", "w"
                 ) as f:
                     json.dump(self.__dict__, f, indent=4)
-                logging.info(f"{network.name} is removed from {self.project_name}")
+                logging.info(f"{network.name} is removed from {self.path}")
             else:
-                logging.info(f"{network.name} doesn't exist in {self.project_name}")
+                logging.info(f"{network.name} doesn't exist in {self.path}")
         elif isinstance(network, str):
             # the network variable is  the uuid of the network
             if self.networks is not None:
                 self.networks["obj_ls"].remove(network)
                 self.last_update_unix = time.time()
                 with open(
-                        f"{self.save_path}/{self.project_name}/lan_audacity.json", "w"
+                        f"{self.absPath}/lan_audacity.json", "w"
                 ) as f:
                     json.dump(self.__dict__, f, indent=4)
-                logging.info(f"{network} is removed from {self.project_name}")
+                logging.info(f"{network} is removed from {self.path}")
             else:
-                logging.info(f"{network.name} doesn't exist in {self.project_name}")
+                logging.info(f"{network} doesn't exist in {self.path}")
         else:  
             logging.error("The network object is not a Network object or a string.")
     
