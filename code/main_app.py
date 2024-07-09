@@ -350,13 +350,14 @@ class MainApp(QMainWindow):
             data = newpa.get_data()
             nprjlan = LanAudacity(
                 software_name=self.softwareManager.data['system']['name'],
-                version_software=self.softwareManager.data['system']['version'],
+                software_version=self.softwareManager.data['system']['version'],
                 project_name=data["project_name"],
-                save_path=data["save_path"],
+                abs_path=data["save_path"],
                 author=data["author"]
             )
             nprjlan.create_project()
-            nprjlan.save_project()
+            nprjlan.updateLanAudacity()
+            # nprjlan.save_project()
             # Add the new project to the list
             self.prj_ls.append(nprjlan)
             # Add the new project to the file explorer
@@ -390,9 +391,9 @@ class MainApp(QMainWindow):
                 try:
                     nprjlan = LanAudacity(
                         software_name=data["software"]["name"],
-                        version_software=data["software"]["version"],
+                        software_version=data["software"]["version"],
                         project_name=os.path.basename(folder_path),
-                        save_path=folder_path,
+                        abs_path=folder_path,
                         author=data["author"]
                     )
                 except KeyError as e:
@@ -403,7 +404,7 @@ class MainApp(QMainWindow):
                     msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
                     msg_box.exec()
                     return
-                if data["networks"] is not None:
+                if data["networks"] is not None and data["networks"] != []:
                     for network in data["networks"]["obj_ls"]:
                         network_file = os.path.join(folder_path, network["path"])
                         if os.path.exists(network_file):
@@ -440,7 +441,8 @@ class MainApp(QMainWindow):
                                 return
                             net0X.date_unix = data_network["date_unix"]
                             nprjlan.add_network(net0X)
-                nprjlan.open_project()
+                # nprjlan.open_project()
+                nprjlan.updateLanAudacity()
                 self.prj_ls.append(nprjlan)
                 self.file_explorer.extObj = folder_path
                 self.file_explorer.set_extObjDisplay()

@@ -1,4 +1,5 @@
 import logging
+import os.path
 
 from qtpy.QtWidgets import QDialog, QGridLayout, QLabel, QLineEdit, QPushButton, QFrame, QFileDialog, QMessageBox
 from qtpy.QtGui import QFont
@@ -101,8 +102,10 @@ class NNetwork(FormDialog):
             icon_manager=icon_manager,
             parent=parent
         )
-        logging.debug(self.extObj)
-        self.fields["path"] = f"{self.extObj.save_path}/{self.extObj.project_name}/{self.extObj.abs_paths['db']['path']}/{self.extObj.abs_paths['db']['folders'][0]}"
+        logging.debug(self.extObj.author)
+        obj_field = os.path.join(self.extObj.absPath, self.extObj.__objPaths['db']['path'], self.extObj.abs_paths['db']['folders'][0])
+        print(obj_field)
+        self.fields["path"] = obj_field
     
     def set_formObj(self) -> list:
         data = [

@@ -806,3 +806,251 @@
 2024-06-21 16:38:15,580 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
 2024-06-21 16:38:15,581 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
 2024-06-21 16:38:15,582 - root - INFO - parent:<__main__.MainApp object at 0x000001F2953E3DA0>
+2024-07-09 08:41:58,081 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 08:42:00,988 - root - INFO - parent:<__main__.MainApp object at 0x00000215B285E180>
+2024-07-09 08:42:00,994 - root - INFO - parent:<__main__.MainApp object at 0x00000215B285E180>
+2024-07-09 08:42:00,997 - root - INFO - parent:<__main__.MainApp object at 0x00000215B285E180>
+2024-07-09 08:42:01,019 - root - INFO - parent:<__main__.MainApp object at 0x00000215B285E180>
+2024-07-09 08:42:01,021 - root - INFO - parent:<__main__.MainApp object at 0x00000215B285E180>
+2024-07-09 08:42:01,024 - root - INFO - parent:<__main__.MainApp object at 0x00000215B285E180>
+2024-07-09 08:52:22,344 - root - DEBUG - Preferences Action...
+2024-07-09 08:52:22,360 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x00000215B29000B0>
+2024-07-09 08:52:22,363 - root - DEBUG - <__main__.MainApp object at 0x00000215B285E180>
+2024-07-09 09:08:36,233 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 09:08:37,868 - root - INFO - parent:<__main__.MainApp object at 0x0000027860C300E0>
+2024-07-09 09:08:37,869 - root - INFO - parent:<__main__.MainApp object at 0x0000027860C300E0>
+2024-07-09 09:08:37,870 - root - INFO - parent:<__main__.MainApp object at 0x0000027860C300E0>
+2024-07-09 09:08:37,881 - root - INFO - parent:<__main__.MainApp object at 0x0000027860C300E0>
+2024-07-09 09:08:37,881 - root - INFO - parent:<__main__.MainApp object at 0x0000027860C300E0>
+2024-07-09 09:08:37,882 - root - INFO - parent:<__main__.MainApp object at 0x0000027860C300E0>
+2024-07-09 09:15:37,651 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 09:15:38,265 - root - INFO - parent:<__main__.MainApp object at 0x00000176ADB1FF50>
+2024-07-09 09:15:38,266 - root - INFO - parent:<__main__.MainApp object at 0x00000176ADB1FF50>
+2024-07-09 09:15:38,267 - root - INFO - parent:<__main__.MainApp object at 0x00000176ADB1FF50>
+2024-07-09 09:15:38,273 - root - INFO - parent:<__main__.MainApp object at 0x00000176ADB1FF50>
+2024-07-09 09:15:38,274 - root - INFO - parent:<__main__.MainApp object at 0x00000176ADB1FF50>
+2024-07-09 09:15:38,275 - root - INFO - parent:<__main__.MainApp object at 0x00000176ADB1FF50>
+2024-07-09 09:15:42,297 - root - DEBUG - 1.0.0
+2024-07-09 09:16:36,270 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 09:16:36,908 - root - INFO - parent:<__main__.MainApp object at 0x00000200E80C7F50>
+2024-07-09 09:16:36,910 - root - INFO - parent:<__main__.MainApp object at 0x00000200E80C7F50>
+2024-07-09 09:16:36,912 - root - INFO - parent:<__main__.MainApp object at 0x00000200E80C7F50>
+2024-07-09 09:16:36,917 - root - INFO - parent:<__main__.MainApp object at 0x00000200E80C7F50>
+2024-07-09 09:16:36,918 - root - INFO - parent:<__main__.MainApp object at 0x00000200E80C7F50>
+2024-07-09 09:16:36,919 - root - INFO - parent:<__main__.MainApp object at 0x00000200E80C7F50>
+2024-07-09 09:18:05,286 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 09:18:05,947 - root - INFO - parent:<__main__.MainApp object at 0x00000255BFFC3F50>
+2024-07-09 09:18:05,948 - root - INFO - parent:<__main__.MainApp object at 0x00000255BFFC3F50>
+2024-07-09 09:18:05,950 - root - INFO - parent:<__main__.MainApp object at 0x00000255BFFC3F50>
+2024-07-09 09:18:05,957 - root - INFO - parent:<__main__.MainApp object at 0x00000255BFFC3F50>
+2024-07-09 09:18:05,958 - root - INFO - parent:<__main__.MainApp object at 0x00000255BFFC3F50>
+2024-07-09 09:18:05,959 - root - INFO - parent:<__main__.MainApp object at 0x00000255BFFC3F50>
+2024-07-09 09:19:01,425 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 09:19:02,028 - root - INFO - parent:<__main__.MainApp object at 0x000001FAEDE57EC0>
+2024-07-09 09:19:02,030 - root - INFO - parent:<__main__.MainApp object at 0x000001FAEDE57EC0>
+2024-07-09 09:19:02,031 - root - INFO - parent:<__main__.MainApp object at 0x000001FAEDE57EC0>
+2024-07-09 09:19:02,037 - root - INFO - parent:<__main__.MainApp object at 0x000001FAEDE57EC0>
+2024-07-09 09:19:02,039 - root - INFO - parent:<__main__.MainApp object at 0x000001FAEDE57EC0>
+2024-07-09 09:19:02,040 - root - INFO - parent:<__main__.MainApp object at 0x000001FAEDE57EC0>
+2024-07-09 09:19:30,605 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 09:19:31,185 - root - INFO - parent:<__main__.MainApp object at 0x000002A8D6EA7F50>
+2024-07-09 09:19:31,187 - root - INFO - parent:<__main__.MainApp object at 0x000002A8D6EA7F50>
+2024-07-09 09:19:31,188 - root - INFO - parent:<__main__.MainApp object at 0x000002A8D6EA7F50>
+2024-07-09 09:19:31,193 - root - INFO - parent:<__main__.MainApp object at 0x000002A8D6EA7F50>
+2024-07-09 09:19:31,194 - root - INFO - parent:<__main__.MainApp object at 0x000002A8D6EA7F50>
+2024-07-09 09:19:31,195 - root - INFO - parent:<__main__.MainApp object at 0x000002A8D6EA7F50>
+2024-07-09 09:19:34,991 - root - DEBUG - []
+2024-07-09 09:20:30,110 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 09:20:30,683 - root - INFO - parent:<__main__.MainApp object at 0x000001D5AA973DA0>
+2024-07-09 09:20:30,685 - root - INFO - parent:<__main__.MainApp object at 0x000001D5AA973DA0>
+2024-07-09 09:20:30,686 - root - INFO - parent:<__main__.MainApp object at 0x000001D5AA973DA0>
+2024-07-09 09:20:30,691 - root - INFO - parent:<__main__.MainApp object at 0x000001D5AA973DA0>
+2024-07-09 09:20:30,692 - root - INFO - parent:<__main__.MainApp object at 0x000001D5AA973DA0>
+2024-07-09 09:20:30,693 - root - INFO - parent:<__main__.MainApp object at 0x000001D5AA973DA0>
+2024-07-09 10:39:17,027 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 10:39:18,313 - root - INFO - parent:<__main__.MainApp object at 0x000001CF2BFE3DA0>
+2024-07-09 10:39:18,315 - root - INFO - parent:<__main__.MainApp object at 0x000001CF2BFE3DA0>
+2024-07-09 10:39:18,316 - root - INFO - parent:<__main__.MainApp object at 0x000001CF2BFE3DA0>
+2024-07-09 10:39:18,324 - root - INFO - parent:<__main__.MainApp object at 0x000001CF2BFE3DA0>
+2024-07-09 10:39:18,325 - root - INFO - parent:<__main__.MainApp object at 0x000001CF2BFE3DA0>
+2024-07-09 10:39:18,326 - root - INFO - parent:<__main__.MainApp object at 0x000001CF2BFE3DA0>
+2024-07-09 11:33:58,251 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 11:33:59,113 - root - INFO - parent:<__main__.MainApp object at 0x000002262F338200>
+2024-07-09 11:33:59,115 - root - INFO - parent:<__main__.MainApp object at 0x000002262F338200>
+2024-07-09 11:33:59,116 - root - INFO - parent:<__main__.MainApp object at 0x000002262F338200>
+2024-07-09 11:33:59,122 - root - INFO - parent:<__main__.MainApp object at 0x000002262F338200>
+2024-07-09 11:33:59,123 - root - INFO - parent:<__main__.MainApp object at 0x000002262F338200>
+2024-07-09 11:33:59,124 - root - INFO - parent:<__main__.MainApp object at 0x000002262F338200>
+2024-07-09 11:34:51,837 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 11:34:52,475 - root - INFO - parent:<__main__.MainApp object at 0x000001CB419A0200>
+2024-07-09 11:34:52,477 - root - INFO - parent:<__main__.MainApp object at 0x000001CB419A0200>
+2024-07-09 11:34:52,478 - root - INFO - parent:<__main__.MainApp object at 0x000001CB419A0200>
+2024-07-09 11:34:52,485 - root - INFO - parent:<__main__.MainApp object at 0x000001CB419A0200>
+2024-07-09 11:34:52,487 - root - INFO - parent:<__main__.MainApp object at 0x000001CB419A0200>
+2024-07-09 11:34:52,489 - root - INFO - parent:<__main__.MainApp object at 0x000001CB419A0200>
+2024-07-09 11:34:59,943 - root - INFO - Load network
+2024-07-09 11:35:19,949 - root - INFO - Add network
+2024-07-09 11:35:19,969 - root - DEBUG - Path: Test_Lan_Audacity
+ Folders: ['Test_Lan_Audacity', 'conf', 'conf', 'db', 'db', 'logs', 'logs', 'pixmap', 'pixmap']
+  Files: [('lan_audacity', 'json')]
+2024-07-09 11:38:38,747 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 11:38:39,358 - root - INFO - parent:<__main__.MainApp object at 0x000001FB4F198170>
+2024-07-09 11:38:39,360 - root - INFO - parent:<__main__.MainApp object at 0x000001FB4F198170>
+2024-07-09 11:38:39,360 - root - INFO - parent:<__main__.MainApp object at 0x000001FB4F198170>
+2024-07-09 11:38:39,367 - root - INFO - parent:<__main__.MainApp object at 0x000001FB4F198170>
+2024-07-09 11:38:39,368 - root - INFO - parent:<__main__.MainApp object at 0x000001FB4F198170>
+2024-07-09 11:38:39,369 - root - INFO - parent:<__main__.MainApp object at 0x000001FB4F198170>
+2024-07-09 11:38:44,500 - root - INFO - Load network
+2024-07-09 11:38:48,219 - root - INFO - Add network
+2024-07-09 11:38:48,222 - root - DEBUG - Path: Test_Lan_Audacity
+ Folders: ['Test_Lan_Audacity', 'conf', 'conf', 'db', 'db', 'logs', 'logs', 'pixmap', 'pixmap']
+  Files: [('lan_audacity', 'json')]
+2024-07-09 11:52:16,114 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 11:52:17,366 - root - INFO - parent:<__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 11:52:17,368 - root - INFO - parent:<__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 11:52:17,369 - root - INFO - parent:<__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 11:52:17,375 - root - INFO - parent:<__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 11:52:17,376 - root - INFO - parent:<__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 11:52:17,377 - root - INFO - parent:<__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 12:19:45,221 - root - INFO - Load network
+2024-07-09 12:20:42,145 - root - DEBUG - Preferences Action...
+2024-07-09 12:20:42,184 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x000001F87AF95C40>
+2024-07-09 12:20:42,188 - root - DEBUG - <__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 12:20:42,678 - root - DEBUG - User Action...
+2024-07-09 12:20:45,932 - root - DEBUG - Preferences Action...
+2024-07-09 12:20:45,936 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x000001F87AF95C40>
+2024-07-09 12:20:45,939 - root - DEBUG - <__main__.MainApp object at 0x000001F87AFEC320>
+2024-07-09 12:25:04,008 - root - INFO - Add network
+2024-07-09 12:25:04,025 - root - DEBUG - Path: Test_Lan_Audacity
+ Folders: ['Test_Lan_Audacity', 'conf', 'conf', 'db', 'db', 'logs', 'logs', 'pixmap', 'pixmap']
+  Files: [('lan_audacity', 'json')]
+2024-07-09 14:54:22,390 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 14:54:23,687 - root - INFO - parent:<__main__.MainApp object at 0x00000202BCB8E2A0>
+2024-07-09 14:54:23,689 - root - INFO - parent:<__main__.MainApp object at 0x00000202BCB8E2A0>
+2024-07-09 14:54:23,690 - root - INFO - parent:<__main__.MainApp object at 0x00000202BCB8E2A0>
+2024-07-09 14:54:23,701 - root - INFO - parent:<__main__.MainApp object at 0x00000202BCB8E2A0>
+2024-07-09 14:54:23,702 - root - INFO - parent:<__main__.MainApp object at 0x00000202BCB8E2A0>
+2024-07-09 14:54:23,703 - root - INFO - parent:<__main__.MainApp object at 0x00000202BCB8E2A0>
+2024-07-09 14:55:22,565 - root - INFO - Load network
+2024-07-09 14:55:31,899 - root - DEBUG - Preferences Action...
+2024-07-09 14:55:31,929 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x00000202BCC32510>
+2024-07-09 14:55:31,931 - root - DEBUG - <__main__.MainApp object at 0x00000202BCB8E2A0>
+2024-07-09 14:57:34,257 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 14:57:35,196 - root - INFO - parent:<__main__.MainApp object at 0x000001A9C8997F50>
+2024-07-09 14:57:35,198 - root - INFO - parent:<__main__.MainApp object at 0x000001A9C8997F50>
+2024-07-09 14:57:35,199 - root - INFO - parent:<__main__.MainApp object at 0x000001A9C8997F50>
+2024-07-09 14:57:35,207 - root - INFO - parent:<__main__.MainApp object at 0x000001A9C8997F50>
+2024-07-09 14:57:35,208 - root - INFO - parent:<__main__.MainApp object at 0x000001A9C8997F50>
+2024-07-09 14:57:35,209 - root - INFO - parent:<__main__.MainApp object at 0x000001A9C8997F50>
+2024-07-09 14:57:37,125 - root - DEBUG - Preferences Action...
+2024-07-09 14:57:37,131 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x000001A9C8AC41A0>
+2024-07-09 14:57:37,134 - root - DEBUG - <__main__.MainApp object at 0x000001A9C8997F50>
+2024-07-09 14:57:50,038 - root - INFO - Load network
+2024-07-09 14:59:20,877 - root - INFO - Add network
+2024-07-09 14:59:20,890 - root - DEBUG - Path: Test_Lan_Audacity
+ Folders: ['Test_Lan_Audacity', 'conf', 'conf', 'db', 'db', 'logs', 'logs', 'pixmap', 'pixmap']
+  Files: [('lan_audacity', 'json')]
+2024-07-09 15:07:28,180 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 15:07:29,065 - root - INFO - parent:<__main__.MainApp object at 0x000001F585E8FF50>
+2024-07-09 15:07:29,067 - root - INFO - parent:<__main__.MainApp object at 0x000001F585E8FF50>
+2024-07-09 15:07:29,067 - root - INFO - parent:<__main__.MainApp object at 0x000001F585E8FF50>
+2024-07-09 15:07:29,075 - root - INFO - parent:<__main__.MainApp object at 0x000001F585E8FF50>
+2024-07-09 15:07:29,076 - root - INFO - parent:<__main__.MainApp object at 0x000001F585E8FF50>
+2024-07-09 15:07:29,077 - root - INFO - parent:<__main__.MainApp object at 0x000001F585E8FF50>
+2024-07-09 15:07:32,867 - root - INFO - Load network
+2024-07-09 15:07:37,286 - root - INFO - Add network
+2024-07-09 15:07:37,289 - root - DEBUG - Path: Test_Lan_Audacity
+ Folders: ['Test_Lan_Audacity', 'conf', 'conf', 'db', 'db', 'logs', 'logs', 'pixmap', 'pixmap']
+  Files: [('lan_audacity', 'json')]
+2024-07-09 15:07:37,289 - root - DEBUG - C:/Users/g.tronche/Documents/GitHub/lan_audacity/code/Test_Lan_Audacity\Test_Lan_Audacity
+2024-07-09 15:09:03,844 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 15:09:04,694 - root - INFO - parent:<__main__.MainApp object at 0x0000027A3F56C200>
+2024-07-09 15:09:04,696 - root - INFO - parent:<__main__.MainApp object at 0x0000027A3F56C200>
+2024-07-09 15:09:04,697 - root - INFO - parent:<__main__.MainApp object at 0x0000027A3F56C200>
+2024-07-09 15:09:04,708 - root - INFO - parent:<__main__.MainApp object at 0x0000027A3F56C200>
+2024-07-09 15:09:04,709 - root - INFO - parent:<__main__.MainApp object at 0x0000027A3F56C200>
+2024-07-09 15:09:04,710 - root - INFO - parent:<__main__.MainApp object at 0x0000027A3F56C200>
+2024-07-09 15:14:57,239 - root - INFO - Load network
+2024-07-09 15:15:01,177 - root - INFO - Add network
+2024-07-09 15:15:01,188 - root - DEBUG - Path: Test_Lan_Audacity
+ Folders: ['Test_Lan_Audacity', 'conf', 'conf', 'db', 'db', 'logs', 'logs', 'pixmap', 'pixmap']
+  Files: [('lan_audacity', 'json')]
+2024-07-09 15:49:30,931 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 15:49:32,812 - root - INFO - parent:<__main__.MainApp object at 0x00000231DAF2C200>
+2024-07-09 15:49:32,814 - root - INFO - parent:<__main__.MainApp object at 0x00000231DAF2C200>
+2024-07-09 15:49:32,815 - root - INFO - parent:<__main__.MainApp object at 0x00000231DAF2C200>
+2024-07-09 15:49:32,824 - root - INFO - parent:<__main__.MainApp object at 0x00000231DAF2C200>
+2024-07-09 15:49:32,825 - root - INFO - parent:<__main__.MainApp object at 0x00000231DAF2C200>
+2024-07-09 15:49:32,826 - root - INFO - parent:<__main__.MainApp object at 0x00000231DAF2C200>
+2024-07-09 15:49:40,319 - root - INFO - Load network
+2024-07-09 15:50:22,684 - root - INFO - Add network
+2024-07-09 15:50:22,695 - root - DEBUG - <src.tests.lan_test3.LanAudacity object at 0x00000231DDD42810>
+2024-07-09 16:04:32,670 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 16:04:33,550 - root - INFO - parent:<__main__.MainApp object at 0x0000015F24068170>
+2024-07-09 16:04:33,552 - root - INFO - parent:<__main__.MainApp object at 0x0000015F24068170>
+2024-07-09 16:04:33,553 - root - INFO - parent:<__main__.MainApp object at 0x0000015F24068170>
+2024-07-09 16:04:33,562 - root - INFO - parent:<__main__.MainApp object at 0x0000015F24068170>
+2024-07-09 16:04:33,563 - root - INFO - parent:<__main__.MainApp object at 0x0000015F24068170>
+2024-07-09 16:04:33,564 - root - INFO - parent:<__main__.MainApp object at 0x0000015F24068170>
+2024-07-09 16:04:40,949 - root - INFO - Load network
+2024-07-09 16:04:45,242 - root - INFO - Add network
+2024-07-09 16:04:45,245 - root - DEBUG - <src.tests.lan_test3.LanAudacity object at 0x0000015F26EAA4B0>
+2024-07-09 16:05:19,047 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 16:05:19,651 - root - INFO - parent:<__main__.MainApp object at 0x000001F7C47A8170>
+2024-07-09 16:05:19,653 - root - INFO - parent:<__main__.MainApp object at 0x000001F7C47A8170>
+2024-07-09 16:05:19,654 - root - INFO - parent:<__main__.MainApp object at 0x000001F7C47A8170>
+2024-07-09 16:05:19,660 - root - INFO - parent:<__main__.MainApp object at 0x000001F7C47A8170>
+2024-07-09 16:05:19,661 - root - INFO - parent:<__main__.MainApp object at 0x000001F7C47A8170>
+2024-07-09 16:05:19,662 - root - INFO - parent:<__main__.MainApp object at 0x000001F7C47A8170>
+2024-07-09 16:05:23,773 - root - INFO - Load network
+2024-07-09 16:05:26,258 - root - INFO - Add network
+2024-07-09 16:35:47,048 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 16:35:48,310 - root - INFO - parent:<__main__.MainApp object at 0x0000018DF28F3F50>
+2024-07-09 16:35:48,312 - root - INFO - parent:<__main__.MainApp object at 0x0000018DF28F3F50>
+2024-07-09 16:35:48,313 - root - INFO - parent:<__main__.MainApp object at 0x0000018DF28F3F50>
+2024-07-09 16:35:48,324 - root - INFO - parent:<__main__.MainApp object at 0x0000018DF28F3F50>
+2024-07-09 16:35:48,325 - root - INFO - parent:<__main__.MainApp object at 0x0000018DF28F3F50>
+2024-07-09 16:35:48,326 - root - INFO - parent:<__main__.MainApp object at 0x0000018DF28F3F50>
+2024-07-09 16:35:54,018 - root - INFO - Load network
+2024-07-09 16:35:57,195 - root - INFO - Add network
+2024-07-09 16:35:57,198 - root - DEBUG - John Doe
+2024-07-09 16:40:00,169 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 16:40:01,478 - root - INFO - parent:<__main__.MainApp object at 0x0000024EB668FDA0>
+2024-07-09 16:40:01,480 - root - INFO - parent:<__main__.MainApp object at 0x0000024EB668FDA0>
+2024-07-09 16:40:01,481 - root - INFO - parent:<__main__.MainApp object at 0x0000024EB668FDA0>
+2024-07-09 16:40:01,489 - root - INFO - parent:<__main__.MainApp object at 0x0000024EB668FDA0>
+2024-07-09 16:40:01,490 - root - INFO - parent:<__main__.MainApp object at 0x0000024EB668FDA0>
+2024-07-09 16:40:01,491 - root - INFO - parent:<__main__.MainApp object at 0x0000024EB668FDA0>
+2024-07-09 16:46:46,620 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 16:46:47,518 - root - INFO - parent:<__main__.MainApp object at 0x00000213F5E1C170>
+2024-07-09 16:46:47,521 - root - INFO - parent:<__main__.MainApp object at 0x00000213F5E1C170>
+2024-07-09 16:46:47,522 - root - INFO - parent:<__main__.MainApp object at 0x00000213F5E1C170>
+2024-07-09 16:46:47,527 - root - INFO - parent:<__main__.MainApp object at 0x00000213F5E1C170>
+2024-07-09 16:46:47,528 - root - INFO - parent:<__main__.MainApp object at 0x00000213F5E1C170>
+2024-07-09 16:46:47,529 - root - INFO - parent:<__main__.MainApp object at 0x00000213F5E1C170>
+2024-07-09 16:51:08,018 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 16:51:08,963 - root - INFO - parent:<__main__.MainApp object at 0x000001AEE85A7DA0>
+2024-07-09 16:51:08,965 - root - INFO - parent:<__main__.MainApp object at 0x000001AEE85A7DA0>
+2024-07-09 16:51:08,966 - root - INFO - parent:<__main__.MainApp object at 0x000001AEE85A7DA0>
+2024-07-09 16:51:08,971 - root - INFO - parent:<__main__.MainApp object at 0x000001AEE85A7DA0>
+2024-07-09 16:51:08,972 - root - INFO - parent:<__main__.MainApp object at 0x000001AEE85A7DA0>
+2024-07-09 16:51:08,973 - root - INFO - parent:<__main__.MainApp object at 0x000001AEE85A7DA0>
+2024-07-09 16:51:48,560 - root - WARNING - The folder logs already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
+2024-07-09 16:53:42,848 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-09 16:53:43,481 - root - INFO - parent:<__main__.MainApp object at 0x0000029B0BFFBEC0>
+2024-07-09 16:53:43,483 - root - INFO - parent:<__main__.MainApp object at 0x0000029B0BFFBEC0>
+2024-07-09 16:53:43,484 - root - INFO - parent:<__main__.MainApp object at 0x0000029B0BFFBEC0>
+2024-07-09 16:53:43,489 - root - INFO - parent:<__main__.MainApp object at 0x0000029B0BFFBEC0>
+2024-07-09 16:53:43,490 - root - INFO - parent:<__main__.MainApp object at 0x0000029B0BFFBEC0>
+2024-07-09 16:53:43,491 - root - INFO - parent:<__main__.MainApp object at 0x0000029B0BFFBEC0>
+2024-07-09 16:54:15,609 - root - WARNING - The folder tests-v3 already exists in C:/Users/g.tronche/Documents/test_app.
+2024-07-09 16:54:15,609 - root - WARNING - The file lan_audacity already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
+2024-07-09 16:54:15,614 - root - WARNING - The folder conf already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
+2024-07-09 16:54:15,615 - root - WARNING - The folder db already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
+2024-07-09 16:54:15,615 - root - WARNING - The folder interfaces already exists in C:/Users/g.tronche/Documents/test_app\tests-v3\db.
+2024-07-09 16:54:15,616 - root - WARNING - The folder desktop already exists in C:/Users/g.tronche/Documents/test_app\tests-v3\db.
+2024-07-09 16:54:15,616 - root - WARNING - The folder logs already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
+2024-07-09 16:54:15,617 - root - WARNING - The folder logs already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
+2024-07-09 16:54:15,617 - root - WARNING - The file lan_audacity already exists in C:/Users/g.tronche/Documents/test_app\tests-v3\logs.
+2024-07-09 16:54:15,618 - root - WARNING - The folder pixmap already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
+2024-07-09 16:54:15,641 - root - INFO - Load network

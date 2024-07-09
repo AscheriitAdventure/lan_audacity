@@ -90,9 +90,9 @@ class FileManagement:
             "files": self.__files
         }
     
-    def __str__(self) -> str:
-        str_return = f"Path: {self.__path}\n Folders: {self.__folders}\n  Files: {self.__files}"
-        return str_return
+    #def __str__(self) -> str:
+    #    str_return = f"Path: {self.__path}\n Folders: {self.__folders}\n  Files: {self.__files}"
+    #    return str_return
 
 
 import json
@@ -240,8 +240,10 @@ class ClockManager:
     def __str__(self) -> str:
         return f"ClockManager: {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.clockCreated))}"
 
+
 import shutil
 from src.models.network import Network
+
 
 class LanAudacity(FileManagement):
     def __init__(
@@ -408,7 +410,10 @@ class LanAudacity(FileManagement):
     
     def updateLanAudacity(self):
         # Update the project with the new data
-        SwitchFile2.json_write(os.path.join(self.absPath, self.path, "lan_audacity.json"), self.dict_return())
+        if self.path in self.absPath:
+            SwitchFile2.json_write(os.path.join(self.absPath, "lan_audacity.json"), self.dict_return())
+        else:
+            SwitchFile2.json_write(os.path.join(self.absPath, self.path, "lan_audacity.json"), self.dict_return())
     
     def delete_project(self) -> None:
         if os.path.exists(os.path.join(self.absPath, self.path)):
@@ -494,7 +499,7 @@ class LanAudacity(FileManagement):
                 logging.info(f"{network} doesn't exist in {self.path}")
         else:  
             logging.error("The network object is not a Network object or a string.")
-    
+
     # def add_link(self, link: dict) -> None:
     # def remove_link(self, link: dict) -> None:
     # def add_device(self, device: dict) -> None:
