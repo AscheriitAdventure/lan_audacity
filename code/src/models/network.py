@@ -6,6 +6,62 @@ import time
 import uuid
 
 from src.models.device import Device
+import time
+
+
+class ClockManager:
+    def __init__(
+            self,
+            time_start: float = time.time(),
+            time_list: Optional[list[float]] = None
+    ) -> None:
+        self.__clock_created: float = time_start
+        if time_list is None:
+            self.__clock_list: list[float] = []
+        else:
+            self.__clock_list = time_list
+        if time_list == [float]:
+            self.__clock_list.append(self.clockCreated)
+        self.type_time = "Unix Timestamp Format"
+
+    @property
+    def clockCreated(self) -> float:
+        return self.__clock_created
+
+    @clockCreated.setter
+    def clockCreated(self, value: float) -> None:
+        self.__clock_created = value
+
+    @property
+    def clockList(self) -> list[float]:
+        return self.__clock_list
+
+    @clockList.setter
+    def clockList(self, value: list[float]) -> None:
+        self.__clock_list = value
+
+    def add_clock(self) -> None:
+        self.clockList.append(time.time())
+
+    def get_clock_last(self) -> float:
+        return self.clockList[-1]
+
+    def get_clock_diff(self) -> float:
+        return self.clockList[-1] - self.clockList[-2]
+
+    def dict_return(self) -> dict:
+        return {
+            "clock_created": self.__clock_created,
+            "clock_list": self.__clock_list,
+            "type_time": self.type_time
+        }
+
+    @staticmethod
+    def conv_unix_to_datetime(unix_time: float):
+        return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(unix_time))
+
+    def __str__(self) -> str:
+        return f"ClockManager: {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.clockCreated))}"
 
 
 def ip_to_cidr(ip: str, mask: str) -> str:
@@ -36,21 +92,19 @@ class Network:
             network_dhcp: Optional[str] = None,
             uuid_str: Optional[str] = None,
     ):
-        self.__uuid = None
         self.setUUIDObj(uuid_str)
-
         if network_name is None:
             self.__name: str = ip_to_cidr(network_ipv4, network_mask_ipv4)
         else:
             self.__name: str = network_name
+
         self.__ipv4: str = network_ipv4
         self.__mask_ipv4: str = network_mask_ipv4
         self.__ipv6: Optional[str] = network_ipv6
         self.__gateway: Optional[str] = network_gateway
         self.__dns: Optional[str] = network_dns
         self.__dhcp: Optional[str] = network_dhcp
-        self.__date_unix: float = time.time()
-        self.__last_update_unix: float = time.time()
+        self.__clockManager = ClockManager()
         self.__abs_path: str = ""
 
         self.__devices = []
@@ -125,16 +179,12 @@ class Network:
         return self.__dhcp
 
     @property
-    def dateUnix(self) -> float:
-        return self.__date_unix
+    def clockManager(self) -> ClockManager:
+        return self.__clockManager
 
-    @property
-    def lastUpdateUnix(self) -> float:
-        return self.__last_update_unix
-
-    @lastUpdateUnix.setter
-    def lastUpdateUnix(self, new_time: float):
-        self.__last_update_unix = new_time
+    @clockManager.setter
+    def clockManager(self, clock: ClockManager) -> None:
+        self.__clockManager = clock
 
     @property
     def devicesList(self) -> list:
@@ -143,7 +193,7 @@ class Network:
     def create_network(self) -> None:
         if not os.path.exists(self.absPath):
             with open(self.absPath, "w+") as f:
-                json.dump(self.__dict__, f, indent=4, default=str)
+                json.dump(self.dict_return(), f, indent=4, default=str)
             logging.info(f"{self.name} is created")
         else:
             logging.info(f"{self.name} already exists")
@@ -158,29 +208,42 @@ class Network:
 
     def save_network(self) -> None:
         if os.path.exists(self.absPath):
-            self.lastUpdateUnix = time.time()
+            self.clockManager.add_clock()
             with open(self.absPath, "w") as f:
-                json.dump(self.__dict__, f, indent=4, default=str)
+                json.dump(self.dict_return(), f, indent=4, default=str)
             logging.info(f"{self.name} is saved")
         else:
             logging.info(f"{self.name} doesn't exist")
 
     def add_device(self, device: Device) -> None:
         self.devices.append(device.uuid)
-        self.lastUpdateUnix = time.time()
+        self.clockManager.add_clock()
         with open(self.absPath, "w") as f:
-            json.dump(self.__dict__, f, indent=4)
+            json.dump(self.dict_return(), f, indent=4)
         logging.info(f"{device.name} is added to {self.name}")
 
     def remove_device(self, device: Device) -> None:
         self.devices.remove(device.uuid)
-        self.lastUpdateUnix = time.time()
+        self.clockManager.add_clock()
         device.delete_device()
         with open(self.absPath, "w") as f:
-            json.dump(self.__dict__, f, indent=4)
+            json.dump(self.dict_return(), f, indent=4)
         logging.info(f"{device.name} is removed from {self.name}")
+
+    def dict_return(self) -> dict:
+        return {
+            "uuid": self.uuid,
+            "name": self.name,
+            "abs_path": self.absPath,
+            "clock_manager": self.clockManager.dict_return(),
+            "ipv4": self.ipv4,
+            "mask_ipv4": self.maskIpv4,
+            "ipv6": self.ipv6,
+            "gateway": self.gateway,
+            "dns": self.dns,
+            "dhcp": self.dhcp,
+            "devices_list": self.__devices
+        }
     
     def __str__(self) -> str:
         return f"{self.name} - {self.ipv4} - {self.mask_ipv4}"
-
-

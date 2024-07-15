@@ -7,7 +7,7 @@ from src.models.network import Network
 from src.models.language_app import LanguageApp
 from src.models.shortcut_app import ShortcutApp
 from src.models.icons_app import IconsApp
-from src.models.lan_audacity import LanAudacity
+from src.tests.lan_test3 import LanAudacity
 
 from src.views.forms_app import NNetwork, NDevice
 from src.views.tabs_app import TabFactoryWidget
@@ -105,7 +105,7 @@ class GeneralSidePanel(QWidget):
         self.treeView.setAnimated(True)
         self.glbLayout.addWidget(self.treeView)
 
-    def loadDisplayObj(self):
+    def loadDisplayObj(self) -> None:
         model = QFileSystemModel()
         model.setRootPath(self.extObj)
         self.treeView.setModel(model)
@@ -242,10 +242,7 @@ class NetExpl(GeneralSidePanel):
             logging.info(self.extObj)
             for network in self.extObj.networks.get('obj_ls'):
                 logging.debug(network.get('name'))
-                # transformation du dictionnaire en Network class
-                pass
-                # ajout dans la list des items
-                self.add_network_to_tree()
+                self.add_network_to_tree(network.get('name'))
             if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
                 pass
 
@@ -303,15 +300,13 @@ class NetExpl(GeneralSidePanel):
             self.extObj.add_network(network)
             self.extObj.save_project()
 
-            self.add_network_to_tree(network)
+            self.add_network_to_tree(network.name)
         # Add Network to Tree
 
-    def add_network_to_tree(self, network: Network):
-        logging.debug(network)
-        logging.debug(network.name)
-        item = QStandardItem("article 1")
+    def add_network_to_tree(self, network: str):
+        item = QStandardItem(network)
         item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
-        root.appendRow(item)
+        self.treeView.model().invisibleRootItem().appendRow(item)
 
     def add_device_to_tree(self, selected_network, device):
         item = QStandardItem(device.name)

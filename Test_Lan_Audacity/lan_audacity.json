@@ -4,12 +4,14 @@
     "abs_path": "C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity",
     "software": {
         "name": "Lan Audacity",
-        "version": "1.0.0"
+        "version": "1.0.4"
     },
     "author": "John Doe",
     "clock_manager": {
-        "clock_created": 1720429003.4586043,
-        "clock_list": [],
+        "clock_created": 1720796745.2746408,
+        "clock_list": [
+            1720796745.300851
+        ],
         "type_time": "Unix Timestamp Format"
     },
     "obj_paths": {
@@ -22,6 +24,8 @@
             "path": "db",
             "folders": [
                 "interfaces",
+                "interfaces",
+                "desktop",
                 "desktop"
             ],
             "files": []
@@ -42,7 +46,17 @@
             "files": []
         }
     },
-    "networks": [],
-    "links": [],
-    "devices": []
+    "networks": {
+        "path": "interfaces",
+        "obj_ls": [
+            {
+                "uuid": "c5404a77-c8f8-464a-b5de-406f5493af45",
+                "name": "Si\u00e8ge de Eyrein Industrie",
+                "path": "C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\Test_Lan_Audacity\\db\\interfaces\\c5404a77-c8f8-464a-b5de-406f5493af45.json",
+                "ls_devices": []
+            }
+        ]
+    },
+    "links": null,
+    "devices": null
 }

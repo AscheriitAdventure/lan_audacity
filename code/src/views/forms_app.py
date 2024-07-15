@@ -7,7 +7,7 @@ from qtpy.QtCore import Qt
 from typing import Any
 from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
-from src.models.lan_audacity import LanAudacity
+from src.tests.lan_test3 import LanAudacity, ClockManager
 
 
 class FormDialog(QDialog):
@@ -102,9 +102,8 @@ class NNetwork(FormDialog):
             icon_manager=icon_manager,
             parent=parent
         )
-        logging.debug(self.extObj.author)
-        obj_field = os.path.join(self.extObj.absPath, self.extObj.__objPaths['db']['path'], self.extObj.abs_paths['db']['folders'][0])
-        print(obj_field)
+        obj_field = os.path.join(self.extObj.absPath, "db", "interfaces")
+        logging.debug(f"NNetwork: {obj_field}")
         self.fields["path"] = obj_field
     
     def set_formObj(self) -> list:

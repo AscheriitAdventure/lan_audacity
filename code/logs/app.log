@@ -1054,3 +1054,339 @@
 2024-07-09 16:54:15,617 - root - WARNING - The file lan_audacity already exists in C:/Users/g.tronche/Documents/test_app\tests-v3\logs.
 2024-07-09 16:54:15,618 - root - WARNING - The folder pixmap already exists in C:/Users/g.tronche/Documents/test_app\tests-v3.
 2024-07-09 16:54:15,641 - root - INFO - Load network
+2024-07-10 10:09:04,774 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-10 10:09:06,213 - root - INFO - parent:<__main__.MainApp object at 0x000001626A9B7920>
+2024-07-10 10:09:06,216 - root - INFO - parent:<__main__.MainApp object at 0x000001626A9B7920>
+2024-07-10 10:09:06,217 - root - INFO - parent:<__main__.MainApp object at 0x000001626A9B7920>
+2024-07-10 10:09:06,226 - root - INFO - parent:<__main__.MainApp object at 0x000001626A9B7920>
+2024-07-10 10:09:06,227 - root - INFO - parent:<__main__.MainApp object at 0x000001626A9B7920>
+2024-07-10 10:09:06,228 - root - INFO - parent:<__main__.MainApp object at 0x000001626A9B7920>
+2024-07-10 10:10:04,928 - root - DEBUG - Preferences Action...
+2024-07-10 10:10:04,933 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x000001626AA204A0>
+2024-07-10 10:10:04,936 - root - DEBUG - <__main__.MainApp object at 0x000001626A9B7920>
+2024-07-10 10:10:26,056 - root - INFO - Load network
+2024-07-10 10:10:33,685 - root - INFO - Add network
+2024-07-10 10:10:33,688 - root - DEBUG - John Doe
+2024-07-10 16:53:23,376 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-10 16:53:24,833 - root - INFO - parent:<__main__.MainApp object at 0x00000201CD1F0290>
+2024-07-10 16:53:24,837 - root - INFO - parent:<__main__.MainApp object at 0x00000201CD1F0290>
+2024-07-10 16:53:24,837 - root - INFO - parent:<__main__.MainApp object at 0x00000201CD1F0290>
+2024-07-10 16:53:24,848 - root - INFO - parent:<__main__.MainApp object at 0x00000201CD1F0290>
+2024-07-10 16:53:24,849 - root - INFO - parent:<__main__.MainApp object at 0x00000201CD1F0290>
+2024-07-10 16:53:24,850 - root - INFO - parent:<__main__.MainApp object at 0x00000201CD1F0290>
+2024-07-10 17:25:26,444 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-10 17:25:28,410 - root - INFO - parent:<__main__.MainApp object at 0x00000200B9F1C0E0>
+2024-07-10 17:25:28,412 - root - INFO - parent:<__main__.MainApp object at 0x00000200B9F1C0E0>
+2024-07-10 17:25:28,412 - root - INFO - parent:<__main__.MainApp object at 0x00000200B9F1C0E0>
+2024-07-10 17:25:28,419 - root - INFO - parent:<__main__.MainApp object at 0x00000200B9F1C0E0>
+2024-07-10 17:25:28,420 - root - INFO - parent:<__main__.MainApp object at 0x00000200B9F1C0E0>
+2024-07-10 17:25:28,421 - root - INFO - parent:<__main__.MainApp object at 0x00000200B9F1C0E0>
+2024-07-11 12:07:06,684 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-11 12:07:08,203 - root - INFO - parent:<__main__.MainApp object at 0x0000023F7497E450>
+2024-07-11 12:07:08,204 - root - INFO - parent:<__main__.MainApp object at 0x0000023F7497E450>
+2024-07-11 12:07:08,205 - root - INFO - parent:<__main__.MainApp object at 0x0000023F7497E450>
+2024-07-11 12:07:08,217 - root - INFO - parent:<__main__.MainApp object at 0x0000023F7497E450>
+2024-07-11 12:07:08,218 - root - INFO - parent:<__main__.MainApp object at 0x0000023F7497E450>
+2024-07-11 12:07:08,219 - root - INFO - parent:<__main__.MainApp object at 0x0000023F7497E450>
+2024-07-11 12:38:48,878 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-11 12:38:50,590 - root - INFO - parent:<__main__.MainApp object at 0x0000026A53A28320>
+2024-07-11 12:38:50,591 - root - INFO - parent:<__main__.MainApp object at 0x0000026A53A28320>
+2024-07-11 12:38:50,592 - root - INFO - parent:<__main__.MainApp object at 0x0000026A53A28320>
+2024-07-11 12:38:50,603 - root - INFO - parent:<__main__.MainApp object at 0x0000026A53A28320>
+2024-07-11 12:38:50,603 - root - INFO - parent:<__main__.MainApp object at 0x0000026A53A28320>
+2024-07-11 12:38:50,604 - root - INFO - parent:<__main__.MainApp object at 0x0000026A53A28320>
+2024-07-12 11:29:21,270 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 11:29:23,482 - root - INFO - parent:<__main__.MainApp object at 0x0000025A88884440>
+2024-07-12 11:29:23,484 - root - INFO - parent:<__main__.MainApp object at 0x0000025A88884440>
+2024-07-12 11:29:23,485 - root - INFO - parent:<__main__.MainApp object at 0x0000025A88884440>
+2024-07-12 11:29:23,496 - root - INFO - parent:<__main__.MainApp object at 0x0000025A88884440>
+2024-07-12 11:29:23,497 - root - INFO - parent:<__main__.MainApp object at 0x0000025A88884440>
+2024-07-12 11:29:23,498 - root - INFO - parent:<__main__.MainApp object at 0x0000025A88884440>
+2024-07-12 11:37:38,670 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 11:37:39,586 - root - INFO - parent:<__main__.MainApp object at 0x000001BE68AE4050>
+2024-07-12 11:37:39,588 - root - INFO - parent:<__main__.MainApp object at 0x000001BE68AE4050>
+2024-07-12 11:37:39,589 - root - INFO - parent:<__main__.MainApp object at 0x000001BE68AE4050>
+2024-07-12 11:37:39,594 - root - INFO - parent:<__main__.MainApp object at 0x000001BE68AE4050>
+2024-07-12 11:37:39,595 - root - INFO - parent:<__main__.MainApp object at 0x000001BE68AE4050>
+2024-07-12 11:37:39,596 - root - INFO - parent:<__main__.MainApp object at 0x000001BE68AE4050>
+2024-07-12 11:40:25,924 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 11:40:26,513 - root - INFO - parent:<__main__.MainApp object at 0x0000023B4A9C4560>
+2024-07-12 11:40:26,514 - root - INFO - parent:<__main__.MainApp object at 0x0000023B4A9C4560>
+2024-07-12 11:40:26,516 - root - INFO - parent:<__main__.MainApp object at 0x0000023B4A9C4560>
+2024-07-12 11:40:26,521 - root - INFO - parent:<__main__.MainApp object at 0x0000023B4A9C4560>
+2024-07-12 11:40:26,522 - root - INFO - parent:<__main__.MainApp object at 0x0000023B4A9C4560>
+2024-07-12 11:40:26,523 - root - INFO - parent:<__main__.MainApp object at 0x0000023B4A9C4560>
+2024-07-12 11:51:52,737 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 11:51:54,867 - root - INFO - parent:<__main__.MainApp object at 0x00000266BD28C050>
+2024-07-12 11:51:54,868 - root - INFO - parent:<__main__.MainApp object at 0x00000266BD28C050>
+2024-07-12 11:51:54,869 - root - INFO - parent:<__main__.MainApp object at 0x00000266BD28C050>
+2024-07-12 11:51:54,878 - root - INFO - parent:<__main__.MainApp object at 0x00000266BD28C050>
+2024-07-12 11:51:54,879 - root - INFO - parent:<__main__.MainApp object at 0x00000266BD28C050>
+2024-07-12 11:51:54,881 - root - INFO - parent:<__main__.MainApp object at 0x00000266BD28C050>
+2024-07-12 11:51:59,709 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 11:51:59,726 - root - INFO - Load network
+2024-07-12 11:51:59,727 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 11:51:59,727 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 13:53:04,308 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 13:53:06,649 - root - INFO - parent:<__main__.MainApp object at 0x000001A8FC190200>
+2024-07-12 13:53:06,652 - root - INFO - parent:<__main__.MainApp object at 0x000001A8FC190200>
+2024-07-12 13:53:06,653 - root - INFO - parent:<__main__.MainApp object at 0x000001A8FC190200>
+2024-07-12 13:53:06,663 - root - INFO - parent:<__main__.MainApp object at 0x000001A8FC190200>
+2024-07-12 13:53:06,664 - root - INFO - parent:<__main__.MainApp object at 0x000001A8FC190200>
+2024-07-12 13:53:06,665 - root - INFO - parent:<__main__.MainApp object at 0x000001A8FC190200>
+2024-07-12 13:53:11,770 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 13:53:11,791 - root - INFO - Load network
+2024-07-12 13:53:11,792 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 13:53:11,793 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 14:29:03,047 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 14:29:05,942 - root - INFO - parent:<__main__.MainApp object at 0x00000212470B03B0>
+2024-07-12 14:29:05,944 - root - INFO - parent:<__main__.MainApp object at 0x00000212470B03B0>
+2024-07-12 14:29:05,945 - root - INFO - parent:<__main__.MainApp object at 0x00000212470B03B0>
+2024-07-12 14:29:06,723 - root - INFO - parent:<__main__.MainApp object at 0x00000212470B03B0>
+2024-07-12 14:29:06,725 - root - INFO - parent:<__main__.MainApp object at 0x00000212470B03B0>
+2024-07-12 14:29:06,726 - root - INFO - parent:<__main__.MainApp object at 0x00000212470B03B0>
+2024-07-12 14:29:14,298 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 14:29:14,331 - root - INFO - Load network
+2024-07-12 14:29:14,335 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 14:29:14,336 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 14:33:38,012 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 14:33:38,943 - root - INFO - parent:<__main__.MainApp object at 0x0000028031E18290>
+2024-07-12 14:33:38,945 - root - INFO - parent:<__main__.MainApp object at 0x0000028031E18290>
+2024-07-12 14:33:38,946 - root - INFO - parent:<__main__.MainApp object at 0x0000028031E18290>
+2024-07-12 14:33:38,951 - root - INFO - parent:<__main__.MainApp object at 0x0000028031E18290>
+2024-07-12 14:33:38,952 - root - INFO - parent:<__main__.MainApp object at 0x0000028031E18290>
+2024-07-12 14:33:38,953 - root - INFO - parent:<__main__.MainApp object at 0x0000028031E18290>
+2024-07-12 14:33:45,319 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 14:33:45,335 - root - INFO - Load network
+2024-07-12 14:33:45,335 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 14:33:45,336 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 14:53:11,329 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 14:53:12,221 - root - INFO - parent:<__main__.MainApp object at 0x0000029DF8808290>
+2024-07-12 14:53:12,222 - root - INFO - parent:<__main__.MainApp object at 0x0000029DF8808290>
+2024-07-12 14:53:12,223 - root - INFO - parent:<__main__.MainApp object at 0x0000029DF8808290>
+2024-07-12 14:53:12,228 - root - INFO - parent:<__main__.MainApp object at 0x0000029DF8808290>
+2024-07-12 14:53:12,229 - root - INFO - parent:<__main__.MainApp object at 0x0000029DF8808290>
+2024-07-12 14:53:12,230 - root - INFO - parent:<__main__.MainApp object at 0x0000029DF8808290>
+2024-07-12 14:53:15,748 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 14:53:15,764 - root - INFO - Load network
+2024-07-12 14:53:15,765 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 14:53:15,765 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 14:54:14,064 - root - INFO - Add network
+2024-07-12 14:54:14,084 - root - DEBUG - John Doe
+2024-07-12 15:00:32,883 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 15:00:33,491 - root - INFO - parent:<__main__.MainApp object at 0x000001E9F2990200>
+2024-07-12 15:00:33,493 - root - INFO - parent:<__main__.MainApp object at 0x000001E9F2990200>
+2024-07-12 15:00:33,494 - root - INFO - parent:<__main__.MainApp object at 0x000001E9F2990200>
+2024-07-12 15:00:33,500 - root - INFO - parent:<__main__.MainApp object at 0x000001E9F2990200>
+2024-07-12 15:00:33,501 - root - INFO - parent:<__main__.MainApp object at 0x000001E9F2990200>
+2024-07-12 15:00:33,502 - root - INFO - parent:<__main__.MainApp object at 0x000001E9F2990200>
+2024-07-12 15:00:36,762 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 15:00:36,781 - root - INFO - Load network
+2024-07-12 15:00:36,782 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 15:00:36,782 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 15:00:40,195 - root - INFO - Add network
+2024-07-12 15:03:00,788 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 15:03:01,377 - root - INFO - parent:<__main__.MainApp object at 0x0000025C4C5243B0>
+2024-07-12 15:03:01,379 - root - INFO - parent:<__main__.MainApp object at 0x0000025C4C5243B0>
+2024-07-12 15:03:01,380 - root - INFO - parent:<__main__.MainApp object at 0x0000025C4C5243B0>
+2024-07-12 15:03:01,384 - root - INFO - parent:<__main__.MainApp object at 0x0000025C4C5243B0>
+2024-07-12 15:03:01,385 - root - INFO - parent:<__main__.MainApp object at 0x0000025C4C5243B0>
+2024-07-12 15:03:01,386 - root - INFO - parent:<__main__.MainApp object at 0x0000025C4C5243B0>
+2024-07-12 15:03:04,997 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 15:03:05,015 - root - INFO - Load network
+2024-07-12 15:03:05,016 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 15:03:05,017 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 15:03:08,085 - root - INFO - Add network
+2024-07-12 15:03:08,087 - root - DEBUG - {}
+2024-07-12 15:08:11,166 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 15:08:11,757 - root - INFO - parent:<__main__.MainApp object at 0x0000026477880050>
+2024-07-12 15:08:11,758 - root - INFO - parent:<__main__.MainApp object at 0x0000026477880050>
+2024-07-12 15:08:11,759 - root - INFO - parent:<__main__.MainApp object at 0x0000026477880050>
+2024-07-12 15:08:11,767 - root - INFO - parent:<__main__.MainApp object at 0x0000026477880050>
+2024-07-12 15:08:11,768 - root - INFO - parent:<__main__.MainApp object at 0x0000026477880050>
+2024-07-12 15:08:11,769 - root - INFO - parent:<__main__.MainApp object at 0x0000026477880050>
+2024-07-12 15:08:16,684 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 15:08:16,701 - root - INFO - Load network
+2024-07-12 15:08:16,702 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 15:08:16,703 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 15:10:34,280 - root - DEBUG - Preferences Action...
+2024-07-12 15:10:34,302 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x000002647786CE30>
+2024-07-12 15:10:34,305 - root - DEBUG - <__main__.MainApp object at 0x0000026477880050>
+2024-07-12 15:43:14,209 - root - INFO - Add network
+2024-07-12 15:43:14,215 - root - DEBUG - {}
+2024-07-12 17:03:18,614 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 17:03:20,769 - root - INFO - parent:<__main__.MainApp object at 0x00000247D2C880E0>
+2024-07-12 17:03:20,771 - root - INFO - parent:<__main__.MainApp object at 0x00000247D2C880E0>
+2024-07-12 17:03:20,772 - root - INFO - parent:<__main__.MainApp object at 0x00000247D2C880E0>
+2024-07-12 17:03:20,783 - root - INFO - parent:<__main__.MainApp object at 0x00000247D2C880E0>
+2024-07-12 17:03:20,784 - root - INFO - parent:<__main__.MainApp object at 0x00000247D2C880E0>
+2024-07-12 17:03:20,785 - root - INFO - parent:<__main__.MainApp object at 0x00000247D2C880E0>
+2024-07-12 17:05:36,289 - root - INFO - End of Application
+2024-07-12 17:06:16,398 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 17:06:17,406 - root - INFO - parent:<__main__.MainApp object at 0x0000021C2CB34170>
+2024-07-12 17:06:17,407 - root - INFO - parent:<__main__.MainApp object at 0x0000021C2CB34170>
+2024-07-12 17:06:17,408 - root - INFO - parent:<__main__.MainApp object at 0x0000021C2CB34170>
+2024-07-12 17:06:17,416 - root - INFO - parent:<__main__.MainApp object at 0x0000021C2CB34170>
+2024-07-12 17:06:17,417 - root - INFO - parent:<__main__.MainApp object at 0x0000021C2CB34170>
+2024-07-12 17:06:17,420 - root - INFO - parent:<__main__.MainApp object at 0x0000021C2CB34170>
+2024-07-12 17:06:25,405 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 17:06:25,436 - root - INFO - Load network
+2024-07-12 17:06:25,438 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 17:06:25,439 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 17:06:30,217 - root - INFO - Add network
+2024-07-12 17:06:31,628 - root - DEBUG - {}
+2024-07-12 17:12:08,277 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 17:12:08,882 - root - INFO - parent:<__main__.MainApp object at 0x0000013FA13F03B0>
+2024-07-12 17:12:08,883 - root - INFO - parent:<__main__.MainApp object at 0x0000013FA13F03B0>
+2024-07-12 17:12:08,884 - root - INFO - parent:<__main__.MainApp object at 0x0000013FA13F03B0>
+2024-07-12 17:12:08,891 - root - INFO - parent:<__main__.MainApp object at 0x0000013FA13F03B0>
+2024-07-12 17:12:08,891 - root - INFO - parent:<__main__.MainApp object at 0x0000013FA13F03B0>
+2024-07-12 17:12:08,892 - root - INFO - parent:<__main__.MainApp object at 0x0000013FA13F03B0>
+2024-07-12 17:12:40,841 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-12 17:12:41,488 - root - INFO - parent:<__main__.MainApp object at 0x0000021E60104050>
+2024-07-12 17:12:41,490 - root - INFO - parent:<__main__.MainApp object at 0x0000021E60104050>
+2024-07-12 17:12:41,491 - root - INFO - parent:<__main__.MainApp object at 0x0000021E60104050>
+2024-07-12 17:12:41,496 - root - INFO - parent:<__main__.MainApp object at 0x0000021E60104050>
+2024-07-12 17:12:41,497 - root - INFO - parent:<__main__.MainApp object at 0x0000021E60104050>
+2024-07-12 17:12:41,498 - root - INFO - parent:<__main__.MainApp object at 0x0000021E60104050>
+2024-07-12 17:12:45,757 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-12 17:12:45,774 - root - INFO - Load network
+2024-07-12 17:12:45,775 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-12 17:12:45,776 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-12 17:12:57,000 - root - INFO - Add network
+2024-07-12 17:12:57,005 - root - DEBUG - {}
+2024-07-15 08:52:41,305 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 08:52:44,047 - root - INFO - parent:<__main__.MainApp object at 0x00000277ABA940E0>
+2024-07-15 08:52:44,050 - root - INFO - parent:<__main__.MainApp object at 0x00000277ABA940E0>
+2024-07-15 08:52:44,051 - root - INFO - parent:<__main__.MainApp object at 0x00000277ABA940E0>
+2024-07-15 08:52:44,064 - root - INFO - parent:<__main__.MainApp object at 0x00000277ABA940E0>
+2024-07-15 08:52:44,065 - root - INFO - parent:<__main__.MainApp object at 0x00000277ABA940E0>
+2024-07-15 08:52:44,066 - root - INFO - parent:<__main__.MainApp object at 0x00000277ABA940E0>
+2024-07-15 08:52:51,293 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-15 08:52:51,324 - root - INFO - Load network
+2024-07-15 08:52:51,327 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-15 08:52:51,329 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-15 08:52:55,614 - root - INFO - Add network
+2024-07-15 08:52:55,630 - root - DEBUG - {}
+2024-07-15 10:00:58,878 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 10:01:00,058 - root - INFO - parent:<__main__.MainApp object at 0x00000187CCF64050>
+2024-07-15 10:01:00,060 - root - INFO - parent:<__main__.MainApp object at 0x00000187CCF64050>
+2024-07-15 10:01:00,061 - root - INFO - parent:<__main__.MainApp object at 0x00000187CCF64050>
+2024-07-15 10:01:00,070 - root - INFO - parent:<__main__.MainApp object at 0x00000187CCF64050>
+2024-07-15 10:01:00,071 - root - INFO - parent:<__main__.MainApp object at 0x00000187CCF64050>
+2024-07-15 10:01:00,072 - root - INFO - parent:<__main__.MainApp object at 0x00000187CCF64050>
+2024-07-15 10:01:05,046 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-15 10:01:05,068 - root - INFO - Load network
+2024-07-15 10:01:05,068 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-15 10:01:05,068 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-15 10:01:07,506 - root - INFO - Add network
+2024-07-15 10:01:07,509 - root - DEBUG - {}
+2024-07-15 10:01:22,438 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 10:01:23,047 - root - INFO - parent:<__main__.MainApp object at 0x000002A45D6EFE30>
+2024-07-15 10:01:23,049 - root - INFO - parent:<__main__.MainApp object at 0x000002A45D6EFE30>
+2024-07-15 10:01:23,049 - root - INFO - parent:<__main__.MainApp object at 0x000002A45D6EFE30>
+2024-07-15 10:01:23,057 - root - INFO - parent:<__main__.MainApp object at 0x000002A45D6EFE30>
+2024-07-15 10:01:23,058 - root - INFO - parent:<__main__.MainApp object at 0x000002A45D6EFE30>
+2024-07-15 10:01:23,059 - root - INFO - parent:<__main__.MainApp object at 0x000002A45D6EFE30>
+2024-07-15 10:01:27,304 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-15 10:01:27,318 - root - INFO - Load network
+2024-07-15 10:01:27,319 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-15 10:01:27,319 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-15 10:01:30,334 - root - INFO - Add network
+2024-07-15 10:01:30,337 - root - DEBUG - {}
+2024-07-15 10:45:24,179 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 10:45:26,385 - root - INFO - parent:<__main__.MainApp object at 0x0000012B9661BDA0>
+2024-07-15 10:45:26,387 - root - INFO - parent:<__main__.MainApp object at 0x0000012B9661BDA0>
+2024-07-15 10:45:26,388 - root - INFO - parent:<__main__.MainApp object at 0x0000012B9661BDA0>
+2024-07-15 10:45:26,394 - root - INFO - parent:<__main__.MainApp object at 0x0000012B9661BDA0>
+2024-07-15 10:45:26,395 - root - INFO - parent:<__main__.MainApp object at 0x0000012B9661BDA0>
+2024-07-15 10:45:26,396 - root - INFO - parent:<__main__.MainApp object at 0x0000012B9661BDA0>
+2024-07-15 10:45:50,674 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-15 10:45:50,688 - root - INFO - Load network
+2024-07-15 10:45:50,690 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-15 10:45:50,691 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-15 10:45:53,670 - root - INFO - Add network
+2024-07-15 10:45:53,673 - root - DEBUG - {}
+2024-07-15 11:08:41,891 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 11:08:42,757 - root - INFO - parent:<__main__.MainApp object at 0x0000022975CF8320>
+2024-07-15 11:08:42,759 - root - INFO - parent:<__main__.MainApp object at 0x0000022975CF8320>
+2024-07-15 11:08:42,760 - root - INFO - parent:<__main__.MainApp object at 0x0000022975CF8320>
+2024-07-15 11:08:42,767 - root - INFO - parent:<__main__.MainApp object at 0x0000022975CF8320>
+2024-07-15 11:08:42,769 - root - INFO - parent:<__main__.MainApp object at 0x0000022975CF8320>
+2024-07-15 11:08:42,770 - root - INFO - parent:<__main__.MainApp object at 0x0000022975CF8320>
+2024-07-15 11:08:48,440 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-15 11:08:48,455 - root - INFO - Load network
+2024-07-15 11:08:48,457 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-15 11:08:48,457 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-15 11:09:22,311 - root - INFO - Add network
+2024-07-15 11:09:22,314 - root - DEBUG - {'project_name': 'Test_Lan_Audacity', 'char_table': 'utf-8', 'abs_path': 'C:/Users/g.tronche/Documents/GitHub/lan_audacity/code/Test_Lan_Audacity', 'software': {'name': 'Lan Audacity', 'version': '1.0.4'}, 'author': 'John Doe', 'clock_manager': {'clock_created': 1721034521.8262057, 'clock_list': [1721034521.8476665, 1721034528.4349248], 'type_time': 'Unix Timestamp Format'}, 'obj_paths': {}, 'networks': {'path': 'interfaces', 'obj_ls': [{'uuid': '17aebd61-b9ff-4607-a035-3826d3731d73', 'name': 'Siège de Eyrein Industrie', 'path': 'C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code\\Test_Lan_Audacity\\db\\interfaces\\17aebd61-b9ff-4607-a035-3826d3731d73.json', 'ls_devices': []}]}, 'links': None, 'devices': None}
+2024-07-15 11:54:47,226 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 11:54:49,307 - root - INFO - parent:<__main__.MainApp object at 0x00000203C5027E30>
+2024-07-15 11:54:49,308 - root - INFO - parent:<__main__.MainApp object at 0x00000203C5027E30>
+2024-07-15 11:54:49,309 - root - INFO - parent:<__main__.MainApp object at 0x00000203C5027E30>
+2024-07-15 11:54:49,321 - root - INFO - parent:<__main__.MainApp object at 0x00000203C5027E30>
+2024-07-15 11:54:49,324 - root - INFO - parent:<__main__.MainApp object at 0x00000203C5027E30>
+2024-07-15 11:54:49,325 - root - INFO - parent:<__main__.MainApp object at 0x00000203C5027E30>
+2024-07-15 11:54:54,367 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-15 11:54:54,388 - root - INFO - Load network
+2024-07-15 11:54:54,388 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-15 11:54:54,389 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-15 11:54:56,866 - root - INFO - Add network
+2024-07-15 11:54:56,869 - root - DEBUG - {'project_name': 'Test_Lan_Audacity', 'char_table': 'utf-8', 'abs_path': 'C:/Users/g.tronche/Documents/GitHub/lan_audacity/code/Test_Lan_Audacity', 'software': {'name': 'Lan Audacity', 'version': '1.0.4'}, 'author': 'John Doe', 'clock_manager': {'clock_created': 1721037287.144727, 'clock_list': [1721037287.1699407, 1721037294.360069], 'type_time': 'Unix Timestamp Format'}, 'obj_paths': {}, 'networks': {'path': 'interfaces', 'obj_ls': [{'uuid': 'f74eec90-9a24-4462-9806-b2899c6e420b', 'name': 'Siège de Eyrein Industrie', 'path': 'C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code\\Test_Lan_Audacity\\db\\interfaces\\f74eec90-9a24-4462-9806-b2899c6e420b.json', 'ls_devices': []}]}, 'links': None, 'devices': None}
+2024-07-15 11:54:56,869 - root - DEBUG - NNetwork: C:/Users/g.tronche/Documents/GitHub/lan_audacity/code/Test_Lan_Audacity\db\interfaces
+2024-07-15 12:11:22,020 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 12:11:22,634 - root - INFO - parent:<__main__.MainApp object at 0x0000025E7D263DA0>
+2024-07-15 12:11:22,636 - root - INFO - parent:<__main__.MainApp object at 0x0000025E7D263DA0>
+2024-07-15 12:11:22,637 - root - INFO - parent:<__main__.MainApp object at 0x0000025E7D263DA0>
+2024-07-15 12:11:22,644 - root - INFO - parent:<__main__.MainApp object at 0x0000025E7D263DA0>
+2024-07-15 12:11:22,644 - root - INFO - parent:<__main__.MainApp object at 0x0000025E7D263DA0>
+2024-07-15 12:11:22,645 - root - INFO - parent:<__main__.MainApp object at 0x0000025E7D263DA0>
+2024-07-15 12:11:29,256 - root - INFO - Siège de Eyrein Industrie is added to Test_Lan_Audacity
+2024-07-15 12:11:29,273 - root - INFO - Load network
+2024-07-15 12:11:29,274 - root - INFO - Path: Test_Lan_Audacity
+ Folders: []
+  Files: []
+2024-07-15 12:11:29,275 - root - DEBUG - Siège de Eyrein Industrie
+2024-07-15 12:11:31,730 - root - INFO - Add network
+2024-07-15 12:11:31,733 - root - DEBUG - {'project_name': 'Test_Lan_Audacity', 'char_table': 'utf-8', 'abs_path': 'C:/Users/g.tronche/Documents/GitHub/lan_audacity/code/Test_Lan_Audacity', 'software': {'name': 'Lan Audacity', 'version': '1.0.4'}, 'author': 'John Doe', 'clock_manager': {'clock_created': 1721038281.9665596, 'clock_list': [1721038281.9871733, 1721038289.2515922], 'type_time': 'Unix Timestamp Format'}, 'obj_paths': {}, 'networks': {'path': 'interfaces', 'obj_ls': [{'uuid': '6d99542c-9733-4b60-bafa-2ca7f814fa11', 'name': 'Siège de Eyrein Industrie', 'path': 'C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code\\Test_Lan_Audacity\\db\\interfaces\\6d99542c-9733-4b60-bafa-2ca7f814fa11.json', 'ls_devices': []}]}, 'links': None, 'devices': None}
+2024-07-15 12:11:31,734 - root - DEBUG - NNetwork: C:/Users/g.tronche/Documents/GitHub/lan_audacity/code/Test_Lan_Audacity\db\interfaces
+2024-07-15 12:24:39,663 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 12:24:40,248 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
+2024-07-15 12:24:40,250 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
+2024-07-15 12:24:40,251 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
+2024-07-15 12:24:40,259 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
+2024-07-15 12:24:40,259 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
+2024-07-15 12:24:40,260 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
+2024-07-15 12:24:47,602 - root - INFO - End of Application

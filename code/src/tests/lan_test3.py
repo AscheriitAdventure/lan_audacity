@@ -90,9 +90,9 @@ class FileManagement:
             "files": self.__files
         }
     
-    #def __str__(self) -> str:
-    #    str_return = f"Path: {self.__path}\n Folders: {self.__folders}\n  Files: {self.__files}"
-    #    return str_return
+    def __str__(self) -> str:
+        str_return = f"Path: {self.__path}\n Folders: {self.__folders}\n  Files: {self.__files}"
+        return str_return
 
 
 import json
@@ -248,12 +248,18 @@ from src.models.network import Network
 class LanAudacity(FileManagement):
     def __init__(
             self, 
-            project_name: str, abs_path: str = os.getcwd(),
-            folder_list: list[str] = [], files_list: list[tuple] = [],
-            software_name: str = "Lan Audacity", software_version: str = "1.0.4",
-            author: str = "Unknown", clock_manager: ClockManager = ClockManager(),
-            network_list: list[dict] = [], link_list: list[dict] = [],
-            device_list: list[dict] = [], pixmap_list: list[dict] = []
+            project_name: str,
+            abs_path: str = os.getcwd(),
+            folder_list: Optional[list[str]] = None,
+            files_list: Optional[list[tuple]] = None,
+            software_name: str = "Lan Audacity",
+            software_version: str = "1.0.4",
+            author: str = "Unknown",
+            clock_manager: ClockManager = ClockManager(),
+            network_list: Optional[list[dict]] = None,
+            link_list: Optional[list[dict]] = None,
+            device_list: Optional[list[dict]] = None,
+            pixmap_list: Optional[list[dict]] = None
             ) -> None:
         super().__init__(project_name, folder_list, files_list)
         self.__abs_path = abs_path
@@ -282,8 +288,9 @@ class LanAudacity(FileManagement):
     @property
     def networks(self) -> list[dict]:
         return self.__networks
-    
-    def setNetworks(self, value: list[dict]) -> None:
+
+    @networks.setter
+    def networks(self, value: list[dict]) -> None:
         # transform value into a list of Network objects
         self.__networks = value
 
@@ -306,6 +313,10 @@ class LanAudacity(FileManagement):
     @property
     def clockManager(self) -> ClockManager:
         return self.__clockManager
+
+    @clockManager.setter
+    def clockManager(self, clock: ClockManager) -> None:
+        self.__clockManager = clock
     
     @property
     def absPath(self) -> str:
@@ -391,7 +402,7 @@ class LanAudacity(FileManagement):
         for cl_info in cl_infos:
             self.__objPaths[cl_info["name"]] = FileManagement(cl_info["name"])
             fls_mng = self.__objPaths[cl_info["name"]]
-            self.generate_folder(fls_mng.path , self.absPath)
+            self.generate_folder(fls_mng.path, self.absPath)
 
             if cl_info["folders"] != []:
                 # Set the folders attribute using the setter method
@@ -451,8 +462,10 @@ class LanAudacity(FileManagement):
     
     def add_network(self, network: dict | Network) -> None:
         if self.networks is None:
+            # Vérifie le champ list de "__networks" et l'initialise
             self.networks = {"path": "interfaces", "obj_ls": []}
         if isinstance(network, Network):
+            # Vérifie si la variable "network" est bien un objet Network
             self.networks["obj_ls"].append(
                 {
                     "uuid": network.uuid,
@@ -460,15 +473,16 @@ class LanAudacity(FileManagement):
                     "path": network.absPath,
                     "ls_devices": [],
                 })
-            self.last_update_unix = time.time()
+            self.clockManager.add_clock()
             if self.path in self.absPath:
-                chemin = f"{self.absPath}/lan_audacity.json"
+                chemin = os.path.join(self.absPath, "lan_audacity.json")
             else:
-                chemin = f"{self.absPath}/lan_audacity.json"
+                chemin = os.path.join(self.absPath, self.path, "lan_audacity.json")
             with open(chemin, "w") as f:
-                json.dump(self.__dict__, f, indent=4)
+                json.dump(self.dict_return(), f, indent=4)
             logging.info(f"{network.name} is added to {self.path}")
         elif isinstance(network, dict):
+            # Vérifie si la variable "network" est bien un objet Network
             print(network)
         else:
             logging.error("The network object is not a Network object or a dictionary.")
@@ -477,7 +491,7 @@ class LanAudacity(FileManagement):
         if isinstance(network, Network):
             if self.networks is not None:
                 self.networks["obj_ls"].remove(network.uuid)
-                self.last_update_unix = time.time()
+                self.clockManager.add_clock()
                 with open(
                         f"{self.absPath}/lan_audacity.json", "w"
                 ) as f:
@@ -489,7 +503,7 @@ class LanAudacity(FileManagement):
             # the network variable is  the uuid of the network
             if self.networks is not None:
                 self.networks["obj_ls"].remove(network)
-                self.last_update_unix = time.time()
+                self.clockManager.add_clock()
                 with open(
                         f"{self.absPath}/lan_audacity.json", "w"
                 ) as f:
@@ -507,9 +521,6 @@ class LanAudacity(FileManagement):
     # def add_pixmap(self, pixmap: dict) -> None:
     # def remove_pixmap(self, pixmap: dict) -> None:
 
-                
-
-
 
 # Test de la classe LanAudacity
 
@@ -522,10 +533,10 @@ def test_lan_audacity():
         project_name="Test_Lan_Audacity",
         abs_path=temp_path,
         software_name="Lan Audacity",
-        software_version="1.0.0",
+        software_version="1.0.4",
         author="John Doe"
     )
-    print(lan_audacity.dict_return())
+    # print(lan_audacity.dict_return())
     lan_audacity.create_project()
 
     # Vérification de la création des répertoires et fichiers
@@ -544,10 +555,20 @@ def test_lan_audacity():
         assert project_data["project_name"] == "Test_Lan_Audacity", "Le nom du projet dans le fichier est incorrect"
         assert project_data["abs_path"] == temp_path, "Le chemin d'accès du projet dans le fichier est incorrect"
         assert project_data["software"]["name"] == "Lan Audacity", "Le nom du logiciel dans le fichier est incorrect"
-        assert project_data["software"]["version"] == "1.0.0", "La version du logiciel dans le fichier est incorrecte"
+        assert project_data["software"]["version"] == "1.0.4", "La version du logiciel dans le fichier est incorrecte"
         assert project_data["author"] == "John Doe", "Le nom de l'auteur dans le fichier est incorrect"
 
+    chemin_lan_1 = os.path.join(lan_audacity.absPath, lan_audacity.path, "db", "interfaces")
+    print(chemin_lan_1)
+    lan_1 = Network("192.168.90.0", "255.255.255.0", chemin_lan_1, "Siège de Eyrein Industrie", None, "192.168.90.254")
+
+    lan_audacity.add_network(lan_1)
+    lan_audacity.updateLanAudacity()
+
+
+
     # Suppression de l'instance de LanAudacity
+    lan_audacity.delete_project()
     del lan_audacity
 
 # Exécution des tests

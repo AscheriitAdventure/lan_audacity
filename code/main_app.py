@@ -17,7 +17,7 @@ from src.models.network import Network
 from src.models.language_app import LanguageApp
 from src.models.shortcut_app import ShortcutApp
 from src.models.icons_app import IconsApp
-from src.tests.lan_test3 import LanAudacity
+from src.tests.lan_test3 import LanAudacity, ClockManager
 from src.models.menu_bar_app import MenuBarApp
 
 from src.views.forms_app import NProject
@@ -396,6 +396,7 @@ class MainApp(QMainWindow):
                         abs_path=folder_path,
                         author=data["author"]
                     )
+                    nprjlan.__objPaths = data["obj_paths"]
                 except KeyError as e:
                     msg_box = QMessageBox(self)
                     msg_box.setIcon(QMessageBox.Warning)
@@ -431,6 +432,12 @@ class MainApp(QMainWindow):
                                     network_dhcp=data_network["dhcp"],
                                     uuid_str=data_network["uuid"]
                                 )
+                                # Conversion de l'horloge
+                                clock_data = data_network["clock_manager"]
+                                net0X.clockManager = ClockManager(
+                                    time_start=clock_data["clock_created"],
+                                    time_list=clock_data["clock_list"]
+                                )
                             except KeyError as e:
                                 msg_box = QMessageBox(self)
                                 msg_box.setIcon(QMessageBox.Warning)
@@ -439,7 +446,6 @@ class MainApp(QMainWindow):
                                 msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
                                 msg_box.exec()
                                 return
-                            net0X.date_unix = data_network["date_unix"]
                             nprjlan.add_network(net0X)
                 # nprjlan.open_project()
                 nprjlan.updateLanAudacity()
