@@ -88,23 +88,19 @@ class FormDialog(QDialog):
             QMessageBox.critical(self, "Form Invalid", "Please fill in all required fields.")
 
     def get_data(self):
-        data = {key: field.text() for key, field in self.fields.items()}
+        data = {}
+        for key, field in self.fields.items():
+            if not isinstance(field, QLineEdit):
+                logging.error(f"Field {key} is not a QLineEdit instance but a {type(field).__name__}")
+                continue
+            data[key] = field.text()
         return data
 
 
 class NNetwork(FormDialog):
     def __init__(self, ext_obj: LanAudacity = None, lang_manager: LanguageApp = None, icon_manager: IconsApp = None,
                  parent=None):
-        super().__init__(
-            "New Network",
-            ext_obj=ext_obj,
-            lang_manager=lang_manager,
-            icon_manager=icon_manager,
-            parent=parent
-        )
-        obj_field = os.path.join(self.extObj.absPath, "db", "interfaces")
-        logging.debug(f"NNetwork: {obj_field}")
-        self.fields["path"] = obj_field
+        super().__init__("New Network", ext_obj=ext_obj, lang_manager=lang_manager, icon_manager=icon_manager, parent=parent)
     
     def set_formObj(self) -> list:
         data = [
@@ -159,6 +155,13 @@ class NNetwork(FormDialog):
             }
         ]
         return data
+
+    def get_data(self) -> dict:
+        data = super().get_data()
+        data["path"] = os.path.normpath(os.path.join(self.extObj.absPath, "db", "interfaces"))
+        return data
+        
+
 
 
 class NProject(FormDialog):

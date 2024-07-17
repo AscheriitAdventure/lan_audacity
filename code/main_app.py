@@ -323,6 +323,9 @@ class MainApp(QMainWindow):
         self.primary_side_bar.addWidget(self.network_explorer)
         self.primary_side_bar.addWidget(self.extends_explorer)
 
+        self.network_explorer.treeView.doubleClicked.connect(self.netExplorerPanelAction)
+        self.file_explorer.treeView.doubleClicked.connect(self.fileExplorerPanelAction)
+
     def toggle_primary_side_bar(self) -> None:
         if self.primary_side_bar.isVisible():
             self.primary_side_bar.hide()
@@ -405,7 +408,7 @@ class MainApp(QMainWindow):
                     msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
                     msg_box.exec()
                     return
-                if data["networks"] is not None and data["networks"] != []:
+                if data["networks"] is not None and data["networks"]:
                     for network in data["networks"]["obj_ls"]:
                         network_file = os.path.join(folder_path, network["path"])
                         if os.path.exists(network_file):
@@ -465,6 +468,16 @@ class MainApp(QMainWindow):
 
     def saveProjectAction(self) -> None:
         logging.debug("Save Action...")
+        if self.prj_ls != []:
+            for prj in self.prj_ls:
+                prj.updateLanAudacity()
+        else:
+            msg_box = QMessageBox(self)
+            msg_box.setIcon(QMessageBox.Warning)
+            msg_box.setWindowTitle("ERROR")
+            msg_box.setInformativeText("No project to save.")
+            msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
+            msg_box.exec()
         # Save the project
 
     def saveAsProjectAction(self) -> None:
@@ -484,6 +497,24 @@ class MainApp(QMainWindow):
         if self.network_explorer.isVisible() is False:
             self.primary_side_bar.setCurrentWidget(self.network_explorer)
         # Show the network explorer
+    
+    def netExplorerPanelAction(self, index) -> None:
+        net_selected_object = self.network_explorer.getSelectedItem(index)
+
+        if net_selected_object is not None:
+            panel_title = net_selected_object.name
+            self.primary_center.add_tab(
+                tab=GeneralTabsView(panel_title, None, self.langManager, self.iconsManager, self),
+                title=panel_title)
+        else:
+            self.primary_center.add_tab(
+                tab=GeneralTabsView("Networks", None, self.langManager, self.iconsManager, self),
+                title="Networks")
+    
+    def fileExplorerPanelAction(self) -> None:
+        self.primary_center.add_tab(
+            tab=GeneralTabsView("Explorer", None, self.langManager, self.iconsManager, self),
+            title="Explorer")
 
     def extensionAction(self) -> None:
         if self.extends_explorer.isVisible() is False:

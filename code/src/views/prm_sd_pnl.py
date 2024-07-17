@@ -121,6 +121,13 @@ class GeneralSidePanel(QWidget):
         item = self.treeView.model().itemFromIndex(index)
         if item is not None:
             logging.info(f"Item: {item.text()}")
+    
+    def getSelectedItem(self, index):
+        model = self.treeView.model()
+        item = model.itemFromIndex(index)
+
+        if item is not None:
+            return item.text()
 
 
 # Files Explorer Primary Side Panel
@@ -238,13 +245,15 @@ class NetExpl(GeneralSidePanel):
         logging.info("Load network")
         model = QStandardItemModel(self)
         self.treeView.setModel(model)
-        if self.extObj.networks != [] and self.extObj is not None and hasattr(self.extObj, 'networks'):
-            logging.info(self.extObj)
-            for network in self.extObj.networks.get('obj_ls'):
-                logging.debug(network.get('name'))
-                self.add_network_to_tree(network.get('name'))
-            if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
-                pass
+        logging.debug(f"obj 1: ({self.extObj}), obj 2: {self.extObj.networks}")
+        if self.extObj is not None and isinstance(self.extObj, LanAudacity):
+            if self.extObj.networks:
+                logging.debug(self.extObj.networks)
+                for network in self.extObj.networks.get('obj_ls', []):
+                    logging.debug(network.get('name'))
+                    self.add_network_to_tree(network.get('name'))
+                if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
+                    pass
 
     def addDeviceObj(self, network: Network = None):
         logging.info("Add device")
@@ -286,6 +295,7 @@ class NetExpl(GeneralSidePanel):
         )
         if new_network.exec_() == QDialog.Accepted:
             network_data = new_network.get_data()
+            logging.debug(network_data)
             network = Network(
                 network_ipv4=network_data["ipv4"],
                 network_mask_ipv4=network_data["mask_ipv4"],
@@ -298,7 +308,7 @@ class NetExpl(GeneralSidePanel):
             )
             network.create_network()
             self.extObj.add_network(network)
-            self.extObj.save_project()
+            self.extObj.updateLanAudacity()
 
             self.add_network_to_tree(network.name)
         # Add Network to Tree
@@ -312,3 +322,14 @@ class NetExpl(GeneralSidePanel):
         item = QStandardItem(device.name)
         item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
         selected_network.appendRow(item)
+    
+    def getSelectedItem(self, index):
+        model = self.treeView.model()
+        item = model.itemFromIndex(index)
+
+        if item is not None:
+            network_name = item.text()
+            network = self.extObj.getObjNetwork(network_name)
+            return network
+
+        return None

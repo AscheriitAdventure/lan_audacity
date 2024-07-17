@@ -1390,3 +1390,644 @@
 2024-07-15 12:24:40,259 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
 2024-07-15 12:24:40,260 - root - INFO - parent:<__main__.MainApp object at 0x000001266ECE4200>
 2024-07-15 12:24:47,602 - root - INFO - End of Application
+2024-07-15 13:46:01,657 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 13:46:03,192 - root - INFO - parent:<__main__.MainApp object at 0x000001B330577E30>
+2024-07-15 13:46:03,195 - root - INFO - parent:<__main__.MainApp object at 0x000001B330577E30>
+2024-07-15 13:46:03,196 - root - INFO - parent:<__main__.MainApp object at 0x000001B330577E30>
+2024-07-15 13:46:03,212 - root - INFO - parent:<__main__.MainApp object at 0x000001B330577E30>
+2024-07-15 13:46:03,213 - root - INFO - parent:<__main__.MainApp object at 0x000001B330577E30>
+2024-07-15 13:46:03,214 - root - INFO - parent:<__main__.MainApp object at 0x000001B330577E30>
+2024-07-15 13:47:12,263 - root - WARNING - The folder logs already exists in C:/Users/g.tronche/Documents/test_app\tests-v4.
+2024-07-15 13:47:12,284 - root - INFO - Load network
+2024-07-15 14:07:06,766 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 14:07:07,815 - root - INFO - parent:<__main__.MainApp object at 0x0000021B3FE08170>
+2024-07-15 14:07:07,818 - root - INFO - parent:<__main__.MainApp object at 0x0000021B3FE08170>
+2024-07-15 14:07:07,846 - root - INFO - parent:<__main__.MainApp object at 0x0000021B3FE08170>
+2024-07-15 14:07:07,855 - root - INFO - parent:<__main__.MainApp object at 0x0000021B3FE08170>
+2024-07-15 14:07:07,856 - root - INFO - parent:<__main__.MainApp object at 0x0000021B3FE08170>
+2024-07-15 14:07:07,857 - root - INFO - parent:<__main__.MainApp object at 0x0000021B3FE08170>
+2024-07-15 14:10:24,813 - root - WARNING - The folder logs already exists in C:/Users/g.tronche/Documents/test_app\test-v4.
+2024-07-15 14:10:24,831 - root - INFO - Load network
+2024-07-15 14:19:58,087 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 14:19:58,737 - root - INFO - parent:<__main__.MainApp object at 0x000001B2DA714170>
+2024-07-15 14:19:58,737 - root - INFO - parent:<__main__.MainApp object at 0x000001B2DA714170>
+2024-07-15 14:19:58,737 - root - INFO - parent:<__main__.MainApp object at 0x000001B2DA714170>
+2024-07-15 14:19:58,750 - root - INFO - parent:<__main__.MainApp object at 0x000001B2DA714170>
+2024-07-15 14:19:58,752 - root - INFO - parent:<__main__.MainApp object at 0x000001B2DA714170>
+2024-07-15 14:19:58,754 - root - INFO - parent:<__main__.MainApp object at 0x000001B2DA714170>
+2024-07-15 14:42:24,122 - root - INFO - Load network
+2024-07-15 14:42:24,122 - root - DEBUG - obj 1: Path: test-v4
+ Folders: []
+  Files: [], obj 2: None
+2024-07-15 14:42:24,122 - root - INFO - Path: test-v4
+ Folders: []
+  Files: []
+2024-07-15 14:52:55,004 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 14:52:56,400 - root - INFO - parent:<__main__.MainApp object at 0x000002920F2E84D0>
+2024-07-15 14:52:56,400 - root - INFO - parent:<__main__.MainApp object at 0x000002920F2E84D0>
+2024-07-15 14:52:56,400 - root - INFO - parent:<__main__.MainApp object at 0x000002920F2E84D0>
+2024-07-15 14:52:56,400 - root - INFO - parent:<__main__.MainApp object at 0x000002920F2E84D0>
+2024-07-15 14:52:56,400 - root - INFO - parent:<__main__.MainApp object at 0x000002920F2E84D0>
+2024-07-15 14:52:56,400 - root - INFO - parent:<__main__.MainApp object at 0x000002920F2E84D0>
+2024-07-15 14:53:08,468 - root - INFO - Load network
+2024-07-15 14:53:08,468 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-15 14:53:08,468 - root - INFO - Path: test-v4, Folders: [],  Files: []
+2024-07-15 15:22:23,980 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 15:22:25,059 - root - INFO - parent:<__main__.MainApp object at 0x000001D186363EC0>
+2024-07-15 15:22:25,059 - root - INFO - parent:<__main__.MainApp object at 0x000001D186363EC0>
+2024-07-15 15:22:25,059 - root - INFO - parent:<__main__.MainApp object at 0x000001D186363EC0>
+2024-07-15 15:22:25,074 - root - INFO - parent:<__main__.MainApp object at 0x000001D186363EC0>
+2024-07-15 15:22:25,074 - root - INFO - parent:<__main__.MainApp object at 0x000001D186363EC0>
+2024-07-15 15:22:25,074 - root - INFO - parent:<__main__.MainApp object at 0x000001D186363EC0>
+2024-07-15 15:22:47,195 - root - INFO - Load network
+2024-07-15 15:22:47,195 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-15 15:22:51,298 - root - INFO - Add network
+2024-07-15 15:22:51,380 - root - DEBUG - NNetwork: C:/Users/g.tronche/Documents/test_app/test-v4\db\interfaces
+2024-07-15 15:39:26,285 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 15:39:26,886 - root - INFO - parent:<__main__.MainApp object at 0x000001EAA1AD3BF0>
+2024-07-15 15:39:26,886 - root - INFO - parent:<__main__.MainApp object at 0x000001EAA1AD3BF0>
+2024-07-15 15:39:26,886 - root - INFO - parent:<__main__.MainApp object at 0x000001EAA1AD3BF0>
+2024-07-15 15:39:26,886 - root - INFO - parent:<__main__.MainApp object at 0x000001EAA1AD3BF0>
+2024-07-15 15:39:26,886 - root - INFO - parent:<__main__.MainApp object at 0x000001EAA1AD3BF0>
+2024-07-15 15:39:26,902 - root - INFO - parent:<__main__.MainApp object at 0x000001EAA1AD3BF0>
+2024-07-15 15:39:34,876 - root - INFO - Load network
+2024-07-15 15:39:34,891 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-15 15:39:37,201 - root - INFO - Add network
+2024-07-15 15:39:37,204 - root - DEBUG - NNetwork: C:/Users/g.tronche/Documents/test_app/test-v4\db\interfaces
+2024-07-15 15:39:39,390 - root - ERROR - Field path is not a QLineEdit instance but a str
+2024-07-15 17:31:01,996 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 17:31:03,235 - root - INFO - parent:<__main__.MainApp object at 0x00000195B4F603B0>
+2024-07-15 17:31:03,235 - root - INFO - parent:<__main__.MainApp object at 0x00000195B4F603B0>
+2024-07-15 17:31:03,235 - root - INFO - parent:<__main__.MainApp object at 0x00000195B4F603B0>
+2024-07-15 17:31:03,250 - root - INFO - parent:<__main__.MainApp object at 0x00000195B4F603B0>
+2024-07-15 17:31:03,250 - root - INFO - parent:<__main__.MainApp object at 0x00000195B4F603B0>
+2024-07-15 17:31:03,250 - root - INFO - parent:<__main__.MainApp object at 0x00000195B4F603B0>
+2024-07-15 17:31:12,911 - root - INFO - Load network
+2024-07-15 17:31:12,927 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-15 17:31:44,168 - root - INFO - Add network
+2024-07-15 17:31:44,174 - root - DEBUG - NNetwork: C:/Users/g.tronche/Documents/test_app/test-v4\db\interfaces
+2024-07-15 17:31:53,781 - root - ERROR - Field path is not a QLineEdit instance but a str
+2024-07-15 17:31:53,781 - root - DEBUG - {'network_name': 'New Network', 'ipv4': '192.168.0.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '', 'dns': '', 'dhcp': ''}
+2024-07-15 17:34:04,511 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-15 17:34:05,122 - root - INFO - parent:<__main__.MainApp object at 0x0000026EAFD07BF0>
+2024-07-15 17:34:05,122 - root - INFO - parent:<__main__.MainApp object at 0x0000026EAFD07BF0>
+2024-07-15 17:34:05,122 - root - INFO - parent:<__main__.MainApp object at 0x0000026EAFD07BF0>
+2024-07-15 17:34:05,137 - root - INFO - parent:<__main__.MainApp object at 0x0000026EAFD07BF0>
+2024-07-15 17:34:05,137 - root - INFO - parent:<__main__.MainApp object at 0x0000026EAFD07BF0>
+2024-07-15 17:34:05,137 - root - INFO - parent:<__main__.MainApp object at 0x0000026EAFD07BF0>
+2024-07-15 17:34:28,107 - root - INFO - Load network
+2024-07-15 17:34:28,107 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-15 17:34:30,997 - root - INFO - Add network
+2024-07-15 17:34:31,000 - root - DEBUG - {'network_name': <PyQt5.QtWidgets.QLineEdit object at 0x0000026EB34B8050>, 'ipv4': <PyQt5.QtWidgets.QLineEdit object at 0x0000026EB34B8200>, 'mask_ipv4': <PyQt5.QtWidgets.QLineEdit object at 0x0000026EB34B80E0>, 'ipv6': <PyQt5.QtWidgets.QLineEdit object at 0x0000026EB34B85F0>, 'gateway': <PyQt5.QtWidgets.QLineEdit object at 0x0000026EB34B8710>, 'dns': <PyQt5.QtWidgets.QLineEdit object at 0x0000026EB34B8830>, 'dhcp': <PyQt5.QtWidgets.QLineEdit object at 0x0000026EB34B8A70>, 'path': 'C:/Users/g.tronche/Documents/test_app/test-v4\\db\\interfaces'}
+2024-07-15 17:34:33,915 - root - ERROR - Field path is not a QLineEdit instance but a str
+2024-07-15 17:34:33,916 - root - DEBUG - {'network_name': 'New Network', 'ipv4': '192.168.0.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '', 'dns': '', 'dhcp': ''}
+2024-07-16 09:56:58,520 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 09:57:00,932 - root - INFO - parent:<__main__.MainApp object at 0x000002E7FF87BEC0>
+2024-07-16 09:57:00,932 - root - INFO - parent:<__main__.MainApp object at 0x000002E7FF87BEC0>
+2024-07-16 09:57:00,932 - root - INFO - parent:<__main__.MainApp object at 0x000002E7FF87BEC0>
+2024-07-16 09:57:00,947 - root - INFO - parent:<__main__.MainApp object at 0x000002E7FF87BEC0>
+2024-07-16 09:57:00,947 - root - INFO - parent:<__main__.MainApp object at 0x000002E7FF87BEC0>
+2024-07-16 09:57:00,947 - root - INFO - parent:<__main__.MainApp object at 0x000002E7FF87BEC0>
+2024-07-16 09:57:21,677 - root - INFO - Load network
+2024-07-16 09:57:21,677 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-16 09:57:31,499 - root - INFO - Add network
+2024-07-16 09:57:31,501 - root - DEBUG - {'network_name': <PyQt5.QtWidgets.QLineEdit object at 0x000002E7830F8200>, 'ipv4': <PyQt5.QtWidgets.QLineEdit object at 0x000002E7830F8440>, 'mask_ipv4': <PyQt5.QtWidgets.QLineEdit object at 0x000002E7830F8710>, 'ipv6': <PyQt5.QtWidgets.QLineEdit object at 0x000002E7830F8830>, 'gateway': <PyQt5.QtWidgets.QLineEdit object at 0x000002E7830F8950>, 'dns': <PyQt5.QtWidgets.QLineEdit object at 0x000002E7830F8B00>, 'dhcp': <PyQt5.QtWidgets.QLineEdit object at 0x000002E7830F8A70>, 'path': 'C:/Users/g.tronche/Documents/test_app/test-v4\\db\\interfaces'}
+2024-07-16 09:57:47,308 - root - ERROR - Field path is not a QLineEdit instance but a str
+2024-07-16 10:07:57,102 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:07:57,924 - root - INFO - parent:<__main__.MainApp object at 0x000001FFB947BBF0>
+2024-07-16 10:07:57,924 - root - INFO - parent:<__main__.MainApp object at 0x000001FFB947BBF0>
+2024-07-16 10:07:57,924 - root - INFO - parent:<__main__.MainApp object at 0x000001FFB947BBF0>
+2024-07-16 10:07:57,939 - root - INFO - parent:<__main__.MainApp object at 0x000001FFB947BBF0>
+2024-07-16 10:07:57,939 - root - INFO - parent:<__main__.MainApp object at 0x000001FFB947BBF0>
+2024-07-16 10:07:57,939 - root - INFO - parent:<__main__.MainApp object at 0x000001FFB947BBF0>
+2024-07-16 10:08:04,706 - root - INFO - Load network
+2024-07-16 10:08:04,706 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-16 10:08:08,136 - root - INFO - Add network
+2024-07-16 10:08:08,139 - root - DEBUG - {'network_name': <PyQt5.QtWidgets.QLineEdit object at 0x000001FFBCC1C050>, 'ipv4': <PyQt5.QtWidgets.QLineEdit object at 0x000001FFBCC1C200>, 'mask_ipv4': <PyQt5.QtWidgets.QLineEdit object at 0x000001FFBCC1C0E0>, 'ipv6': <PyQt5.QtWidgets.QLineEdit object at 0x000001FFBCC1C5F0>, 'gateway': <PyQt5.QtWidgets.QLineEdit object at 0x000001FFBCC1C710>, 'dns': <PyQt5.QtWidgets.QLineEdit object at 0x000001FFBCC1C830>, 'dhcp': <PyQt5.QtWidgets.QLineEdit object at 0x000001FFBCC1CA70>, 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces'}
+2024-07-16 10:08:10,758 - root - ERROR - Field path is not a QLineEdit instance but a str
+2024-07-16 10:19:35,524 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:19:36,486 - root - INFO - parent:<__main__.MainApp object at 0x000001C84502C0E0>
+2024-07-16 10:19:36,486 - root - INFO - parent:<__main__.MainApp object at 0x000001C84502C0E0>
+2024-07-16 10:19:36,501 - root - INFO - parent:<__main__.MainApp object at 0x000001C84502C0E0>
+2024-07-16 10:19:36,501 - root - INFO - parent:<__main__.MainApp object at 0x000001C84502C0E0>
+2024-07-16 10:19:36,501 - root - INFO - parent:<__main__.MainApp object at 0x000001C84502C0E0>
+2024-07-16 10:19:36,501 - root - INFO - parent:<__main__.MainApp object at 0x000001C84502C0E0>
+2024-07-16 10:19:44,445 - root - INFO - Load network
+2024-07-16 10:19:44,445 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-16 10:19:46,542 - root - INFO - Add network
+2024-07-16 10:19:58,983 - root - ERROR - Field path is not a QLineEdit instance but a str
+2024-07-16 10:19:58,983 - root - DEBUG - {'network_name': 'New Network', 'ipv4': '192.168.0.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '', 'dns': '192.168.0.254', 'dhcp': ''}
+2024-07-16 10:26:38,314 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:26:39,251 - root - INFO - parent:<__main__.MainApp object at 0x0000024A35757EC0>
+2024-07-16 10:26:39,251 - root - INFO - parent:<__main__.MainApp object at 0x0000024A35757EC0>
+2024-07-16 10:26:39,251 - root - INFO - parent:<__main__.MainApp object at 0x0000024A35757EC0>
+2024-07-16 10:26:39,251 - root - INFO - parent:<__main__.MainApp object at 0x0000024A35757EC0>
+2024-07-16 10:26:39,266 - root - INFO - parent:<__main__.MainApp object at 0x0000024A35757EC0>
+2024-07-16 10:26:39,266 - root - INFO - parent:<__main__.MainApp object at 0x0000024A35757EC0>
+2024-07-16 10:26:46,173 - root - INFO - Load network
+2024-07-16 10:26:46,173 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: None
+2024-07-16 10:26:48,651 - root - INFO - Add network
+2024-07-16 10:27:01,723 - root - DEBUG - {'network_name': 'New Network', 'ipv4': '192.168.0.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '', 'dns': '192.168.0.254', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces'}
+2024-07-16 10:27:01,724 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\test-v4\db\interfaces\dfd0c437-f913-4a20-a0bd-21b73734287c.json. Error: The path does not exist.
+2024-07-16 10:27:01,729 - root - INFO - New Network is created
+2024-07-16 10:27:01,729 - root - INFO - New Network already exists
+2024-07-16 10:27:01,735 - root - INFO - New Network is added to test-v4
+2024-07-16 10:28:14,941 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:28:15,606 - root - INFO - parent:<__main__.MainApp object at 0x0000023CF7EA3EC0>
+2024-07-16 10:28:15,611 - root - INFO - parent:<__main__.MainApp object at 0x0000023CF7EA3EC0>
+2024-07-16 10:28:15,611 - root - INFO - parent:<__main__.MainApp object at 0x0000023CF7EA3EC0>
+2024-07-16 10:28:15,611 - root - INFO - parent:<__main__.MainApp object at 0x0000023CF7EA3EC0>
+2024-07-16 10:28:15,611 - root - INFO - parent:<__main__.MainApp object at 0x0000023CF7EA3EC0>
+2024-07-16 10:28:15,611 - root - INFO - parent:<__main__.MainApp object at 0x0000023CF7EA3EC0>
+2024-07-16 10:28:28,294 - root - INFO - New Network is added to test-v4
+2024-07-16 10:28:28,310 - root - INFO - Load network
+2024-07-16 10:28:28,310 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'dfd0c437-f913-4a20-a0bd-21b73734287c', 'name': 'New Network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces\\dfd0c437-f913-4a20-a0bd-21b73734287c.json', 'ls_devices': []}]}
+2024-07-16 10:28:28,310 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'dfd0c437-f913-4a20-a0bd-21b73734287c', 'name': 'New Network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces\\dfd0c437-f913-4a20-a0bd-21b73734287c.json', 'ls_devices': []}]}
+2024-07-16 10:28:28,310 - root - DEBUG - New Network
+2024-07-16 10:28:38,238 - root - INFO - Add network
+2024-07-16 10:28:43,405 - root - DEBUG - {'network_name': 'New Network', 'ipv4': '192.168.0.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '', 'dns': '', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces'}
+2024-07-16 10:28:43,406 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\test-v4\db\interfaces\1ce224f7-ab1d-40b0-afd0-8685caadb65e.json. Error: The path does not exist.
+2024-07-16 10:28:43,413 - root - INFO - New Network is created
+2024-07-16 10:28:43,414 - root - INFO - New Network already exists
+2024-07-16 10:28:43,421 - root - INFO - New Network is added to test-v4
+2024-07-16 10:33:27,895 - root - INFO - Add device
+2024-07-16 10:33:48,630 - root - DEBUG - Preferences Action...
+2024-07-16 10:33:48,643 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x0000023CF7FD4350>
+2024-07-16 10:33:48,643 - root - DEBUG - <__main__.MainApp object at 0x0000023CF7EA3EC0>
+2024-07-16 10:38:33,407 - root - DEBUG - Save Action...
+2024-07-16 10:47:36,426 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:47:38,408 - root - INFO - parent:<__main__.MainApp object at 0x000001F6E1087D10>
+2024-07-16 10:47:38,424 - root - INFO - parent:<__main__.MainApp object at 0x000001F6E1087D10>
+2024-07-16 10:47:38,424 - root - INFO - parent:<__main__.MainApp object at 0x000001F6E1087D10>
+2024-07-16 10:47:38,424 - root - INFO - parent:<__main__.MainApp object at 0x000001F6E1087D10>
+2024-07-16 10:47:38,424 - root - INFO - parent:<__main__.MainApp object at 0x000001F6E1087D10>
+2024-07-16 10:47:38,424 - root - INFO - parent:<__main__.MainApp object at 0x000001F6E1087D10>
+2024-07-16 10:48:15,299 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:48:15,941 - root - INFO - parent:<__main__.MainApp object at 0x000001B4A7D77BF0>
+2024-07-16 10:48:15,943 - root - INFO - parent:<__main__.MainApp object at 0x000001B4A7D77BF0>
+2024-07-16 10:48:15,944 - root - INFO - parent:<__main__.MainApp object at 0x000001B4A7D77BF0>
+2024-07-16 10:48:15,949 - root - INFO - parent:<__main__.MainApp object at 0x000001B4A7D77BF0>
+2024-07-16 10:48:15,950 - root - INFO - parent:<__main__.MainApp object at 0x000001B4A7D77BF0>
+2024-07-16 10:48:15,951 - root - INFO - parent:<__main__.MainApp object at 0x000001B4A7D77BF0>
+2024-07-16 10:48:22,234 - root - INFO - New Network is added to test-v4
+2024-07-16 10:48:22,249 - root - INFO - New Network is added to test-v4
+2024-07-16 10:48:22,275 - root - INFO - Load network
+2024-07-16 10:48:22,275 - root - DEBUG - obj 1: (Path: test-v4, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'dfd0c437-f913-4a20-a0bd-21b73734287c', 'name': 'New Network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces\\dfd0c437-f913-4a20-a0bd-21b73734287c.json', 'ls_devices': []}, {'uuid': '1ce224f7-ab1d-40b0-afd0-8685caadb65e', 'name': 'New Network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces\\1ce224f7-ab1d-40b0-afd0-8685caadb65e.json', 'ls_devices': []}]}
+2024-07-16 10:48:22,275 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'dfd0c437-f913-4a20-a0bd-21b73734287c', 'name': 'New Network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces\\dfd0c437-f913-4a20-a0bd-21b73734287c.json', 'ls_devices': []}, {'uuid': '1ce224f7-ab1d-40b0-afd0-8685caadb65e', 'name': 'New Network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\test-v4\\db\\interfaces\\1ce224f7-ab1d-40b0-afd0-8685caadb65e.json', 'ls_devices': []}]}
+2024-07-16 10:48:22,275 - root - DEBUG - New Network
+2024-07-16 10:48:22,275 - root - DEBUG - New Network
+2024-07-16 10:48:34,333 - root - DEBUG - Save Action...
+2024-07-16 10:48:42,253 - root - DEBUG - Save Action...
+2024-07-16 10:48:43,701 - root - DEBUG - Save Action...
+2024-07-16 10:55:42,660 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:55:43,580 - root - INFO - parent:<__main__.MainApp object at 0x00000267289CBC80>
+2024-07-16 10:55:43,580 - root - INFO - parent:<__main__.MainApp object at 0x00000267289CBC80>
+2024-07-16 10:55:43,580 - root - INFO - parent:<__main__.MainApp object at 0x00000267289CBC80>
+2024-07-16 10:55:43,580 - root - INFO - parent:<__main__.MainApp object at 0x00000267289CBC80>
+2024-07-16 10:55:43,580 - root - INFO - parent:<__main__.MainApp object at 0x00000267289CBC80>
+2024-07-16 10:55:43,580 - root - INFO - parent:<__main__.MainApp object at 0x00000267289CBC80>
+2024-07-16 10:56:24,212 - root - WARNING - The folder logs already exists in C:/Users/g.tronche/Documents/test_app\Eyrein Network.
+2024-07-16 10:56:24,233 - root - INFO - Load network
+2024-07-16 10:58:09,672 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 10:58:10,263 - root - INFO - parent:<__main__.MainApp object at 0x000002297A6B7C80>
+2024-07-16 10:58:10,263 - root - INFO - parent:<__main__.MainApp object at 0x000002297A6B7C80>
+2024-07-16 10:58:10,263 - root - INFO - parent:<__main__.MainApp object at 0x000002297A6B7C80>
+2024-07-16 10:58:10,279 - root - INFO - parent:<__main__.MainApp object at 0x000002297A6B7C80>
+2024-07-16 10:58:10,279 - root - INFO - parent:<__main__.MainApp object at 0x000002297A6B7C80>
+2024-07-16 10:58:10,279 - root - INFO - parent:<__main__.MainApp object at 0x000002297A6B7C80>
+2024-07-16 10:58:23,233 - root - INFO - Load network
+2024-07-16 10:58:23,233 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: None
+2024-07-16 10:58:28,880 - root - INFO - Add network
+2024-07-16 11:00:06,238 - root - DEBUG - {'network_name': 'ZAC Bureau', 'ipv4': '192.168.90.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.90.254', 'dns': 'EYREIN2.local', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces'}
+2024-07-16 11:00:06,238 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\interfaces\e934111c-6328-4151-9597-c5bdafea3b92.json. Error: The path does not exist.
+2024-07-16 11:00:06,243 - root - INFO - ZAC Bureau is created
+2024-07-16 11:00:06,244 - root - INFO - ZAC Bureau already exists
+2024-07-16 11:00:06,251 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-16 11:00:25,152 - root - INFO - Add network
+2024-07-16 11:03:38,275 - root - INFO - Add network
+2024-07-16 11:03:58,682 - root - INFO - Add network
+2024-07-16 11:05:04,366 - root - DEBUG - {'network_name': 'ZAC Expeditions', 'ipv4': '192.168.2.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.2.254', 'dns': '', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces'}
+2024-07-16 11:05:04,367 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\interfaces\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json. Error: The path does not exist.
+2024-07-16 11:05:04,375 - root - INFO - ZAC Expeditions is created
+2024-07-16 11:05:04,375 - root - INFO - ZAC Expeditions already exists
+2024-07-16 11:05:04,380 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-16 11:05:07,314 - root - INFO - Add network
+2024-07-16 11:05:33,871 - root - DEBUG - {'network_name': 'ZI', 'ipv4': '192.168.100.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.100.254', 'dns': '', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces'}
+2024-07-16 11:05:33,871 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\interfaces\6fe797b7-fd60-4081-b655-75da459c85ae.json. Error: The path does not exist.
+2024-07-16 11:05:33,878 - root - INFO - ZI is created
+2024-07-16 11:05:33,878 - root - INFO - ZI already exists
+2024-07-16 11:05:33,886 - root - INFO - ZI is added to Eyrein Network
+2024-07-16 11:05:35,271 - root - INFO - Add network
+2024-07-16 11:06:02,311 - root - DEBUG - {'network_name': 'CHALLENGER', 'ipv4': '192.168.253.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.253.254', 'dns': '', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces'}
+2024-07-16 11:06:02,312 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\interfaces\531d7732-609b-4761-8564-cf498e1206eb.json. Error: The path does not exist.
+2024-07-16 11:06:02,317 - root - INFO - CHALLENGER is created
+2024-07-16 11:06:02,317 - root - INFO - CHALLENGER already exists
+2024-07-16 11:06:02,322 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-16 11:06:05,301 - root - INFO - Add network
+2024-07-16 11:06:27,167 - root - DEBUG - {'network_name': 'PARIS', 'ipv4': '192.168.70.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.70.254', 'dns': '', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces'}
+2024-07-16 11:06:27,167 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\interfaces\4a895f3a-91c8-440d-98be-b473f87a7e66.json. Error: The path does not exist.
+2024-07-16 11:06:27,172 - root - INFO - PARIS is created
+2024-07-16 11:06:27,172 - root - INFO - PARIS already exists
+2024-07-16 11:06:27,178 - root - INFO - PARIS is added to Eyrein Network
+2024-07-16 11:06:32,998 - root - INFO - Add network
+2024-07-16 11:06:52,782 - root - DEBUG - {'network_name': 'New NetworkTAZO', 'ipv4': '192.168.110.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.110.254', 'dns': '', 'dhcp': '', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces'}
+2024-07-16 11:06:52,782 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\interfaces\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json. Error: The path does not exist.
+2024-07-16 11:06:52,787 - root - INFO - New NetworkTAZO is created
+2024-07-16 11:06:52,787 - root - INFO - New NetworkTAZO already exists
+2024-07-16 11:06:52,792 - root - INFO - New NetworkTAZO is added to Eyrein Network
+2024-07-16 11:14:47,950 - root - DEBUG - Save Action...
+2024-07-16 11:18:29,302 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 11:18:30,218 - root - INFO - parent:<__main__.MainApp object at 0x000002139164E330>
+2024-07-16 11:18:30,220 - root - INFO - parent:<__main__.MainApp object at 0x000002139164E330>
+2024-07-16 11:18:30,221 - root - INFO - parent:<__main__.MainApp object at 0x000002139164E330>
+2024-07-16 11:18:30,229 - root - INFO - parent:<__main__.MainApp object at 0x000002139164E330>
+2024-07-16 11:18:30,230 - root - INFO - parent:<__main__.MainApp object at 0x000002139164E330>
+2024-07-16 11:18:30,233 - root - INFO - parent:<__main__.MainApp object at 0x000002139164E330>
+2024-07-16 11:18:40,786 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-16 11:18:40,797 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-16 11:18:40,807 - root - INFO - ZI is added to Eyrein Network
+2024-07-16 11:18:40,814 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-16 11:18:40,823 - root - INFO - PARIS is added to Eyrein Network
+2024-07-16 11:18:40,832 - root - INFO - TAZO is added to Eyrein Network
+2024-07-16 11:18:40,846 - root - INFO - Load network
+2024-07-16 11:18:40,846 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 11:18:40,847 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 11:18:40,847 - root - DEBUG - ZAC Bureau
+2024-07-16 11:18:40,847 - root - DEBUG - ZAC Expeditions
+2024-07-16 11:18:40,848 - root - DEBUG - ZI
+2024-07-16 11:18:40,848 - root - DEBUG - CHALLENGER
+2024-07-16 11:18:40,848 - root - DEBUG - PARIS
+2024-07-16 11:18:40,848 - root - DEBUG - TAZO
+2024-07-16 11:43:48,361 - root - DEBUG - Preferences Action...
+2024-07-16 11:43:48,383 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x00000213916B9A30>
+2024-07-16 11:43:48,386 - root - DEBUG - <__main__.MainApp object at 0x000002139164E330>
+2024-07-16 11:44:38,810 - root - INFO - Add device
+2024-07-16 11:44:51,744 - root - INFO - Add device
+2024-07-16 11:46:18,728 - root - DEBUG - User Action...
+2024-07-16 14:17:59,361 - root - INFO - Add device
+2024-07-16 14:36:09,165 - root - INFO - End of Application
+2024-07-16 14:36:17,696 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 14:36:19,417 - root - INFO - parent:<__main__.MainApp object at 0x0000026FD37F7D10>
+2024-07-16 14:36:19,417 - root - INFO - parent:<__main__.MainApp object at 0x0000026FD37F7D10>
+2024-07-16 14:36:19,417 - root - INFO - parent:<__main__.MainApp object at 0x0000026FD37F7D10>
+2024-07-16 14:36:19,435 - root - INFO - parent:<__main__.MainApp object at 0x0000026FD37F7D10>
+2024-07-16 14:36:19,435 - root - INFO - parent:<__main__.MainApp object at 0x0000026FD37F7D10>
+2024-07-16 14:36:19,435 - root - INFO - parent:<__main__.MainApp object at 0x0000026FD37F7D10>
+2024-07-16 14:36:30,325 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-16 14:36:30,325 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-16 14:36:30,341 - root - INFO - ZI is added to Eyrein Network
+2024-07-16 14:36:30,359 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-16 14:36:30,373 - root - INFO - PARIS is added to Eyrein Network
+2024-07-16 14:36:30,388 - root - INFO - TAZO is added to Eyrein Network
+2024-07-16 14:36:30,404 - root - INFO - Load network
+2024-07-16 14:36:30,404 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 14:36:30,404 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 14:36:30,404 - root - DEBUG - ZAC Bureau
+2024-07-16 14:36:30,404 - root - DEBUG - ZAC Expeditions
+2024-07-16 14:36:30,404 - root - DEBUG - ZI
+2024-07-16 14:36:30,404 - root - DEBUG - CHALLENGER
+2024-07-16 14:36:30,404 - root - DEBUG - PARIS
+2024-07-16 14:36:30,404 - root - DEBUG - TAZO
+2024-07-16 17:03:28,530 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 17:03:30,372 - root - INFO - parent:<__main__.MainApp object at 0x000002A11F5343B0>
+2024-07-16 17:03:30,372 - root - INFO - parent:<__main__.MainApp object at 0x000002A11F5343B0>
+2024-07-16 17:03:30,372 - root - INFO - parent:<__main__.MainApp object at 0x000002A11F5343B0>
+2024-07-16 17:04:15,532 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 17:04:16,183 - root - INFO - parent:<__main__.MainApp object at 0x000001D88EADFBF0>
+2024-07-16 17:04:16,184 - root - INFO - parent:<__main__.MainApp object at 0x000001D88EADFBF0>
+2024-07-16 17:04:16,185 - root - INFO - parent:<__main__.MainApp object at 0x000001D88EADFBF0>
+2024-07-16 17:29:18,375 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 17:29:19,317 - root - INFO - parent:<__main__.MainApp object at 0x0000024D826DBC80>
+2024-07-16 17:29:19,317 - root - INFO - parent:<__main__.MainApp object at 0x0000024D826DBC80>
+2024-07-16 17:29:19,317 - root - INFO - parent:<__main__.MainApp object at 0x0000024D826DBC80>
+2024-07-16 17:29:19,332 - root - INFO - parent:<__main__.MainApp object at 0x0000024D826DBC80>
+2024-07-16 17:29:19,332 - root - INFO - parent:<__main__.MainApp object at 0x0000024D826DBC80>
+2024-07-16 17:29:19,332 - root - INFO - parent:<__main__.MainApp object at 0x0000024D826DBC80>
+2024-07-16 17:29:28,515 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-16 17:29:28,532 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-16 17:29:28,546 - root - INFO - ZI is added to Eyrein Network
+2024-07-16 17:29:28,577 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-16 17:29:28,593 - root - INFO - PARIS is added to Eyrein Network
+2024-07-16 17:29:28,593 - root - INFO - TAZO is added to Eyrein Network
+2024-07-16 17:29:28,624 - root - INFO - Load network
+2024-07-16 17:29:28,624 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 17:29:28,624 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 17:29:28,624 - root - DEBUG - ZAC Bureau
+2024-07-16 17:29:28,632 - root - DEBUG - ZAC Expeditions
+2024-07-16 17:29:28,632 - root - DEBUG - ZI
+2024-07-16 17:29:28,632 - root - DEBUG - CHALLENGER
+2024-07-16 17:29:28,632 - root - DEBUG - PARIS
+2024-07-16 17:29:28,632 - root - DEBUG - TAZO
+2024-07-16 17:32:22,796 - root - INFO - End of Application
+2024-07-16 17:32:26,418 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-16 17:32:26,978 - root - INFO - parent:<__main__.MainApp object at 0x0000021F5066BF50>
+2024-07-16 17:32:26,994 - root - INFO - parent:<__main__.MainApp object at 0x0000021F5066BF50>
+2024-07-16 17:32:26,994 - root - INFO - parent:<__main__.MainApp object at 0x0000021F5066BF50>
+2024-07-16 17:32:26,994 - root - INFO - parent:<__main__.MainApp object at 0x0000021F5066BF50>
+2024-07-16 17:32:26,994 - root - INFO - parent:<__main__.MainApp object at 0x0000021F5066BF50>
+2024-07-16 17:32:26,994 - root - INFO - parent:<__main__.MainApp object at 0x0000021F5066BF50>
+2024-07-16 17:32:35,651 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-16 17:32:35,667 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-16 17:32:35,688 - root - INFO - ZI is added to Eyrein Network
+2024-07-16 17:32:35,688 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-16 17:32:35,705 - root - INFO - PARIS is added to Eyrein Network
+2024-07-16 17:32:35,722 - root - INFO - TAZO is added to Eyrein Network
+2024-07-16 17:32:35,742 - root - INFO - Load network
+2024-07-16 17:32:35,743 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 17:32:35,743 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-16 17:32:35,744 - root - DEBUG - ZAC Bureau
+2024-07-16 17:32:35,744 - root - DEBUG - ZAC Expeditions
+2024-07-16 17:32:35,744 - root - DEBUG - ZI
+2024-07-16 17:32:35,744 - root - DEBUG - CHALLENGER
+2024-07-16 17:32:35,745 - root - DEBUG - PARIS
+2024-07-16 17:32:35,745 - root - DEBUG - TAZO
+2024-07-17 08:55:48,856 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 08:55:51,492 - root - INFO - parent:<__main__.MainApp object at 0x0000014E603C00E0>
+2024-07-17 08:55:51,494 - root - INFO - parent:<__main__.MainApp object at 0x0000014E603C00E0>
+2024-07-17 08:55:51,495 - root - INFO - parent:<__main__.MainApp object at 0x0000014E603C00E0>
+2024-07-17 08:55:51,507 - root - INFO - parent:<__main__.MainApp object at 0x0000014E603C00E0>
+2024-07-17 08:55:51,508 - root - INFO - parent:<__main__.MainApp object at 0x0000014E603C00E0>
+2024-07-17 08:55:51,509 - root - INFO - parent:<__main__.MainApp object at 0x0000014E603C00E0>
+2024-07-17 08:56:07,435 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 08:56:07,459 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 08:56:07,485 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 08:56:07,518 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 08:56:07,550 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 08:56:07,574 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 08:56:07,614 - root - INFO - Load network
+2024-07-17 08:56:07,619 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 08:56:07,620 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 08:56:07,621 - root - DEBUG - ZAC Bureau
+2024-07-17 08:56:07,624 - root - DEBUG - ZAC Expeditions
+2024-07-17 08:56:07,625 - root - DEBUG - ZI
+2024-07-17 08:56:07,626 - root - DEBUG - CHALLENGER
+2024-07-17 08:56:07,627 - root - DEBUG - PARIS
+2024-07-17 08:56:07,628 - root - DEBUG - TAZO
+2024-07-17 09:17:54,720 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 09:17:56,230 - root - INFO - parent:<__main__.MainApp object at 0x0000028286367C80>
+2024-07-17 09:17:56,232 - root - INFO - parent:<__main__.MainApp object at 0x0000028286367C80>
+2024-07-17 09:17:56,233 - root - INFO - parent:<__main__.MainApp object at 0x0000028286367C80>
+2024-07-17 09:17:56,240 - root - INFO - parent:<__main__.MainApp object at 0x0000028286367C80>
+2024-07-17 09:17:56,241 - root - INFO - parent:<__main__.MainApp object at 0x0000028286367C80>
+2024-07-17 09:17:56,242 - root - INFO - parent:<__main__.MainApp object at 0x0000028286367C80>
+2024-07-17 09:18:03,311 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 09:18:03,319 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 09:18:03,335 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 09:18:03,351 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 09:18:03,366 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 09:18:03,381 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 09:18:03,394 - root - INFO - Load network
+2024-07-17 09:18:03,396 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 09:18:03,396 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 09:18:03,397 - root - DEBUG - ZAC Bureau
+2024-07-17 09:18:03,398 - root - DEBUG - ZAC Expeditions
+2024-07-17 09:18:03,399 - root - DEBUG - ZI
+2024-07-17 09:18:03,399 - root - DEBUG - CHALLENGER
+2024-07-17 09:18:03,400 - root - DEBUG - PARIS
+2024-07-17 09:18:03,400 - root - DEBUG - TAZO
+2024-07-17 09:18:08,248 - root - INFO - {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}
+2024-07-17 09:53:03,635 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 09:53:04,882 - root - INFO - parent:<__main__.MainApp object at 0x0000029FEFCCC200>
+2024-07-17 09:53:04,884 - root - INFO - parent:<__main__.MainApp object at 0x0000029FEFCCC200>
+2024-07-17 09:53:04,885 - root - INFO - parent:<__main__.MainApp object at 0x0000029FEFCCC200>
+2024-07-17 09:53:04,891 - root - INFO - parent:<__main__.MainApp object at 0x0000029FEFCCC200>
+2024-07-17 09:53:04,892 - root - INFO - parent:<__main__.MainApp object at 0x0000029FEFCCC200>
+2024-07-17 09:53:04,893 - root - INFO - parent:<__main__.MainApp object at 0x0000029FEFCCC200>
+2024-07-17 09:53:17,922 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 09:53:17,932 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 09:53:17,948 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 09:53:17,963 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 09:53:17,978 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 09:53:17,994 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 09:53:18,009 - root - INFO - Load network
+2024-07-17 09:53:18,009 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 09:53:18,010 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 09:53:18,010 - root - DEBUG - ZAC Bureau
+2024-07-17 09:53:18,011 - root - DEBUG - ZAC Expeditions
+2024-07-17 09:53:18,011 - root - DEBUG - ZI
+2024-07-17 09:53:18,011 - root - DEBUG - CHALLENGER
+2024-07-17 09:53:18,012 - root - DEBUG - PARIS
+2024-07-17 09:53:18,012 - root - DEBUG - TAZO
+2024-07-17 09:53:21,864 - root - DEBUG - {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'abs_path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'clock_manager': {'clock_created': 1721120289.5625474, 'clock_list': [], 'type_time': 'Unix Timestamp Format'}, 'ipv4': '192.168.90.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.90.254', 'dns': 'EYREIN2.local', 'dhcp': '', 'devices_list': []}
+2024-07-17 13:59:43,005 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 13:59:45,618 - root - INFO - parent:<__main__.MainApp object at 0x0000024EFFF17C80>
+2024-07-17 13:59:45,618 - root - INFO - parent:<__main__.MainApp object at 0x0000024EFFF17C80>
+2024-07-17 13:59:45,618 - root - INFO - parent:<__main__.MainApp object at 0x0000024EFFF17C80>
+2024-07-17 13:59:45,633 - root - INFO - parent:<__main__.MainApp object at 0x0000024EFFF17C80>
+2024-07-17 13:59:45,633 - root - INFO - parent:<__main__.MainApp object at 0x0000024EFFF17C80>
+2024-07-17 13:59:45,633 - root - INFO - parent:<__main__.MainApp object at 0x0000024EFFF17C80>
+2024-07-17 14:00:00,365 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 14:00:00,365 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 14:00:00,381 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 14:00:00,396 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 14:00:00,412 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 14:00:00,427 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 14:00:00,460 - root - INFO - Load network
+2024-07-17 14:00:00,460 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 14:00:00,460 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 14:00:00,460 - root - DEBUG - ZAC Bureau
+2024-07-17 14:00:00,460 - root - DEBUG - ZAC Expeditions
+2024-07-17 14:00:00,460 - root - DEBUG - ZI
+2024-07-17 14:00:00,460 - root - DEBUG - CHALLENGER
+2024-07-17 14:00:00,460 - root - DEBUG - PARIS
+2024-07-17 14:00:00,460 - root - DEBUG - TAZO
+2024-07-17 14:00:03,570 - root - DEBUG - {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'abs_path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'clock_manager': {'clock_created': 1721120289.5625474, 'clock_list': [], 'type_time': 'Unix Timestamp Format'}, 'ipv4': '192.168.90.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.90.254', 'dns': 'EYREIN2.local', 'dhcp': '', 'devices_list': []}
+2024-07-17 15:46:14,301 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 15:46:15,713 - root - INFO - parent:<__main__.MainApp object at 0x000001C0076200E0>
+2024-07-17 15:46:15,713 - root - INFO - parent:<__main__.MainApp object at 0x000001C0076200E0>
+2024-07-17 15:46:15,713 - root - INFO - parent:<__main__.MainApp object at 0x000001C0076200E0>
+2024-07-17 15:46:15,729 - root - INFO - parent:<__main__.MainApp object at 0x000001C0076200E0>
+2024-07-17 15:46:15,729 - root - INFO - parent:<__main__.MainApp object at 0x000001C0076200E0>
+2024-07-17 15:46:15,729 - root - INFO - parent:<__main__.MainApp object at 0x000001C0076200E0>
+2024-07-17 15:49:19,935 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 15:49:19,951 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 15:49:19,967 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 15:49:19,982 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 15:49:19,998 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 15:49:20,014 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 15:49:20,030 - root - INFO - Load network
+2024-07-17 15:49:20,030 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 15:49:20,030 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 15:49:20,030 - root - DEBUG - ZAC Bureau
+2024-07-17 15:49:20,030 - root - DEBUG - ZAC Expeditions
+2024-07-17 15:49:20,030 - root - DEBUG - ZI
+2024-07-17 15:49:20,030 - root - DEBUG - CHALLENGER
+2024-07-17 15:49:20,030 - root - DEBUG - PARIS
+2024-07-17 15:49:20,030 - root - DEBUG - TAZO
+2024-07-17 15:49:26,118 - root - DEBUG - {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'abs_path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'clock_manager': {'clock_created': 1721120289.5625474, 'clock_list': [], 'type_time': 'Unix Timestamp Format'}, 'ipv4': '192.168.90.0', 'mask_ipv4': '255.255.255.0', 'ipv6': '', 'gateway': '192.168.90.254', 'dns': 'EYREIN2.local', 'dhcp': '', 'devices_list': []}
+2024-07-17 15:55:39,032 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 15:55:39,597 - root - INFO - parent:<__main__.MainApp object at 0x000002B42E8FC050>
+2024-07-17 15:55:39,612 - root - INFO - parent:<__main__.MainApp object at 0x000002B42E8FC050>
+2024-07-17 15:55:39,612 - root - INFO - parent:<__main__.MainApp object at 0x000002B42E8FC050>
+2024-07-17 15:55:39,612 - root - INFO - parent:<__main__.MainApp object at 0x000002B42E8FC050>
+2024-07-17 15:55:39,612 - root - INFO - parent:<__main__.MainApp object at 0x000002B42E8FC050>
+2024-07-17 15:55:39,612 - root - INFO - parent:<__main__.MainApp object at 0x000002B42E8FC050>
+2024-07-17 15:55:51,773 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 15:55:51,788 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 15:55:51,805 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 15:55:51,805 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 15:55:51,820 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 15:55:51,836 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 15:55:51,851 - root - INFO - Load network
+2024-07-17 15:55:51,851 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 15:55:51,851 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 15:55:51,851 - root - DEBUG - ZAC Bureau
+2024-07-17 15:55:51,851 - root - DEBUG - ZAC Expeditions
+2024-07-17 15:55:51,851 - root - DEBUG - ZI
+2024-07-17 15:55:51,851 - root - DEBUG - CHALLENGER
+2024-07-17 15:55:51,851 - root - DEBUG - PARIS
+2024-07-17 15:55:51,851 - root - DEBUG - TAZO
+2024-07-17 15:55:54,888 - root - DEBUG - 192.168.90.0
+2024-07-17 15:56:46,870 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 15:56:47,686 - root - INFO - parent:<__main__.MainApp object at 0x000001F482498320>
+2024-07-17 15:56:47,700 - root - INFO - parent:<__main__.MainApp object at 0x000001F482498320>
+2024-07-17 15:56:47,701 - root - INFO - parent:<__main__.MainApp object at 0x000001F482498320>
+2024-07-17 15:56:47,702 - root - INFO - parent:<__main__.MainApp object at 0x000001F482498320>
+2024-07-17 15:56:47,702 - root - INFO - parent:<__main__.MainApp object at 0x000001F482498320>
+2024-07-17 15:56:47,702 - root - INFO - parent:<__main__.MainApp object at 0x000001F482498320>
+2024-07-17 15:56:54,641 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 15:56:54,657 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 15:56:54,673 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 15:56:54,673 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 15:56:54,689 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 15:56:54,704 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 15:56:54,720 - root - INFO - Load network
+2024-07-17 15:56:54,720 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 15:56:54,720 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 15:56:54,720 - root - DEBUG - ZAC Bureau
+2024-07-17 15:56:54,720 - root - DEBUG - ZAC Expeditions
+2024-07-17 15:56:54,720 - root - DEBUG - ZI
+2024-07-17 15:56:54,720 - root - DEBUG - CHALLENGER
+2024-07-17 15:56:54,720 - root - DEBUG - PARIS
+2024-07-17 15:56:54,720 - root - DEBUG - TAZO
+2024-07-17 15:57:02,900 - root - DEBUG - ZAC Bureau
+2024-07-17 16:25:46,341 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 16:25:47,281 - root - INFO - parent:<__main__.MainApp object at 0x0000020785AC0050>
+2024-07-17 16:25:47,281 - root - INFO - parent:<__main__.MainApp object at 0x0000020785AC0050>
+2024-07-17 16:25:47,281 - root - INFO - parent:<__main__.MainApp object at 0x0000020785AC0050>
+2024-07-17 16:25:47,281 - root - INFO - parent:<__main__.MainApp object at 0x0000020785AC0050>
+2024-07-17 16:25:47,281 - root - INFO - parent:<__main__.MainApp object at 0x0000020785AC0050>
+2024-07-17 16:25:47,281 - root - INFO - parent:<__main__.MainApp object at 0x0000020785AC0050>
+2024-07-17 16:25:55,294 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 16:25:55,310 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 16:25:55,326 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 16:25:55,341 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 16:25:55,341 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 16:25:55,372 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 16:25:55,372 - root - INFO - Load network
+2024-07-17 16:25:55,388 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 16:25:55,388 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 16:25:55,388 - root - DEBUG - ZAC Bureau
+2024-07-17 16:25:55,388 - root - DEBUG - ZAC Expeditions
+2024-07-17 16:25:55,388 - root - DEBUG - ZI
+2024-07-17 16:25:55,388 - root - DEBUG - CHALLENGER
+2024-07-17 16:25:55,388 - root - DEBUG - PARIS
+2024-07-17 16:25:55,388 - root - DEBUG - TAZO
+2024-07-17 16:25:59,011 - root - DEBUG - ZAC Bureau
+2024-07-17 16:26:01,939 - root - DEBUG - ZAC Expeditions
+2024-07-17 16:26:03,040 - root - DEBUG - ZI
+2024-07-17 16:56:44,423 - root - DEBUG - ZAC Expeditions
+2024-07-17 16:57:40,937 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 16:57:42,082 - root - INFO - parent:<__main__.MainApp object at 0x000001B35AC53C80>
+2024-07-17 16:57:42,082 - root - INFO - parent:<__main__.MainApp object at 0x000001B35AC53C80>
+2024-07-17 16:57:42,082 - root - INFO - parent:<__main__.MainApp object at 0x000001B35AC53C80>
+2024-07-17 16:57:42,098 - root - INFO - parent:<__main__.MainApp object at 0x000001B35AC53C80>
+2024-07-17 16:57:42,098 - root - INFO - parent:<__main__.MainApp object at 0x000001B35AC53C80>
+2024-07-17 16:57:42,098 - root - INFO - parent:<__main__.MainApp object at 0x000001B35AC53C80>
+2024-07-17 16:57:55,573 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 16:57:55,589 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 16:57:55,589 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 16:57:55,620 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 16:57:55,648 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 16:57:55,668 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 16:57:55,692 - root - INFO - Load network
+2024-07-17 16:57:55,693 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 16:57:55,694 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 16:57:55,694 - root - DEBUG - ZAC Bureau
+2024-07-17 16:57:55,696 - root - DEBUG - ZAC Expeditions
+2024-07-17 16:57:55,696 - root - DEBUG - ZI
+2024-07-17 16:57:55,697 - root - DEBUG - CHALLENGER
+2024-07-17 16:57:55,697 - root - DEBUG - PARIS
+2024-07-17 16:57:55,698 - root - DEBUG - TAZO
+2024-07-17 16:57:59,793 - root - DEBUG - ZAC Bureau
+2024-07-17 16:58:10,201 - root - DEBUG - ZAC Expeditions
+2024-07-17 17:00:37,324 - root - DEBUG - ZI
+2024-07-17 17:05:26,063 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 17:05:26,679 - root - INFO - parent:<__main__.MainApp object at 0x000001CABDC1BC80>
+2024-07-17 17:05:26,679 - root - INFO - parent:<__main__.MainApp object at 0x000001CABDC1BC80>
+2024-07-17 17:05:26,679 - root - INFO - parent:<__main__.MainApp object at 0x000001CABDC1BC80>
+2024-07-17 17:05:26,694 - root - INFO - parent:<__main__.MainApp object at 0x000001CABDC1BC80>
+2024-07-17 17:05:26,694 - root - INFO - parent:<__main__.MainApp object at 0x000001CABDC1BC80>
+2024-07-17 17:05:26,694 - root - INFO - parent:<__main__.MainApp object at 0x000001CABDC1BC80>
+2024-07-17 17:05:33,926 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 17:05:33,933 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 17:05:33,948 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 17:05:33,964 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 17:05:33,979 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 17:05:33,979 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 17:05:34,011 - root - INFO - Load network
+2024-07-17 17:05:34,011 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 17:05:34,011 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 17:05:34,011 - root - DEBUG - ZAC Bureau
+2024-07-17 17:05:34,011 - root - DEBUG - ZAC Expeditions
+2024-07-17 17:05:34,011 - root - DEBUG - ZI
+2024-07-17 17:05:34,011 - root - DEBUG - CHALLENGER
+2024-07-17 17:05:34,011 - root - DEBUG - PARIS
+2024-07-17 17:05:34,011 - root - DEBUG - TAZO
+2024-07-17 17:05:36,778 - root - DEBUG - ZAC Bureau
+2024-07-17 17:06:54,895 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 17:06:55,475 - root - INFO - parent:<__main__.MainApp object at 0x000001C5F860FBF0>
+2024-07-17 17:06:55,475 - root - INFO - parent:<__main__.MainApp object at 0x000001C5F860FBF0>
+2024-07-17 17:06:55,475 - root - INFO - parent:<__main__.MainApp object at 0x000001C5F860FBF0>
+2024-07-17 17:06:55,490 - root - INFO - parent:<__main__.MainApp object at 0x000001C5F860FBF0>
+2024-07-17 17:06:55,490 - root - INFO - parent:<__main__.MainApp object at 0x000001C5F860FBF0>
+2024-07-17 17:06:55,490 - root - INFO - parent:<__main__.MainApp object at 0x000001C5F860FBF0>
+2024-07-17 17:07:03,489 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 17:07:03,489 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 17:07:03,505 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 17:07:03,521 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 17:07:03,536 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 17:07:03,536 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 17:07:03,568 - root - INFO - Load network
+2024-07-17 17:07:03,568 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 17:07:03,568 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 17:07:03,568 - root - DEBUG - ZAC Bureau
+2024-07-17 17:07:03,568 - root - DEBUG - ZAC Expeditions
+2024-07-17 17:07:03,568 - root - DEBUG - ZI
+2024-07-17 17:07:03,568 - root - DEBUG - CHALLENGER
+2024-07-17 17:07:03,568 - root - DEBUG - PARIS
+2024-07-17 17:07:03,568 - root - DEBUG - TAZO
+2024-07-17 17:07:07,955 - root - DEBUG - ZAC Bureau
+2024-07-17 17:07:07,955 - root - DEBUG - 22
+2024-07-17 17:11:36,774 - __main__ - INFO - Lan Audacity - version 1.0.4
+2024-07-17 17:11:37,368 - root - INFO - parent:<__main__.MainApp object at 0x0000020E16353BF0>
+2024-07-17 17:11:37,368 - root - INFO - parent:<__main__.MainApp object at 0x0000020E16353BF0>
+2024-07-17 17:11:37,368 - root - INFO - parent:<__main__.MainApp object at 0x0000020E16353BF0>
+2024-07-17 17:11:37,385 - root - INFO - parent:<__main__.MainApp object at 0x0000020E16353BF0>
+2024-07-17 17:11:37,385 - root - INFO - parent:<__main__.MainApp object at 0x0000020E16353BF0>
+2024-07-17 17:11:37,385 - root - INFO - parent:<__main__.MainApp object at 0x0000020E16353BF0>
+2024-07-17 17:11:48,852 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-07-17 17:11:48,867 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-07-17 17:11:48,883 - root - INFO - ZI is added to Eyrein Network
+2024-07-17 17:11:48,890 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-07-17 17:11:48,899 - root - INFO - PARIS is added to Eyrein Network
+2024-07-17 17:11:48,915 - root - INFO - TAZO is added to Eyrein Network
+2024-07-17 17:11:48,930 - root - INFO - Load network
+2024-07-17 17:11:48,930 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 17:11:48,930 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}]}
+2024-07-17 17:11:48,930 - root - DEBUG - ZAC Bureau
+2024-07-17 17:11:48,930 - root - DEBUG - ZAC Expeditions
+2024-07-17 17:11:48,930 - root - DEBUG - ZI
+2024-07-17 17:11:48,930 - root - DEBUG - CHALLENGER
+2024-07-17 17:11:48,930 - root - DEBUG - PARIS
+2024-07-17 17:11:48,930 - root - DEBUG - TAZO
+2024-07-17 17:11:52,758 - root - DEBUG - ZAC Bureau
+2024-07-17 17:27:14,527 - root - DEBUG - ZI
+2024-07-17 17:27:15,475 - root - DEBUG - CHALLENGER
+2024-07-17 17:27:16,345 - root - DEBUG - PARIS
+2024-07-17 17:27:17,400 - root - DEBUG - PARIS
+2024-07-17 17:27:18,398 - root - DEBUG - TAZO
+2024-07-17 17:27:22,584 - root - DEBUG - ZAC Expeditions
+2024-07-17 17:28:17,440 - root - DEBUG - Preferences Action...
+2024-07-17 17:28:17,455 - root - INFO - <src.models.configuration_file.ConfigurationFile object at 0x0000020E16480860>
+2024-07-17 17:28:17,455 - root - DEBUG - <__main__.MainApp object at 0x0000020E16353BF0>

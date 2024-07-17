@@ -91,7 +91,7 @@ class FileManagement:
         }
     
     def __str__(self) -> str:
-        str_return = f"Path: {self.__path}\n Folders: {self.__folders}\n  Files: {self.__files}"
+        str_return = f"Path: {self.__path}, Folders: {self.__folders},  Files: {self.__files}"
         return str_return
 
 
@@ -514,6 +514,20 @@ class LanAudacity(FileManagement):
         else:  
             logging.error("The network object is not a Network object or a string.")
 
+    def getObjNetwork(self, network_name):
+        for network in self.networks.get('obj_ls', []):
+            if network.get('name') == network_name:
+                net_data = SwitchFile2.json_read(network['path'])
+                logging.debug(net_data['name'])
+                network_object = Network(
+                    network_ipv4=net_data['ipv4'], network_mask_ipv4=net_data['mask_ipv4'], save_path=net_data['abs_path'],
+                    network_name=net_data['name'], network_ipv6=net_data['ipv6'], network_gateway=net_data['gateway'],
+                    network_dns=net_data['dns'], network_dhcp=net_data['dhcp'], uuid_str=net_data['uuid']
+                )
+                network_object.clockManager = ClockManager(net_data['clock_manager']['clock_created'], net_data['clock_manager']['clock_list'])
+                return network_object
+        return None
+
     # def add_link(self, link: dict) -> None:
     # def remove_link(self, link: dict) -> None:
     # def add_device(self, device: dict) -> None:
@@ -559,7 +573,7 @@ def test_lan_audacity():
         assert project_data["author"] == "John Doe", "Le nom de l'auteur dans le fichier est incorrect"
 
     chemin_lan_1 = os.path.join(lan_audacity.absPath, lan_audacity.path, "db", "interfaces")
-    print(chemin_lan_1)
+    # print(chemin_lan_1)
     lan_1 = Network("192.168.90.0", "255.255.255.0", chemin_lan_1, "Siège de Eyrein Industrie", None, "192.168.90.254")
 
     lan_audacity.add_network(lan_1)

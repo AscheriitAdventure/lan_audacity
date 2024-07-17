@@ -246,4 +246,4 @@ class Network:
         }
     
     def __str__(self) -> str:
-        return f"{self.name} - {self.ipv4} - {self.mask_ipv4}"
+        return f"{self.name} - {self.ipv4} - {self.maskIpv4}"
