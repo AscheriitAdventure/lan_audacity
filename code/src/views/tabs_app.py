@@ -7,9 +7,11 @@ from qtpy.QtWidgets import (
     QStackedLayout,
 )
 from qtpy.QtCore import Qt
-from typing import Any
+from typing import Any, Optional
 
 import logging
+from src.models.network import Network
+from src.models.device import Device
 from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
 from src.views.preferences import PreferencesGeneral
@@ -43,9 +45,9 @@ class GeneralTabsView(QWidget):
     def __init__(
         self,
         title_panel: str,
-        ext_obj: Any = None,
-        lang_manager: LanguageApp = None,
-        icons_manager: IconsApp = None,
+        ext_obj: Optional[Any] = None,
+        lang_manager: Optional[LanguageApp] = None,
+        icons_manager: Optional[IconsApp] = None,
         parent=None,
     ) -> None:
         super().__init__(parent)
@@ -116,9 +118,9 @@ class PreferencesTabView(GeneralTabsView):
     def __init__(
         self,
         title_panel: str,
-        ext_obj: Any = None,
-        lang_manager: LanguageApp = None,
-        icons_manager: IconsApp = None,
+        ext_obj: Optional[Any] = None,
+        lang_manager: Optional[LanguageApp] = None,
+        icons_manager: Optional[IconsApp] = None,
         parent=None,
     ) -> None:
         super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
@@ -206,3 +208,27 @@ class PreferencesTabView(GeneralTabsView):
 
     def update_btn(self):
         self.stackedFields.setCurrentWidget(self.update_menu)
+
+class LanTabView(GeneralTabsView):
+    def __init__(
+        self,
+        title_panel: str,
+        ext_obj: Optional[Network | Device] = None,
+        lang_manager: Optional[LanguageApp] = None,
+        icons_manager: Optional[IconsApp] = None,
+        parent=None,
+    ) -> None:
+        super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
+        logging.debug(parent)
+
+    def setListBtn(self) -> list:
+        data = [
+            {
+                "name": "General",
+                "tooltip": "General",
+                "icon": "generalBtn",
+                "action": self.general_btn,
+            },
+        ]
+        return data
+    
