@@ -1,8 +1,8 @@
 import sys
 import nmap
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QMainWindow
-from PyQt5.QtCore import QThread, pyqtSignal, QObject, QTimer
-from PyQt5.QtGui import QMovie
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QMainWindow
+from PyQt6.QtCore import QThread, pyqtSignal, QObject, QTimer
+from PyQt6.QtGui import QMovie
 import qtawesome as qta
 
 class Signals(QObject):

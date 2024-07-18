@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import Qt
+from PyQt6.QtWidgets import *
+from PyQt6.QtCore import Qt
 from src.models.worker import Worker
 from src.models.lang_app import LanguageApp
 from src.models.shortcut_app import ShortcutApp
