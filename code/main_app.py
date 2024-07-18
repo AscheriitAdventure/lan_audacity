@@ -21,7 +21,7 @@ from src.tests.lan_test3 import LanAudacity, ClockManager
 from src.models.menu_bar_app import MenuBarApp
 
 from src.views.forms_app import NProject
-from src.views.tabs_app import TabFactoryWidget as Tab, PreferencesTabView, GeneralTabsView
+from src.views.tabs_app import TabFactoryWidget as Tab, PreferencesTabView, GeneralTabsView, LanTabView
 from src.views.prm_sd_pnl import FlsExpl, NetExpl, GeneralSidePanel
 
 
@@ -504,7 +504,7 @@ class MainApp(QMainWindow):
         if net_selected_object is not None:
             panel_title = net_selected_object.name
             self.primary_center.add_tab(
-                tab=GeneralTabsView(panel_title, None, self.langManager, self.iconsManager, self),
+                tab=LanTabView(panel_title, None, self.langManager, self.iconsManager, self),
                 title=panel_title)
         else:
             self.primary_center.add_tab(

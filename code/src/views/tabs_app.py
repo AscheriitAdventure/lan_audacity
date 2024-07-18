@@ -209,6 +209,7 @@ class PreferencesTabView(GeneralTabsView):
     def update_btn(self):
         self.stackedFields.setCurrentWidget(self.update_menu)
 
+
 class LanTabView(GeneralTabsView):
     def __init__(
         self,
@@ -221,14 +222,80 @@ class LanTabView(GeneralTabsView):
         super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
         logging.debug(parent)
 
+        if isinstance(ext_obj, Network):
+            self.network = True
+            self.device = False
+        
+        elif isinstance(ext_obj, Device):
+            self.device = True
+            self.network = False
+        
+        else:
+            self.network = False
+            self.device = False
+
     def setListBtn(self) -> list:
         data = [
             {
                 "name": "General",
                 "tooltip": "General",
                 "icon": "generalBtn",
-                "action": self.general_btn,
+                "action": self.generalBtn,
             },
+            {
+                "name": "Preferences",
+                "tooltip": "Preferences",
+                "icon": "defaultIcon",
+                "action": self.preferencesBtn,
+            },
+            {
+                "name": "Network Map",
+                "tooltip": "Network Map",
+                "icon": "defaultIcon",
+                "action": self.networkMapBtn,
+            },
+            {
+                "name": "Devices",
+                "tooltip": "List of configurable hardware on the network",
+                "icon": "defaultIcon",
+                "action": self.devicesBtn,
+            },
+            {
+                "name": "Network Road Map",
+                "tooltip": "Network Road Map",
+                "icon": "defaultIcon",
+                "action": self.networkRoadMapBtn,
+            }
         ]
         return data
     
+    def initDisplay(self):
+        self.general_menu = QWidget(self)
+        self.stackedFields.addWidget(self.general_menu)
+
+        self.preferences_menu = QWidget(self)
+        self.stackedFields.addWidget(self.preferences_menu)
+        if self.network:
+            self.network_map_menu = QWidget(self)
+            self.stackedFields.addWidget(self.network_map_menu)
+
+            self.devices_menu = QWidget(self)
+            self.stackedFields.addWidget(self.devices_menu)
+
+        self.network_road_map_menu = QWidget(self)
+        self.stackedFields.addWidget(self.network_road_map_menu)
+    
+    def generalBtn(self):
+        self.stackedFields.setCurrentWidget(self.general_menu)
+    
+    def preferencesBtn(self):
+        self.stackedFields.setCurrentWidget(self.preferences_menu)
+    
+    def networkMapBtn(self):
+        self.stackedFields.setCurrentWidget(self.network_map_menu)
+    
+    def devicesBtn(self):
+        self.stackedFields.setCurrentWidget(self.devices_menu)
+    
+    def networkRoadMapBtn(self):
+        self.stackedFields.setCurrentWidget(self.network_road_map_menu)
