@@ -14,7 +14,7 @@ from src.models.network import Network
 from src.models.device import Device
 from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
-from src.views.preferences import PreferencesGeneral
+from src.views.preferences import PreferencesGeneral, NetworkGeneral
 
 
 class TabFactoryWidget(QTabWidget):
@@ -222,18 +222,6 @@ class LanTabView(GeneralTabsView):
         super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
         logging.debug(parent)
 
-        if isinstance(ext_obj, Network):
-            self.network = True
-            self.device = False
-        
-        elif isinstance(ext_obj, Device):
-            self.device = True
-            self.network = False
-        
-        else:
-            self.network = False
-            self.device = False
-
     def setListBtn(self) -> list:
         data = [
             {
@@ -270,17 +258,22 @@ class LanTabView(GeneralTabsView):
         return data
     
     def initDisplay(self):
-        self.general_menu = QWidget(self)
+        self.general_menu = NetworkGeneral(
+            "Dashboard",
+            self.langManager,
+            self.extObj,
+            self
+        )
         self.stackedFields.addWidget(self.general_menu)
 
         self.preferences_menu = QWidget(self)
         self.stackedFields.addWidget(self.preferences_menu)
-        if self.network:
-            self.network_map_menu = QWidget(self)
-            self.stackedFields.addWidget(self.network_map_menu)
 
-            self.devices_menu = QWidget(self)
-            self.stackedFields.addWidget(self.devices_menu)
+        self.network_map_menu = QWidget(self)
+        self.stackedFields.addWidget(self.network_map_menu)
+
+        self.devices_menu = QWidget(self)
+        self.stackedFields.addWidget(self.devices_menu)
 
         self.network_road_map_menu = QWidget(self)
         self.stackedFields.addWidget(self.network_road_map_menu)

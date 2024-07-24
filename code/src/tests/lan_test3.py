@@ -221,7 +221,10 @@ class ClockManager:
         self.clockList.append(time.time())
     
     def get_clock_last(self) -> float:
-        return self.clockList[-1]
+        if not self.clockList:
+            return self.clockCreated
+        else:
+            return self.clockList.pop()
 
     def get_clock_diff(self) -> float:
         return self.clockList[-1] - self.clockList[-2]

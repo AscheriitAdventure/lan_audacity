@@ -150,3 +150,45 @@ class CardStackGeneral(QWidget):
                 child.widget().deleteLater()
             elif child.layout():
                 self.clear_card_layout(child.layout())
+
+class MapStackPanel(QWidget):
+    def __init__(self, 
+                 obj_title: str,
+                 obj_lang: LanguageApp,
+                 obj_view: Any,
+                 parent: Optional[Any] = None) -> None:
+        super().__init__(parent=parent)
+        self.stackTitle = obj_title
+        self.langManager = obj_lang
+        self.objManager = obj_view
+    
+    def initUI(self):
+        self.layout = QVBoxLayout(self)
+        self.layout.setContentsMargins(0, 0, 0, 0)
+        self.setLayout(self.layout)
+
+        title_widget = QWidget(self)
+        self.layout.addWidget(title_widget, alignment=Qt.AlignTop)
+
+        ttl_wdg_cnt = QHBoxLayout(title_widget)
+        title = QLabel(self.stackTitle)
+        title.setFont(QFont("Arial", 12, QFont.Bold))
+        ttl_wdg_cnt.addWidget(title, alignment=Qt.AlignCenter)
+        ttl_wdg_cnt.addStretch()
+
+        sep = QFrame(self)
+        sep.setFrameShape(QFrame.HLine)
+        sep.setFrameShadow(QFrame.Sunken)
+        self.layout.addWidget(sep)
+
+        scroll_area = QScrollArea(self)
+        scroll_area.setWidgetResizable(True)
+        self.layout.addWidget(scroll_area)
+
+        self.map_container = QWidget(self)
+        scroll_area.setWidget(self.map_container)
+        
+    
+    def mapDevice(self):
+        pass
+

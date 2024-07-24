@@ -504,7 +504,7 @@ class MainApp(QMainWindow):
         if net_selected_object is not None:
             panel_title = net_selected_object.name
             self.primary_center.add_tab(
-                tab=LanTabView(panel_title, None, self.langManager, self.iconsManager, self),
+                tab=LanTabView(panel_title, net_selected_object, self.langManager, self.iconsManager, self),
                 title=panel_title)
         else:
             self.primary_center.add_tab(
