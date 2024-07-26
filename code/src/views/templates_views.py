@@ -1,4 +1,4 @@
-from qtpy.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QScrollArea, QGridLayout, QFrame, QLineEdit
+from qtpy.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QScrollArea, QGridLayout, QFrame, QLineEdit, QFormLayout
 from qtpy.QtGui import QFont, QIcon, QImage, QPixmap
 from qtpy.QtCore import Qt
 import qtawesome as qta
@@ -151,6 +151,7 @@ class CardStackGeneral(QWidget):
             elif child.layout():
                 self.clear_card_layout(child.layout())
 
+
 class MapStackPanel(QWidget):
     def __init__(self, 
                  obj_title: str,
@@ -192,3 +193,42 @@ class MapStackPanel(QWidget):
     def mapDevice(self):
         pass
 
+
+class RoundedBtn(QPushButton):
+    def __init__(self, 
+                 icon: Optional[QIcon] = None,
+                 text: Optional[str] = None,
+                 parent=None):
+        super().__init__(parent=parent)
+
+        if icon is not None:
+            self.setIcon(icon)
+
+        if text is not None:
+            self.setText(text)
+
+        self.setMinimumSize()
+        self.setMaximumSize()
+
+
+class LineUpdate(QWidget):
+    def __init__(self,
+                 label_obj: Optional[QLabel] = None,
+                 input_obj: Optional[QLineEdit] = None,
+                 action_obj: Optional[QPushButton | RoundedBtn] = None,
+                 parent=None):
+        super().__init__(parent=parent)
+
+        self.layout = QFormLayout(self)
+        self.setLayout(self.layout)
+
+        # Créez un QHBoxLayout pour contenir input_obj et action_obj
+        input_action_layout = QHBoxLayout()
+        if input_obj is not None:
+            input_action_layout.addWidget(input_obj)
+        if action_obj is not None:
+            input_action_layout.addWidget(action_obj)
+
+        # Ajoutez label_obj et le QHBoxLayout au QFormLayout
+        self.layout.addRow(label_obj, input_action_layout)
+        

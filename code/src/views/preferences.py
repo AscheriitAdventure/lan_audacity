@@ -1,9 +1,10 @@
+import qtawesome
 from qtpy.QtWidgets import *
 from qtpy.QtCore import *
 from qtpy.QtGui import *
 import logging
 
-from src.views.templates_views import CardStackGeneral
+from src.views.templates_views import CardStackGeneral, LineUpdate, RoundedBtn
 from src.models.language_app import LanguageApp
 from src.models.configuration_file import ConfigurationFile
 from src.models.network import Network
@@ -107,37 +108,49 @@ class NetworkGeneral(CardStackGeneral):
                 "icon_card": None,
                 "title_card": QLabel("IPv4 Address"),
                 "img_card": None,
-                "corps_card": QLineEdit(self.objManager.ipv4),
+                "corps_card": LineUpdate(
+                    QLineEdit(self.objManager.ipv4),
+                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("IPv4 Mask"),
                 "img_card": None,
-                "corps_card": QLineEdit(self.objManager.maskIpv4),
+                "corps_card": LineUpdate(
+                    QLineEdit(self.objManager.maskIpv4),
+                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("IPv6 Address"),
                 "img_card": None,
-                "corps_card": QLineEdit(self.objManager.ipv6),
+                "corps_card": LineUpdate(
+                    QLineEdit(self.objManager.ipv6),
+                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("Gateway"),
                 "img_card": None,
-                "corps_card": QLineEdit(self.objManager.gateway),
+                "corps_card": LineUpdate(
+                    QLineEdit(self.objManager.gateway),
+                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("DNS"),
                 "img_card": None,
-                "corps_card": QLineEdit(self.objManager.dns),
+                "corps_card": LineUpdate(
+                    QLineEdit(self.objManager.dns),
+                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("DHCP"),
                 "img_card": None,
-                "corps_card": QLineEdit(self.objManager.dhcp),
+                "corps_card": LineUpdate(
+                    QLineEdit(self.objManager.dhcp),
+                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
