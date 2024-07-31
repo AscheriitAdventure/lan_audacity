@@ -244,6 +244,9 @@ class Network:
             "dhcp": self.dhcp,
             "devices_list": self.__devices
         }
-    
+
+    def keys(self) -> list:
+        return ["Name", "IPv4", "Mask IPv4", "IPv6", "Gateway", "DNS", "DHCP"]
+
     def __str__(self) -> str:
         return f"{self.name} - {self.ipv4} - {self.maskIpv4}"

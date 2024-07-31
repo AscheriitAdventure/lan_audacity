@@ -252,7 +252,16 @@
     ]
   },
   {
-    "name": "generalBtn",
+    "name": "settingsBtn",
+    "platform_and_name": ["mdi6.cogs"],
+    "options": [
+      {
+        "color": "LightSlateGray"
+      }
+    ]
+  },
+  {
+    "name": "dashboardBtn",
     "platform_and_name": ["mdi6.trello"],
     "options": [
       {

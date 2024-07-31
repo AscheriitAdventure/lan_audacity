@@ -207,8 +207,8 @@ class RoundedBtn(QPushButton):
         if text is not None:
             self.setText(text)
 
-        self.setMinimumSize()
-        self.setMaximumSize()
+        self.setMinimumSize(12, 12)
+        self.setMaximumSize(24, 24)
 
 
 class LineUpdate(QWidget):

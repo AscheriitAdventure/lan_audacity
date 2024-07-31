@@ -14,7 +14,7 @@ from src.models.network import Network
 from src.models.device import Device
 from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
-from src.views.preferences import PreferencesGeneral, NetworkGeneral
+from src.views.preferences import PreferencesGeneral, NetworkGeneral, LANDashboard
 
 
 class TabFactoryWidget(QTabWidget):
@@ -131,7 +131,7 @@ class PreferencesTabView(GeneralTabsView):
             {
                 "name": "General",
                 "tooltip": "General",
-                "icon": "generalBtn",
+                "icon": "dashboardBtn",
                 "action": self.general_btn,
             },
             {
@@ -227,13 +227,13 @@ class LanTabView(GeneralTabsView):
             {
                 "name": "General",
                 "tooltip": "General",
-                "icon": "generalBtn",
+                "icon": "dashboardBtn",
                 "action": self.generalBtn,
             },
             {
                 "name": "Preferences",
                 "tooltip": "Preferences",
-                "icon": "defaultIcon",
+                "icon": "settingsBtn",
                 "action": self.preferencesBtn,
             },
             {
@@ -258,7 +258,7 @@ class LanTabView(GeneralTabsView):
         return data
     
     def initDisplay(self):
-        self.general_menu = NetworkGeneral(
+        self.general_menu = LANDashboard(
             "Dashboard",
             self.langManager,
             self.extObj,
@@ -266,7 +266,12 @@ class LanTabView(GeneralTabsView):
         )
         self.stackedFields.addWidget(self.general_menu)
 
-        self.preferences_menu = QWidget(self)
+        self.preferences_menu = NetworkGeneral(
+            "Settings",
+            self.langManager,
+            self.extObj,
+            self
+        )
         self.stackedFields.addWidget(self.preferences_menu)
 
         self.network_map_menu = QWidget(self)
