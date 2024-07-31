@@ -108,6 +108,7 @@ class Network:
         self.__abs_path: str = ""
 
         self.__devices = []
+        self.__isConnected: bool = False
 
         if uuid_str is None:
             self.absPath = f"{save_path}/{self.uuid}.json"
@@ -115,6 +116,14 @@ class Network:
         else:
             self.absPath = save_path
             self.open_network()
+
+    @property
+    def isConnected(self):
+        return self.__isConnected
+
+    @isConnected.setter
+    def isConnected(self, var: bool):
+        self.__isConnected = var
 
     @property
     def absPath(self):
