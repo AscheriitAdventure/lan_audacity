@@ -249,21 +249,47 @@ class LANDashboard(QWidget):
         self.card_layout.addWidget(wan_card, 0, 0)
 
         # LAN <ip réseaux or nom du dns>, card(Rang 0, Colonne 1)
-
         lan_body_card = QTableWidget(self)
-        lan_body_card.setColumnCount(3)
-        lan_body_card.setHorizontalHeaderLabels(self.objManager.keys())
+        lan_body_card.setColumnCount(4)
+        lan_body_card.setHorizontalHeaderLabels(["IPv4", "Name", "Mac Address", "Connected"])
 
         ico_lan = qtawesome.icon('mdi6.lan-connect', options=[{'color': 'silver'}])
         lan_card = Card(ico_lan, QLabel(f'LAN {self.objManager.dns}'), None, lan_body_card)
         self.card_layout.addWidget(lan_card, 0, 1, 1, 3)
 
         # Liste du matériel réseau, card(Rang 1, Colonne 0)
+        lsdevice_body_card = QTableWidget(self)
+        lsdevice_body_card.setColumnCount(3)
+        lsdevice_body_card.setHorizontalHeaderLabels(["Name/IPv4", "Emit", "Send"])
+
         ico_lan_devices = qtawesome.icon('mdi6.clipboard-text-multiple')
-        list_lan_device_card = Card(ico_lan_devices, QLabel('List of network equipment'))
-        self.card_layout.addWidget(list_lan_device_card, 1, 0, 1, 3)
+        list_lan_device_card = Card(ico_lan_devices, QLabel('List of network equipment'), None, lsdevice_body_card)
+        self.card_layout.addWidget(list_lan_device_card, 1, 0, 1, 2)
 
         # Anomalies en cours, card(Rang 1, Colonne 1)
+        lspb_body_card = QTableWidget(self)
+        lspb_body_card.setColumnCount(3)
+        lspb_body_card.setHorizontalHeaderLabels(["Time", "Hostname/IPv4", "Message"])
+
         ico_lan_pb = qtawesome.icon('mdi6.clipboard-alert')
-        curr_pbs_card = Card(ico_lan_pb, QLabel('Current Problems'))
-        self.card_layout.addWidget(curr_pbs_card, 1, 1, 1, 2)
+        curr_pbs_card = Card(ico_lan_pb, QLabel('Current Problems'), None, lspb_body_card)
+        self.card_layout.addWidget(curr_pbs_card, 1, 2, 1, 2)
+
+
+class LANMap(QWidget):
+    def __init__(self,
+                 obj_title: str,
+                 obj_lang: LanguageApp,
+                 obj_view: Network,
+                 parent=None):
+        super().__init__(parent)
+        self.stackTitle = obj_title
+        self.langManager = obj_lang
+        self.objManager = obj_view
+
+        # init User Interface
+        self.initUI()
+
+    def initUI(self):
+        pass
+
