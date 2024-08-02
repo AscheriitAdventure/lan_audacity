@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afad144f-7fd6-4f53-b681-e8f8c0ca355c" name="Changes" comment="" />
+    <list default="true" id="627d3f43-7daa-4733-a596-7f8d2f0e9f01" name="Changes" comment="workspace test 16:58" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,34 +28,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.card_vues.executor": "Run",
-    "Python.drag&drop.executor": "Debug",
-    "Python.mdl_managers.executor": "Run",
-    "Python.mdl_obj.executor": "Run",
-    "Python.mvc_test1.executor": "Debug",
-    "Python.settings_vues.executor": "Debug",
-    "Python.test_card.executor": "Run",
-    "Python.test_func60.executor": "Run",
-    "Python.test_func61.executor": "Debug",
-    "Python.test_thread3.executor": "Debug",
-    "Python.test_thread4.executor": "Debug",
-    "Python.test_threads.executor": "Debug",
-    "Python.test_threads2.executor": "Run",
-    "Python.tests_nmap.executor": "Run",
-    "Python.tests_toggle-btn.executor": "Debug",
-    "Python.tree_vues.executor": "Debug",
-    "Python.vues_obj.executor": "Debug",
-    "Python.vues_obj2.executor": "Debug",
-    "Python.vues_obj3.executor": "Run",
-    "Python.vues_obj4.executor": "Run",
-    "Python.vues_test1.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/yuna/PycharmProjects/lan_audacity-v1.1.2/_src/tests"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.card_vues.executor&quot;: &quot;Run&quot;,
+    &quot;Python.drag&amp;drop.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.mdl_managers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mdl_obj.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mvc_test1.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.settings_vues.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.test_card.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_func60.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_func61.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.test_thread3.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.test_thread4.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.test_threads.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.test_threads2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tests_nmap.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tests_toggle-btn.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.tree_vues.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.vues_obj.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.vues_obj2.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.vues_obj3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vues_obj4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vues_test1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yuna/PycharmProjects/lan_audacity-v1.1.2/_src/tests&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_src/tests" />
@@ -82,5 +82,9 @@
       <updated>1712588716644</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="workspace test 16:58" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace test 16:58" />
   </component>
 </project>
