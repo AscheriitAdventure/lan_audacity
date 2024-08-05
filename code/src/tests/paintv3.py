@@ -97,7 +97,40 @@ class DeviceType:
         if self.__sub_devices is None:
             self.__sub_devices = []
         self.__sub_devices.append(device)
+
+from qtpy.QtWidgets import QWidget, QVBoxLayout
+from qtpy.QtCore import QUrl
+from qtpy.QtWebEngineWidgets import QWebEngineView
+from pyvis.network import Network
+from pathlib import Path
+import sys
+
+
+class NetworkMap(QWidget):
+    def __init__(self, list_devices: Optional[list]=None, parent=None) -> None:
+        super().__init__(parent)
+        self.netmap = Network()
+        self.web_view = QWebEngineView()
+
     
+    def initUI(self):
+        pass
+
+    def editNodesMap(self):
+        # Ajouter des nœuds
+        pass
+
+    def editEdgesMap(self):
+        # Ajouter des arêtes
+        pass
+
+    def showMap(self):
+        self.netmap.show("index.html", notebook=False)
+
+
+
+
+
 
 print(os.getcwd())
 print(os.path.join(os.getcwd(), "code", "assets", "images", "svg"))
