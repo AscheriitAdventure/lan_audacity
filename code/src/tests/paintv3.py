@@ -107,22 +107,28 @@ import sys
 
 
 class NetworkMap(QWidget):
-    def __init__(self, list_devices: Optional[list]=None, parent=None) -> None:
+    def __init__(self, list_devices: Optional[list]=None, list_links: Optional[list]=None, parent=None) -> None:
         super().__init__(parent)
         self.netmap = Network()
         self.web_view = QWebEngineView()
+        self.listDevices = list_devices if list_devices is not None else []
+        self.listLinks = list_links if list_links is not None else []
 
     
     def initUI(self):
         pass
 
-    def editNodesMap(self):
+    def editNodesMap(self, list_nodes: list):
         # Ajouter des nœuds
-        pass
+        for node in list_nodes:
+            # node = (id, label, image)
+            self.netmap.add_node(node[0], label=node[1], shape='image', image=node[2])
 
-    def editEdgesMap(self):
+    def editEdgesMap(self, list_edges: list):
         # Ajouter des arêtes
-        pass
+        for edge in list_edges:
+            # edge = (id1, id2)
+            self.netmap.add_edge(edge[0], edge[1])
 
     def showMap(self):
         self.netmap.show("index.html", notebook=False)
