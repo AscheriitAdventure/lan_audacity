@@ -17,9 +17,17 @@ class NetworkVisualization(QWidget):
 
         # Créer une instance de Network
         net = Network()
-        net.show_buttons(filter_=['physics'])
-        net.filter_menu = True
-        net.select_menu = True
+        net.set_options("""
+                        var options = {
+                            "physics": {
+                                "forceAtlas2Based": {"springLength": 100},
+                                "minVelocity": 0.75,
+                                "solver": "forceAtlas2Based"
+                            }
+                        }""")
+        #net.show_buttons(filter_=['edges'])
+        #net.filter_menu = True
+        #net.select_menu = True
         nodeList = [
             {
                 "id": 0,

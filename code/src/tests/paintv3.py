@@ -106,13 +106,13 @@ from pathlib import Path
 import sys
 
 
+
 class NetworkMap(QWidget):
-    def __init__(self, list_devices: Optional[list]=None, list_links: Optional[list]=None, parent=None) -> None:
+    def __init__(self, list_obj: Optional[list]=None, parent=None) -> None:
         super().__init__(parent)
         self.netmap = Network()
         self.web_view = QWebEngineView()
-        self.listDevices = list_devices if list_devices is not None else []
-        self.listLinks = list_links if list_links is not None else []
+        self.listObjects = list_obj if list_obj is not None else []
 
     
     def initUI(self):
