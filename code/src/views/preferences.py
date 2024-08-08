@@ -274,22 +274,3 @@ class LANDashboard(QWidget):
         ico_lan_pb = qtawesome.icon('mdi6.clipboard-alert')
         curr_pbs_card = Card(ico_lan_pb, QLabel('Current Problems'), None, lspb_body_card)
         self.card_layout.addWidget(curr_pbs_card, 1, 2, 1, 2)
-
-
-class LANMap(QWidget):
-    def __init__(self,
-                 obj_title: str,
-                 obj_lang: LanguageApp,
-                 obj_view: Network,
-                 parent=None):
-        super().__init__(parent)
-        self.stackTitle = obj_title
-        self.langManager = obj_lang
-        self.objManager = obj_view
-
-        # init User Interface
-        self.initUI()
-
-    def initUI(self):
-        pass
-

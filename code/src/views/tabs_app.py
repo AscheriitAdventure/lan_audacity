@@ -1,12 +1,5 @@
-from qtpy.QtWidgets import (
-    QTabWidget,
-    QWidget,
-    QGridLayout,
-    QVBoxLayout,
-    QPushButton,
-    QStackedLayout,
-)
-from qtpy.QtCore import Qt
+from qtpy.QtWidgets import *
+from qtpy.QtCore import *
 from typing import Any, Optional
 
 import logging
@@ -15,6 +8,7 @@ from src.models.device import Device
 from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
 from src.views.preferences import PreferencesGeneral, NetworkGeneral, LANDashboard
+from src.views.map_template_views import LANMap
 
 
 class TabFactoryWidget(QTabWidget):
@@ -274,7 +268,11 @@ class LanTabView(GeneralTabsView):
         )
         self.stackedFields.addWidget(self.preferences_menu)
 
-        self.network_map_menu = QWidget(self)
+        self.network_map_menu = LANMap(
+            "Network Map",
+            self.langManager,
+            self.extObj,
+        )
         self.stackedFields.addWidget(self.network_map_menu)
 
         self.devices_menu = QWidget(self)

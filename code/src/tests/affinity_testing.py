@@ -96,5 +96,19 @@ img_pth2 = os.path.join(
 # Comparaison de deux répertoire
 if os.path.dirname(image_path) == os.path.dirname(img_pth2):
     print("Les répertoires sont identiques")
+elif len(os.listdir(os.path.dirname(image_path))) == len(os.listdir(os.path.dirname(img_pth2))):
+    print("Les répertoires sont identiques")
 else:
     print("Les répertoires sont différents")
+
+# search image in the directory
+# Show the list of files with the same caracters
+path_backup = os.path.join("C:/Users", "g.tronche", "Documents", "GitHub", "affinity", "svg")
+# liste les fichiers dans les répertoires
+print(os.listdir(path_backup))
+
+# Recherche d'un fichier dans les répertoires
+for root, dirs, files in os.walk(path_backup):
+    for file in files:
+        if "bug" in file:
+            print(file)
