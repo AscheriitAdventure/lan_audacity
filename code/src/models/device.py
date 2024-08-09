@@ -84,3 +84,28 @@ class Device:
             logging.info(f"{self.name} is deleted")
         else:
             logging.info(f"{self.name} doesn't exist")
+    
+    def dict_return(self) -> dict:
+        return {
+            "uuid": self.uuid,
+            "name": self.name,
+            "abs_path": self.abs_path,
+            "ipv4": self.ipv4,
+            "mask_ipv4": self.mask_ipv4,
+            "ipv6": self.ipv6,
+            "mask_ipv6": self.mask_ipv6,
+            "type": self.type,
+            "os": self.os,
+            "model": self.model,
+            "brand": self.brand,
+            "mac": self.mac,
+            "gateway": self.gateway,
+            "dns": self.dns,
+            "dhcp": self.dhcp,
+            "snmp": self.snmp,
+            "ssh": self.ssh,
+            "logs": self.logs,
+            "data": self.data,
+            "date_unix": self.date_unix,
+            "last_update_unix": self.last_update_unix
+        }

@@ -268,5 +268,14 @@
         "color": "PaleTurquoise"
       }
     ]
+  },
+  {
+    "name": "refreshWebBtn",
+    "platform_and_name": ["mdi6.web-sync"],
+    "options": [
+      {
+        "color": "Silver"
+      }
+    ]
   }
 ]

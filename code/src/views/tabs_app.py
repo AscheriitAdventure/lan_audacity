@@ -204,11 +204,30 @@ class PreferencesTabView(GeneralTabsView):
         self.stackedFields.setCurrentWidget(self.update_menu)
 
 
+class SyncWorker(QRunnable):
+    def __init__(self, parent=None):
+        super(SyncWorker, self).__init__()
+        self.parent = parent
+
+    @pyqtSlot()
+    def run(self):
+        # Effectuez la recherche des appareils connectés au réseau ici
+        # Mettez à jour l'interface utilisateur ou effectuez d'autres actions nécessaires
+        self.parent.extObj.update_network()
+        pass
+
+    def update_network(self):
+        # Search ip address lan
+        # search informations about devices connected
+        # update the Network object
+        pass
+
+
 class LanTabView(GeneralTabsView):
     def __init__(
         self,
         title_panel: str,
-        ext_obj: Optional[Network | Device] = None,
+        ext_obj: Optional[Network] = None,
         lang_manager: Optional[LanguageApp] = None,
         icons_manager: Optional[IconsApp] = None,
         parent=None,
@@ -233,7 +252,7 @@ class LanTabView(GeneralTabsView):
             {
                 "name": "Network Map",
                 "tooltip": "Network Map",
-                "icon": "defaultIcon",
+                "icon": "lan_audacity",
                 "action": self.networkMapBtn,
             },
             {
@@ -247,6 +266,12 @@ class LanTabView(GeneralTabsView):
                 "tooltip": "Network Road Map",
                 "icon": "defaultIcon",
                 "action": self.networkRoadMapBtn,
+            },
+            {
+                "name": "Sync",
+                "tooltip": "Sync",
+                "icon": "refreshWebBtn",
+                "action": self.syncBtn,
             }
         ]
         return data
@@ -272,6 +297,7 @@ class LanTabView(GeneralTabsView):
             "Network Map",
             self.langManager,
             self.extObj,
+            self
         )
         self.stackedFields.addWidget(self.network_map_menu)
 
@@ -295,3 +321,13 @@ class LanTabView(GeneralTabsView):
     
     def networkRoadMapBtn(self):
         self.stackedFields.setCurrentWidget(self.network_road_map_menu)
+    
+    def syncBtn(self):
+        worker = SyncWorker(self) # Créez une instance de la classe de travail
+        
+        thread_pool = QThreadPool() # Créez une instance de la classe QThreadPool
+
+        thread_pool.start(worker) # Démarrez le travail dans le pool de threads
+
+        # Mise à jour de self.extObj avec les appareils connectés
+        # self.extObj.update_devices()

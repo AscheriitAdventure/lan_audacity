@@ -225,7 +225,7 @@ class Network:
             logging.info(f"{self.name} doesn't exist")
 
     def add_device(self, device: Device) -> None:
-        self.devices.append(device.uuid)
+        self.__devices.append(device.uuid)
         self.clockManager.add_clock()
         with open(self.absPath, "w") as f:
             json.dump(self.dict_return(), f, indent=4)

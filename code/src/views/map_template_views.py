@@ -90,5 +90,9 @@ class LANMap(QWidget):
             # edge = (id1, id2)
             for link in item["links"]:
                 self.netMap.add_edge(item["uuid"], link)
+        
+        # Show the map
+        # retrieve the local path before showing the map
+        self.netMap.show("net_map.html", open_browser=False, notebook=False)
                 
 
