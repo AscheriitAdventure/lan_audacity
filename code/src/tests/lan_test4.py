@@ -8,7 +8,7 @@ print(path_project)
 
 # Dictionnaire contenant les informations
 info_dict = {
-    'path': 'C:/Users/g.tronche/Documents/test_app/test-v4\\db\\interfaces'
+    'path': 'C:/Users/g.tronche/Documents/test_app/test-v4/db/interfaces'
 }
 
 # Extraire le chemin d'accès du dictionnaire

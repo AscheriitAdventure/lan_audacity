@@ -1,9 +1,11 @@
-from typing import Union, Optional
+from typing import Union, Optional, Any
 import os
 import json
 import logging
 import time
 import uuid
+import nmap, subprocess
+
 
 class Device:
     def __init__(
@@ -32,6 +34,7 @@ class Device:
             self.uuid: str = device_uuid
         else:
             self.uuid: str = str(uuid.uuid4())
+        self.__is_connected: bool = False
         self.name = device_name
         self.ipv4 = device_ipv4
         self.mask_ipv4 = mask_ipv4
@@ -109,3 +112,35 @@ class Device:
             "date_unix": self.date_unix,
             "last_update_unix": self.last_update_unix
         }
+
+    @property
+    def isConnected(self) -> bool:
+        return self.__is_connected
+
+    @isConnected.setter
+    def isConnected(self, var: bool) -> None:
+        self.__is_connected = var
+    
+    def set_isConnected(self) -> None:
+        try:
+            result = subprocess.run(
+                ["ping", "-c4", self.ipv4],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=10,
+            )
+            if result.returncode == 0:
+                self.isConnected = True
+                logging.info("La machine est connectée.")
+            else:
+                self.isConnected = False
+                logging.error("La machine n'est pas connectée.")
+        except subprocess.TimeoutExpired:
+            self.isConnected = False
+            logging.error("Timeout lors de la tentative de connexion à la machine.")
+
+    def update_auto(self):
+        pass
+
+    def update_obj(self):
+        pass

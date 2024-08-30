@@ -85,7 +85,7 @@ class Network:
             network_ipv4: str,
             network_mask_ipv4: str,
             save_path: str,
-            network_name: str | None = None,
+            network_name: Optional[str] = None,
             network_ipv6: Optional[str] = None,
             network_gateway: Optional[str] = None,
             network_dns: Optional[str] = None,

@@ -9,6 +9,7 @@ from src.models.language_app import LanguageApp
 from src.models.icons_app import IconsApp
 from src.views.preferences import PreferencesGeneral, NetworkGeneral, LANDashboard
 from src.views.map_template_views import LANMap
+import nmap
 
 
 class TabFactoryWidget(QTabWidget):
@@ -209,18 +210,24 @@ class SyncWorker(QRunnable):
         super(SyncWorker, self).__init__()
         self.parent = parent
 
-    @pyqtSlot()
+    @pyqtSlot
     def run(self):
         # Effectuez la recherche des appareils connectés au réseau ici
+        self.update_network()
         # Mettez à jour l'interface utilisateur ou effectuez d'autres actions nécessaires
-        self.parent.extObj.update_network()
-        pass
+        self.parent.extObj.save_network()
 
     def update_network(self):
-        # Search ip address lan
-        # search informations about devices connected
-        # update the Network object
-        pass
+        # Search ip address lan with nmap
+        nm = nmap.PortScanner()
+        lan = f"{self.extObj.ipv4}/{self.extObj.mask_ipv4}"
+        nm.scan(hosts=lan, arguments='-sn')
+        for host in nm.all_hosts():
+            new_device = Device(host,)
+            # search data about devices connected
+            self.parent.extObj.add_device(new_device)
+            # perform actions to gather data about the device connected to the LAN
+            new_device.update_auto()
 
 
 class LanTabView(GeneralTabsView):
