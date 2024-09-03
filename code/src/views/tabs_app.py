@@ -210,7 +210,7 @@ class SyncWorker(QRunnable):
         super(SyncWorker, self).__init__()
         self.parent = parent
 
-    @pyqtSlot
+    # @pyqtSlot
     def run(self):
         # Effectuez la recherche des appareils connectés au réseau ici
         self.update_network()
@@ -220,7 +220,7 @@ class SyncWorker(QRunnable):
     def update_network(self):
         # Search ip address lan with nmap
         nm = nmap.PortScanner()
-        lan = f"{self.extObj.ipv4}/{self.extObj.mask_ipv4}"
+        lan = f"{self.parent.extObj.ipv4}/{self.parent.extObj.maskIpv4}"
         nm.scan(hosts=lan, arguments='-sn')
         for host in nm.all_hosts():
             new_device = Device(host,)

@@ -1,14 +1,12 @@
-from typing import Optional, Any
-import os
 import json
 import logging
-import time
+import os
+import subprocess
 import uuid
-import nmap, subprocess
+from enum import Enum
+from typing import Optional, Any
 
 from src.models.network import ClockManager
-from enum import Enum
-import os
 
 
 class OSILayer(Enum):
@@ -80,7 +78,8 @@ class DeviceType:
         self.__sub_devices = sub_devices
 
     def __str__(self):
-        return f"DeviceType({self.__category_name}, {self.__osi_layer}, {self.__category_description}, {self.__sub_devices})"
+        return (f"DeviceType({self.__category_name}, {self.__osi_layer},"
+                f"{self.__category_description}, {self.__sub_devices})")
     
     def keys(self) -> list:
         list_keys = ["Picture", "Category Name", "OSI Layer", "Category Description", "Sub-Devices"]
@@ -116,7 +115,7 @@ class Device:
             device_name: Optional[str] = None,
             uuid_str: Optional[str] = None
             ) -> None:
-        
+        self.__uuid = None
         self.setUUIDObj(uuid_str)
         self.__is_connected: bool = False
         self.__clockManager = ClockManager()
@@ -259,7 +258,7 @@ class Device:
         else:
             logging.info(f"{self.name} already exists")
 
-    def open_file(self) -> None:
+    def open_file(self) -> Any:
         if os.path.exists(self.absPath):
             with open(self.absPath, "r") as f:
                 return json.load(f)
@@ -295,7 +294,7 @@ class Device:
         return list(self.dict_return().keys())
     
     @staticmethod
-    def from_dict(device_dict: dict) -> Device:
+    def from_dict(device_dict: dict) -> Device:  # type: ignore
         new_device = Device(
             device_dict["ipv4"],
             device_dict["mask_ipv4"],
