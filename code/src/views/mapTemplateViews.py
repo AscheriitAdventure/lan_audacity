@@ -7,17 +7,18 @@ from typing import Optional
 from pyvis.network import Network
 
 from src.classes.languageApp import LanguageApp
-from src.classes.cl_network import Network
 
 
 class LANMap(QWidget):
     def __init__(
             self, 
             obj_title: str,
-            obj_lang: Optional[LanguageApp]=None,
-            obj_view: Optional[list]=None,
+            obj_lang: Optional[LanguageApp] = None,
+            obj_view: Optional[list] = None,
             parent=None) -> None:
         super().__init__(parent)
+        self.net_widget = QWebEngineView()
+        self.layout = QVBoxLayout(self)
         self.stackTitle = obj_title
         self.langManager = obj_lang
         self.objManager = obj_view
@@ -27,10 +28,8 @@ class LANMap(QWidget):
         self.netMap = Network()
         self.setNetMap()
 
-    
     def initUI(self):
         # Set the general layout
-        self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)
         self.setLayout(self.layout)
 
@@ -57,10 +56,9 @@ class LANMap(QWidget):
         self.layout.addWidget(scroll_area)
 
         # Create a widget to contain the network map
-        self.net_widget = QWebEngineView()
         scroll_area.setWidget(self.net_widget)
     
-    def loadMap(self, path: Optional[str]=None):
+    def loadMap(self, path: Optional[str] = None):
         if path is not None:
             self.netMap.load_file(path)
             self.net_widget.setHtml(self.netMap.get_html())
@@ -80,7 +78,6 @@ class LANMap(QWidget):
         self.netMap.filter_menu = True
         # self.netMap.select_menu = True
 
-    
     def editMap(self):
         # Add nodes and edges
         for item in self.objManager:

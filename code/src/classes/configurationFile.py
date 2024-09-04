@@ -36,8 +36,8 @@ class ConfigurationFile:
         if os.path.exists(self.abs_path):
             return getattr(
                 switch_file,
-                ConfigurationFile.get_extension(self.abs_path),
-                switch_file.txt,
+                ConfigurationFile.get_extension(self.abs_path)+"_read",
+                switch_file.txt_read,
             )(self.abs_path)
         else:
             logging.error(f"Le fichier de configuration {self.file} n'existe pas.")

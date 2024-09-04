@@ -6,8 +6,8 @@ import os
 import subprocess
 import uuid
 
-from classes.clockManager import ClockManager
-from classes.cl_deviceType import DeviceType
+from src.classes.clockManager import ClockManager
+from src.classes.cl_deviceType import DeviceType
 
 
 class Device:
@@ -16,9 +16,10 @@ class Device:
             device_ipv4: str,
             mask_ipv4: str,
             save_path: str,
-            device_name: Optional[str] = None,
+            device_name: Optional[str] = 'Unknown',
             uuid_str: Optional[str] = None
             ) -> None:
+
         self.__uuid = None
         self.setUUIDObj(uuid_str)
         self.__is_connected: bool = False
@@ -30,11 +31,8 @@ class Device:
         self.__mask_ipv6: Optional[str] = None
         self.__type: Optional[DeviceType] = None
         self.__os: Optional[str] = None
-        self.__model: Optional[str] = None
-        self.__brand: Optional[str] = None
-        self.__mac: Optional[str] = None
-        self.__gateway: Optional[str] = None
-        self.__dns: Optional[str] = None
+        self.__vendor: Optional[str] = None     # Fournisseur
+        self.__mac: Optional[str] = None        # Mac Adresse
         self.__snmp: Optional[str] = None
         self.__ssh: Optional[str] = None
         self.__data: Optional[str] = None
@@ -55,15 +53,7 @@ class Device:
     @macAddress.setter
     def macAddress(self, new_mac: str):
         self.__mac = new_mac
-    
-    @property
-    def gateway(self) -> str | None:
-        return self.__gateway
-    
-    @gateway.setter
-    def gateway(self, new_gateway: str):
-        self.__gateway = new_gateway
-    
+
     @property
     def ipv6(self) -> str | None:
         return self.__ipv6
@@ -198,7 +188,7 @@ class Device:
         return list(self.dict_return().keys())
     
     @staticmethod
-    def from_dict(device_dict: dict) -> Device:  # type: ignore
+    def from_dict(device_dict: dict) -> Device:
         new_device = Device(
             device_dict["ipv4"],
             device_dict["mask_ipv4"],
@@ -208,8 +198,6 @@ class Device:
         )
         new_device.clockManager = ClockManager.from_dict(device_dict["clock_manager"])
         new_device.__ipv6 = device_dict["ipv6"]
-        new_device.__gateway = device_dict["gateway"]
-        new_device.__dns = device_dict["dns"]
         new_device.__links = device_dict["links_list"]
         return new_device
     

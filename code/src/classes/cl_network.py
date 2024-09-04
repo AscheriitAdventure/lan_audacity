@@ -4,8 +4,8 @@ import logging
 import os
 import uuid
 
-from classes.clockManager import ClockManager
-from classes.cl_device import Device
+from src.classes.clockManager import ClockManager
+from src.classes.cl_device import Device
 
 from src.functionsExt import ip_to_cidr
 
