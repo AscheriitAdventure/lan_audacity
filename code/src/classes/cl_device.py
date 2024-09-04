@@ -23,9 +23,9 @@ class Device:
         self.__uuid = None
         self.setUUIDObj(uuid_str)
         self.__is_connected: bool = False
-        self.__clockManager = ClockManager()
-        self.__name = device_name
-        self.__ipv4 = device_ipv4
+        self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
+        self.__name = device_name               # Nom de l'appareil
+        self.__ipv4 = device_ipv4               # Adresse ipv4 de L'appareil
         self.__mask_ipv4 = mask_ipv4
         self.__ipv6: Optional[str] = None
         self.__mask_ipv6: Optional[str] = None
@@ -186,20 +186,20 @@ class Device:
 
     def keys(self) -> list:
         return list(self.dict_return().keys())
-    
-    @staticmethod
-    def from_dict(device_dict: dict) -> Device:
-        new_device = Device(
-            device_dict["ipv4"],
-            device_dict["mask_ipv4"],
-            device_dict["abs_path"],
-            device_dict["name"],
-            device_dict["uuid"]
-        )
-        new_device.clockManager = ClockManager.from_dict(device_dict["clock_manager"])
-        new_device.__ipv6 = device_dict["ipv6"]
-        new_device.__links = device_dict["links_list"]
-        return new_device
+
+    # @staticmethod
+    # def from_dict(device_dict: dict) -> Device:
+    #    new_device = Device(
+    #        device_dict["ipv4"],
+    #        device_dict["mask_ipv4"],
+    #        device_dict["abs_path"],
+    #        device_dict["name"],
+    #        device_dict["uuid"]
+    #    )
+    #    new_device.clockManager = ClockManager.from_dict(device_dict["clock_manager"])
+    #    new_device.__ipv6 = device_dict["ipv6"]
+    #    new_device.__links = device_dict["links_list"]
+    #    return new_device"""
     
     def set_isConnected(self) -> None:
         try:
