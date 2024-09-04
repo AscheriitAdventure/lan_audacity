@@ -1,0 +1,281 @@
+[
+    {
+      "name": "lan_audacity",
+      "platform_and_name": ["mdi6.lan", "mdi6.scan-helper"],
+      "options": [
+        {
+          "scale_factor": 0.75
+        },
+        {
+          "color": "Black"
+        }
+      ]
+    },
+    {
+      "name": "folder_open",
+      "platform_and_name": ["mdi6.folder-open-outline"],
+      "options": [
+        {
+          "color": "Orange"
+        }
+      ]
+    },
+    {
+      "name": "extensionAction",
+      "platform_and_name": ["mdi6.puzzle"],
+      "options": null
+    },
+    {
+      "name": "userAction",
+      "platform_and_name": ["mdi6.account-settings"],
+      "options": null
+    },
+    {
+      "name": "preferencesAction",
+      "platform_and_name": ["mdi6.cog-outline"],
+      "options": null
+    },
+    {
+      "name": "newProject",
+      "platform_and_name": ["mdi6.new-box"],
+      "options": null
+    },
+    {
+      "name": "openProject",
+      "platform_and_name": ["mdi6.open-in-app"],
+      "options": null
+    },
+    {
+      "name": "saveProject",
+      "platform_and_name": ["mdi6.content-save"],
+      "options": null
+    },
+    {
+      "name": "saveAsProject",
+      "platform_and_name": ["mdi6.content-save-plus"],
+      "options": null
+    },
+    {
+      "name": "closeProject",
+      "platform_and_name": ["mdi6.folder-off"],
+      "options": null
+    },
+    {
+      "name": "exit",
+      "platform_and_name": ["mdi6.exit-to-app"],
+      "options": null
+    },
+    {
+      "name": "undoAction",
+      "platform_and_name": ["mdi6.arrow-u-left-top"],
+      "options": null
+    },
+    {
+      "name": "redoAction",
+      "platform_and_name": ["mdi6.arrow-u-right-top"],
+      "options": null
+    },
+    {
+      "name": "cutAction",
+      "platform_and_name": ["fa5s.cut"],
+      "options": null
+    },
+    {
+      "name": "copyAction",
+      "platform_and_name": ["fa5s.copy"],
+      "options": null
+    },
+    {
+      "name": "pasteAction",
+      "platform_and_name": ["fa5s.paste"],
+      "options": null
+    },
+    {
+      "name": "deleteAction",
+      "platform_and_name": ["fa5s.eraser"],
+      "options": null
+    },
+    {
+      "name": "selectAllAction",
+      "platform_and_name": ["mdi6.select-all"],
+      "options": null
+    },
+    {
+      "name": "selectNoneAction",
+      "platform_and_name": ["mdi6.selection-off"],
+      "options": null
+    },
+    {
+      "name": "selectInverseAction",
+      "platform_and_name": ["mdi6.select-inverse"],
+      "options": null
+    },
+    {
+      "name": "fileExplorerAction",
+      "platform_and_name": ["mdi6.folder-settings"],
+      "options": null
+    },
+    {
+      "name": "netExplorerAction",
+      "platform_and_name": ["mdi6.wan"],
+      "options": [
+        {
+          "color": "RoyalBlue"
+        }
+      ]
+    },
+    {
+      "name": "notificationAction",
+      "platform_and_name": ["mdi6.bell"],
+      "options": [
+        {
+          "color": "Orange"
+        }
+      ]
+    },
+    {
+      "name": "translateAction",
+      "platform_and_name": ["mdi6.translate"],
+      "options": null
+    },
+    {
+      "name": "terminalAction",
+      "platform_and_name": ["mdi6.console"],
+      "options": null
+    },
+    {
+      "name": "helpAction",
+      "platform_and_name": ["mdi6.chat-question"],
+      "options": null
+    },
+    {
+      "name": "aboutAction",
+      "platform_and_name": ["mdi6.information-variant"],
+      "options": null
+    },
+    {
+      "name": "languageAction",
+      "platform_and_name": ["mdi6.web"],
+      "options": null
+    },
+    {
+      "name": "shortcutKeyAction",
+      "platform_and_name": ["mdi6.keyboard-settings"],
+      "options": null
+    },
+    {
+      "name": "spinnerIcon",
+      "platform_and_name": ["fa5s.circle-notch"],
+      "options": [
+        {
+          "color": "RoyalBlue"
+        }
+      ]
+    },
+    {
+      "name": "searchAction",
+      "platform_and_name": ["fa5s.search"],
+      "options": null
+    },
+    {
+      "name": "toggleSideBar",
+      "platform_and_name": ["fa5s.window-maximize"],
+      "options": [
+        {
+          "rotated": 270
+        }
+      ]
+    },
+    {
+      "name": "togglePanel",
+      "platform_and_name": ["fa5s.window-maximize"],
+      "options": [
+        {
+          "rotated": 180
+        }
+      ]
+    },
+    {
+      "name": "newFolderAction",
+      "platform_and_name": ["mdi6.folder-plus-outline"],
+      "options": null
+    },
+    {
+      "name": "newFileAction",
+      "platform_and_name": ["mdi6.file-plus-outline"],
+      "options": null
+    },
+    {
+      "name": "newLanAction",
+      "platform_and_name": ["fa5s.network-wired", "fa5s.plus-circle"],
+      "options": [
+        {
+          "scale_factor": 1
+        },
+        {
+          "scale_factor": 0.5,
+          "color": "Lime"
+        }
+      ]
+    },
+    {
+      "name": "newDeviceAction",
+      "platform_and_name": ["mdi6.server-plus"],
+      "options": null
+    },
+    {
+      "name": "defaultIcon",
+      "platform_and_name": ["fa5s.shapes", "fa5s.question-circle"],
+      "options": [
+        {
+          "scale_factor": 1,
+          "color": "Silver"
+        },
+        {
+          "scale_factor": 0.5,
+          "color": "Blue"
+        }
+      ]
+    },
+    {
+      "name": "networkDefaultIcon",
+      "platform_and_name": ["mdi6.wan", "mdi6.routes"],
+      "options": [
+        {
+          "scale_factor": 1,
+          "color": "RoyalBlue"
+        },
+        {
+          "scale_factor": 0.75,
+          "color": "GreenForest"
+        }
+      ]
+    },
+    {
+      "name": "settingsBtn",
+      "platform_and_name": ["mdi6.cogs"],
+      "options": [
+        {
+          "color": "LightSlateGray"
+        }
+      ]
+    },
+    {
+      "name": "dashboardBtn",
+      "platform_and_name": ["mdi6.trello"],
+      "options": [
+        {
+          "color": "PaleTurquoise"
+        }
+      ]
+    },
+    {
+      "name": "refreshWebBtn",
+      "platform_and_name": ["mdi6.web-sync"],
+      "options": [
+        {
+          "color": "Silver"
+        }
+      ]
+    }
+  ]
