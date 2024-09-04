@@ -9,6 +9,7 @@ from qtpy.QtGui import *
 
 from src.functionsExt import current_dir, get_spcValue
 from src.classes.configurationFile import ConfigurationFile
+from src.classes.menuBarApp import MenuBarApp
 from src.classes.clockManager import ClockManager
 from src.classes.languageApp import LanguageApp
 from src.classes.shortcutApp import ShortcutApp
@@ -17,14 +18,8 @@ from src.classes.lanAudacity import LanAudacity
 from src.classes.cl_network import Network
 
 from src.views.formsApp import NProject
-from src.views.menuBarApp import MenuBarApp
-from code.src.views.formsApp import Tab
-from src.classes.flsExpl import FlsExpl
-from src.classes.netExpl import NetExpl
-from src.classes.generalSidePanel import GeneralSidePanel
-from src.classes.lanTabView import LanTabView
-from src.classes.generalTabsView import GeneralTabsView
-from src.classes.preferencesTabView import PreferencesTabView
+from src.views.tabsApp import PreferencesTabView, GeneralTabsView, LanTabView
+from src.views.primarySideBarPanel import GeneralSidePanel, FlsExpl, NetExpl
 
 
 

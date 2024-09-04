@@ -163,8 +163,6 @@ class NNetwork(FormDialog):
         return data
         
 
-
-
 class NProject(FormDialog):
     def __init__(self, ext_obj: Any = None, lang_manager: LanguageApp = None, icon_manager: IconsApp = None,
                  parent=None):
