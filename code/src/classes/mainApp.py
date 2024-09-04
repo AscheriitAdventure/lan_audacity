@@ -18,7 +18,7 @@ from src.classes.lanAudacity import LanAudacity
 from src.classes.cl_network import Network
 
 from src.views.formsApp import NProject
-from src.views.tabsApp import PreferencesTabView, GeneralTabsView, LanTabView
+from src.views.tabsApp import PreferencesTabView, GeneralTabsView, LanTabView, TabFactoryWidget as Tab
 from src.views.primarySideBarPanel import GeneralSidePanel, FlsExpl, NetExpl
 
 
