@@ -199,7 +199,7 @@ class Device:
     #    new_device.clockManager = ClockManager.from_dict(device_dict["clock_manager"])
     #    new_device.__ipv6 = device_dict["ipv6"]
     #    new_device.__links = device_dict["links_list"]
-    #    return new_device"""
+    #    return new_device
     
     def set_isConnected(self) -> None:
         try:
