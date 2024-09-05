@@ -1,4 +1,12 @@
-from pysnmp.hlapi import *
+from pysnmp.hlapi import (
+    getCmd,
+    SnmpEngine,
+    CommunityData,
+    UdpTransportTarget,
+    ContextData,
+    ObjectType,
+    ObjectIdentity,
+)
 import logging
 
 
@@ -65,7 +73,7 @@ class PysnmpForm:
 
         self.publicData = data
 
-    def snmp_privateWalk(self, ipv4: str, sysObjectID: str) -> None:
+    def snmp_privateWalk(self, ipv4: str, sysObjectID: str) -> None:    # Cette fonction a un problème à Corriger !
         # Pour lancer cette fonction, il faut posséder le mot de passe de la communauté privée
         # Pour lancer cette fonction, il faut posséder le sysObjectID de l'agent
         # Cette fonction a pour objectif de récupérer les informations de l'agent SNMP

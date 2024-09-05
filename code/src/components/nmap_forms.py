@@ -2,6 +2,66 @@ import nmap
 import logging
 
 
+class NmapPort:
+    def __init__(self, port: int, state: str, service: str, version: str):
+        self.__port = port
+        self.__state = state
+        self.__service = service
+        self.__version = version
+
+    @property
+    def port(self):
+        return self.__port
+
+    @property
+    def state(self):
+        return self.__state
+
+    @property
+    def service(self):
+        return self.__service
+
+    @property
+    def version(self):
+        return self.__version
+
+
+class NmapOs:
+    def __init__(
+        self,
+        os_name: str,
+        os_accuracy: int,
+        os_type: str,
+        os_vendor: str,
+        os_family: str,
+    ) -> None:
+        self.__os_name = os_name
+        self.__os_accuracy = os_accuracy
+        self.__os_type = os_type
+        self.__os_vendor = os_vendor
+        self.__os_family = os_family
+
+    @property
+    def osName(self):
+        return self.__os_name
+
+    @property
+    def osAccuracy(self):
+        return self.__os_accuracy
+
+    @property
+    def osType(self):
+        return self.__os_type
+
+    @property
+    def osVendor(self):
+        return self.__os_vendor
+
+    @property
+    def osFamily(self):
+        return self.__os_family
+
+
 class NmapForm:
     def __init__(self, target: str):
         self.__target = target
@@ -67,63 +127,3 @@ class NmapForm:
     def ports_add(self, port: int, state: str, service: str, version: str):
         new_port = NmapPort(port, state, service, version)
         self.__ports.append(new_port)
-
-
-class NmapPort:
-    def __init__(self, port: int, state: str, service: str, version: str):
-        self.__port = port
-        self.__state = state
-        self.__service = service
-        self.__version = version
-
-    @property
-    def port(self):
-        return self.__port
-
-    @property
-    def state(self):
-        return self.__state
-
-    @property
-    def service(self):
-        return self.__service
-
-    @property
-    def version(self):
-        return self.__version
-
-
-class NmapOs:
-    def __init__(
-        self,
-        os_name: str,
-        os_accuracy: int,
-        os_type: str,
-        os_vendor: str,
-        os_family: str,
-    ) -> None:
-        self.__os_name = os_name
-        self.__os_accuracy = os_accuracy
-        self.__os_type = os_type
-        self.__os_vendor = os_vendor
-        self.__os_family = os_family
-
-    @property
-    def osName(self):
-        return self.__os_name
-
-    @property
-    def osAccuracy(self):
-        return self.__os_accuracy
-
-    @property
-    def osType(self):
-        return self.__os_type
-
-    @property
-    def osVendor(self):
-        return self.__os_vendor
-
-    @property
-    def osFamily(self):
-        return self.__os_family
