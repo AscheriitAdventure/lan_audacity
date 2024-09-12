@@ -1,12 +1,4 @@
-from pysnmp.hlapi import (
-    getCmd,
-    SnmpEngine,
-    CommunityData,
-    UdpTransportTarget,
-    ContextData,
-    ObjectType,
-    ObjectIdentity,
-)
+from pysnmp.hlapi import *
 import logging
 
 
@@ -73,38 +65,46 @@ class PysnmpForm:
 
         self.publicData = data
 
-    def snmp_privateWalk(self, ipv4: str, sysObjectID: str) -> None:    # Cette fonction a un problème à Corriger !
+    def snmp_privateWalk(self, ipv4: str, sysObjectID: str) -> None:
         # Pour lancer cette fonction, il faut posséder le mot de passe de la communauté privée
         # Pour lancer cette fonction, il faut posséder le sysObjectID de l'agent
-        # Cette fonction a pour objectif de récupérer les informations de l'agent SNMP
+        # Cette fonction a pour objectif de récupérer les informations SNMP spécifiques de l'agent
+
         if not sysObjectID:
             logging.error("sysObjectID must be provided to walk the private SNMP MIB.")
             return
 
+        # Création d'un dictionnaire pour stocker les résultats
         data: dict = {}
-        errorIndication, errorStatus, errorIndex, varBinds = next(
-            getCmd(
-                SnmpEngine(),
-                CommunityData(self.communityPwd, mpModel=1),  # SNMPv2c
-                UdpTransportTarget((ipv4, self.portListened)),
-                ContextData(),
-                ObjectType(ObjectIdentity("IP-MIB", "ipRouteEntry")),
-                ObjectType(ObjectIdentity("IP-MIB", "ipCidrRouteEntry")),
-            )
-        )
-        if errorIndication:
-            logging.error(errorIndication)
-        elif errorStatus:
-            logging.error(
-                "%s at %s"
-                % (
-                    errorStatus.prettyPrint(),
-                    errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
+
+        try:
+            # Interroger l'agent SNMP en utilisant l'OID sysObjectID
+            errorIndication, errorStatus, errorIndex, varBinds = next(
+                getCmd(
+                    SnmpEngine(),
+                    CommunityData(self.communityPwd, mpModel=1),  # SNMPv2c pour la communauté privée
+                    UdpTransportTarget((ipv4, self.portListened)),
+                    ContextData(),
+                    ObjectType(ObjectIdentity(sysObjectID))  # Utilisation de sysObjectID
                 )
             )
-        else:
-            for varBind in varBinds:
-                name, value = varBind
-                data[str(name)] = str(value)
 
-        self.privateData = data
+            # Vérification des erreurs SNMP
+            if errorIndication:
+                logging.error(f"SNMP error: {errorIndication}")
+            elif errorStatus:
+                logging.error(
+                    f"SNMP error: {errorStatus.prettyPrint()} at {errorIndex and varBinds[int(errorIndex) - 1][0] or '?'}"
+                )
+            else:
+                # Extraction des données des varBinds
+                for varBind in varBinds:
+                    name, value = varBind
+                    data[str(name)] = str(value)
+
+            # Stocker les données récupérées
+            self.privateData = data
+
+        except Exception as e:
+            logging.error(f"An exception occurred during SNMP private walk: {str(e)}")
+

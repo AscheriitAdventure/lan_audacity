@@ -8,6 +8,8 @@ import uuid
 
 from src.classes.clockManager import ClockManager
 from src.classes.cl_deviceType import DeviceType
+from src.components.nmap_forms import NmapForm
+from src.components.pysnmp_forms import PysnmpForm
 
 
 class Device:
@@ -16,11 +18,11 @@ class Device:
             device_ipv4: str,
             mask_ipv4: str,
             save_path: str,
-            device_name: Optional[str] = 'Unknown',
+            device_name: Optional[str] = "Unknown",
             uuid_str: Optional[str] = None
             ) -> None:
 
-        self.__uuid = None
+        self.__uuid: str | None = None
         self.setUUIDObj(uuid_str)
         self.__is_connected: bool = False
         self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
@@ -28,24 +30,29 @@ class Device:
         self.__ipv4 = device_ipv4               # Adresse ipv4 de L'appareil
         self.__mask_ipv4 = mask_ipv4
         self.__ipv6: Optional[str] = None
-        self.__mask_ipv6: Optional[str] = None
-        self.__type: Optional[DeviceType] = None
-        self.__os: Optional[str] = None
-        self.__vendor: Optional[str] = None     # Fournisseur
+        self.__type: Optional[DeviceType] = DeviceType("general")
+        self.__vendor: Optional[str] = "Unknown"     # Fournisseur
         self.__mac: Optional[str] = None        # Mac Adresse
-        self.__snmp: Optional[str] = None
-        self.__ssh: Optional[str] = None
-        self.__data: Optional[str] = None
+        self.__snmp: Optional[PysnmpForm] = PysnmpForm()
+        self.__nmap_infos: Optional[NmapForm] = NmapForm(self.ipv4)
 
         self.__links = []
 
         if uuid_str is None:
-            self.absPath = f"{save_path}/{self.uuid}.json"
+            self.absPath = os.path.join(save_path, f"{self.uuid}.json")
             self.create_file()
         else:
             self.absPath = save_path
             self.open_file()
-    
+
+    @property
+    def pysnmpInfos(self) -> PysnmpForm:
+        return self.__snmp
+
+    @property
+    def nmapInfos(self) -> NmapForm:
+        return self.__nmap_infos
+
     @property
     def macAddress(self) -> str | None:
         return self.__mac
@@ -186,20 +193,6 @@ class Device:
 
     def keys(self) -> list:
         return list(self.dict_return().keys())
-
-    # @staticmethod
-    # def from_dict(device_dict: dict) -> Device:
-    #    new_device = Device(
-    #        device_dict["ipv4"],
-    #        device_dict["mask_ipv4"],
-    #        device_dict["abs_path"],
-    #        device_dict["name"],
-    #        device_dict["uuid"]
-    #    )
-    #    new_device.clockManager = ClockManager.from_dict(device_dict["clock_manager"])
-    #    new_device.__ipv6 = device_dict["ipv6"]
-    #    new_device.__links = device_dict["links_list"]
-    #    return new_device
     
     def set_isConnected(self) -> None:
         try:
@@ -220,13 +213,39 @@ class Device:
             logging.error("Timeout lors de la tentative de connexion à la machine.")
     
     def update_auto(self):
-        pass
-
-    def update_obj(self):
-        pass
+        self.set_nmap_mac()
+        self.set_nmap_vendor()
+        self.set_nmap_hostname()
+        self.set_isConnected()
+        self.save_file()
 
     def set_deviceName(self, new_name: Optional[str]) -> None:
         if new_name == "" or new_name is None:
             self.__name = f"Device_{self.ipv4}"
         else:
             self.__name = new_name
+
+    def set_nmap_mac(self) -> None:
+        nm = nmap.PortScanner()
+        nm.scan(hosts=self.ipv4, arguments="-sP")
+        logging.info(nm.command_line())
+        if self.ipv4 in nm.all_hosts():
+            self.__mac = nm[self.ipv4]["addresses"]["mac"]
+        else:
+            logging.error("Impossible de trouver l'adresse MAC de la machine.")
+
+    def set_nmap_vendor(self) -> None:
+        nm = nmap.PortScanner()
+        nm.scan(hosts=self.ipv4, arguments="-sP")
+        logging.info(nm.command_line())
+        if self.ipv4 in nm.all_hosts():
+            self.__vendor = nm[self.ipv4]["vendor"]
+        else:
+            logging.error("Impossible de trouver le constructeur de la machine.")
+
+    def set_nmap_hostname(self) -> None:
+        nm = nmap.PortScanner()
+        nm.scan(hosts=self.ipv4, arguments="-sL")
+        logging.info(nm.command_line())
+        if self.ipv4 in nm.all_hosts():
+            self.__name = nm[self.ipv4]["hostnames"][0]["name"]
