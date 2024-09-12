@@ -23,7 +23,14 @@ class Device:
             ) -> None:
 
         self.__uuid: str | None = None
-        self.setUUIDObj(uuid_str)
+        if uuid_str is None:
+            self.setUUIDObj(uuid_str)
+            self.absPath = os.path.join(save_path, f"{self.uuid}.json")
+            self.create_file()
+        else:
+            self.absPath = save_path
+            self.open_file()
+
         self.__is_connected: bool = False
         self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
         self.__name = device_name               # Nom de l'appareil
@@ -37,13 +44,6 @@ class Device:
         self.__nmap_infos: Optional[NmapForm] = NmapForm(self.ipv4)
 
         self.__links = []
-
-        if uuid_str is None:
-            self.absPath = os.path.join(save_path, f"{self.uuid}.json")
-            self.create_file()
-        else:
-            self.absPath = save_path
-            self.open_file()
 
     @property
     def pysnmpInfos(self) -> PysnmpForm:
@@ -68,14 +68,6 @@ class Device:
     @ipv6.setter
     def ipv6(self, new_ipv6: str):
         self.__ipv6 = new_ipv6
-    
-    @property
-    def maskIpv6(self) -> str | None:
-        return self.__mask_ipv6
-    
-    @maskIpv6.setter
-    def maskIpv6(self, new_mask_ipv6: str):
-        self.__mask_ipv6 = new_mask_ipv6
     
     @property
     def type(self) -> DeviceType | None:
