@@ -5,6 +5,7 @@ import logging
 import os
 import subprocess
 import uuid
+import nmap
 
 from src.classes.clockManager import ClockManager
 from src.classes.cl_deviceType import DeviceType
@@ -18,7 +19,7 @@ class Device:
             device_ipv4: str,
             mask_ipv4: str,
             save_path: str,
-            device_name: Optional[str] = "Unknown",
+            device_name: str = "Unknown",
             uuid_str: Optional[str] = None
             ) -> None:
 
@@ -33,7 +34,8 @@ class Device:
 
         self.__is_connected: bool = False
         self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
-        self.__name = device_name               # Nom de l'appareil
+        self.__name = "Unknown"
+        self.nameObj = device_name               # Nom de l'appareil
         self.__ipv4 = device_ipv4               # Adresse ipv4 de L'appareil
         self.__mask_ipv4 = mask_ipv4
         self.__ipv6: Optional[str] = None
@@ -44,6 +46,15 @@ class Device:
         self.__nmap_infos: Optional[NmapForm] = NmapForm(self.ipv4)
 
         self.__links = []
+
+    @property
+    def nameObj(self) -> str:
+        return self.__name
+
+    @nameObj.setter
+    def nameObj(self, new_name: str):
+        if new_name != "" and new_name is not None:
+            self.__name = new_name
 
     @property
     def pysnmpInfos(self) -> PysnmpForm:
@@ -105,15 +116,6 @@ class Device:
             self.uuid = new_uuid
 
     @property
-    def name(self) -> str | None:
-        return self.__name
-
-    @name.setter
-    def name(self, new_name: str):
-        if new_name != "" and new_name is not None:
-            self.__name = new_name
-
-    @property
     def maskIpv4(self) -> str:
         return self.__mask_ipv4
 
@@ -147,16 +149,16 @@ class Device:
         if not os.path.exists(self.absPath):
             with open(self.absPath, "w+") as f:
                 json.dump(self.dict_return(), f, indent=4, default=str)
-            logging.info(f"{self.name} is created")
+            logging.info(f"{self.nameObj} is created")
         else:
-            logging.info(f"{self.name} already exists")
+            logging.info(f"{self.nameObj} already exists")
 
     def open_file(self) -> Any:
         if os.path.exists(self.absPath):
             with open(self.absPath, "r") as f:
                 return json.load(f)
         else:
-            logging.info(f"{self.name} doesn't exist")
+            logging.info(f"{self.nameObj} doesn't exist")
             return {}
 
     def save_file(self) -> None:
@@ -164,14 +166,14 @@ class Device:
             self.clockManager.add_clock()
             with open(self.absPath, "w") as f:
                 json.dump(self.dict_return(), f, indent=4, default=str)
-            logging.info(f"{self.name} is saved")
+            logging.info(f"{self.nameObj} is saved")
         else:
-            logging.info(f"{self.name} doesn't exist")
+            logging.info(f"{self.nameObj} doesn't exist")
 
     def dict_return(self) -> dict:
         return {
             "uuid": self.uuid,
-            "name": self.name,
+            "name": self.nameObj,
             "abs_path": self.absPath,
             "clock_manager": self.clockManager.dict_return(),
             "ipv4": self.ipv4,
