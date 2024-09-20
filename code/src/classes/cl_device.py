@@ -22,7 +22,6 @@ class Device:
             device_name: str = "Unknown",
             uuid_str: Optional[str] = None
             ) -> None:
-
         self.__uuid: str | None = None
         if uuid_str is None:
             self.setUUIDObj(uuid_str)
@@ -35,15 +34,15 @@ class Device:
         self.__is_connected: bool = False
         self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
         self.__name = "Unknown"
-        self.nameObj = device_name               # Nom de l'appareil
+        self.nameObj = device_name              # Nom de l'appareil
         self.__ipv4 = device_ipv4               # Adresse ipv4 de L'appareil
         self.__mask_ipv4 = mask_ipv4
         self.__ipv6: Optional[str] = None
-        self.__type: Optional[DeviceType] = DeviceType("general")
-        self.__vendor: Optional[str] = "Unknown"     # Fournisseur
+        self.__type: DeviceType = DeviceType("general")
+        self.__vendor: str = "Unknown"     # Fournisseur
         self.__mac: Optional[str] = None        # Mac Adresse
-        self.__snmp: Optional[PysnmpForm] = PysnmpForm()
-        self.__nmap_infos: Optional[NmapForm] = NmapForm(self.ipv4)
+        self.__snmp: PysnmpForm = PysnmpForm()
+        self.__nmap_infos: NmapForm = NmapForm(self.ipv4)
 
         self.__links = []
 
@@ -81,7 +80,7 @@ class Device:
         self.__ipv6 = new_ipv6
     
     @property
-    def type(self) -> DeviceType | None:
+    def type(self) -> DeviceType:
         return self.__type
     
     @type.setter
@@ -243,3 +242,11 @@ class Device:
         logging.info(nm.command_line())
         if self.ipv4 in nm.all_hosts():
             self.__name = nm[self.ipv4]["hostnames"][0]["name"]
+    
+    @property
+    def vendor(self) -> str:
+        return self.__vendor
+    
+    @vendor.setter
+    def vendor(self, new_vendor: str) -> None:
+        self.__vendor = new_vendor

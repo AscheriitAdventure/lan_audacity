@@ -118,12 +118,17 @@ class NetObject:
     
 
 class NetDevice(NetObject):
-    def __init__(self, ipv4: str, mask_ipv4: str):
+    def __init__(self, ipv4: str, mask_ipv4: str, uuid_str: Optional[str] = None):
         super().__init__()
         self.addressIp["ipv4"] = ipv4
         self.addressIp["mask_ipv4"] = mask_ipv4
         self.addressIp["cidr"] = ip_and_mask_to_cidr(ipv4, mask_ipv4)
-        self._uuid: str = str(uuid.uuid4())
+
+        if uuid_str is not None:
+            self._uuid = uuid_str
+        else:
+            self.setUUIDObj(uuid_str)
+        
         self._clock_manager: ClockManager = ClockManager()  # ClockManager object
         self._mac: str = ""                 # MAC address
         self._vendor: str = "Unknown"       # Vendor name
