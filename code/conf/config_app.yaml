@@ -1,7 +1,7 @@
 version: 1
 system:
   name: Lan Audacity
-  version: 1.0.4
+  version: 1.1.1
   authors: "Geoffrey TRONCHE"
   organization: Student Software Development 2024
   type: application/desktop

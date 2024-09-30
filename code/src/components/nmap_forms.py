@@ -127,3 +127,10 @@ class NmapForm:
     def ports_add(self, port: int, state: str, service: str, version: str):
         new_port = NmapPort(port, state, service, version)
         self.__ports.append(new_port)
+
+    def jsonData(self):
+        return {
+            "target": self.__target,
+            "ports": [i.__dict__ for i in self.__ports],
+            "os": [i.__dict__ for i in self.__os],
+        }

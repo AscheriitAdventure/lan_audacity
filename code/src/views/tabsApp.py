@@ -7,6 +7,7 @@ from typing import Any, Optional
 from qtpy.QtCore import Qt, QRunnable, QThreadPool
 from qtpy.QtWidgets import QWidget, QGridLayout, QVBoxLayout, QPushButton, QStackedLayout, QTabWidget
 
+from src.functionsExt import ip_to_cidr
 from src.classes.cl_device import Device
 from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
@@ -215,23 +216,27 @@ class SyncWorker(QRunnable):
 
     def run(self):
         # Effectuez la recherche des appareils connectés au réseau ici
-        self.update_network()
+        self.update_network() # fonctionne pas bien
+
         # Mettez à jour l'interface utilisateur ou effectuez d'autres actions nécessaires
         self.parent.extObj.save_network()
 
     def update_network(self):
         # Search ip address lan with nmap
         nm = nmap.PortScanner()
-        lan = f"{self.parent.extObj.ipv4}/{self.parent.extObj.maskIpv4}"
+        lan = ip_to_cidr(self.parent.extObj.ipv4, self.parent.extObj.maskIpv4)
         path_device = os.path.join(os.path.dirname(os.path.dirname(self.parent.extObj.absPath)), "desktop")
-        logging.debug(f"{path_device}")
+        
         nm.scan(hosts=lan, arguments='-sn')
+        logging.debug(f"abspath: {path_device}, list_host: {nm.all_hosts()}, lan: {lan}")
         for host in nm.all_hosts():
             logging.debug("SyncWorker for %s", lan)
             new_device = Device(host, self.parent.extObj.maskIpv4, path_device)
+            new_device.update_auto()
             # search data about devices connected
 
             self.parent.extObj.add_device(new_device)
+            self.parent.extObj.save_network()
             # perform actions to gather data about the device connected to the LAN
             new_device.update_auto()
 
@@ -343,5 +348,4 @@ class LanTabView(GeneralTabsView):
         thread_pool.start(worker) # Démarrez le travail dans le pool de threads
 
         # Mise à jour de self.extObj avec les appareils connectés
-        # self.extObj.update_devices()
-
+        self.extObj.save_network()

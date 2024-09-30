@@ -22,19 +22,11 @@ class Device:
             device_name: str = "Unknown",
             uuid_str: Optional[str] = None
             ) -> None:
-        self.__uuid: str | None = None
-        if uuid_str is None:
-            self.setUUIDObj(uuid_str)
-            self.absPath = os.path.join(save_path, f"{self.uuid}.json")
-            self.create_file()
-        else:
-            self.absPath = save_path
-            self.open_file()
-
+        self.__uuid: str | None = uuid_str
+        
         self.__is_connected: bool = False
         self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
         self.__name = "Unknown"
-        self.nameObj = device_name              # Nom de l'appareil
         self.__ipv4 = device_ipv4               # Adresse ipv4 de L'appareil
         self.__mask_ipv4 = mask_ipv4
         self.__ipv6: Optional[str] = None
@@ -45,6 +37,16 @@ class Device:
         self.__nmap_infos: NmapForm = NmapForm(self.ipv4)
 
         self.__links = []
+
+        self.nameObj = device_name              # Nom de l'appareil
+        if uuid_str is None:
+            self.setUUIDObj(uuid_str)
+            self.absPath = os.path.join(save_path, f"{self.uuid}.json")
+            self.create_file()
+        else:
+            self.absPath = save_path
+            self.open_file()
+
 
     @property
     def nameObj(self) -> str:
@@ -148,9 +150,9 @@ class Device:
         if not os.path.exists(self.absPath):
             with open(self.absPath, "w+") as f:
                 json.dump(self.dict_return(), f, indent=4, default=str)
-            logging.info(f"{self.nameObj} is created")
+            logging.info(f"{self.uuid} file is created")
         else:
-            logging.info(f"{self.nameObj} already exists")
+            logging.info(f"{self.uuid} file already exists")
 
     def open_file(self) -> Any:
         if os.path.exists(self.absPath):
@@ -178,9 +180,11 @@ class Device:
             "ipv4": self.ipv4,
             "mask_ipv4": self.maskIpv4,
             "ipv6": self.ipv6,
-            "gateway": self.gateway,
-            "dns": self.dns,
-            "dhcp": self.dhcp,
+            "type": self.type.jsonData(),
+            "vendor": self.vendor,
+            "mac": self.macAddress,
+            "snmp": self.pysnmpInfos.jsonData(),
+            "nmap": self.nmapInfos.jsonData(),
             "links_list": self.linksList,
         }
 

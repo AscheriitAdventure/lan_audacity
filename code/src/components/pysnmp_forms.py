@@ -108,3 +108,10 @@ class PysnmpForm:
         except Exception as e:
             logging.error(f"An exception occurred during SNMP private walk: {str(e)}")
 
+    def jsonData(self) -> dict:
+        return {
+            "port": self.portListened,
+            "community": self.communityPwd,
+            "public": self.publicData,
+            "private": self.privateData,
+        }
