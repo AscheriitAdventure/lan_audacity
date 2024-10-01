@@ -233,6 +233,7 @@ class SyncWorker(QRunnable):
             logging.debug("SyncWorker for %s", lan)
             new_device = Device(host, self.parent.extObj.maskIpv4, path_device)
             new_device.update_auto()
+            new_device.save_file()
             # search data about devices connected
 
             self.parent.extObj.add_device(new_device)

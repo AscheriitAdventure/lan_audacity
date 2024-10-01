@@ -227,7 +227,7 @@ class Device:
         nm.scan(hosts=self.ipv4, arguments="-sP")
         logging.info(nm.command_line())
         if self.ipv4 in nm.all_hosts():
-            self.__mac = nm[self.ipv4]["addresses"]["mac"]
+            self.__mac = nm[self.ipv4]["addresses"]["mac"] if "mac" in nm[self.ipv4]["addresses"] else None
         else:
             logging.error("Impossible de trouver l'adresse MAC de la machine.")
 
@@ -236,7 +236,7 @@ class Device:
         nm.scan(hosts=self.ipv4, arguments="-sP")
         logging.info(nm.command_line())
         if self.ipv4 in nm.all_hosts():
-            self.__vendor = nm[self.ipv4]["vendor"]
+            self.__vendor = nm[self.ipv4]["vendor"] if "vendor" in nm[self.ipv4] else "Unknown"
         else:
             logging.error("Impossible de trouver le constructeur de la machine.")
 
@@ -245,7 +245,7 @@ class Device:
         nm.scan(hosts=self.ipv4, arguments="-sL")
         logging.info(nm.command_line())
         if self.ipv4 in nm.all_hosts():
-            self.__name = nm[self.ipv4]["hostnames"][0]["name"]
+            self.__name = nm[self.ipv4]["hostnames"][0]["name"] if "hostnames" in nm[self.ipv4] else "Unknown"
     
     @property
     def vendor(self) -> str:

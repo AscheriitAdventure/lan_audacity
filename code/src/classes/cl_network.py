@@ -160,7 +160,7 @@ class Network:
         self.clockManager.add_clock()
         with open(self.absPath, "w") as f:
             json.dump(self.dict_return(), f, indent=4)
-        logging.info(f"{device.name} is added to {self.name}")
+        logging.info(f"{device.nameObj} is added to {self.name}")
 
     def remove_device(self, device: Device) -> None:
         self.devices.remove(device.uuid)
@@ -168,7 +168,7 @@ class Network:
         device.delete_device()
         with open(self.absPath, "w") as f:
             json.dump(self.dict_return(), f, indent=4)
-        logging.info(f"{device.name} is removed from {self.name}")
+        logging.info(f"{device.nameObj} is removed from {self.name}")
 
     def dict_return(self) -> dict:
         return {

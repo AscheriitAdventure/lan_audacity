@@ -251,6 +251,14 @@ class LANDashboard(QWidget):
         lan_body_card = QTableWidget(self)
         lan_body_card.setColumnCount(4)
         lan_body_card.setHorizontalHeaderLabels(["IPv4", "Name", "Mac Address", "Connected"])
+        if self.objManager.devicesList is not []:
+            for device in self.objManager.devicesList:
+                lan_body_card.insertRow(lan_body_card.rowCount())
+                # recupère le nom du fichier
+                """lan_body_card.setItem(lan_body_card.rowCount() - 1, 0, QTableWidgetItem(device['ipv4']))
+                lan_body_card.setItem(lan_body_card.rowCount() - 1, 1, QTableWidgetItem(device['name']))
+                lan_body_card.setItem(lan_body_card.rowCount() - 1, 2, QTableWidgetItem(device['mac']))
+                lan_body_card.setItem(lan_body_card.rowCount() - 1, 3, QTableWidgetItem(str(device['isConnected'])))"""
 
         ico_lan = qtawesome.icon('mdi6.lan-connect', options=[{'color': 'silver'}])
         lan_card = Card(ico_lan, QLabel(f'LAN {self.objManager.dns}'), None, lan_body_card)
