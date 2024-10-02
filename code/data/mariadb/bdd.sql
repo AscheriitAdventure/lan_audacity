@@ -98,3 +98,21 @@ CREATE TABLE IF NOT EXISTS NetworkDevice (
     FOREIGN KEY (device_id) REFERENCES Device(device_id) ON DELETE CASCADE      -- Relation vers Device
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS OSAccuracy (
+    os_accuracy_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,  -- Identifiant unique pour chaque entrée OSAccuracy
+    name_object VARCHAR(100) NOT NULL,                       -- Nom de la précision
+    accuracy_int INT UNSIGNED,                               -- Valeur de la précision
+    device_id INT UNSIGNED,                                  -- Clé étrangère vers la table Device
+    FOREIGN KEY (device_id) REFERENCES Device(device_id) ON DELETE CASCADE  -- Relation vers Device
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS PortsObject (
+    port_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,   -- Identifiant unique pour chaque entrée PortsObject
+    port_number INT UNSIGNED,                          -- Numéro de port
+    protocol VARCHAR(15) DEFAULT 'NON Renseigné',      -- Protocole utilisé
+    port_status VARCHAR(30) DEFAULT 'NON Renseigné',   -- État du port
+    port_service VARCHAR(255) DEFAULT 'NON Renseigné', -- Nom du service
+    port_version VARCHAR(255) DEFAULT 'NON Renseigné', -- Version du port
+    device_id INT UNSIGNED,                            -- Clé étrangère vers la table Device
+    FOREIGN KEY (device_id) REFERENCES Device(device_id) ON DELETE CASCADE  -- Relation vers Device
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
