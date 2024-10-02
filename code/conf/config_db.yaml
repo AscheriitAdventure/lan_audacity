@@ -4,7 +4,8 @@ database:
   port: 3306
   username: root
   password: root
-  dbname: map_network
+  dbname: lan_audacity_sql_server
+  charset: utf8
 
 network:
   sites:
