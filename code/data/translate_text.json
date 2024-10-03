@@ -12,32 +12,32 @@
     {
       "string": "&Select",
       "english": "&Select",
-      "français": "Sélection"
+      "français": "&Sélection"
     },
     {
       "string": "&View",
       "english": "&View",
-      "français": "Affichage"
+      "français": "&Affichage"
     },
     {
       "string": "&Terminal",
       "english": "&Terminal",
-      "français": "Terminal"
+      "français": "&Terminal"
     },
     {
       "string": "&Window",
       "english": "&Window",
-      "français": "Fenêtre"
+      "français": "&Fenêtre"
     },
     {
       "string": "&Preferences",
       "english": "&Preferences",
-      "français": "Parmètres"
+      "français": "&Parmètres"
     },
     {
       "string": "&Help",
       "english": "&Help",
-      "français": "Aide"
+      "français": "&Aide"
     },
     {
       "string": "Log In",
