@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
 from uuid import UUID
+import re
 
 # Classe pour la table OSILayer
 @dataclass
@@ -34,6 +35,31 @@ class WebAddress:
     ipv6_local: Optional[str] = None
     ipv6_global: Optional[str] = None
 
+    @staticmethod
+    def validate_ipv4(ipv4: str) -> bool:
+        pattern = re.compile(r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
+        if pattern.match(ipv4):
+            parts = ipv4.split(".")
+            for part in parts:
+                if not 0 <= int(part) <= 255:
+                    return False
+            return True
+        return False
+    
+    @staticmethod
+    def validate_ipv6(ipv6: str) -> bool:
+        pattern = re.compile(r"^([0-9a-fA-F]{1,4}:){7}([0-9a-fA-F]{1,4})$|^::([0-9a-fA-F]{1,4}:){0,5}([0-9a-fA-F]{1,4})$|^([0-9a-fA-F]{1,4}:){1,6}:$|^([0-9a-fA-F]{1,4}:){1,7}:$")
+        return bool(pattern.match(ipv6))
+    
+    @staticmethod
+    def validate_cidr(cidr: str) -> bool:
+        pattern = re.compile(r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$")
+        if pattern.match(cidr):
+            parts = cidr.split("/")
+            if 0 <= int(parts[1]) <= 32:
+                return WebAddress.validate_ipv4(parts[0])
+        return False
+
 # Classe pour la table DeviceType
 @dataclass
 class DeviceType:
@@ -49,7 +75,7 @@ class DeviceType:
 class Device:
     device_id: int
     uuid: UUID
-    name_object: str
+    name_object: str = "Unknown Device"
     web_address: Optional[WebAddress]
     clock_manager: Optional[ClockManager]
     type_device: Optional[DeviceType]
@@ -61,7 +87,7 @@ class Device:
 class Network:
     network_id: int
     uuid: UUID
-    name_object: str
+    name_object: str = "Unknown Network"
     web_address: Optional[WebAddress]
     clock_manager: Optional[ClockManager]
     dns_object: Optional[str]
@@ -75,13 +101,30 @@ class OSAccuracy:
     accuracy_int: int
     device: Device
 
+    @staticmethod
+    def validate_accuracy_int(accuracy_int: int) -> bool:
+        return 0 <= accuracy_int <= 100
+
 # Classe pour la table PortsObject
 @dataclass
 class PortsObject:
-    port_id: int
+    port_id: int 
     port_number: int
     protocol: Optional[str]
     port_status: Optional[str]
     port_service: Optional[str]
     port_version: Optional[str]
     device: Device
+
+    @staticmethod
+    def validate_port_number(port_number: int) -> bool:
+        """
+        Validate if the port number is within the valid range for TCP/UDP ports.
+        
+        Args:
+            port_number (int): The port number to validate.
+        
+        Returns:
+            bool: True if the port number is valid, False otherwise.
+        """
+        return 0 <= port_number <= 65535
