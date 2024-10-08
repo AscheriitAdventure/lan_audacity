@@ -82,7 +82,7 @@ Vous devez structurer votre projet de manière à ce que Docker puisse construir
 
 ```Dockerfile
 # Utilisez une image Python de base
-FROM python:3.10
+FROM python:3.12
 
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /app
