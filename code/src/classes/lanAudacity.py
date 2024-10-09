@@ -285,13 +285,14 @@ class LanAudacity(FileManagement):
         for network in self.networks.get('obj_ls', []):
             if network.get('name') == network_name:
                 net_data = SwitchFile.json_read(network['path'])
-                logging.debug(net_data['name'])
+                # logging.debug(net_data['name'])
                 network_object = Network(
                     network_ipv4=net_data['ipv4'], network_mask_ipv4=net_data['mask_ipv4'], save_path=net_data['abs_path'],
                     network_name=net_data['name'], network_ipv6=net_data['ipv6'], network_gateway=net_data['gateway'],
                     network_dns=net_data['dns'], network_dhcp=net_data['dhcp'], uuid_str=net_data['uuid']
                 )
                 network_object.clockManager = ClockManager(net_data['clock_manager']['clock_created'], net_data['clock_manager']['clock_list'])
+                network_object.devicesList = net_data['devices_list'] if 'devices_list' in net_data else []
                 return network_object
         return None
 

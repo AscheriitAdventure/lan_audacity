@@ -8,6 +8,8 @@ from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
 from src.views.templatesViews import Card, LineUpdate, RoundedBtn, CardStackGeneral
 from src.classes.configurationFile import ConfigurationFile
+import os
+import json
 
 
 class PreferencesGeneral(CardStackGeneral):
@@ -137,18 +139,10 @@ class NetworkGeneral(CardStackGeneral):
             },
             {
                 "icon_card": None,
-                "title_card": QLabel("DNS"),
+                "title_card": QLabel("Nom de Domaine"),
                 "img_card": None,
                 "corps_card": LineUpdate(
                     QLineEdit(self.objManager.dns),
-                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
-            },
-            {
-                "icon_card": None,
-                "title_card": QLabel("DHCP"),
-                "img_card": None,
-                "corps_card": LineUpdate(
-                    QLineEdit(self.objManager.dhcp),
                     RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
@@ -237,7 +231,7 @@ class LANDashboard(QWidget):
 
         dns_edit = QLineEdit(self.objManager.dns)
         dns_edit.setReadOnly(True)
-        wan_body_card_layout.addWidget(LineUpdate(QLabel('DNS :'), dns_edit))
+        wan_body_card_layout.addWidget(LineUpdate(QLabel('Nom de Domaine :'), dns_edit))
 
         gate_edit = QLineEdit(self.objManager.gateway)
         gate_edit.setReadOnly(True)
@@ -248,18 +242,24 @@ class LANDashboard(QWidget):
         self.card_layout.addWidget(wan_card, 0, 0)
 
         # LAN <ip réseaux or nom du dns>, card(Rang 0, Colonne 1)
+        lan_headband: list = ["IPv4", "Name", "Mac Address"]
         lan_body_card = QTableWidget(self)
-        lan_body_card.setColumnCount(4)
-        lan_body_card.setHorizontalHeaderLabels(["IPv4", "Name", "Mac Address", "Connected"])
+        lan_body_card.setColumnCount(lan_headband.__len__())
+        lan_body_card.setHorizontalHeaderLabels(lan_headband)
+        self.update_lan()
         if self.objManager.devicesList is not []:
             for device in self.objManager.devicesList:
                 lan_body_card.insertRow(lan_body_card.rowCount())
-                # recupère le nom du fichier
-                """lan_body_card.setItem(lan_body_card.rowCount() - 1, 0, QTableWidgetItem(device['ipv4']))
-                lan_body_card.setItem(lan_body_card.rowCount() - 1, 1, QTableWidgetItem(device['name']))
-                lan_body_card.setItem(lan_body_card.rowCount() - 1, 2, QTableWidgetItem(device['mac']))
-                lan_body_card.setItem(lan_body_card.rowCount() - 1, 3, QTableWidgetItem(str(device['isConnected'])))"""
-
+                var_path = os.path.join(os.path.dirname(os.path.dirname(self.objManager.absPath)), "desktop",f"{device}.json")
+                if os.path.exists(var_path):
+                    with open(var_path, 'r') as f:
+                        device_data = json.load(f)
+                        ipv4 = device_data.get('ipv4', 'value unknown') or 'value unknown'
+                        name = device_data.get('name', 'value unknown') or 'value unknown'
+                        mac = device_data.get('mac', 'value unknown') or 'value unknown'
+                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 0, QTableWidgetItem(ipv4))
+                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 1, QTableWidgetItem(name))
+                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 2, QTableWidgetItem(mac))
         ico_lan = qtawesome.icon('mdi6.lan-connect', options=[{'color': 'silver'}])
         lan_card = Card(ico_lan, QLabel(f'LAN {self.objManager.dns}'), None, lan_body_card)
         self.card_layout.addWidget(lan_card, 0, 1, 1, 3)
@@ -281,3 +281,13 @@ class LANDashboard(QWidget):
         ico_lan_pb = qtawesome.icon('mdi6.clipboard-alert')
         curr_pbs_card = Card(ico_lan_pb, QLabel('Current Problems'), None, lspb_body_card)
         self.card_layout.addWidget(curr_pbs_card, 1, 2, 1, 2)
+    
+    def update_lan(self):
+        list_object = self.objManager.devicesList
+        try:
+            if list_object is []:
+                pass
+            else:
+                logging.debug(f"prison bleu:{list_object}")
+        except Exception as e:
+            logging.error(e)

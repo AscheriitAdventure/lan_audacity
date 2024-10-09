@@ -34,7 +34,6 @@ class Network:
         self.__ipv6: Optional[str] = network_ipv6
         self.__gateway: Optional[str] = network_gateway
         self.__dns: Optional[str] = network_dns
-        self.__dhcp: Optional[str] = network_dhcp
         self.__clockManager = ClockManager()
         self.__abs_path: str = ""
 
@@ -115,10 +114,6 @@ class Network:
         return self.__dns
 
     @property
-    def dhcp(self) -> str | None:
-        return self.__dhcp
-
-    @property
     def clockManager(self) -> ClockManager:
         return self.__clockManager
 
@@ -129,6 +124,10 @@ class Network:
     @property
     def devicesList(self) -> list:
         return self.__devices
+
+    @devicesList.setter
+    def devicesList(self, devices: list) -> None:
+        self.__devices = devices
 
     def create_network(self) -> None:
         if not os.path.exists(self.absPath):
@@ -181,12 +180,11 @@ class Network:
             "ipv6": self.ipv6,
             "gateway": self.gateway,
             "dns": self.dns,
-            "dhcp": self.dhcp,
             "devices_list": self.__devices
         }
 
     def keys(self) -> list:
-        return ["Name", "IPv4", "Mask IPv4", "IPv6", "Gateway", "DNS", "DHCP"]
+        return ["Name", "IPv4", "Mask IPv4", "IPv6", "Gateway", "Nom de Domaine", "DHCP"]
 
     def __str__(self) -> str:
         return f"{self.name} - {self.ipv4} - {self.maskIpv4}"

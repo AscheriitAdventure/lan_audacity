@@ -141,15 +141,8 @@ class NNetwork(FormDialog):
                 "required": False
             },
             {
-                "n_label": "Network DNS:",
+                "n_label": "Network Nom de Domaine:",
                 "n_obj": "dns",
-                "n_text": None,
-                "n_placeholder": "127.0.0.0",
-                "required": False
-            },
-            {
-                "n_label": "Network DHCP:",
-                "n_obj": "dhcp",
                 "n_text": None,
                 "n_placeholder": "127.0.0.0",
                 "required": False

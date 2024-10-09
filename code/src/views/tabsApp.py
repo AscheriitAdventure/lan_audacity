@@ -216,7 +216,7 @@ class SyncWorker(QRunnable):
 
     def run(self):
         # Effectuez la recherche des appareils connectés au réseau ici
-        self.update_network() # fonctionne pas bien
+        self.update_network()
 
         # Mettez à jour l'interface utilisateur ou effectuez d'autres actions nécessaires
         self.parent.extObj.save_network()
