@@ -2,30 +2,38 @@ version: '3.8'
 
 services:
   mariadb:
-    image: mariadb:latest
-    container_name: sql_server
+    image: 'mariadb:latest'
+    container_name: ${MARIADB_HOST}
     env_file:
       - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MARIADB_DATABASE}
+      MYSQL_USER: ${MARIADB_USER}
+      MYSQL_PASSWORD: ${MARIADB_PASSWORD}
     ports:
       - "${MARIADB_PORT}:3306"
     volumes:
       - ./configs/mariadb.conf:/etc/mysql/mariadb.conf.d/50-server.cnf  # Configuration MariaDB
-      - ./services/srv_mariadb.txt:/var/lib/mysql                       # Données MariaDB
+      - ./services/srv_mariadb:/var/lib/mysql                           # Données MariaDB
       - ./logs/mariadb.log:/var/log/mysql/mariadb.log                   # Fichier de log MariaDB
     networks:
       - lan_audacity_network
 
   mongodb:
-    image: mongo:latest
-    container_name: nosql_server
+    image: 'mongo:latest'
+    container_name: ${MONGODB_HOST}
     env_file:
       - .env
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
     ports:
       - "${MONGODB_PORT}:27017"
     volumes:
-      - ./configs/mongodb.conf:/etc/mongo/mongod.conf                   # Configuration MongoDB
-      - ./services/srv_mongodb.txt:/data/db                             # Données MongoDB
-      - ./logs/mongodb.log:/var/log/mongodb/mongodb.log                 # Fichier de log MongoDB
+      - ./configs/mongodb.conf:/etc/mongo/mongod.conf     # Configuration MongoDB
+      - ./services/srv_mongodb:/data/db                   # Données MongoDB
+      - ./logs/mongodb.log:/var/log/mongodb/mongodb.log   # Fichier de log MongoDB
     networks:
       - lan_audacity_network
 
