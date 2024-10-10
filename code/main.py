@@ -18,38 +18,23 @@ if os_sys.exec_os():
     else:
         # Lancer le fichier docker-compose
         os.system("docker-compose up -d")
-        
+
         # Déverrouiller le conteneur MariaDB avec le fichier `.env`
-        mariadb_docker = MariaDB_Docker()
-        mariadb_username = os.getenv("MARIADB_USER")
-        mariadb_password = os.getenv("MARIADB_PASSWORD")
-        mariadb_database = os.getenv("MARIADB_DATABASE")
-        
-        if mariadb_username and mariadb_password and mariadb_database:
-            if mariadb_docker.unlock_container(mariadb_username, mariadb_password, mariadb_database):
-                logging.info("MariaDB container is successfully unlocked.")
-            else:
-                logging.error("Failed to unlock MariaDB container.")
-                sys.exit(1)
-        else:
-            logging.error("Missing MariaDB credentials in `.env` file.")
-            sys.exit(1)
-        
+        mariadb_docker = MariaDB_Docker(
+            root_password=os.getenv("MARIADB_ROOT_PASSWORD"),
+            database=os.getenv("MARIADB_DATABASE"),
+            user=os.getenv("MARIADB_USER"),
+            password=os.getenv("MARIADB_PASSWORD"),
+            port=os.getenv("MARIADB_PORT"),
+        )
+
         # Déverrouiller le conteneur MongoDB avec le fichier `.env`
-        mongodb_docker = MongoDB_Docker()
-        mongodb_username = os.getenv("MONGO_INITDB_ROOT_USERNAME")
-        mongodb_password = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
-        
-        if mongodb_username and mongodb_password:
-            if mongodb_docker.unlock_container(mongodb_username, mongodb_password):
-                logging.info("MongoDB container is successfully unlocked.")
-            else:
-                logging.error("Failed to unlock MongoDB container.")
-                sys.exit(1)
-        else:
-            logging.error("Missing MongoDB credentials in `.env` file.")
-            sys.exit(1)
-        
+        mongodb_docker = MongoDB_Docker(
+            user=os.getenv("MONGODB_USER"),
+            password=os.getenv("MONGODB_PASSWORD"),
+            port=os.getenv("MONGODB_PORT"),
+        )
+
 else:
     logging.info("Operating system not supported.")
     sys.exit(1)

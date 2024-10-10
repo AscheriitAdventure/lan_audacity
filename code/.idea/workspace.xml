@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7c52a5fd-54f6-46ea-8834-91462d096175" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/cl_app_sys.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/cl_app_sys.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +38,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.lan_audacity.executor": "Debug",
+    "Python.main.executor": "Run",
     "Python.main_app.executor": "Debug",
+    "Python.obj-10102024.executor": "Run",
     "Python.primarySidePanel.executor": "Debug",
     "Python.py-nmap.executor": "Debug",
     "Python.pyqt_views.executor": "Debug",
@@ -51,7 +55,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>

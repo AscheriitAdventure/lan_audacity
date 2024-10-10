@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import os
 import logging
 import uuid
@@ -56,13 +56,13 @@ class MongoDB_Docker:
 
 @dataclass
 class User:
-    username: str = os.getlogin()
-    password: str = ""
+    username: str = field(default_factory=os.getlogin())
+    password: str = field(default_factory="")
 
 @dataclass
 class UserHistory:
-    user: User = User()
-    history: list = []
+    user: User = field(default_factory=User)
+    history: list = field(default_factory=[])
 
     def addFolderPath(self, folder_path: str) -> None:
         # Si il existe dans l'historique
@@ -95,6 +95,6 @@ class WebAddress:
 
 @dataclass
 class Net_Object:
-    uuid: str = str(uuid.uuid4())
-    name: str = "Object Name Undefined"
-    web_address: WebAddress = WebAddress(0)   
+    uuid: str = field(default_factory=str(uuid.uuid4()))
+    name: str = field(default_factory="Object Name Undefined")
+    web_address: WebAddress = field(default_factory=WebAddress())
