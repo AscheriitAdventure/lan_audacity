@@ -20,7 +20,6 @@ class Network:
             network_ipv6: Optional[str] = None,
             network_gateway: Optional[str] = None,
             network_dns: Optional[str] = None,
-            network_dhcp: Optional[str] = None,
             uuid_str: Optional[str] = None,
     ):
         self.setUUIDObj(uuid_str)
@@ -184,7 +183,7 @@ class Network:
         }
 
     def keys(self) -> list:
-        return ["Name", "IPv4", "Mask IPv4", "IPv6", "Gateway", "Nom de Domaine", "DHCP"]
+        return ["Name", "IPv4", "Mask IPv4", "IPv6", "Gateway", "Nom de Domaine"]
 
     def __str__(self) -> str:
         return f"{self.name} - {self.ipv4} - {self.maskIpv4}"

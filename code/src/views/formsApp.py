@@ -323,12 +323,5 @@ class NDevice(FormDialog):
                 "n_placeholder": "127.0.0.1",
                 "required": False
             },
-            {
-                "n_label": "Device DHCP:",
-                "n_obj": "device_dhcp",
-                "n_text": None,
-                "n_placeholder": "127.0.0.1",
-                "required": False
-            },
         ]
         return data

@@ -289,7 +289,7 @@ class LanAudacity(FileManagement):
                 network_object = Network(
                     network_ipv4=net_data['ipv4'], network_mask_ipv4=net_data['mask_ipv4'], save_path=net_data['abs_path'],
                     network_name=net_data['name'], network_ipv6=net_data['ipv6'], network_gateway=net_data['gateway'],
-                    network_dns=net_data['dns'], network_dhcp=net_data['dhcp'], uuid_str=net_data['uuid']
+                    network_dns=net_data['dns'], uuid_str=net_data['uuid']
                 )
                 network_object.clockManager = ClockManager(net_data['clock_manager']['clock_created'], net_data['clock_manager']['clock_list'])
                 network_object.devicesList = net_data['devices_list'] if 'devices_list' in net_data else []

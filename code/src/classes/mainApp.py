@@ -412,7 +412,6 @@ class MainApp(QMainWindow):
                                     network_ipv6=data_network["ipv6"],
                                     network_gateway=data_network["gateway"],
                                     network_dns=data_network["dns"],
-                                    network_dhcp=data_network["dhcp"],
                                     uuid_str=data_network["uuid"]
                                 )
                                 # Conversion de l'horloge

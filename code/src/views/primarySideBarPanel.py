@@ -247,8 +247,10 @@ class NetExpl(GeneralSidePanel):
                 for network in self.extObj.networks.get('obj_ls', []):
                     logging.debug(network.get('name'))
                     self.add_network_to_tree(network.get('name'))
-                if hasattr(self.extObj, 'devices') and self.extObj.devices is not None:
-                    pass
+                    if network.get('devices'):
+                        for device in network.get('devices'):
+                            self.add_device_to_tree(network.get('name'), device)
+                    
 
     def addDeviceObj(self, network: Network = None):
         logging.info("Add device")
@@ -271,8 +273,7 @@ class NetExpl(GeneralSidePanel):
                 device_brand=device_data.get("device_brand"),
                 device_mac=device_data.get("device_mac"),
                 device_gateway=device_data.get("device_gateway"),
-                device_dns=device_data.get("device_dns"),
-                device_dhcp=device_data.get("device_dhcp")
+                device_dns=device_data.get("device_dns")
             )
             device0.create_device()
             if network:
@@ -298,8 +299,7 @@ class NetExpl(GeneralSidePanel):
                 network_name=network_data.get("network_name"),
                 network_ipv6=network_data.get("ipv6"),
                 network_gateway=network_data.get("gateway"),
-                network_dns=network_data.get("dns"),
-                network_dhcp=network_data.get("dhcp")
+                network_dns=network_data.get("dns")
             )
             network.create_network()
             self.extObj.add_network(network)

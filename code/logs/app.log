@@ -6384,3 +6384,742 @@
 2024-10-09 17:27:30,673 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001FF64B3DC70>
 2024-10-09 17:27:30,683 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001FF64B3DC70>
 2024-10-09 17:27:30,685 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001FF64B3DC70>
+2024-10-09 17:28:03,885 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-09 17:28:03,900 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-09 17:28:03,916 - root - INFO - ZI is added to Eyrein Network
+2024-10-09 17:28:03,932 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-09 17:28:03,947 - root - INFO - Load network
+2024-10-09 17:28:03,947 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}]}
+2024-10-09 17:28:03,947 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}]}
+2024-10-09 17:28:03,947 - root - DEBUG - ZAC Bureau
+2024-10-09 17:28:03,947 - root - DEBUG - ZAC Expeditions
+2024-10-09 17:28:03,947 - root - DEBUG - ZI
+2024-10-09 17:28:03,947 - root - DEBUG - CHALLENGER
+2024-10-09 17:28:09,447 - root - DEBUG - prison bleu:['514d1849-7054-4db4-872d-dc08a4aa5a5d', '9c4bae0d-82fc-4efa-a7c3-4b34240621bf', '9bfe6a0c-8188-4c9e-8d62-c790dc2869e1', 'a5538df9-f871-4d6f-a8af-01e9fdcc74fc', 'db195e9b-6b5f-4f17-a83a-6cae25bb32b8', '3ac25749-0c4e-4943-b4b2-de47c28f8379', '81a9cb89-a81d-4d31-9e12-ae770d88ca64', 'b709aff0-a98a-464c-a6e1-f7da1656e0a5', '8d3023f0-65fa-45b6-8fc3-63e8e530ed1e', '791b68ff-6598-4416-97de-f609b3f6c7d3', '6d9fe46d-3abb-446d-84d8-32263d63b711', '15c218c4-1378-445b-9987-692f0658d032', 'ef0ab80b-09b3-4c26-b6f2-31a1335726d6', '0506b16b-6896-42c0-afa8-ffeaec97c4f4', '4a6ba8ca-5844-4283-b472-f145a7b9de63', '823e40d2-80f9-424e-ab5e-6eea89551929']
+2024-10-09 17:28:09,478 - root - INFO - CHALLENGER - 192.168.253.0 - 255.255.255.0
+2024-10-09 17:28:09,478 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x000001FF64B3DC70>
+2024-10-09 17:28:20,104 - root - DEBUG - prison bleu:[]
+2024-10-09 17:28:20,120 - root - INFO - ZI - 192.168.100.0 - 255.255.255.0
+2024-10-09 17:28:20,120 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x000001FF64B3DC70>
+2024-10-09 17:28:21,617 - root - DEBUG - prison bleu:[]
+2024-10-09 17:28:21,633 - root - INFO - ZAC Expeditions - 192.168.2.0 - 255.255.255.0
+2024-10-09 17:28:21,633 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x000001FF64B3DC70>
+2024-10-09 17:28:22,813 - root - DEBUG - prison bleu:['e1754574-3ad6-4432-99a9-b4d9057a06b1', 'd645e937-3d70-421b-8259-e66d140e9d04', 'f3589264-2378-43b1-951b-22a13739ffd6', 'f56f74b8-fd40-475e-b51b-0e65ee02eae8', '6c749f55-9e11-45a6-9d1d-7464918b3153', '38643f07-4933-4ed7-8758-cf0b2f504b03', '43d454df-2d84-4531-99c8-2a63be90541b', '6871e369-d4f7-44de-9cc2-8f62cc7c279c', 'cd538308-e1bb-4ab6-9b71-8f6dc5ddd62b', 'aca9e39e-e979-40f5-a0b7-533556367aad', 'b6fed762-b53d-4f79-8d28-c196d3b64200', '25e37e74-327e-47a8-bb48-caab326c808d', '752d89e9-1d07-4d0a-8a71-0fafce4e03f4', '116e4e65-bbaa-4f25-9181-68e9066a575b', '67174bec-61fa-4a42-b2be-06270c96545c', '1befa70c-8867-40a3-bbac-a46f9315966c', '811c3c31-0b94-479a-9d77-ddf534507ed8', '379b3375-c124-4635-bfb9-daaaca3f710a', '20288be8-1b0f-42ba-a224-6492ac7214c4', 'd674c00d-c4b7-4b5f-a057-8af3c4469cb1', '5a7b576c-4108-42d1-bafc-896d8d7a3276', '974c5140-cfc2-4ca4-aaa8-4e2614461c45', 'de5c4481-5e35-4235-b2ee-cd0530a3c6bd', '030cb72b-b978-4b41-9d35-92ca8336aba3', '26c66a7e-ad7a-40fd-a5c9-e7fc37f82113', '9b477897-ec02-4421-8d08-c0fcbe348fd3', 'e1c6fc57-11a9-48b9-ae47-5d5149c99f3b', '16de37e6-08ce-4788-b7fe-fc44c086273b', 'e75648f6-e132-4cc6-a300-bb14451d626d', '7a7b791f-dabd-4dd8-95dd-494a8069d7cd', '1d6c4c10-32b7-439f-beec-233fd19cfa4e', '6fb96b85-0e64-420f-bfd4-789d3fb8da1a', '9c1946b3-6e6b-4083-8722-abf445dcc30a', '836ab2c2-1885-4aba-9031-ea199ed0d9fe', 'd1a41334-92b5-4f0e-baec-fffb8b551cae', 'e7851e1c-c341-44e1-9c61-50a9573bf97b', 'ce55ef49-c725-4985-82e2-a9768c144ca2', 'b6c8ae6c-e30e-498d-bd76-eaa361d2eadb', 'd7dfa180-51b7-41ae-a7e3-4f3a679e6ddb', 'b5d50c55-e7b9-4597-ad9a-9df3f9c3bcf9', '8dc2d0e1-b4e7-4a6d-9918-b27c25aab2a1', 'aff43388-e5cc-4298-bbaf-7bde68054afa', 'df26bfc4-1bad-4606-9dca-4d82150a20a3', '453b81fc-0dfa-40bc-b26a-c2101fe1ebd1', 'bb41b293-976f-4dd4-abc4-a7fd70f00634', '679d6c34-bbb7-4c08-935a-ca3dfb0b22ef', 'fad58a0e-4fb7-41ce-9f42-054ad21e5553', 'fc77bba1-5fa8-4353-b6a6-7d1ea44a203b', '34c599ca-4794-40ee-b4d9-7a82c6b9cd9f', '2fd175cc-81d3-4f68-8ef7-e9466011a2dd', '47412d43-430a-4b1a-a645-03390f50198a', 'e20a3f9e-6159-44dc-8acb-b3a045fbe54c', '0d4f5b79-0d60-4aba-ac47-fac17069e36d', '20e44875-9df0-4dcc-be72-7b4e6e52801d', '9cc7e355-27ac-491c-a91d-a707ff04d8d5', 'bff905ff-0d81-4255-95d1-5a6382dfaa8e', 'a93158b8-a27a-4ce2-85fc-4a4d7bfbfab6', '0f99f2b9-535b-4039-b723-274cd4a63acd', '35114673-4fa4-4832-995e-29bb2fdb5af2', 'ec153e62-a180-4288-b1a1-16c66e37c2fd', '5e63bc14-0327-4287-a48b-2dc0b707a080', 'ba78ae68-dfd6-490f-a0fe-63d57e524338', '276b6c8b-11a3-4f7a-9af4-a4c46b92990b', '284a0216-3186-4701-842a-1589cd0a9983', '6f60f3bc-c90b-4685-9b8e-61da50aee18d', '99c9fde1-e1d5-4609-8a3c-e4aab81857eb', '829312c4-c715-478b-9735-49aa6686e71a', '57509527-19bb-4e14-903a-ed447710e336', 'adad2aa0-f077-433b-88ab-e064e1a82253', 'b8940a87-b32d-4fb4-a268-df81262f3742', '76cd95b2-7a5a-49cb-9f48-12a3e1e22282', '947f0f11-f67f-4cc0-b492-f0bded96ada3', '30f800cc-bf0a-4224-a961-cbfcd23f5257', 'd78c8423-3ea3-428a-bb0f-f7bbb73953d0', '765a3c2a-404b-4333-8d89-8527dff260ff', 'dd74a0d2-e906-4c3d-98f4-878a7f09d0f7', '520fcad3-0ca0-4b97-8a7a-f8688b05b6e5', '233fecf4-c09e-4609-9977-5d175b50876d', '66638dac-0813-4f59-861d-6d98f2f0e9df', '5ea46406-a3b0-4b8c-a2ec-8646ca504681', '402ce340-b4e5-4a00-b0a0-ad099bc0eb1d', 'bd9657c9-aebe-4f1e-976a-1a38331bfc66', '53f836af-5f70-4503-8101-68a2f222bab6', '14cc77ab-b473-4fb9-990a-ee21b59c355e']
+2024-10-09 17:28:22,860 - root - INFO - ZAC Bureau - 192.168.90.0 - 255.255.255.0
+2024-10-09 17:28:22,860 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x000001FF64B3DC70>
+2024-10-10 09:11:14,514 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-10 09:11:17,962 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000288F282DFD0>
+2024-10-10 09:11:17,965 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000288F282DFD0>
+2024-10-10 09:11:17,967 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000288F282DFD0>
+2024-10-10 09:11:17,978 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000288F282DFD0>
+2024-10-10 09:11:17,980 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000288F282DFD0>
+2024-10-10 09:11:17,981 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000288F282DFD0>
+2024-10-10 09:11:44,660 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:11:44,669 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-10 09:11:44,680 - root - INFO - ZI is added to Eyrein Network
+2024-10-10 09:11:44,696 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-10 09:11:44,724 - root - INFO - Load network
+2024-10-10 09:11:44,726 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}]}
+2024-10-10 09:11:44,726 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}]}
+2024-10-10 09:11:44,728 - root - DEBUG - ZAC Bureau
+2024-10-10 09:11:44,730 - root - DEBUG - ZAC Expeditions
+2024-10-10 09:11:44,730 - root - DEBUG - ZI
+2024-10-10 09:11:44,730 - root - DEBUG - CHALLENGER
+2024-10-10 09:17:04,254 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-10 09:17:05,345 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:05,347 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:05,348 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:05,354 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:05,355 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:05,356 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:12,848 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:17:12,854 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-10 09:17:12,861 - root - INFO - ZI is added to Eyrein Network
+2024-10-10 09:17:12,867 - root - INFO - TAZO is added to Eyrein Network
+2024-10-10 09:17:12,873 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-10 09:17:20,600 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:17:20,606 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-10 09:17:20,612 - root - INFO - ZI is added to Eyrein Network
+2024-10-10 09:17:20,619 - root - INFO - TAZO is added to Eyrein Network
+2024-10-10 09:17:20,625 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-10 09:17:20,635 - root - INFO - Load network
+2024-10-10 09:17:20,635 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}]}
+2024-10-10 09:17:20,635 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}]}
+2024-10-10 09:17:20,636 - root - DEBUG - ZAC Bureau
+2024-10-10 09:17:20,637 - root - DEBUG - ZAC Expeditions
+2024-10-10 09:17:20,637 - root - DEBUG - ZI
+2024-10-10 09:17:20,637 - root - DEBUG - TAZO
+2024-10-10 09:17:20,638 - root - DEBUG - CHALLENGER
+2024-10-10 09:17:33,255 - root - DEBUG - prison bleu:['a24d1a23-c9c9-451d-8962-391fbf16fba2', 'f0628676-c9a3-49ad-88e8-271a5a072265', '689b8297-9529-4b2e-80c7-593cfbcc8f1f', 'e8530956-b50c-4fbb-8c6e-294c71689e51', 'a334b34a-ab3b-4934-bb45-7b058f18af93', '8e58c798-f15d-430a-ab2e-02ceb6c0c471']
+2024-10-10 09:17:33,289 - root - INFO - TAZO - 192.168.110.0 - 255.255.255.0
+2024-10-10 09:17:33,291 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:44,341 - root - DEBUG - prison bleu:['e1754574-3ad6-4432-99a9-b4d9057a06b1', 'd645e937-3d70-421b-8259-e66d140e9d04', 'f3589264-2378-43b1-951b-22a13739ffd6', 'f56f74b8-fd40-475e-b51b-0e65ee02eae8', '6c749f55-9e11-45a6-9d1d-7464918b3153', '38643f07-4933-4ed7-8758-cf0b2f504b03', '43d454df-2d84-4531-99c8-2a63be90541b', '6871e369-d4f7-44de-9cc2-8f62cc7c279c', 'cd538308-e1bb-4ab6-9b71-8f6dc5ddd62b', 'aca9e39e-e979-40f5-a0b7-533556367aad', 'b6fed762-b53d-4f79-8d28-c196d3b64200', '25e37e74-327e-47a8-bb48-caab326c808d', '752d89e9-1d07-4d0a-8a71-0fafce4e03f4', '116e4e65-bbaa-4f25-9181-68e9066a575b', '67174bec-61fa-4a42-b2be-06270c96545c', '1befa70c-8867-40a3-bbac-a46f9315966c', '811c3c31-0b94-479a-9d77-ddf534507ed8', '379b3375-c124-4635-bfb9-daaaca3f710a', '20288be8-1b0f-42ba-a224-6492ac7214c4', 'd674c00d-c4b7-4b5f-a057-8af3c4469cb1', '5a7b576c-4108-42d1-bafc-896d8d7a3276', '974c5140-cfc2-4ca4-aaa8-4e2614461c45', 'de5c4481-5e35-4235-b2ee-cd0530a3c6bd', '030cb72b-b978-4b41-9d35-92ca8336aba3', '26c66a7e-ad7a-40fd-a5c9-e7fc37f82113', '9b477897-ec02-4421-8d08-c0fcbe348fd3', 'e1c6fc57-11a9-48b9-ae47-5d5149c99f3b', '16de37e6-08ce-4788-b7fe-fc44c086273b', 'e75648f6-e132-4cc6-a300-bb14451d626d', '7a7b791f-dabd-4dd8-95dd-494a8069d7cd', '1d6c4c10-32b7-439f-beec-233fd19cfa4e', '6fb96b85-0e64-420f-bfd4-789d3fb8da1a', '9c1946b3-6e6b-4083-8722-abf445dcc30a', '836ab2c2-1885-4aba-9031-ea199ed0d9fe', 'd1a41334-92b5-4f0e-baec-fffb8b551cae', 'e7851e1c-c341-44e1-9c61-50a9573bf97b', 'ce55ef49-c725-4985-82e2-a9768c144ca2', 'b6c8ae6c-e30e-498d-bd76-eaa361d2eadb', 'd7dfa180-51b7-41ae-a7e3-4f3a679e6ddb', 'b5d50c55-e7b9-4597-ad9a-9df3f9c3bcf9', '8dc2d0e1-b4e7-4a6d-9918-b27c25aab2a1', 'aff43388-e5cc-4298-bbaf-7bde68054afa', 'df26bfc4-1bad-4606-9dca-4d82150a20a3', '453b81fc-0dfa-40bc-b26a-c2101fe1ebd1', 'bb41b293-976f-4dd4-abc4-a7fd70f00634', '679d6c34-bbb7-4c08-935a-ca3dfb0b22ef', 'fad58a0e-4fb7-41ce-9f42-054ad21e5553', 'fc77bba1-5fa8-4353-b6a6-7d1ea44a203b', '34c599ca-4794-40ee-b4d9-7a82c6b9cd9f', '2fd175cc-81d3-4f68-8ef7-e9466011a2dd', '47412d43-430a-4b1a-a645-03390f50198a', 'e20a3f9e-6159-44dc-8acb-b3a045fbe54c', '0d4f5b79-0d60-4aba-ac47-fac17069e36d', '20e44875-9df0-4dcc-be72-7b4e6e52801d', '9cc7e355-27ac-491c-a91d-a707ff04d8d5', 'bff905ff-0d81-4255-95d1-5a6382dfaa8e', 'a93158b8-a27a-4ce2-85fc-4a4d7bfbfab6', '0f99f2b9-535b-4039-b723-274cd4a63acd', '35114673-4fa4-4832-995e-29bb2fdb5af2', 'ec153e62-a180-4288-b1a1-16c66e37c2fd', '5e63bc14-0327-4287-a48b-2dc0b707a080', 'ba78ae68-dfd6-490f-a0fe-63d57e524338', '276b6c8b-11a3-4f7a-9af4-a4c46b92990b', '284a0216-3186-4701-842a-1589cd0a9983', '6f60f3bc-c90b-4685-9b8e-61da50aee18d', '99c9fde1-e1d5-4609-8a3c-e4aab81857eb', '829312c4-c715-478b-9735-49aa6686e71a', '57509527-19bb-4e14-903a-ed447710e336', 'adad2aa0-f077-433b-88ab-e064e1a82253', 'b8940a87-b32d-4fb4-a268-df81262f3742', '76cd95b2-7a5a-49cb-9f48-12a3e1e22282', '947f0f11-f67f-4cc0-b492-f0bded96ada3', '30f800cc-bf0a-4224-a961-cbfcd23f5257', 'd78c8423-3ea3-428a-bb0f-f7bbb73953d0', '765a3c2a-404b-4333-8d89-8527dff260ff', 'dd74a0d2-e906-4c3d-98f4-878a7f09d0f7', '520fcad3-0ca0-4b97-8a7a-f8688b05b6e5', '233fecf4-c09e-4609-9977-5d175b50876d', '66638dac-0813-4f59-861d-6d98f2f0e9df', '5ea46406-a3b0-4b8c-a2ec-8646ca504681', '402ce340-b4e5-4a00-b0a0-ad099bc0eb1d', 'bd9657c9-aebe-4f1e-976a-1a38331bfc66', '53f836af-5f70-4503-8101-68a2f222bab6', '14cc77ab-b473-4fb9-990a-ee21b59c355e']
+2024-10-10 09:17:44,663 - root - INFO - ZAC Bureau - 192.168.90.0 - 255.255.255.0
+2024-10-10 09:17:44,664 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:17:59,971 - root - DEBUG - prison bleu:[]
+2024-10-10 09:17:59,989 - root - INFO - ZAC Expeditions - 192.168.2.0 - 255.255.255.0
+2024-10-10 09:17:59,990 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x0000027DDC151C70>
+2024-10-10 09:18:04,488 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:10,076 - root - DEBUG - abspath: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop, list_host: ['192.168.2.174', '192.168.2.175', '192.168.2.176', '192.168.2.177', '192.168.2.178', '192.168.2.179', '192.168.2.180', '192.168.2.181', '192.168.2.182', '192.168.2.184', '192.168.2.185', '192.168.2.186', '192.168.2.187', '192.168.2.188', '192.168.2.189', '192.168.2.190', '192.168.2.192', '192.168.2.193', '192.168.2.194', '192.168.2.195', '192.168.2.196', '192.168.2.197', '192.168.2.198', '192.168.2.199', '192.168.2.200', '192.168.2.201', '192.168.2.240', '192.168.2.245', '192.168.2.246', '192.168.2.247', '192.168.2.250', '192.168.2.251', '192.168.2.253', '192.168.2.254', '192.168.2.5', '192.168.2.73'], lan: 192.168.2.0/24
+2024-10-10 09:18:10,076 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:10,078 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\07761b3a-cbd8-4f8e-ba63-00419f6d629f.json. Error: The path does not exist.
+2024-10-10 09:18:10,084 - root - INFO - 07761b3a-cbd8-4f8e-ba63-00419f6d629f file is created
+2024-10-10 09:18:10,331 - root - INFO - nmap -oX - -sP 192.168.2.174
+2024-10-10 09:18:10,565 - root - INFO - nmap -oX - -sP 192.168.2.174
+2024-10-10 09:18:10,745 - root - INFO - nmap -oX - -sL 192.168.2.174
+2024-10-10 09:18:10,828 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:10,833 - root - INFO -  is saved
+2024-10-10 09:18:10,840 - root - INFO -  is saved
+2024-10-10 09:18:10,845 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:10,850 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:11,087 - root - INFO - nmap -oX - -sP 192.168.2.174
+2024-10-10 09:18:11,304 - root - INFO - nmap -oX - -sP 192.168.2.174
+2024-10-10 09:18:11,461 - root - INFO - nmap -oX - -sL 192.168.2.174
+2024-10-10 09:18:11,491 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:11,495 - root - INFO -  is saved
+2024-10-10 09:18:11,495 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:11,496 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\2a6940b4-2eda-4d55-9b6e-9bf8200900b0.json. Error: The path does not exist.
+2024-10-10 09:18:11,501 - root - INFO - 2a6940b4-2eda-4d55-9b6e-9bf8200900b0 file is created
+2024-10-10 09:18:11,786 - root - INFO - nmap -oX - -sP 192.168.2.175
+2024-10-10 09:18:12,048 - root - INFO - nmap -oX - -sP 192.168.2.175
+2024-10-10 09:18:12,231 - root - INFO - nmap -oX - -sL 192.168.2.175
+2024-10-10 09:18:12,263 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:12,268 - root - INFO -  is saved
+2024-10-10 09:18:12,275 - root - INFO -  is saved
+2024-10-10 09:18:12,279 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:12,283 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:12,644 - root - INFO - nmap -oX - -sP 192.168.2.175
+2024-10-10 09:18:12,888 - root - INFO - nmap -oX - -sP 192.168.2.175
+2024-10-10 09:18:13,099 - root - INFO - nmap -oX - -sL 192.168.2.175
+2024-10-10 09:18:13,134 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:13,141 - root - INFO -  is saved
+2024-10-10 09:18:13,141 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:13,142 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\23f3f45f-2682-4ca8-9b2b-acc7e6fb099e.json. Error: The path does not exist.
+2024-10-10 09:18:13,146 - root - INFO - 23f3f45f-2682-4ca8-9b2b-acc7e6fb099e file is created
+2024-10-10 09:18:13,388 - root - INFO - nmap -oX - -sP 192.168.2.176
+2024-10-10 09:18:13,649 - root - INFO - nmap -oX - -sP 192.168.2.176
+2024-10-10 09:18:13,812 - root - INFO - nmap -oX - -sL 192.168.2.176
+2024-10-10 09:18:13,839 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:13,844 - root - INFO -  is saved
+2024-10-10 09:18:13,848 - root - INFO -  is saved
+2024-10-10 09:18:13,852 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:13,858 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:14,113 - root - INFO - nmap -oX - -sP 192.168.2.176
+2024-10-10 09:18:14,352 - root - INFO - nmap -oX - -sP 192.168.2.176
+2024-10-10 09:18:14,523 - root - INFO - nmap -oX - -sL 192.168.2.176
+2024-10-10 09:18:14,552 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:14,559 - root - INFO -  is saved
+2024-10-10 09:18:14,559 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:14,560 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\538b1456-de2f-487b-8302-0fba7921dbb7.json. Error: The path does not exist.
+2024-10-10 09:18:14,565 - root - INFO - 538b1456-de2f-487b-8302-0fba7921dbb7 file is created
+2024-10-10 09:18:14,885 - root - INFO - nmap -oX - -sP 192.168.2.177
+2024-10-10 09:18:15,136 - root - INFO - nmap -oX - -sP 192.168.2.177
+2024-10-10 09:18:15,324 - root - INFO - nmap -oX - -sL 192.168.2.177
+2024-10-10 09:18:15,355 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:15,361 - root - INFO -  is saved
+2024-10-10 09:18:15,366 - root - INFO -  is saved
+2024-10-10 09:18:15,371 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:15,378 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:15,625 - root - INFO - nmap -oX - -sP 192.168.2.177
+2024-10-10 09:18:15,863 - root - INFO - nmap -oX - -sP 192.168.2.177
+2024-10-10 09:18:16,026 - root - INFO - nmap -oX - -sL 192.168.2.177
+2024-10-10 09:18:16,059 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:16,065 - root - INFO -  is saved
+2024-10-10 09:18:16,065 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:16,066 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\22236b95-e473-4efa-95a7-baa8bc282966.json. Error: The path does not exist.
+2024-10-10 09:18:16,071 - root - INFO - 22236b95-e473-4efa-95a7-baa8bc282966 file is created
+2024-10-10 09:18:16,331 - root - INFO - nmap -oX - -sP 192.168.2.178
+2024-10-10 09:18:16,617 - root - INFO - nmap -oX - -sP 192.168.2.178
+2024-10-10 09:18:16,755 - root - INFO - nmap -oX - -sL 192.168.2.178
+2024-10-10 09:18:16,786 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:16,791 - root - INFO -  is saved
+2024-10-10 09:18:16,795 - root - INFO -  is saved
+2024-10-10 09:18:16,800 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:16,805 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:17,048 - root - INFO - nmap -oX - -sP 192.168.2.178
+2024-10-10 09:18:17,291 - root - INFO - nmap -oX - -sP 192.168.2.178
+2024-10-10 09:18:17,438 - root - INFO - nmap -oX - -sL 192.168.2.178
+2024-10-10 09:18:17,464 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:17,469 - root - INFO -  is saved
+2024-10-10 09:18:17,470 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:17,470 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\9bf2a8d9-93b4-4b67-a60a-a99cc13fe062.json. Error: The path does not exist.
+2024-10-10 09:18:17,475 - root - INFO - 9bf2a8d9-93b4-4b67-a60a-a99cc13fe062 file is created
+2024-10-10 09:18:17,755 - root - INFO - nmap -oX - -sP 192.168.2.179
+2024-10-10 09:18:18,045 - root - INFO - nmap -oX - -sP 192.168.2.179
+2024-10-10 09:18:18,241 - root - INFO - nmap -oX - -sL 192.168.2.179
+2024-10-10 09:18:18,276 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:18,281 - root - INFO -  is saved
+2024-10-10 09:18:18,286 - root - INFO -  is saved
+2024-10-10 09:18:18,291 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:18,296 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:18,564 - root - INFO - nmap -oX - -sP 192.168.2.179
+2024-10-10 09:18:18,804 - root - INFO - nmap -oX - -sP 192.168.2.179
+2024-10-10 09:18:18,971 - root - INFO - nmap -oX - -sL 192.168.2.179
+2024-10-10 09:18:19,004 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:19,010 - root - INFO -  is saved
+2024-10-10 09:18:19,011 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:19,011 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\776e93ae-673f-4fac-a179-c0abba58e354.json. Error: The path does not exist.
+2024-10-10 09:18:19,015 - root - INFO - 776e93ae-673f-4fac-a179-c0abba58e354 file is created
+2024-10-10 09:18:19,272 - root - INFO - nmap -oX - -sP 192.168.2.180
+2024-10-10 09:18:19,502 - root - INFO - nmap -oX - -sP 192.168.2.180
+2024-10-10 09:18:19,674 - root - INFO - nmap -oX - -sL 192.168.2.180
+2024-10-10 09:18:19,704 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:19,708 - root - INFO -  is saved
+2024-10-10 09:18:19,712 - root - INFO -  is saved
+2024-10-10 09:18:19,718 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:19,722 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:19,952 - root - INFO - nmap -oX - -sP 192.168.2.180
+2024-10-10 09:18:20,189 - root - INFO - nmap -oX - -sP 192.168.2.180
+2024-10-10 09:18:20,344 - root - INFO - nmap -oX - -sL 192.168.2.180
+2024-10-10 09:18:20,370 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:20,375 - root - INFO -  is saved
+2024-10-10 09:18:20,376 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:20,376 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\1a66c605-7c99-475e-bf3d-485b7c7eb2ef.json. Error: The path does not exist.
+2024-10-10 09:18:20,384 - root - INFO - 1a66c605-7c99-475e-bf3d-485b7c7eb2ef file is created
+2024-10-10 09:18:20,633 - root - INFO - nmap -oX - -sP 192.168.2.181
+2024-10-10 09:18:20,870 - root - INFO - nmap -oX - -sP 192.168.2.181
+2024-10-10 09:18:21,019 - root - INFO - nmap -oX - -sL 192.168.2.181
+2024-10-10 09:18:21,071 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:21,080 - root - INFO -  is saved
+2024-10-10 09:18:21,091 - root - INFO -  is saved
+2024-10-10 09:18:21,099 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:21,105 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:21,340 - root - INFO - nmap -oX - -sP 192.168.2.181
+2024-10-10 09:18:21,574 - root - INFO - nmap -oX - -sP 192.168.2.181
+2024-10-10 09:18:21,723 - root - INFO - nmap -oX - -sL 192.168.2.181
+2024-10-10 09:18:21,749 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:21,753 - root - INFO -  is saved
+2024-10-10 09:18:21,754 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:21,754 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\9d7bce3f-93f7-403c-a4a2-bbda8bd0a02f.json. Error: The path does not exist.
+2024-10-10 09:18:21,759 - root - INFO - 9d7bce3f-93f7-403c-a4a2-bbda8bd0a02f file is created
+2024-10-10 09:18:22,000 - root - INFO - nmap -oX - -sP 192.168.2.182
+2024-10-10 09:18:22,246 - root - INFO - nmap -oX - -sP 192.168.2.182
+2024-10-10 09:18:22,433 - root - INFO - nmap -oX - -sL 192.168.2.182
+2024-10-10 09:18:22,478 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:22,487 - root - INFO -  is saved
+2024-10-10 09:18:22,495 - root - INFO -  is saved
+2024-10-10 09:18:22,504 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:22,513 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:22,889 - root - INFO - nmap -oX - -sP 192.168.2.182
+2024-10-10 09:18:23,223 - root - INFO - nmap -oX - -sP 192.168.2.182
+2024-10-10 09:18:23,401 - root - INFO - nmap -oX - -sL 192.168.2.182
+2024-10-10 09:18:23,426 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:23,432 - root - INFO -  is saved
+2024-10-10 09:18:23,432 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:23,432 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\9b0ff78e-df1c-4b6c-8aab-e2d2fbaf7384.json. Error: The path does not exist.
+2024-10-10 09:18:23,436 - root - INFO - 9b0ff78e-df1c-4b6c-8aab-e2d2fbaf7384 file is created
+2024-10-10 09:18:23,740 - root - INFO - nmap -oX - -sP 192.168.2.184
+2024-10-10 09:18:23,999 - root - INFO - nmap -oX - -sP 192.168.2.184
+2024-10-10 09:18:24,161 - root - INFO - nmap -oX - -sL 192.168.2.184
+2024-10-10 09:18:24,189 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:24,194 - root - INFO -  is saved
+2024-10-10 09:18:24,199 - root - INFO -  is saved
+2024-10-10 09:18:24,205 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:24,210 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:24,472 - root - INFO - nmap -oX - -sP 192.168.2.184
+2024-10-10 09:18:24,708 - root - INFO - nmap -oX - -sP 192.168.2.184
+2024-10-10 09:18:24,874 - root - INFO - nmap -oX - -sL 192.168.2.184
+2024-10-10 09:18:24,904 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:24,909 - root - INFO -  is saved
+2024-10-10 09:18:24,909 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:24,910 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\96bd0ad6-a1a3-4636-8199-2318060ce065.json. Error: The path does not exist.
+2024-10-10 09:18:24,915 - root - INFO - 96bd0ad6-a1a3-4636-8199-2318060ce065 file is created
+2024-10-10 09:18:25,182 - root - INFO - nmap -oX - -sP 192.168.2.185
+2024-10-10 09:18:25,470 - root - INFO - nmap -oX - -sP 192.168.2.185
+2024-10-10 09:18:25,639 - root - INFO - nmap -oX - -sL 192.168.2.185
+2024-10-10 09:18:25,672 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:25,679 - root - INFO -  is saved
+2024-10-10 09:18:25,686 - root - INFO -  is saved
+2024-10-10 09:18:25,694 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:25,702 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:25,985 - root - INFO - nmap -oX - -sP 192.168.2.185
+2024-10-10 09:18:26,245 - root - INFO - nmap -oX - -sP 192.168.2.185
+2024-10-10 09:18:26,387 - root - INFO - nmap -oX - -sL 192.168.2.185
+2024-10-10 09:18:26,437 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:26,444 - root - INFO -  is saved
+2024-10-10 09:18:26,445 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:26,446 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\6f3fea28-c2b7-4159-a07a-3b6fd785d740.json. Error: The path does not exist.
+2024-10-10 09:18:26,454 - root - INFO - 6f3fea28-c2b7-4159-a07a-3b6fd785d740 file is created
+2024-10-10 09:18:26,713 - root - INFO - nmap -oX - -sP 192.168.2.186
+2024-10-10 09:18:26,956 - root - INFO - nmap -oX - -sP 192.168.2.186
+2024-10-10 09:18:27,127 - root - INFO - nmap -oX - -sL 192.168.2.186
+2024-10-10 09:18:27,160 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:27,165 - root - INFO -  is saved
+2024-10-10 09:18:27,170 - root - INFO -  is saved
+2024-10-10 09:18:27,175 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:27,180 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:27,399 - root - INFO - nmap -oX - -sP 192.168.2.186
+2024-10-10 09:18:27,630 - root - INFO - nmap -oX - -sP 192.168.2.186
+2024-10-10 09:18:27,775 - root - INFO - nmap -oX - -sL 192.168.2.186
+2024-10-10 09:18:27,810 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:27,815 - root - INFO -  is saved
+2024-10-10 09:18:27,815 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:27,816 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\c74c964e-1a42-46c4-ad86-cfe58199be52.json. Error: The path does not exist.
+2024-10-10 09:18:27,822 - root - INFO - c74c964e-1a42-46c4-ad86-cfe58199be52 file is created
+2024-10-10 09:18:28,083 - root - INFO - nmap -oX - -sP 192.168.2.187
+2024-10-10 09:18:28,345 - root - INFO - nmap -oX - -sP 192.168.2.187
+2024-10-10 09:18:28,496 - root - INFO - nmap -oX - -sL 192.168.2.187
+2024-10-10 09:18:28,523 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:28,529 - root - INFO -  is saved
+2024-10-10 09:18:28,533 - root - INFO -  is saved
+2024-10-10 09:18:28,539 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:28,543 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:28,771 - root - INFO - nmap -oX - -sP 192.168.2.187
+2024-10-10 09:18:29,000 - root - INFO - nmap -oX - -sP 192.168.2.187
+2024-10-10 09:18:29,167 - root - INFO - nmap -oX - -sL 192.168.2.187
+2024-10-10 09:18:29,194 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:29,198 - root - INFO -  is saved
+2024-10-10 09:18:29,199 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:29,199 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\238d9108-a4bb-4a71-b037-4e5104dfeebb.json. Error: The path does not exist.
+2024-10-10 09:18:29,206 - root - INFO - 238d9108-a4bb-4a71-b037-4e5104dfeebb file is created
+2024-10-10 09:18:29,464 - root - INFO - nmap -oX - -sP 192.168.2.188
+2024-10-10 09:18:29,732 - root - INFO - nmap -oX - -sP 192.168.2.188
+2024-10-10 09:18:29,887 - root - INFO - nmap -oX - -sL 192.168.2.188
+2024-10-10 09:18:29,914 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:29,919 - root - INFO -  is saved
+2024-10-10 09:18:29,927 - root - INFO -  is saved
+2024-10-10 09:18:29,932 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:29,937 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:30,195 - root - INFO - nmap -oX - -sP 192.168.2.188
+2024-10-10 09:18:30,426 - root - INFO - nmap -oX - -sP 192.168.2.188
+2024-10-10 09:18:30,572 - root - INFO - nmap -oX - -sL 192.168.2.188
+2024-10-10 09:18:30,606 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:30,615 - root - INFO -  is saved
+2024-10-10 09:18:30,615 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:30,616 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\e3cb3393-9c0f-4776-bac5-7a40edd6e55b.json. Error: The path does not exist.
+2024-10-10 09:18:30,623 - root - INFO - e3cb3393-9c0f-4776-bac5-7a40edd6e55b file is created
+2024-10-10 09:18:30,859 - root - INFO - nmap -oX - -sP 192.168.2.189
+2024-10-10 09:18:31,101 - root - INFO - nmap -oX - -sP 192.168.2.189
+2024-10-10 09:18:31,267 - root - INFO - nmap -oX - -sL 192.168.2.189
+2024-10-10 09:18:31,305 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:31,311 - root - INFO -  is saved
+2024-10-10 09:18:31,321 - root - INFO -  is saved
+2024-10-10 09:18:31,327 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:31,332 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:31,600 - root - INFO - nmap -oX - -sP 192.168.2.189
+2024-10-10 09:18:31,838 - root - INFO - nmap -oX - -sP 192.168.2.189
+2024-10-10 09:18:31,988 - root - INFO - nmap -oX - -sL 192.168.2.189
+2024-10-10 09:18:32,015 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:32,022 - root - INFO -  is saved
+2024-10-10 09:18:32,022 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:32,023 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\26cbd6d6-0801-4a1f-9a62-55be1c0e56ea.json. Error: The path does not exist.
+2024-10-10 09:18:32,028 - root - INFO - 26cbd6d6-0801-4a1f-9a62-55be1c0e56ea file is created
+2024-10-10 09:18:32,279 - root - INFO - nmap -oX - -sP 192.168.2.190
+2024-10-10 09:18:32,514 - root - INFO - nmap -oX - -sP 192.168.2.190
+2024-10-10 09:18:32,667 - root - INFO - nmap -oX - -sL 192.168.2.190
+2024-10-10 09:18:32,697 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:32,705 - root - INFO -  is saved
+2024-10-10 09:18:32,711 - root - INFO -  is saved
+2024-10-10 09:18:32,716 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:32,722 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:32,959 - root - INFO - nmap -oX - -sP 192.168.2.190
+2024-10-10 09:18:33,197 - root - INFO - nmap -oX - -sP 192.168.2.190
+2024-10-10 09:18:33,351 - root - INFO - nmap -oX - -sL 192.168.2.190
+2024-10-10 09:18:33,379 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:33,384 - root - INFO -  is saved
+2024-10-10 09:18:33,384 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:33,385 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\1ffaf1a6-1ee2-4c96-b339-ff9fe58cf252.json. Error: The path does not exist.
+2024-10-10 09:18:33,390 - root - INFO - 1ffaf1a6-1ee2-4c96-b339-ff9fe58cf252 file is created
+2024-10-10 09:18:33,643 - root - INFO - nmap -oX - -sP 192.168.2.192
+2024-10-10 09:18:33,877 - root - INFO - nmap -oX - -sP 192.168.2.192
+2024-10-10 09:18:34,028 - root - INFO - nmap -oX - -sL 192.168.2.192
+2024-10-10 09:18:34,061 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:34,068 - root - INFO -  is saved
+2024-10-10 09:18:34,072 - root - INFO -  is saved
+2024-10-10 09:18:34,079 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:34,084 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:34,339 - root - INFO - nmap -oX - -sP 192.168.2.192
+2024-10-10 09:18:34,577 - root - INFO - nmap -oX - -sP 192.168.2.192
+2024-10-10 09:18:34,733 - root - INFO - nmap -oX - -sL 192.168.2.192
+2024-10-10 09:18:34,764 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:34,769 - root - INFO -  is saved
+2024-10-10 09:18:34,769 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:34,769 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\12763ce9-b293-475f-b305-9910e1522d49.json. Error: The path does not exist.
+2024-10-10 09:18:34,775 - root - INFO - 12763ce9-b293-475f-b305-9910e1522d49 file is created
+2024-10-10 09:18:35,023 - root - INFO - nmap -oX - -sP 192.168.2.193
+2024-10-10 09:18:35,253 - root - INFO - nmap -oX - -sP 192.168.2.193
+2024-10-10 09:18:35,451 - root - INFO - nmap -oX - -sL 192.168.2.193
+2024-10-10 09:18:35,489 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:35,496 - root - INFO -  is saved
+2024-10-10 09:18:35,501 - root - INFO -  is saved
+2024-10-10 09:18:35,506 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:35,512 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:35,760 - root - INFO - nmap -oX - -sP 192.168.2.193
+2024-10-10 09:18:35,985 - root - INFO - nmap -oX - -sP 192.168.2.193
+2024-10-10 09:18:36,136 - root - INFO - nmap -oX - -sL 192.168.2.193
+2024-10-10 09:18:36,164 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:36,171 - root - INFO -  is saved
+2024-10-10 09:18:36,171 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:36,172 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\6133a8a5-f4ea-4a58-aa5a-b7edb45608ac.json. Error: The path does not exist.
+2024-10-10 09:18:36,180 - root - INFO - 6133a8a5-f4ea-4a58-aa5a-b7edb45608ac file is created
+2024-10-10 09:18:36,418 - root - INFO - nmap -oX - -sP 192.168.2.194
+2024-10-10 09:18:36,640 - root - INFO - nmap -oX - -sP 192.168.2.194
+2024-10-10 09:18:36,788 - root - INFO - nmap -oX - -sL 192.168.2.194
+2024-10-10 09:18:36,824 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:36,833 - root - INFO -  is saved
+2024-10-10 09:18:36,838 - root - INFO -  is saved
+2024-10-10 09:18:36,845 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:36,851 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:37,076 - root - INFO - nmap -oX - -sP 192.168.2.194
+2024-10-10 09:18:37,380 - root - INFO - nmap -oX - -sP 192.168.2.194
+2024-10-10 09:18:37,589 - root - INFO - nmap -oX - -sL 192.168.2.194
+2024-10-10 09:18:37,638 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:37,645 - root - INFO -  is saved
+2024-10-10 09:18:37,646 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:37,646 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\17dc87e2-b203-4d8f-acd3-d774c6d77403.json. Error: The path does not exist.
+2024-10-10 09:18:37,659 - root - INFO - 17dc87e2-b203-4d8f-acd3-d774c6d77403 file is created
+2024-10-10 09:18:38,008 - root - INFO - nmap -oX - -sP 192.168.2.195
+2024-10-10 09:18:38,281 - root - INFO - nmap -oX - -sP 192.168.2.195
+2024-10-10 09:18:38,427 - root - INFO - nmap -oX - -sL 192.168.2.195
+2024-10-10 09:18:38,460 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:38,466 - root - INFO -  is saved
+2024-10-10 09:18:38,470 - root - INFO -  is saved
+2024-10-10 09:18:38,477 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:38,486 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:38,720 - root - INFO - nmap -oX - -sP 192.168.2.195
+2024-10-10 09:18:38,940 - root - INFO - nmap -oX - -sP 192.168.2.195
+2024-10-10 09:18:39,100 - root - INFO - nmap -oX - -sL 192.168.2.195
+2024-10-10 09:18:39,156 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:39,166 - root - INFO -  is saved
+2024-10-10 09:18:39,167 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:39,167 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\7b88ee4d-a672-4e2b-a6a3-10e0f86d6d37.json. Error: The path does not exist.
+2024-10-10 09:18:39,175 - root - INFO - 7b88ee4d-a672-4e2b-a6a3-10e0f86d6d37 file is created
+2024-10-10 09:18:39,421 - root - INFO - nmap -oX - -sP 192.168.2.196
+2024-10-10 09:18:39,655 - root - INFO - nmap -oX - -sP 192.168.2.196
+2024-10-10 09:18:39,809 - root - INFO - nmap -oX - -sL 192.168.2.196
+2024-10-10 09:18:39,842 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:39,848 - root - INFO -  is saved
+2024-10-10 09:18:39,853 - root - INFO -  is saved
+2024-10-10 09:18:39,858 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:39,864 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:40,118 - root - INFO - nmap -oX - -sP 192.168.2.196
+2024-10-10 09:18:40,355 - root - INFO - nmap -oX - -sP 192.168.2.196
+2024-10-10 09:18:40,505 - root - INFO - nmap -oX - -sL 192.168.2.196
+2024-10-10 09:18:40,532 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:40,537 - root - INFO -  is saved
+2024-10-10 09:18:40,537 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:40,537 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\4e283f13-2534-4b63-9688-fccfe1b97759.json. Error: The path does not exist.
+2024-10-10 09:18:40,542 - root - INFO - 4e283f13-2534-4b63-9688-fccfe1b97759 file is created
+2024-10-10 09:18:40,861 - root - INFO - nmap -oX - -sP 192.168.2.197
+2024-10-10 09:18:41,101 - root - INFO - nmap -oX - -sP 192.168.2.197
+2024-10-10 09:18:41,274 - root - INFO - nmap -oX - -sL 192.168.2.197
+2024-10-10 09:18:41,315 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:41,324 - root - INFO -  is saved
+2024-10-10 09:18:41,330 - root - INFO -  is saved
+2024-10-10 09:18:41,338 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:41,344 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:41,608 - root - INFO - nmap -oX - -sP 192.168.2.197
+2024-10-10 09:18:41,850 - root - INFO - nmap -oX - -sP 192.168.2.197
+2024-10-10 09:18:42,011 - root - INFO - nmap -oX - -sL 192.168.2.197
+2024-10-10 09:18:42,044 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:42,051 - root - INFO -  is saved
+2024-10-10 09:18:42,051 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:42,052 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\f7955953-52de-4a34-82fc-5de73ba44181.json. Error: The path does not exist.
+2024-10-10 09:18:42,060 - root - INFO - f7955953-52de-4a34-82fc-5de73ba44181 file is created
+2024-10-10 09:18:42,346 - root - INFO - nmap -oX - -sP 192.168.2.198
+2024-10-10 09:18:42,594 - root - INFO - nmap -oX - -sP 192.168.2.198
+2024-10-10 09:18:42,791 - root - INFO - nmap -oX - -sL 192.168.2.198
+2024-10-10 09:18:42,823 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:42,828 - root - INFO -  is saved
+2024-10-10 09:18:42,833 - root - INFO -  is saved
+2024-10-10 09:18:42,838 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:42,844 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:43,079 - root - INFO - nmap -oX - -sP 192.168.2.198
+2024-10-10 09:18:43,324 - root - INFO - nmap -oX - -sP 192.168.2.198
+2024-10-10 09:18:43,453 - root - INFO - nmap -oX - -sL 192.168.2.198
+2024-10-10 09:18:43,483 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:43,491 - root - INFO -  is saved
+2024-10-10 09:18:43,491 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:43,491 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\6bec8adc-1f42-44fd-80e1-edb55f49b7b7.json. Error: The path does not exist.
+2024-10-10 09:18:43,498 - root - INFO - 6bec8adc-1f42-44fd-80e1-edb55f49b7b7 file is created
+2024-10-10 09:18:43,754 - root - INFO - nmap -oX - -sP 192.168.2.199
+2024-10-10 09:18:43,976 - root - INFO - nmap -oX - -sP 192.168.2.199
+2024-10-10 09:18:44,147 - root - INFO - nmap -oX - -sL 192.168.2.199
+2024-10-10 09:18:44,182 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:44,188 - root - INFO -  is saved
+2024-10-10 09:18:44,193 - root - INFO -  is saved
+2024-10-10 09:18:44,198 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:44,203 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:44,463 - root - INFO - nmap -oX - -sP 192.168.2.199
+2024-10-10 09:18:44,687 - root - INFO - nmap -oX - -sP 192.168.2.199
+2024-10-10 09:18:44,832 - root - INFO - nmap -oX - -sL 192.168.2.199
+2024-10-10 09:18:44,862 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:44,867 - root - INFO -  is saved
+2024-10-10 09:18:44,867 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:44,868 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\1ec13d5a-3970-4da5-8d8c-0fbe9cf59a73.json. Error: The path does not exist.
+2024-10-10 09:18:44,873 - root - INFO - 1ec13d5a-3970-4da5-8d8c-0fbe9cf59a73 file is created
+2024-10-10 09:18:45,127 - root - INFO - nmap -oX - -sP 192.168.2.200
+2024-10-10 09:18:45,347 - root - INFO - nmap -oX - -sP 192.168.2.200
+2024-10-10 09:18:45,543 - root - INFO - nmap -oX - -sL 192.168.2.200
+2024-10-10 09:18:45,572 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:45,578 - root - INFO -  is saved
+2024-10-10 09:18:45,582 - root - INFO -  is saved
+2024-10-10 09:18:45,588 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:45,593 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:45,839 - root - INFO - nmap -oX - -sP 192.168.2.200
+2024-10-10 09:18:46,071 - root - INFO - nmap -oX - -sP 192.168.2.200
+2024-10-10 09:18:46,235 - root - INFO - nmap -oX - -sL 192.168.2.200
+2024-10-10 09:18:46,261 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:46,266 - root - INFO -  is saved
+2024-10-10 09:18:46,266 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:46,267 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\c2f50481-f725-462d-9688-86f93979e3ec.json. Error: The path does not exist.
+2024-10-10 09:18:46,272 - root - INFO - c2f50481-f725-462d-9688-86f93979e3ec file is created
+2024-10-10 09:18:46,554 - root - INFO - nmap -oX - -sP 192.168.2.201
+2024-10-10 09:18:46,814 - root - INFO - nmap -oX - -sP 192.168.2.201
+2024-10-10 09:18:46,962 - root - INFO - nmap -oX - -sL 192.168.2.201
+2024-10-10 09:18:46,998 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:47,003 - root - INFO -  is saved
+2024-10-10 09:18:47,009 - root - INFO -  is saved
+2024-10-10 09:18:47,015 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:47,021 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:47,275 - root - INFO - nmap -oX - -sP 192.168.2.201
+2024-10-10 09:18:47,513 - root - INFO - nmap -oX - -sP 192.168.2.201
+2024-10-10 09:18:47,677 - root - INFO - nmap -oX - -sL 192.168.2.201
+2024-10-10 09:18:47,707 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:47,712 - root - INFO -  is saved
+2024-10-10 09:18:47,713 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:47,713 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\7b1fc984-0ae7-4f53-9147-d4915707b9da.json. Error: The path does not exist.
+2024-10-10 09:18:47,720 - root - INFO - 7b1fc984-0ae7-4f53-9147-d4915707b9da file is created
+2024-10-10 09:18:47,961 - root - INFO - nmap -oX - -sP 192.168.2.240
+2024-10-10 09:18:48,232 - root - INFO - nmap -oX - -sP 192.168.2.240
+2024-10-10 09:18:48,396 - root - INFO - nmap -oX - -sL 192.168.2.240
+2024-10-10 09:18:48,427 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:48,435 - root - INFO -  is saved
+2024-10-10 09:18:48,441 - root - INFO -  is saved
+2024-10-10 09:18:48,448 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:48,453 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:48,688 - root - INFO - nmap -oX - -sP 192.168.2.240
+2024-10-10 09:18:48,916 - root - INFO - nmap -oX - -sP 192.168.2.240
+2024-10-10 09:18:49,068 - root - INFO - nmap -oX - -sL 192.168.2.240
+2024-10-10 09:18:49,095 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:49,100 - root - INFO -  is saved
+2024-10-10 09:18:49,100 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:49,101 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\d95182a5-d08c-4463-bae9-c0fb9951cf8d.json. Error: The path does not exist.
+2024-10-10 09:18:49,106 - root - INFO - d95182a5-d08c-4463-bae9-c0fb9951cf8d file is created
+2024-10-10 09:18:49,357 - root - INFO - nmap -oX - -sP 192.168.2.245
+2024-10-10 09:18:49,613 - root - INFO - nmap -oX - -sP 192.168.2.245
+2024-10-10 09:18:49,769 - root - INFO - nmap -oX - -sL 192.168.2.245
+2024-10-10 09:18:49,799 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:49,805 - root - INFO -  is saved
+2024-10-10 09:18:49,811 - root - INFO -  is saved
+2024-10-10 09:18:49,817 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:49,823 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:50,077 - root - INFO - nmap -oX - -sP 192.168.2.245
+2024-10-10 09:18:50,317 - root - INFO - nmap -oX - -sP 192.168.2.245
+2024-10-10 09:18:50,474 - root - INFO - nmap -oX - -sL 192.168.2.245
+2024-10-10 09:18:50,501 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:50,506 - root - INFO -  is saved
+2024-10-10 09:18:50,507 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:50,507 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\bab5d50b-37ff-44ba-946c-b366ffac14a7.json. Error: The path does not exist.
+2024-10-10 09:18:50,512 - root - INFO - bab5d50b-37ff-44ba-946c-b366ffac14a7 file is created
+2024-10-10 09:18:50,757 - root - INFO - nmap -oX - -sP 192.168.2.246
+2024-10-10 09:18:51,022 - root - INFO - nmap -oX - -sP 192.168.2.246
+2024-10-10 09:18:51,193 - root - INFO - nmap -oX - -sL 192.168.2.246
+2024-10-10 09:18:51,225 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:51,232 - root - INFO -  is saved
+2024-10-10 09:18:51,236 - root - INFO -  is saved
+2024-10-10 09:18:51,242 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:51,249 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:51,478 - root - INFO - nmap -oX - -sP 192.168.2.246
+2024-10-10 09:18:51,730 - root - INFO - nmap -oX - -sP 192.168.2.246
+2024-10-10 09:18:51,883 - root - INFO - nmap -oX - -sL 192.168.2.246
+2024-10-10 09:18:51,909 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:51,914 - root - INFO -  is saved
+2024-10-10 09:18:51,915 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:51,915 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\daee0f74-c86e-4883-adf1-a527650f6b65.json. Error: The path does not exist.
+2024-10-10 09:18:51,921 - root - INFO - daee0f74-c86e-4883-adf1-a527650f6b65 file is created
+2024-10-10 09:18:52,173 - root - INFO - nmap -oX - -sP 192.168.2.247
+2024-10-10 09:18:52,420 - root - INFO - nmap -oX - -sP 192.168.2.247
+2024-10-10 09:18:52,649 - root - INFO - nmap -oX - -sL 192.168.2.247
+2024-10-10 09:18:52,711 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:52,721 - root - INFO -  is saved
+2024-10-10 09:18:52,734 - root - INFO -  is saved
+2024-10-10 09:18:52,744 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:52,757 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:53,103 - root - INFO - nmap -oX - -sP 192.168.2.247
+2024-10-10 09:18:53,334 - root - INFO - nmap -oX - -sP 192.168.2.247
+2024-10-10 09:18:53,485 - root - INFO - nmap -oX - -sL 192.168.2.247
+2024-10-10 09:18:53,533 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:53,542 - root - INFO -  is saved
+2024-10-10 09:18:53,543 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:53,544 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\b1e1772c-ac91-462f-8cf2-d6342ed0c6a8.json. Error: The path does not exist.
+2024-10-10 09:18:53,555 - root - INFO - b1e1772c-ac91-462f-8cf2-d6342ed0c6a8 file is created
+2024-10-10 09:18:53,803 - root - INFO - nmap -oX - -sP 192.168.2.250
+2024-10-10 09:18:54,030 - root - INFO - nmap -oX - -sP 192.168.2.250
+2024-10-10 09:18:54,219 - root - INFO - nmap -oX - -sL 192.168.2.250
+2024-10-10 09:18:54,246 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:54,251 - root - INFO -  is saved
+2024-10-10 09:18:54,254 - root - INFO -  is saved
+2024-10-10 09:18:54,260 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:54,266 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:54,498 - root - INFO - nmap -oX - -sP 192.168.2.250
+2024-10-10 09:18:54,708 - root - INFO - nmap -oX - -sP 192.168.2.250
+2024-10-10 09:18:54,854 - root - INFO - nmap -oX - -sL 192.168.2.250
+2024-10-10 09:18:54,889 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:54,895 - root - INFO -  is saved
+2024-10-10 09:18:54,895 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:54,896 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\a30d47ab-fb86-4d4f-a68c-c0021e3ba8aa.json. Error: The path does not exist.
+2024-10-10 09:18:54,901 - root - INFO - a30d47ab-fb86-4d4f-a68c-c0021e3ba8aa file is created
+2024-10-10 09:18:55,203 - root - INFO - nmap -oX - -sP 192.168.2.251
+2024-10-10 09:18:55,448 - root - INFO - nmap -oX - -sP 192.168.2.251
+2024-10-10 09:18:55,636 - root - INFO - nmap -oX - -sL 192.168.2.251
+2024-10-10 09:18:55,672 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:55,678 - root - INFO -  is saved
+2024-10-10 09:18:55,685 - root - INFO -  is saved
+2024-10-10 09:18:55,693 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:55,701 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:55,934 - root - INFO - nmap -oX - -sP 192.168.2.251
+2024-10-10 09:18:56,170 - root - INFO - nmap -oX - -sP 192.168.2.251
+2024-10-10 09:18:56,318 - root - INFO - nmap -oX - -sL 192.168.2.251
+2024-10-10 09:18:56,344 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:56,350 - root - INFO -  is saved
+2024-10-10 09:18:56,350 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:56,350 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\8a269fb5-8f94-4b3a-b58e-64e69d80d461.json. Error: The path does not exist.
+2024-10-10 09:18:56,358 - root - INFO - 8a269fb5-8f94-4b3a-b58e-64e69d80d461 file is created
+2024-10-10 09:18:56,591 - root - INFO - nmap -oX - -sP 192.168.2.253
+2024-10-10 09:18:56,885 - root - INFO - nmap -oX - -sP 192.168.2.253
+2024-10-10 09:18:57,031 - root - INFO - nmap -oX - -sL 192.168.2.253
+2024-10-10 09:18:57,057 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:57,063 - root - INFO -  is saved
+2024-10-10 09:18:57,067 - root - INFO -  is saved
+2024-10-10 09:18:57,073 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:57,079 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:57,320 - root - INFO - nmap -oX - -sP 192.168.2.253
+2024-10-10 09:18:57,567 - root - INFO - nmap -oX - -sP 192.168.2.253
+2024-10-10 09:18:57,729 - root - INFO - nmap -oX - -sL 192.168.2.253
+2024-10-10 09:18:57,757 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:57,761 - root - INFO -  is saved
+2024-10-10 09:18:57,762 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:57,762 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\3340906a-c701-497b-a8f9-0daa9555a21a.json. Error: The path does not exist.
+2024-10-10 09:18:57,767 - root - INFO - 3340906a-c701-497b-a8f9-0daa9555a21a file is created
+2024-10-10 09:18:58,008 - root - INFO - nmap -oX - -sP 192.168.2.254
+2024-10-10 09:18:58,302 - root - INFO - nmap -oX - -sP 192.168.2.254
+2024-10-10 09:18:58,464 - root - INFO - nmap -oX - -sL 192.168.2.254
+2024-10-10 09:18:58,495 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:58,502 - root - INFO -  is saved
+2024-10-10 09:18:58,506 - root - INFO -  is saved
+2024-10-10 09:18:58,512 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:58,519 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:18:58,754 - root - INFO - nmap -oX - -sP 192.168.2.254
+2024-10-10 09:18:58,996 - root - INFO - nmap -oX - -sP 192.168.2.254
+2024-10-10 09:18:59,161 - root - INFO - nmap -oX - -sL 192.168.2.254
+2024-10-10 09:18:59,198 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:59,205 - root - INFO -  is saved
+2024-10-10 09:18:59,206 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:18:59,206 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\f97b1650-8241-4489-9ff9-030cb1e66951.json. Error: The path does not exist.
+2024-10-10 09:18:59,212 - root - INFO - f97b1650-8241-4489-9ff9-030cb1e66951 file is created
+2024-10-10 09:18:59,457 - root - INFO - nmap -oX - -sP 192.168.2.5
+2024-10-10 09:18:59,692 - root - INFO - nmap -oX - -sP 192.168.2.5
+2024-10-10 09:18:59,846 - root - INFO - nmap -oX - -sL 192.168.2.5
+2024-10-10 09:18:59,873 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:18:59,880 - root - INFO -  is saved
+2024-10-10 09:18:59,886 - root - INFO -  is saved
+2024-10-10 09:18:59,892 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:18:59,903 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:19:00,177 - root - INFO - nmap -oX - -sP 192.168.2.5
+2024-10-10 09:19:00,446 - root - INFO - nmap -oX - -sP 192.168.2.5
+2024-10-10 09:19:00,614 - root - INFO - nmap -oX - -sL 192.168.2.5
+2024-10-10 09:19:00,655 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:19:00,663 - root - INFO -  is saved
+2024-10-10 09:19:00,663 - root - DEBUG - SyncWorker for 192.168.2.0/24
+2024-10-10 09:19:00,664 - root - ERROR - Invalid path: C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\374b5ed9-46a8-4be5-b160-60f9eac4b07a.json. Error: The path does not exist.
+2024-10-10 09:19:00,673 - root - INFO - 374b5ed9-46a8-4be5-b160-60f9eac4b07a file is created
+2024-10-10 09:19:00,943 - root - INFO - nmap -oX - -sP 192.168.2.73
+2024-10-10 09:19:01,221 - root - INFO - nmap -oX - -sP 192.168.2.73
+2024-10-10 09:19:01,362 - root - INFO - nmap -oX - -sL 192.168.2.73
+2024-10-10 09:19:01,390 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:19:01,395 - root - INFO -  is saved
+2024-10-10 09:19:01,399 - root - INFO -  is saved
+2024-10-10 09:19:01,405 - root - INFO -  is added to ZAC Expeditions
+2024-10-10 09:19:01,411 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:19:01,656 - root - INFO - nmap -oX - -sP 192.168.2.73
+2024-10-10 09:19:01,912 - root - INFO - nmap -oX - -sP 192.168.2.73
+2024-10-10 09:19:02,070 - root - INFO - nmap -oX - -sL 192.168.2.73
+2024-10-10 09:19:02,097 - root - ERROR - La machine n'est pas connectée.
+2024-10-10 09:19:02,102 - root - INFO -  is saved
+2024-10-10 09:19:02,108 - root - INFO - ZAC Expeditions is saved
+2024-10-10 09:27:19,341 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-10 09:27:20,505 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001D279F1DF40>
+2024-10-10 09:27:20,507 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001D279F1DF40>
+2024-10-10 09:27:20,508 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001D279F1DF40>
+2024-10-10 09:27:20,516 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001D279F1DF40>
+2024-10-10 09:27:20,517 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001D279F1DF40>
+2024-10-10 09:27:20,519 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001D279F1DF40>
+2024-10-10 09:27:31,562 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:30:22,312 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-10 09:30:23,607 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:30:23,609 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:30:23,610 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:30:23,615 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:30:23,616 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:30:23,617 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:30:32,592 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:30:32,621 - root - INFO - Load network
+2024-10-10 09:30:32,625 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-10 09:30:32,626 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-10 09:30:32,626 - root - DEBUG - ZAC Bureau
+2024-10-10 09:37:12,533 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:37:12,546 - root - INFO - PARIS is added to Eyrein Network
+2024-10-10 09:37:12,559 - root - INFO - TAZO is added to Eyrein Network
+2024-10-10 09:37:12,569 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-10 09:37:12,581 - root - INFO - ZI is added to Eyrein Network
+2024-10-10 09:37:12,594 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-10 09:37:12,604 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:37:12,622 - root - INFO - Load network
+2024-10-10 09:37:12,623 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-10 09:37:12,623 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-10 09:37:12,624 - root - DEBUG - ZAC Bureau
+2024-10-10 09:37:12,625 - root - DEBUG - PARIS
+2024-10-10 09:37:12,626 - root - DEBUG - TAZO
+2024-10-10 09:37:12,627 - root - DEBUG - ZAC Expeditions
+2024-10-10 09:37:12,627 - root - DEBUG - ZI
+2024-10-10 09:37:12,628 - root - DEBUG - CHALLENGER
+2024-10-10 09:37:12,628 - root - DEBUG - ZAC Bureau
+2024-10-10 09:37:25,138 - root - DEBUG - prison bleu:['e1754574-3ad6-4432-99a9-b4d9057a06b1', 'd645e937-3d70-421b-8259-e66d140e9d04', 'f3589264-2378-43b1-951b-22a13739ffd6', 'f56f74b8-fd40-475e-b51b-0e65ee02eae8', '6c749f55-9e11-45a6-9d1d-7464918b3153', '38643f07-4933-4ed7-8758-cf0b2f504b03', '43d454df-2d84-4531-99c8-2a63be90541b', '6871e369-d4f7-44de-9cc2-8f62cc7c279c', 'cd538308-e1bb-4ab6-9b71-8f6dc5ddd62b', 'aca9e39e-e979-40f5-a0b7-533556367aad', 'b6fed762-b53d-4f79-8d28-c196d3b64200', '25e37e74-327e-47a8-bb48-caab326c808d', '752d89e9-1d07-4d0a-8a71-0fafce4e03f4', '116e4e65-bbaa-4f25-9181-68e9066a575b', '67174bec-61fa-4a42-b2be-06270c96545c', '1befa70c-8867-40a3-bbac-a46f9315966c', '811c3c31-0b94-479a-9d77-ddf534507ed8', '379b3375-c124-4635-bfb9-daaaca3f710a', '20288be8-1b0f-42ba-a224-6492ac7214c4', 'd674c00d-c4b7-4b5f-a057-8af3c4469cb1', '5a7b576c-4108-42d1-bafc-896d8d7a3276', '974c5140-cfc2-4ca4-aaa8-4e2614461c45', 'de5c4481-5e35-4235-b2ee-cd0530a3c6bd', '030cb72b-b978-4b41-9d35-92ca8336aba3', '26c66a7e-ad7a-40fd-a5c9-e7fc37f82113', '9b477897-ec02-4421-8d08-c0fcbe348fd3', 'e1c6fc57-11a9-48b9-ae47-5d5149c99f3b', '16de37e6-08ce-4788-b7fe-fc44c086273b', 'e75648f6-e132-4cc6-a300-bb14451d626d', '7a7b791f-dabd-4dd8-95dd-494a8069d7cd', '1d6c4c10-32b7-439f-beec-233fd19cfa4e', '6fb96b85-0e64-420f-bfd4-789d3fb8da1a', '9c1946b3-6e6b-4083-8722-abf445dcc30a', '836ab2c2-1885-4aba-9031-ea199ed0d9fe', 'd1a41334-92b5-4f0e-baec-fffb8b551cae', 'e7851e1c-c341-44e1-9c61-50a9573bf97b', 'ce55ef49-c725-4985-82e2-a9768c144ca2', 'b6c8ae6c-e30e-498d-bd76-eaa361d2eadb', 'd7dfa180-51b7-41ae-a7e3-4f3a679e6ddb', 'b5d50c55-e7b9-4597-ad9a-9df3f9c3bcf9', '8dc2d0e1-b4e7-4a6d-9918-b27c25aab2a1', 'aff43388-e5cc-4298-bbaf-7bde68054afa', 'df26bfc4-1bad-4606-9dca-4d82150a20a3', '453b81fc-0dfa-40bc-b26a-c2101fe1ebd1', 'bb41b293-976f-4dd4-abc4-a7fd70f00634', '679d6c34-bbb7-4c08-935a-ca3dfb0b22ef', 'fad58a0e-4fb7-41ce-9f42-054ad21e5553', 'fc77bba1-5fa8-4353-b6a6-7d1ea44a203b', '34c599ca-4794-40ee-b4d9-7a82c6b9cd9f', '2fd175cc-81d3-4f68-8ef7-e9466011a2dd', '47412d43-430a-4b1a-a645-03390f50198a', 'e20a3f9e-6159-44dc-8acb-b3a045fbe54c', '0d4f5b79-0d60-4aba-ac47-fac17069e36d', '20e44875-9df0-4dcc-be72-7b4e6e52801d', '9cc7e355-27ac-491c-a91d-a707ff04d8d5', 'bff905ff-0d81-4255-95d1-5a6382dfaa8e', 'a93158b8-a27a-4ce2-85fc-4a4d7bfbfab6', '0f99f2b9-535b-4039-b723-274cd4a63acd', '35114673-4fa4-4832-995e-29bb2fdb5af2', 'ec153e62-a180-4288-b1a1-16c66e37c2fd', '5e63bc14-0327-4287-a48b-2dc0b707a080', 'ba78ae68-dfd6-490f-a0fe-63d57e524338', '276b6c8b-11a3-4f7a-9af4-a4c46b92990b', '284a0216-3186-4701-842a-1589cd0a9983', '6f60f3bc-c90b-4685-9b8e-61da50aee18d', '99c9fde1-e1d5-4609-8a3c-e4aab81857eb', '829312c4-c715-478b-9735-49aa6686e71a', '57509527-19bb-4e14-903a-ed447710e336', 'adad2aa0-f077-433b-88ab-e064e1a82253', 'b8940a87-b32d-4fb4-a268-df81262f3742', '76cd95b2-7a5a-49cb-9f48-12a3e1e22282', '947f0f11-f67f-4cc0-b492-f0bded96ada3', '30f800cc-bf0a-4224-a961-cbfcd23f5257', 'd78c8423-3ea3-428a-bb0f-f7bbb73953d0', '765a3c2a-404b-4333-8d89-8527dff260ff', 'dd74a0d2-e906-4c3d-98f4-878a7f09d0f7', '520fcad3-0ca0-4b97-8a7a-f8688b05b6e5', '233fecf4-c09e-4609-9977-5d175b50876d', '66638dac-0813-4f59-861d-6d98f2f0e9df', '5ea46406-a3b0-4b8c-a2ec-8646ca504681', '402ce340-b4e5-4a00-b0a0-ad099bc0eb1d', 'bd9657c9-aebe-4f1e-976a-1a38331bfc66', '53f836af-5f70-4503-8101-68a2f222bab6', '14cc77ab-b473-4fb9-990a-ee21b59c355e']
+2024-10-10 09:37:25,484 - root - INFO - ZAC Bureau - 192.168.90.0 - 255.255.255.0
+2024-10-10 09:37:25,486 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:38:05,375 - root - DEBUG - prison bleu:['24c27d36-a24c-4937-8d91-2892877fdc02', 'd0cfa0e3-d7da-4f98-be08-b73b981a8268', 'c477e128-15b2-40d2-9a46-023e1c583df8', '75c71b75-03dc-4e66-8776-85278d3e252f', '3e663c1e-2651-4cfe-8dd5-a77c89a88012', '608eebf7-e1cd-4b40-8478-ef3caf8ff975', '5181ddf7-3255-460b-8cae-d2dfc95b4273', '11c23948-15b9-49c6-8665-73b2c4e4d603', '3dea1821-7173-4c59-b3e2-e6ecae36840c', 'fcc57c86-71c5-4392-bea5-b7c9cc5d9cad', '1c3956f6-9797-4b3f-8cf0-ad3fbd8a7db3', '70806fb4-9041-4577-b999-f15db6430218', 'e5982e33-e029-421d-8148-0d860c64f6d9', '10d86f43-c1fb-4c7f-b9b0-7eb849711553', '5b58b40d-5cfa-475b-aca2-c2da966607aa', '0aafe230-c58d-447a-9cc6-71b417b6c4ca', '91f9f750-6db1-429a-820c-86cbc0df6ea1', 'a73a453c-6df4-4b19-bc9f-c3d8f845c281', 'b3f31f20-fabd-4f9e-9bfa-4484ba0fda87', '8803151a-4772-43f2-8c30-57faadcc4a04', 'be60cdd9-7a63-443c-9c0f-171427da6bce', '598110cf-75fe-4ee3-aa4f-295c44bdcfa5', '9f072720-0f45-4adb-b091-c09316a07118', '599ac865-96aa-4fe1-ab11-868671e4993d', 'd9a92af2-d263-477e-a9e7-81b299f7f8d7', '925ce3e0-94c9-4e8b-8d7d-b1f3d6a7fa1b', '01e7c6f7-3736-4350-890a-19600d4df421', '767c1333-5a92-4f2a-9a00-55c874ba6975', 'cd51a7ae-3d71-4f79-a2a7-010d1d2f2d5a', '6e31a1df-8749-460f-8ec0-49e7c42cd820', '848cc912-2419-4de5-a1bf-d1cbe41bf83b', '8ed7d541-618f-49cd-80fa-0ccfd65edfc3', '3aaf0db2-b9df-477c-b81b-c4874d7bae56', 'e7b84d38-614a-432d-9482-613e8fec8445', 'ba4220b2-fa0c-421a-9635-aa1f6eefa3bc', '00ba5539-0e0e-46de-9622-d8bb77a0c089', '6777d319-76eb-49be-927c-9b8131ad97a9', '544bd114-4189-470e-985e-82837054ae5d', '96a4a326-e69b-4aa7-926d-5811754e40b3', '5cb23683-c021-4711-8969-68b6119fbb42', '298c96d1-425e-440c-9440-efbc67e92d56', 'a8bd415b-224d-4a89-b900-31b33adcac9b', 'ee48b85d-3769-4fe9-a8b9-0f3e68a07920', 'ee2cc0c9-2771-44d9-9e9c-b7864b131e9c', 'a3ff15d5-caeb-447e-a8b9-7a61129a457f', 'fa94b268-434d-4a12-bbb4-a872be0bc21d', '82545ee4-c0b8-4b6f-9a95-bdedfaad240c', 'b4874a9b-380b-43d5-9e0b-ce89ca2806f2', '375c5f70-0bc2-4fb6-9de1-d2d821f3c864', 'f1e4fcac-19c7-4e4d-9d38-dc9e976db432', '5d82c9a6-1ede-478f-88b0-21ae420b0f35', '0a6f02e9-d63c-4e4a-8dd4-684ef75e70f3', 'f54d21a6-037d-43a8-a182-6993242d6bdd', '59446ea3-a20c-489c-924e-a58084b6f38b', 'a5b62dde-a3fa-4238-92e6-68e4e16335b2', '1c8d8684-a052-4845-a429-7a26fd9ef77e', '48ea95cf-ec48-4853-8628-b27246011043', '18852435-1f51-41c3-99d1-f5dd9043ef6a', 'e2a3c5bf-4090-483d-8236-d532cbd6e78f', '331f2ab6-2f46-4ed6-95ad-2b38ba02511c', '0b45ad8d-9710-4779-8100-322e4a19a0bf', '8a55cdbf-a9db-4f76-acc6-2a8100420bdc', 'deca478b-e3c9-444c-b6b8-341d759271dd', 'f4d4397f-be79-4713-a99c-1c920c7f567b', 'd46ba2cc-992b-4da2-b2ef-fe57a5a60b17', '7e2d6c70-8347-457a-95d5-13f92fbbd4f7', '58e928ed-38e2-4b03-a823-978ce61d2c2a', '9e63a0e5-5826-45b1-85f7-6f22b4b32efe', '074afab9-22ac-42cb-98e0-e602f502c2ac', '9a98907d-4646-4ab4-9044-f5bac2c420f4', '93d8f4a2-f1a7-448a-8a71-54e89b4626d6', '2b0f6185-c588-4f1c-8328-fb4b92ce26ad', '54104e20-3829-425b-910b-563bd69ddbe4', 'b37ed059-9ff8-4827-9f01-502e45044e38', 'e791cf8b-3730-4cc1-ac59-2730ef0ac6be', 'f7c5b124-4f8e-4b84-836a-f250f80af0aa', 'b0505286-bf86-4cc1-83e0-0a83fc1e35b3', '266ee00d-29eb-41b1-9716-f9a625bede35', 'b54ac350-52be-4bc6-a164-dd1cb0e2140a', 'dbb61b65-9ac5-4328-986d-1bcc8ba39869', 'c05361cc-69d4-4ef1-8d8f-8b13d98c1edf', 'fcfe6b77-bbff-43a7-a83f-6e9c43fb1acb', '9bc51ebe-dddd-4c51-bd4e-8cb8a7fdf752', 'd82780c8-fe37-4989-8f61-ba9d39a5d37b', '21bec323-1eaf-4af6-9735-3b73389763e2', '1a3579a0-0a4e-481e-a3d3-4eb9536f2694', '1227e6e6-e892-487c-b280-ec857c9bbc05', '29f963ab-d7e2-406f-9ee6-a336ed95a1d8', 'a0f07af3-4924-4f85-b26e-374bd6b96dd8', '9216a326-b06e-40f9-accf-71ffab50e2ce', '6f5d04f8-d623-42e2-b094-b0ad8af2679b', '4456e98a-a224-4007-b9db-348b9db08aea', 'fd89a47a-7122-4ef0-835f-23f43ec0a47d', 'ba8959be-883e-4179-a233-f51e9c53b635', 'ecd6bc45-c24e-4072-8ca0-2f0b38a2e677', 'f5869f7f-e4f6-41c4-a820-a103f5f7c6c0', 'c4464ab7-5fcb-491c-9b82-c7baf4217ea7', 'd71c9f01-3544-4b97-a07b-2277cac96542', '6595f66f-a545-4cf1-8b19-2da3ddb2070d', 'dbb8d26c-a4a7-4364-87c7-0e60e228ede2', 'cdc0c6da-9a75-4483-8c60-190ea65adb2e', 'd6ea48f3-6784-4472-b598-1e4936a11d6e', '7845db8a-c8f5-4120-9e13-81893844efb6', 'f775a948-b6f2-4538-839b-7074b3c4c08d', 'b07f1e55-4ccf-4b69-8f82-dddd38e478e7', '49c90468-1fef-48ce-aaae-eb9eaecd3791', 'c6174645-c0fa-4b96-8a62-b1b7a8d949f7', '922f4f9a-4117-4413-9725-e96f4b4e6e9c', '3fef7d19-0896-4a06-9a22-c8c784bed89c', '168511bd-df14-49bf-b0fe-618ae17bc42a', '206c2b6e-c0f9-40da-879f-b3794715f7a2', '2d35799e-573e-481c-b688-0985485a31c3', 'cdaaec5e-cad4-4241-bd52-32a51dfb6376', '88f56019-d339-461f-8035-034429bcebdd', 'cae609df-f04d-4fa1-bedb-68fb2b859f6d', 'b412acf1-0fec-4454-8b38-98b42334ffce', '4fcee9d5-38cd-4808-b830-e370b262ab6c', '2cfcb811-6a42-48dc-8770-9739907ba6ae', 'ff1a1092-121d-4147-9578-14e868ca6f4f', '65f21792-654c-4152-91f4-5c09cc5faa80', '0689f711-d3c7-471d-adf8-ecfaf5787a7f', 'b3602eb0-febb-4e6e-9ceb-b5a70a2a688e', '779feed6-a7be-473a-bfce-8447e1a48d9e', '1f1d4834-2968-49ce-8941-c833372c52c5', '383fb550-2120-4d7d-a8e6-e6277cb0f2f6', 'd0a567f9-76c0-4810-80aa-7ac3cf2eb911', '15f007c4-5ebf-461c-acda-cba95e1e9190', 'dfb31b45-8541-443e-b5fa-751e74530bd3', '2d0996c6-ec26-4d1a-aba5-4b1992450252', 'ecb3e3f3-8bc0-4263-874a-b8c3297c6e10', '16db3633-0835-4d19-a07e-3ba74b8a40d7', '45d8bb91-fa12-420c-8f06-6f40d4fe929f', '1a27dfe0-f9bc-40ee-b343-3e6f6dddde05', 'f2ad9b28-f42f-4408-b71e-d0067d2c63dc', '4a51e676-4490-4044-b968-b2caddd999d3', '816dc166-13e4-48f3-825d-99c9d7a3fe1c', '33ed4b2b-e9ff-4b69-99e7-bfc6bdfe4ee8', '53c010bd-d3c4-4765-9812-c264256ab995', '0f7c24b0-f835-4ccb-8bab-43582c443d52', '22f5cedd-6076-4d30-9f45-b2dd3a82ffbb', 'e32ed140-f455-4dce-9387-4acfbc63e4d6', '47c75113-839e-406d-ac0b-c8d6f05a5195', 'f10d911f-2769-4091-9c99-0b77a33f7ec6', '5bfedcf3-a121-405a-9f62-bdeb66b4548e', 'c3b8b2c9-4c78-4fad-a25d-e3c89cf56336', '1c21beeb-8238-47bb-8799-aec6d9016ce9', '6a4d0265-8070-423f-b04e-0aafa7744c68', '76f79cd2-3435-4d39-a753-657f55d6d14e', 'c36b3dbb-29bb-4633-9030-577378f7618d', 'fe7746b9-224a-4fa0-a9a0-25e9adc34241', '49d7dbea-4449-4c70-bad8-9f87eccbd06b', '4c7f6661-0e4b-435b-b653-3cc36258d518', '5b68f600-a026-4436-88ab-4005cbc4a07e', 'bb90dcef-61d6-4fa1-9fd9-327f474ffecf', 'c7694609-db7a-45be-b559-05c3d21a99b4', 'eb36ae48-b3b0-46c4-b3b2-60cf8a3fc341', 'd18272a1-01cf-4fb2-b6de-815e1ca71bc9', 'd4404e21-74dc-44ac-8f66-474d2e32bd20', '18e3cfe2-4ca0-426e-bcd5-c3fd8d6905d3', '09376b1b-4b92-4a9e-ad74-290d59dd68c9', '1123b83a-b244-4004-acad-a955e099f1c1', 'ba6b2285-98e5-4d30-a98f-66e420c1f98b', '8b514f72-40aa-4e19-a3db-a554581cb3c5', '8ff2769a-633d-4d1f-afd7-bd601a04fd9e', '9942d6f1-5b6d-4576-ad64-a99ceebf6915', '1f443534-8a0e-4634-9529-fb10bc3755c1', '90c546cc-709d-4774-8019-381d3cbf11f3', 'a08956fc-e511-45b0-bef6-cb1b029ca1d1', '18eb31ad-dd00-4332-8ce2-52ab5a91b9a3', 'e822aaac-2c74-4107-a24e-c001dca5ad52', '2612881e-2ced-4bc8-87b3-730f99ba6f80', 'd20ffbd0-9e73-4bd7-86ac-3e3606542c46', 'ab11f0fe-3d85-4d8a-b7b3-2403906c8c64', 'beafd9d6-207f-4f50-9b89-38ddf7bb2cb5', 'f83d7b04-1f9e-4909-8f87-7506e4353217', '90f74ba4-3cd5-4b80-8273-12cb97cc0864', '55e8eed4-e119-4275-bd10-b5b02babc386', '46fe17bd-2eb0-4f38-818a-95d997398740', 'ca34663e-8e3b-4dec-9def-20de314a5b2a', 'd9bacbd8-1878-423e-b4fe-1eac18de8470', '4eed6d24-2f04-4fad-8571-501dcae1f5a9', '3d80884e-8a2c-43e2-9e55-f2a13ed94a47', 'a7279cfc-0f5c-4b53-917e-cb92f55a5095', '1d00c950-f443-4110-b226-ba87d4cf610f', '1bfa7068-7f20-4b16-907c-35948c6f7dfa', '98a354f8-c843-46a4-b328-ac7cf04d146c', '685c635d-0c8f-4d1a-ae40-be7dbfcafacd', 'bcfbfb39-070d-4365-8e05-69a1d475e42f', '8cd99097-3e76-4b75-996c-f04367fb306b', '323b9902-108f-49e3-abd5-7ac9a18ea813', 'd9481978-558c-474e-bee3-2e1296515464', 'df28472c-55e7-4ec0-ae63-bea656bbad7e', '0367a304-8aea-427a-9272-fe46722b05b0', '659ad14d-ca23-491d-85cf-4a6ed2e27a2c', 'cab13bc0-4ff2-4c49-a84f-b00cb0a23e31', 'd4dc1374-1996-41c7-82c8-52c5b58f36bd']
+2024-10-10 09:38:06,046 - root - INFO - PARIS - 192.168.70.0 - 255.255.255.0
+2024-10-10 09:38:06,047 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:38:09,329 - root - DEBUG - prison bleu:['a24d1a23-c9c9-451d-8962-391fbf16fba2', 'f0628676-c9a3-49ad-88e8-271a5a072265', '689b8297-9529-4b2e-80c7-593cfbcc8f1f', 'e8530956-b50c-4fbb-8c6e-294c71689e51', 'a334b34a-ab3b-4934-bb45-7b058f18af93', '8e58c798-f15d-430a-ab2e-02ceb6c0c471']
+2024-10-10 09:38:09,356 - root - INFO - TAZO - 192.168.110.0 - 255.255.255.0
+2024-10-10 09:38:09,357 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:38:10,761 - root - DEBUG - prison bleu:['07761b3a-cbd8-4f8e-ba63-00419f6d629f', '2a6940b4-2eda-4d55-9b6e-9bf8200900b0', '23f3f45f-2682-4ca8-9b2b-acc7e6fb099e', '538b1456-de2f-487b-8302-0fba7921dbb7', '22236b95-e473-4efa-95a7-baa8bc282966', '9bf2a8d9-93b4-4b67-a60a-a99cc13fe062', '776e93ae-673f-4fac-a179-c0abba58e354', '1a66c605-7c99-475e-bf3d-485b7c7eb2ef', '9d7bce3f-93f7-403c-a4a2-bbda8bd0a02f', '9b0ff78e-df1c-4b6c-8aab-e2d2fbaf7384', '96bd0ad6-a1a3-4636-8199-2318060ce065', '6f3fea28-c2b7-4159-a07a-3b6fd785d740', 'c74c964e-1a42-46c4-ad86-cfe58199be52', '238d9108-a4bb-4a71-b037-4e5104dfeebb', 'e3cb3393-9c0f-4776-bac5-7a40edd6e55b', '26cbd6d6-0801-4a1f-9a62-55be1c0e56ea', '1ffaf1a6-1ee2-4c96-b339-ff9fe58cf252', '12763ce9-b293-475f-b305-9910e1522d49', '6133a8a5-f4ea-4a58-aa5a-b7edb45608ac', '17dc87e2-b203-4d8f-acd3-d774c6d77403', '7b88ee4d-a672-4e2b-a6a3-10e0f86d6d37', '4e283f13-2534-4b63-9688-fccfe1b97759', 'f7955953-52de-4a34-82fc-5de73ba44181', '6bec8adc-1f42-44fd-80e1-edb55f49b7b7', '1ec13d5a-3970-4da5-8d8c-0fbe9cf59a73', 'c2f50481-f725-462d-9688-86f93979e3ec', '7b1fc984-0ae7-4f53-9147-d4915707b9da', 'd95182a5-d08c-4463-bae9-c0fb9951cf8d', 'bab5d50b-37ff-44ba-946c-b366ffac14a7', 'daee0f74-c86e-4883-adf1-a527650f6b65', 'b1e1772c-ac91-462f-8cf2-d6342ed0c6a8', 'a30d47ab-fb86-4d4f-a68c-c0021e3ba8aa', '8a269fb5-8f94-4b3a-b58e-64e69d80d461', '3340906a-c701-497b-a8f9-0daa9555a21a', 'f97b1650-8241-4489-9ff9-030cb1e66951', '374b5ed9-46a8-4be5-b160-60f9eac4b07a']
+2024-10-10 09:38:10,981 - root - INFO - ZAC Expeditions - 192.168.2.0 - 255.255.255.0
+2024-10-10 09:38:10,982 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:38:12,167 - root - DEBUG - prison bleu:[]
+2024-10-10 09:38:12,173 - root - INFO - ZI - 192.168.100.0 - 255.255.255.0
+2024-10-10 09:38:12,174 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:38:13,217 - root - DEBUG - prison bleu:['514d1849-7054-4db4-872d-dc08a4aa5a5d', '9c4bae0d-82fc-4efa-a7c3-4b34240621bf', '9bfe6a0c-8188-4c9e-8d62-c790dc2869e1', 'a5538df9-f871-4d6f-a8af-01e9fdcc74fc', 'db195e9b-6b5f-4f17-a83a-6cae25bb32b8', '3ac25749-0c4e-4943-b4b2-de47c28f8379', '81a9cb89-a81d-4d31-9e12-ae770d88ca64', 'b709aff0-a98a-464c-a6e1-f7da1656e0a5', '8d3023f0-65fa-45b6-8fc3-63e8e530ed1e', '791b68ff-6598-4416-97de-f609b3f6c7d3', '6d9fe46d-3abb-446d-84d8-32263d63b711', '15c218c4-1378-445b-9987-692f0658d032', 'ef0ab80b-09b3-4c26-b6f2-31a1335726d6', '0506b16b-6896-42c0-afa8-ffeaec97c4f4', '4a6ba8ca-5844-4283-b472-f145a7b9de63', '823e40d2-80f9-424e-ab5e-6eea89551929']
+2024-10-10 09:38:13,287 - root - INFO - CHALLENGER - 192.168.253.0 - 255.255.255.0
+2024-10-10 09:38:13,288 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:38:14,471 - root - DEBUG - prison bleu:['e1754574-3ad6-4432-99a9-b4d9057a06b1', 'd645e937-3d70-421b-8259-e66d140e9d04', 'f3589264-2378-43b1-951b-22a13739ffd6', 'f56f74b8-fd40-475e-b51b-0e65ee02eae8', '6c749f55-9e11-45a6-9d1d-7464918b3153', '38643f07-4933-4ed7-8758-cf0b2f504b03', '43d454df-2d84-4531-99c8-2a63be90541b', '6871e369-d4f7-44de-9cc2-8f62cc7c279c', 'cd538308-e1bb-4ab6-9b71-8f6dc5ddd62b', 'aca9e39e-e979-40f5-a0b7-533556367aad', 'b6fed762-b53d-4f79-8d28-c196d3b64200', '25e37e74-327e-47a8-bb48-caab326c808d', '752d89e9-1d07-4d0a-8a71-0fafce4e03f4', '116e4e65-bbaa-4f25-9181-68e9066a575b', '67174bec-61fa-4a42-b2be-06270c96545c', '1befa70c-8867-40a3-bbac-a46f9315966c', '811c3c31-0b94-479a-9d77-ddf534507ed8', '379b3375-c124-4635-bfb9-daaaca3f710a', '20288be8-1b0f-42ba-a224-6492ac7214c4', 'd674c00d-c4b7-4b5f-a057-8af3c4469cb1', '5a7b576c-4108-42d1-bafc-896d8d7a3276', '974c5140-cfc2-4ca4-aaa8-4e2614461c45', 'de5c4481-5e35-4235-b2ee-cd0530a3c6bd', '030cb72b-b978-4b41-9d35-92ca8336aba3', '26c66a7e-ad7a-40fd-a5c9-e7fc37f82113', '9b477897-ec02-4421-8d08-c0fcbe348fd3', 'e1c6fc57-11a9-48b9-ae47-5d5149c99f3b', '16de37e6-08ce-4788-b7fe-fc44c086273b', 'e75648f6-e132-4cc6-a300-bb14451d626d', '7a7b791f-dabd-4dd8-95dd-494a8069d7cd', '1d6c4c10-32b7-439f-beec-233fd19cfa4e', '6fb96b85-0e64-420f-bfd4-789d3fb8da1a', '9c1946b3-6e6b-4083-8722-abf445dcc30a', '836ab2c2-1885-4aba-9031-ea199ed0d9fe', 'd1a41334-92b5-4f0e-baec-fffb8b551cae', 'e7851e1c-c341-44e1-9c61-50a9573bf97b', 'ce55ef49-c725-4985-82e2-a9768c144ca2', 'b6c8ae6c-e30e-498d-bd76-eaa361d2eadb', 'd7dfa180-51b7-41ae-a7e3-4f3a679e6ddb', 'b5d50c55-e7b9-4597-ad9a-9df3f9c3bcf9', '8dc2d0e1-b4e7-4a6d-9918-b27c25aab2a1', 'aff43388-e5cc-4298-bbaf-7bde68054afa', 'df26bfc4-1bad-4606-9dca-4d82150a20a3', '453b81fc-0dfa-40bc-b26a-c2101fe1ebd1', 'bb41b293-976f-4dd4-abc4-a7fd70f00634', '679d6c34-bbb7-4c08-935a-ca3dfb0b22ef', 'fad58a0e-4fb7-41ce-9f42-054ad21e5553', 'fc77bba1-5fa8-4353-b6a6-7d1ea44a203b', '34c599ca-4794-40ee-b4d9-7a82c6b9cd9f', '2fd175cc-81d3-4f68-8ef7-e9466011a2dd', '47412d43-430a-4b1a-a645-03390f50198a', 'e20a3f9e-6159-44dc-8acb-b3a045fbe54c', '0d4f5b79-0d60-4aba-ac47-fac17069e36d', '20e44875-9df0-4dcc-be72-7b4e6e52801d', '9cc7e355-27ac-491c-a91d-a707ff04d8d5', 'bff905ff-0d81-4255-95d1-5a6382dfaa8e', 'a93158b8-a27a-4ce2-85fc-4a4d7bfbfab6', '0f99f2b9-535b-4039-b723-274cd4a63acd', '35114673-4fa4-4832-995e-29bb2fdb5af2', 'ec153e62-a180-4288-b1a1-16c66e37c2fd', '5e63bc14-0327-4287-a48b-2dc0b707a080', 'ba78ae68-dfd6-490f-a0fe-63d57e524338', '276b6c8b-11a3-4f7a-9af4-a4c46b92990b', '284a0216-3186-4701-842a-1589cd0a9983', '6f60f3bc-c90b-4685-9b8e-61da50aee18d', '99c9fde1-e1d5-4609-8a3c-e4aab81857eb', '829312c4-c715-478b-9735-49aa6686e71a', '57509527-19bb-4e14-903a-ed447710e336', 'adad2aa0-f077-433b-88ab-e064e1a82253', 'b8940a87-b32d-4fb4-a268-df81262f3742', '76cd95b2-7a5a-49cb-9f48-12a3e1e22282', '947f0f11-f67f-4cc0-b492-f0bded96ada3', '30f800cc-bf0a-4224-a961-cbfcd23f5257', 'd78c8423-3ea3-428a-bb0f-f7bbb73953d0', '765a3c2a-404b-4333-8d89-8527dff260ff', 'dd74a0d2-e906-4c3d-98f4-878a7f09d0f7', '520fcad3-0ca0-4b97-8a7a-f8688b05b6e5', '233fecf4-c09e-4609-9977-5d175b50876d', '66638dac-0813-4f59-861d-6d98f2f0e9df', '5ea46406-a3b0-4b8c-a2ec-8646ca504681', '402ce340-b4e5-4a00-b0a0-ad099bc0eb1d', 'bd9657c9-aebe-4f1e-976a-1a38331bfc66', '53f836af-5f70-4503-8101-68a2f222bab6', '14cc77ab-b473-4fb9-990a-ee21b59c355e']
+2024-10-10 09:38:14,533 - root - INFO - ZAC Bureau - 192.168.90.0 - 255.255.255.0
+2024-10-10 09:38:14,533 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:38:36,541 - root - DEBUG - prison bleu:['514d1849-7054-4db4-872d-dc08a4aa5a5d', '9c4bae0d-82fc-4efa-a7c3-4b34240621bf', '9bfe6a0c-8188-4c9e-8d62-c790dc2869e1', 'a5538df9-f871-4d6f-a8af-01e9fdcc74fc', 'db195e9b-6b5f-4f17-a83a-6cae25bb32b8', '3ac25749-0c4e-4943-b4b2-de47c28f8379', '81a9cb89-a81d-4d31-9e12-ae770d88ca64', 'b709aff0-a98a-464c-a6e1-f7da1656e0a5', '8d3023f0-65fa-45b6-8fc3-63e8e530ed1e', '791b68ff-6598-4416-97de-f609b3f6c7d3', '6d9fe46d-3abb-446d-84d8-32263d63b711', '15c218c4-1378-445b-9987-692f0658d032', 'ef0ab80b-09b3-4c26-b6f2-31a1335726d6', '0506b16b-6896-42c0-afa8-ffeaec97c4f4', '4a6ba8ca-5844-4283-b472-f145a7b9de63', '823e40d2-80f9-424e-ab5e-6eea89551929']
+2024-10-10 09:38:36,559 - root - INFO - CHALLENGER - 192.168.253.0 - 255.255.255.0
+2024-10-10 09:38:36,560 - root - DEBUG - <src.classes.mainApp.MainApp object at 0x00000268A9709C70>
+2024-10-10 09:54:31,975 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-10 09:54:34,923 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000017B70A462A0>
+2024-10-10 09:54:34,925 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000017B70A462A0>
+2024-10-10 09:54:34,926 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000017B70A462A0>
+2024-10-10 09:54:34,932 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000017B70A462A0>
+2024-10-10 09:54:34,932 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000017B70A462A0>
+2024-10-10 09:54:34,933 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000017B70A462A0>
+2024-10-10 09:54:44,931 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:54:44,942 - root - INFO - PARIS is added to Eyrein Network
+2024-10-10 09:54:44,956 - root - INFO - TAZO is added to Eyrein Network
+2024-10-10 09:54:44,970 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-10 09:54:44,981 - root - INFO - ZI is added to Eyrein Network
+2024-10-10 09:54:44,994 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-10 09:54:45,008 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-10 09:54:45,031 - root - INFO - Load network
+2024-10-10 09:54:45,032 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-10 09:54:45,032 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-10 09:54:45,032 - root - DEBUG - ZAC Bureau
+2024-10-10 09:54:45,033 - root - DEBUG - PARIS
+2024-10-10 09:54:45,033 - root - DEBUG - TAZO
+2024-10-10 09:54:45,034 - root - DEBUG - ZAC Expeditions
+2024-10-10 09:54:45,034 - root - DEBUG - ZI
+2024-10-10 09:54:45,035 - root - DEBUG - CHALLENGER
+2024-10-10 09:54:45,035 - root - DEBUG - ZAC Bureau
