@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: sql_server
+    env_file:
+      - .env
+    ports:
+      - "${MARIADB_PORT}:3306"
+    volumes:
+      - ./configs/mariadb.conf:/etc/mysql/mariadb.conf.d/50-server.cnf  # Configuration MariaDB
+      - ./services/srv_mariadb.txt:/var/lib/mysql                       # Données MariaDB
+      - ./logs/mariadb.log:/var/log/mysql/mariadb.log                   # Fichier de log MariaDB
+    networks:
+      - lan_audacity_network
+
+  mongodb:
+    image: mongo:latest
+    container_name: nosql_server
+    env_file:
+      - .env
+    ports:
+      - "${MONGODB_PORT}:27017"
+    volumes:
+      - ./configs/mongodb.conf:/etc/mongo/mongod.conf                   # Configuration MongoDB
+      - ./services/srv_mongodb.txt:/data/db                             # Données MongoDB
+      - ./logs/mongodb.log:/var/log/mongodb/mongodb.log                 # Fichier de log MongoDB
+    networks:
+      - lan_audacity_network
+
+  lan_audacity:
+    build:
+      context: .
+      dockerfile: dockerfile 
+    container_name: lan_audacity_app
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - ./configs/lan_audacity.conf:/etc/lan_audacity/config.conf       # Configuration application
+      - ./logs/app.log:/var/log/lan_audacity/app.log                    # Fichier de log application
+      - ./assets:/app/assets                                            # Dossier assets si nécessaire pour l'application
+    depends_on:
+      - mariadb
+      - mongodb
+    networks:
+      - lan_audacity_network
+
+networks:
+  lan_audacity_network:
+    driver: bridge
