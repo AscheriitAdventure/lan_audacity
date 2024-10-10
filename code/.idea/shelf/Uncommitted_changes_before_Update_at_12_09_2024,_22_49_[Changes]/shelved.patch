@@ -1,0 +1,35 @@
+Index: Test_Lan_Audacity/lan_audacity.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n    \"project_name\": \"Test_Lan_Audacity\",\n    \"char_table\": \"utf-8\",\n    \"abs_path\": \"C:\\\\Users\\\\g.tronche\\\\Documents\\\\GitHub\\\\lan_audacity\\\\code\",\n    \"software\": {\n        \"name\": \"Lan Audacity\",\n        \"version\": \"1.0.4\"\n    },\n    \"author\": \"John Doe\",\n    \"clock_manager\": {\n        \"clock_created\": 1718980694.5398214,\n        \"clock_list\": [],\n        \"type_time\": \"Unix Timestamp Format\"\n    },\n    \"obj_paths\": {\n        \"conf\": {\n            \"path\": \"conf\",\n            \"folders\": [],\n            \"files\": []\n        },\n        \"db\": {\n            \"path\": \"db\",\n            \"folders\": [\n                \"interfaces\",\n                \"interfaces\",\n                \"desktop\",\n                \"desktop\"\n            ],\n            \"files\": []\n        },\n        \"logs\": {\n            \"path\": \"logs\",\n            \"folders\": [],\n            \"files\": [\n                [\n                    \"lan_audacity\",\n                    \"log\"\n                ]\n            ]\n        },\n        \"pixmap\": {\n            \"path\": \"pixmap\",\n            \"folders\": [],\n            \"files\": []\n        }\n    },\n    \"networks\": [],\n    \"links\": [],\n    \"devices\": []\n}
+===================================================================
+diff --git a/Test_Lan_Audacity/lan_audacity.json b/Test_Lan_Audacity/lan_audacity.json
+--- a/Test_Lan_Audacity/lan_audacity.json	
++++ b/Test_Lan_Audacity/lan_audacity.json	
+@@ -1,14 +1,14 @@
+ {
+     "project_name": "Test_Lan_Audacity",
+     "char_table": "utf-8",
+-    "abs_path": "C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code",
++    "abs_path": "/Users/yuna/Documents/GitHub/lan_audacity/code",
+     "software": {
+         "name": "Lan Audacity",
+-        "version": "1.0.4"
++        "version": "1.0.0"
+     },
+     "author": "John Doe",
+     "clock_manager": {
+-        "clock_created": 1718980694.5398214,
++        "clock_created": 1719837861.903702,
+         "clock_list": [],
+         "type_time": "Unix Timestamp Format"
+     },
+@@ -22,8 +22,6 @@
+             "path": "db",
+             "folders": [
+                 "interfaces",
+-                "interfaces",
+-                "desktop",
+                 "desktop"
+             ],
+             "files": []
