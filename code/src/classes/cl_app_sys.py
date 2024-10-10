@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 import os
 import logging
+import uuid
+from typing import Optional
 
 @dataclass
 class OsSys:
@@ -51,3 +53,48 @@ class MongoDB_Docker:
     user: str
     password: str
     port: int
+
+@dataclass
+class User:
+    username: str = os.getlogin()
+    password: str = ""
+
+@dataclass
+class UserHistory:
+    user: User = User()
+    history: list = []
+
+    def addFolderPath(self, folder_path: str) -> None:
+        # Si il existe dans l'historique
+        if folder_path in self.history:
+            self.history.remove(folder_path)
+            self.history.append(folder_path)
+        else:
+            self.history.append(folder_path)
+    
+    def removeFolderPath(self, folder_path: str) -> None:
+        self.history.remove(folder_path)
+    
+    def clearHistory(self) -> None:
+        self.history.clear()
+    
+    def last10Folders(self) -> list:
+        return self.history[-10:]
+
+
+# Classe pour la table WebAddress
+@dataclass
+class WebAddress:
+    ipv4: Optional[str] = None
+    mask_ipv4: Optional[str] = None
+    ipv4_public: Optional[str] = None
+    cidr: Optional[str] = None
+    ipv6_local: Optional[str] = None
+    ipv6_global: Optional[str] = None
+
+
+@dataclass
+class Net_Object:
+    uuid: str = str(uuid.uuid4())
+    name: str = "Object Name Undefined"
+    web_address: WebAddress = WebAddress(0)   

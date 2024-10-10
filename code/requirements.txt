@@ -8,6 +8,7 @@ PyYAML
 Pygments
 QtAwesome
 QtPy
+python-dotenv
 mysql
 mysql-connector-python
 mysqlclient
