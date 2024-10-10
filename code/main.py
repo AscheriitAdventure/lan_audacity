@@ -17,6 +17,7 @@ if os_sys.exec_os():
         sys.exit(1)
     else:
         # Lancer le fichier docker-compose
+        os.system("docker-compose build")
         os.system("docker-compose up -d")
 
         # Déverrouiller le conteneur MariaDB avec le fichier `.env`
