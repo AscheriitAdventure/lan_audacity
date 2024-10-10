@@ -37,3 +37,17 @@ class OsSys:
             var_i += 1
         
         return var_i
+
+@dataclass
+class MariaDB_Docker:
+    root_password: str
+    database: str
+    user: str
+    password: str
+    port: int
+
+@dataclass
+class MongoDB_Docker:
+    user: str
+    password: str
+    port: int
