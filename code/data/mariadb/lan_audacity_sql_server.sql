@@ -121,8 +121,7 @@ CREATE TABLE `network` (
   `uuid` char(36) NOT NULL,
   `name_object` varchar(100) DEFAULT 'Unknown',
   `web_address_id` int(10) UNSIGNED DEFAULT NULL,
-  `clock_manager_id` int(10) UNSIGNED DEFAULT NULL,
-  `dns_object` varchar(255) DEFAULT NULL
+  `clock_manager_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -214,7 +213,8 @@ CREATE TABLE `webaddress` (
   `ipv4_public` varchar(15) DEFAULT NULL,
   `cidr` varchar(18) DEFAULT NULL,
   `ipv6_local` varchar(45) DEFAULT NULL,
-  `ipv6_global` varchar(45) DEFAULT NULL
+  `ipv6_global` varchar(45) DEFAULT NULL,
+  `domain_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
