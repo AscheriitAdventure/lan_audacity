@@ -13,7 +13,7 @@ from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 from src.views.mapTemplateViews import LANMap
-from src.views.preferences import PreferencesGeneral, NetworkGeneral, LANDashboard
+from src.views.preferences import PreferencesGeneral, NetworkGeneral, LANDashboard, DevicesCards
 
 
 class TabFactoryWidget(QTabWidget):
@@ -320,7 +320,12 @@ class LanTabView(GeneralTabsView):
         )
         self.stackedFields.addWidget(self.network_map_menu)
 
-        self.devices_menu = QWidget(self)
+        self.devices_menu = DevicesCards(
+            "Devices List",
+            self.langManager,
+            self.extObj,
+            self
+        )
         self.stackedFields.addWidget(self.devices_menu)
 
         self.network_road_map_menu = QWidget(self)

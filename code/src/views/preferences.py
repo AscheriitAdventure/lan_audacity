@@ -291,3 +291,39 @@ class LANDashboard(QWidget):
                 logging.debug(f"prison bleu:{list_object}")
         except Exception as e:
             logging.error(e)
+
+
+class DevicesCards(CardStackGeneral):
+    def __init__(
+            self, 
+            obj_title: str, 
+            obj_lang: LanguageApp, 
+            obj_view: Network, 
+            parent=None):
+        super().__init__(obj_title, obj_lang, obj_view, parent)
+        logging.info(self.objManager)
+    
+    def setCardList(self):
+        self.card_list = []
+        if self.objManager.devicesList is not []:
+            for device in self.objManager.devicesList:
+                var_path = os.path.join(os.path.dirname(os.path.dirname(self.objManager.absPath)), "desktop",f"{device}.json")
+                if os.path.exists(var_path):
+                    with open(var_path, 'r') as f:
+                        device_data = json.load(f)
+                        
+                        ipv4 = device_data.get('ipv4', 'value unknown') or 'value unknown'
+                        name = device_data.get('name', 'value unknown') or 'value unknown'
+                        self.card_list.append({
+                            "icon_card": None,
+                            "title_card": QLabel(f"{name}({ipv4})"),
+                            "img_card": None,
+                            "corps_card": QTableWidget(self),
+                        })
+        else:
+            self.card_list.append({
+                "icon_card": None,
+                "title_card": QLabel("No device found"),
+                "img_card": None,
+                "corps_card": QLabel("No device found"),
+            })

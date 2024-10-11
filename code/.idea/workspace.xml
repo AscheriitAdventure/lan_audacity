@@ -7,11 +7,9 @@
     <list default="true" id="6af15784-5a1a-4cd2-a43c-767d1930db6d" name="Changes" comment="4567">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/cl_network.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/cl_network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/lanAudacity.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/lanAudacity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/mainApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/mainApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/formsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/formsApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/primarySideBarPanel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/primarySideBarPanel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/mapTemplateViews.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/mapTemplateViews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/preferences.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/preferences.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tabsApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tabsApp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,27 +39,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for cl_device_test.TestDevice.test_init.executor&quot;: &quot;Debug&quot;,
-    &quot;Python tests.Python tests in cl_device_test.py.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.device&amp;icons.executor&quot;: &quot;Run&quot;,
-    &quot;Python.exempleQtoolbar.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.main1.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.nmap_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.obj-01102024.executor&quot;: &quot;Run&quot;,
-    &quot;Python.obj-12092024.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.short_tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.toolbar_test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;v1.1.1&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for cl_device_test.TestDevice.test_init.executor": "Debug",
+    "Python tests.Python tests in cl_device_test.py.executor": "Debug",
+    "Python.device&icons.executor": "Run",
+    "Python.exempleQtoolbar.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main1.executor": "Debug",
+    "Python.nmap_data.executor": "Run",
+    "Python.obj-01102024.executor": "Run",
+    "Python.obj-12092024.executor": "Debug",
+    "Python.short_tests.executor": "Run",
+    "Python.test1.executor": "Run",
+    "Python.toolbar_test.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "v1.1.1",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="openinnov_v1.1.1" />
