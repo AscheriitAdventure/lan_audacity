@@ -4,7 +4,7 @@ import os
 import logging
 import time
 import uuid
-from typing import Optional
+from typing import Optional, Any
 
 from src.components.functionsExt import ip_to_cidr, cidr_to_ip
 
@@ -52,7 +52,42 @@ class MariaDB_Docker:
     password: str
     port: int
 
-    def 
+    def connect(self) -> mysql.connector.connection.MySQLConnection:
+        return mysql.connector.connect(
+            host="localhost",
+            user=self.user,
+            password=self.password,
+            database=self.database,
+            port=self.port)
+    
+    def insert_request(self, request: str | list[str]) -> None:
+        if isinstance(request, str):
+            request = [request]
+        
+        try:
+            conn = self.connect()
+            cursor = conn.cursor()
+            for req in request:
+                cursor.execute(req)
+            conn.commit()
+        except mysql.connector.Error as e:
+            logging.error(e)
+        finally:
+            cursor.close()
+            conn.close()
+    
+    def extract_request(self, request: str, values: Any) -> list:
+        try:
+            conn = self.connect()
+            cursor = conn.cursor()
+            cursor.execute(request, values)
+            result = cursor.fetchall()
+        except mysql.connector.Error as e:
+            logging.error(e)
+        finally:
+            cursor.close()
+            conn.close()
+        return result
 
 @dataclass
 class MongoDB_Docker:
