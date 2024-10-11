@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6af15784-5a1a-4cd2-a43c-767d1930db6d" name="Changes" comment="4567">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/icon_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/icon_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/app.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/preferences.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/preferences.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +44,7 @@
     "Python tests.Python tests in cl_device_test.py.executor": "Debug",
     "Python.device&icons.executor": "Run",
     "Python.exempleQtoolbar.executor": "Run",
-    "Python.main.executor": "Run",
+    "Python.main.executor": "Debug",
     "Python.main1.executor": "Debug",
     "Python.nmap_data.executor": "Run",
     "Python.obj-01102024.executor": "Run",

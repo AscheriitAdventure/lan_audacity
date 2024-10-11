@@ -277,5 +277,145 @@
           "color": "Silver"
         }
       ]
+    },
+    {
+      "name": "os_windows",
+      "platform_and_name": ["mdi6.microsoft-windows"],
+      "options": [
+        {
+          "color": "RoyalBlue"
+        }
+      ]
+    },
+    {
+      "name": "os_linux",
+      "platform_and_name": ["mdi6.linux"],
+      "options": null
+    },
+    {
+      "name": "os_linux-mint",
+      "platform_and_name": ["mdi6.linux-mint"],
+      "options": [
+        {
+          "color": "Lime"
+        }
+      ]
+    },
+    {
+      "name": "os_ios",
+      "platform_and_name": ["mdi6.apple-ios"],
+      "options": [
+        {
+          "color": "Silver"
+        }
+      ]
+    },
+    {
+      "name": "os_darwin",
+      "platform_and_name": ["mdi6.apple"],
+      "options": [
+        {
+          "color": "Silver"
+        }
+      ]
+    },
+    {
+      "name": "os_android",
+      "platform_and_name": ["mdi6.android"],
+      "options": [
+        {
+          "color": "GreenForest"
+        }
+      ]
+    },
+    {
+      "name": "os_ubuntu",
+      "platform_and_name": ["mdi6.ubuntu"],
+      "options": [
+        {
+          "color": "Orange"
+        }
+      ]
+    },
+    {
+      "name": "os_debian",
+      "platform_and_name": ["mdi6.debian"],
+      "options": [
+        {
+          "color": "Red"
+        }
+      ]
+    },
+    {
+      "name": "os_fedora",
+      "platform_and_name": ["mdi6.fedora"],
+      "options": [
+        {
+          "color": "Blue"
+        }
+      ]
+    },
+    {
+      "name": "os_centos",
+      "platform_and_name": ["mdi6.centos"],
+      "options": [
+        {
+          "color": "Red"
+        }
+      ]
+    },
+    {
+      "name": "os_rhel",
+      "platform_and_name": ["mdi6.redhat"],
+      "options": [
+        {
+          "color": "Red"
+        }
+      ]
+    },
+    {
+      "name": "os_suse",
+      "platform_and_name": ["fa5b.suse"],
+      "options": [
+        {
+          "color": "GreenForest"
+        }
+      ]
+    },
+    {
+      "name": "os_gentoo",
+      "platform_and_name": ["mdi6.gentoo"],
+      "options": [
+        {
+          "color": "Blue"
+        }
+      ]
+    },
+    {
+      "name": "os_arch",
+      "platform_and_name": ["mdi6.arch"],
+      "options": [
+        {
+          "color": "SkyBlue"
+        }
+      ]
+    },
+    {
+      "name": "os_manjaro",
+      "platform_and_name": ["mdi6.manjaro"],
+      "options": [
+        {
+          "color": "GreenForest"
+        }
+      ]
+    },
+    {
+      "name": "os_raspbian",
+      "platform_and_name": ["fa5b.raspberry-pi"],
+      "options": [
+        {
+          "color": "MediumVioletRed"
+        }
+      ]
     }
   ]
