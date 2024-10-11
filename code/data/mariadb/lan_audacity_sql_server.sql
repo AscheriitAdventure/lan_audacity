@@ -121,8 +121,7 @@ CREATE TABLE `network` (
   `uuid` char(36) NOT NULL,
   `name_object` varchar(100) DEFAULT 'Unknown',
   `web_address_id` int(10) UNSIGNED DEFAULT NULL,
-  `clock_manager_id` int(10) UNSIGNED DEFAULT NULL,
-  `dns_object` varchar(255) DEFAULT NULL
+  `clock_manager_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
