@@ -1,5 +1,6 @@
 import os
 import logging
+import time
 
 def current_dir():
     try:
@@ -10,7 +11,6 @@ def current_dir():
             f"Une erreur s'est produite lors de l'obtention du répertoire de travail actuel : {e}"
         )
         return "Analyse Erreur"
-
 
 def get_spcValue(liste_add: list, arg_1: str, obj_src: str) -> dict:
     for obj_dict in liste_add:
@@ -49,3 +49,6 @@ def cidr_to_ip(cidr: str) -> tuple:
     mask_octets = [int(mask_binary_str[i:i + 8], 2) for i in range(0, 32, 8)]
 
     return tuple(ip_octets), tuple(mask_octets)
+
+def conv_unix_to_datetime(unix_time: float):
+        return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(unix_time))

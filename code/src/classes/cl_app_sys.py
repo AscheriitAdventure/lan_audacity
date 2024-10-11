@@ -1,8 +1,11 @@
 from dataclasses import dataclass, field
 import os
 import logging
+import time
 import uuid
 from typing import Optional
+
+from src.components.functionsExt import ip_to_cidr, cidr_to_ip
 
 @dataclass
 class OsSys:
@@ -81,8 +84,6 @@ class UserHistory:
     def last10Folders(self) -> list:
         return self.history[-10:]
 
-
-# Classe pour la table WebAddress
 @dataclass
 class WebAddress:
     ipv4: Optional[str] = None
@@ -91,7 +92,37 @@ class WebAddress:
     cidr: Optional[str] = None
     ipv6_local: Optional[str] = None
     ipv6_global: Optional[str] = None
+    domain_name: Optional[str] = None
 
+    def addressIPv4_values(self) -> None:
+        if self.ipv4 and self.mask_ipv4:
+            self.cidr = ip_to_cidr(self.ipv4, self.mask_ipv4)
+        else:
+            self.cidr = None
+        
+        if self.cidr:
+            self.ipv4, self.mask_ipv4 = cidr_to_ip(self.cidr)
+        else:
+            self.ipv4 = None
+            self.mask_ipv4 = None
+
+@dataclass
+class ClockManager:
+    clock_created: float = field(default_factory=time.time())
+    clock_list: Optional[list[float]] = field(default_factory=[])
+    type_time:str = field(default_factory="Unix Timestamp Format")
+
+    def addClock(self) -> None:
+        self.clock_list.append(time.time())
+    
+    def clearClock(self) -> None:
+        self.clock_list.clear()
+    
+    def lastClock(self) -> float:
+        if not self.clock_list:
+            return self.clock_created
+        else:
+            return self.clock_list[-1]
 
 @dataclass
 class Net_Object:
