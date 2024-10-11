@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+import mysql.connector
 import os
 import logging
 import time
@@ -50,6 +51,8 @@ class MariaDB_Docker:
     user: str
     password: str
     port: int
+
+    def 
 
 @dataclass
 class MongoDB_Docker:
@@ -129,3 +132,5 @@ class Net_Object:
     uuid: str = field(default_factory=str(uuid.uuid4()))
     name: str = field(default_factory="Object Name Undefined")
     web_address: WebAddress = field(default_factory=WebAddress())
+    clock_manager: ClockManager = field(default_factory=ClockManager())
+
