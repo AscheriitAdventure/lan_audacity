@@ -214,7 +214,8 @@ CREATE TABLE `webaddress` (
   `ipv4_public` varchar(15) DEFAULT NULL,
   `cidr` varchar(18) DEFAULT NULL,
   `ipv6_local` varchar(45) DEFAULT NULL,
-  `ipv6_global` varchar(45) DEFAULT NULL
+  `ipv6_global` varchar(45) DEFAULT NULL,
+  `domain_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
