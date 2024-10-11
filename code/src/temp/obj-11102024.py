@@ -13,7 +13,6 @@ mariadb = MariaDB_Docker(
     port=os.getenv("MARIADB_PORT"))
 
 # Création de la requête
-request = """"""
+
 # Création des valeurs à Insérer
-values = ()
-mariadb
+mariadb.insert_request()

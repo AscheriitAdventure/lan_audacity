@@ -53,6 +53,9 @@ class MariaDB_Docker:
     port: int
 
     def connect(self) -> mysql.connector.connection.MySQLConnection:
+        """
+        Connexion à la base de données MariaDB
+        """
         return mysql.connector.connect(
             host="localhost",
             user=self.user,
@@ -60,34 +63,48 @@ class MariaDB_Docker:
             database=self.database,
             port=self.port)
     
-    def insert_request(self, request: str | list[str]) -> None:
-        if isinstance(request, str):
-            request = [request]
-        
+    def insert_request(self, table: str, data: dict) -> None:
+        """
+        table : str - Nom de la table
+        data : dict - Dictionnaire des valeurs à insérer (les clés sont les noms des colonnes)
+        """
+        placeholders = ', '.join(['%s'] * len(data))
+        columns = ', '.join(data.keys())
+        sql = f"INSERT INTO {table} ({columns}) VALUES ({placeholders})"
+        logging.debug(sql)
+        logging.debug(data)
         try:
             conn = self.connect()
             cursor = conn.cursor()
-            for req in request:
-                cursor.execute(req)
+            cursor.execute(sql, list(data.values()))
             conn.commit()
         except mysql.connector.Error as e:
             logging.error(e)
         finally:
             cursor.close()
             conn.close()
-    
-    def extract_request(self, request: str, values: Any) -> list:
+        
+    def fetch_request(self, table:str, columns: str | list="*", condition:Optional[str]=None) -> list:
+        """
+        table : str - Nom de la table
+        columns : str ou list - Colonnes à sélectionner (par défaut '*')
+        condition : str - Condition pour filtrer les données (facultatif)
+        """
+        sql = f"SELECT {', '.join(columns) if isinstance(columns, list) else columns} FROM {table}"
+        if condition:
+            sql += f" WHERE {condition}"
+        logging.debug(sql)
         try:
             conn = self.connect()
             cursor = conn.cursor()
-            cursor.execute(request, values)
+            cursor.execute(sql)
             result = cursor.fetchall()
         except mysql.connector.Error as e:
             logging.error(e)
         finally:
             cursor.close()
             conn.close()
-        return result
+        
 
 @dataclass
 class MongoDB_Docker:
