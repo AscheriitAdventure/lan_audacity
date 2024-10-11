@@ -3,13 +3,14 @@ from qtpy.QtWidgets import *
 from qtpy.QtCore import *
 from qtpy.QtGui import *
 import logging
+import os
+import json
 
 from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
 from src.views.templatesViews import Card, LineUpdate, RoundedBtn, CardStackGeneral
 from src.classes.configurationFile import ConfigurationFile
-import os
-import json
+from src.classes.iconsApp import IconsApp
 
 
 class PreferencesGeneral(CardStackGeneral):
@@ -299,12 +300,15 @@ class DevicesCards(CardStackGeneral):
             obj_title: str, 
             obj_lang: LanguageApp, 
             obj_view: Network, 
+            obj_icon: IconsApp,
             parent=None):
         super().__init__(obj_title, obj_lang, obj_view, parent)
         logging.info(self.objManager)
     
     def setCardList(self):
         self.card_list = []
+        img_default = QImage("C:\\Users\\g.tronche\\Documents\\GitHub\\affinity\\svg\\circle\\gray\\c_client.svg")
+        
         if self.objManager.devicesList is not []:
             for device in self.objManager.devicesList:
                 var_path = os.path.join(os.path.dirname(os.path.dirname(self.objManager.absPath)), "desktop",f"{device}.json")
@@ -316,7 +320,7 @@ class DevicesCards(CardStackGeneral):
                         self.card_list.append({
                             "icon_card": None,
                             "title_card": QLabel(f"{name}({ipv4})"),
-                            "img_card": QImage("C:\\Users\\g.tronche\\Documents\\GitHub\\affinity\\svg\\circle\\gray\\c_client.svg"),
+                            "img_card": img_default.scaled(50, 50, Qt.KeepAspectRatio),
                             "corps_card": QLabel(f"Mac Address: {device_data.get('mac', 'value unknown') or 'value unknown'}"),
                         })
         else:

@@ -4,6 +4,8 @@ from qtpy.QtGui import QIcon, QImage, QPixmap, QFont
 from qtpy.QtWidgets import *
 import qtawesome as qta
 from src.classes.languageApp import LanguageApp
+from src.classes.iconsApp import IconsApp
+
 
 
 class Card(QWidget):
@@ -68,12 +70,16 @@ class CardStackGeneral(QWidget):
             obj_title: str,
             obj_lang: LanguageApp,
             obj_view: Any,
+            obj_icon: Optional[IconsApp] = None,
+            obj_img: Optional[QImage] = None,
             parent=None
     ):
         super().__init__(parent=parent)
         self.stackTitle = obj_title
         self.langManager = obj_lang
         self.objManager = obj_view
+        self.iconsManager = obj_icon
+        self.imgManager = obj_img
         self.card_list = []
 
         # init User Interface

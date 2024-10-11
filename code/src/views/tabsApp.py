@@ -324,6 +324,7 @@ class LanTabView(GeneralTabsView):
             "Devices List",
             self.langManager,
             self.extObj,
+            self.iconsManager,
             self
         )
         self.stackedFields.addWidget(self.devices_menu)
