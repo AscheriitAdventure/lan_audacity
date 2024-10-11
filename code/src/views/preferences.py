@@ -311,14 +311,13 @@ class DevicesCards(CardStackGeneral):
                 if os.path.exists(var_path):
                     with open(var_path, 'r') as f:
                         device_data = json.load(f)
-                        
                         ipv4 = device_data.get('ipv4', 'value unknown') or 'value unknown'
                         name = device_data.get('name', 'value unknown') or 'value unknown'
                         self.card_list.append({
                             "icon_card": None,
                             "title_card": QLabel(f"{name}({ipv4})"),
-                            "img_card": None,
-                            "corps_card": QTableWidget(self),
+                            "img_card": QImage("C:\\Users\\g.tronche\\Documents\\GitHub\\affinity\\svg\\circle\\gray\\c_client.svg"),
+                            "corps_card": QLabel(f"Mac Address: {device_data.get('mac', 'value unknown') or 'value unknown'}"),
                         })
         else:
             self.card_list.append({
