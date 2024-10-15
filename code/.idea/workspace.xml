@@ -7,6 +7,7 @@
     <list default="true" id="7c52a5fd-54f6-46ea-8834-91462d096175" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/cl_app_sys.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/cl_app_sys.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,23 +35,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.lan_audacity.executor": "Debug",
-    "Python.main.executor": "Run",
-    "Python.main_app.executor": "Debug",
-    "Python.obj-10102024.executor": "Run",
-    "Python.primarySidePanel.executor": "Debug",
-    "Python.py-nmap.executor": "Debug",
-    "Python.pyqt_views.executor": "Debug",
-    "Python.qta_test.executor": "Debug",
-    "Python.qta_test2.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "v1.1.2",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/lan_audacity-v1.1.3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.lan_audacity.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_app.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.obj-10102024.executor&quot;: &quot;Run&quot;,
+    &quot;Python.primarySidePanel.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.py-nmap.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.pyqt_views.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.qta_test.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.qta_test2.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v1.1.2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/lan_audacity-v1.1.3&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

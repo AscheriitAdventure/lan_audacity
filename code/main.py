@@ -1,6 +1,8 @@
 from src.classes.cl_app_sys import OsSys, MariaDB_Docker, MongoDB_Docker
 import platform
-import sys, logging, os
+import sys
+import logging
+import os
 from dotenv import load_dotenv
 
 # Charger les variables d'environnement du fichier `.env`
@@ -17,8 +19,14 @@ if os_sys.exec_os():
         sys.exit(1)
     else:
         # Lancer le fichier docker-compose
-        os.system("docker-compose build")
-        os.system("docker-compose up -d")
+        result = os.system("docker-compose ps")
+        # Vérifier si le docker-compose n'est pas déjà lancé
+        if result != 0:
+            os.system("docker-compose build")
+            os.system("docker-compose up -d")
+        else:
+            os.system("docker-compose up -d")
+            logging.info("Docker-compose is already running.")
 
         # Déverrouiller le conteneur MariaDB avec le fichier `.env`
         mariadb_docker = MariaDB_Docker(
@@ -26,14 +34,14 @@ if os_sys.exec_os():
             database=os.getenv("MARIADB_DATABASE"),
             user=os.getenv("MARIADB_USER"),
             password=os.getenv("MARIADB_PASSWORD"),
-            port=os.getenv("MARIADB_PORT"),
+            port=int(os.getenv("MARIADB_PORT")),
         )
 
         # Déverrouiller le conteneur MongoDB avec le fichier `.env`
         mongodb_docker = MongoDB_Docker(
             user=os.getenv("MONGODB_USER"),
             password=os.getenv("MONGODB_PASSWORD"),
-            port=os.getenv("MONGODB_PORT"),
+            port=int(os.getenv("MONGODB_PORT")),
         )
 
 else:
