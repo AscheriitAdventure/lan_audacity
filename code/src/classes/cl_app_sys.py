@@ -28,7 +28,7 @@ class OsSys:
 
     def exec_software(self, softwares: Optional[list]) -> int:
         # search for nmap, docker, and python
-        if softwares:
+        if softwares is not None:
             software_list = softwares
         else:
             software_list = ["docker", "docker-compose", "nmap", "python"]
@@ -201,7 +201,7 @@ class ClockManager:
 
 @dataclass
 class Net_Object:
-    uuid: str = field(default_factory=str(uuid.uuid4()))
+    uuid: str = field(default_factory=lambda: str(uuid.uuid4()))
     name: str = field(default_factory="Object Name Undefined")
-    web_address: WebAddress = field(default_factory=WebAddress())
-    clock_manager: ClockManager = field(default_factory=ClockManager())
+    web_address: WebAddress = field(default_factory=WebAddress)
+    clock_manager: ClockManager = field(default_factory=ClockManager)

@@ -14,7 +14,7 @@ os_sys = OsSys(platform.system(), platform.version())
 # Exécuter le système d'exploitation
 if os_sys.exec_os():
     # Exécuter le scan des logiciels
-    if os_sys.exec_software() > 0:
+    if os_sys.exec_software(None) > 0:
         logging.warning("Some software is missing.")
         sys.exit(1)
     else:
