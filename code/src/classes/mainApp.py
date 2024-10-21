@@ -22,7 +22,6 @@ from src.views.tabsApp import PreferencesTabView, GeneralTabsView, LanTabView, T
 from src.views.primarySideBarPanel import GeneralSidePanel, FlsExpl, NetExpl
 
 
-
 class MainApp(QMainWindow):
     def __init__(self, software_manager: ConfigurationFile, parent=None) -> None:
         super().__init__(parent)
@@ -32,29 +31,17 @@ class MainApp(QMainWindow):
         # Software Information
         self.softwareManager = software_manager
         # Data Language Manager
-        self.langManager = LanguageApp(
-            ConfigurationFile(
-                f"{current_dir()}/{self.softwareManager.data['software']['conf']['translate_app']['path']}"
-            )
-        )
+        path_data_lang = str(os.path.join(current_dir(), self.softwareManager.data['software']['conf']['translate_app']['path']))
+        self.langManager = LanguageApp(ConfigurationFile(path_data_lang))
         # Data Shortcut Manager
-        self.shortcutManager = ShortcutApp(
-            ConfigurationFile(
-                f"{current_dir()}/{self.softwareManager.data['software']['conf']['shortcuts_app']['path']}"
-            )
-        )
+        path_short_key = str(os.path.join(current_dir(), self.softwareManager.data['software']['conf']['shortcuts_app']['path']))
+        self.shortcutManager = ShortcutApp(ConfigurationFile(path_short_key))
         # Data Icon Manager
-        self.iconsManager = IconsApp(
-            ConfigurationFile(
-                f"{current_dir()}/{self.softwareManager.data['software']['conf']['icons_app']['path']}"
-            )
-        )
+        path_data_ico = str(os.path.join(current_dir(), self.softwareManager.data['software']['conf']['icons_app']['path']))
+        self.iconsManager = IconsApp(ConfigurationFile(path_data_ico))
         # Data MenuBar Manager
-        self.menuBarManager = MenuBarApp(
-            ConfigurationFile(
-                f"{current_dir()}/{self.softwareManager.data['software']['conf']['navBar_app']['path']}"
-            )
-        )
+        path_data_menubar = str(os.path.join(current_dir(), self.softwareManager.data['software']['conf']['navBar_app']['path']))
+        self.menuBarManager = MenuBarApp(ConfigurationFile(path_data_menubar))
 
         # Set the Window title
         self.setWindowTitle(self.softwareManager.data["system"]["name"])
@@ -353,7 +340,7 @@ class MainApp(QMainWindow):
 
     def openProjectAction(self) -> None:
         folder_dialog = QFileDialog(self)
-        folder_dialog.setFileMode(QFileDialog.FileMode.DirectoryOnly)
+        folder_dialog.setFileMode(QFileDialog.FileMode.Directory)
         folder_dialog.setNameFilter("")
         folder_dialog.exec()
         folder_path = folder_dialog.selectedFiles()[0]

@@ -60,7 +60,7 @@ class Window1(QMainWindow):
         self.window2 = Window2()
 
         # Connecter le signal "finished" de window2 à la méthode qui affiche le message
-        self.window2.comm.finished.connect(self.display_finished_message)
+        self.window2.comm.finished.connect(self.on_action_finished)
 
         # Connecter le signal de résultat
         self.window2.result_signal.connect(self.receive_result)
@@ -74,18 +74,16 @@ class Window1(QMainWindow):
         # self.window2.show()
         self.window2.start_action()
 
-    def display_finished_message(self):
-        # Afficher le résultat à la place du message de fin
-        if self.result:
-            self.message_label.setText(f"Résultat reçu : {self.result}")
-        else:
-            self.message_label.setText("Aucun résultat disponible")
+    def on_action_finished(self):
+        """Méthode appelée lorsque l'action de Window2 est terminée."""
         self.progress_bar.setValue(100)
         self.progress_bar.setVisible(False)
 
     def receive_result(self, result):
-        # Traiter la valeur reçue
-        self.message_label.setText(f"Résultat reçu : {result}")
+        """Méthode appelée lorsque Window2 envoie le résultat."""
+        # Mettre à jour le label directement avec le résultat
+        self.result = result
+        self.message_label.setText(f"Résultat reçu : {self.result}")
 
 
 # Fenêtre 2 (wind2)

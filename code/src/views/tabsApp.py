@@ -4,8 +4,8 @@ import os.path
 import nmap
 from typing import Any, Optional
 
-from qtpy.QtCore import Qt, QRunnable, QThreadPool
-from qtpy.QtWidgets import QWidget, QGridLayout, QVBoxLayout, QPushButton, QStackedLayout, QTabWidget
+from qtpy.QtCore import Qt, QRunnable, QThreadPool, QObject, Signal
+from qtpy.QtWidgets import QWidget, QGridLayout, QVBoxLayout, QPushButton, QStackedLayout, QTabWidget, QDialog, QProgressBar, QLabel
 
 from src.functionsExt import ip_to_cidr
 from src.classes.cl_device import Device
@@ -209,37 +209,59 @@ class PreferencesTabView(GeneralTabsView):
         self.stackedFields.setCurrentWidget(self.update_menu)
 
 
+class SyncWorkerSignals(QObject):
+    progress_changed = Signal(int)  # Signal pour la barre de progression
+    finished = Signal()             # Signal pour quand la tâche est terminée
+
 class SyncWorker(QRunnable):
     def __init__(self, parent=None):
         super(SyncWorker, self).__init__()
         self.parent = parent
+        self.signals = SyncWorkerSignals()
 
     def run(self):
-        # Effectuez la recherche des appareils connectés au réseau ici
+        # Effectuer la recherche des appareils connectés au réseau
         self.update_network()
-
-        # Mettez à jour l'interface utilisateur ou effectuez d'autres actions nécessaires
-        self.parent.extObj.save_network()
+        # Envoyer un signal lorsque la tâche est terminée
+        self.signals.finished.emit()
 
     def update_network(self):
-        # Search ip address lan with nmap
         nm = nmap.PortScanner()
         lan = ip_to_cidr(self.parent.extObj.ipv4, self.parent.extObj.maskIpv4)
         path_device = os.path.join(os.path.dirname(os.path.dirname(self.parent.extObj.absPath)), "desktop")
-        
+
         nm.scan(hosts=lan, arguments='-sn')
         logging.debug(f"abspath: {path_device}, list_host: {nm.all_hosts()}, lan: {lan}")
-        for host in nm.all_hosts():
+
+        total_hosts = len(nm.all_hosts())
+        for index, host in enumerate(nm.all_hosts()):
             logging.debug("SyncWorker for %s", lan)
             new_device = Device(host, self.parent.extObj.maskIpv4, path_device)
             new_device.update_auto()
             new_device.save_file()
-            # search data about devices connected
 
+            # Ajout de l'appareil au réseau
             self.parent.extObj.add_device(new_device)
             self.parent.extObj.save_network()
-            # perform actions to gather data about the device connected to the LAN
-            new_device.update_auto()
+
+            # Mise à jour de la progression
+            progress = int((index + 1) / total_hosts * 100)
+            self.signals.progress_changed.emit(progress)
+
+class SyncDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Synchronisation")
+        self.setLayout(QVBoxLayout())
+        self.progress_bar = QProgressBar(self)
+        self.progress_label = QLabel("Synchronisation en cours...", self)
+
+        self.layout().addWidget(self.progress_label)
+        self.layout().addWidget(self.progress_bar)
+        self.progress_bar.setValue(0)
+
+    def update_progress(self, value):
+        self.progress_bar.setValue(value)
 
 
 class LanTabView(GeneralTabsView):
@@ -348,11 +370,14 @@ class LanTabView(GeneralTabsView):
         self.stackedFields.setCurrentWidget(self.network_road_map_menu)
     
     def syncBtn(self):
-        worker = SyncWorker(self) # Créez une instance de la classe de travail
-        
-        thread_pool = QThreadPool() # Créez une instance de la classe QThreadPool
+        # Ouvrir la nouvelle fenêtre avec la progressBar
+        self.sync_dialog = SyncDialog()
+        self.sync_dialog.show()
 
-        thread_pool.start(worker) # Démarrez le travail dans le pool de threads
+        # Initialiser SyncWorker
+        self.sync_worker = SyncWorker(self)
+        self.sync_worker.signals.progress_changed.connect(self.sync_dialog.update_progress)
+        self.sync_worker.signals.finished.connect(self.sync_dialog.close)
 
-        # Mise à jour de self.extObj avec les appareils connectés
-        self.extObj.save_network()
+        # Utiliser QThreadPool pour exécuter la tâche en arrière-plan
+        QThreadPool.globalInstance().start(self.sync_worker)

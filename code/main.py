@@ -9,10 +9,11 @@ from src.classes.configurationFile import ConfigurationFile
 
 if __name__ == "__main__":
     softwareManager = ConfigurationFile(os.path.join(current_dir(), "conf", "config_app.yaml"))
-    
-    pathLog = os.path.join(current_dir(), softwareManager.data["software"]["conf"]["log_app"]["path"])
 
-    logs_manager = ConfigurationFile(pathLog)
+    logs_manager = ConfigurationFile(str(os.path.join(
+        current_dir(),
+        softwareManager.data["software"]["conf"]["log_app"]["path"]
+    )))
 
     logging.config.dictConfig(logs_manager.data)
     logger = logging.getLogger(__name__)
