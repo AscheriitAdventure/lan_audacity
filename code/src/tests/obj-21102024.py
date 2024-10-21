@@ -15,12 +15,12 @@ from qtpy.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-from qtpy.QtCore import pyqtSignal, QObject, QTimer
+from qtpy.QtCore import Signal, QObject, QTimer
 
 
 # Définir un objet pour créer le signal personnalisé
 class Communication(QObject):
-    finished = pyqtSignal()
+    finished = Signal()
 
 
 # Fenêtre 1 (wind1)
