@@ -14,6 +14,7 @@ from qtpy.QtWidgets import (
     QLabel,
     QVBoxLayout,
     QWidget,
+    QProgressBar,
 )
 from qtpy.QtCore import Signal, QObject, QTimer
 
@@ -38,10 +39,18 @@ class Window1(QMainWindow):
         # Label pour afficher le message de fin d'action
         self.message_label = QLabel("", self)
 
+        # Barre de progression (initialement cachée)
+        self.progress_bar = QProgressBar(self)
+        self.progress_bar.setMinimum(0)
+        self.progress_bar.setMaximum(100)
+        self.progress_bar.setValue(0)
+        self.progress_bar.setVisible(False)
+
         # Layout
         layout = QVBoxLayout()
         layout.addWidget(self.button)
         layout.addWidget(self.message_label)
+        layout.addWidget(self.progress_bar)
 
         container = QWidget()
         container.setLayout(layout)
@@ -54,13 +63,39 @@ class Window1(QMainWindow):
         self.window2.comm.finished.connect(self.display_finished_message)
 
     def start_action_in_window2(self):
-        # Afficher la fenêtre 2 et commencer son action
-        self.window2.show()
-        self.window2.start_action()
+        # Vérifier si window2 est déjà ouverte
+        if self.window2.isVisible():
+            self.message_label.setText("Opération en cours...")
+        else:
+            # Afficher la fenêtre 2 et commencer son action
+            self.window2.show()
+            self.window2.start_action()
+            self.message_label.setText("")
+
+            # Afficher la barre de progression et la démarrer
+            self.progress_bar.setVisible(True)
+            self.increment_progress_bar()
+
+    def increment_progress_bar(self):
+        # Simuler la progression en augmentant la valeur
+        self.progress_bar.setValue(0)
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_progress_bar)
+        self.timer.start(200)  # Mise à jour toutes les 200 ms
+
+    def update_progress_bar(self):
+        value = self.progress_bar.value()
+        if value < 100:
+            self.progress_bar.setValue(value + 5)
+        else:
+            self.timer.stop()
 
     def display_finished_message(self):
         # Afficher un message dans window1 lorsque window2 a terminé
         self.message_label.setText("Action in Window 2 is finished.")
+
+        # Cacher la barre de progression
+        self.progress_bar.setVisible(False)
 
 
 # Fenêtre 2 (wind2)
@@ -88,7 +123,7 @@ class Window2(QMainWindow):
         self.action_label.setText("Action in progress...")
 
         # Simuler la fin de l'action après une courte période
-        QTimer.singleShot(2000, self.end_action)
+        QTimer.singleShot(6000, self.end_action)
 
     def end_action(self):
         # Mettre à jour l'UI de cette fenêtre
@@ -96,6 +131,9 @@ class Window2(QMainWindow):
 
         # Emettre un signal indiquant que l'action est terminée
         self.comm.finished.emit()
+
+        # Fermer cette fenêtre (Window 2)
+        self.close()
 
 
 # Code principal pour lancer l'application
