@@ -8,7 +8,7 @@ import json
 
 from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
-from src.views.templatesViews import Card, LineUpdate, RoundedBtn, CardStackGeneral
+from src.views.templatesViews import Card, LineUpdate, RoundedBtn, CardStackGeneral, TitleWithAction
 from src.classes.configurationFile import ConfigurationFile
 from src.classes.iconsApp import IconsApp
 
@@ -111,40 +111,40 @@ class NetworkGeneral(CardStackGeneral):
                 "title_card": QLabel("IPv4 Address"),
                 "img_card": None,
                 "corps_card": LineUpdate(
-                    QLineEdit(self.objManager.ipv4),
-                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
+                    input_obj=QLineEdit(self.objManager.ipv4),
+                    action_obj=RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("IPv4 Mask"),
                 "img_card": None,
                 "corps_card": LineUpdate(
-                    QLineEdit(self.objManager.maskIpv4),
-                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
+                    input_obj=QLineEdit(self.objManager.maskIpv4),
+                    action_obj=RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("IPv6 Address"),
                 "img_card": None,
                 "corps_card": LineUpdate(
-                    QLineEdit(self.objManager.ipv6),
-                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
+                    input_obj=QLineEdit(self.objManager.ipv6),
+                    action_obj=RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("Gateway"),
                 "img_card": None,
                 "corps_card": LineUpdate(
-                    QLineEdit(self.objManager.gateway),
-                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
+                    input_obj=QLineEdit(self.objManager.gateway),
+                    action_obj=RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
                 "title_card": QLabel("Nom de Domaine"),
                 "img_card": None,
                 "corps_card": LineUpdate(
-                    QLineEdit(self.objManager.dns),
-                    RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
+                    input_obj=QLineEdit(self.objManager.dns),
+                    action_obj=RoundedBtn(icon=qtawesome.icon('mdi6.pencil'), text=None, parent=self)),
             },
             {
                 "icon_card": None,
@@ -163,6 +163,45 @@ class NetworkGeneral(CardStackGeneral):
                         self.objManager.clockManager.get_clock_last())),
             }
         ]
+
+
+class SyncWorkerSignals(QObject):
+    started = Signal()
+    finished = Signal()
+    progress = Signal(int)
+    result = Signal(list)
+
+
+class NetworkScanWorker(QRunnable):
+    def __init__(self, obj_manager):
+        super(NetworkScanWorker, self).__init__()
+        self.objManager = obj_manager
+        self.signals = SyncWorkerSignals()
+        self._is_running = True
+
+    def run(self):
+        self.signals.started.emit()  # Émettre le signal de démarrage
+        devices_status = []
+        total_devices = len(self.objManager.devicesList)  # Pour le calcul du pourcentage
+        for idx, device in enumerate(self.objManager.devicesList):
+            if not self._is_running:
+                break
+            # Scan du réseau ici (par exemple, ping chaque appareil)
+            device_status = self.scan_device(device)
+            devices_status.append(device_status)
+            progress_percent = int((idx + 1) / total_devices * 100)
+            self.signals.progress.emit(progress_percent)  # Mise à jour de la progression
+            QThread.sleep(2)  # Intervalle entre chaque scan
+
+        self.signals.result.emit(devices_status)  # Transmettre les résultats
+        self.signals.finished.emit()  # Émettre le signal de fin
+
+    def stop(self):
+        self._is_running = False
+
+    def scan_device(self, device):
+        # Simuler un scan réseau pour chaque appareil
+        return {"device": device, "status": "Connected"}
 
 
 class LANDashboard(QWidget):
@@ -242,8 +281,7 @@ class LANDashboard(QWidget):
         wan_card = Card(ico_wan, QLabel('WAN'), None, wan_body_card)
         self.card_layout.addWidget(wan_card, 0, 0)
 
-        # LAN <ip réseaux or nom du dns>, card(Rang 0, Colonne 1)
-        lan_headband: list = ["IPv4", "Name", "Mac Address"]
+        lan_headband: list = ["IPv4", "Name", "Mac Address", "Status"]
         lan_body_card = QTableWidget(self)
         lan_body_card.setColumnCount(lan_headband.__len__())
         lan_body_card.setHorizontalHeaderLabels(lan_headband)
@@ -261,8 +299,16 @@ class LANDashboard(QWidget):
                         lan_body_card.setItem(lan_body_card.rowCount() - 1, 0, QTableWidgetItem(ipv4))
                         lan_body_card.setItem(lan_body_card.rowCount() - 1, 1, QTableWidgetItem(name))
                         lan_body_card.setItem(lan_body_card.rowCount() - 1, 2, QTableWidgetItem(mac))
+                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 3, QTableWidgetItem('Not Setted'))
         ico_lan = qtawesome.icon('mdi6.lan-connect', options=[{'color': 'silver'}])
-        lan_card = Card(ico_lan, QLabel(f'LAN {self.objManager.dns}'), None, lan_body_card)
+
+        self.scan_btn = RoundedBtn(icon=qtawesome.icon('mdi6.refresh'), text=None, parent=self)
+        self.scan_btn.clicked.connect(self.toggle_scan)
+
+        ttl_btn = [self.scan_btn]
+        q_obj_lan_ttl = TitleWithAction(title=f'LAN {self.objManager.dns}', action=ttl_btn) 
+
+        lan_card = Card(icon_card=ico_lan, title_card=q_obj_lan_ttl, corps_card=lan_body_card)
         self.card_layout.addWidget(lan_card, 0, 1, 1, 3)
 
         # Liste du matériel réseau, card(Rang 1, Colonne 0)
@@ -292,7 +338,65 @@ class LANDashboard(QWidget):
                 logging.debug(f"prison bleu:{list_object}")
         except Exception as e:
             logging.error(e)
+    
+    def toggle_scan(self):
+        if not hasattr(self, 'worker') or not self.worker._is_running:
+            # Lancer un nouveau scan
+            self.scan_btn.setIcon(qtawesome.icon('mdi6.stop-circle'))
+            self.start_scan()
+        else:
+            # Arrêter le scan en cours
+            self.scan_btn.setIcon(qtawesome.icon('mdi6.refresh'))
+            self.stop_scan()
 
+    def start_scan(self):
+        if not hasattr(self, 'worker') or not self.worker._is_running:
+            self.thread_pool = QThreadPool.globalInstance()
+            self.worker = NetworkScanWorker(self.objManager)
+
+            # Connexion des signaux du thread
+            self.worker.signals.started.connect(self.sync_dialog.show)
+            self.worker.signals.progress.connect(self.sync_dialog.update_progress)
+            self.worker.signals.result.connect(self.update_lan_status)
+            self.worker.signals.finished.connect(self.sync_dialog.accept)
+
+            # Lancer le travail en arrière-plan
+            self.thread_pool.start(self.worker)
+        else:
+            logging.info("Scan already running.")
+
+    def stop_scan(self):
+        self.worker.stop()
+        self.scan_btn.setIcon(qtawesome.icon('mdi6.refresh'))
+        logging.info("Scan stopped.")
+    
+    def update_lan_status(self, status_list):
+        for row in range(len(status_list)):
+            device = status_list[row]
+            self.lan_body_card.setItem(row, 3, QTableWidgetItem(device['status']))
+
+
+class SyncDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Syncing Data")
+        self.setFixedSize(300, 100)
+
+        # Layout principal
+        layout = QVBoxLayout(self)
+
+        # Barre de progression
+        self.progress_bar = QProgressBar(self)
+        self.progress_bar.setRange(0, 100)
+        layout.addWidget(self.progress_bar)
+
+        # Bouton d'annulation
+        self.cancel_btn = QPushButton("Cancel", self)
+        layout.addWidget(self.cancel_btn)
+        self.cancel_btn.clicked.connect(self.reject)  # Rejet du dialogue
+
+    def update_progress(self, value):
+        self.progress_bar.setValue(value)
 
 class DevicesCards(CardStackGeneral):
     def __init__(

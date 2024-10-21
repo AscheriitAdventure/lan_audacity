@@ -1,5 +1,5 @@
 from typing import Any, Optional
-from qtpy.QtCore import Qt
+from qtpy.QtCore import Qt, QObject
 from qtpy.QtGui import QIcon, QImage, QPixmap, QFont
 from qtpy.QtWidgets import *
 import qtawesome as qta
@@ -12,7 +12,7 @@ class Card(QWidget):
     def __init__(
             self,
             icon_card: Optional[QIcon] = None,
-            title_card: Optional[QLabel] = None,
+            title_card: Optional[QObject] = None,
             img_card: Optional[QImage] = None,
             corps_card: Any = None,
             parent=None
@@ -30,7 +30,7 @@ class Card(QWidget):
         if corps_card:
             self.setBodyUI(corps_card)
 
-    def setTitleUI(self, icon_card: Optional[QIcon] = None, title: Optional[QLabel] = None):
+    def setTitleUI(self, icon_card: Optional[QIcon] = None, title: Optional[QObject] = None):
         """Sets the title UI with an optional icon and title label."""
         hbar_title = QHBoxLayout()
         if icon_card:
@@ -195,4 +195,34 @@ class LineUpdate(QWidget):
 
         # Ajoutez label_obj et le QHBoxLayout au QFormLayout
         self.layout.addRow(label_obj, input_action_layout)
-        
+
+    def update_input(self):
+        pass
+
+
+class TitleWithAction(QWidget):
+    def __init__(self, 
+                 title: str, 
+                 stretch_ttl: int = 1,
+                 action: Optional[list[QPushButton]] = None,
+                 parent=None):
+        super().__init__(parent=parent)
+
+        # Initialisation des composants de l'interface
+        self.title_label = QLabel(title)  # Le titre est un QLabel
+        self.action_buttons = action if action else []  # Liste des actions sous forme de QPushButton
+
+        # Layout principal
+        self.main_layout = QHBoxLayout(self)  # Utilise un layout horizontal
+
+        # Ajoute le titre
+        self.main_layout.addWidget(self.title_label)
+        self.main_layout.addStretch(stretch_ttl)
+
+        # Ajoute les boutons d'action (s'il y en a)
+        if self.action_buttons:
+            for button in self.action_buttons:
+                self.main_layout.addWidget(button)
+
+        # Aligne le layout à gauche
+        self.setLayout(self.main_layout)

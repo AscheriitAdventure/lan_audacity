@@ -213,6 +213,7 @@ class SyncWorkerSignals(QObject):
     progress_changed = Signal(int)  # Signal pour la barre de progression
     finished = Signal()             # Signal pour quand la tâche est terminée
 
+
 class SyncWorker(QRunnable):
     def __init__(self, parent=None):
         super(SyncWorker, self).__init__()
@@ -247,6 +248,7 @@ class SyncWorker(QRunnable):
             # Mise à jour de la progression
             progress = int((index + 1) / total_hosts * 100)
             self.signals.progress_changed.emit(progress)
+
 
 class SyncDialog(QDialog):
     def __init__(self):
@@ -299,7 +301,7 @@ class LanTabView(GeneralTabsView):
             {
                 "name": "Devices",
                 "tooltip": "List of configurable hardware on the network",
-                "icon": "defaultIcon",
+                "icon": "deviceListBtn",
                 "action": self.devicesBtn,
             },
             {

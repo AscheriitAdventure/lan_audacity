@@ -417,5 +417,14 @@
           "color": "MediumVioletRed"
         }
       ]
+    },
+    {
+      "name": "deviceListBtn",
+      "platform_and_name": ["mdi6.clipboard-pulse"],
+      "options": [
+        {
+          "color": "Coral"
+        }
+      ]
     }
   ]
