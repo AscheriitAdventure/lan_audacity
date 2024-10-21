@@ -1,7 +1,7 @@
 """
     C'est un fichier de test qui a pour but d'ouvrir deux fenêtres PyQt6.
-    Avec c'est deux fenêtres (wind1 et wind2) on peut les manipuler.
-    Sur wind1 on va afficher un bouton qui va lancer une action sur wind2.
+    Avec ces deux fenêtres (wind1 et wind2), on peut les manipuler.
+    Sur wind1, on va afficher un bouton qui va lancer une action sur wind2.
     Et quand wind2 aura fini son action, il va envoyer un signal à wind1 pour lui dire que c'est fini.
     wind1 va alors afficher un message pour dire que c'est fini.
 """
@@ -62,44 +62,36 @@ class Window1(QMainWindow):
         # Connecter le signal "finished" de window2 à la méthode qui affiche le message
         self.window2.comm.finished.connect(self.display_finished_message)
 
+        # Connecter le signal de résultat
+        self.window2.result_signal.connect(self.receive_result)
+
+        # Stocker le résultat à afficher
+        self.result = None
+
     def start_action_in_window2(self):
-        # Vérifier si window2 est déjà ouverte
-        if self.window2.isVisible():
-            self.message_label.setText("Opération en cours...")
-        else:
-            # Afficher la fenêtre 2 et commencer son action
-            self.window2.show()
-            self.window2.start_action()
-            self.message_label.setText("")
-
-            # Afficher la barre de progression et la démarrer
-            self.progress_bar.setVisible(True)
-            self.increment_progress_bar()
-
-    def increment_progress_bar(self):
-        # Simuler la progression en augmentant la valeur
-        self.progress_bar.setValue(0)
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_progress_bar)
-        self.timer.start(200)  # Mise à jour toutes les 200 ms
-
-    def update_progress_bar(self):
-        value = self.progress_bar.value()
-        if value < 100:
-            self.progress_bar.setValue(value + 5)
-        else:
-            self.timer.stop()
+        self.progress_bar.setVisible(True)
+        self.progress_bar.setValue(50)
+        # self.window2.show()
+        self.window2.start_action()
 
     def display_finished_message(self):
-        # Afficher un message dans window1 lorsque window2 a terminé
-        self.message_label.setText("Action in Window 2 is finished.")
-
-        # Cacher la barre de progression
+        # Afficher le résultat à la place du message de fin
+        if self.result:
+            self.message_label.setText(f"Résultat reçu : {self.result}")
+        else:
+            self.message_label.setText("Aucun résultat disponible")
+        self.progress_bar.setValue(100)
         self.progress_bar.setVisible(False)
+
+    def receive_result(self, result):
+        # Traiter la valeur reçue
+        self.message_label.setText(f"Résultat reçu : {result}")
 
 
 # Fenêtre 2 (wind2)
 class Window2(QMainWindow):
+    result_signal = Signal(str)  # Signal défini correctement
+
     def __init__(self):
         super().__init__()
 
@@ -128,6 +120,12 @@ class Window2(QMainWindow):
     def end_action(self):
         # Mettre à jour l'UI de cette fenêtre
         self.action_label.setText("Action finished")
+
+        # Calculer ou effectuer l'opération et obtenir le résultat
+        result = "Résultat de l'opération"  # Remplacez cela par votre propre calcul ou opération
+
+        # Emettre le signal avec le résultat
+        self.result_signal.emit(result)
 
         # Emettre un signal indiquant que l'action est terminée
         self.comm.finished.emit()
