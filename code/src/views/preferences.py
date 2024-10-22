@@ -285,11 +285,13 @@ class LANDashboard(QWidget):
         lan_body_card = QTableWidget(self)
         lan_body_card.setColumnCount(lan_headband.__len__())
         lan_body_card.setHorizontalHeaderLabels(lan_headband)
-        self.update_lan()
+
         if self.objManager.devicesList is not []:
             for device in self.objManager.devicesList:
                 lan_body_card.insertRow(lan_body_card.rowCount())
-                var_path = os.path.join(os.path.dirname(os.path.dirname(self.objManager.absPath)), "desktop",f"{device}.json")
+                var_path = os.path.join(
+                    os.path.dirname(os.path.dirname(self.objManager.absPath)),
+                    "desktop", f"{device}.json")
                 if os.path.exists(var_path):
                     with open(var_path, 'r') as f:
                         device_data = json.load(f)
@@ -305,7 +307,10 @@ class LANDashboard(QWidget):
         self.scan_btn = RoundedBtn(icon=qtawesome.icon('mdi6.refresh'), text=None, parent=self)
         self.scan_btn.clicked.connect(self.toggle_scan)
 
-        ttl_btn = [self.scan_btn]
+        self.trash_btn = RoundedBtn(icon=qtawesome.icon('mdi6.delete'), text=None, parent=self)
+        self.trash_btn.clicked.connect(self.clean_lan)
+
+        ttl_btn = [self.scan_btn, self.trash_btn]
         q_obj_lan_ttl = TitleWithAction(title=f'LAN {self.objManager.dns}', action=ttl_btn) 
 
         lan_card = Card(icon_card=ico_lan, title_card=q_obj_lan_ttl, corps_card=lan_body_card)
@@ -329,16 +334,37 @@ class LANDashboard(QWidget):
         curr_pbs_card = Card(ico_lan_pb, QLabel('Current Problems'), None, lspb_body_card)
         self.card_layout.addWidget(curr_pbs_card, 1, 2, 1, 2)
     
-    def update_lan(self):
+    def clean_lan(self):
         list_object = self.objManager.devicesList
         try:
-            if list_object is []:
-                pass
+            # Vérifier si la liste des appareils est vide
+            if not list_object:
+                pass  # Pas d'appareils à traiter
             else:
-                logging.debug(f"prison bleu:{list_object}")
+                ip_list = []
+                # Pour chaque appareil dans la liste
+                for device in list_object:
+                    # Chemin vers le fichier JSON de l'appareil
+                    var_path = os.path.join(os.path.dirname(os.path.dirname(self.objManager.absPath)), "desktop", f"{device}.json")
+                
+                    # Vérifier si le fichier JSON de l'appareil existe
+                    if os.path.exists(var_path):
+                        with open(var_path, 'r') as f:
+                            # Charger les données de l'appareil
+                            device_data = json.load(f)
+                        
+                            # Vérifier si l'appareil a une adresse IP valide et si elle est déjà dans la liste ip_list
+                            ipv4 = device_data.get('ipv4')
+                            if ipv4 and ipv4 not in ip_list:
+                                ip_list.append(ipv4)  # Ajouter l'adresse IP à la liste si elle est unique
+                            else:
+                                # Si l'IP existe déjà dans la liste, on supprime l'appareil
+                                self.objManager.remove_device(device=device)
+                                self.objManager.save_network()  # Sauvegarder l'état du réseau après la suppression
         except Exception as e:
-            logging.error(e)
-    
+            # Loguer l'erreur en cas de problème
+            logging.error(f"Erreur lors du nettoyage du réseau : {str(e)}")
+
     def toggle_scan(self):
         if not hasattr(self, 'worker') or not self.worker._is_running:
             # Lancer un nouveau scan
@@ -355,10 +381,10 @@ class LANDashboard(QWidget):
             self.worker = NetworkScanWorker(self.objManager)
 
             # Connexion des signaux du thread
-            self.worker.signals.started.connect(self.sync_dialog.show)
-            self.worker.signals.progress.connect(self.sync_dialog.update_progress)
+            self.worker.signals.started.connect(SyncDialog.show)
+            self.worker.signals.progress.connect(SyncDialog.update_progress)
             self.worker.signals.result.connect(self.update_lan_status)
-            self.worker.signals.finished.connect(self.sync_dialog.accept)
+            self.worker.signals.finished.connect(SyncDialog.accept)
 
             # Lancer le travail en arrière-plan
             self.thread_pool.start(self.worker)
