@@ -351,29 +351,6 @@ class LANDashboard(QWidget):
         pass
 
 
-class SyncDialog(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("Syncing Data")
-        self.setFixedSize(300, 100)
-
-        # Layout principal
-        layout = QVBoxLayout(self)
-
-        # Barre de progression
-        self.progress_bar = QProgressBar(self)
-        self.progress_bar.setRange(0, 100)
-        layout.addWidget(self.progress_bar)
-
-        # Bouton d'annulation
-        self.cancel_btn = QPushButton("Cancel", self)
-        layout.addWidget(self.cancel_btn)
-        self.cancel_btn.clicked.connect(self.reject)  # Rejet du dialogue
-
-    def update_progress(self, value):
-        self.progress_bar.setValue(value)
-
-
 class DevicesCards(CardStackGeneral):
     def __init__(
             self, 

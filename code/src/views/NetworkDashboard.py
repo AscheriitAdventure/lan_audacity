@@ -90,7 +90,7 @@ class DashboardCardTemplate(QWidget):
                     "alignement": None
                 },
                 "icon_card": self.iconsManager.get_icon("defaultIcon"),
-                "title_card": TitleWithAction("Hello World!"),
+                "title_card": QLabel("Hello World!"),
                 "img_card": None,
                 "corps_card": QLabel("Welcome!")
             }
@@ -98,20 +98,27 @@ class DashboardCardTemplate(QWidget):
 
     def setCardsView(self):
         for settings_card in self.cardList:
-            layout_settings = settings_card["layout"],
+            layout_settings = settings_card["layout"]
             card_obj = Card(
                 icon_card=settings_card["icon_card"],
-                title_card=settings_card["icon_card"],
-                img_card=settings_card["icon_card"],
-                corps_card=settings_card["icon_card"]
+                title_card=settings_card["title_card"],
+                img_card=settings_card["img_card"],
+                corps_card=settings_card["corps_card"],
             )
+
+            var_rowSpan = layout_settings["rowSpan"] if layout_settings["rowSpan"] else 1
+            var_colSpan = layout_settings["columnSpan"] if layout_settings["columnSpan"] else 1
+            var_alignement = layout_settings["alignement"] if layout_settings["alignement"] else Qt.AlignLeft
+
+            logging.info(f"row: {layout_settings['row']}, column: {layout_settings['column']}, rowSpan: {var_rowSpan}, columnSpan: {var_colSpan}, alignement: {var_alignement}")
+
             self.card_layout.addWidget(
                 card_obj,
                 layout_settings["row"],
                 layout_settings["column"],
-                layout_settings["rowSpan"],
-                layout_settings["columnSpan"],
-                layout_settings["alignement"],
+                var_rowSpan,
+                var_colSpan,
+                var_alignement
             )
 
 
@@ -123,25 +130,10 @@ class LanDashboard(DashboardCardTemplate):
         self.setUCNetworkList()
         self.setInfoTableList()
 
-        try:
-            # Catch the central unit list
-            uc_listObj = self.getUcList()
-            self.updateUcListTable(uc_listObj)
-
-            # Filter the network equipment list in the central unit list
-            ucNetwork_listObj = self.getUcNetworkList()
-            self.updateUcNetworkListTable(ucNetwork_listObj)
-
-            # Catch the information table list
-            infoTable_listObj = self.getInfoTableList()
-            self.updateInfoTableList(infoTable_listObj)
-
-        except Exception as e:
-            logging.error(f"Error: {e}")
-            self.updateUcListTable([])
-            self.updateUcNetworkListTable([])
-            self.updateInfoTableList([])
-
+        self.updateUcListTable([])
+        self.updateUcNetworkListTable([])
+        self.updateInfoTableList([])
+        
         self.setCardsView()
 
     def setCardsList(self):
@@ -150,12 +142,10 @@ class LanDashboard(DashboardCardTemplate):
 
         domainNameTtl = "Domain Name"
         domainNameEdit = QLineEdit(self.objManager.dns)
-        domainNameEdit.setReadOnly(True)
         wanLayout.addWidget(LineUpdate(domainNameTtl, domainNameEdit))
 
         gateTtl = "Gateway"
         gateEdit = QLineEdit(self.objManager.gateway)
-        gateEdit.setReadOnly(True)
         wanLayout.addWidget(LineUpdate(gateTtl, gateEdit))
 
         # Exemple de personnalisation pour LanDashboard
@@ -169,7 +159,7 @@ class LanDashboard(DashboardCardTemplate):
                     "alignement": None
                 },
                 "icon_card": self.iconsManager.get_icon("lanIcon"),
-                "title_card": TitleWithAction("WAN Status"),
+                "title_card": QLabel("WAN Status"),
                 "img_card": None,
                 "corps_card": wanBody
             }
@@ -181,22 +171,20 @@ class LanDashboard(DashboardCardTemplate):
         self.uc_listBody.setColumnCount(len(uc_listHeadband))
         self.uc_listBody.setHorizontalHeaderLabels(uc_listHeadband)
 
-        self.scan_btn = RoundedBtn(icon=self.iconsManager.get_icon(
+        """self.scan_btn = RoundedBtn(icon=self.iconsManager.get_icon(
             "runIcon"), text=None, parent=self)
-        # self.scan_btn.clicked.connect(self.toggle_scan)
+        self.scan_btn.clicked.connect(self.toggle_scan)
 
         self.pause_btn = RoundedBtn(icon=self.iconsManager.get_icon(
             "pauseIcon"), text=None, parent=self)
-        # self.pause_btn.clicked.connect(self.toggle_pause)
+        self.pause_btn.clicked.connect(self.toggle_scan)
 
         self.trash_btn = RoundedBtn(
-            icon=self.iconsManager.get_icon("stop"), text=None, parent=self)
-        # self.trash_btn.clicked.connect(self.clean_lan)
+            icon=self.iconsManager.get_icon("trashIcon"), text=None, parent=self)
+        self.trash_btn.clicked.connect(self.trash_scan)"""
 
-        # ttl_btn = [self.scan_btn, self.pause_btn, self.trash_btn]     # Test Btn  
-        ttl_btn = [self.scan_btn, self.trash_btn]                       # Production Btn
-        q_obj_lan_ttl = TitleWithAction(
-            title=f'LAN {self.objManager.dns}', action=ttl_btn)
+        # ttls_btn = [self.scan_btn, self.trash_btn]
+        uc_listTtl = TitleWithAction(f'LAN {self.objManager.dns}')
 
         uc_list_settings: dict = {
             "layout": {
@@ -207,12 +195,12 @@ class LanDashboard(DashboardCardTemplate):
                 "alignement": None
             },
             "icon_card": self.iconsManager.get_icon("lanUcListIcon"),
-            "title_card": q_obj_lan_ttl,
+            "title_card": uc_listTtl,
             "img_card": None,
             "corps_card": self.uc_listBody
         }
         self.cardList.append(uc_list_settings)
-    
+
     def updateUcListTable(self, uc_list: list):
         self.uc_listBody.setRowCount(len(uc_list))
         for i, uc in enumerate(uc_list):
@@ -220,17 +208,49 @@ class LanDashboard(DashboardCardTemplate):
             self.uc_listBody.setItem(i, 1, QTableWidgetItem(uc["name"]))
             self.uc_listBody.setItem(i, 2, QTableWidgetItem(uc["mac"]))
             self.uc_listBody.setItem(i, 3, QTableWidgetItem(uc["status"]))
-    
+
     # Asynchrone function return a list of dict
     async def getUcList(self):
         # return await self.objManager.get_lan_uc_list()
         return []
-    
+
+    def toggle_scan(self):
+        """
+        Vérifie si le scan est en cours et le démarre ou l'arrête
+        """
+        if self.scan_btn.isEnabled():
+            self.run_scan()
+            self.scan_btn.setEnabled(False)
+            self.pause_btn.setEnabled(True)
+        else:
+            self.pause_scan()
+            self.scan_btn.setEnabled(True)
+            self.pause_btn.setEnabled(False)
+
+    def run_scan(self):
+        """
+        Lance le scan du réseau local
+        """
+        pass
+
+    def pause_scan(self):
+        """
+        Met en pause le scan du réseau local
+        """
+        pass
+
+    def trash_scan(self):
+        """
+        Supprime les données (inutiles, les doublons, etc...) de uc_listBody
+        """
+        pass
+
     def setUCNetworkList(self):
         ucNetwork_listHeadband: list = ["Name/IPv4", "Emit", "Send"]
         self.ucNetwork_listBody = QTableWidget(self)
         self.ucNetwork_listBody.setColumnCount(len(ucNetwork_listHeadband))
-        self.ucNetwork_listBody.setHorizontalHeaderLabels(ucNetwork_listHeadband)
+        self.ucNetwork_listBody.setHorizontalHeaderLabels(
+            ucNetwork_listHeadband)
 
         ucNetwork_list_settings: dict = {
             "layout": {
@@ -241,29 +261,31 @@ class LanDashboard(DashboardCardTemplate):
                 "alignement": None
             },
             "icon_card": qta.icon('mdi6.clipboard-text-multiple'),
-            "title_card": TitleWithAction("List of network equipment", []),
+            "title_card": QLabel("List of network equipment"),
             "img_card": None,
             "corps_card": self.ucNetwork_listBody
         }
         self.cardList.append(ucNetwork_list_settings)
-    
+
     def updateUcNetworkListTable(self, ucNetwork_list: list):
         self.ucNetwork_listBody.setRowCount(len(ucNetwork_list))
         for i, uc in enumerate(ucNetwork_list):
-            self.ucNetwork_listBody.setItem(i, 0, QTableWidgetItem(uc["name"] or uc["ipv4"]))
+            self.ucNetwork_listBody.setItem(
+                i, 0, QTableWidgetItem(uc["name"] or uc["ipv4"]))
             self.ucNetwork_listBody.setItem(i, 1, QTableWidgetItem(uc["emit"]))
             self.ucNetwork_listBody.setItem(i, 2, QTableWidgetItem(uc["send"]))
-    
+
     # Asynchrone function return a list of dict
     async def getUcNetworkList(self):
         # return await self.objManager.get_lan_uc_network_list()
         return []
-    
+
     def setInfoTableList(self):
         infoTable_listHeadband: list = ["Time", "Hostname/IPv4", "Message"]
         self.infoTable_listBody = QTableWidget(self)
         self.infoTable_listBody.setColumnCount(len(infoTable_listHeadband))
-        self.infoTable_listBody.setHorizontalHeaderLabels(infoTable_listHeadband)
+        self.infoTable_listBody.setHorizontalHeaderLabels(
+            infoTable_listHeadband)
 
         infoTable_list_settings: dict = {
             "layout": {
@@ -274,7 +296,7 @@ class LanDashboard(DashboardCardTemplate):
                 "alignement": None
             },
             "icon_card": qta.icon('mdi6.clipboard-alert'),
-            "title_card": TitleWithAction('Current Problems', []),
+            "title_card": QLabel('Current Problems'),
             "img_card": None,
             "corps_card": self.infoTable_listBody
         }
@@ -283,10 +305,13 @@ class LanDashboard(DashboardCardTemplate):
     def updateInfoTableList(self, infoTable_list: list):
         self.infoTable_listBody.setRowCount(len(infoTable_list))
         for i, info in enumerate(infoTable_list):
-            self.infoTable_listBody.setItem(i, 0, QTableWidgetItem(info["time"]))
-            self.infoTable_listBody.setItem(i, 1, QTableWidgetItem(info["name"] or info["ipv4"]))
-            self.infoTable_listBody.setItem(i, 2, QTableWidgetItem(info["message"]))
-    
+            self.infoTable_listBody.setItem(
+                i, 0, QTableWidgetItem(info["time"]))
+            self.infoTable_listBody.setItem(
+                i, 1, QTableWidgetItem(info["name"] or info["ipv4"]))
+            self.infoTable_listBody.setItem(
+                i, 2, QTableWidgetItem(info["message"]))
+
     # Asynchrone function return a list of dict
     async def getInfoTableList(self):
         # return await self.objManager.get_lan_info_table_list()
@@ -309,7 +334,7 @@ class UCDashboard(DashboardCardTemplate):
                     "alignement": None
                 },
                 "icon_card": self.iconsManager.get_icon("ucIcon"),
-                "title_card": TitleWithAction("User Control"),
+                "title_card": QLabel("User Control"),
                 "img_card": None,
                 "corps_card": QLabel("Manage your users and permissions here.")
             }

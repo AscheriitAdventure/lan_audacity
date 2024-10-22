@@ -1,5 +1,5 @@
 from typing import Any, Optional
-from qtpy.QtCore import Qt, QObject
+from qtpy.QtCore import Qt
 from qtpy.QtGui import QIcon, QImage, QPixmap, QFont
 from qtpy.QtWidgets import *
 import qtawesome as qta
@@ -11,7 +11,7 @@ class Card(QWidget):
     def __init__(
             self,
             icon_card: Optional[QIcon] = None,
-            title_card: Optional[QObject] = None,
+            title_card: Optional[QWidget] = None,
             img_card: Optional[QImage] = None,
             corps_card: Any = None,
             parent=None
@@ -29,7 +29,7 @@ class Card(QWidget):
         if corps_card:
             self.setBodyUI(corps_card)
 
-    def setTitleUI(self, icon_card: Optional[QIcon] = None, title: Optional[QObject] = None):
+    def setTitleUI(self, icon_card: Optional[QIcon] = None, title: Optional[QWidget] = None):
         """Sets the title UI with an optional icon and title label."""
         hbar_title = QHBoxLayout()
         if icon_card:
@@ -37,7 +37,7 @@ class Card(QWidget):
             icon_label.setPixmap(icon_card.pixmap(24, 24))
             hbar_title.addWidget(icon_label)
 
-        if title:
+        if title and isinstance(title, QLabel):
             hbar_title.addWidget(title)
 
         hbar_title.addStretch(1)

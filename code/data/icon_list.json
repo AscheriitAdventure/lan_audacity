@@ -438,7 +438,7 @@
     },
     {
       "name": "lanUcListIcon",
-      "platform_and_name": ["mdi6.web"],
+      "platform_and_name": ["mdi6.lan-connect"],
       "options": [
         {
           "color": "Silver"
@@ -480,5 +480,10 @@
           "color": "Crimson"
         }
       ]
+    },
+    {
+      "name": "trashIcon",
+      "platform_and_name": ["mdi6.trash-can"],
+      "options": null
     }
   ]

@@ -13,7 +13,8 @@ from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 from src.views.mapTemplateViews import LANMap
-from src.views.preferences import PreferencesGeneral, NetworkGeneral, LANDashboard, DevicesCards
+from src.views.preferences import PreferencesGeneral, NetworkGeneral, DevicesCards
+from src.views.NetworkDashboard import LanDashboard
 
 
 class TabFactoryWidget(QTabWidget):
@@ -320,10 +321,11 @@ class LanTabView(GeneralTabsView):
         return data
     
     def initDisplay(self):
-        self.general_menu = LANDashboard(
+        self.general_menu = LanDashboard(
             "Dashboard",
             self.langManager,
             self.extObj,
+            self.iconsManager,
             self
         )
         self.stackedFields.addWidget(self.general_menu)
