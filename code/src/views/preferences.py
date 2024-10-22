@@ -165,45 +165,6 @@ class NetworkGeneral(CardStackGeneral):
         ]
 
 
-class SyncWorkerSignals(QObject):
-    started = Signal()
-    finished = Signal()
-    progress = Signal(int)
-    result = Signal(list)
-
-
-class NetworkScanWorker(QRunnable):
-    def __init__(self, obj_manager):
-        super(NetworkScanWorker, self).__init__()
-        self.objManager = obj_manager
-        self.signals = SyncWorkerSignals()
-        self._is_running = True
-
-    def run(self):
-        self.signals.started.emit()  # Émettre le signal de démarrage
-        devices_status = []
-        total_devices = len(self.objManager.devicesList)  # Pour le calcul du pourcentage
-        for idx, device in enumerate(self.objManager.devicesList):
-            if not self._is_running:
-                break
-            # Scan du réseau ici (par exemple, ping chaque appareil)
-            device_status = self.scan_device(device)
-            devices_status.append(device_status)
-            progress_percent = int((idx + 1) / total_devices * 100)
-            self.signals.progress.emit(progress_percent)  # Mise à jour de la progression
-            QThread.sleep(2)  # Intervalle entre chaque scan
-
-        self.signals.result.emit(devices_status)  # Transmettre les résultats
-        self.signals.finished.emit()  # Émettre le signal de fin
-
-    def stop(self):
-        self._is_running = False
-
-    def scan_device(self, device):
-        # Simuler un scan réseau pour chaque appareil
-        return {"device": device, "status": "Connected"}
-
-
 class LANDashboard(QWidget):
     def __init__(self,
                  obj_title: str,
@@ -278,7 +239,10 @@ class LANDashboard(QWidget):
         wan_body_card_layout.addWidget(LineUpdate(QLabel('Gateway :'), gate_edit))
 
         ico_wan = qtawesome.icon('mdi6.web', options=[{'color': 'silver'}])
-        wan_card = Card(ico_wan, QLabel('WAN'), None, wan_body_card)
+        wan_card = Card(
+            icon_card=ico_wan,
+            title_card=QLabel('WAN'),
+            corps_card=wan_body_card)
         self.card_layout.addWidget(wan_card, 0, 0)
 
         lan_headband: list = ["IPv4", "Name", "Mac Address", "Status"]
@@ -333,6 +297,15 @@ class LANDashboard(QWidget):
         ico_lan_pb = qtawesome.icon('mdi6.clipboard-alert')
         curr_pbs_card = Card(ico_lan_pb, QLabel('Current Problems'), None, lspb_body_card)
         self.card_layout.addWidget(curr_pbs_card, 1, 2, 1, 2)
+
+    def setLanTable(self):
+        pass
+
+    def setInfraDeviceTable(self):
+        pass
+
+    def setNewsProblemTable(self):
+        pass
     
     def clean_lan(self):
         list_object = self.objManager.devicesList
@@ -366,40 +339,16 @@ class LANDashboard(QWidget):
             logging.error(f"Erreur lors du nettoyage du réseau : {str(e)}")
 
     def toggle_scan(self):
-        if not hasattr(self, 'worker') or not self.worker._is_running:
-            # Lancer un nouveau scan
-            self.scan_btn.setIcon(qtawesome.icon('mdi6.stop-circle'))
-            self.start_scan()
-        else:
-            # Arrêter le scan en cours
-            self.scan_btn.setIcon(qtawesome.icon('mdi6.refresh'))
-            self.stop_scan()
+        # si le scan n'est pas actif alors proposer la fonction run
+        self.scan_btn.setIcon(qtawesome.icon('mdi6.play-speed'))
+        # si le scan est lancé alors proposer la fonction stop
+        self.scan_btn.setIcon(qtawesome.icon('mdi6.close-octagon'))
 
-    def start_scan(self):
-        if not hasattr(self, 'worker') or not self.worker._is_running:
-            self.thread_pool = QThreadPool.globalInstance()
-            self.worker = NetworkScanWorker(self.objManager)
-
-            # Connexion des signaux du thread
-            self.worker.signals.started.connect(SyncDialog.show)
-            self.worker.signals.progress.connect(SyncDialog.update_progress)
-            self.worker.signals.result.connect(self.update_lan_status)
-            self.worker.signals.finished.connect(SyncDialog.accept)
-
-            # Lancer le travail en arrière-plan
-            self.thread_pool.start(self.worker)
-        else:
-            logging.info("Scan already running.")
+    def run_scan(self):
+        pass
 
     def stop_scan(self):
-        self.worker.stop()
-        self.scan_btn.setIcon(qtawesome.icon('mdi6.refresh'))
-        logging.info("Scan stopped.")
-    
-    def update_lan_status(self, status_list):
-        for row in range(len(status_list)):
-            device = status_list[row]
-            self.lan_body_card.setItem(row, 3, QTableWidgetItem(device['status']))
+        pass
 
 
 class SyncDialog(QDialog):
@@ -423,6 +372,7 @@ class SyncDialog(QDialog):
 
     def update_progress(self, value):
         self.progress_bar.setValue(value)
+
 
 class DevicesCards(CardStackGeneral):
     def __init__(

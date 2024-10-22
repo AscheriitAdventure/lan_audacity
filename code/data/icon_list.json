@@ -426,5 +426,59 @@
           "color": "Coral"
         }
       ]
+    },
+    {
+      "name": "lanIcon",
+      "platform_and_name": ["mdi6.web"],
+      "options": [
+        {
+          "color": "Silver"
+        }
+      ]
+    },
+    {
+      "name": "lanUcListIcon",
+      "platform_and_name": ["mdi6.web"],
+      "options": [
+        {
+          "color": "Silver"
+        }
+      ]
+    },
+    {
+      "name": "ucIcon",
+      "platform_and_name": ["mdi6.desktop-classic"],
+      "options": [
+        {
+          "color": "Silver"
+        }
+      ]
+    },
+    {
+      "name": "runIcon",
+      "platform_and_name": ["mdi6.play-speed"],
+      "options": [
+        {
+          "color": "Lime"
+        }
+      ]
+    },
+    {
+      "name": "pauseIcon",
+      "platform_and_name": ["mdi6.pause"],
+      "options": [
+        {
+          "color": "RoyalBlue"
+        }
+      ]
+    },
+    {
+      "name": "stopIcon",
+      "platform_and_name": ["mdi6.stop"],
+      "options": [
+        {
+          "color": "Crimson"
+        }
+      ]
     }
   ]

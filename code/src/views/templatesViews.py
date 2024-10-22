@@ -7,7 +7,6 @@ from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 
 
-
 class Card(QWidget):
     def __init__(
             self,
@@ -190,6 +189,8 @@ class LineUpdate(QWidget):
         input_action_layout = QHBoxLayout()
         if input_obj is not None:
             input_action_layout.addWidget(input_obj)
+            input_obj.setReadOnly(True)
+            
         if action_obj is not None:
             input_action_layout.addWidget(action_obj)
 
@@ -197,6 +198,11 @@ class LineUpdate(QWidget):
         self.layout.addRow(label_obj, input_action_layout)
 
     def update_input(self):
+        """
+        Méthode pour mettre à jour le contenu de l'objet QLineEdit.
+        Si action_obj existe et activé alors passez de readOnly à False.
+        Si input_obj est modifié et validé alors envoyé le signal pour mettre à jour le contenu et passer à readOnly.
+        """
         pass
 
 
@@ -226,3 +232,4 @@ class TitleWithAction(QWidget):
 
         # Aligne le layout à gauche
         self.setLayout(self.main_layout)
+
