@@ -225,6 +225,7 @@ class LanDashboard(DashboardCardTemplate):
             self.uc_listBody.setItem(i, 1, QTableWidgetItem(uc["name"]))
             self.uc_listBody.setItem(i, 2, QTableWidgetItem(uc["mac"]))
             self.uc_listBody.setItem(i, 3, QTableWidgetItem(uc["status"]))
+            logging.debug(f"UC: {uc['vendor']}")
             self.uc_listBody.setItem(i, 4, QTableWidgetItem(uc["vendor"]))
 
     def getUcList(self):
@@ -241,8 +242,8 @@ class LanDashboard(DashboardCardTemplate):
                 else:
                     uc_data["status"] = "Disconnected"
                 uc_objDict.append(uc_data)
-        else:
-            return uc_objDict
+        
+        return uc_objDict
 
     def toggle_scan(self):
         """

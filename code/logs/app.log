@@ -10472,3 +10472,483 @@
 2024-10-23 14:54:42,216 - root - INFO - nmap -oX - -sL 192.168.100.93
 2024-10-23 14:54:42,244 - root - ERROR - La machine n'est pas connectée.
 2024-10-23 14:54:42,250 - root - INFO - EY-193.EYREIN2.local is saved
+2024-10-23 15:01:03,581 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-23 15:01:05,071 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000015AE77EBBB0>
+2024-10-23 15:01:05,084 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000015AE77EBBB0>
+2024-10-23 15:01:05,085 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000015AE77EBBB0>
+2024-10-23 15:01:05,103 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000015AE77EBBB0>
+2024-10-23 15:01:05,104 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000015AE77EBBB0>
+2024-10-23 15:01:05,106 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x0000015AE77EBBB0>
+2024-10-23 15:01:37,944 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-23 15:01:37,963 - root - INFO - PARIS is added to Eyrein Network
+2024-10-23 15:01:37,991 - root - INFO - TAZO is added to Eyrein Network
+2024-10-23 15:01:38,007 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-23 15:01:38,038 - root - INFO - ZI is added to Eyrein Network
+2024-10-23 15:01:38,054 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-23 15:01:38,070 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-23 15:01:38,117 - root - INFO - Load network
+2024-10-23 15:01:38,117 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-23 15:01:38,117 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-23 15:01:38,117 - root - DEBUG - ZAC Bureau
+2024-10-23 15:01:38,117 - root - DEBUG - PARIS
+2024-10-23 15:01:38,117 - root - DEBUG - TAZO
+2024-10-23 15:01:38,117 - root - DEBUG - ZAC Expeditions
+2024-10-23 15:01:38,117 - root - DEBUG - ZI
+2024-10-23 15:01:38,117 - root - DEBUG - CHALLENGER
+2024-10-23 15:01:38,117 - root - DEBUG - ZAC Bureau
+2024-10-23 15:02:07,543 - root - WARNING - CHALLENGER has 48 devices saved
+2024-10-23 15:02:07,543 - root - DEBUG - Loading device 514d1849-7054-4db4-872d-dc08a4aa5a5d from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\514d1849-7054-4db4-872d-dc08a4aa5a5d.json
+2024-10-23 15:02:11,280 - root - INFO - nmap -oX - -sP 192.168.253.100
+2024-10-23 15:02:11,280 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:02:14,649 - root - INFO - nmap -oX - -sP 192.168.253.100
+2024-10-23 15:02:14,650 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:02:15,078 - root - INFO - nmap -oX - -sL 192.168.253.100
+2024-10-23 15:02:15,180 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:15,191 - root - INFO -  is saved
+2024-10-23 15:02:15,192 - root - DEBUG - Loading device 9c4bae0d-82fc-4efa-a7c3-4b34240621bf from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\9c4bae0d-82fc-4efa-a7c3-4b34240621bf.json
+2024-10-23 15:02:15,693 - root - INFO - nmap -oX - -sP 192.168.253.101
+2024-10-23 15:02:16,122 - root - INFO - nmap -oX - -sP 192.168.253.101
+2024-10-23 15:02:16,377 - root - INFO - nmap -oX - -sL 192.168.253.101
+2024-10-23 15:02:16,414 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:16,421 - root - INFO -  is saved
+2024-10-23 15:02:16,422 - root - DEBUG - Loading device 9bfe6a0c-8188-4c9e-8d62-c790dc2869e1 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\9bfe6a0c-8188-4c9e-8d62-c790dc2869e1.json
+2024-10-23 15:02:16,795 - root - INFO - nmap -oX - -sP 192.168.253.102
+2024-10-23 15:02:17,229 - root - INFO - nmap -oX - -sP 192.168.253.102
+2024-10-23 15:02:17,445 - root - INFO - nmap -oX - -sL 192.168.253.102
+2024-10-23 15:02:17,476 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:17,492 - root - INFO -  is saved
+2024-10-23 15:02:17,492 - root - DEBUG - Loading device a5538df9-f871-4d6f-a8af-01e9fdcc74fc from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\a5538df9-f871-4d6f-a8af-01e9fdcc74fc.json
+2024-10-23 15:02:20,910 - root - INFO - nmap -oX - -sP 192.168.253.103
+2024-10-23 15:02:20,910 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:02:24,278 - root - INFO - nmap -oX - -sP 192.168.253.103
+2024-10-23 15:02:24,278 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:02:24,520 - root - INFO - nmap -oX - -sL 192.168.253.103
+2024-10-23 15:02:24,554 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:24,560 - root - INFO -  is saved
+2024-10-23 15:02:24,561 - root - DEBUG - Loading device db195e9b-6b5f-4f17-a83a-6cae25bb32b8 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\db195e9b-6b5f-4f17-a83a-6cae25bb32b8.json
+2024-10-23 15:02:24,916 - root - INFO - nmap -oX - -sP 192.168.253.106
+2024-10-23 15:02:25,235 - root - INFO - nmap -oX - -sP 192.168.253.106
+2024-10-23 15:02:25,420 - root - INFO - nmap -oX - -sL 192.168.253.106
+2024-10-23 15:02:25,467 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:25,467 - root - INFO -  is saved
+2024-10-23 15:02:25,467 - root - DEBUG - Loading device 3ac25749-0c4e-4943-b4b2-de47c28f8379 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\3ac25749-0c4e-4943-b4b2-de47c28f8379.json
+2024-10-23 15:02:25,839 - root - INFO - nmap -oX - -sP 192.168.253.108
+2024-10-23 15:02:26,221 - root - INFO - nmap -oX - -sP 192.168.253.108
+2024-10-23 15:02:26,435 - root - INFO - nmap -oX - -sL 192.168.253.108
+2024-10-23 15:02:26,466 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:26,481 - root - INFO -  is saved
+2024-10-23 15:02:26,481 - root - DEBUG - Loading device 81a9cb89-a81d-4d31-9e12-ae770d88ca64 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\81a9cb89-a81d-4d31-9e12-ae770d88ca64.json
+2024-10-23 15:02:29,907 - root - INFO - nmap -oX - -sP 192.168.253.111
+2024-10-23 15:02:29,907 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:02:33,841 - root - INFO - nmap -oX - -sP 192.168.253.111
+2024-10-23 15:02:33,842 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:02:34,046 - root - INFO - nmap -oX - -sL 192.168.253.111
+2024-10-23 15:02:34,079 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:34,095 - root - INFO -  is saved
+2024-10-23 15:02:34,095 - root - DEBUG - Loading device b709aff0-a98a-464c-a6e1-f7da1656e0a5 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\b709aff0-a98a-464c-a6e1-f7da1656e0a5.json
+2024-10-23 15:02:34,428 - root - INFO - nmap -oX - -sP 192.168.253.112
+2024-10-23 15:02:34,782 - root - INFO - nmap -oX - -sP 192.168.253.112
+2024-10-23 15:02:34,964 - root - INFO - nmap -oX - -sL 192.168.253.112
+2024-10-23 15:02:34,995 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:34,999 - root - INFO -  is saved
+2024-10-23 15:02:34,999 - root - DEBUG - Loading device 8d3023f0-65fa-45b6-8fc3-63e8e530ed1e from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\8d3023f0-65fa-45b6-8fc3-63e8e530ed1e.json
+2024-10-23 15:02:35,327 - root - INFO - nmap -oX - -sP 192.168.253.117
+2024-10-23 15:02:35,663 - root - INFO - nmap -oX - -sP 192.168.253.117
+2024-10-23 15:02:35,879 - root - INFO - nmap -oX - -sL 192.168.253.117
+2024-10-23 15:02:35,921 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:35,922 - root - INFO -  is saved
+2024-10-23 15:02:35,922 - root - DEBUG - Loading device 791b68ff-6598-4416-97de-f609b3f6c7d3 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\791b68ff-6598-4416-97de-f609b3f6c7d3.json
+2024-10-23 15:02:39,310 - root - INFO - nmap -oX - -sP 192.168.253.118
+2024-10-23 15:02:39,311 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:02:42,670 - root - INFO - nmap -oX - -sP 192.168.253.118
+2024-10-23 15:02:42,670 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:02:42,924 - root - INFO - nmap -oX - -sL 192.168.253.118
+2024-10-23 15:02:42,955 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:42,955 - root - INFO -  is saved
+2024-10-23 15:02:42,955 - root - DEBUG - Loading device 6d9fe46d-3abb-446d-84d8-32263d63b711 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\6d9fe46d-3abb-446d-84d8-32263d63b711.json
+2024-10-23 15:02:43,320 - root - INFO - nmap -oX - -sP 192.168.253.123
+2024-10-23 15:02:43,645 - root - INFO - nmap -oX - -sP 192.168.253.123
+2024-10-23 15:02:43,894 - root - INFO - nmap -oX - -sL 192.168.253.123
+2024-10-23 15:02:44,080 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:44,109 - root - INFO -  is saved
+2024-10-23 15:02:44,110 - root - DEBUG - Loading device 15c218c4-1378-445b-9987-692f0658d032 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\15c218c4-1378-445b-9987-692f0658d032.json
+2024-10-23 15:02:44,813 - root - INFO - nmap -oX - -sP 192.168.253.202
+2024-10-23 15:02:45,113 - root - INFO - nmap -oX - -sP 192.168.253.202
+2024-10-23 15:02:45,307 - root - INFO - nmap -oX - -sL 192.168.253.202
+2024-10-23 15:02:45,339 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:45,401 - root - INFO -  is saved
+2024-10-23 15:02:45,401 - root - DEBUG - Loading device ef0ab80b-09b3-4c26-b6f2-31a1335726d6 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\ef0ab80b-09b3-4c26-b6f2-31a1335726d6.json
+2024-10-23 15:02:45,741 - root - INFO - nmap -oX - -sP 192.168.253.204
+2024-10-23 15:02:46,047 - root - INFO - nmap -oX - -sP 192.168.253.204
+2024-10-23 15:02:46,244 - root - INFO - nmap -oX - -sL 192.168.253.204
+2024-10-23 15:02:46,274 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:46,277 - root - INFO -  is saved
+2024-10-23 15:02:46,277 - root - DEBUG - Loading device 0506b16b-6896-42c0-afa8-ffeaec97c4f4 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\0506b16b-6896-42c0-afa8-ffeaec97c4f4.json
+2024-10-23 15:02:46,628 - root - INFO - nmap -oX - -sP 192.168.253.240
+2024-10-23 15:02:46,950 - root - INFO - nmap -oX - -sP 192.168.253.240
+2024-10-23 15:02:47,129 - root - INFO - nmap -oX - -sL 192.168.253.240
+2024-10-23 15:02:47,164 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:47,170 - root - INFO -  is saved
+2024-10-23 15:02:47,170 - root - DEBUG - Loading device 4a6ba8ca-5844-4283-b472-f145a7b9de63 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\4a6ba8ca-5844-4283-b472-f145a7b9de63.json
+2024-10-23 15:02:47,497 - root - INFO - nmap -oX - -sP 192.168.253.250
+2024-10-23 15:02:47,865 - root - INFO - nmap -oX - -sP 192.168.253.250
+2024-10-23 15:02:48,039 - root - INFO - nmap -oX - -sL 192.168.253.250
+2024-10-23 15:02:48,071 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:48,071 - root - INFO -  is saved
+2024-10-23 15:02:48,071 - root - DEBUG - Loading device 823e40d2-80f9-424e-ab5e-6eea89551929 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\823e40d2-80f9-424e-ab5e-6eea89551929.json
+2024-10-23 15:02:48,452 - root - INFO - nmap -oX - -sP 192.168.253.254
+2024-10-23 15:02:48,766 - root - INFO - nmap -oX - -sP 192.168.253.254
+2024-10-23 15:02:48,944 - root - INFO - nmap -oX - -sL 192.168.253.254
+2024-10-23 15:02:48,976 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:48,997 - root - INFO -  is saved
+2024-10-23 15:02:48,997 - root - DEBUG - Loading device 67d99464-4bca-4d2d-97ca-0840ebb1f1f1 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\67d99464-4bca-4d2d-97ca-0840ebb1f1f1.json
+2024-10-23 15:02:49,394 - root - INFO - nmap -oX - -sP 192.168.253.101
+2024-10-23 15:02:49,694 - root - INFO - nmap -oX - -sP 192.168.253.101
+2024-10-23 15:02:49,877 - root - INFO - nmap -oX - -sL 192.168.253.101
+2024-10-23 15:02:49,912 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:49,912 - root - INFO -  is saved
+2024-10-23 15:02:49,912 - root - DEBUG - Loading device d33b8dab-bbbe-49f4-90e0-6522c8db0d1a from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\d33b8dab-bbbe-49f4-90e0-6522c8db0d1a.json
+2024-10-23 15:02:50,225 - root - INFO - nmap -oX - -sP 192.168.253.102
+2024-10-23 15:02:50,559 - root - INFO - nmap -oX - -sP 192.168.253.102
+2024-10-23 15:02:50,739 - root - INFO - nmap -oX - -sL 192.168.253.102
+2024-10-23 15:02:50,764 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:50,764 - root - INFO -  is saved
+2024-10-23 15:02:50,764 - root - DEBUG - Loading device de55fbb5-f513-4c1f-a2d9-4580e5bbd494 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\de55fbb5-f513-4c1f-a2d9-4580e5bbd494.json
+2024-10-23 15:02:51,096 - root - INFO - nmap -oX - -sP 192.168.253.106
+2024-10-23 15:02:51,394 - root - INFO - nmap -oX - -sP 192.168.253.106
+2024-10-23 15:02:51,577 - root - INFO - nmap -oX - -sL 192.168.253.106
+2024-10-23 15:02:51,596 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:51,612 - root - INFO -  is saved
+2024-10-23 15:02:51,612 - root - DEBUG - Loading device aeb4fcc3-b6fd-4e0a-9759-a3bf52fda108 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\aeb4fcc3-b6fd-4e0a-9759-a3bf52fda108.json
+2024-10-23 15:02:54,935 - root - INFO - nmap -oX - -sP 192.168.253.107
+2024-10-23 15:02:54,935 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:02:58,233 - root - INFO - nmap -oX - -sP 192.168.253.107
+2024-10-23 15:02:58,233 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:02:58,472 - root - INFO - nmap -oX - -sL 192.168.253.107
+2024-10-23 15:02:58,503 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:02:58,523 - root - INFO -  is saved
+2024-10-23 15:02:58,523 - root - DEBUG - Loading device 40f6e03f-8b2b-4d9c-9841-5ee0000dba68 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\40f6e03f-8b2b-4d9c-9841-5ee0000dba68.json
+2024-10-23 15:02:58,855 - root - INFO - nmap -oX - -sP 192.168.253.108
+2024-10-23 15:02:59,953 - root - INFO - nmap -oX - -sP 192.168.253.108
+2024-10-23 15:03:00,177 - root - INFO - nmap -oX - -sL 192.168.253.108
+2024-10-23 15:03:00,257 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:00,273 - root - INFO -  is saved
+2024-10-23 15:03:00,274 - root - DEBUG - Loading device 7beb2c1c-3f8c-4681-a731-c706dd12ac7a from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\7beb2c1c-3f8c-4681-a731-c706dd12ac7a.json
+2024-10-23 15:03:03,678 - root - INFO - nmap -oX - -sP 192.168.253.109
+2024-10-23 15:03:03,678 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:03:07,013 - root - INFO - nmap -oX - -sP 192.168.253.109
+2024-10-23 15:03:07,013 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:03:07,192 - root - INFO - nmap -oX - -sL 192.168.253.109
+2024-10-23 15:03:07,223 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:07,239 - root - INFO -  is saved
+2024-10-23 15:03:07,239 - root - DEBUG - Loading device ffc61863-7cc1-4bcb-91a8-63f52ba66248 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\ffc61863-7cc1-4bcb-91a8-63f52ba66248.json
+2024-10-23 15:03:07,568 - root - INFO - nmap -oX - -sP 192.168.253.112
+2024-10-23 15:03:07,866 - root - INFO - nmap -oX - -sP 192.168.253.112
+2024-10-23 15:03:08,055 - root - INFO - nmap -oX - -sL 192.168.253.112
+2024-10-23 15:03:08,103 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:08,108 - root - INFO -  is saved
+2024-10-23 15:03:08,108 - root - DEBUG - Loading device 395b5723-7983-4b05-9f66-81fef2d2a514 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\395b5723-7983-4b05-9f66-81fef2d2a514.json
+2024-10-23 15:03:08,416 - root - INFO - nmap -oX - -sP 192.168.253.117
+2024-10-23 15:03:08,748 - root - INFO - nmap -oX - -sP 192.168.253.117
+2024-10-23 15:03:08,984 - root - INFO - nmap -oX - -sL 192.168.253.117
+2024-10-23 15:03:09,008 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:09,023 - root - INFO -  is saved
+2024-10-23 15:03:09,023 - root - DEBUG - Loading device c6281bd9-9bb5-4ce7-af6d-1f19cf091864 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\c6281bd9-9bb5-4ce7-af6d-1f19cf091864.json
+2024-10-23 15:03:12,377 - root - INFO - nmap -oX - -sP 192.168.253.118
+2024-10-23 15:03:12,377 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:03:15,731 - root - INFO - nmap -oX - -sP 192.168.253.118
+2024-10-23 15:03:15,731 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:03:15,935 - root - INFO - nmap -oX - -sL 192.168.253.118
+2024-10-23 15:03:15,967 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:15,967 - root - INFO -  is saved
+2024-10-23 15:03:15,967 - root - DEBUG - Loading device 6352185c-973c-4b5a-9b98-4a818d4ea161 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\6352185c-973c-4b5a-9b98-4a818d4ea161.json
+2024-10-23 15:03:16,306 - root - INFO - nmap -oX - -sP 192.168.253.123
+2024-10-23 15:03:16,691 - root - INFO - nmap -oX - -sP 192.168.253.123
+2024-10-23 15:03:16,891 - root - INFO - nmap -oX - -sL 192.168.253.123
+2024-10-23 15:03:16,940 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:16,940 - root - INFO -  is saved
+2024-10-23 15:03:16,940 - root - DEBUG - Loading device 35fbeb5f-489c-4be0-b007-a9d86110836e from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\35fbeb5f-489c-4be0-b007-a9d86110836e.json
+2024-10-23 15:03:17,257 - root - INFO - nmap -oX - -sP 192.168.253.202
+2024-10-23 15:03:17,698 - root - INFO - nmap -oX - -sP 192.168.253.202
+2024-10-23 15:03:17,902 - root - INFO - nmap -oX - -sL 192.168.253.202
+2024-10-23 15:03:17,949 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:17,949 - root - INFO -  is saved
+2024-10-23 15:03:17,949 - root - DEBUG - Loading device f3dd84e3-ed54-4344-8964-3ec42dd28e5a from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\f3dd84e3-ed54-4344-8964-3ec42dd28e5a.json
+2024-10-23 15:03:18,467 - root - INFO - nmap -oX - -sP 192.168.253.204
+2024-10-23 15:03:18,880 - root - INFO - nmap -oX - -sP 192.168.253.204
+2024-10-23 15:03:19,123 - root - INFO - nmap -oX - -sL 192.168.253.204
+2024-10-23 15:03:19,166 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:19,183 - root - INFO -  is saved
+2024-10-23 15:03:19,183 - root - DEBUG - Loading device e3cdad99-8d91-43f4-a529-73430ed02da9 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\e3cdad99-8d91-43f4-a529-73430ed02da9.json
+2024-10-23 15:03:19,572 - root - INFO - nmap -oX - -sP 192.168.253.240
+2024-10-23 15:03:19,932 - root - INFO - nmap -oX - -sP 192.168.253.240
+2024-10-23 15:03:20,138 - root - INFO - nmap -oX - -sL 192.168.253.240
+2024-10-23 15:03:20,180 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:20,186 - root - INFO -  is saved
+2024-10-23 15:03:20,187 - root - DEBUG - Loading device 4785d66f-7aba-446d-93c6-da0064e7d28d from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\4785d66f-7aba-446d-93c6-da0064e7d28d.json
+2024-10-23 15:03:20,528 - root - INFO - nmap -oX - -sP 192.168.253.250
+2024-10-23 15:03:20,826 - root - INFO - nmap -oX - -sP 192.168.253.250
+2024-10-23 15:03:21,021 - root - INFO - nmap -oX - -sL 192.168.253.250
+2024-10-23 15:03:21,059 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:21,075 - root - INFO -  is saved
+2024-10-23 15:03:21,075 - root - DEBUG - Loading device 6028f5f4-3f7a-47f3-896a-333e69a89c62 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\6028f5f4-3f7a-47f3-896a-333e69a89c62.json
+2024-10-23 15:03:21,385 - root - INFO - nmap -oX - -sP 192.168.253.254
+2024-10-23 15:03:21,669 - root - INFO - nmap -oX - -sP 192.168.253.254
+2024-10-23 15:03:21,820 - root - INFO - nmap -oX - -sL 192.168.253.254
+2024-10-23 15:03:21,851 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:21,867 - root - INFO -  is saved
+2024-10-23 15:03:21,867 - root - DEBUG - Loading device 8d9abc0e-d71e-467d-be3a-6b58a42ffcb1 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\8d9abc0e-d71e-467d-be3a-6b58a42ffcb1.json
+2024-10-23 15:03:22,158 - root - INFO - nmap -oX - -sP 192.168.253.101
+2024-10-23 15:03:22,457 - root - INFO - nmap -oX - -sP 192.168.253.101
+2024-10-23 15:03:22,607 - root - INFO - nmap -oX - -sL 192.168.253.101
+2024-10-23 15:03:22,638 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:22,652 - root - INFO -  is saved
+2024-10-23 15:03:22,653 - root - DEBUG - Loading device bfc1908b-a52c-4c79-b471-88349a929a60 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\bfc1908b-a52c-4c79-b471-88349a929a60.json
+2024-10-23 15:03:22,945 - root - INFO - nmap -oX - -sP 192.168.253.102
+2024-10-23 15:03:23,251 - root - INFO - nmap -oX - -sP 192.168.253.102
+2024-10-23 15:03:23,407 - root - INFO - nmap -oX - -sL 192.168.253.102
+2024-10-23 15:03:23,438 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:23,453 - root - INFO -  is saved
+2024-10-23 15:03:23,454 - root - DEBUG - Loading device 746327a5-03c6-4263-8660-195aa426dda4 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\746327a5-03c6-4263-8660-195aa426dda4.json
+2024-10-23 15:03:26,778 - root - INFO - nmap -oX - -sP 192.168.253.103
+2024-10-23 15:03:26,778 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:03:30,205 - root - INFO - nmap -oX - -sP 192.168.253.103
+2024-10-23 15:03:30,205 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:03:30,371 - root - INFO - nmap -oX - -sL 192.168.253.103
+2024-10-23 15:03:30,406 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:30,419 - root - INFO -  is saved
+2024-10-23 15:03:30,434 - root - DEBUG - Loading device 5233574e-2727-4984-9cf6-97b44c5649f3 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\5233574e-2727-4984-9cf6-97b44c5649f3.json
+2024-10-23 15:03:30,937 - root - INFO - nmap -oX - -sP 192.168.253.106
+2024-10-23 15:03:31,206 - root - INFO - nmap -oX - -sP 192.168.253.106
+2024-10-23 15:03:31,389 - root - INFO - nmap -oX - -sL 192.168.253.106
+2024-10-23 15:03:31,421 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:31,655 - root - INFO -  is saved
+2024-10-23 15:03:31,655 - root - DEBUG - Loading device 8528b541-2fa9-44f3-86bc-55095f6c1e50 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\8528b541-2fa9-44f3-86bc-55095f6c1e50.json
+2024-10-23 15:03:32,122 - root - INFO - nmap -oX - -sP 192.168.253.107
+2024-10-23 15:03:32,440 - root - INFO - nmap -oX - -sP 192.168.253.107
+2024-10-23 15:03:32,628 - root - INFO - nmap -oX - -sL 192.168.253.107
+2024-10-23 15:03:32,659 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:32,672 - root - INFO -  is saved
+2024-10-23 15:03:32,672 - root - DEBUG - Loading device f4dc6d32-b135-45b1-b215-eabc38ea07ff from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\f4dc6d32-b135-45b1-b215-eabc38ea07ff.json
+2024-10-23 15:03:32,988 - root - INFO - nmap -oX - -sP 192.168.253.108
+2024-10-23 15:03:33,253 - root - INFO - nmap -oX - -sP 192.168.253.108
+2024-10-23 15:03:33,474 - root - INFO - nmap -oX - -sL 192.168.253.108
+2024-10-23 15:03:33,509 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:33,556 - root - INFO -  is saved
+2024-10-23 15:03:33,558 - root - DEBUG - Loading device d1325c1e-6c9e-41c3-b5ef-04a8b43c1b79 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\d1325c1e-6c9e-41c3-b5ef-04a8b43c1b79.json
+2024-10-23 15:03:36,963 - root - INFO - nmap -oX - -sP 192.168.253.109
+2024-10-23 15:03:36,963 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:03:40,276 - root - INFO - nmap -oX - -sP 192.168.253.109
+2024-10-23 15:03:40,276 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:03:40,463 - root - INFO - nmap -oX - -sL 192.168.253.109
+2024-10-23 15:03:40,510 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:40,526 - root - INFO -  is saved
+2024-10-23 15:03:40,526 - root - DEBUG - Loading device 849229da-54a6-45c5-9a9a-fa8ecb320bd5 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\849229da-54a6-45c5-9a9a-fa8ecb320bd5.json
+2024-10-23 15:03:44,291 - root - INFO - nmap -oX - -sP 192.168.253.110
+2024-10-23 15:03:44,291 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:03:48,892 - root - INFO - nmap -oX - -sP 192.168.253.110
+2024-10-23 15:03:48,892 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:03:49,073 - root - INFO - nmap -oX - -sL 192.168.253.110
+2024-10-23 15:03:49,120 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:49,130 - root - INFO -  is saved
+2024-10-23 15:03:49,130 - root - DEBUG - Loading device ce4747b9-b21f-4152-b45d-6abff85c8b87 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\ce4747b9-b21f-4152-b45d-6abff85c8b87.json
+2024-10-23 15:03:49,462 - root - INFO - nmap -oX - -sP 192.168.253.112
+2024-10-23 15:03:49,753 - root - INFO - nmap -oX - -sP 192.168.253.112
+2024-10-23 15:03:50,030 - root - INFO - nmap -oX - -sL 192.168.253.112
+2024-10-23 15:03:50,054 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:50,070 - root - INFO -  is saved
+2024-10-23 15:03:50,070 - root - DEBUG - Loading device 64983182-a2e0-4612-ba81-63ce5de71a9e from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\64983182-a2e0-4612-ba81-63ce5de71a9e.json
+2024-10-23 15:03:50,408 - root - INFO - nmap -oX - -sP 192.168.253.117
+2024-10-23 15:03:50,807 - root - INFO - nmap -oX - -sP 192.168.253.117
+2024-10-23 15:03:51,002 - root - INFO - nmap -oX - -sL 192.168.253.117
+2024-10-23 15:03:51,045 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:51,062 - root - INFO -  is saved
+2024-10-23 15:03:51,063 - root - DEBUG - Loading device 51fd8e54-0282-46d0-94fa-94caba48c5d2 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\51fd8e54-0282-46d0-94fa-94caba48c5d2.json
+2024-10-23 15:03:54,387 - root - INFO - nmap -oX - -sP 192.168.253.118
+2024-10-23 15:03:54,387 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:03:57,723 - root - INFO - nmap -oX - -sP 192.168.253.118
+2024-10-23 15:03:57,723 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:03:57,916 - root - INFO - nmap -oX - -sL 192.168.253.118
+2024-10-23 15:03:57,953 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:57,953 - root - INFO -  is saved
+2024-10-23 15:03:57,953 - root - DEBUG - Loading device 8463477f-74b4-49c6-b321-11869ac57c5c from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\8463477f-74b4-49c6-b321-11869ac57c5c.json
+2024-10-23 15:03:58,278 - root - INFO - nmap -oX - -sP 192.168.253.123
+2024-10-23 15:03:58,586 - root - INFO - nmap -oX - -sP 192.168.253.123
+2024-10-23 15:03:58,870 - root - INFO - nmap -oX - -sL 192.168.253.123
+2024-10-23 15:03:58,904 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:03:58,909 - root - INFO -  is saved
+2024-10-23 15:03:58,909 - root - DEBUG - Loading device 89e3bd26-50ff-4a39-8211-9f19506f0d47 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\89e3bd26-50ff-4a39-8211-9f19506f0d47.json
+2024-10-23 15:03:59,550 - root - INFO - nmap -oX - -sP 192.168.253.202
+2024-10-23 15:03:59,900 - root - INFO - nmap -oX - -sP 192.168.253.202
+2024-10-23 15:04:00,104 - root - INFO - nmap -oX - -sL 192.168.253.202
+2024-10-23 15:04:00,146 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:04:00,150 - root - INFO -  is saved
+2024-10-23 15:04:00,150 - root - DEBUG - Loading device 1b0f099e-6013-49c4-8f1e-c4fec350997e from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\1b0f099e-6013-49c4-8f1e-c4fec350997e.json
+2024-10-23 15:04:00,521 - root - INFO - nmap -oX - -sP 192.168.253.204
+2024-10-23 15:04:00,824 - root - INFO - nmap -oX - -sP 192.168.253.204
+2024-10-23 15:04:01,001 - root - INFO - nmap -oX - -sL 192.168.253.204
+2024-10-23 15:04:01,016 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:04:01,032 - root - INFO -  is saved
+2024-10-23 15:04:01,032 - root - DEBUG - Loading device 71f9b9c1-5cdd-4ba9-bb57-b253a0858dec from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\71f9b9c1-5cdd-4ba9-bb57-b253a0858dec.json
+2024-10-23 15:04:01,369 - root - INFO - nmap -oX - -sP 192.168.253.240
+2024-10-23 15:04:01,638 - root - INFO - nmap -oX - -sP 192.168.253.240
+2024-10-23 15:04:01,799 - root - INFO - nmap -oX - -sL 192.168.253.240
+2024-10-23 15:04:01,819 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:04:01,838 - root - INFO -  is saved
+2024-10-23 15:04:01,839 - root - DEBUG - Loading device e5d1b8fe-7f24-4bf6-873f-f596cfd0099d from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\e5d1b8fe-7f24-4bf6-873f-f596cfd0099d.json
+2024-10-23 15:04:02,137 - root - INFO - nmap -oX - -sP 192.168.253.250
+2024-10-23 15:04:02,427 - root - INFO - nmap -oX - -sP 192.168.253.250
+2024-10-23 15:04:02,580 - root - INFO - nmap -oX - -sL 192.168.253.250
+2024-10-23 15:04:02,611 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:04:02,625 - root - INFO -  is saved
+2024-10-23 15:04:02,625 - root - DEBUG - Loading device 2b27ce37-a48c-4f08-a105-7b9a221d1f8a from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\2b27ce37-a48c-4f08-a105-7b9a221d1f8a.json
+2024-10-23 15:04:02,918 - root - INFO - nmap -oX - -sP 192.168.253.254
+2024-10-23 15:04:03,197 - root - INFO - nmap -oX - -sP 192.168.253.254
+2024-10-23 15:04:03,366 - root - INFO - nmap -oX - -sL 192.168.253.254
+2024-10-23 15:04:03,397 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:04:03,412 - root - INFO -  is saved
+2024-10-23 15:04:03,412 - root - DEBUG - UC List: 48
+2024-10-23 15:08:10,396 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-23 15:08:12,795 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001CDFD7A3F70>
+2024-10-23 15:08:12,795 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001CDFD7A3F70>
+2024-10-23 15:08:12,795 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001CDFD7A3F70>
+2024-10-23 15:08:12,826 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001CDFD7A3F70>
+2024-10-23 15:08:12,826 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001CDFD7A3F70>
+2024-10-23 15:08:12,826 - root - INFO - parent:<src.classes.mainApp.MainApp object at 0x000001CDFD7A3F70>
+2024-10-23 15:08:25,767 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-23 15:08:25,767 - root - INFO - PARIS is added to Eyrein Network
+2024-10-23 15:08:25,783 - root - INFO - TAZO is added to Eyrein Network
+2024-10-23 15:08:25,798 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-10-23 15:08:25,814 - root - INFO - ZI is added to Eyrein Network
+2024-10-23 15:08:25,829 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-10-23 15:08:25,845 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-10-23 15:08:25,861 - root - INFO - Load network
+2024-10-23 15:08:25,861 - root - DEBUG - obj 1: (Path: Eyrein Network, Folders: [],  Files: []), obj 2: {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-23 15:08:25,861 - root - DEBUG - {'path': 'interfaces', 'obj_ls': [{'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}, {'uuid': '4a895f3a-91c8-440d-98be-b473f87a7e66', 'name': 'PARIS', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\4a895f3a-91c8-440d-98be-b473f87a7e66.json', 'ls_devices': []}, {'uuid': '0dc4e06a-0ad2-460a-8c92-187eaf0d9997', 'name': 'TAZO', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\0dc4e06a-0ad2-460a-8c92-187eaf0d9997.json', 'ls_devices': []}, {'uuid': '6e6b4584-2eb2-40cf-b20d-a70ead5ef76f', 'name': 'ZAC Expeditions', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6e6b4584-2eb2-40cf-b20d-a70ead5ef76f.json', 'ls_devices': []}, {'uuid': '6fe797b7-fd60-4081-b655-75da459c85ae', 'name': 'ZI', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\6fe797b7-fd60-4081-b655-75da459c85ae.json', 'ls_devices': []}, {'uuid': '531d7732-609b-4761-8564-cf498e1206eb', 'name': 'CHALLENGER', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\531d7732-609b-4761-8564-cf498e1206eb.json', 'ls_devices': []}, {'uuid': 'e934111c-6328-4151-9597-c5bdafea3b92', 'name': 'ZAC Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\Eyrein Network\\db\\interfaces\\e934111c-6328-4151-9597-c5bdafea3b92.json', 'ls_devices': []}]}
+2024-10-23 15:08:25,861 - root - DEBUG - ZAC Bureau
+2024-10-23 15:08:25,861 - root - DEBUG - PARIS
+2024-10-23 15:08:25,861 - root - DEBUG - TAZO
+2024-10-23 15:08:25,861 - root - DEBUG - ZAC Expeditions
+2024-10-23 15:08:25,861 - root - DEBUG - ZI
+2024-10-23 15:08:25,861 - root - DEBUG - CHALLENGER
+2024-10-23 15:08:25,861 - root - DEBUG - ZAC Bureau
+2024-10-23 15:08:31,370 - root - WARNING - TAZO has 19 devices saved
+2024-10-23 15:08:31,370 - root - DEBUG - Loading device a24d1a23-c9c9-451d-8962-391fbf16fba2 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\a24d1a23-c9c9-451d-8962-391fbf16fba2.json
+2024-10-23 15:08:31,794 - root - INFO - nmap -oX - -sP 192.168.110.200
+2024-10-23 15:08:32,076 - root - INFO - nmap -oX - -sP 192.168.110.200
+2024-10-23 15:08:32,249 - root - INFO - nmap -oX - -sL 192.168.110.200
+2024-10-23 15:08:32,280 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:32,295 - root - INFO -  is saved
+2024-10-23 15:08:32,295 - root - DEBUG - Loading device f0628676-c9a3-49ad-88e8-271a5a072265 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\f0628676-c9a3-49ad-88e8-271a5a072265.json
+2024-10-23 15:08:32,609 - root - INFO - nmap -oX - -sP 192.168.110.215
+2024-10-23 15:08:32,891 - root - INFO - nmap -oX - -sP 192.168.110.215
+2024-10-23 15:08:33,078 - root - INFO - nmap -oX - -sL 192.168.110.215
+2024-10-23 15:08:33,109 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:33,109 - root - INFO -  is saved
+2024-10-23 15:08:33,109 - root - DEBUG - Loading device 689b8297-9529-4b2e-80c7-593cfbcc8f1f from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\689b8297-9529-4b2e-80c7-593cfbcc8f1f.json
+2024-10-23 15:08:33,438 - root - INFO - nmap -oX - -sP 192.168.110.241
+2024-10-23 15:08:33,721 - root - INFO - nmap -oX - -sP 192.168.110.241
+2024-10-23 15:08:33,925 - root - INFO - nmap -oX - -sL 192.168.110.241
+2024-10-23 15:08:33,956 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:33,956 - root - INFO -  is saved
+2024-10-23 15:08:33,956 - root - DEBUG - Loading device e8530956-b50c-4fbb-8c6e-294c71689e51 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\e8530956-b50c-4fbb-8c6e-294c71689e51.json
+2024-10-23 15:08:34,254 - root - INFO - nmap -oX - -sP 192.168.110.242
+2024-10-23 15:08:34,536 - root - INFO - nmap -oX - -sP 192.168.110.242
+2024-10-23 15:08:34,709 - root - INFO - nmap -oX - -sL 192.168.110.242
+2024-10-23 15:08:34,724 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:34,740 - root - INFO -  is saved
+2024-10-23 15:08:34,740 - root - DEBUG - Loading device a334b34a-ab3b-4934-bb45-7b058f18af93 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\a334b34a-ab3b-4934-bb45-7b058f18af93.json
+2024-10-23 15:08:35,022 - root - INFO - nmap -oX - -sP 192.168.110.254
+2024-10-23 15:08:35,305 - root - INFO - nmap -oX - -sP 192.168.110.254
+2024-10-23 15:08:35,462 - root - INFO - nmap -oX - -sL 192.168.110.254
+2024-10-23 15:08:35,493 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:35,493 - root - INFO -  is saved
+2024-10-23 15:08:35,493 - root - DEBUG - Loading device 8e58c798-f15d-430a-ab2e-02ceb6c0c471 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\8e58c798-f15d-430a-ab2e-02ceb6c0c471.json
+2024-10-23 15:08:35,933 - root - INFO - nmap -oX - -sP 192.168.110.33
+2024-10-23 15:08:36,325 - root - INFO - nmap -oX - -sP 192.168.110.33
+2024-10-23 15:08:36,482 - root - INFO - nmap -oX - -sL 192.168.110.33
+2024-10-23 15:08:36,513 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:36,513 - root - INFO -  is saved
+2024-10-23 15:08:36,513 - root - DEBUG - Loading device e550a4c6-0f5a-4d31-a386-47445f2eac81 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\e550a4c6-0f5a-4d31-a386-47445f2eac81.json
+2024-10-23 15:08:36,795 - root - INFO - nmap -oX - -sP 192.168.110.200
+2024-10-23 15:08:37,062 - root - INFO - nmap -oX - -sP 192.168.110.200
+2024-10-23 15:08:37,234 - root - INFO - nmap -oX - -sL 192.168.110.200
+2024-10-23 15:08:37,266 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:37,266 - root - INFO -  is saved
+2024-10-23 15:08:37,266 - root - DEBUG - Loading device c5e09afb-d1c9-446d-9725-436ecac6b2d6 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\c5e09afb-d1c9-446d-9725-436ecac6b2d6.json
+2024-10-23 15:08:37,564 - root - INFO - nmap -oX - -sP 192.168.110.215
+2024-10-23 15:08:37,830 - root - INFO - nmap -oX - -sP 192.168.110.215
+2024-10-23 15:08:37,987 - root - INFO - nmap -oX - -sL 192.168.110.215
+2024-10-23 15:08:38,018 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:38,034 - root - INFO -  is saved
+2024-10-23 15:08:38,034 - root - DEBUG - Loading device 02c8ef62-bc27-44d3-a381-e43309df223a from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\02c8ef62-bc27-44d3-a381-e43309df223a.json
+2024-10-23 15:08:38,301 - root - INFO - nmap -oX - -sP 192.168.110.241
+2024-10-23 15:08:38,567 - root - INFO - nmap -oX - -sP 192.168.110.241
+2024-10-23 15:08:38,724 - root - INFO - nmap -oX - -sL 192.168.110.241
+2024-10-23 15:08:38,756 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:38,756 - root - INFO -  is saved
+2024-10-23 15:08:38,756 - root - DEBUG - Loading device abd8cb96-9857-4b39-9c3b-d37bbfe475e4 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\abd8cb96-9857-4b39-9c3b-d37bbfe475e4.json
+2024-10-23 15:08:39,057 - root - INFO - nmap -oX - -sP 192.168.110.242
+2024-10-23 15:08:39,347 - root - INFO - nmap -oX - -sP 192.168.110.242
+2024-10-23 15:08:39,583 - root - INFO - nmap -oX - -sL 192.168.110.242
+2024-10-23 15:08:39,617 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:39,617 - root - INFO -  is saved
+2024-10-23 15:08:39,617 - root - DEBUG - Loading device 1055f2cb-4967-470a-8c54-6160275264db from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\1055f2cb-4967-470a-8c54-6160275264db.json
+2024-10-23 15:08:39,945 - root - INFO - nmap -oX - -sP 192.168.110.254
+2024-10-23 15:08:40,263 - root - INFO - nmap -oX - -sP 192.168.110.254
+2024-10-23 15:08:40,468 - root - INFO - nmap -oX - -sL 192.168.110.254
+2024-10-23 15:08:40,506 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:40,508 - root - INFO -  is saved
+2024-10-23 15:08:40,508 - root - DEBUG - Loading device 336a96b5-e732-4520-949c-d44942fe9568 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\336a96b5-e732-4520-949c-d44942fe9568.json
+2024-10-23 15:08:43,862 - root - INFO - nmap -oX - -sP 192.168.110.161
+2024-10-23 15:08:43,862 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:08:47,305 - root - INFO - nmap -oX - -sP 192.168.110.161
+2024-10-23 15:08:47,305 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:08:47,478 - root - INFO - nmap -oX - -sL 192.168.110.161
+2024-10-23 15:08:47,514 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:47,519 - root - INFO -  is saved
+2024-10-23 15:08:47,619 - root - DEBUG - Loading device 9837b145-df83-452b-b1fe-9cc669177955 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\9837b145-df83-452b-b1fe-9cc669177955.json
+2024-10-23 15:08:47,917 - root - INFO - nmap -oX - -sP 192.168.110.200
+2024-10-23 15:08:48,168 - root - INFO - nmap -oX - -sP 192.168.110.200
+2024-10-23 15:08:48,314 - root - INFO - nmap -oX - -sL 192.168.110.200
+2024-10-23 15:08:48,345 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:48,345 - root - INFO -  is saved
+2024-10-23 15:08:48,469 - root - DEBUG - Loading device a06a959a-788f-45da-b5ce-ff72028fed46 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\a06a959a-788f-45da-b5ce-ff72028fed46.json
+2024-10-23 15:08:51,832 - root - INFO - nmap -oX - -sP 192.168.110.203
+2024-10-23 15:08:51,832 - root - ERROR - Impossible de trouver l'adresse MAC de la machine.
+2024-10-23 15:08:55,119 - root - INFO - nmap -oX - -sP 192.168.110.203
+2024-10-23 15:08:55,119 - root - ERROR - Impossible de trouver le constructeur de la machine.
+2024-10-23 15:08:55,323 - root - INFO - nmap -oX - -sL 192.168.110.203
+2024-10-23 15:08:55,358 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:55,371 - root - INFO -  is saved
+2024-10-23 15:08:55,372 - root - DEBUG - Loading device d8ce7186-8f1c-430a-b6be-4ebcb6545e80 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\d8ce7186-8f1c-430a-b6be-4ebcb6545e80.json
+2024-10-23 15:08:55,652 - root - INFO - nmap -oX - -sP 192.168.110.215
+2024-10-23 15:08:55,934 - root - INFO - nmap -oX - -sP 192.168.110.215
+2024-10-23 15:08:56,140 - root - INFO - nmap -oX - -sL 192.168.110.215
+2024-10-23 15:08:56,187 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:56,187 - root - INFO -  is saved
+2024-10-23 15:08:56,187 - root - DEBUG - Loading device 418fce00-4e1c-4de7-a7ea-26d93be0cfa0 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\418fce00-4e1c-4de7-a7ea-26d93be0cfa0.json
+2024-10-23 15:08:56,484 - root - INFO - nmap -oX - -sP 192.168.110.241
+2024-10-23 15:08:56,766 - root - INFO - nmap -oX - -sP 192.168.110.241
+2024-10-23 15:08:56,934 - root - INFO - nmap -oX - -sL 192.168.110.241
+2024-10-23 15:08:56,974 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:56,980 - root - INFO -  is saved
+2024-10-23 15:08:56,980 - root - DEBUG - Loading device 5f7e145a-7e65-48c3-9c53-702ceaccdec6 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\5f7e145a-7e65-48c3-9c53-702ceaccdec6.json
+2024-10-23 15:08:57,269 - root - INFO - nmap -oX - -sP 192.168.110.242
+2024-10-23 15:08:57,534 - root - INFO - nmap -oX - -sP 192.168.110.242
+2024-10-23 15:08:57,706 - root - INFO - nmap -oX - -sL 192.168.110.242
+2024-10-23 15:08:57,738 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:57,738 - root - INFO -  is saved
+2024-10-23 15:08:57,738 - root - DEBUG - Loading device e5e3a3e8-1e43-43dd-8343-9ffcebce0928 from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\e5e3a3e8-1e43-43dd-8343-9ffcebce0928.json
+2024-10-23 15:08:58,052 - root - INFO - nmap -oX - -sP 192.168.110.254
+2024-10-23 15:08:58,441 - root - INFO - nmap -oX - -sP 192.168.110.254
+2024-10-23 15:08:58,898 - root - INFO - nmap -oX - -sL 192.168.110.254
+2024-10-23 15:08:58,945 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:58,953 - root - INFO -  is saved
+2024-10-23 15:08:58,954 - root - DEBUG - Loading device 9768c440-56f4-4693-b4b6-0f77e330afba from C:\Users\g.tronche\Documents\test_app\Eyrein Network\db\desktop\9768c440-56f4-4693-b4b6-0f77e330afba.json
+2024-10-23 15:08:59,364 - root - INFO - nmap -oX - -sP 192.168.110.33
+2024-10-23 15:08:59,670 - root - INFO - nmap -oX - -sP 192.168.110.33
+2024-10-23 15:08:59,840 - root - INFO - nmap -oX - -sL 192.168.110.33
+2024-10-23 15:08:59,874 - root - ERROR - La machine n'est pas connectée.
+2024-10-23 15:08:59,880 - root - INFO -  is saved
+2024-10-23 15:08:59,880 - root - DEBUG - UC List: 19
