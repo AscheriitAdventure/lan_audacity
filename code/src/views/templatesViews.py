@@ -37,7 +37,7 @@ class Card(QWidget):
             icon_label.setPixmap(icon_card.pixmap(24, 24))
             hbar_title.addWidget(icon_label)
 
-        if title and isinstance(title, QLabel):
+        if title and isinstance(title, QWidget):
             hbar_title.addWidget(title)
 
         hbar_title.addStretch(1)

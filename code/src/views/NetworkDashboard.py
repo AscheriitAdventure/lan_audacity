@@ -13,6 +13,7 @@ from src.classes.configurationFile import ConfigurationFile
 from src.classes.iconsApp import IconsApp
 
 from src.views.templatesViews import TitleWithAction, Card, LineUpdate, RoundedBtn
+from src.specFuncExt import networkDevicesList
 
 
 class DashboardCardTemplate(QWidget):
@@ -105,35 +106,46 @@ class DashboardCardTemplate(QWidget):
                 img_card=settings_card["img_card"],
                 corps_card=settings_card["corps_card"],
             )
-
-            var_rowSpan = layout_settings["rowSpan"] if layout_settings["rowSpan"] else 1
-            var_colSpan = layout_settings["columnSpan"] if layout_settings["columnSpan"] else 1
-            var_alignement = layout_settings["alignement"] if layout_settings["alignement"] else Qt.AlignLeft
-
-            logging.info(f"row: {layout_settings['row']}, column: {layout_settings['column']}, rowSpan: {var_rowSpan}, columnSpan: {var_colSpan}, alignement: {var_alignement}")
-
-            self.card_layout.addWidget(
+            if (layout_settings["rowSpan"] or layout_settings["columnSpan"]) is None:
+                self.card_layout.addWidget(
+                    card_obj,
+                    layout_settings["row"],
+                    layout_settings["column"]
+                )
+            else:
+                self.card_layout.addWidget(
                 card_obj,
                 layout_settings["row"],
                 layout_settings["column"],
-                var_rowSpan,
-                var_colSpan,
-                var_alignement
+                layout_settings["rowSpan"],
+                layout_settings["columnSpan"]
             )
 
 
 class LanDashboard(DashboardCardTemplate):
     def __init__(self, obj_title: str, obj_lang: LanguageApp, obj_view: Network, obj_icon: IconsApp, parent=None):
-        super().__init__(obj_title, obj_lang, obj_view, obj_icon, parent)
-        self.setCardsList()
-        self.setUCList()
-        self.setUCNetworkList()
-        self.setInfoTableList()
+        """
+        Initialise l'interface de tableau de bord LAN avec les cartes et les composants réseau.
 
-        self.updateUcListTable([])
+        :param obj_title: Titre de l'objet.
+        :param obj_lang: Instance de la gestion de la langue.
+        :param obj_view: Instance représentant les informations réseau.
+        :param obj_icon: Instance de gestion des icônes.
+        :param parent: Widget parent, facultatif.
+        """
+        super().__init__(obj_title, obj_lang, obj_view, obj_icon, parent)
+        self.setCardsList()  # Crée les cartes de l'interface
+        self.setUCList()  # Crée la liste des périphériques
+        self.setUCNetworkList()  # Crée la liste du réseau
+        self.setInfoTableList()  # Crée la table d'informations
+        
+
+        # Initialiser les autres tables avec des listes vides
+        self.updateUcListTable(self.getUcList())
         self.updateUcNetworkListTable([])
         self.updateInfoTableList([])
-        
+
+        # Met en place les cartes de l'interface utilisateur
         self.setCardsView()
 
     def setCardsList(self):
@@ -166,25 +178,30 @@ class LanDashboard(DashboardCardTemplate):
         ]
 
     def setUCList(self):
-        uc_listHeadband: list = ["IPv4", "Name", "Mac Address", "Status"]
+        uc_listHeadband: list = ["IPv4", "Name", "Mac Address", "Status", "Vendor"]
         self.uc_listBody = QTableWidget(self)
         self.uc_listBody.setColumnCount(len(uc_listHeadband))
         self.uc_listBody.setHorizontalHeaderLabels(uc_listHeadband)
-
-        """self.scan_btn = RoundedBtn(icon=self.iconsManager.get_icon(
+        
+        self.scan_btn = RoundedBtn(icon=self.iconsManager.get_icon(
             "runIcon"), text=None, parent=self)
         self.scan_btn.clicked.connect(self.toggle_scan)
+        self.scan_btn.setToolTip("Start the scan")
+        self.scan_btn.setEnabled(True)
 
         self.pause_btn = RoundedBtn(icon=self.iconsManager.get_icon(
             "pauseIcon"), text=None, parent=self)
         self.pause_btn.clicked.connect(self.toggle_scan)
+        self.pause_btn.setToolTip("Scan not loaded")
+        self.pause_btn.setEnabled(False)
 
         self.trash_btn = RoundedBtn(
             icon=self.iconsManager.get_icon("trashIcon"), text=None, parent=self)
-        self.trash_btn.clicked.connect(self.trash_scan)"""
+        self.trash_btn.setToolTip("Clean the scan")
+        self.trash_btn.clicked.connect(self.trash_scan)
 
-        # ttls_btn = [self.scan_btn, self.trash_btn]
-        uc_listTtl = TitleWithAction(f'LAN {self.objManager.dns}')
+        ttls_btn = [self.scan_btn, self.pause_btn, self.trash_btn]
+        uc_listTtl = TitleWithAction(f'LAN {self.objManager.dns}', 4, ttls_btn)
 
         uc_list_settings: dict = {
             "layout": {
@@ -208,11 +225,24 @@ class LanDashboard(DashboardCardTemplate):
             self.uc_listBody.setItem(i, 1, QTableWidgetItem(uc["name"]))
             self.uc_listBody.setItem(i, 2, QTableWidgetItem(uc["mac"]))
             self.uc_listBody.setItem(i, 3, QTableWidgetItem(uc["status"]))
+            self.uc_listBody.setItem(i, 4, QTableWidgetItem(uc["vendor"]))
 
-    # Asynchrone function return a list of dict
-    async def getUcList(self):
-        # return await self.objManager.get_lan_uc_list()
-        return []
+    def getUcList(self):
+        # Penser à mettre networkDevicesList dans une boite de dialogue 
+        # pour éviter de freeze l'interface
+        uc_objClassList = networkDevicesList(self.objManager)
+        uc_objDict = []
+        logging.debug(f"UC List: {len(uc_objClassList)}")
+        if uc_objClassList is not []:
+            for uc_obj in uc_objClassList:
+                uc_data = uc_obj.dict_return()
+                if uc_obj.isConnected:
+                    uc_data["status"] = "Connected"
+                else:
+                    uc_data["status"] = "Disconnected"
+                uc_objDict.append(uc_data)
+        else:
+            return uc_objDict
 
     def toggle_scan(self):
         """
@@ -221,11 +251,15 @@ class LanDashboard(DashboardCardTemplate):
         if self.scan_btn.isEnabled():
             self.run_scan()
             self.scan_btn.setEnabled(False)
+            self.scan_btn.setToolTip("Scanning in Progress")
             self.pause_btn.setEnabled(True)
+            self.pause_btn.setToolTip("Pause the scan")
         else:
             self.pause_scan()
             self.scan_btn.setEnabled(True)
+            self.scan_btn.setToolTip("Start the scan")
             self.pause_btn.setEnabled(False)
+            self.pause_btn.setToolTip("Scan not loaded")
 
     def run_scan(self):
         """
