@@ -1,19 +1,17 @@
+import logging
+
 import qtawesome as qta
 from qtpy.QtWidgets import *
 from qtpy.QtCore import *
 from qtpy.QtGui import *
 from typing import Any
-import logging
-import os
-import json
 
 from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
-from src.classes.configurationFile import ConfigurationFile
 from src.classes.iconsApp import IconsApp
 
 from src.views.templatesViews import TitleWithAction, Card, LineUpdate, RoundedBtn
-from src.specFuncExt import networkDevicesList
+from src.components.bakend_dialog import WorkerGetUcList, WDialogs, WorkerDevice
 
 
 class DashboardCardTemplate(QWidget):
@@ -31,6 +29,9 @@ class DashboardCardTemplate(QWidget):
         self.langManager = obj_lang
         self.objManager = obj_view
         self.iconsManager = obj_icon
+
+        self.worker = None
+        self.progress_dialog = None
 
         self.initUI()           # init User Interface
         self.clearCardLayout()  # clear the cards space
@@ -141,7 +142,7 @@ class LanDashboard(DashboardCardTemplate):
         
 
         # Initialiser les autres tables avec des listes vides
-        self.updateUcListTable(self.getUcList())
+        self.updateUcListTable([])
         self.updateUcNetworkListTable([])
         self.updateInfoTableList([])
 
@@ -225,54 +226,106 @@ class LanDashboard(DashboardCardTemplate):
             self.uc_listBody.setItem(i, 1, QTableWidgetItem(uc["name"]))
             self.uc_listBody.setItem(i, 2, QTableWidgetItem(uc["mac"]))
             self.uc_listBody.setItem(i, 3, QTableWidgetItem(uc["status"]))
-            logging.debug(f"UC: {uc['vendor']}")
-            self.uc_listBody.setItem(i, 4, QTableWidgetItem(uc["vendor"]))
+            self.uc_listBody.setItem(i, 4, QTableWidgetItem(str(uc["vendor"])))
 
     def getUcList(self):
-        # Penser à mettre networkDevicesList dans une boite de dialogue 
-        # pour éviter de freeze l'interface
-        uc_objClassList = networkDevicesList(self.objManager)
-        uc_objDict = []
-        logging.debug(f"UC List: {len(uc_objClassList)}")
-        if uc_objClassList is not []:
-            for uc_obj in uc_objClassList:
-                uc_data = uc_obj.dict_return()
-                if uc_obj.isConnected:
-                    uc_data["status"] = "Connected"
-                else:
-                    uc_data["status"] = "Disconnected"
-                uc_objDict.append(uc_data)
-        
-        return uc_objDict
+        """
+        Démarre l'obtention de la liste des UC de manière asynchrone via un Worker.
+        """
+        # Crée la boîte de dialogue de progression
+        self.progress_dialog = WDialogs()
+        self.progress_dialog.set_maximum(len(self.objManager.devicesList))  # Indéfini (0) pour une tâche dont on ne connaît pas la durée
+        self.progress_dialog.set_message("Fetching the list of devices...")
+
+        # Crée un Worker pour récupérer les UC
+        self.worker = WorkerGetUcList(self.objManager)
+
+        # Connecte les signaux du Worker aux méthodes de la boîte de dialogue
+        self.worker.signals.progress.connect(self.progress_dialog.update_progress)
+        self.worker.signals.started.connect(lambda: self.progress_dialog.show())
+        self.worker.signals.result.connect(self.on_getUcList_finished)
+        self.worker.signals.finished.connect(self.progress_dialog.close)
+
+        # Démarre le Worker dans un thread séparé
+        QThreadPool.globalInstance().start(self.worker)
+
+    def on_getUcList_finished(self, result):
+        """
+        Méthode appelée lorsque la récupération de la liste des UC est terminée.
+        :param result: Liste des UC obtenus.
+        """
+        self.updateUcListTable(result)
+        self.scan_btn.setEnabled(True)
+        self.pause_btn.setEnabled(False)
 
     def toggle_scan(self):
         """
-        Vérifie si le scan est en cours et le démarre ou l'arrête
+        Vérifie si le scan est en cours et le démarre, le met en pause, ou le reprend.
         """
         if self.scan_btn.isEnabled():
             self.run_scan()
-            self.scan_btn.setEnabled(False)
-            self.scan_btn.setToolTip("Scanning in Progress")
-            self.pause_btn.setEnabled(True)
-            self.pause_btn.setToolTip("Pause the scan")
+        elif self.scan_btn.isEnabled() and self.worker.is_paused:
+            self.resume_scan()
         else:
             self.pause_scan()
-            self.scan_btn.setEnabled(True)
-            self.scan_btn.setToolTip("Start the scan")
-            self.pause_btn.setEnabled(False)
-            self.pause_btn.setToolTip("Scan not loaded")
 
     def run_scan(self):
         """
-        Lance le scan du réseau local
+        Démarre le scan en lançant le WorkerDevice dans un thread avec une boîte de dialogue de progression.
         """
-        pass
+        # Crée la boîte de dialogue de progression
+        self.progress_dialog = WDialogs()
+        self.progress_dialog.set_maximum(100)
+        self.progress_dialog.set_message("Scanning for devices...")
+
+        # Crée les données réseau à scanner
+        obj_data = {
+            "ipv4": self.objManager.ipv4,  # Remplacez par les données réelles de votre objet
+            "mask": self.objManager.maskIpv4  # Remplacez par le masque réel
+        }
+
+        # Crée un WorkerDevice pour gérer le scan de périphériques
+        worker = WorkerDevice(obj_data)
+
+        # Connecte les signaux du Worker aux méthodes de la boîte de dialogue
+        worker.signals.started.connect(lambda: self.progress_dialog.show())
+        worker.signals.progress.connect(self.progress_dialog.update_progress)
+        worker.signals.result.connect(self.on_scan_finished)
+        worker.signals.finished.connect(self.progress_dialog.close)
+
+        # Démarre le Worker dans un thread séparé
+        QThreadPool.globalInstance().start(worker)
+
+    def on_scan_finished(self, result):
+        """
+        Méthode appelée lorsque le scan est terminé.
+        """
+        logging.debug(result)
+        self.updateUcListTable(result)
+        self.scan_btn.setEnabled(True)
+        self.pause_btn.setEnabled(False)
 
     def pause_scan(self):
         """
-        Met en pause le scan du réseau local
+        Met en pause le scan du réseau local.
         """
-        pass
+        if self.worker:  # Vérifie si un worker de scan est actif
+            self.worker.pause()
+            self.pause_btn.setEnabled(False)  # Désactive le bouton de pause
+            self.pause_btn.setToolTip("Scan paused")
+            self.scan_btn.setEnabled(True)  # Réactive le bouton de reprise
+            self.scan_btn.setToolTip("Resume the scan")
+
+    def resume_scan(self):
+        """
+        Reprend le scan du réseau local après une pause.
+        """
+        if self.worker:  # Vérifie si un worker de scan est actif
+            self.worker.resume()
+            self.scan_btn.setEnabled(False)  # Désactive le bouton de reprise
+            self.scan_btn.setToolTip("Scanning in Progress")
+            self.pause_btn.setEnabled(True)  # Active le bouton de pause
+            self.pause_btn.setToolTip("Pause the scan")
 
     def trash_scan(self):
         """

@@ -12,6 +12,7 @@ from src.classes.cl_deviceType import DeviceType
 from src.components.nmap_forms import NmapForm
 from src.components.pysnmp_forms import PysnmpForm
 
+VAR_STR_DEFAULT: str = "Unknown"
 
 class Device:
     def __init__(
@@ -19,19 +20,19 @@ class Device:
             device_ipv4: str,
             mask_ipv4: str,
             save_path: str,
-            device_name: str = "Unknown",
+            device_name: str = VAR_STR_DEFAULT,
             uuid_str: Optional[str] = None
             ) -> None:
         self.__uuid: str | None = uuid_str
         
         self.__is_connected: bool = False
         self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
-        self.__name = "Unknown"
+        self.__name = VAR_STR_DEFAULT
         self.__ipv4 = device_ipv4               # Adresse ipv4 de L'appareil
         self.__mask_ipv4 = mask_ipv4
         self.__ipv6: Optional[str] = None
         self.__type: DeviceType = DeviceType("general")
-        self.__vendor: str = "Unknown"     # Fournisseur
+        self.__vendor: str = VAR_STR_DEFAULT     # Fournisseur
         self.__mac: Optional[str] = None        # Mac Adresse
         self.__snmp: PysnmpForm = PysnmpForm()
         self.__nmap_infos: NmapForm = NmapForm(self.ipv4)
@@ -210,8 +211,7 @@ class Device:
             logging.error("Timeout lors de la tentative de connexion à la machine.")
     
     def update_auto(self):
-        self.set_nmap_mac()
-        self.set_nmap_vendor()
+        self.set_nmap_macVendor()
         self.set_nmap_hostname()
         self.set_isConnected()
         self.save_file()
@@ -222,30 +222,34 @@ class Device:
         else:
             self.__name = new_name
 
-    def set_nmap_mac(self) -> None:
+    def set_nmap_macVendor(self) -> None:
         nm = nmap.PortScanner()
         nm.scan(hosts=self.ipv4, arguments="-sP")
         logging.info(nm.command_line())
         if self.ipv4 in nm.all_hosts():
-            self.__mac = nm[self.ipv4]["addresses"]["mac"] if "mac" in nm[self.ipv4]["addresses"] else None
-        else:
-            logging.error("Impossible de trouver l'adresse MAC de la machine.")
+            if "mac" in nm[self.ipv4]["addresses"]:
+                self.__mac = nm[self.ipv4]["addresses"]["mac"]
+            else:
+                logging.error("Impossible de trouver l'adresse MAC de la machine.")
+                self.__mac = VAR_STR_DEFAULT
 
-    def set_nmap_vendor(self) -> None:
-        nm = nmap.PortScanner()
-        nm.scan(hosts=self.ipv4, arguments="-sP")
-        logging.info(nm.command_line())
-        if self.ipv4 in nm.all_hosts():
-            self.__vendor = nm[self.ipv4]["vendor"] if "vendor" in nm[self.ipv4] else "Unknown"
+            if "vendor" in nm[self.ipv4] and self.macAddress != VAR_STR_DEFAULT:
+                self.__vendor = nm[self.ipv4]["vendor"][self.macAddress]
+            else:
+                logging.error("Impossible de trouver le constructeur de la machine.")
+                self.__vendor = VAR_STR_DEFAULT
         else:
-            logging.error("Impossible de trouver le constructeur de la machine.")
+            logging.error("Impossible de trouver les informations de la machine.")
 
     def set_nmap_hostname(self) -> None:
         nm = nmap.PortScanner()
         nm.scan(hosts=self.ipv4, arguments="-sL")
         logging.info(nm.command_line())
         if self.ipv4 in nm.all_hosts():
-            self.__name = nm[self.ipv4]["hostnames"][0]["name"] if "hostnames" in nm[self.ipv4] else "Unknown"
+            if "hostnames" in nm[self.ipv4]:
+                self.__name = nm[self.ipv4]["hostnames"][0]["name"]
+            else:
+                self.__name = VAR_STR_DEFAULT
     
     @property
     def vendor(self) -> str:
