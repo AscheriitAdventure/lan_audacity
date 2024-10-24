@@ -285,7 +285,6 @@ class LanAudacity(FileManagement):
         for network in self.networks.get('obj_ls', []):
             if network.get('name') == network_name:
                 net_data = SwitchFile.json_read(network['path'])
-                # logging.debug(net_data['name'])
                 network_object = Network(
                     network_ipv4=net_data['ipv4'], network_mask_ipv4=net_data['mask_ipv4'], save_path=net_data['abs_path'],
                     network_name=net_data['name'], network_ipv6=net_data['ipv6'], network_gateway=net_data['gateway'],

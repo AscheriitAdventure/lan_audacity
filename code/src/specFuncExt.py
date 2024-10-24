@@ -7,7 +7,8 @@ from src.classes.cl_device import Device
 from src.classes.clockManager import ClockManager
 from src.classes.switchFile import SwitchFile
 
-def networkDevicesList(net_class:Network) -> list[Device]:
+
+def networkDevicesList(net_class: Network) -> list[Device]:
     netClass = net_class
     device_netClass = []
     if netClass.devicesList is not []:
@@ -54,8 +55,9 @@ def networkDevicesList(net_class:Network) -> list[Device]:
     
     else:
         logging.warning(f"{netClass.name} has no devices saved")
-        return []
-            
+        return device_netClass
+
+
 def networkList(file_path: str) -> list[Network]:
     netList = []
     if os.path.exists(file_path):

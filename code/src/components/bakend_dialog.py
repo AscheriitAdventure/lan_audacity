@@ -1,19 +1,22 @@
 import nmap
+import os
 from qtpy.QtCore import QObject, Signal, QRunnable, QThread
 from qtpy.QtWidgets import QDialog, QProgressBar, QLabel, QVBoxLayout
 from typing import Any
 import logging
 
 from src.classes.cl_network import Network
+from src.classes.cl_device import Device
 from src.functionsExt import ip_to_cidr
 from src.specFuncExt import networkDevicesList
 
 
-def scan_listDevices(ipv4:str, mask:str):
+def scan_listDevices(ipv4: str, mask: str):
     cidr = ip_to_cidr(ipv4, mask)
     nm = nmap.PortScanner()
     nm.scan(hosts=cidr, arguments='-sn')
     return nm.all_hosts()
+
 
 class WorkerSignals(QObject):
     """
@@ -167,14 +170,16 @@ class WorkerGetUcList(Worker):
         :return: Liste des UC trouvés.
         """
         # Appelle la méthode de récupération des UC avec les paramètres appropriés
-        return self.getUcListAsync()
+        data = self.getUcListAsync()
+        logging.debug(f"172: {data}")
+        return data
 
     def getUcListAsync(self) -> list:
         """
         Appelle la méthode `getUcList` de manière asynchrone pour éviter de geler l'interface.
         :return: Liste des UC en format dictionnaire.
         """
-        logging.debug(str(self.objData))
+        logging.debug(f"180: {self.objData}")
         uc_objClassList = networkDevicesList(self.objData)  # self.objData contient ici les données de l'objet Manager
         uc_objDict = []
 
@@ -185,3 +190,46 @@ class WorkerGetUcList(Worker):
                 uc_objDict.append(uc_data)
         
         return uc_objDict
+
+
+class SyncWorker(Worker):
+    def __init__(self, obj_data: Network, parent=None):
+        """
+        Initialise le worker de périphériques réseau avec des données réseau spécifiques.
+
+        :param obj_data: Données spécifiques à l'objet Network nécessaires pour le travail.
+        :param parent: L'objet parent Qt (facultatif).
+        """
+        # Appelle le constructeur de la classe de base (Worker) avec les paramètres appropriés
+        super(WorkerDevice, self).__init__(obj_data, parent)
+    
+    def work(self) ->None:
+        """
+        Effectue le travail réel, ici un scan de périphériques.
+        """
+        lan = ip_to_cidr(self.objData.ipv4, self.objData.maskIpv4)
+        path_device = os.path.join(
+            os.path.dirname(
+                os.path.dirname(self.objData.absPath)),
+                "desktop")
+
+        nm = nmap.PortScanner()
+        nm.scan(hosts=lan, arguments='-sn')
+        logging.debug(f"abspath: {path_device}, list_host: {nm.all_hosts()}, lan: {lan}")
+
+        total_hosts = len(nm.all_hosts())
+        for index, host in enumerate(nm.all_hosts()):
+            logging.debug("SyncWorker for %s", lan)
+            new_device = Device(host, self.objData.maskIpv4, path_device)
+            new_device.update_auto()
+            new_device.save_file()
+
+            # Ajout de l'appareil au réseau
+            self.objData.add_device(new_device)
+            self.objData.save_network()
+
+            # Mise à jour de la progression
+            progress = int((index + 1) / total_hosts * 100)
+            self.signals.progress.emit(progress)
+
+        

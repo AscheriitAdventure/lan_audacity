@@ -29,7 +29,6 @@ class GeneralSidePanel(QWidget):
             parent=None
     ):
         super().__init__(parent=parent)
-        logging.info(f"parent:{parent}")
         self.titlePanel = title_panel
         self.extObj = None
         self.langManager = lang_manager
@@ -50,7 +49,6 @@ class GeneralSidePanel(QWidget):
         self.extObjChanged.connect(self.set_extObjDisplay)
 
     def set_extObjDisplay(self):
-        # logging.debug(f"{self.extObj}")
         if self.extObj is None:
             self.treeView.hide()
             self.btn_null.show()
@@ -240,12 +238,9 @@ class NetExpl(GeneralSidePanel):
         logging.info("Load network")
         model = QStandardItemModel(self)
         self.treeView.setModel(model)
-        logging.debug(f"obj 1: ({self.extObj}), obj 2: {self.extObj.networks}")
         if self.extObj is not None and isinstance(self.extObj, LanAudacity):
             if self.extObj.networks:
-                logging.debug(self.extObj.networks)
                 for network in self.extObj.networks.get('obj_ls', []):
-                    logging.debug(network.get('name'))
                     self.add_network_to_tree(network.get('name'))
                     if network.get('devices'):
                         for device in network.get('devices'):
@@ -291,7 +286,6 @@ class NetExpl(GeneralSidePanel):
         )
         if new_network.exec_() == QDialog.Accepted:
             network_data = new_network.get_data()
-            logging.debug(network_data)
             network = Network(
                 network_ipv4=network_data["ipv4"],
                 network_mask_ipv4=network_data["mask_ipv4"],

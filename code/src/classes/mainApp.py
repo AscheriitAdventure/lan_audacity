@@ -26,7 +26,7 @@ class MainApp(QMainWindow):
     def __init__(self, software_manager: ConfigurationFile, parent=None) -> None:
         super().__init__(parent)
         # Other Information
-        self.prj_ls = []
+        self.prj_ls: list[LanAudacity] = []
         self.link_action = self.setLinkAction()
         # Software Information
         self.softwareManager = software_manager
@@ -494,7 +494,6 @@ class MainApp(QMainWindow):
         # Open the extension library
 
     def preferencesAction(self) -> None:
-        logging.debug("Preferences Action...")
         self.primary_center.add_tab(
             tab=PreferencesTabView(
                 title_panel="Preferences",

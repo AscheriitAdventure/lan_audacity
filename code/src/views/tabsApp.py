@@ -4,8 +4,8 @@ import os.path
 import nmap
 from typing import Any, Optional
 
-from qtpy.QtCore import Qt, QRunnable, QThreadPool, QObject, Signal
-from qtpy.QtWidgets import QWidget, QGridLayout, QVBoxLayout, QPushButton, QStackedLayout, QTabWidget, QDialog, QProgressBar, QLabel
+from qtpy.QtCore import *
+from qtpy.QtWidgets import *
 
 from src.functionsExt import ip_to_cidr
 from src.classes.cl_device import Device
@@ -15,6 +15,7 @@ from src.classes.iconsApp import IconsApp
 from src.views.mapTemplateViews import LANMap
 from src.views.preferences import PreferencesGeneral, NetworkGeneral, DevicesCards
 from src.views.NetworkDashboard import LanDashboard
+from src.components.bakend_dialog import SyncWorker, WDialogs
 
 
 class TabFactoryWidget(QTabWidget):
@@ -124,7 +125,6 @@ class PreferencesTabView(GeneralTabsView):
         parent=None,
     ) -> None:
         super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
-        logging.debug(parent)
 
     def setListBtn(self) -> list:
         data = [
@@ -210,63 +210,6 @@ class PreferencesTabView(GeneralTabsView):
         self.stackedFields.setCurrentWidget(self.update_menu)
 
 
-class SyncWorkerSignals(QObject):
-    progress_changed = Signal(int)  # Signal pour la barre de progression
-    finished = Signal()             # Signal pour quand la tâche est terminée
-
-
-class SyncWorker(QRunnable):
-    def __init__(self, parent=None):
-        super(SyncWorker, self).__init__()
-        self.parent = parent
-        self.signals = SyncWorkerSignals()
-
-    def run(self):
-        # Effectuer la recherche des appareils connectés au réseau
-        self.update_network()
-        # Envoyer un signal lorsque la tâche est terminée
-        self.signals.finished.emit()
-
-    def update_network(self):
-        nm = nmap.PortScanner()
-        lan = ip_to_cidr(self.parent.extObj.ipv4, self.parent.extObj.maskIpv4)
-        path_device = os.path.join(os.path.dirname(os.path.dirname(self.parent.extObj.absPath)), "desktop")
-
-        nm.scan(hosts=lan, arguments='-sn')
-        logging.debug(f"abspath: {path_device}, list_host: {nm.all_hosts()}, lan: {lan}")
-
-        total_hosts = len(nm.all_hosts())
-        for index, host in enumerate(nm.all_hosts()):
-            logging.debug("SyncWorker for %s", lan)
-            new_device = Device(host, self.parent.extObj.maskIpv4, path_device)
-            new_device.update_auto()
-            new_device.save_file()
-
-            # Ajout de l'appareil au réseau
-            self.parent.extObj.add_device(new_device)
-            self.parent.extObj.save_network()
-
-            # Mise à jour de la progression
-            progress = int((index + 1) / total_hosts * 100)
-            self.signals.progress_changed.emit(progress)
-
-
-class SyncDialog(QDialog):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Synchronisation")
-        self.setLayout(QVBoxLayout())
-        self.progress_bar = QProgressBar(self)
-        self.progress_label = QLabel("Synchronisation en cours...", self)
-
-        self.layout().addWidget(self.progress_label)
-        self.layout().addWidget(self.progress_bar)
-        self.progress_bar.setValue(0)
-
-    def update_progress(self, value):
-        self.progress_bar.setValue(value)
-
-
 class LanTabView(GeneralTabsView):
     def __init__(
         self,
@@ -277,7 +220,6 @@ class LanTabView(GeneralTabsView):
         parent=None,
     ) -> None:
         super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
-        logging.debug(parent)
 
     def setListBtn(self) -> list:
         data = [
@@ -375,12 +317,12 @@ class LanTabView(GeneralTabsView):
     
     def syncBtn(self):
         # Ouvrir la nouvelle fenêtre avec la progressBar
-        self.sync_dialog = SyncDialog()
+        self.sync_dialog = WDialogs()
         self.sync_dialog.show()
 
         # Initialiser SyncWorker
         self.sync_worker = SyncWorker(self)
-        self.sync_worker.signals.progress_changed.connect(self.sync_dialog.update_progress)
+        self.sync_worker.signals.progress.connect(self.sync_dialog.update_progress)
         self.sync_worker.signals.finished.connect(self.sync_dialog.close)
 
         # Utiliser QThreadPool pour exécuter la tâche en arrière-plan

@@ -27,7 +27,6 @@ class PreferencesGeneral(CardStackGeneral):
             obj_view=obj_view,
             parent=parent
         )
-        logging.info(self.objManager)
 
     def setCardList(self):
         self.card_list = [
@@ -102,7 +101,6 @@ class NetworkGeneral(CardStackGeneral):
             obj_view: Network, 
             parent=None):
         super().__init__(obj_title, obj_lang, obj_view, parent)
-        logging.info(self.objManager)
     
     def setCardList(self):
         self.card_list = [
@@ -360,7 +358,6 @@ class DevicesCards(CardStackGeneral):
             obj_icon: IconsApp,
             parent=None):
         super().__init__(obj_title, obj_lang, obj_view, parent)
-        logging.info(self.objManager)
     
     def setCardList(self):
         self.card_list = []
