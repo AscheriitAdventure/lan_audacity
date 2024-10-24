@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     app = QApplication(sys.argv)
     app.setApplicationName(softwareManager.data["system"]["name"])
-    
+
     app.setApplicationVersion(softwareManager.data["system"]["version"])
     app.setOrganizationName(softwareManager.data["system"]["organization"])
 
