@@ -143,10 +143,11 @@ class CardStackGeneral(QWidget):
             },
         ]
 
-    def setCard(self, nb_column: int = 5):
+    def setCard(self, nb_column: int = 3):
         self.clearCardLayout()
         for i, card in enumerate(self.card_list):
             self.card_layout.addWidget(Card(**card), i // nb_column, i % nb_column)
+            self.card_layout.rowStretch(1)
 
     def clearCardLayout(self):
         while self.card_layout.count():

@@ -485,5 +485,10 @@
       "name": "trashIcon",
       "platform_and_name": ["mdi6.trash-can"],
       "options": null
+    },
+    {
+      "name": "paletteSwatch",
+      "platform_and_name": ["palette-swatch-variant"],
+      "options": null
     }
   ]

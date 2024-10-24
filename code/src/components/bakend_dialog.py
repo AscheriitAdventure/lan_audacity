@@ -192,11 +192,11 @@ class WorkerGetUcList(Worker):
 
         if uc_objClassList:
             for uc_obj in uc_objClassList:
-                logging.debug(f"Before dict_return: {uc_obj}")
+                # logging.debug(f"Before dict_return: {uc_obj}")
                 uc_data = uc_obj.dict_return()
-                logging.debug(f"After dict_return 1: {uc_data}")
-                uc_data["status"] = uc_obj.isConnected
-                logging.debug(f"After add status: {uc_data}")
+                # logging.debug(f"After dict_return 1: {uc_data}")
+                uc_data["status"] = uc_obj.isConnected.name
+                # logging.debug(f"After add status: {uc_data}")
                 uc_objDict.append(uc_data)
 
         return uc_objDict

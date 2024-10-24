@@ -33,4 +33,9 @@ class NetObject:
 if __name__ == "__main__":
     obj = NetObject()
     obj.set_isConnected()
-    print(obj.isConnected)
+    print(obj.isConnected.name)
+
+
+# Alphabetique Order : 0-9A-Z
+# Alphabetique Order : Z-A9-0
+#

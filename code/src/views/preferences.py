@@ -6,9 +6,10 @@ import logging
 import os
 import json
 
+from typing import Optional
 from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
-from src.views.templatesViews import Card, LineUpdate, RoundedBtn, CardStackGeneral, TitleWithAction
+from src.views.templatesViews import LineUpdate, RoundedBtn, CardStackGeneral, TitleWithAction
 from src.classes.configurationFile import ConfigurationFile
 from src.classes.iconsApp import IconsApp
 
@@ -163,192 +164,6 @@ class NetworkGeneral(CardStackGeneral):
         ]
 
 
-class LANDashboard(QWidget):
-    def __init__(self,
-                 obj_title: str,
-                 obj_lang: LanguageApp,
-                 obj_view: Network,
-                 parent=None):
-        super().__init__(parent)
-        self.stackTitle = obj_title
-        self.langManager = obj_lang
-        self.objManager = obj_view
-
-        # init User Interface
-        self.initUI()
-        # show the cards
-        self.clearCardLayout()
-        self.setCardsView()
-
-    def initUI(self):
-        # Set the general layout
-        self.layout = QVBoxLayout(self)
-        self.layout.setContentsMargins(0, 0, 0, 0)
-        self.setLayout(self.layout)
-
-        # Set the top widget
-        title_widget = QWidget(self)
-        self.layout.addWidget(title_widget, alignment=Qt.AlignTop)
-
-        ttl_wdg_cnt = QHBoxLayout(title_widget)
-        # Set the title
-        title = QLabel(self.stackTitle)
-        title.setFont(QFont("Arial", 12, QFont.Bold))
-        ttl_wdg_cnt.addWidget(title, alignment=Qt.AlignCenter)
-        ttl_wdg_cnt.addStretch()
-
-        # set the separator
-        sep = QFrame(self)
-        sep.setFrameShape(QFrame.HLine)
-        sep.setFrameShadow(QFrame.Sunken)
-        self.layout.addWidget(sep)
-
-        # Set up the scroll area
-        scroll_area = QScrollArea(self)
-        scroll_area.setWidgetResizable(True)
-        self.layout.addWidget(scroll_area)
-
-        # Create a widget to contain the cards
-        self.card_container = QWidget(self)
-        scroll_area.setWidget(self.card_container)
-
-        self.card_layout = QGridLayout(self.card_container)
-        self.card_layout.setContentsMargins(0, 0, 0, 0)
-
-    def clearCardLayout(self):
-        while self.card_layout.count():
-            child = self.card_layout.takeAt(0)
-            if child.widget():
-                child.widget().deleteLater()
-            elif child.layout():
-                self.clear_card_layout(child.layout())
-
-    def setCardsView(self):
-        # WAN, card(Rang 0, Colonne 0)
-        wan_body_card = QWidget(self)
-        wan_body_card_layout = QVBoxLayout(wan_body_card)
-
-        dns_edit = QLineEdit(self.objManager.dns)
-        dns_edit.setReadOnly(True)
-        wan_body_card_layout.addWidget(LineUpdate(QLabel('Nom de Domaine :'), dns_edit))
-
-        gate_edit = QLineEdit(self.objManager.gateway)
-        gate_edit.setReadOnly(True)
-        wan_body_card_layout.addWidget(LineUpdate(QLabel('Gateway :'), gate_edit))
-
-        ico_wan = qtawesome.icon('mdi6.web', options=[{'color': 'silver'}])
-        wan_card = Card(
-            icon_card=ico_wan,
-            title_card=QLabel('WAN'),
-            corps_card=wan_body_card)
-        self.card_layout.addWidget(wan_card, 0, 0)
-
-        lan_headband: list = ["IPv4", "Name", "Mac Address", "Status"]
-        lan_body_card = QTableWidget(self)
-        lan_body_card.setColumnCount(lan_headband.__len__())
-        lan_body_card.setHorizontalHeaderLabels(lan_headband)
-
-        if self.objManager.devicesList is not []:
-            for device in self.objManager.devicesList:
-                lan_body_card.insertRow(lan_body_card.rowCount())
-                var_path = os.path.join(
-                    os.path.dirname(os.path.dirname(self.objManager.absPath)),
-                    "desktop", f"{device}.json")
-                if os.path.exists(var_path):
-                    with open(var_path, 'r') as f:
-                        device_data = json.load(f)
-                        ipv4 = device_data.get('ipv4', 'value unknown') or 'value unknown'
-                        name = device_data.get('name', 'value unknown') or 'value unknown'
-                        mac = device_data.get('mac', 'value unknown') or 'value unknown'
-                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 0, QTableWidgetItem(ipv4))
-                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 1, QTableWidgetItem(name))
-                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 2, QTableWidgetItem(mac))
-                        lan_body_card.setItem(lan_body_card.rowCount() - 1, 3, QTableWidgetItem('Not Setted'))
-        ico_lan = qtawesome.icon('mdi6.lan-connect', options=[{'color': 'silver'}])
-
-        self.scan_btn = RoundedBtn(icon=qtawesome.icon('mdi6.refresh'), text=None, parent=self)
-        self.scan_btn.clicked.connect(self.toggle_scan)
-
-        self.trash_btn = RoundedBtn(icon=qtawesome.icon('mdi6.delete'), text=None, parent=self)
-        self.trash_btn.clicked.connect(self.clean_lan)
-
-        ttl_btn = [self.scan_btn, self.trash_btn]
-        q_obj_lan_ttl = TitleWithAction(title=f'LAN {self.objManager.dns}', action=ttl_btn) 
-
-        lan_card = Card(icon_card=ico_lan, title_card=q_obj_lan_ttl, corps_card=lan_body_card)
-        self.card_layout.addWidget(lan_card, 0, 1, 1, 3)
-
-        # Liste du matériel réseau, card(Rang 1, Colonne 0)
-        lsdevice_body_card = QTableWidget(self)
-        lsdevice_body_card.setColumnCount(3)
-        lsdevice_body_card.setHorizontalHeaderLabels(["Name/IPv4", "Emit", "Send"])
-
-        ico_lan_devices = qtawesome.icon('mdi6.clipboard-text-multiple')
-        list_lan_device_card = Card(ico_lan_devices, QLabel('List of network equipment'), None, lsdevice_body_card)
-        self.card_layout.addWidget(list_lan_device_card, 1, 0, 1, 2)
-
-        # Anomalies en cours, card(Rang 1, Colonne 1)
-        lspb_body_card = QTableWidget(self)
-        lspb_body_card.setColumnCount(3)
-        lspb_body_card.setHorizontalHeaderLabels(["Time", "Hostname/IPv4", "Message"])
-
-        ico_lan_pb = qtawesome.icon('mdi6.clipboard-alert')
-        curr_pbs_card = Card(ico_lan_pb, QLabel('Current Problems'), None, lspb_body_card)
-        self.card_layout.addWidget(curr_pbs_card, 1, 2, 1, 2)
-
-    def setLanTable(self):
-        pass
-
-    def setInfraDeviceTable(self):
-        pass
-
-    def setNewsProblemTable(self):
-        pass
-    
-    def clean_lan(self):
-        list_object = self.objManager.devicesList
-        try:
-            # Vérifier si la liste des appareils est vide
-            if not list_object:
-                pass  # Pas d'appareils à traiter
-            else:
-                ip_list = []
-                # Pour chaque appareil dans la liste
-                for device in list_object:
-                    # Chemin vers le fichier JSON de l'appareil
-                    var_path = os.path.join(os.path.dirname(os.path.dirname(self.objManager.absPath)), "desktop", f"{device}.json")
-                
-                    # Vérifier si le fichier JSON de l'appareil existe
-                    if os.path.exists(var_path):
-                        with open(var_path, 'r') as f:
-                            # Charger les données de l'appareil
-                            device_data = json.load(f)
-                        
-                            # Vérifier si l'appareil a une adresse IP valide et si elle est déjà dans la liste ip_list
-                            ipv4 = device_data.get('ipv4')
-                            if ipv4 and ipv4 not in ip_list:
-                                ip_list.append(ipv4)  # Ajouter l'adresse IP à la liste si elle est unique
-                            else:
-                                # Si l'IP existe déjà dans la liste, on supprime l'appareil
-                                self.objManager.remove_device(device=device)
-                                self.objManager.save_network()  # Sauvegarder l'état du réseau après la suppression
-        except Exception as e:
-            # Loguer l'erreur en cas de problème
-            logging.error(f"Erreur lors du nettoyage du réseau : {str(e)}")
-
-    def toggle_scan(self):
-        # si le scan n'est pas actif alors proposer la fonction run
-        self.scan_btn.setIcon(qtawesome.icon('mdi6.play-speed'))
-        # si le scan est lancé alors proposer la fonction stop
-        self.scan_btn.setIcon(qtawesome.icon('mdi6.close-octagon'))
-
-    def run_scan(self):
-        pass
-
-    def stop_scan(self):
-        pass
-
-
 class DevicesCards(CardStackGeneral):
     def __init__(
             self, 
@@ -384,3 +199,42 @@ class DevicesCards(CardStackGeneral):
                 "img_card": None,
                 "corps_card": QLabel("No device found"),
             })
+
+
+class PaletteIconSettings(CardStackGeneral):
+    def __init__(
+            self, 
+            obj_title: str, 
+            obj_lang: LanguageApp, 
+            obj_view: IconsApp, 
+            obj_icon: Optional[IconsApp] = None,
+            obj_img: Optional[QImage] = None,
+            parent=None):
+        super().__init__(obj_title, obj_lang, obj_view, obj_icon, obj_img, parent)
+    
+    def setCardList(self):
+        self.card_list = []
+        for icon in self.objManager.data_manager:
+            # Titre de la carte
+            cardTtl = QLabel(icon.get('name'))
+            # Image de la carte
+            """cardPixmap = self.iconsManager.get_icon(icon.get('platform_and_name'))
+            logging.debug(str(cardPixmap))
+            # cardPixmap.pixmap(32, 32)
+            cardImg = QImage(cardPixmap)"""
+            cardImg = QImage()
+            # Corps de la carte
+            if icon.get('options') is not None:
+                cardOpt = QLabel(str(icon.get('options')))
+            else:
+                cardOpt = QLabel("No options")
+
+            icon_dict: dict = {
+                "icon_card": qtawesome.icon("mdi6.palette-advanced"),
+                "title_card": cardTtl,
+                "img_card": cardImg,
+                "corps_card": cardOpt
+            }
+
+            self.card_list.append(icon_dict)
+        logging.info(f"Card list: {len(self.card_list)} item(s)")

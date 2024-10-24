@@ -13,7 +13,7 @@ from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 from src.views.mapTemplateViews import LANMap
-from src.views.preferences import PreferencesGeneral, NetworkGeneral, DevicesCards
+from src.views.preferences import PreferencesGeneral, NetworkGeneral, DevicesCards, PaletteIconSettings
 from src.views.NetworkDashboard import LanDashboard
 from src.components.bakend_dialog import SyncWorker, WDialogs
 
@@ -147,6 +147,12 @@ class PreferencesTabView(GeneralTabsView):
                 "action": self.palette_shortcut_btn,
             },
             {
+                "name": "Palette Icon",
+                "tooltip": "Palette Icon",
+                "icon": "paletteSwatch",
+                "action": self.palette_icon_btn,
+            },
+            {
                 "name": "License",
                 "tooltip": "License",
                 "icon": "defaultIcon",
@@ -169,10 +175,10 @@ class PreferencesTabView(GeneralTabsView):
 
     def initDisplay(self):
         self.general_menu = PreferencesGeneral(
-            "Dashboard",
-            self.langManager,
-            self.extObj,
-            self
+            obj_title="Dashboard",
+            obj_lang=self.langManager,
+            obj_view=self.extObj,
+            parent=self
         )
         self.stackedFields.addWidget(self.general_menu)
 
@@ -191,6 +197,15 @@ class PreferencesTabView(GeneralTabsView):
         self.update_menu = QWidget(self)
         self.stackedFields.addWidget(self.update_menu)
 
+        self.palette_icon_menu = PaletteIconSettings(
+            obj_title="Palette Icon",
+            obj_lang=self.langManager,
+            obj_view=self.iconsManager,
+            obj_icon=self.iconsManager,
+            parent=self
+        )
+        self.stackedFields.addWidget(self.palette_icon_menu)
+
     def general_btn(self):
         self.stackedFields.setCurrentWidget(self.general_menu)
 
@@ -208,6 +223,9 @@ class PreferencesTabView(GeneralTabsView):
 
     def update_btn(self):
         self.stackedFields.setCurrentWidget(self.update_menu)
+    
+    def palette_icon_btn(self):
+        self.stackedFields.setCurrentWidget(self.palette_icon_menu)
 
 
 class LanTabView(GeneralTabsView):

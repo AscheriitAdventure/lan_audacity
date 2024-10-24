@@ -208,6 +208,8 @@ class LanDashboard(DashboardCardTemplate):
         self.uc_listBody = QTableWidget(self)
         self.uc_listBody.setColumnCount(len(uc_listHeadband))
         self.uc_listBody.setHorizontalHeaderLabels(uc_listHeadband)
+        self.uc_listBody.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.uc_listBody.setSortingEnabled(True)
         
         self.scan_btn = RoundedBtn(icon=self.iconsManager.get_icon(
             "runIcon"), text=None, parent=self)
@@ -221,12 +223,7 @@ class LanDashboard(DashboardCardTemplate):
         self.pause_btn.setToolTip("Scan not loaded")
         self.pause_btn.setEnabled(False)
 
-        self.trash_btn = RoundedBtn(
-            icon=self.iconsManager.get_icon("trashIcon"), text=None, parent=self)
-        self.trash_btn.setToolTip("Clean the scan")
-        self.trash_btn.clicked.connect(self.trash_scan)
-
-        ttls_btn = [self.scan_btn, self.pause_btn, self.trash_btn]
+        ttls_btn = [self.scan_btn, self.pause_btn]
         uc_listTtl = TitleWithAction(f'LAN {self.objManager.dns}', 4, ttls_btn)
 
         uc_list_settings: dict = {
@@ -257,6 +254,8 @@ class LanDashboard(DashboardCardTemplate):
         """
         Démarre l'obtention de la liste des UC de manière asynchrone via un Worker.
         """
+        self.scan_btn.setEnabled(False)
+        self.pause_btn.setEnabled(True)
         # Crée la boîte de dialogue de progression
         self.progress_dialog = WDialogs()
         self.progress_dialog.set_maximum(len(self.objManager.devicesList))  # Indéfini (0) pour une tâche dont on ne connaît pas la durée
@@ -315,13 +314,7 @@ class LanDashboard(DashboardCardTemplate):
             self.scan_btn.setToolTip("Scanning in Progress")
             self.pause_btn.setEnabled(True)  # Active le bouton de pause
             self.pause_btn.setToolTip("Pause the scan")
-
-    def trash_scan(self):
-        """
-        Supprime les données (inutiles, les doublons, etc...) de uc_listBody
-        """
-        pass
-
+    
     def setUCNetworkList(self):
         ucNetwork_listHeadband: list = ["Name/IPv4", "Emit", "Send"]
         self.ucNetwork_listBody = QTableWidget(self)
