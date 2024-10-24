@@ -279,7 +279,7 @@ class LanAudacity(FileManagement):
             else:
                 logging.info(f"{network} doesn't exist in {self.path}")
         else:  
-            logging.error("The network object is not a Network object or a string.")
+            logging.warning("The network object is not a Network object or a string.")
 
     def getObjNetwork(self, network_name):
         for network in self.networks.get('obj_ls', []):

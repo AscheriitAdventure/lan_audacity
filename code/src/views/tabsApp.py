@@ -321,7 +321,7 @@ class LanTabView(GeneralTabsView):
         self.sync_dialog.show()
 
         # Initialiser SyncWorker
-        self.sync_worker = SyncWorker(self)
+        self.sync_worker = SyncWorker(self.extObj ,self)
         self.sync_worker.signals.progress.connect(self.sync_dialog.update_progress)
         self.sync_worker.signals.finished.connect(self.sync_dialog.close)
 

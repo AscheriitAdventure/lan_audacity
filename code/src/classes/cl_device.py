@@ -205,10 +205,10 @@ class Device:
                 logging.info("La machine est connectée.")
             else:
                 self.isConnected = False
-                logging.error("La machine n'est pas connectée.")
+                logging.warning("La machine n'est pas connectée.")
         except subprocess.TimeoutExpired:
             self.isConnected = False
-            logging.error("Timeout lors de la tentative de connexion à la machine.")
+            logging.warning("Timeout lors de la tentative de connexion à la machine.")
     
     def update_auto(self):
         self.set_nmap_macVendor()
@@ -230,16 +230,16 @@ class Device:
             if "mac" in nm[self.ipv4]["addresses"]:
                 self.__mac = nm[self.ipv4]["addresses"]["mac"]
             else:
-                logging.error("Impossible de trouver l'adresse MAC de la machine.")
+                logging.warning("Impossible de trouver l'adresse MAC de la machine.")
                 self.__mac = VAR_STR_DEFAULT
 
             if "vendor" in nm[self.ipv4] and self.macAddress != VAR_STR_DEFAULT:
                 self.__vendor = nm[self.ipv4]["vendor"][self.macAddress]
             else:
-                logging.error("Impossible de trouver le constructeur de la machine.")
+                logging.warning("Impossible de trouver le constructeur de la machine.")
                 self.__vendor = VAR_STR_DEFAULT
         else:
-            logging.error("Impossible de trouver les informations de la machine.")
+            logging.warning("Impossible de trouver les informations de la machine.")
 
     def set_nmap_hostname(self) -> None:
         nm = nmap.PortScanner()

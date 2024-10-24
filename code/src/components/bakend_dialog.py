@@ -39,6 +39,7 @@ class Worker(QRunnable):
     """
     Classe représentant un worker (travailleur) qui effectue des opérations de manière asynchrone.
     """
+
     def __init__(self, obj_data: Any, parent=None):
         """
         Initialise le worker avec des données et prépare les attributs nécessaires.
@@ -49,9 +50,11 @@ class Worker(QRunnable):
         super(Worker, self).__init__()
         self.objData = obj_data  # Stockage des données nécessaires pour l'opération de travail
         self.exitData = []  # Liste pour stocker les résultats de l'opération
-        self.is_running = True  # Indicateur pour savoir si le travailleur est en cours d'exécution
+        # Indicateur pour savoir si le travailleur est en cours d'exécution
+        self.is_running = True
         self.is_paused = False  # Indicateur pour savoir si le travailleur est en pause
-        self.signals = WorkerSignals()  # Création d'une instance de WorkerSignals pour gérer les signaux
+        # Création d'une instance de WorkerSignals pour gérer les signaux
+        self.signals = WorkerSignals()
 
     def run(self):
         """
@@ -81,7 +84,8 @@ class Worker(QRunnable):
                 break
 
             while self.is_paused:
-                QThread.msleep(100)  # Met en pause le thread pendant une courte durée
+                # Met en pause le thread pendant une courte durée
+                QThread.msleep(100)
 
             # Simulation de l'ajout de données
             result.append(f"Device {i}")
@@ -115,6 +119,7 @@ class WorkerDevice(Worker):
     """
     Classe représentant un worker spécialisé pour gérer les périphériques réseau.
     """
+
     def __init__(self, obj_data: Network, parent=None):
         """
         Initialise le worker de périphériques réseau avec des données réseau spécifiques.
@@ -128,7 +133,7 @@ class WorkerDevice(Worker):
     def work(self) -> list:
         """
         Effectue le travail réel, ici un scan de périphériques.
-        
+
         :return: Liste des résultats du scan.
         """
         # Appelle la fonction de scan avec les paramètres appropriés provenant de objData
@@ -161,6 +166,7 @@ class WorkerGetUcList(Worker):
     """
     Worker spécialisé pour récupérer la liste des UC de manière asynchrone.
     """
+
     def __init__(self, obj_data: Any, parent=None):
         super(WorkerGetUcList, self).__init__(obj_data, parent)
 
@@ -180,7 +186,8 @@ class WorkerGetUcList(Worker):
         :return: Liste des UC en format dictionnaire.
         """
         logging.debug(f"180: {self.objData}")
-        uc_objClassList = networkDevicesList(self.objData)  # self.objData contient ici les données de l'objet Manager
+        # self.objData contient ici les données de l'objet Manager
+        uc_objClassList = networkDevicesList(self.objData)
         uc_objDict = []
 
         if uc_objClassList:
@@ -188,7 +195,7 @@ class WorkerGetUcList(Worker):
                 uc_data = uc_obj.dict_return()
                 uc_data["status"] = "Connected" if uc_obj.isConnected else "Disconnected"
                 uc_objDict.append(uc_data)
-        
+
         return uc_objDict
 
 
@@ -201,9 +208,9 @@ class SyncWorker(Worker):
         :param parent: L'objet parent Qt (facultatif).
         """
         # Appelle le constructeur de la classe de base (Worker) avec les paramètres appropriés
-        super(WorkerDevice, self).__init__(obj_data, parent)
-    
-    def work(self) ->None:
+        super(SyncWorker, self).__init__(obj_data, parent)
+
+    def work(self) -> None:
         """
         Effectue le travail réel, ici un scan de périphériques.
         """
@@ -211,11 +218,12 @@ class SyncWorker(Worker):
         path_device = os.path.join(
             os.path.dirname(
                 os.path.dirname(self.objData.absPath)),
-                "desktop")
+            "desktop")
 
         nm = nmap.PortScanner()
         nm.scan(hosts=lan, arguments='-sn')
-        logging.debug(f"abspath: {path_device}, list_host: {nm.all_hosts()}, lan: {lan}")
+        logging.debug(f"abspath: {path_device}, list_host: {
+                      nm.all_hosts()}, lan: {lan}")
 
         total_hosts = len(nm.all_hosts())
         for index, host in enumerate(nm.all_hosts()):
@@ -231,5 +239,3 @@ class SyncWorker(Worker):
             # Mise à jour de la progression
             progress = int((index + 1) / total_hosts * 100)
             self.signals.progress.emit(progress)
-
-        
