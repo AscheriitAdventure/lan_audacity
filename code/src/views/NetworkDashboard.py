@@ -11,8 +11,8 @@ from src.classes.cl_network import Network
 from src.classes.iconsApp import IconsApp
 
 from src.views.templatesViews import TitleWithAction, Card, LineUpdate, RoundedBtn
-from src.components.bakend_dialog import WorkerGetUcList, WDialogs, WorkerDevice
-
+from src.components.bakend_dialog import WorkerGetUcList, WDialogs
+from src.functionsExt import ip_to_cidr, conv_unix_to_datetime
 
 class DashboardCardTemplate(QWidget):
     def __init__(self,
@@ -153,13 +153,38 @@ class LanDashboard(DashboardCardTemplate):
         wanBody = QWidget(self)
         wanLayout = QVBoxLayout(wanBody)
 
+        domainProjectNameTtl = "Project Name"
+        domainProjectNameEdit = QLineEdit(self.objManager.name)
+        wanLayout.addWidget(LineUpdate(domainProjectNameTtl, domainProjectNameEdit))
+
         domainNameTtl = "Domain Name"
         domainNameEdit = QLineEdit(self.objManager.dns)
         wanLayout.addWidget(LineUpdate(domainNameTtl, domainNameEdit))
 
+        cidrTtl = "CIDR"
+        cidrText = ip_to_cidr(self.objManager.ipv4, self.objManager.maskIpv4)
+        cidrEdit = QLineEdit(cidrText)
+        cidrEdit.setPlaceholderText("CIDR")
+
+        if self.objManager.ipv6:
+            cidrEdit.setToolTip(f"IPv6: {self.objManager.ipv6}")
+        else:
+            cidrEdit.setToolTip(f"IPv6: Not Setted")
+
+        wanLayout.addWidget(LineUpdate(cidrTtl, cidrEdit))
         gateTtl = "Gateway"
         gateEdit = QLineEdit(self.objManager.gateway)
         wanLayout.addWidget(LineUpdate(gateTtl, gateEdit))
+
+        startDateTtl = "Start Date"
+        startDateEdit = QLineEdit(conv_unix_to_datetime(self.objManager.clockManager.clockCreated))
+        wanLayout.addWidget(LineUpdate(startDateTtl, startDateEdit))
+
+        lastUpdateTtl = "Last Update"
+        lastUpdateEdit = QLineEdit(conv_unix_to_datetime(self.objManager.clockManager.get_clock_last()))
+        wanLayout.addWidget(LineUpdate(lastUpdateTtl, lastUpdateEdit))
+
+        wanLayout.addStretch()
 
         # Exemple de personnalisation pour LanDashboard
         self.cardList = [
@@ -228,7 +253,7 @@ class LanDashboard(DashboardCardTemplate):
             self.uc_listBody.setItem(i, 3, QTableWidgetItem(uc["status"]))
             self.uc_listBody.setItem(i, 4, QTableWidgetItem(str(uc["vendor"])))
 
-    def getUcList(self):
+    def run_scan(self):
         """
         Démarre l'obtention de la liste des UC de manière asynchrone via un Worker.
         """
@@ -243,20 +268,11 @@ class LanDashboard(DashboardCardTemplate):
         # Connecte les signaux du Worker aux méthodes de la boîte de dialogue
         self.worker.signals.progress.connect(self.progress_dialog.update_progress)
         self.worker.signals.started.connect(lambda: self.progress_dialog.show())
-        self.worker.signals.result.connect(self.on_getUcList_finished)
+        self.worker.signals.result.connect(self.on_scan_finished)
         self.worker.signals.finished.connect(self.progress_dialog.close)
 
         # Démarre le Worker dans un thread séparé
         QThreadPool.globalInstance().start(self.worker)
-
-    def on_getUcList_finished(self, result):
-        """
-        Méthode appelée lorsque la récupération de la liste des UC est terminée.
-        :param result: Liste des UC obtenus.
-        """
-        self.updateUcListTable(result)
-        self.scan_btn.setEnabled(True)
-        self.pause_btn.setEnabled(False)
 
     def toggle_scan(self):
         """
@@ -268,33 +284,6 @@ class LanDashboard(DashboardCardTemplate):
             self.resume_scan()
         else:
             self.pause_scan()
-
-    def run_scan(self):
-        """
-        Démarre le scan en lançant le WorkerDevice dans un thread avec une boîte de dialogue de progression.
-        """
-        # Crée la boîte de dialogue de progression
-        self.progress_dialog = WDialogs()
-        self.progress_dialog.set_maximum(100)
-        self.progress_dialog.set_message("Scanning for devices...")
-
-        # Crée les données réseau à scanner
-        obj_data = {
-            "ipv4": self.objManager.ipv4,  # Remplacez par les données réelles de votre objet
-            "mask": self.objManager.maskIpv4  # Remplacez par le masque réel
-        }
-
-        # Crée un WorkerDevice pour gérer le scan de périphériques
-        worker = WorkerDevice(obj_data)
-
-        # Connecte les signaux du Worker aux méthodes de la boîte de dialogue
-        worker.signals.started.connect(lambda: self.progress_dialog.show())
-        worker.signals.progress.connect(self.progress_dialog.update_progress)
-        worker.signals.result.connect(self.on_scan_finished)
-        worker.signals.finished.connect(self.progress_dialog.close)
-
-        # Démarre le Worker dans un thread séparé
-        QThreadPool.globalInstance().start(worker)
 
     def on_scan_finished(self, result):
         """

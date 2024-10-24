@@ -49,9 +49,11 @@ def networkDevicesList(net_class: Network) -> list[Device]:
                 device_netClass.append(uc_device)
 
             else:
+                netClass.devicesList.remove(uc_unit)
                 logging.warning(f"Device {uc_unit} not found")
-
-        return device_netClass   
+        
+        netClass.save_network()
+        return device_netClass
     
     else:
         logging.warning(f"{netClass.name} has no devices saved")

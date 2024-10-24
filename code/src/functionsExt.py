@@ -1,4 +1,5 @@
 import os
+import time
 import logging
 
 def current_dir():
@@ -31,3 +32,6 @@ def ip_to_cidr(ip: str, mask: str) -> str:
     cidr_notation = f"{ip}/{cidr_prefix}"
 
     return cidr_notation
+
+def conv_unix_to_datetime(unix_time: float):
+        return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(unix_time))

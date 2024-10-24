@@ -177,7 +177,7 @@ class WorkerGetUcList(Worker):
         """
         # Appelle la méthode de récupération des UC avec les paramètres appropriés
         data = self.getUcListAsync()
-        logging.debug(f"172: {data}")
+        logging.debug(f"180: {data}")
         return data
 
     def getUcListAsync(self) -> list:
@@ -185,15 +185,18 @@ class WorkerGetUcList(Worker):
         Appelle la méthode `getUcList` de manière asynchrone pour éviter de geler l'interface.
         :return: Liste des UC en format dictionnaire.
         """
-        logging.debug(f"180: {self.objData}")
+        logging.debug(f"188: {self.objData}")
         # self.objData contient ici les données de l'objet Manager
         uc_objClassList = networkDevicesList(self.objData)
         uc_objDict = []
 
         if uc_objClassList:
             for uc_obj in uc_objClassList:
+                logging.debug(f"Before dict_return: {uc_obj}")
                 uc_data = uc_obj.dict_return()
-                uc_data["status"] = "Connected" if uc_obj.isConnected else "Disconnected"
+                logging.debug(f"After dict_return 1: {uc_data}")
+                uc_data["status"] = uc_obj.isConnected
+                logging.debug(f"After add status: {uc_data}")
                 uc_objDict.append(uc_data)
 
         return uc_objDict
@@ -222,8 +225,7 @@ class SyncWorker(Worker):
 
         nm = nmap.PortScanner()
         nm.scan(hosts=lan, arguments='-sn')
-        logging.debug(f"abspath: {path_device}, list_host: {
-                      nm.all_hosts()}, lan: {lan}")
+        logging.debug(f"abspath: {path_device}, list_host: {nm.all_hosts()}, lan: {lan}")
 
         total_hosts = len(nm.all_hosts())
         for index, host in enumerate(nm.all_hosts()):

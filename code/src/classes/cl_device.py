@@ -1,5 +1,5 @@
 from typing import Any, Optional
-
+import platform
 import json
 import logging
 import os
@@ -11,6 +11,7 @@ from src.classes.clockManager import ClockManager
 from src.classes.cl_deviceType import DeviceType
 from src.components.nmap_forms import NmapForm
 from src.components.pysnmp_forms import PysnmpForm
+from src.components.eunum_lab import isConnected
 
 VAR_STR_DEFAULT: str = "Unknown"
 
@@ -25,7 +26,7 @@ class Device:
             ) -> None:
         self.__uuid: str | None = uuid_str
         
-        self.__is_connected: bool = False
+        self.__is_connected: isConnected = isConnected.NOT_SETTED
         self.__clockManager = ClockManager()    # Gestionnaire de synchronisation
         self.__name = VAR_STR_DEFAULT
         self.__ipv4 = device_ipv4               # Adresse ipv4 de L'appareil
@@ -95,7 +96,7 @@ class Device:
         return self.__is_connected
 
     @isConnected.setter
-    def isConnected(self, var: bool):
+    def isConnected(self, var: isConnected):
         self.__is_connected = var
     
     @property
@@ -193,21 +194,23 @@ class Device:
         return list(self.dict_return().keys())
     
     def set_isConnected(self) -> None:
+        # Vérifie l'OS et utilise le bon paramètre pour le ping
+        param = "-n" if platform.system().lower() == "windows" else "-c"
         try:
             result = subprocess.run(
-                ["ping", "-c4", self.ipv4],
+                ["ping", param, "4", self.ipv4],  # Utilise le paramètre en fonction de l'OS
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 timeout=10,
             )
             if result.returncode == 0:
-                self.isConnected = True
+                self.isConnected = isConnected.CONNECTED
                 logging.info("La machine est connectée.")
             else:
-                self.isConnected = False
+                self.isConnected = isConnected.DISCONNECTED
                 logging.warning("La machine n'est pas connectée.")
         except subprocess.TimeoutExpired:
-            self.isConnected = False
+            self.isConnected = isConnected.DISCONNECTED
             logging.warning("Timeout lors de la tentative de connexion à la machine.")
     
     def update_auto(self):
