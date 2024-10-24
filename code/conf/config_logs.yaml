@@ -18,7 +18,7 @@ handlers:
     formatter: custom
     filename: logs/app.log
     encoding: utf-8
-    maxBytes: 10485760  # Taille max en bytes (10 MB)
+    maxBytes: 2621440  # Taille max en bytes (2,56 MB)
     backupCount: 5
 
 loggers:

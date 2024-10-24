@@ -41,6 +41,7 @@ class GeneralSidePanel(QWidget):
 
         self.initUI()
         self.initDisplayObj()
+        self.glbLayout.addStretch()
         self.btn_null = QPushButton("Open Project")
         self.btn_null.clicked.connect(parent.openProjectAction)
         self.glbLayout.addWidget(self.btn_null)

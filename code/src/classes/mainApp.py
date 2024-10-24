@@ -512,4 +512,3 @@ class MainApp(QMainWindow):
             tab= GeneralTabsView("User", None, self.langManager, self.iconsManager, self),
             title="User")
         # Open the user window
-

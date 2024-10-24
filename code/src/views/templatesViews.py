@@ -51,11 +51,12 @@ class Card(QWidget):
         sep.setFrameShadow(QFrame.Sunken)
         self.layout.addWidget(sep)
 
-    def setImageUI(self, image_path: QImage):
+    def setImageUI(self, image_path: QImage, legend: Optional[QWidget] = None):
         """Sets the image UI with the provided QImage."""
+        image_legend = legend
         image_label = QLabel()
         image_label.setPixmap(QPixmap.fromImage(image_path))
-        image_label.setAlignment(Qt.AlignCenter)
+        # image_label.setAlignment(Qt.AlignCenter)
         self.layout.addWidget(image_label, 1, 0, 1, 2, Qt.AlignHCenter)
 
     def setBodyUI(self, corps_card: QWidget):

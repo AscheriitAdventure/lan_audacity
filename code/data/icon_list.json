@@ -488,7 +488,7 @@
     },
     {
       "name": "paletteSwatch",
-      "platform_and_name": ["palette-swatch-variant"],
+      "platform_and_name": ["mdi6.palette-swatch-variant"],
       "options": null
     }
   ]
