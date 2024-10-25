@@ -155,15 +155,18 @@ class LanDashboard(DashboardCardTemplate):
 
         domainProjectNameTtl = "Project Name"
         domainProjectNameEdit = QLineEdit(self.objManager.name)
+        domainProjectNameEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         wanLayout.addWidget(LineUpdate(domainProjectNameTtl, domainProjectNameEdit))
 
         domainNameTtl = "Domain Name"
         domainNameEdit = QLineEdit(self.objManager.dns)
+        domainNameEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         wanLayout.addWidget(LineUpdate(domainNameTtl, domainNameEdit))
 
         cidrTtl = "CIDR"
         cidrText = ip_to_cidr(self.objManager.ipv4, self.objManager.maskIpv4)
         cidrEdit = QLineEdit(cidrText)
+        cidrEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         cidrEdit.setPlaceholderText("CIDR")
 
         if self.objManager.ipv6:
@@ -174,14 +177,17 @@ class LanDashboard(DashboardCardTemplate):
         wanLayout.addWidget(LineUpdate(cidrTtl, cidrEdit))
         gateTtl = "Gateway"
         gateEdit = QLineEdit(self.objManager.gateway)
+        gateEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         wanLayout.addWidget(LineUpdate(gateTtl, gateEdit))
 
         startDateTtl = "Start Date"
         startDateEdit = QLineEdit(conv_unix_to_datetime(self.objManager.clockManager.clockCreated))
+        startDateEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         wanLayout.addWidget(LineUpdate(startDateTtl, startDateEdit))
 
         lastUpdateTtl = "Last Update"
         lastUpdateEdit = QLineEdit(conv_unix_to_datetime(self.objManager.clockManager.get_clock_last()))
+        lastUpdateEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         wanLayout.addWidget(LineUpdate(lastUpdateTtl, lastUpdateEdit))
 
         wanLayout.addStretch()
@@ -192,8 +198,8 @@ class LanDashboard(DashboardCardTemplate):
                 "layout": {
                     "row": 0,
                     "column": 0,
-                    "rowSpan": None,
-                    "columnSpan": None,
+                    "rowSpan": 1,
+                    "columnSpan": 1,
                     "alignement": None
                 },
                 "icon_card": self.iconsManager.get_icon("lanIcon"),
