@@ -267,7 +267,33 @@ class PaletteIconSettings(CardStackGeneral):
             cardImg = self.objManager.get_icon(icon["name"]).pixmap(64, 64).toImage()
             # Corps de la carte
             if icon.get("options") is not None:
-                cardOpt = QLabel(str(icon["options"]))
+                cardOpt = QWidget()
+                cardOptLayout = QVBoxLayout()
+                cardOpt.setLayout(cardOptLayout)
+
+                len_options = len(icon["options"])
+                data_options = icon["options"]
+
+                for i, option in enumerate(data_options):
+                    keys = option.keys()
+                    if len_options > 1:
+                        cardOptLayout.addWidget(QLabel(f"{icon["platform_and_name"][i]} :"))
+                    for key in keys:
+                        btn_options = RoundedBtn(
+                            icon=qtawesome.icon("mdi6.pencil"), text=None, parent=self
+                        )
+                        if len_options > 1:
+                            ttl_label = QLabel(f"    {key} :")
+                        else:
+                            ttl_label= QLabel(f"{key} :")
+                        
+                        options_lineUpdate = LineUpdate(
+                            label_obj=ttl_label,
+                            input_obj=QLineEdit(str(option[key])),
+                            action_obj=btn_options,
+                        )
+                        cardOptLayout.addWidget(options_lineUpdate)                
+
             else:
                 cardOpt = QLabel("No options")
 

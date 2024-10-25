@@ -6,4 +6,8 @@ dictionnaire = {
     "ipv6_global": "fe80::c0a8:1:5a",
 }
 
-print(dictionnaire["ipv4"])
+# Récupérer les entêtes (clés) du dictionnaire
+entetes = dictionnaire.keys()
+
+# Afficher les entêtes
+print("Les entêtes du dictionnaire sont :", list(entetes))

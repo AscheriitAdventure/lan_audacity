@@ -1,494 +1,663 @@
 [
-    {
-      "name": "lan_audacity",
-      "platform_and_name": ["mdi6.lan", "mdi6.scan-helper"],
-      "options": [
-        {
-          "scale_factor": 0.75
-        },
-        {
-          "color": "Black"
-        }
-      ]
-    },
-    {
-      "name": "folder_open",
-      "platform_and_name": ["mdi6.folder-open-outline"],
-      "options": [
-        {
-          "color": "Orange"
-        }
-      ]
-    },
-    {
-      "name": "extensionAction",
-      "platform_and_name": ["mdi6.puzzle"],
-      "options": null
-    },
-    {
-      "name": "userAction",
-      "platform_and_name": ["mdi6.account-settings"],
-      "options": null
-    },
-    {
-      "name": "preferencesAction",
-      "platform_and_name": ["mdi6.cog-outline"],
-      "options": null
-    },
-    {
-      "name": "newProject",
-      "platform_and_name": ["mdi6.new-box"],
-      "options": null
-    },
-    {
-      "name": "openProject",
-      "platform_and_name": ["mdi6.open-in-app"],
-      "options": null
-    },
-    {
-      "name": "saveProject",
-      "platform_and_name": ["mdi6.content-save"],
-      "options": null
-    },
-    {
-      "name": "saveAsProject",
-      "platform_and_name": ["mdi6.content-save-plus"],
-      "options": null
-    },
-    {
-      "name": "closeProject",
-      "platform_and_name": ["mdi6.folder-off"],
-      "options": null
-    },
-    {
-      "name": "exit",
-      "platform_and_name": ["mdi6.exit-to-app"],
-      "options": null
-    },
-    {
-      "name": "undoAction",
-      "platform_and_name": ["mdi6.arrow-u-left-top"],
-      "options": null
-    },
-    {
-      "name": "redoAction",
-      "platform_and_name": ["mdi6.arrow-u-right-top"],
-      "options": null
-    },
-    {
-      "name": "cutAction",
-      "platform_and_name": ["fa5s.cut"],
-      "options": null
-    },
-    {
-      "name": "copyAction",
-      "platform_and_name": ["fa5s.copy"],
-      "options": null
-    },
-    {
-      "name": "pasteAction",
-      "platform_and_name": ["fa5s.paste"],
-      "options": null
-    },
-    {
-      "name": "deleteAction",
-      "platform_and_name": ["fa5s.eraser"],
-      "options": null
-    },
-    {
-      "name": "selectAllAction",
-      "platform_and_name": ["mdi6.select-all"],
-      "options": null
-    },
-    {
-      "name": "selectNoneAction",
-      "platform_and_name": ["mdi6.selection-off"],
-      "options": null
-    },
-    {
-      "name": "selectInverseAction",
-      "platform_and_name": ["mdi6.select-inverse"],
-      "options": null
-    },
-    {
-      "name": "fileExplorerAction",
-      "platform_and_name": ["mdi6.folder-settings"],
-      "options": null
-    },
-    {
-      "name": "netExplorerAction",
-      "platform_and_name": ["mdi6.wan"],
-      "options": [
-        {
-          "color": "RoyalBlue"
-        }
-      ]
-    },
-    {
-      "name": "notificationAction",
-      "platform_and_name": ["mdi6.bell"],
-      "options": [
-        {
-          "color": "Orange"
-        }
-      ]
-    },
-    {
-      "name": "translateAction",
-      "platform_and_name": ["mdi6.translate"],
-      "options": null
-    },
-    {
-      "name": "terminalAction",
-      "platform_and_name": ["mdi6.console"],
-      "options": null
-    },
-    {
-      "name": "helpAction",
-      "platform_and_name": ["mdi6.chat-question"],
-      "options": null
-    },
-    {
-      "name": "aboutAction",
-      "platform_and_name": ["mdi6.information-variant"],
-      "options": null
-    },
-    {
-      "name": "languageAction",
-      "platform_and_name": ["mdi6.web"],
-      "options": null
-    },
-    {
-      "name": "shortcutKeyAction",
-      "platform_and_name": ["mdi6.keyboard-settings"],
-      "options": null
-    },
-    {
-      "name": "spinnerIcon",
-      "platform_and_name": ["fa5s.circle-notch"],
-      "options": [
-        {
-          "color": "RoyalBlue"
-        }
-      ]
-    },
-    {
-      "name": "searchAction",
-      "platform_and_name": ["fa5s.search"],
-      "options": null
-    },
-    {
-      "name": "toggleSideBar",
-      "platform_and_name": ["fa5s.window-maximize"],
-      "options": [
-        {
-          "rotated": 270
-        }
-      ]
-    },
-    {
-      "name": "togglePanel",
-      "platform_and_name": ["fa5s.window-maximize"],
-      "options": [
-        {
-          "rotated": 180
-        }
-      ]
-    },
-    {
-      "name": "newFolderAction",
-      "platform_and_name": ["mdi6.folder-plus-outline"],
-      "options": null
-    },
-    {
-      "name": "newFileAction",
-      "platform_and_name": ["mdi6.file-plus-outline"],
-      "options": null
-    },
-    {
-      "name": "newLanAction",
-      "platform_and_name": ["fa5s.network-wired", "fa5s.plus-circle"],
-      "options": [
-        {
-          "scale_factor": 1
-        },
-        {
-          "scale_factor": 0.5,
-          "color": "Lime"
-        }
-      ]
-    },
-    {
-      "name": "newDeviceAction",
-      "platform_and_name": ["mdi6.server-plus"],
-      "options": null
-    },
-    {
-      "name": "defaultIcon",
-      "platform_and_name": ["fa5s.shapes", "fa5s.question-circle"],
-      "options": [
-        {
-          "scale_factor": 1,
-          "color": "Silver"
-        },
-        {
-          "scale_factor": 0.5,
-          "color": "Blue"
-        }
-      ]
-    },
-    {
-      "name": "networkDefaultIcon",
-      "platform_and_name": ["mdi6.wan", "mdi6.routes"],
-      "options": [
-        {
-          "scale_factor": 1,
-          "color": "RoyalBlue"
-        },
-        {
-          "scale_factor": 0.75,
-          "color": "GreenForest"
-        }
-      ]
-    },
-    {
-      "name": "settingsBtn",
-      "platform_and_name": ["mdi6.cogs"],
-      "options": [
-        {
-          "color": "LightSlateGray"
-        }
-      ]
-    },
-    {
-      "name": "dashboardBtn",
-      "platform_and_name": ["mdi6.trello"],
-      "options": [
-        {
-          "color": "PaleTurquoise"
-        }
-      ]
-    },
-    {
-      "name": "refreshWebBtn",
-      "platform_and_name": ["mdi6.web-sync"],
-      "options": [
-        {
-          "color": "Silver"
-        }
-      ]
-    },
-    {
-      "name": "os_windows",
-      "platform_and_name": ["mdi6.microsoft-windows"],
-      "options": [
-        {
-          "color": "RoyalBlue"
-        }
-      ]
-    },
-    {
-      "name": "os_linux",
-      "platform_and_name": ["mdi6.linux"],
-      "options": null
-    },
-    {
-      "name": "os_linux-mint",
-      "platform_and_name": ["mdi6.linux-mint"],
-      "options": [
-        {
-          "color": "Lime"
-        }
-      ]
-    },
-    {
-      "name": "os_ios",
-      "platform_and_name": ["mdi6.apple-ios"],
-      "options": [
-        {
-          "color": "Silver"
-        }
-      ]
-    },
-    {
-      "name": "os_darwin",
-      "platform_and_name": ["mdi6.apple"],
-      "options": [
-        {
-          "color": "Silver"
-        }
-      ]
-    },
-    {
-      "name": "os_android",
-      "platform_and_name": ["mdi6.android"],
-      "options": [
-        {
-          "color": "GreenForest"
-        }
-      ]
-    },
-    {
-      "name": "os_ubuntu",
-      "platform_and_name": ["mdi6.ubuntu"],
-      "options": [
-        {
-          "color": "Orange"
-        }
-      ]
-    },
-    {
-      "name": "os_debian",
-      "platform_and_name": ["mdi6.debian"],
-      "options": [
-        {
-          "color": "Red"
-        }
-      ]
-    },
-    {
-      "name": "os_fedora",
-      "platform_and_name": ["mdi6.fedora"],
-      "options": [
-        {
-          "color": "Blue"
-        }
-      ]
-    },
-    {
-      "name": "os_centos",
-      "platform_and_name": ["mdi6.centos"],
-      "options": [
-        {
-          "color": "Red"
-        }
-      ]
-    },
-    {
-      "name": "os_rhel",
-      "platform_and_name": ["mdi6.redhat"],
-      "options": [
-        {
-          "color": "Red"
-        }
-      ]
-    },
-    {
-      "name": "os_suse",
-      "platform_and_name": ["fa5b.suse"],
-      "options": [
-        {
-          "color": "GreenForest"
-        }
-      ]
-    },
-    {
-      "name": "os_gentoo",
-      "platform_and_name": ["mdi6.gentoo"],
-      "options": [
-        {
-          "color": "Blue"
-        }
-      ]
-    },
-    {
-      "name": "os_arch",
-      "platform_and_name": ["mdi6.arch"],
-      "options": [
-        {
-          "color": "SkyBlue"
-        }
-      ]
-    },
-    {
-      "name": "os_manjaro",
-      "platform_and_name": ["mdi6.manjaro"],
-      "options": [
-        {
-          "color": "GreenForest"
-        }
-      ]
-    },
-    {
-      "name": "os_raspbian",
-      "platform_and_name": ["fa5b.raspberry-pi"],
-      "options": [
-        {
-          "color": "MediumVioletRed"
-        }
-      ]
-    },
-    {
-      "name": "deviceListBtn",
-      "platform_and_name": ["mdi6.clipboard-pulse"],
-      "options": [
-        {
-          "color": "Coral"
-        }
-      ]
-    },
-    {
-      "name": "lanIcon",
-      "platform_and_name": ["mdi6.web"],
-      "options": [
-        {
-          "color": "Silver"
-        }
-      ]
-    },
-    {
-      "name": "lanUcListIcon",
-      "platform_and_name": ["mdi6.lan-connect"],
-      "options": [
-        {
-          "color": "Silver"
-        }
-      ]
-    },
-    {
-      "name": "ucIcon",
-      "platform_and_name": ["mdi6.desktop-classic"],
-      "options": [
-        {
-          "color": "Silver"
-        }
-      ]
-    },
-    {
-      "name": "runIcon",
-      "platform_and_name": ["mdi6.play-speed"],
-      "options": [
-        {
-          "color": "Lime"
-        }
-      ]
-    },
-    {
-      "name": "pauseIcon",
-      "platform_and_name": ["mdi6.pause"],
-      "options": [
-        {
-          "color": "RoyalBlue"
-        }
-      ]
-    },
-    {
-      "name": "stopIcon",
-      "platform_and_name": ["mdi6.stop"],
-      "options": [
-        {
-          "color": "Crimson"
-        }
-      ]
-    },
-    {
-      "name": "trashIcon",
-      "platform_and_name": ["mdi6.trash-can"],
-      "options": null
-    },
-    {
-      "name": "paletteSwatch",
-      "platform_and_name": ["mdi6.palette-swatch-variant"],
-      "options": null
-    }
-  ]
+  {
+    "name": "lan_audacity",
+    "platform_and_name": ["mdi6.lan", "mdi6.scan-helper"],
+    "options": [
+      {
+        "scale_factor": 0.75
+      },
+      {
+        "color": "Black"
+      }
+    ]
+  },
+  {
+    "name": "folder_open",
+    "platform_and_name": ["mdi6.folder"],
+    "options": [
+      {
+        "color": "Orange",
+        "active": "mdi6.folder-open"
+      }
+    ]
+  },
+  {
+    "name": "extensionAction",
+    "platform_and_name": [
+      "mdi6.puzzle",
+      "mdi6.puzzle",
+      "mdi6.puzzle",
+      "fa5s.microchip"
+    ],
+    "options": [
+      {
+        "color": "Red",
+        "scale_factor": 0.75,
+        "offset": [0.2, 0.2]
+      },
+      {
+        "color": "Green",
+        "scale_factor": 0.75,
+        "offset": [-0.2, 0.2]
+      },
+      {
+        "color": "Blue",
+        "scale_factor": 0.75,
+        "offset": [-0.2, -0.2]
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "LightGrey"
+      }
+    ]
+  },
+  {
+    "name": "userAction",
+    "platform_and_name": ["mdi6.account-circle", "mdi6.settings-helper"],
+    "options": [
+      {
+        "active": "mdi6.account-circle",
+        "offset": [0, -0.05]
+      },
+      {
+        "color": "LightSlateGray"
+      }
+    ]
+  },
+  {
+    "name": "preferencesAction",
+    "platform_and_name": ["mdi6.cog-outline", "mdi6.wrench"],
+    "options": [
+      {
+        "color": "Blue"
+      },
+      {
+        "color": "SkyBlue",
+        "scale_factor": 0.75,
+        "rotated": 345,
+        "offset": [0.2, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "newProject",
+    "platform_and_name": ["mdi6.new-box"],
+    "options": null
+  },
+  {
+    "name": "openProject",
+    "platform_and_name": ["mdi6.open-in-app"],
+    "options": null
+  },
+  {
+    "name": "saveProject",
+    "platform_and_name": ["mdi6.content-save"],
+    "options": null
+  },
+  {
+    "name": "saveAsProject",
+    "platform_and_name": ["mdi6.content-save-plus"],
+    "options": null
+  },
+  {
+    "name": "closeProject",
+    "platform_and_name": ["mdi6.folder", "fa5s.slash"],
+    "options": [
+      {
+        "color": "Orange"
+      },
+      {
+        "color": "Red"
+      }
+    ]
+  },
+  {
+    "name": "exit",
+    "platform_and_name": ["mdi6.exit-to-app"],
+    "options": null
+  },
+  {
+    "name": "undoAction",
+    "platform_and_name": ["mdi6.arrow-u-left-top"],
+    "options": null
+  },
+  {
+    "name": "redoAction",
+    "platform_and_name": ["mdi6.arrow-u-right-top"],
+    "options": null
+  },
+  {
+    "name": "cutAction",
+    "platform_and_name": ["fa5s.cut"],
+    "options": null
+  },
+  {
+    "name": "copyAction",
+    "platform_and_name": ["fa5s.copy"],
+    "options": null
+  },
+  {
+    "name": "pasteAction",
+    "platform_and_name": ["fa5s.paste"],
+    "options": null
+  },
+  {
+    "name": "deleteAction",
+    "platform_and_name": ["fa5s.eraser"],
+    "options": null
+  },
+  {
+    "name": "selectAllAction",
+    "platform_and_name": ["mdi6.select-all"],
+    "options": null
+  },
+  {
+    "name": "selectNoneAction",
+    "platform_and_name": ["mdi6.selection-off"],
+    "options": null
+  },
+  {
+    "name": "selectInverseAction",
+    "platform_and_name": ["mdi6.select-inverse"],
+    "options": null
+  },
+  {
+    "name": "fileExplorerAction",
+    "platform_and_name": ["mdi6.folder", "mdi6.settings-helper"],
+    "options": [
+      {
+        "color": "Orange",
+        "active": "mdi6.folder-open"
+      },
+      {
+        "color": "LightSlateGray"
+      }
+    ]
+  },
+  {
+    "name": "netExplorerAction",
+    "platform_and_name": ["mdi6.network", "mdi6.image-filter-drama"],
+    "options": [
+      {
+        "color": "Blue",
+        "scale_factor": 0.75
+      },
+      {
+        "color": "SkyBlue",
+        "offset": [0, -0.15]
+      }
+    ]
+  },
+  {
+    "name": "notificationAction",
+    "platform_and_name": ["mdi6.bell"],
+    "options": [
+      {
+        "color": "Orange"
+      }
+    ]
+  },
+  {
+    "name": "translateAction",
+    "platform_and_name": ["mdi6.translate"],
+    "options": null
+  },
+  {
+    "name": "terminalAction",
+    "platform_and_name": ["mdi6.console"],
+    "options": null
+  },
+  {
+    "name": "helpAction",
+    "platform_and_name": ["mdi6.chat-question"],
+    "options": null
+  },
+  {
+    "name": "aboutAction",
+    "platform_and_name": ["mdi6.information-variant"],
+    "options": null
+  },
+  {
+    "name": "languageAction",
+    "platform_and_name": ["mdi6.web", "mdi6.translate"],
+    "options": [
+      {
+        "color": "SkyBlue"
+      },
+      {
+        "color": "Black",
+        "scale_factor": 0.75,
+        "offset": [0.2, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "shortcutKeyAction",
+    "platform_and_name": ["fa5s.keyboard", "mdi6.circle", "mdi6.cog"],
+    "options": [
+      {
+        "color": "LightGrey"
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "AliceBlue",
+        "offset": [0.3, 0.2]
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "SlateGray",
+        "offset": [0.3, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "spinnerIcon",
+    "platform_and_name": ["fa5s.circle-notch"],
+    "options": [
+      {
+        "color": "RoyalBlue"
+      }
+    ]
+  },
+  {
+    "name": "searchAction",
+    "platform_and_name": ["fa5s.search"],
+    "options": null
+  },
+  {
+    "name": "toggleSideBar",
+    "platform_and_name": ["fa5s.window-maximize"],
+    "options": [
+      {
+        "rotated": 270,
+        "active": "fa5s.square"
+      }
+    ]
+  },
+  {
+    "name": "togglePanel",
+    "platform_and_name": ["fa5s.window-maximize"],
+    "options": [
+      {
+        "rotated": 180,
+        "active": "fa5s.square"
+      }
+    ]
+  },
+  {
+    "name": "newFolderAction",
+    "platform_and_name": ["mdi6.folder", "mdi6.circle", "fa5s.plus-circle"],
+    "options": [
+      {
+        "scale_factor": 1,
+        "color": "Orange",
+        "active": "mdi6.folder-open"
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "AliceBlue",
+        "offset": [0.3, 0.2]
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "Lime",
+        "offset": [0.3, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "newFileAction",
+    "platform_and_name": [
+      "mdi6.file-outline",
+      "mdi6.circle",
+      "fa5s.plus-circle"
+    ],
+    "options": [
+      {
+        "scale_factor": 1
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "AliceBlue",
+        "offset": [0.3, 0.2]
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "Lime",
+        "offset": [0.3, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "newLanAction",
+    "platform_and_name": [
+      "fa5s.network-wired",
+      "mdi6.circle",
+      "fa5s.plus-circle"
+    ],
+    "options": [
+      {
+        "scale_factor": 1
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "AliceBlue",
+        "offset": [0.3, 0.2]
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "Lime",
+        "offset": [0.3, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "newDeviceAction",
+    "platform_and_name": ["mdi6.server", "mdi6.circle", "fa5s.plus-circle"],
+    "options": [
+      {
+        "scale_factor": 1
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "AliceBlue",
+        "offset": [0.3, 0.2]
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "Lime",
+        "offset": [0.3, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "defaultIcon",
+    "platform_and_name": ["fa5s.shapes", "fa5s.question-circle"],
+    "options": [
+      {
+        "scale_factor": 1,
+        "color": "Silver"
+      },
+      {
+        "scale_factor": 0.5,
+        "color": "Blue",
+        "offset": [-0.2, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "networkDefaultIcon",
+    "platform_and_name": ["mdi6.map-legend", "mdi6.routes"],
+    "options": [
+      {
+        "scale_factor": 1,
+        "color": "Silver"
+      },
+      {
+        "scale_factor": 0.75,
+        "color": "ForestGreen"
+      }
+    ]
+  },
+  {
+    "name": "settingsBtn",
+    "platform_and_name": ["mdi6.cogs"],
+    "options": [
+      {
+        "color": "LightSlateGray"
+      }
+    ]
+  },
+  {
+    "name": "dashboardBtn",
+    "platform_and_name": ["mdi6.trello"],
+    "options": [
+      {
+        "color": "PaleTurquoise"
+      }
+    ]
+  },
+  {
+    "name": "refreshWebBtn",
+    "platform_and_name": ["mdi6.web-sync"],
+    "options": [
+      {
+        "color": "Silver"
+      }
+    ]
+  },
+  {
+    "name": "os_windows",
+    "platform_and_name": ["mdi6.microsoft-windows"],
+    "options": [
+      {
+        "color": "RoyalBlue"
+      }
+    ]
+  },
+  {
+    "name": "os_linux",
+    "platform_and_name": ["mdi6.linux"],
+    "options": null
+  },
+  {
+    "name": "os_linux-mint",
+    "platform_and_name": ["mdi6.linux-mint"],
+    "options": [
+      {
+        "color": "Lime"
+      }
+    ]
+  },
+  {
+    "name": "os_ios",
+    "platform_and_name": ["mdi6.apple-ios"],
+    "options": [
+      {
+        "color": "Silver"
+      }
+    ]
+  },
+  {
+    "name": "os_darwin",
+    "platform_and_name": ["mdi6.apple"],
+    "options": [
+      {
+        "color": "Silver"
+      }
+    ]
+  },
+  {
+    "name": "os_android",
+    "platform_and_name": ["mdi6.android"],
+    "options": [
+      {
+        "color": "GreenForest"
+      }
+    ]
+  },
+  {
+    "name": "os_ubuntu",
+    "platform_and_name": ["mdi6.ubuntu"],
+    "options": [
+      {
+        "color": "Orange"
+      }
+    ]
+  },
+  {
+    "name": "os_debian",
+    "platform_and_name": ["mdi6.debian"],
+    "options": [
+      {
+        "color": "Red"
+      }
+    ]
+  },
+  {
+    "name": "os_fedora",
+    "platform_and_name": ["mdi6.fedora"],
+    "options": [
+      {
+        "color": "Blue"
+      }
+    ]
+  },
+  {
+    "name": "os_centos",
+    "platform_and_name": ["mdi6.centos"],
+    "options": [
+      {
+        "color": "Red"
+      }
+    ]
+  },
+  {
+    "name": "os_rhel",
+    "platform_and_name": ["mdi6.redhat"],
+    "options": [
+      {
+        "color": "Red"
+      }
+    ]
+  },
+  {
+    "name": "os_suse",
+    "platform_and_name": ["fa5b.suse"],
+    "options": [
+      {
+        "color": "GreenForest"
+      }
+    ]
+  },
+  {
+    "name": "os_gentoo",
+    "platform_and_name": ["mdi6.gentoo"],
+    "options": [
+      {
+        "color": "Blue"
+      }
+    ]
+  },
+  {
+    "name": "os_arch",
+    "platform_and_name": ["mdi6.arch"],
+    "options": [
+      {
+        "color": "SkyBlue"
+      }
+    ]
+  },
+  {
+    "name": "os_manjaro",
+    "platform_and_name": ["mdi6.manjaro"],
+    "options": [
+      {
+        "color": "GreenForest"
+      }
+    ]
+  },
+  {
+    "name": "os_raspbian",
+    "platform_and_name": ["fa5b.raspberry-pi"],
+    "options": [
+      {
+        "color": "MediumVioletRed"
+      }
+    ]
+  },
+  {
+    "name": "deviceListBtn",
+    "platform_and_name": ["mdi6.clipboard-pulse"],
+    "options": [
+      {
+        "color": "Coral"
+      }
+    ]
+  },
+  {
+    "name": "lanIcon",
+    "platform_and_name": ["mdi6.web"],
+    "options": [
+      {
+        "color": "Silver"
+      }
+    ]
+  },
+  {
+    "name": "lanUcListIcon",
+    "platform_and_name": ["mdi6.lan-connect"],
+    "options": [
+      {
+        "color": "Silver"
+      }
+    ]
+  },
+  {
+    "name": "ucIcon",
+    "platform_and_name": ["mdi6.desktop-classic"],
+    "options": [
+      {
+        "color": "Silver"
+      }
+    ]
+  },
+  {
+    "name": "runIcon",
+    "platform_and_name": ["mdi6.play-speed"],
+    "options": [
+      {
+        "color": "Lime"
+      }
+    ]
+  },
+  {
+    "name": "pauseIcon",
+    "platform_and_name": ["mdi6.pause"],
+    "options": [
+      {
+        "color": "RoyalBlue"
+      }
+    ]
+  },
+  {
+    "name": "stopIcon",
+    "platform_and_name": ["mdi6.stop"],
+    "options": [
+      {
+        "color": "Crimson"
+      }
+    ]
+  },
+  {
+    "name": "trashIcon",
+    "platform_and_name": ["mdi6.trash-can"],
+    "options": null
+  },
+  {
+    "name": "paletteSwatch",
+    "platform_and_name": ["mdi6.tag", "mdi6.tag", "mdi6.tag"],
+    "options": [
+      {
+        "color": "Red",
+        "vflip": true,
+        "rotated": 45,
+        "scale_factor": 0.8,
+        "offset": [0.2, 0.2]
+      },
+      {
+        "color": "Green",
+        "vflip": true,
+        "scale_factor": 0.8,
+        "offset": [0.2, 0.2]
+      },
+      {
+        "color": "Blue",
+        "vflip": true,
+        "rotated": 315,
+        "scale_factor": 0.8,
+        "offset": [0.2, 0.2]
+      }
+    ]
+  }
+]
