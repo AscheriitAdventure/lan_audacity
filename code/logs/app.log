@@ -804,3 +804,120 @@
 2024-10-25 18:58:24,121 - root - INFO - Card list: 67 item(s)
 2024-10-25 18:58:30,316 - root - INFO - Card list: 67 item(s)
 2024-10-25 19:20:58,052 - root - INFO - End of Application
+2024-10-26 17:52:23,900 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-26 17:54:50,882 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-26 17:56:03,407 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-26 17:56:06,746 - root - DEBUG - User Action...
+2024-10-26 17:56:08,887 - root - INFO - Card list: 67 item(s)
+2024-10-26 23:28:18,240 - root - INFO - Add network
+2024-10-26 23:28:35,445 - root - INFO - Fairphone5-Nyx is added to vareix-lan
+2024-10-26 23:28:35,446 - root - INFO - La Bizalie_SFR is added to vareix-lan
+2024-10-26 23:28:35,447 - root - INFO - Vareix - Salon is added to vareix-lan
+2024-10-26 23:28:35,450 - root - INFO - Load network
+2024-10-28 20:51:02,207 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-28 20:51:06,246 - root - INFO - Card list: 67 item(s)
+2024-10-28 22:25:29,444 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-28 22:25:35,463 - root - INFO - Card list: 67 item(s)
+2024-10-28 22:26:20,340 - root - INFO - Add network
+2024-10-28 22:26:32,025 - root - INFO - Fairphone5-Nyx is added to vareix-lan
+2024-10-28 22:26:32,026 - root - INFO - La Bizalie_SFR is added to vareix-lan
+2024-10-28 22:26:32,027 - root - INFO - Vareix - Salon is added to vareix-lan
+2024-10-28 22:26:32,030 - root - INFO - Load network
+2024-10-28 22:26:44,409 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:44,410 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:44,427 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:44,427 - root - DEBUG - 180: []
+2024-10-28 22:26:44,451 - root - DEBUG - 303: []
+2024-10-28 22:26:45,209 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:45,209 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:45,210 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:45,210 - root - DEBUG - 180: []
+2024-10-28 22:26:45,243 - root - DEBUG - 303: []
+2024-10-28 22:26:45,726 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:45,727 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:45,743 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:45,743 - root - DEBUG - 180: []
+2024-10-28 22:26:45,766 - root - DEBUG - 303: []
+2024-10-28 22:26:45,992 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:45,993 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:46,008 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:46,009 - root - DEBUG - 180: []
+2024-10-28 22:26:46,031 - root - DEBUG - 303: []
+2024-10-28 22:26:46,259 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:46,260 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:46,275 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:46,275 - root - DEBUG - 180: []
+2024-10-28 22:26:46,296 - root - DEBUG - 303: []
+2024-10-28 22:26:46,474 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:46,474 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:46,475 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:46,475 - root - DEBUG - 180: []
+2024-10-28 22:26:46,509 - root - DEBUG - 303: []
+2024-10-28 22:26:46,725 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:46,725 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:46,726 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:46,726 - root - DEBUG - 180: []
+2024-10-28 22:26:46,760 - root - DEBUG - 303: []
+2024-10-28 22:26:46,923 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:46,923 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:46,933 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:46,933 - root - DEBUG - 180: []
+2024-10-28 22:26:46,955 - root - DEBUG - 303: []
+2024-10-28 22:26:47,106 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:47,106 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:47,114 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:47,114 - root - DEBUG - 180: []
+2024-10-28 22:26:47,135 - root - DEBUG - 303: []
+2024-10-28 22:26:47,876 - root - DEBUG - 188: La Bizalie_SFR - 192.168.1.0 - 255.255.255.0
+2024-10-28 22:26:47,877 - root - WARNING - La Bizalie_SFR has 0 devices saved
+2024-10-28 22:26:47,877 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:26:47,878 - root - DEBUG - 180: []
+2024-10-28 22:26:47,913 - root - DEBUG - 303: []
+2024-10-28 22:27:03,207 - root - DEBUG - abspath: /Users/yuna/Documents/Projet_Perso/vareix-lan/db/desktop, list_host: ['192.168.1.43'], lan: 192.168.1.0/24
+2024-10-28 22:27:03,207 - root - DEBUG - SyncWorker for 192.168.1.0/24
+2024-10-28 22:27:03,208 - root - ERROR - Invalid path: /Users/yuna/Documents/Projet_Perso/vareix-lan/db/desktop/12c7010b-3e96-48a5-b8ac-48c314bf772a.json. Error: The path does not exist.
+2024-10-28 22:27:03,208 - root - INFO - 12c7010b-3e96-48a5-b8ac-48c314bf772a file is created
+2024-10-28 22:27:03,299 - root - INFO - nmap -oX - -sP 192.168.1.43
+2024-10-28 22:27:03,299 - root - WARNING - Impossible de trouver l'adresse MAC de la machine.
+2024-10-28 22:27:03,299 - root - WARNING - Impossible de trouver le constructeur de la machine.
+2024-10-28 22:27:03,393 - root - INFO - nmap -oX - -sL 192.168.1.43
+2024-10-28 22:27:06,418 - root - INFO - La machine est connectée.
+2024-10-28 22:27:06,420 - root - INFO -  is saved
+2024-10-28 22:27:06,421 - root - INFO -  is saved
+2024-10-28 22:27:06,422 - root - INFO -  is added to La Bizalie_SFR
+2024-10-28 22:27:06,423 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:27:45,093 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-28 22:27:55,829 - root - INFO - Fairphone5-Nyx is added to vareix-lan
+2024-10-28 22:27:55,830 - root - INFO - La Bizalie_SFR is added to vareix-lan
+2024-10-28 22:27:55,831 - root - INFO - Vareix - Salon is added to vareix-lan
+2024-10-28 22:27:55,833 - root - INFO - Load network
+2024-10-28 22:28:22,915 - root - DEBUG - abspath: /Users/yuna/Documents/Projet_Perso/vareix-lan/db/desktop, list_host: ['192.168.1.1', '192.168.1.43'], lan: 192.168.1.0/24
+2024-10-28 22:28:22,915 - root - DEBUG - SyncWorker for 192.168.1.0/24
+2024-10-28 22:28:22,917 - root - ERROR - Invalid path: /Users/yuna/Documents/Projet_Perso/vareix-lan/db/desktop/3cc0fc2d-fac7-41a3-8ece-87560bd782df.json. Error: The path does not exist.
+2024-10-28 22:28:22,918 - root - INFO - 3cc0fc2d-fac7-41a3-8ece-87560bd782df file is created
+2024-10-28 22:28:23,031 - root - INFO - nmap -oX - -sP 192.168.1.1
+2024-10-28 22:28:23,032 - root - WARNING - Impossible de trouver l'adresse MAC de la machine.
+2024-10-28 22:28:23,032 - root - WARNING - Impossible de trouver le constructeur de la machine.
+2024-10-28 22:28:23,135 - root - INFO - nmap -oX - -sL 192.168.1.1
+2024-10-28 22:28:26,167 - root - INFO - La machine est connectée.
+2024-10-28 22:28:26,169 - root - INFO -  is saved
+2024-10-28 22:28:26,170 - root - INFO -  is saved
+2024-10-28 22:28:26,170 - root - INFO -  is added to La Bizalie_SFR
+2024-10-28 22:28:26,171 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 22:28:26,171 - root - DEBUG - SyncWorker for 192.168.1.0/24
+2024-10-28 22:28:26,177 - root - ERROR - Invalid path: /Users/yuna/Documents/Projet_Perso/vareix-lan/db/desktop/b6005c22-b867-43fe-afa5-cd4e0df0e247.json. Error: The path does not exist.
+2024-10-28 22:28:26,179 - root - INFO - b6005c22-b867-43fe-afa5-cd4e0df0e247 file is created
+2024-10-28 22:28:26,285 - root - INFO - nmap -oX - -sP 192.168.1.43
+2024-10-28 22:28:26,286 - root - WARNING - Impossible de trouver l'adresse MAC de la machine.
+2024-10-28 22:28:26,286 - root - WARNING - Impossible de trouver le constructeur de la machine.
+2024-10-28 22:28:26,379 - root - INFO - nmap -oX - -sL 192.168.1.43
+2024-10-28 22:28:29,404 - root - INFO - La machine est connectée.
+2024-10-28 22:28:29,406 - root - INFO -  is saved
+2024-10-28 22:28:29,406 - root - INFO -  is saved
+2024-10-28 22:28:29,407 - root - INFO -  is added to La Bizalie_SFR
+2024-10-28 22:28:29,408 - root - INFO - La Bizalie_SFR is saved
+2024-10-28 23:23:55,315 - root - INFO - End of Application
+2024-10-29 19:29:27,442 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-10-29 19:35:51,321 - root - INFO - Card list: 67 item(s)
+2024-11-06 13:57:19,112 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-11-06 13:57:48,700 - root - INFO - Card list: 67 item(s)

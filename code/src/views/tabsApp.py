@@ -4,8 +4,15 @@ import os.path
 import nmap
 from typing import Any, Optional
 
-from qtpy.QtCore import *
-from qtpy.QtWidgets import *
+from qtpy.QtCore import Qt, QThreadPool
+from qtpy.QtWidgets import (
+    QWidget,
+    QGridLayout,
+    QVBoxLayout,
+    QPushButton,
+    QStackedLayout,
+    QTabWidget,
+)
 
 from src.functionsExt import ip_to_cidr
 from src.classes.cl_device import Device
@@ -13,7 +20,12 @@ from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 from src.views.mapTemplateViews import LANMap
-from src.views.preferences import PreferencesGeneral, NetworkGeneral, DevicesCards, PaletteIconSettings
+from src.views.preferences import (
+    PreferencesGeneral,
+    NetworkGeneral,
+    DevicesCards,
+    PaletteIconSettings,
+)
 from src.views.NetworkDashboard import LanDashboard
 from src.components.bakend_dialog import SyncWorker, WDialogs
 
@@ -178,7 +190,7 @@ class PreferencesTabView(GeneralTabsView):
             obj_title="Dashboard",
             obj_lang=self.langManager,
             obj_view=self.extObj,
-            parent=self
+            parent=self,
         )
         self.stackedFields.addWidget(self.general_menu)
 
@@ -202,7 +214,7 @@ class PreferencesTabView(GeneralTabsView):
             obj_lang=self.langManager,
             obj_view=self.iconsManager,
             obj_icon=self.iconsManager,
-            parent=self
+            parent=self,
         )
         self.stackedFields.addWidget(self.palette_icon_menu)
 
@@ -223,7 +235,7 @@ class PreferencesTabView(GeneralTabsView):
 
     def update_btn(self):
         self.stackedFields.setCurrentWidget(self.update_menu)
-    
+
     def palette_icon_btn(self):
         self.stackedFields.setCurrentWidget(self.palette_icon_menu)
 
@@ -276,70 +288,56 @@ class LanTabView(GeneralTabsView):
                 "tooltip": "Sync",
                 "icon": "refreshWebBtn",
                 "action": self.syncBtn,
-            }
+            },
         ]
         return data
-    
+
     def initDisplay(self):
         self.general_menu = LanDashboard(
-            "Dashboard",
-            self.langManager,
-            self.extObj,
-            self.iconsManager,
-            self
+            "Dashboard", self.langManager, self.extObj, self.iconsManager, self
         )
         self.stackedFields.addWidget(self.general_menu)
 
         self.preferences_menu = NetworkGeneral(
-            "Settings",
-            self.langManager,
-            self.extObj,
-            self
+            "Settings", self.langManager, self.extObj, self
         )
         self.stackedFields.addWidget(self.preferences_menu)
 
         self.network_map_menu = LANMap(
-            "Network Map",
-            self.langManager,
-            self.extObj,
-            self
+            "Network Map", self.langManager, self.extObj, self
         )
         self.stackedFields.addWidget(self.network_map_menu)
 
         self.devices_menu = DevicesCards(
-            "Devices List",
-            self.langManager,
-            self.extObj,
-            self.iconsManager,
-            self
+            "Devices List", self.langManager, self.extObj, self.iconsManager, self
         )
         self.stackedFields.addWidget(self.devices_menu)
 
         self.network_road_map_menu = QWidget(self)
         self.stackedFields.addWidget(self.network_road_map_menu)
-    
+
     def generalBtn(self):
         self.stackedFields.setCurrentWidget(self.general_menu)
-    
+
     def preferencesBtn(self):
         self.stackedFields.setCurrentWidget(self.preferences_menu)
-    
+
     def networkMapBtn(self):
         self.stackedFields.setCurrentWidget(self.network_map_menu)
-    
+
     def devicesBtn(self):
         self.stackedFields.setCurrentWidget(self.devices_menu)
-    
+
     def networkRoadMapBtn(self):
         self.stackedFields.setCurrentWidget(self.network_road_map_menu)
-    
+
     def syncBtn(self):
         # Ouvrir la nouvelle fenêtre avec la progressBar
         self.sync_dialog = WDialogs()
         self.sync_dialog.show()
 
         # Initialiser SyncWorker
-        self.sync_worker = SyncWorker(self.extObj ,self)
+        self.sync_worker = SyncWorker(self.extObj, self)
         self.sync_worker.signals.progress.connect(self.sync_dialog.update_progress)
         self.sync_worker.signals.finished.connect(self.sync_dialog.close)
 
