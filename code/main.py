@@ -28,15 +28,15 @@ if __name__ == "__main__":
         f"{softwareManager.data['system']['name']} - version {softwareManager.data['system']['version']}"
     )
 
-    # from qtpy.QtWidgets import QApplication
+    from qtpy.QtWidgets import QApplication
 
-    # app = QApplication(sys.argv)
-    # app.setApplicationName(softwareManager.data["system"]["name"])
+    app = QApplication(sys.argv)
+    app.setApplicationName(softwareManager.data["system"]["name"])
 
-    # app.setApplicationVersion(softwareManager.data["system"]["version"])
-    # app.setOrganizationName(softwareManager.data["system"]["organization"])
+    app.setApplicationVersion(softwareManager.data["system"]["version"])
+    app.setOrganizationName(softwareManager.data["system"]["organization"])
 
-    # main_window = MainApp(softwareManager)
-    # main_window.show()
+    main_window = MainApp(softwareManager)
+    main_window.show()
 
-    # sys.exit(app.exec_())
+    sys.exit(app.exec_())
