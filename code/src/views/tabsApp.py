@@ -1,7 +1,5 @@
-import logging
-import os.path
+# import logging
 
-import nmap
 from typing import Any, Optional
 
 from qtpy.QtCore import Qt, QThreadPool
@@ -14,8 +12,8 @@ from qtpy.QtWidgets import (
     QTabWidget,
 )
 
-from src.functionsExt import ip_to_cidr
-from src.classes.cl_device import Device
+# from src.functionsExt import ip_to_cidr
+# from src.classes.cl_device import Device
 from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
