@@ -15,11 +15,14 @@ class Card(QWidget):
         img_card: Optional[QImage] = None,
         corps_card: Any = None,
         parent=None,
+        css_params: Optional[List[str]] = None,
     ):
         super().__init__(parent=parent)
         # Container for the card
         self.mainLayout = QVBoxLayout(self)
         self.setLayout(self.mainLayout)
+
+        # self.set_cssParameters(css_params)
 
         # VARIABLES
         self.iconCardLabel = icon_card
@@ -37,8 +40,6 @@ class Card(QWidget):
         self.set_imageCard(align=Qt.AlignCenter)
         self.set_bodyCard()
         self.mainLayout.addStretch(1)
-
-        # self.set_cssParameters()
 
     def set_headTitle(
         self, icon_card: Optional[QIcon] = None, title: Optional[QWidget] = None
@@ -99,7 +100,7 @@ class Card(QWidget):
                 "border: 1px solid black;",
                 "border-radius: 4px;",
             ]
-        self.setStyleSheet("".join(css_params))
+        self.setStyleSheet("\n".join(css_params))
 
 
 class CardStackGeneral(QWidget):
