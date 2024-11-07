@@ -36,9 +36,12 @@ software:
       path: data/navBar_obj.json
       encoding: utf-8
       version: 1
+    newsUpdate_app:
+      path: conf/newsUpdate_app.yaml
+      encoding: utf-8
+      version: 1
 
   
-
 licences:
   - name: MIT
     url: https://opensource.org/licenses/MIT
@@ -46,3 +49,4 @@ licences:
   - name: GPL
     url: https://www.gnu.org/licenses/gpl-3.0.html
     description: "The GNU General Public License (GNU GPL or GPL) is a series of widely used free software licenses that guarantee end users the freedom to run, study, share, and modify the software."
+

@@ -6,6 +6,7 @@ from qtpy.QtWidgets import (
     QFrame,
     QScrollArea,
     QSizePolicy,
+    QLabel,
 )
 from qtpy.QtCore import (
     Qt,
@@ -44,7 +45,22 @@ class AccordionWidget(QWidget):
         """
         )
 
-    def add_section(self, title, content_widget):
+    def add_section(self, title, content_widget=None):
+        """
+        Ajoute une section à l'accordéon.
+
+        Args:
+            title (str): Le titre de la section
+            content_widget (QWidget, optional): Le widget de contenu. Si None, la section sera vide.
+        """
+        # Si aucun contenu n'est fourni, créer un widget vide
+        if content_widget is None:
+            content_widget = QWidget()
+            content_layout = QVBoxLayout(content_widget)
+            empty_label = QLabel("Section vide")
+            empty_label.setAlignment(Qt.AlignCenter)
+            content_layout.addWidget(empty_label)
+
         section = AccordionSection(title, content_widget)
         self.sections.append(section)
         self.layout.addWidget(section)
@@ -102,17 +118,25 @@ if __name__ == "__main__":
     # Create accordion
     accordion = AccordionWidget()
 
-    # Add sections with content
-    for i in range(3):
-        # Create content widget
-        content = QWidget()
-        content_layout = QVBoxLayout(content)
-        for j in range(3):
-            btn = QPushButton(f"Bouton {j+1} de la section {i+1}")
-            content_layout.addWidget(btn)
+    # Add sections with and without content
+    # Section avec contenu
+    content1 = QWidget()
+    content_layout = QVBoxLayout(content1)
+    for j in range(3):
+        btn = QPushButton(f"Bouton {j+1}")
+        content_layout.addWidget(btn)
+    accordion.add_section("Section 1 (avec contenu)", content1)
 
-        # Add section to accordion
-        accordion.add_section(f"Section {i+1}", content)
+    # Section sans contenu
+    accordion.add_section("Section 2 (sans contenu)")
+
+    # Autre section avec contenu
+    content3 = QWidget()
+    content_layout = QVBoxLayout(content3)
+    label = QLabel("Contenu de la section 3")
+    label.setAlignment(Qt.AlignCenter)
+    content_layout.addWidget(label)
+    accordion.add_section("Section 3 (avec contenu)", content3)
 
     main_layout.addWidget(accordion)
 

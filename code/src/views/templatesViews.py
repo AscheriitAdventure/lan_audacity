@@ -9,12 +9,12 @@ from src.classes.iconsApp import IconsApp
 
 class Card(QWidget):
     def __init__(
-            self,
-            icon_card: Optional[QIcon] = None,
-            title_card: Optional[QWidget] = None,
-            img_card: Optional[QImage] = None,
-            corps_card: Any = None,
-            parent=None
+        self,
+        icon_card: Optional[QIcon] = None,
+        title_card: Optional[QWidget] = None,
+        img_card: Optional[QImage] = None,
+        corps_card: Any = None,
+        parent=None,
     ):
         super().__init__(parent=parent)
         # Container for the card
@@ -40,20 +40,22 @@ class Card(QWidget):
 
         # self.set_cssParameters()
 
-    def set_headTitle(self, icon_card: Optional[QIcon] = None, title: Optional[QWidget] = None):
-        
+    def set_headTitle(
+        self, icon_card: Optional[QIcon] = None, title: Optional[QWidget] = None
+    ):
+
         if icon_card is not None:
             self.iconCardLabel = icon_card
-        
+
         if title is not None:
             self.titleCardLabel = title
-        
+
         if self.iconCardLabel or self.titleCardLabel:
             if self.iconCardLabel:
                 icon_label = QLabel()
                 icon_label.setPixmap(self.iconCardLabel.pixmap(24, 24))
                 self.titleLayout.addWidget(icon_label)
-            
+
             if self.titleCardLabel and isinstance(self.titleCardLabel, QWidget):
                 self.titleLayout.addWidget(self.titleCardLabel)
                 self.titleLayout.addStretch(1)
@@ -63,24 +65,29 @@ class Card(QWidget):
             separator.setFrameShadow(QFrame.Sunken)
             self.mainLayout.addWidget(separator)
 
-    def set_imageCard(self, image_path: Optional[QImage] = None, legend: Optional[QWidget] = None, align: Optional[Qt.AlignmentFlag] = None):
+    def set_imageCard(
+        self,
+        image_path: Optional[QImage] = None,
+        legend: Optional[QWidget] = None,
+        align: Optional[Qt.AlignmentFlag] = None,
+    ):
         if image_path is not None:
             self.imgCardLabel = image_path
-        
+
         legendImgLabel = legend
-        
+
         if self.imgCardLabel:
             image_label = QLabel()
             image_label.setPixmap(QPixmap.fromImage(self.imgCardLabel))
             if align is not None:
                 image_label.setAlignment(align)
-            
+
             self.mainLayout.addWidget(image_label)
-            
+
     def set_bodyCard(self, corps_card: Optional[QWidget] = None):
         if corps_card is not None:
             self.bodyCardLabel = corps_card
-            
+
         if self.bodyCardLabel:
             self.mainLayout.addWidget(self.bodyCardLabel)
 
@@ -90,20 +97,20 @@ class Card(QWidget):
             css_params = [
                 "background-color: #e7ebed;",
                 "border: 1px solid black;",
-                "border-radius: 4px;"
+                "border-radius: 4px;",
             ]
         self.setStyleSheet("".join(css_params))
 
 
 class CardStackGeneral(QWidget):
     def __init__(
-            self,
-            obj_title: str,
-            obj_lang: LanguageApp,
-            obj_view: Any,
-            obj_icon: Optional[IconsApp] = None,
-            obj_img: Optional[QImage] = None,
-            parent=None
+        self,
+        obj_title: str,
+        obj_lang: LanguageApp,
+        obj_view: Any,
+        obj_icon: Optional[IconsApp] = None,
+        obj_img: Optional[QImage] = None,
+        parent=None,
     ):
         super().__init__(parent=parent)
         self.stackTitle = obj_title
@@ -191,10 +198,9 @@ class CardStackGeneral(QWidget):
 
 
 class RoundedBtn(QPushButton):
-    def __init__(self, 
-                 icon: Optional[QIcon] = None,
-                 text: Optional[str] = None,
-                 parent=None):
+    def __init__(
+        self, icon: Optional[QIcon] = None, text: Optional[str] = None, parent=None
+    ):
         super().__init__(parent=parent)
 
         if icon is not None:
@@ -207,13 +213,33 @@ class RoundedBtn(QPushButton):
         self.setMaximumSize(24, 24)
 
 
+from typing import Optional
+from PyQt6.QtWidgets import (
+    QWidget,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QFormLayout,
+    QHBoxLayout,
+)
+from PyQt6.QtCore import pyqtSignal
+
+
 class LineUpdate(QWidget):
-    def __init__(self,
-                 label_obj: Optional[QLabel] = None,
-                 input_obj: Optional[QLineEdit] = None,
-                 action_obj: Optional[QPushButton | RoundedBtn] = None,
-                 parent=None):
+    # Signal émis lorsque le contenu est modifié et validé
+    contentChanged = pyqtSignal(str)
+
+    def __init__(
+        self,
+        label_obj: Optional[QLabel] = None,
+        input_obj: Optional[QLineEdit] = None,
+        action_obj: Optional[QPushButton | RoundedBtn] = None,
+        parent=None,
+    ):
         super().__init__(parent=parent)
+
+        self.input_obj = input_obj
+        self.action_obj = action_obj
 
         self.layout = QFormLayout(self)
         self.setLayout(self.layout)
@@ -223,9 +249,13 @@ class LineUpdate(QWidget):
         if input_obj is not None:
             input_action_layout.addWidget(input_obj)
             input_obj.setReadOnly(True)
-            
+            # Connecter le signal returnPressed à la validation
+            input_obj.returnPressed.connect(self.validate_input)
+
         if action_obj is not None:
             input_action_layout.addWidget(action_obj)
+            # Connecter le bouton d'action au toggle de l'édition
+            action_obj.clicked.connect(self.update_input)
 
         # Ajoutez label_obj et le QHBoxLayout au QFormLayout
         self.layout.addRow(label_obj, input_action_layout)
@@ -236,20 +266,58 @@ class LineUpdate(QWidget):
         Si action_obj existe et activé alors passez de readOnly à False.
         Si input_obj est modifié et validé alors envoyé le signal pour mettre à jour le contenu et passer à readOnly.
         """
-        pass
+        if self.input_obj is not None:
+            # Basculer l'état readOnly
+            self.input_obj.setReadOnly(False)
+            # Donner le focus au QLineEdit
+            self.input_obj.setFocus()
+            # Changer le texte du bouton si c'est un QPushButton
+            if isinstance(self.action_obj, QPushButton):
+                # self.action_obj.setText("Valider")
+                # Déconnecter le signal clicked pour éviter les doubles connexions
+                try:
+                    self.action_obj.clicked.disconnect(self.update_input)
+                except:
+                    pass
+                # Connecter le nouveau signal pour la validation
+                self.action_obj.clicked.connect(self.validate_input)
+
+    def validate_input(self):
+        """
+        Valide le contenu modifié et remet le QLineEdit en mode lecture seule
+        """
+        if self.input_obj is not None:
+            # Émettre le signal avec le nouveau contenu
+            self.contentChanged.emit(self.input_obj.text())
+            # Remettre en mode lecture seule
+            self.input_obj.setReadOnly(True)
+            # Remettre le bouton dans son état initial si c'est un QPushButton
+            if isinstance(self.action_obj, QPushButton):
+                # self.action_obj.setText("Modifier")
+                # Déconnecter le signal de validation
+                try:
+                    self.action_obj.clicked.disconnect(self.validate_input)
+                except:
+                    pass
+                # Reconnecter le signal d'édition
+                self.action_obj.clicked.connect(self.update_input)
 
 
 class TitleWithAction(QWidget):
-    def __init__(self, 
-                 title: str, 
-                 stretch_ttl: int = 1,
-                 action: Optional[list[QPushButton]] = None,
-                 parent=None):
+    def __init__(
+        self,
+        title: str,
+        stretch_ttl: int = 1,
+        action: Optional[list[QPushButton]] = None,
+        parent=None,
+    ):
         super().__init__(parent=parent)
 
         # Initialisation des composants de l'interface
         self.title_label = QLabel(title)  # Le titre est un QLabel
-        self.action_buttons = action if action else []  # Liste des actions sous forme de QPushButton
+        self.action_buttons = (
+            action if action else []
+        )  # Liste des actions sous forme de QPushButton
 
         # Layout principal
         self.main_layout = QHBoxLayout(self)  # Utilise un layout horizontal
@@ -265,4 +333,3 @@ class TitleWithAction(QWidget):
 
         # Aligne le layout à gauche
         self.setLayout(self.main_layout)
-
