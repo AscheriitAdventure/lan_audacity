@@ -8,12 +8,18 @@ from src.classes.mainApp import MainApp
 from src.classes.configurationFile import ConfigurationFile
 
 if __name__ == "__main__":
-    softwareManager = ConfigurationFile(os.path.join(current_dir(), "conf", "config_app.yaml"))
+    softwareManager = ConfigurationFile(
+        os.path.join(current_dir(), "conf", "config_app.yaml")
+    )
 
-    logs_manager = ConfigurationFile(str(os.path.join(
-        current_dir(),
-        softwareManager.data["software"]["conf"]["log_app"]["path"]
-    )))
+    logs_manager = ConfigurationFile(
+        str(
+            os.path.join(
+                current_dir(),
+                softwareManager.data["software"]["conf"]["log_app"]["path"],
+            )
+        )
+    )
 
     logging.config.dictConfig(logs_manager.data)
     logger = logging.getLogger(__name__)
@@ -22,15 +28,15 @@ if __name__ == "__main__":
         f"{softwareManager.data['system']['name']} - version {softwareManager.data['system']['version']}"
     )
 
-    from qtpy.QtWidgets import QApplication
+    # from qtpy.QtWidgets import QApplication
 
-    app = QApplication(sys.argv)
-    app.setApplicationName(softwareManager.data["system"]["name"])
+    # app = QApplication(sys.argv)
+    # app.setApplicationName(softwareManager.data["system"]["name"])
 
-    app.setApplicationVersion(softwareManager.data["system"]["version"])
-    app.setOrganizationName(softwareManager.data["system"]["organization"])
+    # app.setApplicationVersion(softwareManager.data["system"]["version"])
+    # app.setOrganizationName(softwareManager.data["system"]["organization"])
 
-    main_window = MainApp(softwareManager)
-    main_window.show()
+    # main_window = MainApp(softwareManager)
+    # main_window.show()
 
-    sys.exit(app.exec_())
+    # sys.exit(app.exec_())
