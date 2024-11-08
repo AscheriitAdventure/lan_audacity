@@ -1,18 +1,19 @@
 """
     Card component:
     - "Card" est un composant qui permet d'afficher des informations sous forme de carte.
-    - "Card" est composé de 3 parties:
+    - "Card" est composé de plusieurs parties:
         ✅- "CardHeader": La partie supérieure de la carte qui contient le titre de la carte et un icone.
-        - "CardBody": La partie centrale de la carte qui contient les informations à afficher.
+        ⛔️- "CardBody": La partie centrale de la carte qui contient les informations à afficher.
         ✅- "CardFooter": La partie inférieure de la carte qui contient les actions à effectuer sur la carte.
-        - "CardActions": La partie droite ou gauche de la carte qui contient les actions à effectuer sur la carte.
+        ⛔️- "CardActions": La partie droite ou gauche de la carte qui contient les actions à effectuer sur la carte.
+        👷- "CardImage": Une image à afficher dans la carte, avec plein de paramètres.
     ✅- "Card" est un composant générique qui peut être utilisé dans plusieurs contextes.
 """
 
 import logging
 from typing import Optional
 from qtpy.QtWidgets import QWidget, QGridLayout, QHBoxLayout, QLabel, QFrame
-from qtpy.QtGui import QIcon
+from qtpy.QtGui import QIcon, QImage, QPixmap
 
 
 class Card(QWidget):
@@ -169,4 +170,38 @@ class CardFooter(QWidget):
             self.headerCard_layout.addWidget(content_card)
 
 
-# class CardImage(QWidget):
+class CardImage(QWidget):
+    def __init__(
+        self,
+        image_card: Optional[list[QImage] | QImage] = None,
+        logger: Optional[bool] = False,
+        parent=None,
+    ):
+        super(CardImage, self).__init__(parent)
+        if logger:
+            self.logger = logging.getLogger(__name__)
+            self.logger.setLevel(logging.DEBUG)
+
+        self.imageCard_layout = QHBoxLayout()
+        self.setLayout(self.imageCard_layout)
+
+        if image_card and isinstance(image_card, list):
+            self.logger.warning("En cours de création")
+            self.setListImageUI(image_card)
+
+        elif image_card and isinstance(image_card, QImage):
+            self.setImageUI(image_card)
+
+        else:
+            self.logger.error("Invalid image type or No Image.")
+
+    def setImageUI(self, image_card: QImage):
+        """Sets the image UI with an image."""
+        image_label = QLabel()
+        image_label.setPixmap(QPixmap.fromImage(image_card))
+        self.imageCard_layout.addWidget(image_label)
+        self.imageCard_layout.addStretch(1)
+
+    def setListImageUI(self, image_card: list[QImage]):
+        """Sets the image UI with a list of images."""
+        pass
