@@ -139,7 +139,6 @@ class LanDashboard(DashboardCardTemplate):
         self.setUCList()  # Crée la liste des périphériques
         self.setUCNetworkList()  # Crée la liste du réseau
         self.setInfoTableList()  # Crée la table d'informations
-        
 
         # Initialiser les autres tables avec des listes vides
         self.updateUcListTable([])
