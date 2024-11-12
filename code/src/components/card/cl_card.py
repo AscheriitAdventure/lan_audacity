@@ -13,7 +13,8 @@
 import logging
 from typing import Optional
 from qtpy.QtWidgets import QWidget, QGridLayout, QHBoxLayout, QLabel, QFrame
-from qtpy.QtGui import QIcon, QImage, QPixmap
+from qtpy.QtGui import *
+from qtpy.QtCore import Qt, QRectF
 
 
 class Card(QWidget):
@@ -24,7 +25,7 @@ class Card(QWidget):
         center_card: Optional[QWidget] = None,
         right_card: Optional[QWidget] = None,
         bottom_card: Optional[QWidget] = None,  # Optional[CardFooter],
-        css_params: Optional[list[str]] = None,
+        css_params: Optional[dict] = None,
         logger: Optional[bool] = False,
         parent=None,
     ):
@@ -37,7 +38,8 @@ class Card(QWidget):
         self.card_layout = QGridLayout()
         self.setLayout(self.card_layout)
 
-        # self.cssParameters(css_params)
+        self.paintProperties: dict = {}
+        self.cssParameters(css_params)
 
         self.topCard: Optional[QWidget] = None
         self.leftCard: Optional[QWidget] = None
@@ -62,7 +64,7 @@ class Card(QWidget):
         if top_card is not None:
             # Il occupera la première ligne de la grille
             self.topCard = top_card
-            self.card_layout.addWidget(self.topCard, var_rowStart, var_colStart, 1, 3)
+            self.card_layout.addWidget(self.topCard, var_rowStart, var_colStart, 1, 3, Qt.AlignmentFlag.AlignLeft)
             logging.debug(f"Top Card:({var_rowStart},{var_colStart},1,3)")
             var_rowStart = var_rowStart + 1
 
@@ -95,16 +97,118 @@ class Card(QWidget):
             )
             logging.debug(f"Top Card:({var_rowStart},{var_colStart},1,{var_colSpan})")
 
-    def cssParameters(self, css_params: Optional[list[str]] = None):
+    def cssParameters(self, css_params: Optional[dict] = None):
         """Sets the CSS parameters for the CardUI widget."""
         if css_params is None:
-            css_params = [
-                "background-color: #e7ebed;",
-                "border: 1px solid Black;",
-                "border-radius: 4px;",
-            ]
-        self.setStyleSheet(" ".join(css_params))
+            css_params = {
+                "background": {
+                    "color": "Gainsboro",
+                    "image": None,
+                },
+                "border": {
+                    "width": 1,
+                    "color": "DarkGray",
+                    "radius": 4,
+                    "style": "solid",
+                },
+            }
+        
+        self.paintProperties = css_params
+    
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
+        rect = QRectF(self.rect())
+        borderRadius = self.paintProperties["border"]["radius"] or 0
+
+        # Draw Background
+        if self.paintProperties["background"]["color"]:
+            backgroudColor = QColor(self.paintProperties["background"]["color"])
+            painter.setBrush(QBrush(backgroudColor))
+            path = QPainterPath()
+            path.addRoundedRect(rect, borderRadius, borderRadius)
+            painter.fillPath(path, backgroudColor)
+        
+        if self.paintProperties["background"]["image"]:
+            backgroundgImage = self.paintProperties["background"]["image"]
+            if isinstance(backgroundgImage, QPixmap):
+                painter.drawPixmap(rect, backgroundgImage)
+            elif isinstance(backgroundgImage, QImage):
+                painter.drawImage(rect, backgroundgImage)
+            elif isinstance(backgroundgImage, str):
+                # Load image from file
+                image = QImage(backgroundgImage)
+                if image.isNull():
+                    self.logger.warning(f"Failed to load image from file: {backgroundgImage}")
+                else:
+                    painter.drawImage(rect, image)
+            else:
+                self.logger.warning(f"Invalid background image type: {type(backgroundgImage)}")
+        
+        # Draw Border
+        # Largeur de la bordure
+        borderWidth = self.paintProperties["border"]["width"] or 0
+        # Couleur de la bordure
+        if isinstance(self.paintProperties["border"]["color"], QColor):
+            borderColor = self.paintProperties["border"]["color"]
+        elif isinstance(self.paintProperties["border"]["color"], tuple):
+            borderColor = QColor(*self.paintProperties["border"]["color"])
+        elif isinstance(self.paintProperties["border"]["color"], str):
+            borderColor = QColor()
+            borderColor.setNamedColor(self.paintProperties["border"]["color"])
+        else:
+            borderColor = QColor()
+            borderColor.setNamedColor("Black")
+        # Style de la bordure
+        if self.paintProperties["border"]["style"] == "solid":
+            borderStyle = Qt.PenStyle.SolidLine
+        elif self.paintProperties["border"]["style"] == "dash":
+            borderStyle = Qt.PenStyle.DashLine
+        elif self.paintProperties["border"]["style"] == "dot":
+            borderStyle = Qt.PenStyle.DotLine
+        else:
+            borderStyle = Qt.PenStyle.NoPen
+        
+        if borderWidth > 0:
+            painter.setPen(borderStyle)
+            pen = QPen(borderColor, borderWidth)
+            painter.setPen(pen)
+            if borderRadius:
+                painter.drawRoundedRect(rect, borderRadius, borderRadius)
+            else:
+                painter.drawRect(rect)
+
+        # Apply shadow effect if specified
+        # shadow_blur = self.paintProperties["shadow_blur"] or 0
+
+        painter.end()
+    
+    def setBorderStyle(
+            self, 
+            color: Optional[QColor] = None, 
+            width: Optional[int] = None,
+            radius: Optional[int] = None,
+            style: Optional[str] = None
+            ):
+        if color:
+            self.paintProperties["border"]["color"] = QColor(color)
+        if width is not None:
+            self.paintProperties["border"]["width"] = width
+        if radius is not None:
+            self.paintProperties["border"]["radius"] = radius
+        if style:
+            self.paintProperties["border"]["style"] = style
+
+        self.update()
+    
+    def setBackgroundStyle(self, color: Optional[QColor] = None, image: Optional[QImage] = None):
+        if color:
+            self.paintProperties["background"]["color"] = QColor(color)
+        if image:
+            self.paintProperties["background"]["image"] = QImage(image)
+        self.update()
+    
 
 class CardHeader(QWidget):
     def __init__(
@@ -124,11 +228,7 @@ class CardHeader(QWidget):
 
         self.setTitleUI(icon_card, title_card)
 
-        # set the separator
-        sep = QFrame(self)
-        sep.setFrameShape(QFrame.HLine)
-        sep.setFrameShadow(QFrame.Sunken)
-        self.headerCard_layout.addWidget(sep)
+        self.cssParameters()
 
     def setTitleUI(
         self, icon_card: Optional[QIcon] = None, title: Optional[QWidget] = None
@@ -143,6 +243,10 @@ class CardHeader(QWidget):
             if title and isinstance(title, QWidget):
                 self.headerCard_layout.addWidget(title)
                 self.headerCard_layout.addStretch(1)
+
+    def cssParameters(self):
+        """Sets the CSS parameters for the CardHeader widget."""
+        pass
 
 
 class CardFooter(QWidget):

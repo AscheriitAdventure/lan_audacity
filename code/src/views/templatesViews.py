@@ -1,5 +1,5 @@
 from typing import Any, Optional, List
-from qtpy.QtCore import Qt
+from qtpy.QtCore import Qt, pyqtSignal
 from qtpy.QtGui import QIcon, QImage, QPixmap, QFont
 from qtpy.QtWidgets import *
 import qtawesome as qta
@@ -212,18 +212,6 @@ class RoundedBtn(QPushButton):
 
         self.setMinimumSize(12, 12)
         self.setMaximumSize(24, 24)
-
-
-from typing import Optional
-from PyQt6.QtWidgets import (
-    QWidget,
-    QLabel,
-    QLineEdit,
-    QPushButton,
-    QFormLayout,
-    QHBoxLayout,
-)
-from PyQt6.QtCore import pyqtSignal
 
 
 class LineUpdate(QWidget):

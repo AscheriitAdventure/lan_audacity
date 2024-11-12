@@ -11,3 +11,7 @@ news_update:
   - date: 2024-06-19
     version: 1.0.3
     description: "Lan Audacity has integrate Nmap to scan the network and get information about the devices connected."
+  
+  - date: 2023-11-11
+    version: 1.0.2
+    sources: "README.md"
