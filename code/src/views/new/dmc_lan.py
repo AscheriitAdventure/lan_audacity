@@ -1,4 +1,4 @@
-from templates_2 import DynamicsMosaicsCards as DMC
+from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
 
 from qtpy.QtWidgets import QLabel, QLineEdit
 from typing import Any
@@ -17,6 +17,7 @@ from src.views.templatesViews import LineUpdate, RoundedBtn
     Description: Cette classe est une mise à jour de 'NetworkGeneral(CardStackGeneral)'
     Nouveau nom: NetworkGeneralDMC
 """
+
 
 class NetworkGeneralDMC(DMC):
     def __init__(

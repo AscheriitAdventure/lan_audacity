@@ -1,4 +1,4 @@
-from templates_2 import DynamicsMosaicsCards as DMC
+from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
 
 from qtpy.QtWidgets import QLabel, QLineEdit, QTextEdit
 from typing import Any
@@ -14,6 +14,7 @@ from src.components.card.cl_card import CardHeader
     Description: Cette classe est une mise à jour de 'PreferencesGeneral(CardStackGeneral)'
     Nouveau nom: PreferencesGeneralDMC
 """
+
 
 class PreferencesGeneralDMC(DMC):
     

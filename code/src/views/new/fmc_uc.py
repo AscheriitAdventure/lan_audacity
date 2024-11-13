@@ -1,4 +1,4 @@
-from templates_2 import FixedMosaicsCards as FMC
+from src.views.new.templates_2 import FixedMosaicsCards as FMC
 
 from qtpy.QtWidgets import QLabel
 from typing import Any
@@ -12,6 +12,7 @@ from src.components.card.cl_card import CardHeader
     Description: Cette classe est une mise à jour de 'UCDashboard(DashboardCardTemplate)'
     Nouveau nom: UCDashboardFMC
 """
+
 
 class UCDashboardFMC(FMC):
     def __init__(self, obj_title: str, obj_lang: LanguageApp, obj_view: Any, obj_icon: IconsApp, parent=None):

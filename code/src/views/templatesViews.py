@@ -1,5 +1,5 @@
 from typing import Any, Optional, List
-from qtpy.QtCore import Qt, pyqtSignal
+from qtpy.QtCore import Qt, Signal
 from qtpy.QtGui import QIcon, QImage, QPixmap, QFont
 from qtpy.QtWidgets import *
 import qtawesome as qta
@@ -216,7 +216,7 @@ class RoundedBtn(QPushButton):
 
 class LineUpdate(QWidget):
     # Signal émis lorsque le contenu est modifié et validé
-    contentChanged = pyqtSignal(str)
+    contentChanged = Signal(str)
 
     def __init__(
         self,

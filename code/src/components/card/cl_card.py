@@ -16,7 +16,8 @@ from qtpy.QtWidgets import QWidget, QGridLayout, QHBoxLayout, QLabel, QFrame
 from qtpy.QtGui import *
 from qtpy.QtCore import Qt, QRectF
 
-from default_var import VAR_CardCSS
+from src.components.card.default_var import VAR_CardCSS
+
 
 class Card(QWidget):
     def __init__(
@@ -66,19 +67,28 @@ class Card(QWidget):
 
         if top_card is not None:
             # Il occupera la première ligne de la grille
-            self.topCard = top_card
+            if isinstance(top_card, QImage):
+                top_card = self.instanceQImage(top_card)
+            else:
+                self.topCard = top_card
             self.card_layout.addWidget(
                 self.topCard, var_rowStart, var_colStart, 1, 3, Qt.AlignmentFlag.AlignLeft)
             var_rowStart = var_rowStart + 1
 
         if bottom_card is not None:
             # Il occupera la dernière ligne de la grille
-            self.bottomCard = bottom_card
+            if isinstance(bottom_card, QImage):
+                bottom_card = self.instanceQImage(bottom_card)
+            else:
+                self.bottomCard = bottom_card
             self.card_layout.addWidget(self.bottomCard, 2, 0, 1, 3)
 
         if left_card is not None:
             # Il occupera la première colonne de la grille
-            self.leftCard = left_card
+            if isinstance(left_card, QImage):
+                left_card = self.instanceQImage(left_card)
+            else:
+                self.leftCard = left_card
             self.card_layout.addWidget(
                 self.leftCard, var_rowStart, var_colStart, 1, 1)
             var_colStart = var_colStart + 1
@@ -86,13 +96,19 @@ class Card(QWidget):
 
         if right_card is not None:
             # Il occupera la dernière colonne de la grille
-            self.rightCard = right_card
+            if isinstance(right_card, QImage):
+                right_card = self.instanceQImage(right_card)
+            else:
+                self.rightCard = right_card
             self.card_layout.addWidget(self.rightCard, var_rowStart, 2, 1, 1)
             var_colSpan = var_colSpan - 1
 
         if center_card is not None:
             # center_card occupera tout l'espace restant
-            self.centerCard = center_card
+            if isinstance(center_card, QImage):
+                center_card = self.instanceQImage(center_card)
+            else:
+                self.centerCard = center_card
             self.card_layout.addWidget(
                 self.centerCard, var_rowStart, var_colStart, 1, var_colSpan
             )
@@ -273,6 +289,13 @@ class Card(QWidget):
             return QRectF(x-left_margin, y-top_margin, topbot_width, height+topbot_margin)
         else:
             return QRectF(x, y, width, height)
+    
+    @staticmethod
+    def instanceQImage(qimage_obj: QImage) -> QLabel:
+        """Convertit un objet QImage en QLabel."""
+        label = QLabel()
+        label.setPixmap(QPixmap.fromImage(qimage_obj))
+        return label
     
 
 class CardHeader(QWidget):

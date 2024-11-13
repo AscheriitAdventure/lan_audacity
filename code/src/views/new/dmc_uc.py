@@ -1,4 +1,4 @@
-from templates_2 import DynamicsMosaicsCards as DMC
+from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
 
 from qtpy.QtWidgets import QLabel
 from qtpy.QtGui import QImage
@@ -15,6 +15,7 @@ from src.classes.iconsApp import IconsApp
     Description: Cette classe est une mise à jour de 'DevicesCards(CardStackGeneral)'
     Nouveau nom: DevicesDMC
 """
+
 
 class DevicesDMC(DMC):
     def __init__(

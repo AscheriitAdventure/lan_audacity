@@ -1,4 +1,4 @@
-from templates_2 import FixedMosaicsCards as FMC
+from src.views.new.templates_2 import FixedMosaicsCards as FMC
 
 from qtpy.QtWidgets import *
 from qtpy.QtCore import *
@@ -21,6 +21,7 @@ from src.components.bakend_dialog import WorkerGetUcList, WDialogs
     Description: Cette classe est une mise à jour de 'LanDashboard(DashboardCardTemplate)'
     Nouveau nom: LanDashboardFMC
 """
+
 
 class LanDashboardFMC(FMC):
     def __init__(self, obj_title: str, obj_lang: LanguageApp, obj_view: Network, obj_icon: IconsApp, parent=None):
