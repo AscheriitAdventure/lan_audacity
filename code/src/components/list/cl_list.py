@@ -43,7 +43,23 @@ class CLWIconText(QWidget):
             self.set_searchPanel()
 
     def set_listUI(self):
-        pass
+        self.logger.debug(f"Setting List UI: {len(self.listObj)}")
+        for obj in self.listObj:
+            obj_widget = QWidget()
+            obj_layout = QHBoxLayout()
+            obj_widget.setLayout(obj_layout)
+
+            obj_icon = QLabel()
+            if obj["icon"]:
+                obj_icon.setPixmap(obj["icon"])
+            else:
+                obj_icon.setPixmap(qta.icon("mdi6.loading", color="Blue"))
+            obj_layout.addWidget(obj_icon)
+
+            obj_text = QLabel(obj["text"])
+            obj_layout.addWidget(obj_text)
+
+            self.layout.addWidget(obj_widget)
 
     def set_toggleIconFunc(self):
         btn = {
@@ -59,4 +75,3 @@ class CLWIconText(QWidget):
         searchPanel.setWindowIcon(qta.icon("mdi6.magnify"))
 
         self.searchPanel = searchPanel
-    
