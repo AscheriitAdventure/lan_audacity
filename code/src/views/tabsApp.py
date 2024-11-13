@@ -1,5 +1,3 @@
-# import logging
-
 from typing import Any, Optional
 
 from qtpy.QtCore import Qt, QThreadPool
@@ -12,18 +10,12 @@ from qtpy.QtWidgets import (
     QTabWidget,
 )
 
-# from src.functionsExt import ip_to_cidr
-# from src.classes.cl_device import Device
 from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 from src.views.mapTemplateViews import LANMap
-from src.views.preferences import (
-    PreferencesGeneral,
-    NetworkGeneral,
-    DevicesCards,
-    PaletteIconSettings,
-)
+from src.views.new.new_export import *
+
 from src.views.NetworkDashboard import LanDashboard
 from src.components.bakend_dialog import SyncWorker, WDialogs
 
@@ -184,7 +176,7 @@ class PreferencesTabView(GeneralTabsView):
         return data
 
     def initDisplay(self):
-        self.general_menu = PreferencesGeneral(
+        self.general_menu = PreferencesGeneralDMC(
             obj_title="Dashboard",
             obj_lang=self.langManager,
             obj_view=self.extObj,
@@ -207,7 +199,7 @@ class PreferencesTabView(GeneralTabsView):
         self.update_menu = QWidget(self)
         self.stackedFields.addWidget(self.update_menu)
 
-        self.palette_icon_menu = PaletteIconSettings(
+        self.palette_icon_menu = PaletteIconSettingsDMC(
             obj_title="Palette Icon",
             obj_lang=self.langManager,
             obj_view=self.iconsManager,
@@ -296,7 +288,7 @@ class LanTabView(GeneralTabsView):
         )
         self.stackedFields.addWidget(self.general_menu)
 
-        self.preferences_menu = NetworkGeneral(
+        self.preferences_menu = NetworkGeneralDMC(
             "Settings", self.langManager, self.extObj, self
         )
         self.stackedFields.addWidget(self.preferences_menu)
@@ -306,7 +298,7 @@ class LanTabView(GeneralTabsView):
         )
         self.stackedFields.addWidget(self.network_map_menu)
 
-        self.devices_menu = DevicesCards(
+        self.devices_menu = DevicesDMC(
             "Devices List", self.langManager, self.extObj, self.iconsManager, self
         )
         self.stackedFields.addWidget(self.devices_menu)

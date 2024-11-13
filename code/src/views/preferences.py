@@ -12,12 +12,10 @@ from src.classes.cl_network import Network
 from src.views.templatesViews import (
     LineUpdate,
     RoundedBtn,
-    CardStackGeneral,
-    TitleWithAction,
+    CardStackGeneral
 )
 from src.classes.configurationFile import ConfigurationFile
 from src.classes.iconsApp import IconsApp
-from src.views.formsApp2 import AccordionWidget
 
 
 class PreferencesGeneral(CardStackGeneral):

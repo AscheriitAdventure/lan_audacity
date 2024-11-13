@@ -16,7 +16,7 @@ from qtpy.QtWidgets import QWidget, QGridLayout, QHBoxLayout, QLabel, QFrame
 from qtpy.QtGui import *
 from qtpy.QtCore import Qt, QRectF
 
-from src.components.card.default_var import VAR_CardCSS
+from default_var import VAR_CardCSS
 
 class Card(QWidget):
     def __init__(
