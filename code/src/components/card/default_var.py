@@ -13,32 +13,24 @@ VAR_CardCSS: dict = {
         },
     },
     "top": {
-        # "background": {
-        #     "color": "Silver",
-        #     "image": None,
-        # },
-        # "border": {
-        #     "bottom": True,
-        #     "radius": 10,
-        #     "width": 2,
-        #     "color": "Black",
-        #     "style": "solid",
-        # },
+        "border": {
+            "bottom": True,
+            "radius": 0,
+            "width": 1,
+            "color": "Gray",
+            "style": "solid",
+        },
     },
     "left": {},
     "center": {},
     "right": {},
     "bottom": {
-        # "background": {
-        #     "color": "Silver",
-        #     "image": None,
-        # },
-        # "border": {
-        #     "top": True,
-        #     "radius": 10,
-        #     "width": 2,
-        #     "color": "Black",
-        #     "style": "solid",
-        # },
+        "border": {
+            "top": True,
+            "radius": 0,
+            "width": 1,
+            "color": "Gray",
+            "style": "solid",
+        },
     }
 }

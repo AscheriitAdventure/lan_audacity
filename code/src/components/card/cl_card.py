@@ -16,6 +16,7 @@ from qtpy.QtWidgets import QWidget, QGridLayout, QHBoxLayout, QLabel, QFrame
 from qtpy.QtGui import *
 from qtpy.QtCore import Qt, QRectF
 
+from src.components.card.default_var import VAR_CardCSS
 
 class Card(QWidget):
     def __init__(
@@ -25,7 +26,7 @@ class Card(QWidget):
         center_card: Optional[QWidget] = None,
         right_card: Optional[QWidget] = None,
         bottom_card: Optional[QWidget] = None,  # Optional[CardFooter],
-        css_params: Optional[dict] = None,
+        css_params: Optional[dict] = VAR_CardCSS,
         logger: Optional[bool] = False,
         parent=None,
     ):
@@ -37,6 +38,8 @@ class Card(QWidget):
         # Une carte utilise un layout de type Grid
         self.card_layout = QGridLayout()
         self.setLayout(self.card_layout)
+
+        self.activeSections: list = ["global"]
 
         self.paintProperties: dict = {}
         self.cssParameters(css_params)
@@ -64,21 +67,20 @@ class Card(QWidget):
         if top_card is not None:
             # Il occupera la première ligne de la grille
             self.topCard = top_card
-            self.card_layout.addWidget(self.topCard, var_rowStart, var_colStart, 1, 3, Qt.AlignmentFlag.AlignLeft)
-            logging.debug(f"Top Card:({var_rowStart},{var_colStart},1,3)")
+            self.card_layout.addWidget(
+                self.topCard, var_rowStart, var_colStart, 1, 3, Qt.AlignmentFlag.AlignLeft)
             var_rowStart = var_rowStart + 1
 
         if bottom_card is not None:
             # Il occupera la dernière ligne de la grille
             self.bottomCard = bottom_card
             self.card_layout.addWidget(self.bottomCard, 2, 0, 1, 3)
-            logging.debug(f"Bottom Card:(2,0,1,3)")
 
         if left_card is not None:
             # Il occupera la première colonne de la grille
             self.leftCard = left_card
-            self.card_layout.addWidget(self.leftCard, var_rowStart, var_colStart, 1, 1)
-            logging.debug(f"Left Card:({var_rowStart},{var_colStart},1,1)")
+            self.card_layout.addWidget(
+                self.leftCard, var_rowStart, var_colStart, 1, 1)
             var_colStart = var_colStart + 1
             var_colSpan = var_colSpan - 1
 
@@ -86,7 +88,6 @@ class Card(QWidget):
             # Il occupera la dernière colonne de la grille
             self.rightCard = right_card
             self.card_layout.addWidget(self.rightCard, var_rowStart, 2, 1, 1)
-            logging.debug(f"Right Card:({var_rowStart},2,1,1)")
             var_colSpan = var_colSpan - 1
 
         if center_card is not None:
@@ -95,43 +96,29 @@ class Card(QWidget):
             self.card_layout.addWidget(
                 self.centerCard, var_rowStart, var_colStart, 1, var_colSpan
             )
-            logging.debug(f"Top Card:({var_rowStart},{var_colStart},1,{var_colSpan})")
 
     def cssParameters(self, css_params: Optional[dict] = None):
         """Sets the CSS parameters for the CardUI widget."""
-        if css_params is None:
-            css_params = {
-                "background": {
-                    "color": "Gainsboro",
-                    "image": None,
-                },
-                "border": {
-                    "width": 1,
-                    "color": "DarkGray",
-                    "radius": 4,
-                    "style": "solid",
-                },
-            }
-        
         self.paintProperties = css_params
-    
-    def paintEvent(self, event):
-        painter = QPainter(self)
-        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
-        rect = QRectF(self.rect())
-        borderRadius = self.paintProperties["border"]["radius"] or 0
+    def paintSection(self, painter: QPainter, rect: QRectF, styles: dict):
+        """Dessine une section de la carte avec les styles spécifiés."""
+        background_obj = styles.get("background", {})
+        border_obj = styles.get("border", {})
+        shadow_obj = styles.get("shadow", {})
 
-        # Draw Background
-        if self.paintProperties["background"]["color"]:
-            backgroudColor = QColor(self.paintProperties["background"]["color"])
+        borderRadius = border_obj["radius"] if border_obj.get("radius") else 0
+
+        # Dessiner l'arrière-plan
+        if background_obj.get("color"):
+            backgroudColor = QColor(background_obj["color"])
             painter.setBrush(QBrush(backgroudColor))
             path = QPainterPath()
             path.addRoundedRect(rect, borderRadius, borderRadius)
             painter.fillPath(path, backgroudColor)
-        
-        if self.paintProperties["background"]["image"]:
-            backgroundgImage = self.paintProperties["background"]["image"]
+
+        if background_obj.get("image"):
+            backgroundgImage = background_obj["image"]
             if isinstance(backgroundgImage, QPixmap):
                 painter.drawPixmap(rect, backgroundgImage)
             elif isinstance(backgroundgImage, QImage):
@@ -145,69 +132,147 @@ class Card(QWidget):
                     painter.drawImage(rect, image)
             else:
                 self.logger.warning(f"Invalid background image type: {type(backgroundgImage)}")
-        
-        # Draw Border
-        # Largeur de la bordure
-        borderWidth = self.paintProperties["border"]["width"] or 0
-        # Couleur de la bordure
-        if isinstance(self.paintProperties["border"]["color"], QColor):
-            borderColor = self.paintProperties["border"]["color"]
-        elif isinstance(self.paintProperties["border"]["color"], tuple):
-            borderColor = QColor(*self.paintProperties["border"]["color"])
-        elif isinstance(self.paintProperties["border"]["color"], str):
-            borderColor = QColor()
-            borderColor.setNamedColor(self.paintProperties["border"]["color"])
-        else:
-            borderColor = QColor()
-            borderColor.setNamedColor("Black")
-        # Style de la bordure
-        if self.paintProperties["border"]["style"] == "solid":
+
+        # Dessiner la bordure
+        borderWidth = border_obj["width"] if border_obj.get("width") else 0
+
+        if border_obj.get("color"):
+            if isinstance(border_obj["color"], QColor):
+                borderColor = border_obj["color"]
+            elif isinstance(border_obj["color"], tuple):
+                borderColor = QColor(*border_obj["color"])
+            elif isinstance(border_obj["color"], str):
+                borderColor = QColor()
+                borderColor.setNamedColor(border_obj["color"])
+            else:
+                borderColor = QColor()
+                borderColor.setNamedColor("Black")
+
+        if border_obj.get("style") == "solid":
             borderStyle = Qt.PenStyle.SolidLine
-        elif self.paintProperties["border"]["style"] == "dash":
+        elif border_obj.get("style") == "dash":
             borderStyle = Qt.PenStyle.DashLine
-        elif self.paintProperties["border"]["style"] == "dot":
+        elif border_obj.get("style") == "dot":
             borderStyle = Qt.PenStyle.DotLine
         else:
             borderStyle = Qt.PenStyle.NoPen
-        
-        if borderWidth > 0:
-            painter.setPen(borderStyle)
-            pen = QPen(borderColor, borderWidth)
-            painter.setPen(pen)
-            if borderRadius:
-                painter.drawRoundedRect(rect, borderRadius, borderRadius)
-            else:
-                painter.drawRect(rect)
 
         # Apply shadow effect if specified
         # shadow_blur = self.paintProperties["shadow_blur"] or 0
 
+        # Si une bordure est spécifiée, dessiner UNIQUEMENT les bords spécifiés
+        if borderWidth > 0:
+            painter.setPen(QPen(borderColor, borderWidth, borderStyle))
+            if border_obj.get("top"):
+                painter.drawLine(rect.topLeft(), rect.topRight())
+            elif border_obj.get("bottom"):
+                painter.drawLine(rect.bottomLeft(), rect.bottomRight())
+            elif border_obj.get("left"):
+                painter.drawLine(rect.topLeft(), rect.bottomLeft())
+            elif border_obj.get("right"):
+                painter.drawLine(rect.topRight(), rect.bottomRight())
+            else:
+                pen = QPen(borderColor, borderWidth, borderStyle)
+                painter.setPen(pen)
+                if borderRadius:
+                    painter.drawRoundedRect(rect, borderRadius, borderRadius)
+                else:
+                    painter.drawRect(rect)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        
+        sections = {"global": QRectF(self.rect())}
+
+        if self.topCard:
+            sections["top"] = self.getTruePosition(self.topCard, "Top")
+        if self.leftCard:
+            sections["left"] = self.getTruePosition(self.leftCard)
+        if self.centerCard:
+            sections["center"] = self.getTruePosition(self.centerCard)
+        if self.rightCard:
+            sections["right"] = self.getTruePosition(self.rightCard)
+        if self.bottomCard:
+            sections["bottom"] = self.getTruePosition(self.bottomCard, "Bottom")
+            
+        # Peindre uniquement les sections actives
+        for section in sections:
+            rect = sections[section]
+            # logging.info(f"{section}: {rect}")
+            styles = self.paintProperties.get(section, {})
+            if styles != {}:
+                self.paintSection(painter, rect, styles)
+
         painter.end()
-    
+
     def setBorderStyle(
-            self, 
-            color: Optional[QColor] = None, 
+            self,
+            section: str,
+            color: Optional[QColor] = None,
             width: Optional[int] = None,
             radius: Optional[int] = None,
             style: Optional[str] = None
-            ):
+    ):
+        """
+            Modifie le style de bordure de la section spécifiée.
+            Args:
+                section (str): les différentes sections sont: ["global", "top_card", "left_card", "center_card", "right_card", "bottom_card"]
+                color (Optional[QColor], optional): _description_. Defaults to None.
+                width (Optional[int], optional): _description_. Defaults to None.
+                radius (Optional[int], optional): _description_. Defaults to None.
+                style (Optional[str], optional): _description_. Defaults to None.
+        """
         if color:
-            self.paintProperties["border"]["color"] = QColor(color)
+            self.paintProperties[section]["border"]["color"] = QColor(color)
         if width is not None:
-            self.paintProperties["border"]["width"] = width
+            self.paintProperties[section]["border"]["width"] = width
         if radius is not None:
-            self.paintProperties["border"]["radius"] = radius
+            self.paintProperties[section]["border"]["radius"] = radius
         if style:
-            self.paintProperties["border"]["style"] = style
+            self.paintProperties[section]["border"]["style"] = style
 
         self.update()
-    
-    def setBackgroundStyle(self, color: Optional[QColor] = None, image: Optional[QImage] = None):
+
+    def setBackgroundStyle(self,section: str, color: Optional[QColor] = None, image: Optional[QImage] = None):
+        """_summary_
+
+        Args:
+            section (str): les différentes sections sont: ["global", "top_card", "left_card", "center_card", "right_card", "bottom_card"]
+            color (Optional[QColor], optional): _description_. Defaults to None.
+            image (Optional[QImage], optional): _description_. Defaults to None.
+        """
         if color:
-            self.paintProperties["background"]["color"] = QColor(color)
+            self.paintProperties[section]["background"]["color"] = QColor(color)
         if image:
-            self.paintProperties["background"]["image"] = QImage(image)
+            self.paintProperties[section]["background"]["image"] = QImage(image)
         self.update()
+
+    def getTruePosition(self, widget: QWidget, top_bottom:Optional[str] = None) -> QRectF:
+        """Récupère la position absolue du widget dans la fenêtre."""
+        # Obtenez le rectangle de l'objet (widget)
+        var_qrect_obj = widget.rect()
+        width = var_qrect_obj.width()
+        height = var_qrect_obj.height()
+    
+        # Récupérez la position de l'objet dans la mise en page
+        var_position_obj = widget.pos()
+    
+        # Calculez les coordonnées corrigées pour l'objet
+        # En tenant compte des marges et des positions relatives
+        x = var_position_obj.x()
+        y = var_position_obj.y()
+
+        left_margin, top_margin, right_margin, bottom_margin = self.card_layout.getContentsMargins()
+        topbot_margin = bottom_margin*0.75+top_margin*0.75
+        topbot_width = self.rect().width()
+        # Obtenez les marges de la disposition
+        if top_bottom == "Bottom":
+            return QRectF(x-left_margin, y-0.25*top_margin, topbot_width, height+topbot_margin)
+        elif top_bottom == "Top":
+            return QRectF(x-left_margin, y-top_margin, topbot_width, height+topbot_margin)
+        else:
+            return QRectF(x, y, width, height)
     
 
 class CardHeader(QWidget):

@@ -1,6 +1,6 @@
 from default_var import VAR_CardCSS
 from qtpy.QtWidgets import QWidget, QGridLayout, QVBoxLayout
-from qtpy.QtCore import Qt, QRectF
+from qtpy.QtCore import Qt, QRectF, QPointF, QSizeF, QRect
 from qtpy.QtGui import *
 import sys
 import logging
@@ -202,7 +202,7 @@ class CCWStyleable(QWidget):
             - Modifier paintEvent pour prendre en compte les différentes sections de la carte tout en utilisant "VAR_CardCSS". [OK]
             - Ajouter des sections pour les cartes du haut, du bas, de gauche, de droite et du centre. [OK]
             - Ajouter des méthodes pour modifier les sections de la carte. [OK]
-            - Ajouter des méthodes pour modifier les styles de bordure et de fond de la carte. [OK(ECHEC)]
+            - Ajouter des méthodes pour modifier les styles de bordure et de fond de la carte. [OK]
 """
 
 
@@ -257,34 +257,26 @@ class CCWVU1(QWidget):
             self.topCard = top_card
             self.card_layout.addWidget(
                 self.topCard, var_rowStart, var_colStart, 1, 3, Qt.AlignmentFlag.AlignLeft)
-            logging.debug(f"Top Card:({var_rowStart},{var_colStart},1,3)")
             var_rowStart = var_rowStart + 1
-            self.activeSections.append("top")
 
         if bottom_card is not None:
             # Il occupera la dernière ligne de la grille
             self.bottomCard = bottom_card
             self.card_layout.addWidget(self.bottomCard, 2, 0, 1, 3)
-            logging.debug(f"Bottom Card:(2,0,1,3)")
-            self.activeSections.append("bottom")
 
         if left_card is not None:
             # Il occupera la première colonne de la grille
             self.leftCard = left_card
             self.card_layout.addWidget(
                 self.leftCard, var_rowStart, var_colStart, 1, 1)
-            logging.debug(f"Left Card:({var_rowStart},{var_colStart},1,1)")
             var_colStart = var_colStart + 1
             var_colSpan = var_colSpan - 1
-            self.activeSections.append("left")
 
         if right_card is not None:
             # Il occupera la dernière colonne de la grille
             self.rightCard = right_card
             self.card_layout.addWidget(self.rightCard, var_rowStart, 2, 1, 1)
-            logging.debug(f"Right Card:({var_rowStart},2,1,1)")
             var_colSpan = var_colSpan - 1
-            self.activeSections.append("right")
 
         if center_card is not None:
             # center_card occupera tout l'espace restant
@@ -292,9 +284,6 @@ class CCWVU1(QWidget):
             self.card_layout.addWidget(
                 self.centerCard, var_rowStart, var_colStart, 1, var_colSpan
             )
-            self.activeSections.append("center")
-            logging.debug(f"Top Card:({var_rowStart},{
-                          var_colStart},1,{var_colSpan})")
 
     def cssParameters(self, css_params: Optional[dict] = None):
         """Sets the CSS parameters for the CardUI widget."""
@@ -381,22 +370,25 @@ class CCWVU1(QWidget):
     def paintEvent(self, event):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        
+        sections = {"global": QRectF(self.rect())}
 
-        rect = QRectF(self.rect())
-        sections = {
-            "global": rect,
-            "top": rect.adjusted(0, 0, 0, -rect.height() * 0.7),
-            "left": rect.adjusted(0, rect.height() * 0.3, -rect.width() * 0.7, 0),
-            "center": rect.adjusted(rect.width() * 0.3, rect.height() * 0.3, -rect.width() * 0.3, -rect.height() * 0.3),
-            "right": rect.adjusted(rect.width() * 0.7, rect.height() * 0.3, 0, 0),
-            "bottom": rect.adjusted(0, rect.height() * 0.7, 0, 0),
-        }
+        if self.topCard:
+            sections["top"] = self.getTruePosition(self.topCard, "Top")
+        if self.leftCard:
+            sections["left"] = self.getTruePosition(self.leftCard)
+        if self.centerCard:
+            sections["center"] = self.getTruePosition(self.centerCard)
+        if self.rightCard:
+            sections["right"] = self.getTruePosition(self.rightCard)
+        if self.bottomCard:
+            sections["bottom"] = self.getTruePosition(self.bottomCard, "Bottom")
+            
         # Peindre uniquement les sections actives
-        # logging.info(f"Active sections: {self.activeSections}")
-        for section in self.activeSections:
+        for section in sections:
             rect = sections[section]
+            # logging.info(f"{section}: {rect}")
             styles = self.paintProperties.get(section, {})
-            # logging.info(f"Painting {section}: {styles}")
             if styles != {}:
                 self.paintSection(painter, rect, styles)
 
@@ -444,6 +436,32 @@ class CCWVU1(QWidget):
             self.paintProperties[section]["background"]["image"] = QImage(image)
         self.update()
 
+    def getTruePosition(self, widget: QWidget, top_bottom:Optional[str] = None) -> QRectF:
+        """Récupère la position absolue du widget dans la fenêtre."""
+        # Obtenez le rectangle de l'objet (widget)
+        var_qrect_obj = widget.rect()
+        width = var_qrect_obj.width()
+        height = var_qrect_obj.height()
+    
+        # Récupérez la position de l'objet dans la mise en page
+        var_position_obj = widget.pos()
+    
+        # Calculez les coordonnées corrigées pour l'objet
+        # En tenant compte des marges et des positions relatives
+        x = var_position_obj.x()
+        y = var_position_obj.y()
+
+        left_margin, top_margin, right_margin, bottom_margin = self.card_layout.getContentsMargins()
+        topbot_margin = bottom_margin*0.75+top_margin*0.75
+        topbot_width = self.rect().width()
+        # Obtenez les marges de la disposition
+        if top_bottom == "Bottom":
+            return QRectF(x-left_margin, y-0.25*top_margin, topbot_width, height+topbot_margin)
+        elif top_bottom == "Top":
+            return QRectF(x-left_margin, y-top_margin, topbot_width, height+topbot_margin)
+        else:
+            return QRectF(x, y, width, height)
+    
 
 """
     Commentaire:
@@ -456,6 +474,20 @@ class CCWVU1(QWidget):
             - sys
             - nom de la Classe: CCWVU2
         Etape 3:
-            - Trouver une solution pour gérer CORRECTEMENT les widgets qui sont ajoutés aux différentes sections de la carte.
-            - Ajouter des méthodes pour "Peindre" les sections de la carte.
+            - Trouver une solution pour gérer CORRECTEMENT les widgets qui sont ajoutés aux différentes sections de la carte. [OK]
+            - Ajouter des méthodes pour "Peindre" les sections de la carte. [OK]
+"""
+
+"""
+    Commentaire:
+        Nous sommes sur la bonne voie. Passons à la suite.
+    Consignes:
+        Nom Complet: Custom Card Widget Version Upgrade 3
+        Outils de support:
+            - QtPy(PyQt6)
+            - logging
+            - sys
+            - nom de la Classe: CCWVU3
+        Etape 4:
+            - Ajouter des méthodes pour gérer l'ombre de la carte. 
 """
