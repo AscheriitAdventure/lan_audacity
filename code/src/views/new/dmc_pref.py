@@ -14,7 +14,6 @@ from src.classes.configurationFile import ConfigurationFile
 
 
 class PreferencesGeneralDMC(DMC):
-    
     def __init__(
         self,
         obj_title: str,

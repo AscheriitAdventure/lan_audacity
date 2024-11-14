@@ -103,7 +103,10 @@ class LanDashboardFMC(FMC):
                 "top_card": CardHeader(
                     title_card=QLabel("WAN Status"),
                     icon_card=self.iconsManager.get_icon("lanIcon")),
-                "center_card": wanBody
+                "center_card": wanBody,
+            "left_card": None,
+            "right_card": None,
+            "bottom_card": None
             }
         ]
 
@@ -141,7 +144,10 @@ class LanDashboardFMC(FMC):
             "top_card": CardHeader(
                 title_card=uc_listTtl,
                 icon_card=self.iconsManager.get_icon("lanUcListIcon")),
-            "center_card": self.uc_listBody
+            "center_card": self.uc_listBody,
+            "left_card": None,
+            "right_card": None,
+            "bottom_card": None
         }
         self.cardList.append(uc_list_settings)
 
@@ -237,7 +243,10 @@ class LanDashboardFMC(FMC):
             "top_card": CardHeader(
                 title_card=QLabel("List of network equipment"),
                 icon_card=qta.icon('mdi6.clipboard-text-multiple')),
-            "center_card": self.ucNetwork_listBody
+            "center_card": self.ucNetwork_listBody,
+            "left_card": None,
+            "right_card": None,
+            "bottom_card": None
         }
         self.cardList.append(ucNetwork_list_settings)
 
@@ -272,7 +281,10 @@ class LanDashboardFMC(FMC):
             "top_card": CardHeader(
                 title_card=QLabel("Current Problems"),
                 icon_card=qta.icon('mdi6.clipboard-alert')),
-            "center_card": self.infoTable_listBody
+            "center_card": self.infoTable_listBody,
+            "left_card": None,
+            "right_card": None,
+            "bottom_card": None
         }
         self.cardList.append(infoTable_list_settings)
 

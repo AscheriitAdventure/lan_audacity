@@ -3,14 +3,17 @@ news_update:
   - date: 2024-11-07
     version: 1.1.1
     description: "Lan Audacity has integrate a 'Update News' view in the parameters panel."
+    authors: "Geoffrey", "Yuna Avalon"
 
   - date: 2024-10-07
     version: 1.1.1
     description: "Lan Audacity allow you to see the list of all the icons in the app and their names."
+    authors: "Geoffrey"
   
   - date: 2024-06-19
     version: 1.0.3
     description: "Lan Audacity has integrate Nmap to scan the network and get information about the devices connected."
+    authors: "Geoffrey", "Brito Santo"
   
   - date: 2023-11-11
     version: 1.0.2
