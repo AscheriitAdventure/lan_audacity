@@ -1,4 +1,5 @@
 from typing import Any, Optional
+import logging
 
 from qtpy.QtCore import Qt, QThreadPool
 from qtpy.QtWidgets import (
@@ -13,6 +14,7 @@ from qtpy.QtWidgets import (
 from src.classes.cl_network import Network
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
+from src.classes.configurationFile import ConfigurationFile
 from src.views.mapTemplateViews import LANMap
 from src.views.new.new_export import *
 
@@ -121,7 +123,7 @@ class PreferencesTabView(GeneralTabsView):
     def __init__(
         self,
         title_panel: str,
-        ext_obj: Optional[Any] = None,
+        ext_obj: Optional[ConfigurationFile] = None,
         lang_manager: Optional[LanguageApp] = None,
         icons_manager: Optional[IconsApp] = None,
         parent=None,
@@ -196,6 +198,13 @@ class PreferencesTabView(GeneralTabsView):
         self.theme_menu = QWidget(self)
         self.stackedFields.addWidget(self.theme_menu)
 
+        logging.debug(f"Update News Note: chercher une solution autre que refaire la classe PreferencesTabView")
+        # self.update_menu = UpdatesNewsDMC(
+        #     obj_title="Update News",
+        #     obj_lang=self.langManager,
+        #     obj_view=self.extObj,
+        #     parent=self
+        # )
         self.update_menu = QWidget(self)
         self.stackedFields.addWidget(self.update_menu)
 

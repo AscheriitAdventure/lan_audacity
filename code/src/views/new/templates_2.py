@@ -30,7 +30,7 @@ class DynamicsMosaicsCards(QWidget):
         self.langManager = obj_lang
         self.objManager = obj_view
         self.iconsManager = obj_icon
-        self.imgManager = obj_img
+        self.imgManager = obj_img       # <--- ?? 
         self.card_list = []
 
         # init User Interface
@@ -58,10 +58,10 @@ class DynamicsMosaicsCards(QWidget):
         ttl_wdg_cnt.addStretch()
         # Set the btn view
         btn_grid5_view = QPushButton(qta.icon("fa5s.th"), "")
-        btn_grid5_view.clicked.connect(lambda: self.setCard(3))
+        btn_grid5_view.clicked.connect(lambda: self.setCard(5))
         ttl_wdg_cnt.addWidget(btn_grid5_view)
         btn_grid3_view = QPushButton(qta.icon("fa5s.th-large"), "")
-        btn_grid3_view.clicked.connect(lambda: self.setCard(2))
+        btn_grid3_view.clicked.connect(lambda: self.setCard(3))
         ttl_wdg_cnt.addWidget(btn_grid3_view)
         btn_list_view = QPushButton(qta.icon("fa5s.th-list"), "")
         btn_list_view.clicked.connect(lambda: self.setCard(1))

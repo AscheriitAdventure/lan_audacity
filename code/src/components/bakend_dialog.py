@@ -177,7 +177,7 @@ class WorkerGetUcList(Worker):
         """
         # Appelle la méthode de récupération des UC avec les paramètres appropriés
         data = self.getUcListAsync()
-        logging.debug(f"180: {data}")
+        # logging.debug(f"180: {data}")
         return data
 
     def getUcListAsync(self) -> list:

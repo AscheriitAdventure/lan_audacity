@@ -1,4 +1,4 @@
-from stylesheet_test import StyleableCard, CCWStyleable, CCWVU1
+from stylesheet_test import CCWStyleable, CCWVU1
 from qtpy.QtWidgets import *
 from qtpy.QtGui import QColor
 import sys

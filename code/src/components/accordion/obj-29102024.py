@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import (
+from qtpy.QtWidgets import (
     QApplication,
     QWidget,
     QVBoxLayout,
@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import (
     QGroupBox,
     QLabel,
 )
-from PyQt6.QtCore import Qt
+from qtpy.QtCore import Qt
 
 
 class Accordion(QWidget):

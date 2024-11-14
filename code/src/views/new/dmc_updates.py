@@ -12,7 +12,8 @@ from src.classes.configurationFile import ConfigurationFile
     Nouveau nom: UpdatesNewsDMC
 """
 
-class UpadtesNewsDMC(DMC):
+
+class UpdatesNewsDMC(DMC):
     def __init__(self, obj_title: str, obj_lang: LanguageApp, obj_view: ConfigurationFile, parent=None):
         super().__init__(obj_title=obj_title, obj_lang=obj_lang, obj_view=obj_view, parent=parent)
     

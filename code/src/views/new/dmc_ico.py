@@ -10,6 +10,8 @@ from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 
 from src.components.card.cl_card import CardHeader, CardImage
+from src.components.accordion.cl_accordion import AccordionWidget
+
 from src.views.templatesViews import LineUpdate, RoundedBtn
 
 """
@@ -97,6 +99,72 @@ class PaletteIconSettingsDMC(DMC):
     Aide:
     Une première recherche est à disposition en commentaire.
 """
+
+class PISDMCAccordion(DMC):
+    def __init__(
+        self,
+        obj_title: str,
+        obj_lang: LanguageApp,
+        obj_view: IconsApp,
+        obj_icon: Optional[IconsApp] = None,
+        obj_img: Optional[QImage] = None,
+        parent=None,
+    ):
+        super().__init__(obj_title, obj_lang, obj_view, obj_icon, obj_img, parent)
+
+    def setCardList(self):
+        self.card_list = []
+        for icon in self.objManager.data_manager:
+            # Titre de la carte
+            cardHeader = CardHeader(
+                icon_card=qta.icon("mdi6.palette-advanced"),
+                title_card=QLabel(icon["name"])
+            )
+            # Image de la carte
+            cardImage = CardImage(
+                image_card=self.objManager.get_icon(icon["name"]).pixmap(64, 64).toImage()
+            )
+            # Commentaires de la carte
+            if icon.get("options") is not None:
+                rightCard = QWidget()
+                cardOptLayout = QVBoxLayout(rightCard)
+                
+                accordion = AccordionWidget()
+                cardOptLayout.addWidget(accordion)
+
+                len_options = len(icon["options"])
+                data_options = icon["options"]
+
+                for i, option in enumerate(data_options):
+                    keys = option.keys()
+                    content_obj = QWidget()
+                    content_layout = QVBoxLayout(content_obj)
+
+                    for key in keys:
+                        btn_options = RoundedBtn(
+                            icon=qta.icon("mdi6.pencil"), text=None, parent=self
+                        )
+                        ttl_label = QLabel(f"{key} :")
+                        options_lineUpdate = LineUpdate(
+                            label_obj=ttl_label,
+                            input_obj=QLineEdit(str(option[key])),
+                            action_obj=btn_options,
+                        )
+                        content_layout.addWidget(options_lineUpdate)
+
+                    accordion.add_section(f"{icon['platform_and_name'][i]}", content_obj)
+
+            else:
+                rightCard = QLabel("No options")
+
+            # Dictionnaire
+            icon_dict: dict = {
+                "top_card": cardHeader,
+                "center_card": cardImage,
+                "right_card": rightCard
+            }
+            self.card_list.append(icon_dict)
+        logging.info(f"Card list: {len(self.card_list)} item(s)")
 
     # def setCardListAccordion(self):
     #     self.card_list = []
