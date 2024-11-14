@@ -1,5 +1,5 @@
 from qtpy.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton
-from cl_card import Card, CardHeader
+from src.components.card.cl_card import Card, CardHeader
 import qtawesome as qta
 
 # from src.components.card.cl_card import Card
@@ -18,10 +18,10 @@ if __name__ == "__main__":
     # Création de la carte
     card = Card(
         top_card=top_widget,
-        left_card=left_widget,
+        # left_card=left_widget,
         center_card=center_widget,
-        right_card=right_widget,
-        bottom_card=bottom_widget,
+        # right_card=right_widget,
+        # bottom_card=bottom_widget,
     )
 
     # Mise en place du layout principal

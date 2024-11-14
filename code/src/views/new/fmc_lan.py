@@ -1,8 +1,7 @@
 from src.views.new.templates_2 import FixedMosaicsCards as FMC
 
-from qtpy.QtWidgets import *
-from qtpy.QtCore import *
-from qtpy.QtGui import *
+from qtpy.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QTableWidget, QAbstractItemView, QTableWidgetItem, QSizePolicy, QLabel
+from qtpy.QtCore import QThreadPool
 import qtawesome as qta
 import logging
 
@@ -104,10 +103,7 @@ class LanDashboardFMC(FMC):
                 "top_card": CardHeader(
                     title_card=QLabel("WAN Status"),
                     icon_card=self.iconsManager.get_icon("lanIcon")),
-                "left_card": None,
-                "center_card": wanBody,
-                "right_card": None,
-                "bottom_card": None
+                "center_card": wanBody
             }
         ]
 
@@ -145,10 +141,7 @@ class LanDashboardFMC(FMC):
             "top_card": CardHeader(
                 title_card=uc_listTtl,
                 icon_card=self.iconsManager.get_icon("lanUcListIcon")),
-            "left_card": None,
-            "center_card": self.uc_listBody,
-            "right_card": None,
-            "bottom_card": None
+            "center_card": self.uc_listBody
         }
         self.cardList.append(uc_list_settings)
 
@@ -244,10 +237,7 @@ class LanDashboardFMC(FMC):
             "top_card": CardHeader(
                 title_card=QLabel("List of network equipment"),
                 icon_card=qta.icon('mdi6.clipboard-text-multiple')),
-            "left_card": None,
-            "center_card": self.ucNetwork_listBody,
-            "right_card": None,
-            "bottom_card": None
+            "center_card": self.ucNetwork_listBody
         }
         self.cardList.append(ucNetwork_list_settings)
 
@@ -282,10 +272,7 @@ class LanDashboardFMC(FMC):
             "top_card": CardHeader(
                 title_card=QLabel("Current Problems"),
                 icon_card=qta.icon('mdi6.clipboard-alert')),
-            "left_card": None,
-            "center_card": self.infoTable_listBody,
-            "right_card": None,
-            "bottom_card": None
+            "center_card": self.infoTable_listBody
         }
         self.cardList.append(infoTable_list_settings)
 

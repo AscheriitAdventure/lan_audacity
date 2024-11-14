@@ -10,6 +10,8 @@ from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
 from src.classes.iconsApp import IconsApp
 
+from src.components.card.cl_card import CardImage
+
 """
     Nom complet: Devices Dynamics Mosaics Cards
     Description: Cette classe est une mise à jour de 'DevicesCards(CardStackGeneral)'
@@ -53,7 +55,7 @@ class DevicesDMC(DMC):
                         self.card_list.append(
                             {
                                 "top_card": QLabel(f"{name}({ipv4})"),
-                                "left_card": img_default.scaled(50, 50, Qt.KeepAspectRatio),
+                                "left_card": CardImage(img_default.scaled(50, 50, Qt.KeepAspectRatio)),
                                 "center_card": QLabel(
                                     f"Mac Address: {device_data.get('mac', 'value unknown') or 'value unknown'}"
                                 ),

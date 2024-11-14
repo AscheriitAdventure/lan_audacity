@@ -5,9 +5,6 @@ from typing import Any
 
 from src.classes.languageApp import LanguageApp
 from src.classes.configurationFile import ConfigurationFile
-from src.classes.iconsApp import IconsApp
-
-from src.components.card.cl_card import CardHeader
 
 """
     Nom complet: Preferences General Dynamics Mosaics Cards

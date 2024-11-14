@@ -1,15 +1,11 @@
 from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
 
 from qtpy.QtWidgets import QLabel, QLineEdit
-from typing import Any
 import qtawesome as qta
 
 from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
-from src.classes.configurationFile import ConfigurationFile
-from src.classes.iconsApp import IconsApp
 
-from src.components.card.cl_card import CardHeader
 from src.views.templatesViews import LineUpdate, RoundedBtn
 
 """

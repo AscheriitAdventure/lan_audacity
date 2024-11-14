@@ -32,9 +32,6 @@ class UCDashboardFMC(FMC):
                 "top_card": CardHeader(
                     icon_card=self.iconsManager.get_icon("ucIcon"),
                     title_card=QLabel("User Control")),
-                "left_card": None,
-                "center_card": QLabel("Manage your users and permissions here."),
-                "right_card": None,
-                "bottom_card": None
+                "center_card": QLabel("Manage your users and permissions here.")
             }
         ]

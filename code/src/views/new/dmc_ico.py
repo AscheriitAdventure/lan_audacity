@@ -9,7 +9,7 @@ import qtawesome as qta
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 
-from src.components.card.cl_card import CardHeader
+from src.components.card.cl_card import CardHeader, CardImage
 from src.views.templatesViews import LineUpdate, RoundedBtn
 
 """
@@ -76,7 +76,7 @@ class PaletteIconSettingsDMC(DMC):
                 "top_card": CardHeader(
                     icon_card=qta.icon("mdi6.palette-advanced"),
                     title_card=cardTtl),
-                "center_card": cardImg,
+                "center_card": CardImage(image_card=cardImg),
                 "right_card": cardOpt
             }
 
