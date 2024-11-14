@@ -198,22 +198,6 @@ class CardStackGeneral(QWidget):
                 self.clear_card_layout(child.layout())
 
 
-class RoundedBtn(QPushButton):
-    def __init__(
-        self, icon: Optional[QIcon] = None, text: Optional[str] = None, parent=None
-    ):
-        super().__init__(parent=parent)
-
-        if icon is not None:
-            self.setIcon(icon)
-
-        if text is not None:
-            self.setText(text)
-
-        self.setMinimumSize(12, 12)
-        self.setMaximumSize(24, 24)
-
-
 class LineUpdate(QWidget):
     # Signal émis lorsque le contenu est modifié et validé
     contentChanged = Signal(str)
@@ -222,7 +206,7 @@ class LineUpdate(QWidget):
         self,
         label_obj: Optional[QLabel] = None,
         input_obj: Optional[QLineEdit] = None,
-        action_obj: Optional[QPushButton | RoundedBtn] = None,
+        action_obj: Optional[QPushButton] = None,
         parent=None,
     ):
         super().__init__(parent=parent)

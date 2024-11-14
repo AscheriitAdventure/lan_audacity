@@ -10,7 +10,7 @@ from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
 from src.classes.iconsApp import IconsApp
 
-from src.views.templatesViews import TitleWithAction, Card, LineUpdate, RoundedBtn
+from src.views.templatesViews import TitleWithAction, Card, LineUpdate
 from src.components.bakend_dialog import WorkerGetUcList, WDialogs
 from src.functionsExt import ip_to_cidr, conv_unix_to_datetime
 
@@ -216,14 +216,14 @@ class LanDashboard(DashboardCardTemplate):
         self.uc_listBody.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.uc_listBody.setSortingEnabled(True)
         
-        self.scan_btn = RoundedBtn(icon=self.iconsManager.get_icon(
-            "runIcon"), text=None, parent=self)
+        self.scan_btn = QPushButton(self)
+        self.scan_btn.setIcon(self.iconsManager.get_icon("runIcon"))
         self.scan_btn.clicked.connect(self.toggle_scan)
         self.scan_btn.setToolTip("Start the scan")
         self.scan_btn.setEnabled(True)
 
-        self.pause_btn = RoundedBtn(icon=self.iconsManager.get_icon(
-            "pauseIcon"), text=None, parent=self)
+        self.pause_btn = QPushButton(self)
+        self.pause_btn.setIcon(self.iconsManager.get_icon("pauseIcon"))
         self.pause_btn.clicked.connect(self.toggle_scan)
         self.pause_btn.setToolTip("Scan not loaded")
         self.pause_btn.setEnabled(False)

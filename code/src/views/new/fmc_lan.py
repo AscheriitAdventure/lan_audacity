@@ -1,6 +1,6 @@
 from src.views.new.templates_2 import FixedMosaicsCards as FMC
 
-from qtpy.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QTableWidget, QAbstractItemView, QTableWidgetItem, QSizePolicy, QLabel
+from qtpy.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QTableWidget, QAbstractItemView, QTableWidgetItem, QSizePolicy, QLabel, QPushButton
 from qtpy.QtCore import QThreadPool
 import qtawesome as qta
 import logging
@@ -9,7 +9,7 @@ from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 from src.classes.cl_network import Network
 
-from src.views.templatesViews import LineUpdate, RoundedBtn, TitleWithAction
+from src.views.templatesViews import LineUpdate, TitleWithAction
 
 from src.functionsExt import ip_to_cidr, conv_unix_to_datetime
 from src.components.card.cl_card import CardHeader
@@ -118,14 +118,14 @@ class LanDashboardFMC(FMC):
         self.uc_listBody.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.uc_listBody.setSortingEnabled(True)
         
-        self.scan_btn = RoundedBtn(icon=self.iconsManager.get_icon(
-            "runIcon"), text=None, parent=self)
+        self.scan_btn = QPushButton(self)
+        self.scan_btn.setIcon(self.iconsManager.get_icon("runIcon"))
         self.scan_btn.clicked.connect(self.toggle_scan)
         self.scan_btn.setToolTip("Start the scan")
         self.scan_btn.setEnabled(True)
 
-        self.pause_btn = RoundedBtn(icon=self.iconsManager.get_icon(
-            "pauseIcon"), text=None, parent=self)
+        self.pause_btn = QPushButton(self)
+        self.pause_btn.setIcon(self.iconsManager.get_icon("pauseIcon"))
         self.pause_btn.clicked.connect(self.toggle_scan)
         self.pause_btn.setToolTip("Scan not loaded")
         self.pause_btn.setEnabled(False)

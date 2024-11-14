@@ -11,11 +11,25 @@ from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
 from src.views.templatesViews import (
     LineUpdate,
-    RoundedBtn,
     CardStackGeneral
 )
 from src.classes.configurationFile import ConfigurationFile
 from src.classes.iconsApp import IconsApp
+
+class RoundedBtn(QPushButton):
+    def __init__(
+        self, icon: Optional[QIcon] = None, text: Optional[str] = None, parent=None
+    ):
+        super().__init__(parent=parent)
+
+        if icon is not None:
+            self.setIcon(icon)
+
+        if text is not None:
+            self.setText(text)
+
+        self.setMinimumSize(12, 12)
+        self.setMaximumSize(24, 24)
 
 
 class PreferencesGeneral(CardStackGeneral):
@@ -307,45 +321,3 @@ class PaletteIconSettings(CardStackGeneral):
 
             self.card_list.append(icon_dict)
         logging.info(f"Card list: {len(self.card_list)} item(s)")
-
-    # def setCardListAccordion(self):
-    #     self.card_list = []
-    #     accordion = AccordionWidget()
-    #     for icon in self.objManager.data_manager:
-    #         # Titre de la carte
-    #         cardTtl = QLabel(icon["name"])
-    #         # Image de la carte
-    #         cardImg = self.objManager.get_icon(icon["name"]).pixmap(64, 64).toImage()
-    #         # Corps de la carte
-    #         if icon.get("options") is not None:
-    #             cardOpt = QWidget()
-    #             cardOptLayout = QVBoxLayout()
-    #             cardOpt.setLayout(cardOptLayout)
-    #             data_options = icon["options"]
-
-    #             for i, option in enumerate(data_options):
-    #                 keys = option.keys()
-    #                 btn_title = QPushButton(f"{icon['platform_and_name'][i]} :")
-
-    #                 for key in keys:
-    #                     btn_options = RoundedBtn(
-    #                         icon=qtawesome.icon("mdi6.pencil"), text=None, parent=self
-    #                     )
-    #                     ttl_label = QLabel(f"{key} :")
-    #                     options_lineUpdate = LineUpdate(
-    #                         label_obj=ttl_label,
-    #                         input_obj=QLineEdit(str(option[key])),
-    #                         action_obj=btn_options,
-    #                     )
-    #                     cardOptLayout.addWidget(options_lineUpdate)
-
-    #         else:
-    #             cardOpt = QLabel("No options")
-
-    #         icon_dict: dict = {
-    #             "icon_card": qtawesome.icon("mdi6.palette-advanced"),  # QIcon
-    #             "title_card": cardTtl,  # QLabel
-    #             "img_card": cardImg,  # QImage
-    #             "corps_card": cardOpt,  # QLabel ou QWidgets
-    #         }
-    #     logging.info(f"Card list: {len(self.card_list)} item(s)")

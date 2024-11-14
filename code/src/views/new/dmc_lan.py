@@ -1,12 +1,12 @@
 from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
 
-from qtpy.QtWidgets import QLabel, QLineEdit
+from qtpy.QtWidgets import QLabel, QLineEdit, QPushButton
 import qtawesome as qta
 
 from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
 
-from src.views.templatesViews import LineUpdate, RoundedBtn
+from src.views.templatesViews import LineUpdate
 
 """
     Nom complet: Nertwork General Dynamics Mosaics Cards
@@ -22,50 +22,42 @@ class NetworkGeneralDMC(DMC):
         super().__init__(obj_title, obj_lang, obj_view, parent)
 
     def setCardList(self):
+        btn_edit = QPushButton(self)
+        btn_edit.setIcon(qta.icon("mdi6.pencil"))
         self.card_list = [
             {
                 "top_card": QLabel("IPv4 Address"),
                 "center_card": LineUpdate(
                     input_obj=QLineEdit(self.objManager.ipv4),
-                    action_obj=RoundedBtn(
-                        icon=qta.icon("mdi6.pencil"), text=None, parent=self
-                    )
+                    action_obj=btn_edit
                 )
             },
             {
                 "top_card": QLabel("IPv4 Mask"),
                 "center_card": LineUpdate(
                     input_obj=QLineEdit(self.objManager.maskIpv4),
-                    action_obj=RoundedBtn(
-                        icon=qta.icon("mdi6.pencil"), text=None, parent=self
-                    )
+                    action_obj=btn_edit
                 )
             },
             {
                 "top_card": QLabel("IPv6 Address"),
                 "center_card": LineUpdate(
                     input_obj=QLineEdit(self.objManager.ipv6),
-                    action_obj=RoundedBtn(
-                        icon=qta.icon("mdi6.pencil"), text=None, parent=self
-                    )
+                    action_obj=btn_edit
                 )
             },
             {
                 "top_card": QLabel("Gateway"),
                 "center_card": LineUpdate(
                     input_obj=QLineEdit(self.objManager.gateway),
-                    action_obj=RoundedBtn(
-                        icon=qta.icon("mdi6.pencil"), text=None, parent=self
-                    )
+                    action_obj=btn_edit
                 )
             },
             {
                 "top_card": QLabel("Domain Name"),
                 "center_card": LineUpdate(
                     input_obj=QLineEdit(self.objManager.dns),
-                    action_obj=RoundedBtn(
-                        icon=qta.icon("mdi6.pencil"), text=None, parent=self
-                    )
+                    action_obj=btn_edit
                 )
             },
             {

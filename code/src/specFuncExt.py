@@ -1,6 +1,5 @@
 import logging
 import os
-import json
 
 from src.classes.cl_network import Network
 from src.classes.cl_device import Device

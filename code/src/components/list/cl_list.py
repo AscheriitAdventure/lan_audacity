@@ -75,3 +75,97 @@ class CLWIconText(QWidget):
         searchPanel.setWindowIcon(qta.icon("mdi6.magnify"))
 
         self.searchPanel = searchPanel
+
+
+"""
+    Commentaires:
+        Je suis bon pour recommencer à zéro.
+    Consignes:
+        Nom Complet: Custom List Widget Icon & Text Update 1
+        Outils de support:
+            - QtPy(PyQt6)
+            - logging
+            - nom de la classe: CLWIconTextU1
+        Etape 1:
+            - Créer une classe CLWIconTextU1 qui hérite de QWidget
+"""
+
+class CLIconTextU1(QWidget):
+    def __init__(
+            self, 
+            list_objets: Optional[List[QPushButton]] = [], 
+            toggle_icon: Optional[bool] = False, 
+            search_panel: Optional[bool] = False, 
+            logger: Optional[bool] = False, 
+            parent=None
+            ):
+        super(CLIconTextU1, self).__init__(parent)
+        if logger:
+            self.logger = logging.getLogger(__name__)
+            self.logger.setLevel(logging.DEBUG)
+
+        self.listObj = list_objets
+        self.layout = QVBoxLayout(self)
+
+        self.searchPanel: Optional[QWidget] = None
+
+        if toggle_icon:
+            self.set_toggleIcon()
+
+        if search_panel:
+            self.set_searchPanel()
+    
+    def add_btn(self, btn: QPushButton):
+        if btn.text() and len(btn.text()) > 1:
+            # Si btn ne possède pas d'icone alors générer une icone avec:
+            if btn.icon().isNull():
+                logging.info("Button has no icon")
+                words = btn.text().split()
+                # -si un seul mot : générer une icone avec les 2 premières lettres du mot
+                if len(words) == 1:
+                    logging.info("Button has one word")
+                    icon_text = words[0][:2].upper()
+                else:
+                    # -si plusieurs mots : générer une icone avec les premières lettres de chaque mot avec une limite de 4 lettres
+                    logging.info("Button has multiple words")
+                    icon_text = ''.join(word[0].upper() for word in words[:4])
+                
+                # Create a QPixmap for the text icon
+                pixmap = QPixmap(32, 32)
+                pixmap.fill(Qt.transparent)
+                
+                # Paint text onto the pixmap
+                painter = QPainter(pixmap)
+                painter.setPen(Qt.black)
+                painter.setFont(QFont('Arial', 18, QFont.Bold))
+                painter.drawText(pixmap.rect(), Qt.AlignCenter, icon_text)
+                painter.end()
+                
+                btn.setIcon(QIcon(pixmap))
+
+            self.layout.addWidget(btn)
+            self.listObj.append(btn)
+        else:
+            logging.error("Button must have text")
+
+    def set_toggleIcon(self):
+        btn = QPushButton()
+        btn.setIcon(qta.icon("mdi6.arrow-collapse"))
+        btn.setText("Collapse")
+        btn.clicked.connect(self.toggleIcon)
+        self.layout.addWidget(btn)
+        self.listObj.append(btn)
+
+    def set_searchPanel(self):
+        pass
+
+    def toggleIcon(self):
+        if self.listObj:
+            for obj in self.listObj:
+                if obj.text() == "Collapse":
+                    obj.setText("Expand")
+                    obj.setIcon(qta.icon("mdi6.arrow-expand"))
+                else:
+                    obj.setText("Collapse")
+                    obj.setIcon(qta.icon("mdi6.arrow-collapse"))
+                

@@ -1,6 +1,6 @@
 from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
 
-from qtpy.QtWidgets import QLabel, QLineEdit, QWidget, QVBoxLayout
+from qtpy.QtWidgets import QLabel, QLineEdit, QWidget, QVBoxLayout, QPushButton
 from qtpy.QtGui import QImage
 from typing import Optional
 import logging
@@ -12,7 +12,7 @@ from src.classes.iconsApp import IconsApp
 from src.components.card.cl_card import CardHeader, CardImage
 from src.components.accordion.cl_accordion import AccordionWidget
 
-from src.views.templatesViews import LineUpdate, RoundedBtn
+from src.views.templatesViews import LineUpdate
 
 """
     Nom complet: Palette Icon Settings Dynamics Mosaics Cards
@@ -56,9 +56,8 @@ class PaletteIconSettingsDMC(DMC):
                             QLabel(f"{icon["platform_and_name"][i]} :")
                         )
                     for key in keys:
-                        btn_options = RoundedBtn(
-                            icon=qta.icon("mdi6.pencil"), text=None, parent=self
-                        )
+                        btn_options = QPushButton(self)
+                        btn_options.setIcon(qta.icon("mdi6.pencil"))
                         if len_options > 1:
                             ttl_label = QLabel(f"    {key} :")
                         else:
@@ -141,9 +140,8 @@ class PISDMCAccordion(DMC):
                     content_layout = QVBoxLayout(content_obj)
 
                     for key in keys:
-                        btn_options = RoundedBtn(
-                            icon=qta.icon("mdi6.pencil"), text=None, parent=self
-                        )
+                        btn_options = QPushButton(self)
+                        btn_options.setIcon(qta.icon("mdi6.pencil"))
                         ttl_label = QLabel(f"{key} :")
                         options_lineUpdate = LineUpdate(
                             label_obj=ttl_label,
@@ -166,44 +164,3 @@ class PISDMCAccordion(DMC):
             self.card_list.append(icon_dict)
         logging.info(f"Card list: {len(self.card_list)} item(s)")
 
-    # def setCardListAccordion(self):
-    #     self.card_list = []
-    #     accordion = AccordionWidget()
-    #     for icon in self.objManager.data_manager:
-    #         # Titre de la carte
-    #         cardTtl = QLabel(icon["name"])
-    #         # Image de la carte
-    #         cardImg = self.objManager.get_icon(icon["name"]).pixmap(64, 64).toImage()
-    #         # Corps de la carte
-    #         if icon.get("options") is not None:
-    #             cardOpt = QWidget()
-    #             cardOptLayout = QVBoxLayout()
-    #             cardOpt.setLayout(cardOptLayout)
-    #             data_options = icon["options"]
-
-    #             for i, option in enumerate(data_options):
-    #                 keys = option.keys()
-    #                 btn_title = QPushButton(f"{icon['platform_and_name'][i]} :")
-
-    #                 for key in keys:
-    #                     btn_options = RoundedBtn(
-    #                         icon=qtawesome.icon("mdi6.pencil"), text=None, parent=self
-    #                     )
-    #                     ttl_label = QLabel(f"{key} :")
-    #                     options_lineUpdate = LineUpdate(
-    #                         label_obj=ttl_label,
-    #                         input_obj=QLineEdit(str(option[key])),
-    #                         action_obj=btn_options,
-    #                     )
-    #                     cardOptLayout.addWidget(options_lineUpdate)
-
-    #         else:
-    #             cardOpt = QLabel("No options")
-
-    #         icon_dict: dict = {
-    #             "icon_card": qtawesome.icon("mdi6.palette-advanced"),  # QIcon
-    #             "title_card": cardTtl,  # QLabel
-    #             "img_card": cardImg,  # QImage
-    #             "corps_card": cardOpt,  # QLabel ou QWidgets
-    #         }
-    #     logging.info(f"Card list: {len(self.card_list)} item(s)")
