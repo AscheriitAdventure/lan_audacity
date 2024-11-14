@@ -5,6 +5,7 @@ from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 from qtpy.QtCore import *
 
+from src.classes.switchFile import SwitchFile
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
 from src.classes.shortcutApp import ShortcutApp
@@ -242,11 +243,18 @@ class NetExpl(GeneralSidePanel):
         if self.extObj is not None and isinstance(self.extObj, LanAudacity):
             if self.extObj.networks:
                 for network in self.extObj.networks.get('obj_ls', []):
-                    self.add_network_to_tree(network.get('name'))
-                    if network.get('devices'):
-                        for device in network.get('devices'):
-                            self.add_device_to_tree(network.get('name'), device)
-                    
+                    networkName = network.get('name')
+                    self.add_network_to_tree(network=networkName)
+
+                    net_data_file = SwitchFile.json_read(network.get('path'))
+                    if net_data_file["devices_list"]:
+                        logging.info(f"Devices list: {len(net_data_file['devices_list'])}")
+                        for device in net_data_file["devices_list"]:
+                            fileName = device+".json"
+                            filePath = os.path.join(self.extObj.absPath, "db", "desktop", fileName)
+                            device_data = SwitchFile.json_read(filePath)
+                            deviceName = device_data.get('name') if device_data.get('name') else device_data.get('device_ipv4')
+                            self.add_device_to_tree(networkName, deviceName)                    
 
     def addDeviceObj(self, network: Network = None):
         logging.info("Add device")
@@ -308,10 +316,28 @@ class NetExpl(GeneralSidePanel):
         item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
         self.treeView.model().invisibleRootItem().appendRow(item)
 
-    def add_device_to_tree(self, selected_network, device):
-        item = QStandardItem(device.name)
-        item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
-        selected_network.appendRow(item)
+    def add_device_to_tree(self, selected_network, device: Device | str):
+        root = self.treeView.model().invisibleRootItem()
+        network_item = None
+        for row in range(root.rowCount()):
+            if root.child(row).text() == selected_network:
+                network_item = root.child(row)
+                break
+
+        if network_item is None:
+            logging.error(f"Network {selected_network} not found in tree")
+            return
+
+        if isinstance(device, Device):
+            item = QStandardItem(device.name)
+            item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
+            network_item.appendRow(item)
+        elif isinstance(device, str):
+            item = QStandardItem(device)
+            item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
+            network_item.appendRow(item)
+        else:
+            logging.error("Device is not a Device object or a string")
     
     def getSelectedItem(self, index):
         model = self.treeView.model()

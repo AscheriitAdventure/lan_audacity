@@ -10,8 +10,6 @@ from src.classes.switchFile import SwitchFile
 from src.classes.cl_network import Network
 
 
-
-
 class LanAudacity(FileManagement):
     def __init__(
             self, 
@@ -24,12 +22,10 @@ class LanAudacity(FileManagement):
             author: str = "Unknown",
             clock_manager: ClockManager = ClockManager(),
             network_list: Optional[list[dict]] = None,
-            link_list: Optional[list[dict]] = None,
-            device_list: Optional[list[dict]] = None,
-            pixmap_list: Optional[list[dict]] = None
+            pixmap_list: Optional[list[dict]] = None,
             ) -> None:
         super().__init__(project_name, folder_list, files_list)
-        self.__abs_path = abs_path
+        self.__abs_path = os.path.normpath(abs_path)
         self.__software: dict = {
             "name": software_name,
             "version": software_version
@@ -40,17 +36,7 @@ class LanAudacity(FileManagement):
         self.char_table = "utf-8"
 
         self.__networks = network_list
-        self.__links = link_list
-        self.__devices = device_list
         self.__pixmap = pixmap_list
-    
-    @property
-    def pixmap(self) -> list[dict]:
-        return self.__pixmap
-    
-    def setPixmap(self, value: list[dict]) -> None:
-        # transform value into a list of Pixmap objects
-        self.__pixmap = value
 
     @property
     def networks(self) -> list[dict]:
@@ -60,22 +46,6 @@ class LanAudacity(FileManagement):
     def networks(self, value: list[dict]) -> None:
         # transform value into a list of Network objects
         self.__networks = value
-
-    @property
-    def links(self) -> list[dict]:
-        return self.__links
-    
-    def setLinks(self, value: list[dict]) -> None:
-        # transform value into a list of Link objects
-        self.__links = value
-    
-    @property
-    def devices(self) -> list[dict]:
-        return self.__devices
-    
-    def setDevices(self, value: list[dict]) -> None:
-        # transform value into a list of Device objects
-        self.__devices = value
     
     @property
     def clockManager(self) -> ClockManager:
@@ -128,9 +98,7 @@ class LanAudacity(FileManagement):
             "author": self.author,
             "clock_manager": self.clockManager.dict_return(),
             "obj_paths": self.dict_objPaths(),
-            "networks": self.networks,
-            "links": self.links,
-            "devices": self.devices,
+            "networks": self.networks
         }
     
     def getOneObjPath(self, obj_path: str) -> FileManagement:
@@ -219,8 +187,6 @@ class LanAudacity(FileManagement):
                 print(f"clock_manager: {old_data['clock_manager']}")
                 print(f"obj_paths: {old_data['obj_paths']}")
                 print(f"networks: {old_data['networks']}")
-                print(f"links: {old_data['links']}")
-                print(f"devices: {old_data['devices']}")
                 print(f"pixmap: {old_data['pixmap']}")
             else:
                 logging.info(f"{self.path} is already up to date")
@@ -237,8 +203,7 @@ class LanAudacity(FileManagement):
                 {
                     "uuid": network.uuid,
                     "name": network.name,
-                    "path": network.absPath,
-                    "ls_devices": [],
+                    "path": network.absPath
                 })
             self.clockManager.add_clock()
             if self.path in self.absPath:
@@ -291,13 +256,15 @@ class LanAudacity(FileManagement):
                     network_dns=net_data['dns'], uuid_str=net_data['uuid']
                 )
                 network_object.clockManager = ClockManager(net_data['clock_manager']['clock_created'], net_data['clock_manager']['clock_list'])
-                network_object.devicesList = net_data['devices_list'] if 'devices_list' in net_data else []
+
                 return network_object
         return None
-
-    # def add_link(self, link: dict) -> None:
-    # def remove_link(self, link: dict) -> None:
-    # def add_device(self, device: dict) -> None:
-    # def remove_device(self, device: dict) -> None:
-    # def add_pixmap(self, pixmap: dict) -> None:
-    # def remove_pixmap(self, pixmap: dict) -> None:
+    
+    @property
+    def pixmap(self) -> list[dict]:
+        return self.__pixmap
+    
+    def setPixmap(self, value: list[dict]) -> None:
+        # transform value into a list of Pixmap objects
+        self.__pixmap = value
+    
