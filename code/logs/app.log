@@ -1296,3 +1296,12 @@
 2024-11-13 17:19:02,966 - root - DEBUG - Converting QImage to QLabel <PyQt6.QtGui.QImage object at 0x0000016FAC6759D0>
 2024-11-13 17:19:02,966 - root - DEBUG - Converting QImage to QLabel <PyQt6.QtGui.QImage object at 0x0000016FAC675AD0>
 2024-11-13 17:19:02,966 - root - DEBUG - Converting QImage to QLabel <PyQt6.QtGui.QImage object at 0x0000016FAC675BD0>
+2024-11-14 08:59:02,544 - __main__ - INFO - Lan Audacity - version 1.1.1
+2024-11-14 08:59:06,643 - root - INFO - Card list: 67 item(s)
+2024-11-14 09:02:24,242 - root - INFO - ZAC Bureau is added to Eyrein Network
+2024-11-14 09:02:24,261 - root - INFO - PARIS is added to Eyrein Network
+2024-11-14 09:02:24,278 - root - INFO - TAZO is added to Eyrein Network
+2024-11-14 09:02:24,294 - root - INFO - ZAC Expeditions is added to Eyrein Network
+2024-11-14 09:02:24,312 - root - INFO - ZI is added to Eyrein Network
+2024-11-14 09:02:24,330 - root - INFO - CHALLENGER is added to Eyrein Network
+2024-11-14 09:02:24,349 - root - INFO - Load network

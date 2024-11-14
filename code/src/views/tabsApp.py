@@ -16,7 +16,7 @@ from src.classes.iconsApp import IconsApp
 from src.views.mapTemplateViews import LANMap
 from src.views.new.new_export import *
 
-from src.views.NetworkDashboard import LanDashboard
+from src.views.new.new_export import LanDashboardFMC
 from src.components.bakend_dialog import SyncWorker, WDialogs
 
 
@@ -283,7 +283,7 @@ class LanTabView(GeneralTabsView):
         return data
 
     def initDisplay(self):
-        self.general_menu = LanDashboard(
+        self.general_menu = LanDashboardFMC(
             "Dashboard", self.langManager, self.extObj, self.iconsManager, self
         )
         self.stackedFields.addWidget(self.general_menu)
