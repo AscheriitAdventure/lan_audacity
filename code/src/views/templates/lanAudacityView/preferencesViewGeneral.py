@@ -7,7 +7,7 @@ from typing import Optional
 from src.functionsExt import current_dir
 from src.classes.classesExport import ConfigurationFile, LanguageApp, IconsApp
 from src.views.templates.lanAudacityView.lanAudacityViewGeneral import LanAudacityViewGeneral
-from src.views.new.new_export import PreferencesGeneralDMC, PaletteIconSettingsDMC, UpdatesNewsDMC
+from src.views.templates.new_export import PreferencesGeneralDMC, PaletteIconSettingsDMC, UpdatesNewsDMC
 
 """
     Informations:

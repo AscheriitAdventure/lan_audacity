@@ -1,4 +1,4 @@
-from src.views.new.templates_2 import FixedMosaicsCards as FMC
+from src.views.templates.MosaicsCards.cl_fmc import FixedMosaicsCards as FMC
 
 from qtpy.QtWidgets import QLabel
 from typing import Any

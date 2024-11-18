@@ -1,4 +1,4 @@
-from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
+from src.views.templates.MosaicsCards.cl_dmc import DynamicsMosaicsCards as DMC
 
 from qtpy.QtWidgets import QLabel, QLineEdit, QWidget, QVBoxLayout, QPushButton
 from qtpy.QtGui import QImage

@@ -1,4 +1,4 @@
-from src.views.new.templates_2 import DynamicsMosaicsCards as DMC
+from src.views.templates.MosaicsCards.cl_dmc import DynamicsMosaicsCards as DMC
 
 import logging
 from qtpy.QtWidgets import QLabel

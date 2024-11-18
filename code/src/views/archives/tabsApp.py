@@ -14,7 +14,7 @@ from qtpy.QtWidgets import (
 from src.classes.classesExport import Network, ConfigurationFile, LanguageApp, IconsApp
 
 from src.views.mapTemplateViews import LANMap
-from src.views.new.new_export import *
+from src.views.templates.new_export import *
 
 from src.components.bakend_dialog import SyncWorker, WDialogs
 
