@@ -8,17 +8,10 @@ from qtpy.QtCore import *
 from qtpy.QtGui import *
 
 from src.functionsExt import current_dir, get_spcValue
-from src.classes.configurationFile import ConfigurationFile
-from src.classes.menuBarApp import MenuBarApp
-from src.classes.clockManager import ClockManager
-from src.classes.languageApp import LanguageApp
-from src.classes.shortcutApp import ShortcutApp
-from src.classes.iconsApp import IconsApp
-from src.classes.lanAudacity import LanAudacity
-from src.classes.cl_network import Network
+from src.classes.classesExport import *
 
 from src.views.formsApp import NProject
-from src.views.tabsApp import PreferencesTabView, GeneralTabsView, LanTabView, TabFactoryWidget as Tab
+from src.views.templates.templatesExport import PreferencesViewGeneral, LanAudacityViewGeneral, LanViewGeneral, Tab
 from src.views.primarySideBarPanel import GeneralSidePanel, FlsExpl, NetExpl
 
 
@@ -471,21 +464,21 @@ class MainApp(QMainWindow):
         if net_selected_object is not None:
             panel_title = net_selected_object.name
             self.primary_center.add_tab(
-                tab=LanTabView(
+                tab=LanViewGeneral(
                     title_panel=panel_title, 
-                    ext_obj=net_selected_object, 
-                    lang_manager=self.langManager, 
+                    external_object=net_selected_object, 
+                    language_manager=self.langManager, 
                     icons_manager=self.iconsManager, 
                     parent=self),
                 title=panel_title)
         else:
             self.primary_center.add_tab(
-                tab=GeneralTabsView("Networks", None, self.langManager, self.iconsManager, self),
+                tab=LanAudacityViewGeneral("Networks", None, self.langManager, self.iconsManager, self),
                 title="Networks")
     
     def fileExplorerPanelAction(self) -> None:
         self.primary_center.add_tab(
-            tab=GeneralTabsView("Explorer", None, self.langManager, self.iconsManager, self),
+            tab=LanAudacityViewGeneral("Explorer", None, self.langManager, self.iconsManager, self),
             title="Explorer")
 
     def extensionAction(self) -> None:
@@ -495,10 +488,10 @@ class MainApp(QMainWindow):
 
     def preferencesAction(self) -> None:
         self.primary_center.add_tab(
-            tab=PreferencesTabView(
+            tab=PreferencesViewGeneral(
                 title_panel="Preferences",
-                ext_obj=self.softwareManager,
-                lang_manager=self.langManager,
+                external_object=self.softwareManager,
+                language_manager=self.langManager,
                 icons_manager=self.iconsManager,
                 parent=self
             ),
@@ -509,6 +502,6 @@ class MainApp(QMainWindow):
     def userAction(self) -> None:
         logging.debug("User Action...")
         self.primary_center.add_tab(
-            tab= GeneralTabsView("User", None, self.langManager, self.iconsManager, self),
+            tab= LanAudacityViewGeneral("User", None, self.langManager, self.iconsManager, self),
             title="User")
         # Open the user window

@@ -6,11 +6,8 @@ from typing import Optional
 import logging
 import qtawesome as qta
 
-from src.classes.languageApp import LanguageApp
-from src.classes.iconsApp import IconsApp
-
-from src.components.card.cl_card import CardHeader, CardImage
-from src.components.accordion.cl_accordion import AccordionWidget
+from src.classes.classesExport import ConfigurationFile, LanguageApp, IconsApp
+from src.components.componentsExport import CardHeader, CardImage, AccordionWidget
 
 from src.views.templatesViews import LineUpdate
 
@@ -104,7 +101,7 @@ class PISDMCAccordion(DMC):
         self,
         obj_title: str,
         obj_lang: LanguageApp,
-        obj_view: IconsApp,
+        obj_view: ConfigurationFile,
         obj_icon: Optional[IconsApp] = None,
         obj_img: Optional[QImage] = None,
         parent=None,
@@ -113,7 +110,7 @@ class PISDMCAccordion(DMC):
 
     def setCardList(self):
         self.card_list = []
-        for icon in self.objManager.data_manager:
+        for icon in self.objManager.data:
             # Titre de la carte
             cardHeader = CardHeader(
                 icon_card=qta.icon("mdi6.palette-advanced"),
@@ -121,7 +118,7 @@ class PISDMCAccordion(DMC):
             )
             # Image de la carte
             cardImage = CardImage(
-                image_card=self.objManager.get_icon(icon["name"]).pixmap(64, 64).toImage()
+                image_card=self.iconsManager.get_icon(icon["name"]).pixmap(64, 64).toImage()
             )
             # Commentaires de la carte
             if icon.get("options") is not None:

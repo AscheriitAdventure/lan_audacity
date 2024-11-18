@@ -11,7 +11,7 @@ def main():
     layout = QVBoxLayout(window)
 
     # Instance de CLIconTextU1
-    icon_text_widget = CLIconTextU1(logger=True)
+    icon_text_widget = CLIconTextU1(logger=True, toggle_icon=True, search_panel=True)
 
     # Création et ajout de boutons
     button1 = QPushButton("Settings")

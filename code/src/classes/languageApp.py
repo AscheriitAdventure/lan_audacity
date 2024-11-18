@@ -1,11 +1,14 @@
 from src.classes.configurationFile import ConfigurationFile
+from typing import List
 
+VAR_LANGUAGES: List[str] = ["english", "français"]
+VAR_LANGUAGE: str = "english"
 
 class LanguageApp:
-    def __init__(self, file_manager: ConfigurationFile):
+    def __init__(self, file_manager: ConfigurationFile, language: str = VAR_LANGUAGE, lang_list: list = VAR_LANGUAGES):
         self.data_manager = file_manager.data
-        self.langManager: str = "english"
-        self.langList = ["english", "français"]
+        self.langManager = language
+        self.langList = lang_list
 
     @property
     def language(self):

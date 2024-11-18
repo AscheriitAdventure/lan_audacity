@@ -5,14 +5,9 @@ from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 from qtpy.QtCore import *
 
-from src.classes.switchFile import SwitchFile
-from src.classes.languageApp import LanguageApp
-from src.classes.iconsApp import IconsApp
-from src.classes.shortcutApp import ShortcutApp
-from src.classes.lanAudacity import LanAudacity
-from src.classes.cl_network import Network
-from src.classes.cl_device import Device
-from src.views.tabsApp import TabFactoryWidget
+
+from src.classes.classesExport import ShortcutApp, IconsApp, LanguageApp, LanAudacity, Network, Device, SwitchFile
+from src.views.templates.templatesExport import Tab
 from src.views.formsApp import NNetwork, NDevice
 
 
@@ -23,7 +18,7 @@ class GeneralSidePanel(QWidget):
     def __init__(
             self,
             title_panel: str,
-            tab_connect: TabFactoryWidget = None,
+            tab_connect: Tab = None,
             lang_manager: LanguageApp = None,
             icon_manager: IconsApp = None,
             keys_manager: ShortcutApp = None,
@@ -131,7 +126,7 @@ class FlsExpl(GeneralSidePanel):
             self,
             title_panel: str,
             path: str = None,
-            tab_connect: TabFactoryWidget = None,
+            tab_connect: Tab = None,
             lang_manager: LanguageApp = None,
             icon_manager: IconsApp = None,
             keys_manager: ShortcutApp = None,
@@ -212,7 +207,7 @@ class NetExpl(GeneralSidePanel):
             self,
             title_panel: str,
             lan_class: LanAudacity = None,
-            tab_connect: TabFactoryWidget = None,
+            tab_connect: Tab = None,
             lang_manager: LanguageApp = None,
             icon_manager: IconsApp = None,
             keys_manager: ShortcutApp = None,

@@ -11,14 +11,11 @@ from qtpy.QtWidgets import (
     QTabWidget,
 )
 
-from src.classes.cl_network import Network
-from src.classes.languageApp import LanguageApp
-from src.classes.iconsApp import IconsApp
-from src.classes.configurationFile import ConfigurationFile
+from src.classes.classesExport import Network, ConfigurationFile, LanguageApp, IconsApp
+
 from src.views.mapTemplateViews import LANMap
 from src.views.new.new_export import *
 
-from src.views.new.new_export import LanDashboardFMC
 from src.components.bakend_dialog import SyncWorker, WDialogs
 
 
@@ -95,7 +92,7 @@ class GeneralTabsView(QWidget):
         self.notif_menu = QWidget(self)
         self.stackedFields.addWidget(self.notif_menu)
 
-    def setListBtn(self) -> list:
+    def setListBtn(self) -> list[dict]:
         data = [
             {
                 "name": "News",

@@ -87,7 +87,11 @@ class CLWIconText(QWidget):
             - logging
             - nom de la classe: CLWIconTextU1
         Etape 1:
-            - Créer une classe CLWIconTextU1 qui hérite de QWidget
+            - Créer une classe CLWIconTextU1 qui hérite de QWidget [OK]
+            - Icone et Texte: aura une fonctionnalité qui permettra d'avoir une icone  ou icone et texte [OK]
+            - Style Accordeon: aura une fonctionnalité qui permettra de déplier ou replier les éléments de la liste [OK]
+            - Option: Possibilité de Recherche [En cours...]
+
 """
 
 class CLIconTextU1(QWidget):
@@ -105,15 +109,16 @@ class CLIconTextU1(QWidget):
             self.logger.setLevel(logging.DEBUG)
 
         self.listObj = list_objets
+        self.storedText = []
         self.layout = QVBoxLayout(self)
 
         self.searchPanel: Optional[QWidget] = None
 
-        if toggle_icon:
-            self.set_toggleIcon()
-
         if search_panel:
             self.set_searchPanel()
+
+        if toggle_icon:
+            self.set_toggleIcon()
     
     def add_btn(self, btn: QPushButton):
         if btn.text() and len(btn.text()) > 1:
@@ -145,27 +150,49 @@ class CLIconTextU1(QWidget):
 
             self.layout.addWidget(btn)
             self.listObj.append(btn)
+            self.storedText.append(btn.text())
         else:
             logging.error("Button must have text")
 
     def set_toggleIcon(self):
         btn = QPushButton()
-        btn.setIcon(qta.icon("mdi6.arrow-collapse"))
-        btn.setText("Collapse")
+        btn.setIcon(qta.icon("mdi6.swap-horizontal-bold"))
+        btn.setText("Extends")
+        btn.setToolTip("Toggle Icon")
         btn.clicked.connect(self.toggleIcon)
-        self.layout.addWidget(btn)
-        self.listObj.append(btn)
+        self.add_btn(btn)
 
     def set_searchPanel(self):
-        pass
+        self.searchPanel = QWidget()
+        searchPanelLayout = QFormLayout(self.searchPanel)
+
+        searchInput = QLineEdit()
+        searchInput.setPlaceholderText("Search")
+
+        searchBtn = QPushButton()
+        searchBtn.setIcon(qta.icon("mdi6.magnify"))
+        searchBtn.setToolTip("Search")
+        searchBtn.clicked.connect(lambda: self.search(searchInput.text()))
+
+        searchPanelLayout.addRow(searchInput, searchBtn)
+        self.layout.addWidget(self.searchPanel)
 
     def toggleIcon(self):
-        if self.listObj:
-            for obj in self.listObj:
-                if obj.text() == "Collapse":
-                    obj.setText("Expand")
-                    obj.setIcon(qta.icon("mdi6.arrow-expand"))
-                else:
-                    obj.setText("Collapse")
-                    obj.setIcon(qta.icon("mdi6.arrow-collapse"))
+        if self.listObj[0].text() == "":
+            if self.searchPanel is not None:
+                self.searchPanel.show()
+            for i in range(len(self.listObj)):
+                self.listObj[i].setText(self.storedText[i])
+        else:
+            if self.searchPanel is not None:
+                self.searchPanel.hide()
+            for i in range(len(self.listObj)):
+                self.listObj[i].setText("")
+
+    def search(self, text: str):
+        for i in range(len(self.listObj)):
+            if text.lower() in self.storedText[i].lower():
+                self.listObj[i].show()
+            else:
+                self.listObj[i].hide()
                 

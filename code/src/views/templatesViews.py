@@ -1,5 +1,5 @@
 from typing import Any, Optional, List
-from qtpy.QtCore import Qt, Signal
+from qtpy.QtCore import *
 from qtpy.QtGui import QIcon, QImage, QPixmap, QFont
 from qtpy.QtWidgets import *
 import qtawesome as qta

@@ -20,21 +20,23 @@ class UpdatesNewsDMC(DMC):
     def generateCard(self):
         data = self.objManager.data["news_update"]
         logging.debug(f"Lenght of data: {len(data)}")
-        leftCard = None
-        rightCard = None
-        centerCard = None
-        bottomCard = None
         for obj in data:
-            topCard = QLabel(f"{obj['version']} - {obj['date']}")
-            if obj["sources"] is not None:
+            leftCard = None
+            rightCard = None
+            centerCard = None
+            bottomCard = None
+            logging.debug(f"Object: {obj}")
+            topCard = QLabel(f"Version {obj['version']} - Date {obj['date']}")
+            if obj.get("sources"):
+                # Créer un lien qui permet d'ouvrir un onglet qui affiche le contenu du fichier en read-only
                 logging.debug(f"Sources: {obj['sources']}")
                 centerCard = QLabel(f"{obj['sources']}")
 
-            if obj["authors"] is not None:
+            if obj.get("authors"):
                 logging.debug(f"Authors: {obj['authors']}")
                 bottomCard = QLabel(f"{obj['authors']}")
             
-            if obj["description"] is not None:
+            if obj.get("description"):
                 logging.debug(f"Description: {obj['description']}")
                 if centerCard is None:
                     centerCard = QLabel(f"{obj['description']}")

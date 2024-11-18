@@ -198,7 +198,7 @@ class LanDashboardFMC(FMC):
         """
         Méthode appelée lorsque le scan est terminé.
         """
-        logging.debug(f"303: {result}")
+        # logging.debug(f"303: {result}")
         self.updateUcListTable(result)
         self.scan_btn.setEnabled(True)
         self.pause_btn.setEnabled(False)

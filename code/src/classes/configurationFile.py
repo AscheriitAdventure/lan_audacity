@@ -6,10 +6,6 @@ import string
 
 class ConfigurationFile:
     def __init__(self, abs_path: str):
-        """
-
-        :rtype: object
-        """
         self.__abs_path: str = abs_path
         self.__file: str = os.path.basename(abs_path)
         self.__data = self.load_file()
