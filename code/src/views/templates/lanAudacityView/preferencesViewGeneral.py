@@ -70,7 +70,7 @@ class PreferencesViewGeneral(LanAudacityViewGeneral):
             {
                 "name": "Update",
                 "tooltip": "Update",
-                "icon": "defaultIcon",
+                "icon": "newsUpgrade",
                 "action": self.update_btn,
             },
         ]

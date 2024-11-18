@@ -148,6 +148,7 @@ class CLIconTextU1(QWidget):
                 
                 btn.setIcon(QIcon(pixmap))
 
+            btn.setIconSize(QSize(32, 32))
             self.layout.addWidget(btn)
             self.listObj.append(btn)
             self.storedText.append(btn.text())

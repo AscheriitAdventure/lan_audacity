@@ -1,5 +1,11 @@
 version: 1
 news_update:
+  - date: 2024-11-18
+    version: 1.1.1
+    description: "Lan Audacity has fixed the missing device list in the network tree. Now you can see all the last devices mapped in the network.\n Also, the search module has been implemented."
+    authors: 
+      - "Geoffrey"
+      
   - date: 2024-11-07
     version: 1.1.1
     description: "Lan Audacity has integrate a 'Update News' view in the parameters panel."

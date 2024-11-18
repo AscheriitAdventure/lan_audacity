@@ -6,9 +6,7 @@ from qtpy.QtWidgets import *
 from qtpy.QtGui import QFont
 from qtpy.QtCore import Qt
 
-from src.classes.languageApp import LanguageApp
-from src.classes.iconsApp import IconsApp
-from src.classes.lanAudacity import LanAudacity
+from src.classes.classesExport import LanAudacity, LanguageApp, IconsApp
 
 
 class FormDialog(QDialog):

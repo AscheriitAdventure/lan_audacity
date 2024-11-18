@@ -643,20 +643,39 @@
         "vflip": true,
         "rotated": 45,
         "scale_factor": 0.8,
-        "offset": [0.2, 0.2]
+        "offset": [0.1, 0.2]
       },
       {
         "color": "Green",
         "vflip": true,
         "scale_factor": 0.8,
-        "offset": [0.2, 0.2]
+        "offset": [0.125, 0.15]
       },
       {
         "color": "Blue",
         "vflip": true,
         "rotated": 315,
         "scale_factor": 0.8,
-        "offset": [0.2, 0.2]
+        "offset": [0.17, 0.125]
+      }
+    ]
+  },
+  {
+    "name": "newsUpgrade",
+    "platform_and_name": ["mdi6.newspaper","mdi6.circle","mdi6.update"],
+    "options": [
+      {
+        "color": "Crimson"
+      },
+      {
+        "scale_factor":0.5,
+        "color": "White",
+        "offset": [0.3, 0.2]
+      },
+      {
+        "scale_factor":0.5,
+        "color": "Lime",
+        "offset": [0.3, 0.2]
       }
     ]
   }
