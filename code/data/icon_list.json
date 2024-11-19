@@ -710,15 +710,16 @@
         "color": "Peru"
       },
       {
-        "rotated": 180,
+        "vflip": true,
         "color": "Orange",
         "scale_factor": 0.75,
-        "offset": [-0.25, -0.2]
+        "offset": [0.2, -0.2]
       },
       {
         "color": "Black",
         "scale_factor": 0.35,
-        "offset": [0.25, 0.2]
+        "hflip": true,
+        "offset": [-0.2, 0.225]
       }
     ]
   }

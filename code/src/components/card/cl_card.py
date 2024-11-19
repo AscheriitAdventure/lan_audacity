@@ -367,6 +367,7 @@ class CardImage(QWidget):
 
     def setImageUI(self, image_card: QImage):
         """Sets the image UI with an image."""
+        self.imageCard_layout.addStretch(1)
         image_label = QLabel()
         image_label.setPixmap(QPixmap.fromImage(image_card))
         self.imageCard_layout.addWidget(image_label)

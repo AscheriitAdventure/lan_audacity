@@ -12,3 +12,8 @@ Je compte après déplacement proposer dans Dashboard d'ajouter les cartes : [OK
 -	Option de Mise à Jour
 -	Un Objet qui affichera (si ce n'est pas un fichier) les dernières fonctionnalités ajoutées sinon un lien. 
 -	
+
+### Rapport du 19/11/2024
+
+Ajouter une fonction pour éviter les doublons d'onglets.
+Avec comme objectif de pouvoir accéder aux fichiers sources en cas d'erreur, je vais faire en sorte de pouvoir éditer les fichiers.

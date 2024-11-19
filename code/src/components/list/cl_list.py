@@ -108,8 +108,8 @@ class CLIconTextU1(QWidget):
             self.logger = logging.getLogger(__name__)
             self.logger.setLevel(logging.DEBUG)
 
-        self.listObj = list_objets
-        self.storedText = []
+        self.listObj: List[QPushButton] = list_objets[:]
+        self.storedText: List[str] = []
         self.layout = QVBoxLayout(self)
 
         self.searchPanel: Optional[QWidget] = None
@@ -134,24 +134,24 @@ class CLIconTextU1(QWidget):
                     # -si plusieurs mots : générer une icone avec les premières lettres de chaque mot avec une limite de 4 lettres
                     logging.info("Button has multiple words")
                     icon_text = ''.join(word[0].upper() for word in words[:4])
-                
+            
                 # Create a QPixmap for the text icon
                 pixmap = QPixmap(32, 32)
                 pixmap.fill(Qt.transparent)
-                
+            
                 # Paint text onto the pixmap
                 painter = QPainter(pixmap)
                 painter.setPen(Qt.black)
                 painter.setFont(QFont('Arial', 18, QFont.Bold))
                 painter.drawText(pixmap.rect(), Qt.AlignCenter, icon_text)
                 painter.end()
-                
+
                 btn.setIcon(QIcon(pixmap))
 
             btn.setIconSize(QSize(32, 32))
             self.layout.addWidget(btn)
             self.listObj.append(btn)
-            self.storedText.append(btn.text())
+            self.storedText.append(btn.text())  # Synchronisez les deux listes
         else:
             logging.error("Button must have text")
 
@@ -179,16 +179,19 @@ class CLIconTextU1(QWidget):
         self.layout.addWidget(self.searchPanel)
 
     def toggleIcon(self):
-        if self.listObj[0].text() == "":
-            if self.searchPanel is not None:
-                self.searchPanel.show()
-            for i in range(len(self.listObj)):
-                self.listObj[i].setText(self.storedText[i])
+        if self.listObj and len(self.listObj) == len(self.storedText):  # Vérification de la synchronisation
+            if self.listObj[0].text() == "":
+                if self.searchPanel is not None:
+                    self.searchPanel.show()
+                for i in range(len(self.listObj)):
+                    self.listObj[i].setText(self.storedText[i])
+            else:
+                if self.searchPanel is not None:
+                    self.searchPanel.hide()
+                for i in range(len(self.listObj)):
+                    self.listObj[i].setText("")
         else:
-            if self.searchPanel is not None:
-                self.searchPanel.hide()
-            for i in range(len(self.listObj)):
-                self.listObj[i].setText("")
+            logging.error("ListObj and StoredText are not synchronized!")
 
     def search(self, text: str):
         for i in range(len(self.listObj)):
@@ -196,4 +199,11 @@ class CLIconTextU1(QWidget):
                 self.listObj[i].show()
             else:
                 self.listObj[i].hide()
-                
+
+    def remove_btn(self, btn: QPushButton):
+        if btn in self.listObj:
+            index = self.listObj.index(btn)
+            self.listObj.remove(btn)
+            self.storedText.pop(index)  # Retirer le texte associé à ce bouton
+            self.layout.removeWidget(btn)
+            btn.deleteLater()
