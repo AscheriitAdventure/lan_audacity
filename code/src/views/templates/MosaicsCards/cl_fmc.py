@@ -43,7 +43,6 @@ class FixedMosaicsCards(QWidget):
         # Set the general layout
         self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)
-        self.setLayout(self.layout)
 
         # Set the top widget
         title_widget = QWidget(self)

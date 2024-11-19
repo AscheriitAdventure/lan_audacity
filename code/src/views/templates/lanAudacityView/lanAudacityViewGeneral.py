@@ -4,6 +4,7 @@ from qtpy.QtGui import *
 
 from typing import Optional, Any
 
+from src.views.templates.WelcomeView.defaultTab import MonitorWD
 from src.classes.classesExport import LanguageApp, IconsApp
 from src.components.componentsExport import CLWIconText
 
@@ -33,10 +34,28 @@ class LanAudacityViewGeneral(QWidget):
         self.iconsManager = icons_manager
         self.btnList = self.setListBtn()
 
-        self.layout = QGridLayout(self)
+        # Layout principal (avec scroll)
+        self.main_layout = QVBoxLayout(self)
+        self.initScrollArea()
 
+        # Ajout des autres composants
         self.initUI()
         self.initDisplay()
+
+    def initScrollArea(self):
+        """
+        Encapsule le layout principal dans un QScrollArea
+        """
+        self.scroll_area = QScrollArea(self)
+        self.scroll_area.setWidgetResizable(True)
+        self.main_layout.addWidget(self.scroll_area)
+
+        # Conteneur interne pour le contenu défilable
+        self.scroll_content = QWidget()
+        self.scroll_area.setWidget(self.scroll_content)
+
+        # Utilisation de QGridLayout existant
+        self.layout = QGridLayout(self.scroll_content)
  
     def setListBtn(self) -> list[dict]:
         data = [
@@ -59,7 +78,6 @@ class LanAudacityViewGeneral(QWidget):
         btn_container = CLWIconText(
             toggle_icon=True,
             search_panel=True,
-            logger=True,
             parent=self
             )
         self.layout.addWidget(btn_container, 0, 0, Qt.AlignLeft | Qt.AlignTop)
@@ -77,10 +95,18 @@ class LanAudacityViewGeneral(QWidget):
 
     def initDisplay(self):
         # Create views for each menu
-        self.info_menu = QWidget(self)
+        self.info_menu = MonitorWD(
+            icons_manager=self.iconsManager,
+            language_manager=self.languageManager,
+            parent=self
+        )
         self.stackedFields.addWidget(self.info_menu)
 
-        self.notif_menu = QWidget(self)
+        self.notif_menu = MonitorWD(
+            icons_manager=self.iconsManager,
+            language_manager=self.languageManager,
+            parent=self
+        )
         self.stackedFields.addWidget(self.notif_menu)
 
     def notifications_btn(self):

@@ -6,13 +6,13 @@
         nous avons modifié certains paramètres pour cela nous avons créé une nouvelle classe.
         Nous avons également modifié la classe pour permettre aux enfants d'avoir les bonnes données.
 """
-from qtpy.QtWidgets import QWidget
 from qtpy.QtCore import QThreadPool
 
 from typing import Optional
 
 from src.classes.classesExport import ConfigurationFile, LanguageApp, IconsApp
-from src.views.templates.lanAudacityView.lanAudacityViewGeneral import LanAudacityViewGeneral
+from src.views.templates.WelcomeView.defaultTab import MonitorWD
+from src.views.templates.templatesExport import LanAudacityViewGeneral
 from src.views.templates.new_export import NetworkGeneralDMC, DevicesDMC, LanDashboardFMC
 from src.views.mapTemplateViews import LANMap
 from src.components.bakend_dialog import SyncWorker, WDialogs
@@ -91,7 +91,11 @@ class LanViewGeneral(LanAudacityViewGeneral):
         )
         self.stackedFields.addWidget(self.devices_menu)
 
-        self.network_road_map_menu = QWidget(self)
+        self.network_road_map_menu = MonitorWD(
+            icons_manager=self.iconsManager,
+            language_manager=self.languageManager,
+            parent=self
+        )
         self.stackedFields.addWidget(self.network_road_map_menu)
 
     def generalBtn(self):

@@ -662,20 +662,63 @@
   },
   {
     "name": "newsUpgrade",
-    "platform_and_name": ["mdi6.newspaper","mdi6.circle","mdi6.update"],
+    "platform_and_name": ["mdi6.newspaper", "mdi6.circle", "mdi6.update"],
     "options": [
       {
         "color": "Crimson"
       },
       {
-        "scale_factor":0.5,
+        "scale_factor": 0.5,
         "color": "White",
         "offset": [0.3, 0.2]
       },
       {
-        "scale_factor":0.5,
+        "scale_factor": 0.5,
         "color": "Lime",
         "offset": [0.3, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "updateAction",
+    "platform_and_name": ["mdi6.update"],
+    "options": [
+      {
+        "color": "Lime"
+      }
+    ]
+  },
+  {
+    "name": "certificates",
+    "platform_and_name": ["fa5s.book","mdi6.seal-variant"],
+    "options": [
+      {
+        "color": "Peru"
+      },
+      {
+        "scale_factor": 0.75,
+        "color": "Red",
+        "offset": [0.3, 0.2]
+      }
+    ]
+  },
+  {
+    "name": "workInProgress",
+    "platform_and_name": ["mdi6.folder-open", "mdi6.sign-yield", "mdi6.walk"],
+    "options": [
+      {
+        "color": "Peru"
+      },
+      {
+        "rotated": 180,
+        "color": "Orange",
+        "scale_factor": 0.75,
+        "offset": [-0.25, -0.2]
+      },
+      {
+        "color": "Black",
+        "scale_factor": 0.35,
+        "offset": [0.25, 0.2]
       }
     ]
   }

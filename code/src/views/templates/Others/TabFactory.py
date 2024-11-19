@@ -1,5 +1,5 @@
 from qtpy.QtWidgets import QTabWidget, QWidget
-from src.classes.languageApp import LanguageApp
+from src.classes.classesExport import LanguageApp
 
 
 class TabFactoryWidget(QTabWidget):

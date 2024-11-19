@@ -6,8 +6,9 @@ from typing import Optional
 
 from src.functionsExt import current_dir
 from src.classes.classesExport import ConfigurationFile, LanguageApp, IconsApp
-from src.views.templates.lanAudacityView.lanAudacityViewGeneral import LanAudacityViewGeneral
-from src.views.templates.new_export import PreferencesGeneralDMC, PaletteIconSettingsDMC, UpdatesNewsDMC
+from src.views.templates.WelcomeView.defaultTab import MonitorWD
+from src.views.templates.templatesExport import LanAudacityViewGeneral
+from src.views.templates.new_export import PDashboardFMC, PaletteIconSettingsDMC, UpdatesNewsDMC
 
 """
     Informations:
@@ -17,6 +18,7 @@ from src.views.templates.new_export import PreferencesGeneralDMC, PaletteIconSet
         nous avons modifié certains paramètres pour cela nous avons créé une nouvelle classe.
         Nous avons également modifié la classe pour permettre aux enfants d'avoir les bonnes données.
 """
+
 
 class PreferencesViewGeneral(LanAudacityViewGeneral):
     def __init__(
@@ -32,21 +34,21 @@ class PreferencesViewGeneral(LanAudacityViewGeneral):
     def setListBtn(self) -> list:
         data = [
             {
-                "name": "General",
-                "tooltip": "General",
+                "name": "Dashboard",
+                "tooltip": "Dashboard",
                 "icon": "dashboardBtn",
                 "action": self.general_btn,
             },
             {
-                "name": "Language",
-                "tooltip": "Language",
-                "icon": "defaultIcon",
-                "action": self.language_btn,
+                "name": "About System",
+                "tooltip": "About System",
+                "icon": "lan_audacity",
+                "action": self.about_btn,
             },
             {
                 "name": "Palette Shortcut",
                 "tooltip": "Palette Shortcut",
-                "icon": "defaultIcon",
+                "icon": "shortcutKeyAction",
                 "action": self.palette_shortcut_btn,
             },
             {
@@ -58,14 +60,8 @@ class PreferencesViewGeneral(LanAudacityViewGeneral):
             {
                 "name": "License",
                 "tooltip": "License",
-                "icon": "defaultIcon",
+                "icon": "certificates",
                 "action": self.about_btn,
-            },
-            {
-                "name": "Theme",
-                "tooltip": "Theme",
-                "icon": "defaultIcon",
-                "action": self.theme_btn,
             },
             {
                 "name": "Update",
@@ -77,10 +73,11 @@ class PreferencesViewGeneral(LanAudacityViewGeneral):
         return data
 
     def initDisplay(self):
-        self.general_menu = PreferencesGeneralDMC(
+        self.general_menu = PDashboardFMC(
             obj_title="Dashboard",
             obj_lang=self.languageManager, 
             obj_view=self.externalObject,
+            obj_icon=self.iconsManager,
             parent=self,
         )
         self.stackedFields.addWidget(self.general_menu)
@@ -97,7 +94,6 @@ class PreferencesViewGeneral(LanAudacityViewGeneral):
         )
         self.stackedFields.addWidget(self.palette_icon_menu)
 
-        logging.debug(f"Update News Note: réécriture de la classe 'PreferencesViewGeneral'.")
         data_update = ConfigurationFile(
             os.path.normpath(os.path.join(current_dir(), self.externalObject.data['software']['conf']['newsUpdate_app']['path']))
         )
@@ -112,35 +108,32 @@ class PreferencesViewGeneral(LanAudacityViewGeneral):
         data_language = ConfigurationFile(
             os.path.normpath(os.path.join(current_dir(), self.externalObject.data['software']['conf']['translate_app']['path']))
         )
-        self.language_menu = QWidget(self)
-        self.stackedFields.addWidget(self.language_menu)
 
         data_shortcut = ConfigurationFile(
             os.path.normpath(os.path.join(current_dir(), self.externalObject.data['software']['conf']['shortcuts_app']['path']))
         )
-        self.palette_shortcut_menu = QWidget(self)
+        self.palette_shortcut_menu = MonitorWD(
+            icons_manager=self.iconsManager,
+            language_manager=self.languageManager,
+            parent=self
+        )
         self.stackedFields.addWidget(self.palette_shortcut_menu)
 
-        self.about_menu = QWidget(self)
+        self.about_menu = MonitorWD(
+            icons_manager=self.iconsManager,
+            language_manager=self.languageManager,
+            parent=self
+        )
         self.stackedFields.addWidget(self.about_menu)
-
-        self.theme_menu = QWidget(self)
-        self.stackedFields.addWidget(self.theme_menu)
 
     def general_btn(self):
         self.stackedFields.setCurrentWidget(self.general_menu)
-
-    def language_btn(self):
-        self.stackedFields.setCurrentWidget(self.language_menu)
 
     def palette_shortcut_btn(self):
         self.stackedFields.setCurrentWidget(self.palette_shortcut_menu)
 
     def about_btn(self):
         self.stackedFields.setCurrentWidget(self.about_menu)
-
-    def theme_btn(self):
-        self.stackedFields.setCurrentWidget(self.theme_menu)
 
     def update_btn(self):
         self.stackedFields.setCurrentWidget(self.update_menu)
