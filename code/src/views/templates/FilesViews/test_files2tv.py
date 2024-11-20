@@ -16,9 +16,10 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
     # Création du fichier de test
-    test_file_name = 'C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code\\src\\functionsExt.py'
-    # file_content = "Ceci est un fichier de test.\nIl contient quelques lignes de texte pour vérifier le contenu."
-    # create_test_file(test_file_name, file_content)
+    # test_file_name = 'C:\\Users\\g.tronche\\Documents\\GitHub\\lan_audacity\\code\\src\\functionsExt.py'
+    test_file_name = "read.txt"
+    file_content = "Ceci est un fichier de test.\nIl contient quelques lignes de texte pour vérifier le contenu."
+    create_test_file(test_file_name, file_content)
 
     # Lancement de l'application Qt
     app = QApplication([])
