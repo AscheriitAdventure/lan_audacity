@@ -120,8 +120,14 @@ class Files2TVU1(QWidget):
         self.layout = QVBoxLayout(self)
 
         self.setAbsolutePathWidget()
-        self.textArea = QTextEdit(self)
+
+        self.textArea = QTableWidget(self)
+        self.textArea.setColumnCount(1)
+        self.textArea.horizontalHeader().hide()
+        self.textArea.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)
+        self.textArea.setShowGrid(False)
         self.layout.addWidget(self.textArea)
+
         self.setTextFile()
     
     def setFilePath(self, file_path: str):
@@ -160,6 +166,15 @@ class Files2TVU1(QWidget):
     
     def setTextFile(self):
         self.textArea.clear()
-        self.textArea.setText(self.file_path.read_text())
+
+        with self.file_path.open() as file:
+            lines = file.readlines()
+            self.textArea.setRowCount(len(lines))
+            for i, line in enumerate(lines):
+                cleanLine = line.rstrip("\n")
+                item = QTableWidgetItem(cleanLine)
+                item.setFlags(Qt.ItemIsEnabled | Qt.ItemIsEditable)
+                self.textArea.setItem(i, 0, item)
+
         
     # def  
