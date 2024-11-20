@@ -1,59 +1,64 @@
-from qtpy.QtWidgets import *
-from qtpy.QtCore import *
-from qtpy.QtGui import *
-import os
-import sys
+from qtpy.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton
+from qtpy.QtCore import Qt
+from qtpy.QtGui import QCursor
 import logging
-from typing import Any, Dict, List, Tuple, Optional
+from typing import List, Optional
 
 
 class QBreadcrumbs(QWidget):
     def __init__(
-            self,
-            spacing: Optional[int] = 1,
-            separator: Optional[QLabel] = QLabel(">"), 
-            parent: Optional[QWidget] = None
-            ):
-        super(QBreadcrumbs, self).__init__(parent)
+        self,
+        list_objects: Optional[List[QWidget | str]] = None,
+        spacing: Optional[int] = 1,
+        separator: Optional[str] = None,
+        parent: Optional[QWidget] = None,
+    ):
+        super().__init__(parent)
 
+        if separator is None:
+            self.separatorCaractere = ">"
+        else:
+            self.separatorCaractere = separator
+        
+        if list_objects is None:
+            self.breadcrumbs = ["Terre", "Europe", "France", "Paris", "Eiffel Tower"]
+        else:
+            self.breadcrumbs = list_objects[:]
+        
         self.layout = QHBoxLayout(self)
-
-        self.rootItem = "<root>"
+        self.setAutoFillBackground(True)
         self.layout.setSpacing(spacing)
-        self.separatorLabel = separator
-        self.breadcrumbs = []
 
-    def setSeparatorLabel(self, separator: QLabel):
-        self.separatorLabel = separator
+        self.setLayoutObjects(self.breadcrumbs)
     
-    def setSpacing(self, spacing: int):
-        self.layout.setSpacing(spacing)
-    
-    def clean_layout(self):
-        """
-        Supprime tous les widgets du layout pour permettre une mise à jour.
-        """
+    def cleanLayout(self):
         for i in reversed(range(self.layout.count())):
-            widget = self.layout.takeAt(i).widget()
+            widget = self.layout.itemAt(i).widget()
             if widget is not None:
                 widget.deleteLater()
+        logging.info("Nettoyage du Layout")
     
-    def generate_breadcrumbs(self, items):
-        self.breadcrumbs = items
+    def setLayoutObjects(self, listObj: List[QWidget | str]):
+        if self.layout.count() > 0:
+            self.cleanLayout()
 
-        for index, item in enumerate(items):
-            # Ajouter le bouton ou label pour l'élément
-            button = QPushButton(item, self)
-            button.setFlat(True)  # Style plat pour ressembler à un lien
-            button.setCursor(Qt.CursorShape.PointingHandCursor)
-            button.clicked.connect(lambda _, idx=index: self.breadcrumb_clicked.emit(idx))
-            self.layout.addWidget(button)
+        for index, obj in enumerate(listObj):
+            if isinstance(obj, QWidget):
+                self.layout.addWidget(obj)
+            elif isinstance(obj, str):
+                btn = QPushButton(obj)
+                btn.setFlat(True)
+                btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+                self.layout.addWidget(btn)
+            
+            if index < len(listObj) - 1:
+                self.layout.addWidget(QLabel(self.separatorCaractere))
+        logging.info("Ajout des éléments dans le Layout")
 
-            # Ajouter le séparateur sauf pour le dernier élément
-            if index < len(items) - 1:
-                self.layout.addWidget(self.separatorLabel)
-    
-    def set_breadcrumbs(self, items):
-        self.clean_layout()  # Nettoyer le layout avant d'ajouter de nouveaux items
-        self.generate_breadcrumbs(items)  # Générer les nouveaux widgets
         self.update()
+
+"""
+    Commentaire:
+        Dans une optique d'évolution de la classe il serait intéressant de pouvoir orienter
+        les éléments de la liste dans un sens ou dans l'autre (droite - gauche, haut - bas).
+"""
