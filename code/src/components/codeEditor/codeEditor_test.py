@@ -1,6 +1,6 @@
 from qtpy.QtWidgets import QApplication
-from src.components.codeEditor.cl_codeEditor import CodeEditorView as CodeEditor
-# from src.views.templates.FilesViews.dev_codeEditor import CodeEditor
+# from src.components.codeEditor.cl_codeEditor import CodeEditorView as CodeEditor
+from src.views.templates.FilesViews.dev_codeEditor import CodeEditor
 import os
 
 

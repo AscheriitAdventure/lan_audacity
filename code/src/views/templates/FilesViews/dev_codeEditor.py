@@ -1,6 +1,8 @@
 from qtpy.QtWidgets import QApplication, QTextEdit, QWidget
 from qtpy.QtGui import QPainter, QColor, QTextFormat, QFont
 from qtpy.QtCore import QRect, Qt, QSize
+import logging
+from typing import Optional
 
 
 class LineNumberArea(QWidget):
@@ -16,8 +18,11 @@ class LineNumberArea(QWidget):
 
 
 class CodeEditor(QTextEdit):
-    def __init__(self):
-        super().__init__()
+    def __init__(
+            self, 
+            locked: Optional[bool] = False,
+            parent: Optional[QWidget] = None):
+        super().__init__(parent)
         self.lineNumberArea = LineNumberArea(self)
         self.blockCountChanged()
         self.textChanged.connect(self.blockCountChanged)
@@ -30,6 +35,12 @@ class CodeEditor(QTextEdit):
         font.setStyleHint(QFont.Monospace)
         self.setFont(font)
         self.setTabStopDistance(40)  # Ajuste la largeur de la tabulation
+        self.setLineWrapMode(QTextEdit.NoWrap)  # Désactive le retour à la ligne automatique
+
+        # Verrouillage
+        self.setReadOnly(locked)
+        logging.debug(f"CodeEditor: locked={locked}")
+        logging.debug(f"LineNumberArea Width: {self.lineNumberAreaWidth()}")
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Tab:  # Gestion de la touche Tab
@@ -48,10 +59,10 @@ class CodeEditor(QTextEdit):
 
     def blockCountChanged(self):
         self.updateLineNumberAreaWidth()
-        self.updateLineNumberArea(self.rect(), 0)
+        self.updateLineNumberArea(self.viewport().rect(), 0)
 
     def updateLineNumberArea(self, rect, dy):
-        if dy:
+        if dy != 0:
             self.lineNumberArea.scroll(0, dy)
         else:
             self.lineNumberArea.update(0, rect.y(), self.lineNumberArea.width(), rect.height())
@@ -63,6 +74,11 @@ class CodeEditor(QTextEdit):
         super().resizeEvent(event)
         cr = self.contentsRect()
         self.lineNumberArea.setGeometry(QRect(cr.left(), cr.top(), self.lineNumberAreaWidth(), cr.height()))
+
+    def scrollContentsBy(self, dx, dy):
+        """Mise à jour lors du défilement."""
+        super().scrollContentsBy(dx, dy)
+        self.updateLineNumberArea(self.viewport().rect(), dy)
 
     def lineNumberAreaPaintEvent(self, event):
         painter = QPainter(self.lineNumberArea)
@@ -102,9 +118,10 @@ class CodeEditor(QTextEdit):
 
 if __name__ == "__main__":
     import sys
+    logging.basicConfig(level=logging.DEBUG)
     app = QApplication(sys.argv)
     editor = CodeEditor()
-    editor.setText("Ligne 1\nLigne 2\nLigne 3\nLigne 4")
+    editor.setText("\n".join(f"Ligne {i}" for i in range(1, 101)))  # Texte avec 100 lignes
     editor.resize(400, 300)
     editor.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
