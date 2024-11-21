@@ -17,3 +17,8 @@ Je compte après déplacement proposer dans Dashboard d'ajouter les cartes : [OK
 
 Ajouter une fonction pour éviter les doublons d'onglets.
 Avec comme objectif de pouvoir accéder aux fichiers sources en cas d'erreur, je vais faire en sorte de pouvoir éditer les fichiers.
+
+### Rapport du 20/11/2024
+### Rapport du 21/11/2024
+
+Recherche de solution pour pouvoir lire/editer un fichier texte.

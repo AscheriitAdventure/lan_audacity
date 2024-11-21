@@ -176,5 +176,137 @@ class Files2TVU1(QWidget):
                 item.setFlags(Qt.ItemIsEnabled | Qt.ItemIsEditable)
                 self.textArea.setItem(i, 0, item)
 
+
+class Files2TVU2(QWidget):
+    def __init__(
+            self,
+            file_path: str,
+            parent: Optional[QWidget] = None
+    ):
+        super(Files2TVU2, self).__init__(parent)
+
+        self.file_path = ""
+        self.setFilePath(file_path)
+        self.layout = QVBoxLayout(self)
+
+        self.setAbsolutePathWidget()
+
+        self.textArea = QPlainTextEdit(self)
+        self.textArea.setReadOnly(True)
+        self.layout.addWidget(self.textArea)
+
+        self.setTextFile()
+    
+    def setFilePath(self, file_path: str):
+        if os.path.exists(file_path):
+            self.file_path = Path(os.path.normpath(file_path))
+        else:
+            self.file_path = ""
+            logging.error("Le fichier n'existe pas")
+    
+    def setAbsolutePathWidget(self):
+        # Barre d'informations (en-tête) -> Chemin Absolu
+        absolute_path = QBreadcrumbs(
+            list_objects=self.breadcrumbsList(),
+            parent=self
+        )
+        self.layout.addWidget(absolute_path, 0, Qt.AlignTop | Qt.AlignLeft)
+    
+    def breadcrumbsList(self) -> List[QPushButton]:
+        listBtn = []
+        # Divise le chemin en une liste
+        list_obj_path = self.file_path.parts
         
-    # def  
+        # Crée un bouton pour chaque élément de la liste
+        for i in range(len(list_obj_path)):
+            btn = QPushButton(list_obj_path[i])
+            fontMetrics = QFontMetrics(btn.font())
+            btn.setFlat(True)
+            btn.setMaximumWidth(fontMetrics.horizontalAdvance(btn.text())+10)
+            # Ajoute un tooltip indiquant le chemin absolu
+            absPath = os.path.abspath(os.sep.join(list_obj_path[:i+1]))
+            btn.setToolTip(absPath)
+            # Ajoute à la liste des boutons
+            listBtn.append(btn)
+        
+        return listBtn
+    
+    def setTextFile(self):
+        self.textArea.clear()
+
+        with self.file_path.open() as file:
+            self.textArea.setPlainText(file.read())
+    
+    def readToEdit(self):
+        if self.textArea.isReadOnly():
+            self.textArea.setReadOnly(False)
+        else:
+            self.textArea.setReadOnly(True)
+
+
+class Files2TVU3(QWidget):
+    def __init__(
+            self,
+            file_path: str,
+            parent: Optional[QWidget] = None
+    ):
+        super(Files2TVU3, self).__init__(parent)
+
+        self.file_path = ""
+        self.setFilePath(file_path)
+        self.layout = QVBoxLayout(self)
+
+        self.setAbsolutePathWidget()
+
+        self.textArea = QTextEdit(self)
+        self.textArea.setReadOnly(True)
+        self.layout.addWidget(self.textArea)
+
+        self.setTextFile()
+    
+    def setFilePath(self, file_path: str):
+        if os.path.exists(file_path):
+            self.file_path = Path(os.path.normpath(file_path))
+        else:
+            self.file_path = ""
+            logging.error("Le fichier n'existe pas")
+    
+    def setAbsolutePathWidget(self):
+        # Barre d'informations (en-tête) -> Chemin Absolu
+        absolute_path = QBreadcrumbs(
+            list_objects=self.breadcrumbsList(),
+            parent=self
+        )
+        self.layout.addWidget(absolute_path, 0, Qt.AlignTop | Qt.AlignLeft)
+    
+    def breadcrumbsList(self) -> List[QPushButton]:
+        listBtn = []
+        # Divise le chemin en une liste
+        list_obj_path = self.file_path.parts
+        
+        # Crée un bouton pour chaque élément de la liste
+        for i in range(len(list_obj_path)):
+            btn = QPushButton(list_obj_path[i])
+            fontMetrics = QFontMetrics(btn.font())
+            btn.setFlat(True)
+            btn.setMaximumWidth(fontMetrics.horizontalAdvance(btn.text())+10)
+            # Ajoute un tooltip indiquant le chemin absolu
+            absPath = os.path.abspath(os.sep.join(list_obj_path[:i+1]))
+            btn.setToolTip(absPath)
+            # Ajoute à la liste des boutons
+            listBtn.append(btn)
+        
+        return listBtn
+    
+    def setTextFile(self):
+        self.textArea.clear()
+
+        with self.file_path.open() as file:
+            self.textArea.setPlainText(file.read())
+    
+    def readToEdit(self):
+        if self.textArea.isReadOnly():
+            self.textArea.setReadOnly(False)
+        else:
+            self.textArea.setReadOnly(True)
+

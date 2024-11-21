@@ -40,7 +40,6 @@ software:
       path: conf/newsUpdate_app.yaml
       encoding: utf-8
       version: 1
-
   
 licences:
   - name: MIT
