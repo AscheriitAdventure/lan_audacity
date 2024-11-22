@@ -168,7 +168,7 @@ class CodeEditorView(QTextEdit):
     Etape 4:
         - [OK] Implémenter la classe au main en dev.
         - [_] Faire les corrections nécessaires (Impératif)
-            - [_] Correction de la gestion de la marge
+            - [_] Correction de la gestion de la marge (axe vertical: erreur) résolu à 40%.
 
 """
 
@@ -225,5 +225,14 @@ class CEVU1(QPlainTextEdit):
     def resizeEvent(self, event):
         """Synchroniser la position et la taille du widget marge."""
         super().resizeEvent(event)
+        self.marginArea.updateLineNumbers()
         cr = self.contentsRect()
-        self.marginArea.setGeometry(QRect(cr.left(), cr.top(), 40, cr.height()))
+
+        totalHeight = 0
+        block = self.firstVisibleBlock()
+        while block.isValid():
+            if block.isVisible():
+                totalHeight += self.blockBoundingRect(block).height()
+            block = block.next()
+
+        self.marginArea.setGeometry(QRect(cr.left(), cr.top(), 40, int(totalHeight)))

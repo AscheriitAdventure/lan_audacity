@@ -11,7 +11,7 @@ from src.functionsExt import current_dir, get_spcValue
 from src.classes.classesExport import *
 
 from src.views.formsApp import NProject
-from src.views.templates.templatesExport import PreferencesViewGeneral, LanAudacityViewGeneral, LanViewGeneral, Tab
+from src.views.templates.templatesExport import PreferencesViewGeneral, LanAudacityViewGeneral, LanViewGeneral, Tab, Files2TV
 from src.views.primarySideBarPanel import GeneralSidePanel, FlsExpl, NetExpl
 
 
@@ -476,10 +476,11 @@ class MainApp(QMainWindow):
                 tab=LanAudacityViewGeneral("Networks", None, self.langManager, self.iconsManager, self),
                 title="Networks")
     
-    def fileExplorerPanelAction(self) -> None:
+    def fileExplorerPanelAction(self, index) -> None:
+        model = self.file_explorer.treeView.model()
         self.primary_center.add_tab(
-            tab=LanAudacityViewGeneral("Explorer", None, self.langManager, self.iconsManager, self),
-            title="Explorer")
+            tab=Files2TV(file_path=model.filePath(index), parent=self),
+            title=model.fileName(index))
 
     def extensionAction(self) -> None:
         if self.extends_explorer.isVisible() is False:

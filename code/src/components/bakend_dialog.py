@@ -167,7 +167,7 @@ class WorkerGetUcList(Worker):
     Worker spécialisé pour récupérer la liste des UC de manière asynchrone.
     """
 
-    def __init__(self, obj_data: Any, parent=None):
+    def __init__(self, obj_data: Network, parent=None):
         super(WorkerGetUcList, self).__init__(obj_data, parent)
 
     def work(self) -> list:
@@ -241,3 +241,5 @@ class SyncWorker(Worker):
             # Mise à jour de la progression
             progress = int((index + 1) / total_hosts * 100)
             self.signals.progress.emit(progress)
+        
+        return nm.all_hosts()

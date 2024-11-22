@@ -249,7 +249,7 @@ class NetExpl(GeneralSidePanel):
                             filePath = os.path.join(self.extObj.absPath, "db", "desktop", fileName)
                             device_data = SwitchFile.json_read(filePath)
                             deviceName = device_data.get('name') if device_data.get('name') else device_data.get('device_ipv4')
-                            self.add_device_to_tree(networkName, deviceName)                    
+                            self.add_device_to_tree(networkName, deviceName)
 
     def addDeviceObj(self, network: Network = None):
         logging.info("Add device")

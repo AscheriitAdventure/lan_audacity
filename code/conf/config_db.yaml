@@ -16,7 +16,7 @@ network:
     - 192.168.70.0/24   # 256 PARIS           XX/256
     - 192.168.110.0/24  # 8 TAZO              XX/10
   community:
-    - ArteEyrein
+    - ArteEyrein # 
     - EyrPub
     - publicEyrChal
     - CIT_:ezZ.G77
