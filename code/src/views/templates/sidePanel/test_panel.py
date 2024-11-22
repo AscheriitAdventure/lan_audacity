@@ -1,6 +1,6 @@
 from qtpy.QtWidgets import *
 from qtpy.QtCore import Qt
-import qtawesome as qta  # Assurez-vous que qtawesome est installé
+import qtawesome as qta
 
 
 """
