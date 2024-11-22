@@ -19,14 +19,12 @@
         3. Création d'un fichier de test
 
 """
-from qtpy.QtWidgets import *
-from qtpy.QtGui import *
-from qtpy.QtCore import *
+from qtpy.QtWidgets import * # PyQt6
+from qtpy.QtGui import * # PyQt6
+from qtpy.QtCore import * # PyQt6
 import logging
-import os
-import sys
 from typing import Optional
-from src.components.codeEditor.cl_line_int_area import LineIntArea
+from src.components.codeEditor.cl_line_int_area import LineIntArea, MarginObjectTextEdit
 
 
 class CodeEditorView(QTextEdit):
@@ -37,7 +35,7 @@ class CodeEditorView(QTextEdit):
         super().__init__(parent)
 
         # Line Number
-        self.lineIntArea = LineIntArea(editor=self)
+        self.lineIntArea = LineIntArea(editor=self, parent=self)
         self.blockCountChanged()
         self.textChanged.connect(self.blockCountChanged)
         self.cursorPositionChanged.connect(self.highlightCurrentLine)
@@ -133,3 +131,99 @@ class CodeEditorView(QTextEdit):
             extraSelections.append(selection)
 
         self.setExtraSelections(extraSelections)   
+
+
+"""
+    Commentaire:
+        Il faut peut être pas tout recommencer mais presque quand même.
+        Les bonnes nouvelles:
+            - nous avons une idée plus claire de ce que nous voulons
+            - la police d'écriture est bonne ainsi que la taille
+            - le surlignage du bloc de texte est bon
+            - la gestion des tabulations est bonne
+            - le verrouillage est bon
+    Outils:
+        - nom complet: Code Editor View Update 1
+        - nom court: CEV
+        - nom de la classe: CEVU1
+        - QtPy(PyQt6)
+        - logging
+        - os
+        - sys
+        - typing
+    Etape 1:
+        - [OK] Création de la classe CEVU1
+        - [OK] Ajout de la police d'écriture et de la taille
+        - [OK] Ajout de la tabulation
+        - [OK] Ajout de la mise en forme du texte
+        - [OK] Ajout du verrouillage
+        - [OK] Ajout de la gestion de la touche Tab
+    Etape 2:
+        - [OK] Ajout de la classe CEVU1 dans le fichier de test
+        - [OK] Test de la classe CEVU1
+        - [En cours] Correction des erreurs
+    Etape 3:
+        - [OK] Ajout de la gestion des numéros de lignes
+        - [OK] Ajout de la gestion du surlignage de la ligne courante
+    Etape 4:
+        - [OK] Implémenter la classe au main en dev.
+        - [_] Faire les corrections nécessaires (Impératif)
+            - [_] Correction de la gestion de la marge
+
+"""
+
+class CEVU1(QPlainTextEdit):
+    def __init__(
+            self, 
+            locked: Optional[bool] = False,
+            parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        
+        self.cursorPositionChanged.connect(self.highlightCurrentLine)
+
+        # Font de la police, Taille de la police
+        font = QFont("Consolas", 11)
+        font.setStyleHint(QFont.Monospace)
+        self.setFont(font)
+        # Tabulation
+        self.setTabStopWidth(40)
+
+        # Verrouillage
+        self.setReadOnly(locked)
+        logging.debug(f"CodeEditorView: locked={locked}")
+
+        # Vue de la marge à gauche
+        self.marginArea = MarginObjectTextEdit(editor=self, parent=self)
+        self.setViewportMargins(40, 0, 0, 0)
+        
+        # Connecter les signaux nécessaires
+        self.blockCountChanged.connect(self.marginArea.update)
+        self.updateRequest.connect(self.marginArea.update)
+        self.cursorPositionChanged.connect(self.update)
+    
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Tab:
+            cursor = self.textCursor()
+            cursor.insertText(" " * 4)
+        else:
+            super().keyPressEvent(event)
+    
+    def highlightCurrentLine(self):
+        extraSelections = []
+
+        if not self.isReadOnly():
+            selection = QTextEdit.ExtraSelection()
+            lineColor = QColor("#F5F5F5")
+            selection.format.setBackground(lineColor)
+            selection.format.setProperty(QTextFormat.FullWidthSelection, True)
+            selection.cursor = self.textCursor()
+            selection.cursor.clearSelection()
+            extraSelections.append(selection)
+
+        self.setExtraSelections(extraSelections)
+
+    def resizeEvent(self, event):
+        """Synchroniser la position et la taille du widget marge."""
+        super().resizeEvent(event)
+        cr = self.contentsRect()
+        self.marginArea.setGeometry(QRect(cr.left(), cr.top(), 40, cr.height()))

@@ -1,7 +1,7 @@
 import os
 import logging
 from qtpy.QtWidgets import QApplication
-from src.views.templates.FilesViews.filesTextViews import Files2TVU3 as Files2TV  # Assurez-vous que ce chemin est correct
+from src.views.templates.FilesViews.filesTextViews import Files2TVU2 as Files2TV  # Assurez-vous que ce chemin est correct
 
 
 # Fonction pour créer un fichier de test

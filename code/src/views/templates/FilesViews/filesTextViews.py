@@ -191,8 +191,7 @@ class Files2TVU2(QWidget):
 
         self.setAbsolutePathWidget()
 
-        self.textArea = QPlainTextEdit(self)
-        self.textArea.setReadOnly(True)
+        self.textArea = CodeEditor(locked=False, parent=self)
         self.layout.addWidget(self.textArea)
 
         self.setTextFile()
