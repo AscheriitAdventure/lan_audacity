@@ -18,11 +18,13 @@ class MainWindow(QMainWindow):
         dock1 = self.create_dock("Dock 1", "fa5s.home", "Contenu Dock 1")
         dock2 = self.create_dock("Dock 2", "fa5s.cog", "Contenu Dock 2")
         dock3 = self.create_dock("Dock 3", "fa5s.info", "Contenu Dock 3")
+        dock4 = self.create_dock("Dock 4", "fa5s.info", "Contenu Dock 4")
 
         # Ajouter les docks dans la même zone
         self.addDockWidget(Qt.LeftDockWidgetArea, dock1)
         self.addDockWidget(Qt.LeftDockWidgetArea, dock2)
         self.addDockWidget(Qt.LeftDockWidgetArea, dock3)
+        self.addDockWidget(Qt.RightDockWidgetArea, dock4)
 
         # Configurer la position des onglets pour la zone gauche
         self.setTabPosition(Qt.LeftDockWidgetArea, QTabWidget.West)
