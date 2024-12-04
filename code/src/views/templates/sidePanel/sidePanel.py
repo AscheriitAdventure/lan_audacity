@@ -2,7 +2,7 @@ import logging
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 from qtpy.QtCore import *
-from typing import OptionalS
+from typing import Optional
 
 from src.classes.classesExport import *
 from src.views.templates.templatesExport import *
@@ -26,4 +26,29 @@ from src.views.templates.templatesExport import *
     
 """
 
-# class SidePanel(QWidget):
+class SidePanel(QWidget):
+    extObjChanged = Signal()
+
+    def __init__(self, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self.setObjectName("sidePanel")
+
+
+class FileExplorerPanel(QDockWidget):
+    def __init__(
+            self,
+            path: str, 
+            parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self.setWindowTitle("Explorer".upper())
+        self.setAllowedAreas(Qt.DockWidgetArea.LeftDockWidgetArea)
+        self.setFeatures(QDockWidget.DockWidgetFeature.DockWidgetFeatureMask)
+
+        self.treeView = QTreeView()
+        self.model = QFileSystemModel()
+        self.model.setRootPath(path)
+        self.treeView.setModel(self.model)
+        self.treeView.setRootIndex(self.model.index(path))
+        self.setWidget(self.treeView)
+
+        

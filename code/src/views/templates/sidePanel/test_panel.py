@@ -30,8 +30,8 @@ class MainWindow(QMainWindow):
         self.setTabPosition(Qt.LeftDockWidgetArea, QTabWidget.West)
 
         # Activer le mode de tabulation pour regrouper les docks
-        self.tabifyDockWidget(dock1, dock2)
-        self.tabifyDockWidget(dock2, dock3)
+        # self.tabifyDockWidget(dock1, dock2)
+        # self.tabifyDockWidget(dock2, dock3)
 
     def create_dock(self, title, icon_name, content_text):
         """
