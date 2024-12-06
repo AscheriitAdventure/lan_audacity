@@ -1,0 +1,6 @@
+.idea/
+.vsc/
+.venv/
+__pycache__/
+*.py[cod]
+# *.log

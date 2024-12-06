@@ -1,0 +1,58 @@
+[
+    {
+      "name_action": "New Network",
+      "keyshortcut": "Alt+F2"
+    },
+    {
+      "name_action": "New Project",
+      "keyshortcut": "Ctrl+N"
+    },
+    {
+      "name_action": "New Window",
+      "keyshortcut": "Ctrl+Maj+N"
+    },
+    {
+      "name_action": "Save",
+      "keyshortcut": "Ctrl+S"
+    },
+    {
+      "name_action": "Save as...",
+      "keyshortcut": "Ctrl+Maj+S"
+    },
+    {
+      "name_action": "Export",
+      "keyshortcut": "Ctrl+E"
+    },
+    {
+      "name_action": "Export as...",
+      "keyshortcut": "Ctrl+Maj+E"
+    },
+    {
+      "name_action": "New Terminal",
+      "keyshortcut": "Ctrl+Maj+<"
+    },
+    {
+      "name_action": "&Exit",
+      "keyshortcut": "Alt+F4"
+    },
+    {
+      "name_action": "&Preferences",
+      "keyshortcut": "Ctrl+,"
+    },
+    {
+      "name_action": "&Home",
+      "keyshortcut": "Alt+F1"
+    },
+    {
+      "name_action": "Show/Hide Terminal",
+      "keyshortcut": "Ctrl+<"
+    },
+    {
+      "name_action": "Show/Hide Toolbar",
+      "keyshortcut": "Ctrl+Tabulation+P"
+    },
+    {
+      "name_action": "Full Screen",
+      "keyshortcut": "F11"
+    }
+  ]

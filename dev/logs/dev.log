@@ -1,0 +1,714 @@
+2024-12-04 16:37:18,639 - INFO - Application démarrée.
+2024-12-04 16:37:18,642 - DEBUG - Mode débogage activé.
+2024-12-04 16:37:18,643 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 10:34:23,644 - INFO - Application démarrée.
+2024-12-05 10:34:23,647 - DEBUG - Mode débogage activé.
+2024-12-05 10:34:23,648 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 10:34:23,648 - INFO - Connexion à la base de données.
+2024-12-05 10:34:23,909 - INFO - Connection to MySQL database was successful
+2024-12-05 10:34:23,910 - INFO - Connexion établie.
+2024-12-05 10:34:23,910 - INFO - MySQL connection is closed
+2024-12-05 15:07:46,424 - INFO - Application démarrée.
+2024-12-05 15:07:46,424 - DEBUG - Mode débogage activé.
+2024-12-05 15:07:46,424 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:07:46,647 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:07:46,657 - INFO - Data fetched successfully
+2024-12-05 15:07:46,657 - INFO - Users table is not empty
+2024-12-05 15:07:46,660 - INFO - Data fetched successfully
+2024-12-05 15:07:46,660 - INFO - OSI Layers table is complete
+2024-12-05 15:07:46,663 - INFO - Data fetched successfully
+2024-12-05 15:07:46,663 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:07:46,663 - INFO - Generate default Device Types
+2024-12-05 15:08:52,577 - INFO - Application démarrée.
+2024-12-05 15:08:52,579 - DEBUG - Mode débogage activé.
+2024-12-05 15:08:52,579 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:08:52,714 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:08:52,720 - INFO - Data fetched successfully
+2024-12-05 15:08:52,720 - INFO - Users table is not empty
+2024-12-05 15:08:52,725 - INFO - Data fetched successfully
+2024-12-05 15:08:52,725 - INFO - OSI Layers table is complete
+2024-12-05 15:08:52,728 - INFO - Data fetched successfully
+2024-12-05 15:08:52,729 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:08:52,729 - INFO - Generate default Device Types
+2024-12-05 15:08:52,729 - DEBUG - None
+2024-12-05 15:11:23,906 - INFO - Application démarrée.
+2024-12-05 15:11:23,908 - DEBUG - Mode débogage activé.
+2024-12-05 15:11:23,908 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:11:24,015 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:11:24,018 - INFO - Data fetched successfully
+2024-12-05 15:11:24,019 - INFO - Users table is not empty
+2024-12-05 15:11:24,019 - INFO - Data fetched successfully
+2024-12-05 15:11:24,020 - INFO - OSI Layers table is complete
+2024-12-05 15:11:24,020 - INFO - Data fetched successfully
+2024-12-05 15:11:24,021 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:11:24,021 - INFO - Generate default Device Types
+2024-12-05 15:11:24,021 - DEBUG - backup/resources/type_object.json
+2024-12-05 15:19:03,148 - INFO - Application démarrée.
+2024-12-05 15:19:03,148 - DEBUG - Mode débogage activé.
+2024-12-05 15:19:03,149 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:19:03,257 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:19:03,262 - INFO - Data fetched successfully
+2024-12-05 15:19:03,262 - INFO - Users table is not empty
+2024-12-05 15:19:03,265 - INFO - Data fetched successfully
+2024-12-05 15:19:03,265 - INFO - OSI Layers table is complete
+2024-12-05 15:19:03,270 - INFO - Data fetched successfully
+2024-12-05 15:19:03,270 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:19:03,271 - INFO - Generate default Device Types
+2024-12-05 15:19:03,271 - DEBUG - backup/resources/type_object.json
+2024-12-05 15:19:03,277 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,277 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,278 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils sur un rÃ©seau')' at line 1'
+2024-12-05 15:19:03,278 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un ordinateur en signaux analogiques pour la transmission sur un rÃ©seau de do' at line 1'
+2024-12-05 15:19:03,279 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,279 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,280 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,280 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils, souvent dans le cadre d'un rÃ©seau informatique')' at line 1'
+2024-12-05 15:19:03,281 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exploitation gÃ©nÃ©raux tels que Linux et Windows. Cette catÃ©gorie est in' at line 1'
+2024-12-05 15:19:03,281 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'avec un routeur. Cette catÃ©gorie inclut Ã©galement des Ã©lÃ©ments comme' at line 1'
+2024-12-05 15:19:03,282 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADSL, la fibre optique, etc. Certains de ces appareils fournissent une traductio' at line 1'
+2024-12-05 15:19:03,282 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un rÃ©seau. Certains ont Ã©galement des capacitÃ©s supplÃ©mentaires. Cet' at line 1'
+2024-12-05 15:19:03,283 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,284 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,284 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,285 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Ã©quipements audiovisuels, y compris les lecteurs de musique portables, les sy' at line 1'
+2024-12-05 15:19:03,285 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'intÃ©rieur d'une organisation privÃ©e et les connecte au rÃ©seau tÃ©lÃ' at line 1'
+2024-12-05 15:19:03,286 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tÃ©lÃ©phone'')' at line 1'
+2024-12-05 15:19:03,286 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'est pas un tÃ©lÃ©phone VoIP. Les appareils de cette catÃ©gorie sont gÃ©n' at line 1'
+2024-12-05 15:19:03,287 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alimentation tels que les alimentations sans coupure et les parasurtenseurs')' at line 1'
+2024-12-05 15:19:03,287 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression intÃ©grÃ©')' at line 1'
+2024-12-05 15:19:03,288 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression connecte une imprimante Ã  un rÃ©seau. Les imprimantes qui contie' at line 1'
+2024-12-05 15:19:03,288 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,289 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres Ã©quipements')' at line 1'
+2024-12-05 15:19:03,289 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Ã©tendre un rÃ©seau')' at line 1'
+2024-12-05 15:19:03,289 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pare-feu' appartient Ã  cette catÃ©gorie. Cela inclut la dÃ©tection et la ' at line 1'
+2024-12-05 15:19:03,290 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,291 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,291 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,292 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,293 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,293 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,294 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,294 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un protocole VoIP')' at line 1'
+2024-12-05 15:19:03,295 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accÃ¨s sans fil offrent une connexion sans fil Ã  un rÃ©seau. La plupart f' at line 1'
+2024-12-05 15:19:03,295 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,296 - ERROR - Error: '1054 (42S22): Unknown column 'name_object' in 'field list''
+2024-12-05 15:19:03,296 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accÃ¨s Ã  Internet')' at line 1'
+2024-12-05 15:19:03,297 - INFO - MySQL connection is closed
+2024-12-05 15:19:03,297 - INFO - Chargement de l'interface graphique.
+2024-12-05 15:19:03,297 - INFO - Lan Audacity démarrée.
+2024-12-05 15:21:21,833 - INFO - Application démarrée.
+2024-12-05 15:21:21,834 - DEBUG - Mode débogage activé.
+2024-12-05 15:21:21,834 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:21:21,982 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:21:21,988 - INFO - Data fetched successfully
+2024-12-05 15:21:21,988 - INFO - Users table is not empty
+2024-12-05 15:21:21,990 - INFO - Data fetched successfully
+2024-12-05 15:21:21,991 - INFO - OSI Layers table is complete
+2024-12-05 15:21:21,992 - INFO - Data fetched successfully
+2024-12-05 15:21:21,992 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:21:21,993 - INFO - Generate default Device Types
+2024-12-05 15:21:21,993 - DEBUG - backup/resources/type_object.json
+2024-12-05 15:21:22,001 - INFO - Query executed successfully
+2024-12-05 15:21:22,004 - INFO - Query executed successfully
+2024-12-05 15:21:22,005 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils sur un rÃ©seau')' at line 1'
+2024-12-05 15:21:22,006 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un ordinateur en signaux analogiques pour la transmission sur un rÃ©seau de do' at line 1'
+2024-12-05 15:21:22,018 - INFO - Query executed successfully
+2024-12-05 15:21:22,021 - INFO - Query executed successfully
+2024-12-05 15:21:22,024 - INFO - Query executed successfully
+2024-12-05 15:21:22,025 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils, souvent dans le cadre d'un rÃ©seau informatique')' at line 1'
+2024-12-05 15:21:22,026 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exploitation gÃ©nÃ©raux tels que Linux et Windows. Cette catÃ©gorie est in' at line 1'
+2024-12-05 15:21:22,026 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'avec un routeur. Cette catÃ©gorie inclut Ã©galement des Ã©lÃ©ments comme' at line 1'
+2024-12-05 15:21:22,027 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADSL, la fibre optique, etc. Certains de ces appareils fournissent une traductio' at line 1'
+2024-12-05 15:21:22,028 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un rÃ©seau. Certains ont Ã©galement des capacitÃ©s supplÃ©mentaires. Cet' at line 1'
+2024-12-05 15:21:22,030 - INFO - Query executed successfully
+2024-12-05 15:21:22,032 - INFO - Query executed successfully
+2024-12-05 15:21:22,034 - INFO - Query executed successfully
+2024-12-05 15:21:22,035 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Ã©quipements audiovisuels, y compris les lecteurs de musique portables, les sy' at line 1'
+2024-12-05 15:21:22,036 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'intÃ©rieur d'une organisation privÃ©e et les connecte au rÃ©seau tÃ©lÃ' at line 1'
+2024-12-05 15:21:22,037 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tÃ©lÃ©phone'')' at line 1'
+2024-12-05 15:21:22,037 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'est pas un tÃ©lÃ©phone VoIP. Les appareils de cette catÃ©gorie sont gÃ©n' at line 1'
+2024-12-05 15:21:22,038 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alimentation tels que les alimentations sans coupure et les parasurtenseurs')' at line 1'
+2024-12-05 15:21:22,039 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression intÃ©grÃ©')' at line 1'
+2024-12-05 15:21:22,039 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression connecte une imprimante Ã  un rÃ©seau. Les imprimantes qui contie' at line 1'
+2024-12-05 15:21:22,041 - INFO - Query executed successfully
+2024-12-05 15:21:22,043 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres Ã©quipements')' at line 1'
+2024-12-05 15:21:22,043 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Ã©tendre un rÃ©seau')' at line 1'
+2024-12-05 15:21:22,044 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pare-feu' appartient Ã  cette catÃ©gorie. Cela inclut la dÃ©tection et la ' at line 1'
+2024-12-05 15:21:22,047 - INFO - Query executed successfully
+2024-12-05 15:21:22,049 - INFO - Query executed successfully
+2024-12-05 15:21:22,052 - INFO - Query executed successfully
+2024-12-05 15:21:22,055 - INFO - Query executed successfully
+2024-12-05 15:21:22,057 - INFO - Query executed successfully
+2024-12-05 15:21:22,059 - INFO - Query executed successfully
+2024-12-05 15:21:22,061 - INFO - Query executed successfully
+2024-12-05 15:21:22,062 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un protocole VoIP')' at line 1'
+2024-12-05 15:21:22,063 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accÃ¨s sans fil offrent une connexion sans fil Ã  un rÃ©seau. La plupart f' at line 1'
+2024-12-05 15:21:22,066 - INFO - Query executed successfully
+2024-12-05 15:21:22,071 - INFO - Query executed successfully
+2024-12-05 15:21:22,073 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accÃ¨s Ã  Internet')' at line 1'
+2024-12-05 15:21:22,074 - INFO - MySQL connection is closed
+2024-12-05 15:21:22,075 - INFO - Chargement de l'interface graphique.
+2024-12-05 15:21:22,076 - INFO - Lan Audacity démarrée.
+2024-12-05 15:27:24,765 - INFO - Application démarrée.
+2024-12-05 15:27:24,766 - DEBUG - Mode débogage activé.
+2024-12-05 15:27:24,766 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:27:24,882 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:27:24,885 - INFO - Data fetched successfully
+2024-12-05 15:27:24,885 - INFO - Users table is not empty
+2024-12-05 15:27:24,885 - INFO - Data fetched successfully
+2024-12-05 15:27:24,886 - INFO - OSI Layers table is complete
+2024-12-05 15:27:24,886 - INFO - Data fetched successfully
+2024-12-05 15:27:24,887 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:27:24,887 - INFO - Generate default Device Types
+2024-12-05 15:27:24,887 - DEBUG - backup/resources/type_object.json
+2024-12-05 15:27:24,891 - INFO - Query executed successfully
+2024-12-05 15:27:24,893 - INFO - Query executed successfully
+2024-12-05 15:27:24,893 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils sur un réseau')' at line 1'
+2024-12-05 15:27:24,894 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un ordinateur en signaux analogiques pour la transmission sur un réseau de donn' at line 1'
+2024-12-05 15:27:24,896 - INFO - Query executed successfully
+2024-12-05 15:27:24,898 - INFO - Query executed successfully
+2024-12-05 15:27:24,899 - INFO - Query executed successfully
+2024-12-05 15:27:24,900 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils, souvent dans le cadre d'un réseau informatique')' at line 1'
+2024-12-05 15:27:24,900 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exploitation généraux tels que Linux et Windows. Cette catégorie est indiqué' at line 1'
+2024-12-05 15:27:24,901 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'avec un routeur. Cette catégorie inclut également des éléments comme les pon' at line 1'
+2024-12-05 15:27:24,901 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADSL, la fibre optique, etc. Certains de ces appareils fournissent une traductio' at line 1'
+2024-12-05 15:27:24,902 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un réseau. Certains ont également des capacités supplémentaires. Cette caté' at line 1'
+2024-12-05 15:27:24,903 - INFO - Query executed successfully
+2024-12-05 15:27:24,905 - INFO - Query executed successfully
+2024-12-05 15:27:24,906 - INFO - Query executed successfully
+2024-12-05 15:27:24,907 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'équipements audiovisuels, y compris les lecteurs de musique portables, les syst' at line 1'
+2024-12-05 15:27:24,907 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'intérieur d'une organisation privée et les connecte au réseau téléphonique ' at line 1'
+2024-12-05 15:27:24,908 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'téléphone'')' at line 1'
+2024-12-05 15:27:24,908 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'est pas un téléphone VoIP. Les appareils de cette catégorie sont généraleme' at line 1'
+2024-12-05 15:27:24,909 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alimentation tels que les alimentations sans coupure et les parasurtenseurs')' at line 1'
+2024-12-05 15:27:24,909 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression intégré')' at line 1'
+2024-12-05 15:27:24,910 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression connecte une imprimante à un réseau. Les imprimantes qui contiennen' at line 1'
+2024-12-05 15:27:24,913 - INFO - Query executed successfully
+2024-12-05 15:27:24,913 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres équipements')' at line 1'
+2024-12-05 15:27:24,914 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'étendre un réseau')' at line 1'
+2024-12-05 15:27:24,914 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pare-feu' appartient à cette catégorie. Cela inclut la détection et la préve' at line 1'
+2024-12-05 15:27:24,915 - INFO - Query executed successfully
+2024-12-05 15:27:24,918 - INFO - Query executed successfully
+2024-12-05 15:27:24,918 - INFO - Query executed successfully
+2024-12-05 15:27:24,921 - INFO - Query executed successfully
+2024-12-05 15:27:24,922 - INFO - Query executed successfully
+2024-12-05 15:27:24,923 - INFO - Query executed successfully
+2024-12-05 15:27:24,925 - INFO - Query executed successfully
+2024-12-05 15:27:24,925 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un protocole VoIP')' at line 1'
+2024-12-05 15:27:24,926 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accès sans fil offrent une connexion sans fil à un réseau. La plupart fonctio' at line 1'
+2024-12-05 15:27:24,928 - INFO - Query executed successfully
+2024-12-05 15:27:24,930 - INFO - Query executed successfully
+2024-12-05 15:27:24,930 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accès à Internet')' at line 1'
+2024-12-05 15:27:24,931 - INFO - MySQL connection is closed
+2024-12-05 15:27:24,931 - INFO - Chargement de l'interface graphique.
+2024-12-05 15:27:24,931 - INFO - Lan Audacity démarrée.
+2024-12-05 15:31:36,070 - INFO - Application démarrée.
+2024-12-05 15:31:36,070 - DEBUG - Mode débogage activé.
+2024-12-05 15:31:36,071 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:31:36,202 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:31:36,206 - INFO - Data fetched successfully
+2024-12-05 15:31:36,206 - INFO - Users table is not empty
+2024-12-05 15:31:36,209 - INFO - Data fetched successfully
+2024-12-05 15:31:36,209 - INFO - OSI Layers table is complete
+2024-12-05 15:31:36,212 - INFO - Data fetched successfully
+2024-12-05 15:31:36,213 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:31:36,213 - INFO - Generate default Device Types
+2024-12-05 15:31:36,213 - DEBUG - backup/resources/type_object.json
+2024-12-05 15:31:36,216 - INFO - Query executed successfully
+2024-12-05 15:31:36,219 - INFO - Query executed successfully
+2024-12-05 15:31:36,219 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils sur un réseau')' at line 1'
+2024-12-05 15:31:36,220 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un ordinateur en signaux analogiques pour la transmission sur un réseau de donn' at line 1'
+2024-12-05 15:31:36,221 - INFO - Query executed successfully
+2024-12-05 15:31:36,222 - INFO - Query executed successfully
+2024-12-05 15:31:36,224 - INFO - Query executed successfully
+2024-12-05 15:31:36,224 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres appareils, souvent dans le cadre d'un réseau informatique')' at line 1'
+2024-12-05 15:31:36,225 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exploitation généraux tels que Linux et Windows. Cette catégorie est indiqué' at line 1'
+2024-12-05 15:31:36,225 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'avec un routeur. Cette catégorie inclut également des éléments comme les pon' at line 1'
+2024-12-05 15:31:36,226 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADSL, la fibre optique, etc. Certains de ces appareils fournissent une traductio' at line 1'
+2024-12-05 15:31:36,226 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un réseau. Certains ont également des capacités supplémentaires. Cette caté' at line 1'
+2024-12-05 15:31:36,228 - INFO - Query executed successfully
+2024-12-05 15:31:36,230 - INFO - Query executed successfully
+2024-12-05 15:31:36,231 - INFO - Query executed successfully
+2024-12-05 15:31:36,232 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'équipements audiovisuels, y compris les lecteurs de musique portables, les syst' at line 1'
+2024-12-05 15:31:36,232 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'intérieur d'une organisation privée et les connecte au réseau téléphonique ' at line 1'
+2024-12-05 15:31:36,233 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'téléphone'')' at line 1'
+2024-12-05 15:31:36,233 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'est pas un téléphone VoIP. Les appareils de cette catégorie sont généraleme' at line 1'
+2024-12-05 15:31:36,234 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'alimentation tels que les alimentations sans coupure et les parasurtenseurs')' at line 1'
+2024-12-05 15:31:36,234 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression intégré')' at line 1'
+2024-12-05 15:31:36,235 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'impression connecte une imprimante à un réseau. Les imprimantes qui contiennen' at line 1'
+2024-12-05 15:31:36,236 - INFO - Query executed successfully
+2024-12-05 15:31:36,237 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'autres équipements')' at line 1'
+2024-12-05 15:31:36,237 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'étendre un réseau')' at line 1'
+2024-12-05 15:31:36,238 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'pare-feu' appartient à cette catégorie. Cela inclut la détection et la préve' at line 1'
+2024-12-05 15:31:36,240 - INFO - Query executed successfully
+2024-12-05 15:31:36,241 - INFO - Query executed successfully
+2024-12-05 15:31:36,242 - INFO - Query executed successfully
+2024-12-05 15:31:36,244 - INFO - Query executed successfully
+2024-12-05 15:31:36,245 - INFO - Query executed successfully
+2024-12-05 15:31:36,246 - INFO - Query executed successfully
+2024-12-05 15:31:36,248 - INFO - Query executed successfully
+2024-12-05 15:31:36,248 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'un protocole VoIP')' at line 1'
+2024-12-05 15:31:36,249 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accès sans fil offrent une connexion sans fil à un réseau. La plupart fonctio' at line 1'
+2024-12-05 15:31:36,250 - INFO - Query executed successfully
+2024-12-05 15:31:36,251 - INFO - Query executed successfully
+2024-12-05 15:31:36,253 - ERROR - Error: '1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'accès à Internet')' at line 1'
+2024-12-05 15:31:36,254 - INFO - MySQL connection is closed
+2024-12-05 15:31:36,254 - INFO - Chargement de l'interface graphique.
+2024-12-05 15:31:36,254 - INFO - Lan Audacity démarrée.
+2024-12-05 15:32:49,768 - INFO - Application démarrée.
+2024-12-05 15:32:49,768 - DEBUG - Mode débogage activé.
+2024-12-05 15:32:49,769 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:32:49,866 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:32:49,867 - INFO - Data fetched successfully
+2024-12-05 15:32:49,867 - INFO - Users table is not empty
+2024-12-05 15:32:49,868 - INFO - Data fetched successfully
+2024-12-05 15:32:49,868 - INFO - OSI Layers table is complete
+2024-12-05 15:32:49,870 - INFO - Data fetched successfully
+2024-12-05 15:32:49,870 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:32:49,871 - INFO - Generate default Device Types
+2024-12-05 15:32:49,871 - DEBUG - backup/resources/type_object.json
+2024-12-05 15:32:49,874 - INFO - Query executed successfully
+2024-12-05 15:32:49,876 - INFO - Query executed successfully
+2024-12-05 15:32:49,877 - INFO - Query executed successfully
+2024-12-05 15:32:49,879 - INFO - Query executed successfully
+2024-12-05 15:32:49,881 - INFO - Query executed successfully
+2024-12-05 15:32:49,882 - INFO - Query executed successfully
+2024-12-05 15:32:49,883 - INFO - Query executed successfully
+2024-12-05 15:32:49,885 - INFO - Query executed successfully
+2024-12-05 15:32:49,886 - INFO - Query executed successfully
+2024-12-05 15:32:49,887 - INFO - Query executed successfully
+2024-12-05 15:32:49,889 - INFO - Query executed successfully
+2024-12-05 15:32:49,890 - INFO - Query executed successfully
+2024-12-05 15:32:49,891 - INFO - Query executed successfully
+2024-12-05 15:32:49,893 - INFO - Query executed successfully
+2024-12-05 15:32:49,894 - INFO - Query executed successfully
+2024-12-05 15:32:49,896 - INFO - Query executed successfully
+2024-12-05 15:32:49,897 - INFO - Query executed successfully
+2024-12-05 15:32:49,898 - INFO - Query executed successfully
+2024-12-05 15:32:49,899 - INFO - Query executed successfully
+2024-12-05 15:32:49,901 - INFO - Query executed successfully
+2024-12-05 15:32:49,902 - INFO - Query executed successfully
+2024-12-05 15:32:49,904 - INFO - Query executed successfully
+2024-12-05 15:32:49,905 - INFO - Query executed successfully
+2024-12-05 15:32:49,907 - INFO - Query executed successfully
+2024-12-05 15:32:49,908 - INFO - Query executed successfully
+2024-12-05 15:32:49,910 - INFO - Query executed successfully
+2024-12-05 15:32:49,912 - INFO - Query executed successfully
+2024-12-05 15:32:49,914 - INFO - Query executed successfully
+2024-12-05 15:32:49,915 - INFO - Query executed successfully
+2024-12-05 15:32:49,916 - INFO - Query executed successfully
+2024-12-05 15:32:49,918 - INFO - Query executed successfully
+2024-12-05 15:32:49,920 - INFO - Query executed successfully
+2024-12-05 15:32:49,921 - INFO - Query executed successfully
+2024-12-05 15:32:49,923 - INFO - Query executed successfully
+2024-12-05 15:32:49,924 - INFO - Query executed successfully
+2024-12-05 15:32:49,925 - INFO - Query executed successfully
+2024-12-05 15:32:49,927 - INFO - Query executed successfully
+2024-12-05 15:32:49,928 - INFO - Query executed successfully
+2024-12-05 15:32:49,929 - INFO - MySQL connection is closed
+2024-12-05 15:32:49,929 - INFO - Chargement de l'interface graphique.
+2024-12-05 15:32:49,930 - INFO - Lan Audacity démarrée.
+2024-12-05 15:35:01,543 - INFO - Application démarrée.
+2024-12-05 15:35:01,545 - DEBUG - Mode débogage activé.
+2024-12-05 15:35:01,545 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:35:01,645 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:35:01,646 - INFO - Data fetched successfully
+2024-12-05 15:35:01,646 - INFO - Users table is not empty
+2024-12-05 15:35:01,647 - INFO - Data fetched successfully
+2024-12-05 15:35:01,647 - INFO - OSI Layers table is complete
+2024-12-05 15:35:01,648 - INFO - Data fetched successfully
+2024-12-05 15:35:01,649 - ERROR - ERROR: Device Types table is empty
+2024-12-05 15:35:01,649 - INFO - Generate default Device Types
+2024-12-05 15:35:01,649 - DEBUG - backup/resources/type_object.json
+2024-12-05 15:35:01,653 - INFO - Query executed successfully
+2024-12-05 15:35:01,655 - INFO - Query executed successfully
+2024-12-05 15:35:01,656 - INFO - Query executed successfully
+2024-12-05 15:35:01,658 - INFO - Query executed successfully
+2024-12-05 15:35:01,660 - INFO - Query executed successfully
+2024-12-05 15:35:01,662 - INFO - Query executed successfully
+2024-12-05 15:35:01,663 - INFO - Query executed successfully
+2024-12-05 15:35:01,664 - INFO - Query executed successfully
+2024-12-05 15:35:01,666 - INFO - Query executed successfully
+2024-12-05 15:35:01,668 - INFO - Query executed successfully
+2024-12-05 15:35:01,670 - INFO - Query executed successfully
+2024-12-05 15:35:01,671 - INFO - Query executed successfully
+2024-12-05 15:35:01,673 - INFO - Query executed successfully
+2024-12-05 15:35:01,674 - INFO - Query executed successfully
+2024-12-05 15:35:01,676 - INFO - Query executed successfully
+2024-12-05 15:35:01,677 - INFO - Query executed successfully
+2024-12-05 15:35:01,679 - INFO - Query executed successfully
+2024-12-05 15:35:01,680 - INFO - Query executed successfully
+2024-12-05 15:35:01,682 - INFO - Query executed successfully
+2024-12-05 15:35:01,683 - INFO - Query executed successfully
+2024-12-05 15:35:01,685 - INFO - Query executed successfully
+2024-12-05 15:35:01,686 - INFO - Query executed successfully
+2024-12-05 15:35:01,688 - INFO - Query executed successfully
+2024-12-05 15:35:01,689 - INFO - Query executed successfully
+2024-12-05 15:35:01,691 - INFO - Query executed successfully
+2024-12-05 15:35:01,692 - INFO - Query executed successfully
+2024-12-05 15:35:01,693 - INFO - Query executed successfully
+2024-12-05 15:35:01,695 - INFO - Query executed successfully
+2024-12-05 15:35:01,697 - INFO - Query executed successfully
+2024-12-05 15:35:01,698 - INFO - Query executed successfully
+2024-12-05 15:35:01,700 - INFO - Query executed successfully
+2024-12-05 15:35:01,701 - INFO - Query executed successfully
+2024-12-05 15:35:01,703 - INFO - Query executed successfully
+2024-12-05 15:35:01,704 - INFO - Query executed successfully
+2024-12-05 15:35:01,706 - INFO - Query executed successfully
+2024-12-05 15:35:01,707 - INFO - Query executed successfully
+2024-12-05 15:35:01,708 - INFO - Query executed successfully
+2024-12-05 15:35:01,710 - INFO - Query executed successfully
+2024-12-05 15:35:01,710 - INFO - MySQL connection is closed
+2024-12-05 15:35:01,711 - INFO - Chargement de l'interface graphique.
+2024-12-05 15:35:01,711 - INFO - Lan Audacity démarrée.
+2024-12-05 15:35:41,904 - INFO - Application démarrée.
+2024-12-05 15:35:41,906 - DEBUG - Mode débogage activé.
+2024-12-05 15:35:41,906 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 15:35:41,997 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 15:35:41,999 - INFO - Data fetched successfully
+2024-12-05 15:35:42,000 - INFO - Users table is not empty
+2024-12-05 15:35:42,002 - INFO - Data fetched successfully
+2024-12-05 15:35:42,003 - INFO - OSI Layers table is complete
+2024-12-05 15:35:42,010 - INFO - Data fetched successfully
+2024-12-05 15:35:42,010 - INFO - Device Types table is not empty
+2024-12-05 15:35:42,010 - INFO - MySQL connection is closed
+2024-12-05 15:35:42,011 - INFO - Chargement de l'interface graphique.
+2024-12-05 15:35:42,011 - INFO - Lan Audacity démarrée.
+2024-12-05 17:07:40,400 - INFO - Application démarrée.
+2024-12-05 17:07:40,402 - DEBUG - Mode débogage activé.
+2024-12-05 17:07:40,402 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:07:40,830 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:07:40,860 - INFO - Data fetched successfully
+2024-12-05 17:07:40,860 - INFO - Users table is not empty
+2024-12-05 17:07:40,864 - INFO - Data fetched successfully
+2024-12-05 17:07:40,865 - INFO - OSI Layers table is complete
+2024-12-05 17:07:40,868 - INFO - Data fetched successfully
+2024-12-05 17:07:40,869 - INFO - Device Types table is not empty
+2024-12-05 17:07:40,870 - INFO - MySQL connection is closed
+2024-12-05 17:07:40,870 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:07:40,871 - INFO - Lan Audacity démarrée.
+2024-12-05 17:08:49,990 - INFO - Application démarrée.
+2024-12-05 17:08:49,991 - DEBUG - Mode débogage activé.
+2024-12-05 17:08:49,991 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:08:50,102 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:08:50,109 - INFO - Data fetched successfully
+2024-12-05 17:08:50,109 - INFO - Users table is not empty
+2024-12-05 17:08:50,114 - INFO - Data fetched successfully
+2024-12-05 17:08:50,115 - INFO - OSI Layers table is complete
+2024-12-05 17:08:50,120 - INFO - Data fetched successfully
+2024-12-05 17:08:50,120 - INFO - Device Types table is not empty
+2024-12-05 17:08:50,121 - INFO - MySQL connection is closed
+2024-12-05 17:08:50,121 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:08:50,122 - INFO - Lan Audacity démarrée.
+2024-12-05 17:10:05,275 - INFO - Application démarrée.
+2024-12-05 17:10:05,276 - DEBUG - Mode débogage activé.
+2024-12-05 17:10:05,276 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:10:05,360 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:10:05,362 - INFO - Data fetched successfully
+2024-12-05 17:10:05,362 - INFO - Users table is not empty
+2024-12-05 17:10:05,365 - INFO - Data fetched successfully
+2024-12-05 17:10:05,365 - INFO - OSI Layers table is complete
+2024-12-05 17:10:05,368 - INFO - Data fetched successfully
+2024-12-05 17:10:05,369 - INFO - Device Types table is not empty
+2024-12-05 17:10:05,369 - INFO - MySQL connection is closed
+2024-12-05 17:10:05,369 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:10:05,370 - INFO - Lan Audacity démarrée.
+2024-12-05 17:12:04,408 - INFO - Application démarrée.
+2024-12-05 17:12:04,408 - DEBUG - Mode débogage activé.
+2024-12-05 17:12:04,409 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:12:04,510 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:12:04,514 - INFO - Data fetched successfully
+2024-12-05 17:12:04,514 - INFO - Users table is not empty
+2024-12-05 17:12:04,515 - INFO - Data fetched successfully
+2024-12-05 17:12:04,516 - INFO - OSI Layers table is complete
+2024-12-05 17:12:04,518 - INFO - Data fetched successfully
+2024-12-05 17:12:04,518 - INFO - Device Types table is not empty
+2024-12-05 17:12:04,519 - INFO - MySQL connection is closed
+2024-12-05 17:12:04,519 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:12:04,519 - INFO - Lan Audacity démarrée.
+2024-12-05 17:13:35,179 - INFO - Application démarrée.
+2024-12-05 17:13:35,180 - DEBUG - Mode débogage activé.
+2024-12-05 17:13:35,180 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:13:35,294 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:13:35,297 - INFO - Data fetched successfully
+2024-12-05 17:13:35,298 - INFO - Users table is not empty
+2024-12-05 17:13:35,301 - INFO - Data fetched successfully
+2024-12-05 17:13:35,301 - INFO - OSI Layers table is complete
+2024-12-05 17:13:35,302 - INFO - Data fetched successfully
+2024-12-05 17:13:35,303 - INFO - Device Types table is not empty
+2024-12-05 17:13:35,304 - INFO - MySQL connection is closed
+2024-12-05 17:13:35,304 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:13:35,304 - INFO - Lan Audacity démarrée.
+2024-12-05 17:14:46,401 - INFO - Application démarrée.
+2024-12-05 17:14:46,401 - DEBUG - Mode débogage activé.
+2024-12-05 17:14:46,402 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:14:46,498 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:14:46,502 - INFO - Data fetched successfully
+2024-12-05 17:14:46,502 - INFO - Users table is not empty
+2024-12-05 17:14:46,506 - INFO - Data fetched successfully
+2024-12-05 17:14:46,506 - INFO - OSI Layers table is complete
+2024-12-05 17:14:46,509 - INFO - Data fetched successfully
+2024-12-05 17:14:46,510 - INFO - Device Types table is not empty
+2024-12-05 17:14:46,510 - INFO - MySQL connection is closed
+2024-12-05 17:14:46,511 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:14:46,511 - INFO - Lan Audacity démarrée.
+2024-12-05 17:16:33,380 - INFO - Application démarrée.
+2024-12-05 17:16:33,383 - DEBUG - Mode débogage activé.
+2024-12-05 17:16:33,383 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:16:33,472 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:16:33,475 - INFO - Data fetched successfully
+2024-12-05 17:16:33,475 - INFO - Users table is not empty
+2024-12-05 17:16:33,478 - INFO - Data fetched successfully
+2024-12-05 17:16:33,478 - INFO - OSI Layers table is complete
+2024-12-05 17:16:33,480 - INFO - Data fetched successfully
+2024-12-05 17:16:33,481 - INFO - Device Types table is not empty
+2024-12-05 17:16:33,481 - INFO - MySQL connection is closed
+2024-12-05 17:16:33,482 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:16:33,482 - INFO - Lan Audacity démarrée.
+2024-12-05 17:16:55,907 - INFO - Application démarrée.
+2024-12-05 17:16:55,909 - DEBUG - Mode débogage activé.
+2024-12-05 17:16:55,910 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:16:55,992 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:16:55,995 - INFO - Data fetched successfully
+2024-12-05 17:16:55,996 - INFO - Users table is not empty
+2024-12-05 17:16:55,996 - INFO - Data fetched successfully
+2024-12-05 17:16:55,997 - INFO - OSI Layers table is complete
+2024-12-05 17:16:55,999 - INFO - Data fetched successfully
+2024-12-05 17:16:56,000 - INFO - Device Types table is not empty
+2024-12-05 17:16:56,000 - INFO - MySQL connection is closed
+2024-12-05 17:16:56,000 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:16:56,001 - INFO - Lan Audacity démarrée.
+2024-12-05 17:17:21,190 - INFO - Application démarrée.
+2024-12-05 17:17:21,192 - DEBUG - Mode débogage activé.
+2024-12-05 17:17:21,192 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:17:21,287 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:17:21,290 - INFO - Data fetched successfully
+2024-12-05 17:17:21,291 - INFO - Users table is not empty
+2024-12-05 17:17:21,292 - INFO - Data fetched successfully
+2024-12-05 17:17:21,292 - INFO - OSI Layers table is complete
+2024-12-05 17:17:21,294 - INFO - Data fetched successfully
+2024-12-05 17:17:21,294 - INFO - Device Types table is not empty
+2024-12-05 17:17:21,295 - INFO - MySQL connection is closed
+2024-12-05 17:17:21,295 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:17:21,295 - INFO - Lan Audacity démarrée.
+2024-12-05 17:17:43,318 - INFO - Application démarrée.
+2024-12-05 17:17:43,321 - DEBUG - Mode débogage activé.
+2024-12-05 17:17:43,321 - WARNING - Attention, ceci est un avertissement.
+2024-12-05 17:17:43,411 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-05 17:17:43,415 - INFO - Data fetched successfully
+2024-12-05 17:17:43,415 - INFO - Users table is not empty
+2024-12-05 17:17:43,417 - INFO - Data fetched successfully
+2024-12-05 17:17:43,417 - INFO - OSI Layers table is complete
+2024-12-05 17:17:43,419 - INFO - Data fetched successfully
+2024-12-05 17:17:43,421 - INFO - Device Types table is not empty
+2024-12-05 17:17:43,421 - INFO - MySQL connection is closed
+2024-12-05 17:17:43,421 - INFO - Chargement de l'interface graphique.
+2024-12-05 17:17:43,421 - INFO - Lan Audacity démarrée.
+2024-12-06 09:10:29,709 - INFO - Application démarrée.
+2024-12-06 09:10:29,709 - DEBUG - Mode débogage activé.
+2024-12-06 09:10:29,710 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:10:29,863 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:10:29,867 - INFO - Data fetched successfully
+2024-12-06 09:10:29,868 - INFO - Users table is not empty
+2024-12-06 09:10:29,876 - INFO - Data fetched successfully
+2024-12-06 09:10:29,877 - INFO - OSI Layers table is complete
+2024-12-06 09:10:29,880 - INFO - Data fetched successfully
+2024-12-06 09:10:29,881 - INFO - Device Types table is not empty
+2024-12-06 09:10:29,882 - INFO - MySQL connection is closed
+2024-12-06 09:10:29,882 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:10:29,883 - INFO - Lan Audacity démarrée.
+2024-12-06 09:12:27,144 - INFO - Application démarrée.
+2024-12-06 09:12:27,144 - DEBUG - Mode débogage activé.
+2024-12-06 09:12:27,160 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:12:27,176 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:12:27,189 - INFO - Data fetched successfully
+2024-12-06 09:12:27,189 - INFO - Users table is not empty
+2024-12-06 09:12:27,192 - INFO - Data fetched successfully
+2024-12-06 09:12:27,192 - INFO - OSI Layers table is complete
+2024-12-06 09:12:27,195 - INFO - Data fetched successfully
+2024-12-06 09:12:27,195 - INFO - Device Types table is not empty
+2024-12-06 09:12:27,195 - INFO - MySQL connection is closed
+2024-12-06 09:12:27,195 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:12:27,195 - INFO - Lan Audacity démarrée.
+2024-12-06 09:13:17,010 - INFO - Application démarrée.
+2024-12-06 09:13:17,010 - DEBUG - Mode débogage activé.
+2024-12-06 09:13:17,010 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:13:17,026 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:13:17,026 - INFO - Data fetched successfully
+2024-12-06 09:13:17,026 - INFO - Users table is not empty
+2024-12-06 09:13:17,026 - INFO - Data fetched successfully
+2024-12-06 09:13:17,026 - INFO - OSI Layers table is complete
+2024-12-06 09:13:17,042 - INFO - Data fetched successfully
+2024-12-06 09:13:17,042 - INFO - Device Types table is not empty
+2024-12-06 09:13:17,042 - INFO - MySQL connection is closed
+2024-12-06 09:13:17,042 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:13:17,042 - INFO - Lan Audacity démarrée.
+2024-12-06 09:13:48,009 - INFO - Application démarrée.
+2024-12-06 09:13:48,013 - DEBUG - Mode débogage activé.
+2024-12-06 09:13:48,013 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:13:48,040 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:13:48,049 - INFO - Data fetched successfully
+2024-12-06 09:13:48,049 - INFO - Users table is not empty
+2024-12-06 09:13:48,049 - INFO - Data fetched successfully
+2024-12-06 09:13:48,056 - INFO - OSI Layers table is complete
+2024-12-06 09:13:48,059 - INFO - Data fetched successfully
+2024-12-06 09:13:48,059 - INFO - Device Types table is not empty
+2024-12-06 09:13:48,059 - INFO - MySQL connection is closed
+2024-12-06 09:13:48,059 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:13:48,059 - INFO - Lan Audacity démarrée.
+2024-12-06 09:27:50,402 - INFO - Application démarrée.
+2024-12-06 09:27:50,405 - DEBUG - Mode débogage activé.
+2024-12-06 09:27:50,405 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:27:50,427 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:27:50,427 - INFO - Data fetched successfully
+2024-12-06 09:27:50,427 - INFO - Users table is not empty
+2024-12-06 09:27:50,427 - INFO - Data fetched successfully
+2024-12-06 09:27:50,427 - INFO - OSI Layers table is complete
+2024-12-06 09:27:50,427 - INFO - Data fetched successfully
+2024-12-06 09:27:50,427 - INFO - Device Types table is not empty
+2024-12-06 09:27:50,427 - INFO - MySQL connection is closed
+2024-12-06 09:27:50,427 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:27:50,427 - INFO - Lan Audacity démarrée.
+2024-12-06 09:30:08,964 - INFO - Application démarrée.
+2024-12-06 09:30:08,970 - DEBUG - Mode débogage activé.
+2024-12-06 09:30:08,970 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:30:09,106 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:30:09,106 - INFO - Data fetched successfully
+2024-12-06 09:30:09,106 - INFO - Users table is not empty
+2024-12-06 09:30:09,106 - INFO - Data fetched successfully
+2024-12-06 09:30:09,106 - INFO - OSI Layers table is complete
+2024-12-06 09:30:09,106 - INFO - Data fetched successfully
+2024-12-06 09:30:09,106 - INFO - Device Types table is not empty
+2024-12-06 09:30:09,106 - INFO - MySQL connection is closed
+2024-12-06 09:30:09,106 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:30:09,106 - INFO - Lan Audacity démarrée.
+2024-12-06 09:33:54,769 - INFO - Application démarrée.
+2024-12-06 09:33:54,769 - DEBUG - Mode débogage activé.
+2024-12-06 09:33:54,769 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:33:54,795 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:33:54,800 - INFO - Data fetched successfully
+2024-12-06 09:33:54,800 - INFO - Users table is not empty
+2024-12-06 09:33:54,803 - INFO - Data fetched successfully
+2024-12-06 09:33:54,803 - INFO - OSI Layers table is complete
+2024-12-06 09:33:54,805 - INFO - Data fetched successfully
+2024-12-06 09:33:54,805 - INFO - Device Types table is not empty
+2024-12-06 09:33:54,805 - INFO - MySQL connection is closed
+2024-12-06 09:33:54,805 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:33:54,805 - INFO - Lan Audacity démarrée.
+2024-12-06 09:35:07,335 - INFO - Application démarrée.
+2024-12-06 09:35:07,338 - DEBUG - Mode débogage activé.
+2024-12-06 09:35:07,338 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:35:07,360 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:35:07,364 - INFO - Data fetched successfully
+2024-12-06 09:35:07,366 - INFO - Users table is not empty
+2024-12-06 09:35:07,368 - INFO - Data fetched successfully
+2024-12-06 09:35:07,368 - INFO - OSI Layers table is complete
+2024-12-06 09:35:07,372 - INFO - Data fetched successfully
+2024-12-06 09:35:07,372 - INFO - Device Types table is not empty
+2024-12-06 09:35:07,372 - INFO - MySQL connection is closed
+2024-12-06 09:35:07,372 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:35:07,372 - INFO - Lan Audacity démarrée.
+2024-12-06 09:36:27,356 - INFO - Application démarrée.
+2024-12-06 09:36:27,356 - DEBUG - Mode débogage activé.
+2024-12-06 09:36:27,356 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:36:27,388 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:36:27,393 - INFO - Data fetched successfully
+2024-12-06 09:36:27,393 - INFO - Users table is not empty
+2024-12-06 09:36:27,396 - INFO - Data fetched successfully
+2024-12-06 09:36:27,396 - INFO - OSI Layers table is complete
+2024-12-06 09:36:27,398 - INFO - Data fetched successfully
+2024-12-06 09:36:27,398 - INFO - Device Types table is not empty
+2024-12-06 09:36:27,398 - INFO - MySQL connection is closed
+2024-12-06 09:36:27,398 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:36:27,398 - INFO - Lan Audacity démarrée.
+2024-12-06 09:41:40,478 - INFO - Application démarrée.
+2024-12-06 09:41:40,478 - DEBUG - Mode débogage activé.
+2024-12-06 09:41:40,478 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:41:40,514 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:41:40,519 - INFO - Data fetched successfully
+2024-12-06 09:41:40,519 - INFO - Users table is not empty
+2024-12-06 09:41:40,521 - INFO - Data fetched successfully
+2024-12-06 09:41:40,521 - INFO - OSI Layers table is complete
+2024-12-06 09:41:40,525 - INFO - Data fetched successfully
+2024-12-06 09:41:40,525 - INFO - Device Types table is not empty
+2024-12-06 09:41:40,526 - INFO - MySQL connection is closed
+2024-12-06 09:41:40,526 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:41:40,526 - INFO - Lan Audacity démarrée.
+2024-12-06 09:50:16,060 - INFO - Application démarrée.
+2024-12-06 09:50:16,060 - DEBUG - Mode débogage activé.
+2024-12-06 09:50:16,061 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 09:50:16,153 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 09:50:16,156 - INFO - Data fetched successfully
+2024-12-06 09:50:16,156 - INFO - Users table is not empty
+2024-12-06 09:50:16,159 - INFO - Data fetched successfully
+2024-12-06 09:50:16,160 - INFO - OSI Layers table is complete
+2024-12-06 09:50:16,162 - INFO - Data fetched successfully
+2024-12-06 09:50:16,163 - INFO - Device Types table is not empty
+2024-12-06 09:50:16,163 - INFO - MySQL connection is closed
+2024-12-06 09:50:16,163 - INFO - Chargement de l'interface graphique.
+2024-12-06 09:50:16,164 - INFO - Lan Audacity démarrée.
+2024-12-06 10:47:43,558 - INFO - Application démarrée.
+2024-12-06 10:47:43,560 - DEBUG - Mode débogage activé.
+2024-12-06 10:47:43,560 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 10:47:43,808 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 10:47:43,831 - INFO - Data fetched successfully
+2024-12-06 10:47:43,831 - INFO - Users table is not empty
+2024-12-06 10:47:43,836 - INFO - Data fetched successfully
+2024-12-06 10:47:43,836 - INFO - OSI Layers table is complete
+2024-12-06 10:47:43,840 - INFO - Data fetched successfully
+2024-12-06 10:47:43,840 - INFO - Device Types table is not empty
+2024-12-06 10:47:43,841 - INFO - MySQL connection is closed
+2024-12-06 10:47:43,841 - INFO - Chargement de l'interface graphique.
+2024-12-06 10:47:43,841 - INFO - Lan Audacity démarrée.
+2024-12-06 11:34:16,755 - INFO - Application démarrée.
+2024-12-06 11:34:16,755 - DEBUG - Mode débogage activé.
+2024-12-06 11:34:16,755 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 11:34:16,991 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 11:34:17,017 - INFO - Data fetched successfully
+2024-12-06 11:34:17,018 - INFO - Users table is not empty
+2024-12-06 11:34:17,023 - INFO - Data fetched successfully
+2024-12-06 11:34:17,023 - INFO - OSI Layers table is complete
+2024-12-06 11:34:17,027 - INFO - Data fetched successfully
+2024-12-06 11:34:17,028 - INFO - Device Types table is not empty
+2024-12-06 11:34:17,028 - INFO - MySQL connection is closed
+2024-12-06 11:34:17,028 - INFO - Chargement de l'interface graphique.
+2024-12-06 11:34:17,029 - INFO - Lan Audacity démarrée.
+2024-12-06 13:53:23,921 - INFO - Application démarrée.
+2024-12-06 13:53:23,922 - DEBUG - Mode débogage activé.
+2024-12-06 13:53:23,922 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 13:53:24,217 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 13:53:24,243 - INFO - Data fetched successfully
+2024-12-06 13:53:24,244 - INFO - Users table is not empty
+2024-12-06 13:53:24,248 - INFO - Data fetched successfully
+2024-12-06 13:53:24,248 - INFO - OSI Layers table is complete
+2024-12-06 13:53:24,253 - INFO - Data fetched successfully
+2024-12-06 13:53:24,253 - INFO - Device Types table is not empty
+2024-12-06 13:53:24,254 - INFO - MySQL connection is closed
+2024-12-06 13:53:24,254 - INFO - Chargement de l'interface graphique.
+2024-12-06 13:53:24,255 - INFO - Lan Audacity démarrée.
+2024-12-06 13:55:23,066 - INFO - Application démarrée.
+2024-12-06 13:55:23,070 - DEBUG - Mode débogage activé.
+2024-12-06 13:55:23,070 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 13:55:23,109 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 13:55:23,114 - INFO - Data fetched successfully
+2024-12-06 13:55:23,114 - INFO - Users table is not empty
+2024-12-06 13:55:23,117 - INFO - Data fetched successfully
+2024-12-06 13:55:23,117 - INFO - OSI Layers table is complete
+2024-12-06 13:55:23,120 - INFO - Data fetched successfully
+2024-12-06 13:55:23,120 - INFO - Device Types table is not empty
+2024-12-06 13:55:23,121 - INFO - MySQL connection is closed
+2024-12-06 13:55:23,121 - INFO - Chargement de l'interface graphique.
+2024-12-06 13:55:23,122 - INFO - Lan Audacity démarrée.
+2024-12-06 13:56:24,818 - INFO - Application démarrée.
+2024-12-06 13:56:24,820 - DEBUG - Mode débogage activé.
+2024-12-06 13:56:24,821 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 13:56:24,846 - INFO - Connection to DB_LANAUDACITY (MySQL database) was successful
+2024-12-06 13:56:24,848 - INFO - Data fetched successfully
+2024-12-06 13:56:24,849 - INFO - Users table is not empty
+2024-12-06 13:56:24,851 - INFO - Data fetched successfully
+2024-12-06 13:56:24,852 - INFO - OSI Layers table is complete
+2024-12-06 13:56:24,853 - INFO - Data fetched successfully
+2024-12-06 13:56:24,853 - INFO - Device Types table is not empty
+2024-12-06 13:56:24,854 - INFO - MySQL connection is closed
+2024-12-06 13:56:24,855 - INFO - Chargement de l'interface graphique.
+2024-12-06 13:56:24,855 - INFO - Lan Audacity démarrée.

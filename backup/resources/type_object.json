@@ -1,0 +1,230 @@
+[
+    {
+        "osi_layer": 1,
+        "name": "optic fiber",
+        "description": "Utilise des fibres optiques pour transmettre des données à travers des signaux lumineux",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_optical_blue.svg"
+    },
+    {
+        "osi_layer": 1,
+        "name": "ethernet/rj45",
+        "description": "Utilise des câbles Ethernet et des connecteurs RJ45 pour transmettre des données sur un réseau local",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_rj45_blue.svg"
+    },
+    {
+        "osi_layer": 2,
+        "name": "network card",
+        "description": "Carte réseau installée dans un ordinateur pour permettre la communication avec d'autres appareils sur un réseau",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_light_bulb_blue.svg"
+    },
+    {
+        "osi_layer": 2,
+        "name": "modem",
+        "description": "Convertit les signaux numériques d'un ordinateur en signaux analogiques pour la transmission sur un réseau de données analogiques",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_wlc_blue.svg"
+    },
+    {
+        "osi_layer": 2,
+        "name": "switch l2/l2+",
+        "description": "Un commutateur de couche 2 (L2) ou de couche 2+ (L2+) agit comme un pont intelligent, transmettant des trames en fonction des adresses MAC",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_switch_multilayer_blue.svg"
+    },
+    {
+        "osi_layer": 2,
+        "name": "switch l3",
+        "description": "Un commutateur de couche 3 (L3) fonctionne au niveau du réseau et utilise des adresses IP pour acheminer le trafic entre différents réseaux",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_switch_multilayer_blue.svg"
+    },
+    {
+        "osi_layer": 3,
+        "name": "wifi router",
+        "description": "Un routeur WiFi permet de connecter plusieurs appareils à un réseau local sans fil (WiFi) et de les relier à Internet",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_wireless_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "server",
+        "description": "Un serveur est un appareil ou un logiciel qui fournit des fonctionnalités ou des services à d'autres appareils, souvent dans le cadre d'un réseau informatique",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_server_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "general purpose",
+        "description": "Systèmes d'exploitation généraux tels que Linux et Windows. Cette catégorie est indiquée par l'absence de champ d// dans le fichier nmap-service-probes",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_laptop_blue.svg"
+    },
+    {
+        "osi_layer": 2,
+        "name": "bridge",
+        "description": "Un pont combine deux ou plusieurs sous-réseaux en un seul. Avec un pont, cela se produit à un niveau inférieur qu'avec un routeur. Cette catégorie inclut également des éléments comme les ponts Ethernet-to-serial",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_interconnect_blue.svg"
+    },
+    {
+        "osi_layer": 3,
+        "name": "broadband router",
+        "description": "Les appareils de cette catégorie connectent un réseau à Internet via le câble, l'ADSL, la fibre optique, etc. Certains de ces appareils fournissent une traduction d'adresse réseau, un pare-feu, un transfert de port ou d'autres services",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_router2_blue.svg"
+    },
+    {
+        "osi_layer": 4,
+        "name": "firewall",
+        "description": "Un pare-feu contrôle quel trafic est autorisé dans ou hors d'un réseau. Certains ont également des capacités supplémentaires. Cette catégorie n'inclut pas les systèmes d'exploitation généraux qui incluent un pare-feu, mais elle inclut les distributions d'OS construites uniquement pour fonctionner uniquement comme pare-feu",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_firewall_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "game console",
+        "description": "Une console de jeu vidéo comme la Xbox ou la PlayStation",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_coffee_blue.svg"
+    },
+    {
+        "osi_layer": 1,
+        "name": "hub",
+        "description": "Un concentrateur relie des segments de réseau en rebroadcastant tout le trafic. Les hubs sont distincts des commutateurs, qui transmettent sélectivement les paquets uniquement vers les destinations pertinentes",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_hub_blue.svg"
+    },
+    {
+        "osi_layer": 4,
+        "name": "load balancer",
+        "description": "Un appareil qui distribue le trafic entrant à plusieurs appareils pour soulager la charge sur ces appareils",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_loadbalancer_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "media device",
+        "description": "Cette catégorie inclut toutes sortes d'équipements audiovisuels, y compris les lecteurs de musique portables, les systèmes audio domestiques, les téléviseurs et les projecteurs",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_camera_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "PBX",
+        "description": "Private Branch Exchange:\nUn autocommutateur privé, ou PBX, route les appels téléphoniques à l'intérieur d'une organisation privée et les connecte au réseau téléphonique public ou à la VoIP",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_ip_phone_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "PDA",
+        "description": "Personal Digital Assistant:\nUn ordinateur de poche. Les appareils qui sont également des téléphones vont dans la catégorie 'téléphone'",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_phone_wireless_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "phone",
+        "description": " Un téléphone réseau capable qui n'est pas un téléphone VoIP. Les appareils de cette catégorie sont généralement des téléphones mobiles",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_phone_old_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "power-device",
+        "description": "Divers dispositifs d'alimentation tels que les alimentations sans coupure et les parasurtenseurs",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_health_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "printer",
+        "description": "Imprimantes réseau, y compris les imprimantes avec un serveur d'impression intégré",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_printer_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "print server",
+        "description": "Un serveur d'impression connecte une imprimante à un réseau. Les imprimantes qui contiennent leur propre serveur d'impression vont dans la catégorie 'imprimante' au lieu de cela",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_printer_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "proxy server",
+        "description": "Tout type de proxy, y compris les proxies Web et autres serveurs qui mettent en cache des données ou comprennent des protocoles de haut niveau",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_firewall3_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "remote management",
+        "description": "Des dispositifs qui permettent de surveiller ou de gérer à distance des serveurs ou d'autres équipements",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_inspect3_blue.svg"
+    },
+    {
+        "osi_layer": 3,
+        "name": "router",
+        "description": "Les routeurs connectent plusieurs réseaux. Ils sont distincts des concentrateurs et des commutateurs car ils routent les paquets entre différents réseaux au lieu d'étendre un réseau",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_router_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "security-misc",
+        "description": "Tout dispositif de sécurité qui ne rentre pas dans la catégorie 'pare-feu' appartient à cette catégorie. Cela inclut la détection et la prévention des intrusions",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_shield_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "specialized",
+        "description": "La catégorie fourre-tout. Si un appareil ne rentre dans aucune des autres catégories, il est spécialisé. Les exemples dans cette catégorie sont divers et comprennent des choses comme les horloges, les oscilloscopes, les capteurs climatiques, et plus encore",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_template_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "storage-misc",
+        "description": "Des dispositifs de stockage de données comme les lecteurs de bandes et les appareils de stockage en réseau",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_server_blue.svg"
+    },
+    {
+        "osi_layer": 2,
+        "name": "switch",
+        "description": "Un appareil qui étend un réseau en retransmettant sélectivement les paquets. Les commutateurs sont distincts des concentrateurs, qui diffusent tous les paquets",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_switch_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "telecom-misc",
+        "description": "Des dispositifs utilisés par les systèmes téléphoniques qui ne sont pas des PBX, comme la messagerie vocale et les systèmes ISDN",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_isdn_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "terminal",
+        "description": "Un appareil avec un clavier et un écran ayant pour but principal de communiquer directement avec un serveur de terminaux ou un ordinateur central",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_client_vm_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "terminal server",
+        "description": "Un appareil fournissant des installations de terminaux à des clients sur un réseau",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_client_vm_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "VoIP adapter",
+        "description": "Un appareil qui convertit entre les protocoles de voix sur IP (VoIP) et le trafic téléphonique normal",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_phone_cloud_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "VoIP phone",
+        "description": "Un téléphone capable d'un protocole VoIP",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_ip_phone_blue.svg"
+    },
+    {
+        "osi_layer": 3,
+        "name": "WAP",
+        "description": "Wireless Access Point:\nLes points d'accès sans fil offrent une connexion sans fil à un réseau. La plupart fonctionnent avec une technologie radio comme le 802.11b, mais certains utilisent des infrarouges ou autre chose. Les appareils qui pourraient également être mis dans une autre catégorie, comme les routeurs haut débit sans fil, sont mis dans la catégorie WAP car les WAP nécessitent des considérations réseau spéciales",
+        "pixmap_path": "assets/affinity-master/svg/square/blue/sq_wireless_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "webcam",
+        "description": "Tout type de caméra qui stocke ou transmet des images ou des vidéos. Cela inclut tout, des webcams grand public aux caméras de système de sécurité",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_camera_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "cloud",
+        "description": "Un service de cloud computing, comme Amazon EC2 ou Google App Engine",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_router_cloud_blue.svg"
+    },
+    {
+        "osi_layer": 7,
+        "name": "FAI",
+        "description": "Fournisseur d'accès à Internet",
+        "pixmap_path": "assets/affinity-master/svg/circle/blue/c_cloud_blue.svg"
+    }
+]
