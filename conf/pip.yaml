@@ -2,7 +2,7 @@ version: 1
 pip:
   - name: python-dotenv
   - name: PyYAML
-  - name: python-mysql-connector
+  - name: mysql-connector-python
   - name: xmltodict
   - name: QtPy
   - name: PyQt6
