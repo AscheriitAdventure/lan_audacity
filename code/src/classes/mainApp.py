@@ -139,7 +139,7 @@ class MainApp(QMainWindow):
         # Add toolbars
         infobar = QToolBar(self)
         # Set the toolbar to a fixed top position
-        self.addToolBar(Qt.TopToolBarArea, infobar)
+        self.addToolBar(Qt.ToolBarArea.TopToolBarArea, infobar)
         # Add a Spacer
         spacerI = QWidget(self)
         spacerI.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
