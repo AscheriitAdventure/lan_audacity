@@ -728,3 +728,78 @@
 2024-12-06 23:43:31,587 - DEBUG - Mode débogage activé.
 2024-12-06 23:43:31,587 - WARNING - Attention, ceci est un avertissement.
 2024-12-06 23:43:31,638 - ERROR - Error while connecting to MySQL: 1273 (HY000): Unknown collation: 'utf8mb4_0900_ai_ci'
+2024-12-08 13:00:00,655 - INFO - Application démarrée.
+2024-12-08 13:00:00,655 - DEBUG - Mode débogage activé.
+2024-12-08 13:00:00,655 - WARNING - Attention, ceci est un avertissement.
+2024-12-08 13:00:00,684 - INFO - Connection to MySQL database was successful
+2024-12-08 13:00:00,688 - INFO - Data fetched successfully
+2024-12-08 13:00:00,688 - ERROR - ERROR: Users table is empty
+2024-12-08 13:00:00,695 - INFO - Query executed successfully
+2024-12-08 13:00:00,695 - INFO - Query executed successfully
+2024-12-08 13:00:00,696 - INFO - Query executed successfully
+2024-12-08 13:00:00,697 - INFO - Query executed successfully
+2024-12-08 13:00:00,698 - INFO - Query executed successfully
+2024-12-08 13:00:00,698 - INFO - Query executed successfully
+2024-12-08 13:00:00,698 - INFO - Query executed successfully
+2024-12-08 13:00:00,699 - INFO - Query executed successfully
+2024-12-08 13:00:00,700 - INFO - Query executed successfully
+2024-12-08 13:00:00,700 - INFO - Data fetched successfully
+2024-12-08 13:00:00,700 - INFO - OSI Layers table is complete
+2024-12-08 13:00:00,701 - INFO - Data fetched successfully
+2024-12-08 13:00:00,701 - ERROR - ERROR: Device Types table is empty
+2024-12-08 13:00:00,701 - INFO - Generate default Device Types
+2024-12-08 13:00:00,701 - DEBUG - backup/resources/type_object.json
+2024-12-08 13:00:00,703 - INFO - Query executed successfully
+2024-12-08 13:00:00,704 - INFO - Query executed successfully
+2024-12-08 13:00:00,704 - INFO - Query executed successfully
+2024-12-08 13:00:00,704 - INFO - Query executed successfully
+2024-12-08 13:00:00,705 - INFO - Query executed successfully
+2024-12-08 13:00:00,705 - INFO - Query executed successfully
+2024-12-08 13:00:00,705 - INFO - Query executed successfully
+2024-12-08 13:00:00,706 - INFO - Query executed successfully
+2024-12-08 13:00:00,706 - INFO - Query executed successfully
+2024-12-08 13:00:00,706 - INFO - Query executed successfully
+2024-12-08 13:00:00,707 - INFO - Query executed successfully
+2024-12-08 13:00:00,707 - INFO - Query executed successfully
+2024-12-08 13:00:00,707 - INFO - Query executed successfully
+2024-12-08 13:00:00,708 - INFO - Query executed successfully
+2024-12-08 13:00:00,708 - INFO - Query executed successfully
+2024-12-08 13:00:00,708 - INFO - Query executed successfully
+2024-12-08 13:00:00,709 - INFO - Query executed successfully
+2024-12-08 13:00:00,709 - INFO - Query executed successfully
+2024-12-08 13:00:00,709 - INFO - Query executed successfully
+2024-12-08 13:00:00,710 - INFO - Query executed successfully
+2024-12-08 13:00:00,710 - INFO - Query executed successfully
+2024-12-08 13:00:00,710 - INFO - Query executed successfully
+2024-12-08 13:00:00,711 - INFO - Query executed successfully
+2024-12-08 13:00:00,711 - INFO - Query executed successfully
+2024-12-08 13:00:00,711 - INFO - Query executed successfully
+2024-12-08 13:00:00,712 - INFO - Query executed successfully
+2024-12-08 13:00:00,713 - INFO - Query executed successfully
+2024-12-08 13:00:00,713 - INFO - Query executed successfully
+2024-12-08 13:00:00,714 - INFO - Query executed successfully
+2024-12-08 13:00:00,714 - INFO - Query executed successfully
+2024-12-08 13:00:00,715 - INFO - Query executed successfully
+2024-12-08 13:00:00,715 - INFO - Query executed successfully
+2024-12-08 13:00:00,715 - INFO - Query executed successfully
+2024-12-08 13:00:00,716 - INFO - Query executed successfully
+2024-12-08 13:00:00,716 - INFO - Query executed successfully
+2024-12-08 13:00:00,716 - INFO - Query executed successfully
+2024-12-08 13:00:00,717 - INFO - Query executed successfully
+2024-12-08 13:00:00,717 - INFO - Query executed successfully
+2024-12-08 13:00:00,717 - INFO - MySQL connection is closed
+2024-12-08 13:00:00,717 - INFO - Chargement de l'interface graphique.
+2024-12-08 13:00:00,717 - INFO - Lan Audacity démarrée.
+2024-12-08 14:58:02,626 - INFO - Application démarrée.
+2024-12-08 14:58:02,626 - DEBUG - Mode débogage activé.
+2024-12-08 14:58:02,626 - WARNING - Attention, ceci est un avertissement.
+2024-12-08 14:58:02,678 - INFO - Connection to MySQL database was successful
+2024-12-08 14:58:02,679 - INFO - Data fetched successfully
+2024-12-08 14:58:02,679 - INFO - Users table is not empty
+2024-12-08 14:58:02,679 - INFO - Data fetched successfully
+2024-12-08 14:58:02,679 - INFO - OSI Layers table is complete
+2024-12-08 14:58:02,679 - INFO - Data fetched successfully
+2024-12-08 14:58:02,679 - INFO - Device Types table is not empty
+2024-12-08 14:58:02,680 - INFO - MySQL connection is closed
+2024-12-08 14:58:02,680 - INFO - Chargement de l'interface graphique.
+2024-12-08 14:58:02,680 - INFO - Lan Audacity démarrée.

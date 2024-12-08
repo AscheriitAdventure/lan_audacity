@@ -20,7 +20,9 @@ class MySQLConnection:
                 host=self.host,
                 database=self.database,
                 user=self.user,
-                password=self.password
+                password=self.password,
+                charset="utf8mb3",
+                collation="utf8mb3_general_ci",  
             )
             if self.connection.is_connected():
                 logging.info("Connection to MySQL database was successful")
