@@ -712,3 +712,19 @@
 2024-12-06 13:56:24,854 - INFO - MySQL connection is closed
 2024-12-06 13:56:24,855 - INFO - Chargement de l'interface graphique.
 2024-12-06 13:56:24,855 - INFO - Lan Audacity démarrée.
+2024-12-06 23:07:59,657 - INFO - Application démarrée.
+2024-12-06 23:07:59,657 - DEBUG - Mode débogage activé.
+2024-12-06 23:07:59,657 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 23:08:00,194 - ERROR - Error while connecting to MySQL: 1273 (HY000): Unknown collation: 'utf8mb4_0900_ai_ci'
+2024-12-06 23:08:45,170 - INFO - Application démarrée.
+2024-12-06 23:08:45,170 - DEBUG - Mode débogage activé.
+2024-12-06 23:08:45,171 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 23:08:45,198 - ERROR - Error while connecting to MySQL: 1273 (HY000): Unknown collation: 'utf8mb4_0900_ai_ci'
+2024-12-06 23:36:39,335 - INFO - Application démarrée.
+2024-12-06 23:36:39,336 - DEBUG - Mode débogage activé.
+2024-12-06 23:36:39,336 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 23:36:39,392 - ERROR - Error while connecting to MySQL: 1273 (HY000): Unknown collation: 'utf8mb4_0900_ai_ci'
+2024-12-06 23:43:31,587 - INFO - Application démarrée.
+2024-12-06 23:43:31,587 - DEBUG - Mode débogage activé.
+2024-12-06 23:43:31,587 - WARNING - Attention, ceci est un avertissement.
+2024-12-06 23:43:31,638 - ERROR - Error while connecting to MySQL: 1273 (HY000): Unknown collation: 'utf8mb4_0900_ai_ci'

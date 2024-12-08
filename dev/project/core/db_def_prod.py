@@ -1,5 +1,5 @@
 from typing import Optional
-from dev.project.src.obj_class.sql_server import MySQLConnection as SQLServer
+from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
 import time
 import logging
 import uuid
