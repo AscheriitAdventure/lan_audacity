@@ -4,4 +4,4 @@
 __pycache__/
 *.py[cod]
 *.log
-*.mib
+assets/snmp-mibs/
