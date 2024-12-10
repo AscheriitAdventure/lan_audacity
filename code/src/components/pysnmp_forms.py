@@ -1,4 +1,4 @@
-from pysnmp.hlapi import *
+from pysnmp.hlapi.v3arch.asyncio import *
 import logging
 
 
@@ -34,7 +34,7 @@ class PysnmpForm:
     def snmp_publicWalk(self, ipv4: str) -> None:
         data: dict = {}
         errorIndication, errorStatus, errorIndex, varBinds = next(
-            getCmd(
+            get_cmd(
                 SnmpEngine(),
                 CommunityData(self.communityPwd, mpModel=1),  # SNMPv2c
                 UdpTransportTarget((ipv4, 161)),
@@ -80,7 +80,7 @@ class PysnmpForm:
         try:
             # Interroger l'agent SNMP en utilisant l'OID sysObjectID
             errorIndication, errorStatus, errorIndex, varBinds = next(
-                getCmd(
+                get_cmd(
                     SnmpEngine(),
                     CommunityData(self.communityPwd, mpModel=1),  # SNMPv2c pour la communauté privée
                     UdpTransportTarget((ipv4, self.portListened)),
