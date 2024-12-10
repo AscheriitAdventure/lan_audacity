@@ -15,6 +15,24 @@ from dev.project.src.classes.cl_mainGUI import MainGUI
 VAR_GLOBAL_ENV = ".env"
 VAR_RUN_ENV = os.path.join("dev",".env.dev")
 
+# Chargement des ressources de l'application via git
+def load_resources():
+    git_repository = [
+        "https://github.com/ecceman/affinity.git",
+        "https://github.com/trevoro/snmp-mibs.git"
+    ]
+    # Check if the assets directory exists
+    if not os.path.exists("assets/"):
+        os.mkdir("assets/")
+
+    for repo in git_repository:
+        repo_name = repo.split('/')[-1].replace('.git', '')
+        if os.path.exists(f"assets/{repo_name}"):
+            logging.info(f"Repository {repo_name} already cloned.")
+        else:
+            # placement du répertoire de ressources 'asssets' dans le répertoire de l'application
+            os.system(f"git clone {repo} assets/")
+            
 
 # Load the environment variables
 def load_env_vars():
