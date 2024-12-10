@@ -15,4 +15,5 @@ pip:
   - name: python-nmap
   - name: pysnmp
   - name: asyncio
+  - name: ipaddress
 #  - name:
