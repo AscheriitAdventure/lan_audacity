@@ -34,7 +34,7 @@ inputMibs = [
     'DISMAN-EVENT-MIB',
     'EXPRESSION-MIB',
 ]
-srcDirectories = ['D:/lan_audacity/assets/snmp-mibs/mibs/']
+srcDirectories = ['D:/lan_audacity/assets/snmp-mibs/mibs']
 dstDirectory = 'D:/lan_audacity/backup/dev/py_mibs'
 
 # Initialize compiler infrastructure
