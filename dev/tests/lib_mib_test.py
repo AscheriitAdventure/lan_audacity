@@ -2,7 +2,7 @@ from pysnmp.smi import builder, view, compiler
 from pysnmp.smi.rfc1902 import ObjectIdentity
 
 
-VAR_SRC_MIBS = 'D:/lan_audacity/assets/libs/mibs'
+VAR_SRC_MIBS = 'file://D:/lan_audacity/assets/libs/mibs'
 
 # Charger les fichiers MIB
 mibBuilder = builder.MibBuilder()

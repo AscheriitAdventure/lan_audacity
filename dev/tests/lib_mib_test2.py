@@ -57,7 +57,7 @@ def fetch_and_compile_mib(mib_name: str) -> bool:
     # Compiler la MIB
     try:
         logging.info(f"Compilation du fichier MIB : {mib_file}")
-        mibBuilder.loadModules(mib_name)
+        mibBuilder.load_modules(mib_name)
         logging.info(f"MIB {mib_name} compilée avec succès.")
         return True
     except Exception as e:

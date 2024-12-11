@@ -26,7 +26,12 @@ from pysmi.parser import SmiStarParser
 from pysmi.codegen import PySnmpCodeGen
 from pysmi.compiler import MibCompiler
 
+from urllib.parse import urljoin
+from urllib.request import pathname2url
+import sys
+
 inputMibs = [
+    'RFC1213-MIB'
     'IP-MIB',
     'IP-FORWARD-MIB',
     'IF-MIB',
@@ -34,9 +39,11 @@ inputMibs = [
     'DISMAN-EVENT-MIB',
     'EXPRESSION-MIB',
 ]
-srcDirectories = ['D:/lan_audacity/assets/snmp-mibs/mibs']
-dstDirectory = 'D:/lan_audacity/backup/dev/py_mibs'
+srcDirectories = ['D:/lan_audacity/assets/snmp-mibs/mibs', 'http://mibs.snmplabs.com/asn1/@mib@']
+dstDirectory = urljoin('file:', pathname2url('D:/lan_audacity/backup/dev/py_mibs'))
 
+print(dstDirectory)
+sys.exit(0)
 # Initialize compiler infrastructure
 
 mibCompiler = MibCompiler(SmiStarParser(), PySnmpCodeGen(), PyFileWriter(dstDirectory))
@@ -55,6 +62,9 @@ mibCompiler.add_searchers(
 mibCompiler.add_searchers(StubSearcher(*PySnmpCodeGen.baseMibs))
 
 # run [possibly recursive] MIB compilation
-results = mibCompiler.compile(*inputMibs)  # , rebuild=True, genTexts=True)
+try:
+    results = mibCompiler.compile(*inputMibs, rebuild=True, genTexts=True)
+except Exception as e:
+    print(f"Compilation error: {e}")
 
 print(f"Results: {', '.join(f'{x}:{results[x]}' for x in results)}")

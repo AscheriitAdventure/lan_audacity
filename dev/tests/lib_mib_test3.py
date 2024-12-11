@@ -65,6 +65,7 @@ def fetch_and_compile_mib(mib_name: str) -> bool:
         return False
 
 mib_list = [
+    'RFC1213-MIB',
     'IP-MIB',
     'IP-FORWARD-MIB',
     'IF-MIB',

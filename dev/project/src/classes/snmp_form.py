@@ -7,7 +7,6 @@ from pysnmp.hlapi.v3arch.asyncio import * # Connexion avec SNMP
 from pysnmp.smi import builder, view, compiler, rfc1902 # Gestion des OID
 
 
-
 VAR_MIB_SRC = 'http://mibs.snmplabs.com/asn1/@mib@'
 
 class SnmpForm:
