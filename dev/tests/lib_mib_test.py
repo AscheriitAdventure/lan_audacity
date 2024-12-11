@@ -2,7 +2,7 @@ from pysnmp.smi import builder, view, compiler
 from pysnmp.smi.rfc1902 import ObjectIdentity
 
 
-VAR_SRC_MIBS = 'file://D:/lan_audacity/assets/libs/mibs'
+VAR_SRC_MIBS = 'file://D:/lan_audacity/backup/dev/py_mibs'
 
 # Charger les fichiers MIB
 mibBuilder = builder.MibBuilder()
@@ -24,7 +24,8 @@ for mib in mib_list:
     try:
         mibBuilder.load_modules(mib)
     except Exception as e:
-        print(f"Erreur lors du chargement du module {mib} : {e}")
+        # print(f"Erreur lors du chargement du module {mib} : {e}")
+        print(f"Vérifiez que le module est bien installé dans le répertoire des MIBs")
 
 # Construire un traducteur
 mibViewController = view.MibViewController(mibBuilder)
@@ -53,8 +54,9 @@ except Exception as e:
 try:
     obj_lab = ObjectIdentity('1.3.6.1.2.1.4.24.3.0')  # OID complet
     obj_lab.resolve_with_mib(mibViewController)
+    pretty_name = ".".join(map(str, obj_lab.get_label()))
     print(obj_lab.get_oid())
-    print(obj_lab.get_label())
+    print(pretty_name)
 except Exception as e:
     print(f"Erreur pour l'OID 1.3.6.1.2.1.4.24.3.0 : {e}")
 
@@ -62,7 +64,8 @@ except Exception as e:
 try:
     obj_lab = ObjectIdentity("iso.org.dod.internet.mgmt.mib-2.system.sysUpTime.0")
     obj_lab.resolve_with_mib(mibViewController)
+    pretty_name = ".".join(map(str, obj_lab.get_label()))
     print(obj_lab.get_oid())
-    print(obj_lab.get_label())
+    print(pretty_name)
 except Exception as e:
     print(f"Erreur pour sysUpTime : {e}")
