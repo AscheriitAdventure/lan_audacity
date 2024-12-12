@@ -803,3 +803,32 @@
 2024-12-08 14:58:02,680 - INFO - MySQL connection is closed
 2024-12-08 14:58:02,680 - INFO - Chargement de l'interface graphique.
 2024-12-08 14:58:02,680 - INFO - Lan Audacity démarrée.
+2024-12-12 11:29:57,700 - INFO - Application démarrée.
+2024-12-12 11:29:57,702 - DEBUG - Mode débogage activé.
+2024-12-12 11:29:57,702 - WARNING - Attention, ceci est un avertissement.
+2024-12-12 11:29:57,709 - ERROR - Error while connecting to MySQL: Character set 'utf8mb3' unknown.
+2024-12-12 11:30:21,054 - INFO - Application démarrée.
+2024-12-12 11:30:21,056 - DEBUG - Mode débogage activé.
+2024-12-12 11:30:21,056 - WARNING - Attention, ceci est un avertissement.
+2024-12-12 11:30:21,056 - ERROR - Error while connecting to MySQL: Character set 'utf8mb3' unknown.
+2024-12-12 11:30:47,774 - INFO - Application démarrée.
+2024-12-12 11:30:47,774 - DEBUG - Mode débogage activé.
+2024-12-12 11:30:47,774 - WARNING - Attention, ceci est un avertissement.
+2024-12-12 11:30:47,790 - ERROR - Error while connecting to MySQL: Character set 'utf8mb3' unknown.
+2024-12-12 11:33:08,646 - INFO - Application démarrée.
+2024-12-12 11:33:09,497 - DEBUG - Mode débogage activé.
+2024-12-12 11:33:09,497 - WARNING - Attention, ceci est un avertissement.
+2024-12-12 11:33:09,497 - ERROR - Error while connecting to MySQL: Character set 'utf8mb3' unknown.
+2024-12-12 11:50:30,020 - INFO - Application démarrée.
+2024-12-12 11:50:30,020 - DEBUG - Mode débogage activé.
+2024-12-12 11:50:30,020 - WARNING - Attention, ceci est un avertissement.
+2024-12-12 11:50:30,063 - INFO - Connection to MySQL database was successful
+2024-12-12 11:50:30,063 - INFO - Data fetched successfully
+2024-12-12 11:50:30,063 - INFO - Users table is not empty
+2024-12-12 11:50:30,063 - INFO - Data fetched successfully
+2024-12-12 11:50:30,063 - INFO - OSI Layers table is complete
+2024-12-12 11:50:30,063 - INFO - Data fetched successfully
+2024-12-12 11:50:30,063 - INFO - Device Types table is not empty
+2024-12-12 11:50:30,063 - INFO - MySQL connection is closed
+2024-12-12 11:50:30,063 - INFO - Chargement de l'interface graphique.
+2024-12-12 11:50:30,063 - INFO - Lan Audacity démarrée.

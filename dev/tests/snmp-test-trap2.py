@@ -3,9 +3,9 @@ from dev.project.src.classes.snmp_form import SnmpForm, PrettyData
 
 
 info_device = {
-    "ip_address": "192.168.1.250",
+    "ip_address": "192.168.90.251",
     "port": 161,
-    "version": SnmpForm.SnmpVersion.SNMPv2c,
+    "version": SnmpForm.SnmpVersion.SNMPv1,
     "community": "ArteEyrein"
 }
 
@@ -13,8 +13,6 @@ snmp_form = SnmpForm(**info_device)
 
 print(f"{snmp_form.ipAddress} {snmp_form.getIPVersion('str')}\n")
 
-result: list = snmp_form.readDeviceUptime()
+res = snmp_form.readDeviceUptime()
 
-for data in result:
-    print(data.data_type)
-    print(data.getOIDText())
+print(f"{res.oid}: [{res.data_type}] = {res.rawValue}")

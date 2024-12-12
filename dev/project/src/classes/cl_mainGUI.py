@@ -1,5 +1,5 @@
 import enum
-from typing import Optional, ClassVar
+from typing import Optional, ClassVar, Any
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -14,7 +14,8 @@ from dev.project.src.classes.configurationFile import ConfigurationFile
 
 class MainGUI(QMainWindow):
 
-    processRunList: ClassVar[Signal] = Signal()
+    processRunList: ClassVar[Signal] = Signal(list[Any])
+    stackedWidgetList: ClassVar[Signal] = Signal(list[Any])
 
     def __init__(self, parent=None):
         super(MainGUI, self).__init__(parent)
@@ -25,7 +26,6 @@ class MainGUI(QMainWindow):
         self.loadUI()
         self.tool_uiMenu()
         self.initUI_central()
-
 
     def loadUI(self):
         self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
@@ -40,7 +40,7 @@ class MainGUI(QMainWindow):
         toolsBar.setMovable(False)
         toolsBar.setFloatable(False)
 
-        self.addToolBar(Qt.LeftToolBarArea, toolsBar)
+        self.addToolBar(Qt.ToolBarArea.LeftToolBarArea, toolsBar)
     
     def initUI_central(self) -> None:
         # Central Widget
@@ -74,3 +74,36 @@ class MainGUI(QMainWindow):
         layout = QVBoxLayout()
         layout.addWidget(self.h_splitter)
         self.central_widget.setLayout(layout)
+    
+    def init_stackedWidget(self):
+        # self.networkExplorer = NetworkExplorer(self)
+        self.networkExplorer = QWidget(self)
+        # self.dlcExplorer = DLCExplorer(self)
+        self.dlcExplorer = QWidget(self)
+        # self.fileExplorer = FileExplorer(self)
+        self.fileExplorer = QWidget(self)
+
+        self.primary_side_bar.addWidget(self.fileExplorer)
+        self.primary_side_bar.addWidget(self.networkExplorer)
+        self.primary_side_bar.addWidget(self.dlcExplorer)
+
+        self.primary_side_bar.setCurrentIndex(0)
+
+    def setStackedWidget(self, index: int) -> None:
+        self.primary_side_bar.setCurrentIndex(index)
+    
+    def add_widgetInStackedWidget(self, widget: QWidget) -> None:
+        self.primary_side_bar.addWidget(widget)
+########################################################################################
+"""
+    Remarques:
+        Bon je me débrouille pas trop mal pour le moment, j'ai réussi à mettre en place une disposition de fenêtre pas trop mal.
+        Maintenant place au défi de la gestion des signaux, des slots, des threads, des datas.
+
+        Le fil rouge de cette application est de l'environnement du Réseau Informatique et Télécom (OSI Layer 1-4).
+        L'objectif est que à partir d'un fichier JSON ou YAML, on puisse récupérer les extensions nécessaire pour pouvoir utiliser 
+        le SNMP, par conséquent bien organiser les données est une priorité.
+        
+    Objectifs:
+
+"""

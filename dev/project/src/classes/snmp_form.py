@@ -67,7 +67,6 @@ class SnmpForm:
         IPv4 = 4
         IPv6 = 6
 
-    # @typing.overload
     def __init__(self, ip_address: str, port: int, version: SnmpVersion, community: str) -> None:
         self.__ip_address = ip_address
         self.__port = port
@@ -163,7 +162,7 @@ class SnmpForm:
             logging.error(f"Invalid IP address: {self.ipAddress}")
             raise e
 
-    def readDeviceUptime(self) -> Optional[List[PrettyData]]:
+    def readDeviceUptime(self) -> Optional[PrettyData]:
         oid_str = "1.3.6.1.2.1.1.3"
         loop = asyncio.get_event_loop()
         if loop.is_running():
@@ -171,11 +170,11 @@ class SnmpForm:
         else:
             data = asyncio.run(self._getCustomOIDAsync(oid_str))
 
-        if len(data) > 1:
+        if len(data) > 0:
             for i in range(len(data)):
-                logging.debug(f"{data[i].getOIDText()} = {data[i].getPrettyValue()}")
-                # Compléter le code pour afficher les données
-        return data
+                print(f"{data[i].oid}") # Affiche l'OID 1.3.6.1.2.1.1.3.0
+                if str(data[i].oid) == "1.3.6.1.2.1.1.3.0":
+                    return data[i]
 
     def scanIterfaces(self) -> Optional[Any]:
         data: Any = []
@@ -264,5 +263,4 @@ class SnmpForm:
     # def getListWalkOID(self, oid_list: list) -> Optional[Any]:
     #     data: Any = []
     #     return data
-
 

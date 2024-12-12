@@ -21,8 +21,8 @@ class MySQLConnection:
                 database=self.database,
                 user=self.user,
                 password=self.password,
-                charset="utf8mb3",
-                collation="utf8mb3_general_ci",  
+                charset="utf8mb4", # passé mysql_8 mettre utf8mb3
+                collation="utf8mb4_general_ci", # passé mysql_8 mettre utf8mb3_general_ci
             )
             if self.connection.is_connected():
                 logging.info("Connection to MySQL database was successful")

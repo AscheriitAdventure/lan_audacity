@@ -1,4 +1,4 @@
-from dev.project.src.classes.snmp_form import SnmpForm
+from dev.project.src.classes.snmp_form import SnmpForm, PrettyData
 import asyncio
 
 
@@ -9,7 +9,8 @@ form_snmp = {
     "community": "ArteEyrein"
 }
 
-oid = "1.3.6.1.2.1.4.24.3"
+# oid = "1.3.6.1.2.1.4.24.3"
+oid = "1.3.6.1.2.1.1"
 
 cmd_snmp = SnmpForm(**form_snmp)
 
@@ -17,6 +18,8 @@ cmd_snmp = SnmpForm(**form_snmp)
 async def main():
     result_data = await cmd_snmp.getWalkOID(oid)
     print(result_data)
+    for res in result_data:
+        print(f"{res.oid}: [{res.data_type}] = {res.rawValue}")
 
 asyncio.run(main())
 

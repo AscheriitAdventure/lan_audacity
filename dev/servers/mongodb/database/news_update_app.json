@@ -1,0 +1,37 @@
+[
+    {
+        "date": "2024-11-19",
+        "version": "1.1.1",
+        "description": "Ajout de la page d'erreur. Début de développement de l'affichage des fichiers texte. Début de développement de 'QBreadcrumbs'.\nRecherches de solutions pour la gestion des onglets.",
+        "authors": ["Geoffrey TRONCHE"]
+    },
+    {
+        "date": "2024-11-18",
+        "version": "1.1.1",
+        "description": "Lan Audacity has fixed the missing device list in the network tree. Now you can see all the last devices mapped in the network.\n Also, the search module has been implemented.",
+        "authors": ["Geoffrey TRONCHE"]
+    },
+    {
+        "date": "2024-11-07",
+        "version": "1.1.1",
+        "description": "Lan Audacity has integrate a 'Update News' view in the parameters panel.",
+        "authors": ["Geoffrey","Yuna Avalon"]
+    },
+    {
+        "date": "2024-10-07",
+        "version": "1.1.1",
+        "description": "Lan Audacity allow you to see the list of all the icons in the app and their names.",
+        "authors": ["Geoffrey"]
+    },
+    {
+        "date": "2024-06-19",
+        "version": "1.0.3",
+        "description": "Lan Audacity has integrate Nmap to scan the network and get information about the devices connected.",
+        "authors": ["Geoffrey","Brito Santo"]
+    },
+    {
+        "date": "2023-11-11",
+        "version": "1.0.2",
+        "sources": "README.md"
+    }
+]

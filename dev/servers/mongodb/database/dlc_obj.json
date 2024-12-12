@@ -1,0 +1,160 @@
+[
+    {
+        "name": "DLC_PACKAGES",
+        "type": "collection",
+        "data": [
+            {
+                "package_name": "Cisco Basic MIB",
+                "package_version": "1.0",
+                "package_description": "Cisco Basic MIB (non terminé 7/1186)",
+                "package_icon": {
+                    "type": "web",
+                    "url": "https://imgs.search.brave.com/yKNqhQXjYz7zqOvTNAxiJQIvNob5mt4SxBMxORF2ygc/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9sb2dv/ZG93bmxvYWQub3Jn/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDE0/LzA0L2Npc2NvLWxv/Z28tMC5wbmc"
+                },
+                "package_resources": [
+                    {
+                        "mib_name": "CISCO-802-TAP-MIB",
+                        "mib_editor": [
+                            {
+                                "authors": ["Srinivas Dhulipala"],
+                                "date": "September 2003"
+                            }
+                        ],
+                        "mib_rights": "Copyright (c) 2003-2006 by Cisco Systems, Inc.\nAll rights reserved.",
+                        "mib_description": "Cisco intercept (\"tap\") MIB"
+                    },
+                    {
+                        "mib_name": "CISCO-5800-HEALTH-MON-MIB",
+                        "mib_editor": [
+                            {
+                                "authors": ["Mark Szczesniak "," Ashadevaki Hegde"],
+                                "date": "August 1997"
+                            }
+                        ],
+                        "mib_rights": "Copyright (c) 1997-1998 by Cisco Systems, Inc.\nAll rights reserved.",
+                        "mib_description": "CISCO Health Monitor MIB file"
+                    },
+                    {
+                        "mib_name": "CISCO-6200-MIB",
+                        "mib_editor": [
+                            {
+                                "authors": ["the dms team"],
+                                "date": "February 1998"
+                            }
+                        ],
+                        "mib_rights": "Copyright (c) 1998 by Cisco Systems, Inc.\nAll rights reserved.",
+                        "mib_description": "c6200 Platform Specific MIB"
+                    },
+                    {
+                        "mib_name": "CISCO-6400-CHASSIS-MIB",
+                        "mib_description": "Cisco 6400 Chassis MIB file.",
+                        "mib_editor": [
+                            {
+                                "authors": ["Eric Chen"],
+                                "date": "August 1998"
+                            }
+                        ],
+                        "mib_rights": "Copyright (c) 1998 by Cisco Systems, Inc.\nAll rights reserved."
+                    },
+                    {
+                        "mib_name": "CISCO-AAA-CLIENT-CAPABILITY",
+                        "mib_description": "Cisco CISCO-AAA-CLIENT-MIB AGENT-CAPABILITIES",
+                        "mib_editor": [
+                            {
+                                "authors": ["Jayakumar Kadirvelu"],
+                                "date": "August 2003"
+                            }
+                        ],
+                        "mib_rights": "Copyright (c) 2003 by Cisco Systems, Inc.\nAll rights reserved."
+                    },
+                    {
+                        "mib_name": "CISCO-AAA-CLIENT-MIB",
+                        "mib_description": "Cisco AAA Client MIB",
+                        "mib_editor": [
+                            {
+                                "authors": ["Edward Pham"],
+                                "date": "February 2000"
+                            },
+                            {
+                                "authors": ["Liwei Lue"],
+                                "date": "May 2001"
+                            },
+                            {
+                                "authors": ["Jayakumar Kadirvelu"],
+                                "date": "October 2001"
+                            }
+                        ],
+                        "mib_rights": "Copyright (c) 2000-2001 by Cisco Systems, Inc.\nAll rights reserved."
+
+                    },
+                    {
+                        "mib_name": "CISCO-AAA-SERVER-CAPABILITY",
+                        "mib_description": "Cisco CISCO-AAA-SERVER-MIB AGENT-CAPABILITIES",
+                        "mib_editor": [
+                            {
+                                "authors": ["Mark W. Eklund"," Sanjeev C Joshi"],
+                                "date": "November 2003"
+                            }
+                        ],
+                        "mib_rights": "Copyright (c) 2003 by Cisco Systems, Inc.\nAll rights reserved."
+                    }
+                ],
+                "package_author": "Geoffrey TRONCHE"
+            },
+            {
+                "package_name": "Remote SSH",
+                "package_version": "1.0",
+                "package_description": "Remote SSH (non Commencé)",
+                "package_icon": {
+                    "type": "web",
+                    "url": ""
+                },
+                "package_resources": [],
+                "package_author": "Geoffrey TRONCHE"
+            },
+            {
+                "package_name": "Git Bash Shell",
+                "package_version": "1.0",
+                "package_description": "Git Bash Shell (non Commencé)",
+                "package_icon": {
+                    "type": "web",
+                    "url": ""
+                },
+                "package_resources": [],
+                "package_author": "Geoffrey TRONCHE"
+            },
+            {
+                "package_name": "PowerShell",
+                "package_version": "1.0",
+                "package_description": "PowerShell (non Commencé)",
+                "package_icon": {
+                    "type": "web",
+                    "url": ""
+                },
+                "package_resources": [],
+                "package_author": "Geoffrey TRONCHE"
+            },
+            {
+                "package_name": "Font Awesome",
+                "package_version": "1.0",
+                "package_description": "Font Awesome (non Commencé)",
+                "package_icon": {
+                    "type": "web",
+                    "url": ""
+                },
+                "package_resources": [],
+                "package_author": "Geoffrey TRONCHE"
+            }
+        ]
+    },
+    {
+        "name": "DLC_INSTALLED_PACKAGES",
+        "type": "collection",
+        "data": []
+    },
+    {
+        "name": "DLC_RECOMMANDED_PACKAGES",
+        "type": "collection",
+        "data": []
+    }
+]
