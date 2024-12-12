@@ -1,6 +1,7 @@
 .idea/
 .vsc/
 .venv/
+.DS_Store
 __pycache__/
 *.py[cod]
 *.log
