@@ -1,5 +1,6 @@
 from typing import Optional, Any, List
 import typing
+import asyncio
 from enum import Enum
 import logging
 import ipaddress
@@ -162,19 +163,44 @@ class SnmpForm:
             logging.error(f"Invalid IP address: {self.ipAddress}")
             raise e
 
-    def readDeviceUptime(self) -> Optional[Any]:
-        oid_str = ""
-        data: Any = []
+    def readDeviceUptime(self) -> Optional[List[PrettyData]]:
+        oid_str = "1.3.6.1.2.1.1.3"
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            data = loop.run_until_complete(self._getCustomOIDAsync(oid_str))
+        else:
+            data = asyncio.run(self._getCustomOIDAsync(oid_str))
+
+        if len(data) > 1:
+            for i in range(len(data)):
+                logging.debug(f"{data[i].getOIDText()} = {data[i].getPrettyValue()}")
+                # Compléter le code pour afficher les données
         return data
 
     def scanIterfaces(self) -> Optional[Any]:
         data: Any = []
         return data
 
-    def getCustomOID(self, oid: str) -> Optional[Any]:
-        data: Any = []
-        return data
+    def getCustomOID(self, oid: str) -> Optional[List[PrettyData]]:
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            data = loop.run_until_complete(self._getCustomOIDAsync(oid))
+        else:
+            data = asyncio.run(self._getCustomOIDAsync(oid))
 
+        if len(data) > 1:
+            for i in range(len(data)):
+                logging.debug(f"{data[i].getOIDText()} = {data[i].getPrettyValue()}")
+                # Compléter le code pour afficher les données
+        return data
+    
+    async def _getCustomOIDAsync(self, oid: str) -> Optional[List[PrettyData]]:
+        """
+        Méthode asynchrone pour récupérer les OIDs.
+        Cette méthode appelle `getWalkOID` pour effectuer la requête SNMP.
+        """
+        return await self.getWalkOID(oid)
+        
     async def getWalkOID(self, oid: str) -> Optional[List[PrettyData]]:
         """ Cette fonction permet de récupérer les données d'un OID en utilisant la méthode SNMP Walk.
         1. On vérifie si l'OID est valide.
@@ -193,44 +219,50 @@ class SnmpForm:
         data: List[PrettyData] = []
         snmp_engine = SnmpEngine()
 
-        iterator = walk_cmd(
-            snmp_engine,
-            CommunityData(self.communityPwd, mpModel=self.snmpVersion.value),
-            await UdpTransportTarget.create((self.ipAddress, self.portListened)),
-            ContextData(),
-            ObjectType(ObjectIdentity(oid))
-        )
+        try:
+            iterator = walk_cmd(
+                snmp_engine,
+                CommunityData(self.communityPwd, mpModel=self.snmpVersion.value),
+                await UdpTransportTarget.create((self.ipAddress, self.portListened)),
+                ContextData(),
+                ObjectType(ObjectIdentity(oid))
+            )
 
-        async for errorIndication, errorStatus, errorIndex, varBinds in iterator:
-            if errorIndication:
-                logging.error(errorIndication)
-                break
+            async for errorIndication, errorStatus, errorIndex, varBinds in iterator:
+                if errorIndication:
+                    logging.error(errorIndication)
+                    break
 
-            elif errorStatus:
-                logging.error(
-                    "{} at {}".format(
-                        errorStatus.prettyPrint(),
-                        errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
+                elif errorStatus:
+                    logging.error(
+                        "{} at {}".format(
+                            errorStatus.prettyPrint(),
+                            errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
+                        )
                     )
-                )
-                break
-            else:
-                for varBind in varBinds:
-                    if str(varBind[0]).startswith(oid):
-                        oid_str = varBind[0].get_oid()
-                        value = varBind[1]
-                        data_type = value.__class__.__name__
-                        data.append(PrettyData(oid_str, value, data_type))
-                    else:
-                        continue
+                    break
+                else:
+                    for varBind in varBinds:
+                        if str(varBind[0]).startswith(oid):
+                            oid_str = varBind[0].get_oid()
+                            value = varBind[1]
+                            data_type = value.__class__.__name__
+                            data.append(PrettyData(oid_str, value, data_type))
+                        else:
+                            continue
+        except Exception as e:
+            logging.error(f"SnmpForm::getWalkOID: Exception during SNMP Walk: {e}")
+        finally:
+            snmp_engine.close_dispatcher()
+    
         return data
 
-    def getListCustomOID(self, oid_list: list) -> Optional[Any]:
-        data: Any = []
-        return data
+    # def getListCustomOID(self, oid_list: list) -> Optional[Any]:
+    #     data: Any = []
+    #     return data
 
-    def getListWalkOID(self, oid_list: list) -> Optional[Any]:
-        data: Any = []
-        return data
+    # def getListWalkOID(self, oid_list: list) -> Optional[Any]:
+    #     data: Any = []
+    #     return data
 
 
