@@ -7,7 +7,7 @@ import logging
 import os
 
 
-from dev.project.src.cl_short import IconsApp
+from dev.project.src.cl_short import IconsApp as IconsManager
 from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
 from dev.project.src.classes.configurationFile import ConfigurationFile
 
@@ -15,13 +15,13 @@ from dev.project.src.classes.configurationFile import ConfigurationFile
 class MainGUI(QMainWindow):
 
     processRunList: ClassVar[Signal] = Signal(list[Any])
-    stackedWidgetList: ClassVar[Signal] = Signal(list[Any])
 
     def __init__(self, parent=None):
         super(MainGUI, self).__init__(parent)
 
-        self.iconsManager = IconsApp(ConfigurationFile(os.getenv("ICON_FILE_RSC")))
-        self.listDockWidgetManager = []
+        self.iconsManager = IconsManager(ConfigurationFile(os.getenv("ICON_FILE_RSC")))
+        self.menuBarManager = MenuBarManager(self)
+        self.stackedWidgetList = []
 
         self.loadUI()
         self.tool_uiMenu()
@@ -103,7 +103,10 @@ class MainGUI(QMainWindow):
         Le fil rouge de cette application est de l'environnement du Réseau Informatique et Télécom (OSI Layer 1-4).
         L'objectif est que à partir d'un fichier JSON ou YAML, on puisse récupérer les extensions nécessaire pour pouvoir utiliser 
         le SNMP, par conséquent bien organiser les données est une priorité.
-        
+    Notes:
+        1 click Gauche: sélectionner un élément
+        2 click Gauche: ouvrir un élément
+        1 click Droit: ouvrir un menu contextuel
     Objectifs:
 
 """

@@ -1,7 +1,7 @@
 [
     {
       "name": "file_menu",
-      "menu": "&File",
+      "title": "&File",
       "actions": [
         {
           "name_low": "new_project",
@@ -49,7 +49,7 @@
     },
     {
       "name": "edit_menu",
-      "menu": "&Edit",
+      "title": "&Edit",
       "actions": [
         {
           "name_low": "undo",
@@ -97,7 +97,7 @@
     },
     {
       "name": "select_menu",
-      "menu": "&Select",
+      "title": "&Select",
       "actions": [
         {
           "name_low": "select_all",
@@ -124,7 +124,7 @@
     },
     {
       "name": "view_menu",
-      "menu": "&View",
+      "title": "&View",
       "actions": [
         {
           "name_low": "file_explorer",
@@ -165,7 +165,7 @@
     },
     {
       "name": "settings_menu",
-      "menu": "&Settings",
+      "title": "&Settings",
       "actions": [
         {
           "name_low": "language",
@@ -192,7 +192,7 @@
     },
     {
       "name": "terminal_menu",
-      "menu": "&Terminal",
+      "title": "&Terminal",
       "actions": [
         {
           "name_low": "open_terminal",
@@ -205,7 +205,7 @@
     },
     {
       "name": "help_menu",
-      "menu": "&Help",
+      "title": "&Help",
       "actions": [
         {
           "name_low": "help",
