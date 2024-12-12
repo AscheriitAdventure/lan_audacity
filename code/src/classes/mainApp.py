@@ -53,7 +53,6 @@ class MainApp(QMainWindow):
 
         # Setting the GUI Information
         self.initUI_central()
-        self.initUI_central()
 
         self.show()
 
