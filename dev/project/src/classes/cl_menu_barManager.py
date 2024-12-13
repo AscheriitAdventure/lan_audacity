@@ -1,7 +1,8 @@
 from dev.project.src.classes.configurationFile import ConfigurationFile
+from dev.project.src.lib.qt_obj import newAction
 import os
 import typing
-from qtpy.QtWidgets import QMainWindow, QMenuBar, QAction
+from qtpy.QtWidgets import QMainWindow
 
 class MenuBarManager:
     @typing.overload
@@ -31,18 +32,6 @@ class MenuBarManager:
     def setParent(self, parent: QMainWindow) -> None:
         self.parent = parent
     
-    def create_menu(self, menu: dict) -> QMenuBar:
-        menu_bar = QMenuBar(self.parent)
-        
-        for obj in self.data_manager:
-            menu_bar.addMenu(title=obj["title"]) # Add "Header" to the menu bar
-            for q_act in obj["actions"]:
-                q_action = QAction(q_act["name"], self.parent)
-                q_action.setStatusTip(q_act["status_tip"])
-
-
-        return menu_bar
-    
     def get_menu_name(self, key: str) -> str:
         for menu_obj in self.data_manager:
             if menu_obj["name"] == key:
@@ -58,3 +47,13 @@ class MenuBarManager:
         for action in menu["actions"]:
             if action["name_low"] == key_action:
                 return action
+            
+
+class ShortcutManager:
+    def __init__(self, file_manager: ConfigurationFile):
+        self.data_manager = file_manager.data
+
+    def get_shortcut(self, key: str) -> str:
+        for shortcut in self.data_manager:
+            if shortcut["name"] == key:
+                return shortcut["keys"]

@@ -6,7 +6,8 @@ from qtpy.QtGui import *
 import logging
 import os
 
-
+from dev.project.src.lib.qt_obj import newAction, get_spcValue
+from dev.project.src.classes.cl_menu_barManager import MenuBarManager, ShortcutManager
 from dev.project.src.cl_short import IconsApp as IconsManager
 from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
 from dev.project.src.classes.configurationFile import ConfigurationFile
@@ -20,12 +21,78 @@ class MainGUI(QMainWindow):
         super(MainGUI, self).__init__(parent)
 
         self.iconsManager = IconsManager(ConfigurationFile(os.getenv("ICON_FILE_RSC")))
-        self.menuBarManager = MenuBarManager(self)
+        self.menuBarManager = MenuBarManager(file_manager=ConfigurationFile(os.getenv("MENUBAR_FILE")))
+        self.shortcutManager = ShortcutManager(ConfigurationFile(os.getenv("SHORTCUT_FILE")))
         self.stackedWidgetList = []
+        self.link_action = self.setLinkAction()
 
         self.loadUI()
         self.tool_uiMenu()
         self.initUI_central()
+
+    def setLinkAction(self) -> list:
+        return [
+            {
+                "name_acte": "new_project",
+                "trigger": self.newProjectAction
+            },
+            {
+                "name_acte": "open_project",
+                "trigger": self.openProjectAction
+            },
+            {
+                "name_acte": "save_project",
+                "trigger": self.saveProjectAction
+            },
+            {
+                "name_acte": "save_as_project",
+                "trigger": self.saveAsProjectAction
+            },
+            {
+                "name_acte": "close_project",
+                "trigger": self.closeProjectAction
+            },
+            {
+                "name_acte": "exit",
+                "trigger": self.quitAction
+            },
+            {
+                "name_acte": "file_explorer",
+                "trigger": self.fileExplorerAction
+            },
+            {
+                "name_acte": "net_explorer",
+                "trigger": self.netExplorerAction
+            },
+            {
+                "name_acte": "extension",
+                "trigger": self.extensionAction
+            },
+            {
+                "name_acte": "user",
+                "trigger": self.userAction
+            },
+            {
+                "name_acte": "preferences",
+                "trigger": self.preferencesAction
+            },
+            # {
+            #     "name_acte": "language",
+            #     "trigger": self.openLanguage
+            # },
+            # {
+            #     "name_acte": "shortcut_key",
+            #     "trigger": self.openShortcutKey
+            # },
+            # {
+            #     "name_acte": "notification",
+            #     "trigger": self.openNotification
+            # },
+            # {
+            #     "name_acte": "open_terminal",
+            #     "trigger": self.openTerminal
+            # },
+        ]
 
     def loadUI(self):
         self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
@@ -89,11 +156,62 @@ class MainGUI(QMainWindow):
 
         self.primary_side_bar.setCurrentIndex(0)
 
+    def initUI_menuBar(self):
+        data_obj = self.menuBarManager.data_manager
+        for menu in data_obj:
+            menu_obj = self.menuBar().addMenu(menu=["title"])
+            for action in menu["actions"]:
+                q_action = newAction(
+                    parent=self, 
+                    text=action["name"], 
+                    slot=get_spcValue(self.link_action, "name_acte", action["name_low"]), 
+                    shortcut=self.shortcutManager.get_shortcut(action["shortcut_name"]), 
+                    icon=self.iconsManager.get_icon(action["icon_name"]), 
+                    tip=action["status_tip"])
+                menu_obj.addAction(q_action)
+                if action["name_low"] == "save_project":
+                    menu_obj.addSeparator()
+                elif action["name_low"] == "exit":
+                    menu_obj.addSeparator()
+                
     def setStackedWidget(self, index: int) -> None:
         self.primary_side_bar.setCurrentIndex(index)
     
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
+
+    def newProjectAction(self) -> None:
+        pass
+
+    def openProjectAction(self) -> None:
+        pass
+
+    def saveProjectAction(self) -> None:
+        pass
+
+    def saveAsProjectAction(self) -> None:
+        pass
+
+    def closeProjectAction(self) -> None:
+        pass
+
+    def quitAction(self) -> None:
+        pass
+
+    def fileExplorerAction(self) -> None:
+        self.setStackedWidget(0)
+    
+    def netExplorerAction(self) -> None:
+        self.setStackedWidget(1)
+    
+    def extensionAction(self) -> None:
+        pass
+
+    def userAction(self) -> None:
+        pass
+
+    def preferencesAction(self) -> None:
+        pass
 ########################################################################################
 """
     Remarques:

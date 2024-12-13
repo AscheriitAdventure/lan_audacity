@@ -832,3 +832,31 @@
 2024-12-12 11:50:30,063 - INFO - MySQL connection is closed
 2024-12-12 11:50:30,063 - INFO - Chargement de l'interface graphique.
 2024-12-12 11:50:30,063 - INFO - Lan Audacity démarrée.
+2024-12-13 10:01:34,792 - INFO - Application démarrée.
+2024-12-13 10:01:34,795 - DEBUG - Mode débogage activé.
+2024-12-13 10:01:34,795 - WARNING - Attention, ceci est un avertissement.
+2024-12-13 10:01:34,952 - INFO - Connection to MySQL database was successful
+2024-12-13 10:01:34,999 - INFO - Data fetched successfully
+2024-12-13 10:01:35,000 - INFO - Users table is not empty
+2024-12-13 10:01:35,017 - INFO - Data fetched successfully
+2024-12-13 10:01:35,018 - INFO - OSI Layers table is complete
+2024-12-13 10:01:35,028 - INFO - Data fetched successfully
+2024-12-13 10:01:35,032 - INFO - Device Types table is not empty
+2024-12-13 10:01:35,033 - INFO - MySQL connection is closed
+2024-12-13 10:01:35,034 - INFO - Chargement de l'interface graphique.
+2024-12-13 10:01:35,034 - INFO - Lan Audacity démarrée.
+2024-12-13 10:01:35,181 - ERROR - Le fichier de configuration menu_bar_obj.json n'existe pas.
+2024-12-13 10:02:45,990 - INFO - Application démarrée.
+2024-12-13 10:02:46,006 - DEBUG - Mode débogage activé.
+2024-12-13 10:02:46,006 - WARNING - Attention, ceci est un avertissement.
+2024-12-13 10:02:46,038 - INFO - Connection to MySQL database was successful
+2024-12-13 10:02:46,038 - INFO - Data fetched successfully
+2024-12-13 10:02:46,038 - INFO - Users table is not empty
+2024-12-13 10:02:46,038 - INFO - Data fetched successfully
+2024-12-13 10:02:46,038 - INFO - OSI Layers table is complete
+2024-12-13 10:02:46,054 - INFO - Data fetched successfully
+2024-12-13 10:02:46,054 - INFO - Device Types table is not empty
+2024-12-13 10:02:46,054 - INFO - MySQL connection is closed
+2024-12-13 10:02:46,054 - INFO - Chargement de l'interface graphique.
+2024-12-13 10:02:46,054 - INFO - Lan Audacity démarrée.
+2024-12-13 10:02:46,101 - ERROR - Le fichier de configuration menu_bar_obj.json n'existe pas.
