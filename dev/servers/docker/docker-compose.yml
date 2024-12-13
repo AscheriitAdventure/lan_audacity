@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:lastest
+    container_name: ${MARIADB_CONTAINER_NAME}
+    env_file: 
+      - .env
+      - .env.dev
+    ports:
+      - "${MARIADB_PORT}:3306"
+    volumes:
+      - ${SQL_CONF}:/etc/mysql/mariadb.conf.d/50-server.cnf # Configuration MariaDB
+      - ${SQL_DATA}:/var/lib/mysql # Data MariaDB
+    networks:
+      - ${DOCKER_LAN}
+
+  mongodb:
+    image: mongo:lastest
+    container_name: ${MONGODB_CONTAINER_NAME}
+
+  lan_audacity:
+    build:
+      context: .
+      dockerfile: dev/servers/docker/dockerfile 

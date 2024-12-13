@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS db_lanAudacity
 DEFAULT CHARACTER SET utf8 
-COLLATE utf8mb3_general_ci;
+COLLATE utf8mb4_general_ci;
 
 USE db_lanAudacity;
 
