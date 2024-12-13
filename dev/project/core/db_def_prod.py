@@ -4,6 +4,7 @@ import time
 import logging
 import uuid
 from typing import Optional, List, Any
+import inspect
 
 # --- Insertion de données dans la base de données ---
 
@@ -85,7 +86,7 @@ def createWebAddress(
 ) -> int:
     # Vérifier si au moins une donnée est fournie
     if not any([ipv4, mask_ipv4, ipv4_public, cidr, ipv6_local, ipv6_global]):
-        logging.error("Au moins un des paramètres doit être fourni.")
+        logging.error(f"{inspect.currentframe().f_code.co_name}:Au moins un des paramètres doit être fourni.")
         raise ValueError("Au moins un des paramètres doit être fourni.")
 
     # Calculer CIDR si ipv4 et mask_ipv4 sont fournis
@@ -106,7 +107,7 @@ def createWebAddress(
                  for i in (24, 16, 8, 0)]
             )
         except Exception as e:
-            logging.error(f"Erreur lors de l'analyse du CIDR: {e}")
+            logging.error(f"{inspect.currentframe().f_code.co_name}:Erreur lors de l'analyse du CIDR: {e}")
             raise ValueError(f"Erreur lors de l'analyse du CIDR: {e}")
 
     # Construire la requête INSERT en fonction des données disponibles

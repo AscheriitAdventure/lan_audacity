@@ -2,6 +2,7 @@ import logging
 from mysql.connector import Error
 import mysql.connector
 from typing import Any
+import inspect
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -25,23 +26,23 @@ class MySQLConnection:
                 collation="utf8mb4_general_ci", # passé mysql_8 mettre utf8mb3_general_ci
             )
             if self.connection.is_connected():
-                logging.info("Connection to MySQL database was successful")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Connection to MySQL database was successful")
         except Error as e:
-            logging.error(f"Error while connecting to MySQL: {e}")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error while connecting to MySQL: {e}")
 
     def disconnect(self) -> None:
         if self.connection.is_connected():
             self.connection.close()
-            logging.info("MySQL connection is closed")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: MySQL connection is closed")
 
     def execute_query(self, query) -> None:
         cursor = self.connection.cursor()
         try:
             cursor.execute(query)
             self.connection.commit()
-            logging.info("Query executed successfully")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Query executed successfully")
         except Error as e:
-            logging.error(f"Error: '{e}'")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error: '{e}'")
         finally:
             cursor.close()
     
@@ -52,10 +53,10 @@ class MySQLConnection:
             cursor.execute(query)
             self.connection.commit()
             result = cursor.lastrowid
-            logging.info("Query executed successfully")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Query executed successfully")
             return result
         except Error as e:
-            logging.error(f"Error: '{e}'")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error: '{e}'")
         finally:
             cursor.close()
 
@@ -65,9 +66,9 @@ class MySQLConnection:
         try:
             cursor.execute(query)
             result = cursor.fetchall()
-            logging.info("Data fetched successfully")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Data fetched successfully")
             return result
         except Error as e:
-            logging.error(f"Error: '{e}'")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error: '{e}'")
         finally:
             cursor.close()

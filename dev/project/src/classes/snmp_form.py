@@ -1,5 +1,5 @@
 from typing import Optional, Any, List
-import typing
+import inspect
 import asyncio
 from enum import Enum
 import logging
@@ -10,6 +10,7 @@ from pysnmp.smi import builder, view, compiler, rfc1902  # Gestion des OID
 
 
 VAR_MIB_SRC = 'http://mibs.snmplabs.com/asn1/@mib@'
+
 
 class PrettyData:
     def __init__(self, oid: str, value: Any, data_type: str) -> None:
@@ -38,7 +39,7 @@ class PrettyData:
         obj_name.resolve_with_mib(mibViewController)
 
         pretty_name = ".".join(map(str, obj_name.get_label()))
-        logging.debug(f"PrettyData::getOIDText: {pretty_name}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {pretty_name}")
 
         return pretty_name
 
@@ -97,14 +98,15 @@ class SnmpForm:
         if 0 <= var <= 65535:
             self.__port = var
         else:
-            logging.error("Port number must be between 0 and 65535")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe(
+            ).f_code.co_name}: Port number must be between 0 and 65535")
 
     @communityPwd.setter
     def communityPwd(self, var: str) -> None:
         if var:
             self.__community = var
         else:
-            logging.error("Community password must not be empty")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Community password must not be empty")
 
     @property
     def ipVersion(self) -> IpVersion:
@@ -134,19 +136,19 @@ class SnmpForm:
         """
         result_value = None
         if instance == 'int':
-            logging.debug(f"ipVersion: int")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: ipVersion: int")
             result_value = self.ipVersion.value
         elif instance == 'str':
-            logging.debug(f"ipVersion: str")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: ipVersion: str")
             result_value = self.ipVersion.name
         elif instance == 'hex':
-            logging.debug(f"ipVersion: hex")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: ipVersion: hex")
             result_value = hex(self.ipVersion.value)
         elif instance == 'bin':
-            logging.debug(f"ipVersion: bin")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: ipVersion: bin")
             result_value = bin(self.ipVersion.value)
         else:
-            logging.error("Invalid instance type")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid instance type")
         return result_value
 
     def setIPVersion(self) -> None:
@@ -159,7 +161,7 @@ class SnmpForm:
             else:
                 self.ipVersion = self.IpVersion.Unknown
         except ValueError as e:
-            logging.error(f"Invalid IP address: {self.ipAddress}")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid IP address: {self.ipAddress}")
             raise e
 
     def readDeviceUptime(self) -> Optional[PrettyData]:
@@ -172,7 +174,8 @@ class SnmpForm:
 
         if len(data) > 0:
             for i in range(len(data)):
-                print(f"{data[i].oid}") # Affiche l'OID 1.3.6.1.2.1.1.3.0
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe(
+                ).f_code.co_name}: {data[i].oid}")  # Affiche l'OID 1.3.6.1.2.1.1.3.0
                 if str(data[i].oid) == "1.3.6.1.2.1.1.3.0":
                     return data[i]
 
@@ -189,17 +192,17 @@ class SnmpForm:
 
         if len(data) > 1:
             for i in range(len(data)):
-                logging.debug(f"{data[i].getOIDText()} = {data[i].getPrettyValue()}")
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data[i].getOIDText()} = {data[i].getPrettyValue()}")
                 # Compléter le code pour afficher les données
         return data
-    
+
     async def _getCustomOIDAsync(self, oid: str) -> Optional[List[PrettyData]]:
         """
         Méthode asynchrone pour récupérer les OIDs.
         Cette méthode appelle `getWalkOID` pour effectuer la requête SNMP.
         """
         return await self.getWalkOID(oid)
-        
+
     async def getWalkOID(self, oid: str) -> Optional[List[PrettyData]]:
         """ Cette fonction permet de récupérer les données d'un OID en utilisant la méthode SNMP Walk.
         1. On vérifie si l'OID est valide.
@@ -221,7 +224,8 @@ class SnmpForm:
         try:
             iterator = walk_cmd(
                 snmp_engine,
-                CommunityData(self.communityPwd, mpModel=self.snmpVersion.value),
+                CommunityData(self.communityPwd,
+                              mpModel=self.snmpVersion.value),
                 await UdpTransportTarget.create((self.ipAddress, self.portListened)),
                 ContextData(),
                 ObjectType(ObjectIdentity(oid))
@@ -229,15 +233,13 @@ class SnmpForm:
 
             async for errorIndication, errorStatus, errorIndex, varBinds in iterator:
                 if errorIndication:
-                    logging.error(errorIndication)
+                    logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {errorIndication}")
                     break
 
                 elif errorStatus:
                     logging.error(
-                        "{} at {}".format(
-                            errorStatus.prettyPrint(),
-                            errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
-                        )
+                        f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {errorStatus.prettyPrint()} at {
+                            errorIndex and varBinds[int(errorIndex) - 1][0] or "?"}"
                     )
                     break
                 else:
@@ -250,10 +252,11 @@ class SnmpForm:
                         else:
                             continue
         except Exception as e:
-            logging.error(f"SnmpForm::getWalkOID: Exception during SNMP Walk: {e}")
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Exception during SNMP Walk: {e}")
         finally:
             snmp_engine.close_dispatcher()
-    
+
         return data
 
     # def getListCustomOID(self, oid_list: list) -> Optional[Any]:
@@ -263,4 +266,3 @@ class SnmpForm:
     # def getListWalkOID(self, oid_list: list) -> Optional[Any]:
     #     data: Any = []
     #     return data
-

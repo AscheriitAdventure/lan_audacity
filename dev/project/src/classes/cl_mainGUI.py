@@ -7,10 +7,11 @@ import logging
 import os
 
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
-from dev.project.src.classes.cl_menu_barManager import MenuBarManager, ShortcutManager
-from dev.project.src.cl_short import IconsApp as IconsManager
+# from dev.project.src.classes.cl_menu_barManager import MenuBarManager, ShortcutManager
+# from dev.project.src.cl_short import IconsApp as IconsManager
+# from dev.project.src.classes.configurationFile import ConfigurationFile
 from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
-from dev.project.src.classes.configurationFile import ConfigurationFile
+from dev.project.src.classes.cl_factory_conf_file import IconsManager, MenuBarManager, ShortcutsManager
 
 
 class MainGUI(QMainWindow):
@@ -20,9 +21,9 @@ class MainGUI(QMainWindow):
     def __init__(self, parent=None):
         super(MainGUI, self).__init__(parent)
 
-        self.iconsManager = IconsManager(ConfigurationFile(os.getenv("ICON_FILE_RSC")))
-        self.menuBarManager = MenuBarManager(file_manager=ConfigurationFile(os.getenv("MENUBAR_FILE")))
-        self.shortcutManager = ShortcutManager(ConfigurationFile(os.getenv("SHORTCUT_FILE")))
+        self.iconsManager = IconsManager(os.getenv("ICON_FILE_RSC"))
+        self.menuBarManager = MenuBarManager(os.getenv("MENUBAR_FILE"))
+        self.shortcutManager = ShortcutsManager(os.getenv("KEYBOARD_FILE_RSC"))
         self.stackedWidgetList = []
         self.link_action = self.setLinkAction()
 

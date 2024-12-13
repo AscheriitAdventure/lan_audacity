@@ -2,6 +2,7 @@ from dev.project.src.classes.switchFile import SwitchFile
 import os
 import logging
 import string
+import inspect
 
 
 class ConfigurationFile:
@@ -20,7 +21,7 @@ class ConfigurationFile:
             self.__abs_path = abs_path
         else:
             logging.error(
-                "Le chemin du fichier de configuration est vide ou non-renseigné."
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le chemin du fichier de configuration est vide ou non-renseigné."
             )
 
     @property
@@ -40,14 +41,14 @@ class ConfigurationFile:
                 switch_file.txt_read,
             )(self.abs_path)
         else:
-            logging.error(f"Le fichier de configuration {self.file} n'existe pas.")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier de configuration {self.file} n'existe pas.")
             return None
 
     def get_value(self, key: str) -> str | None:
         if self.data:
             return self.data.get(key)
         else:
-            logging.warning("Aucune configuration chargée ou trouvée.")
+            logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Aucune configuration chargée ou trouvée.")
             return None
 
     @staticmethod

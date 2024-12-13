@@ -1,6 +1,7 @@
 import os
 import logging
 from typing import Optional, Any
+import inspect
 
 
 class FileManagement:
@@ -46,14 +47,14 @@ class FileManagement:
             if not os.path.exists(os.path.join(project_path, folder_name)):
                 os.mkdir(os.path.join(project_path, folder_name))
             else:
-                logging.warning(f"The folder {folder_name} already exists in {project_path}.")
+                logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The folder {folder_name} already exists in {project_path}.")
                 # insert the folder into the list of folders if it does not exist
                 if folder_name not in self.folders:
                     self.add_folder(folder_name)
 
             self.add_folder(folder_name)
         else:
-            logging.error(f"The path {project_path} does not exist or is not a directory.")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The path {project_path} does not exist or is not a directory.")
     
     def generate_file(self, file_name: str, file_type: str, abs_path: str = os.getcwd()) -> None:
         part2 = os.path.join(abs_path, self.path)
@@ -61,7 +62,7 @@ class FileManagement:
             if not os.path.exists(part2):
                 os.mkdir(part2)
             else:
-                logging.warning(f"The folder {self.path} already exists in {abs_path}.")
+                logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The folder {self.path} already exists in {abs_path}.")
             
             file_path = os.path.join(part2, f"{file_name}.{file_type.lower()}")
             if not os.path.exists(file_path):
@@ -69,13 +70,13 @@ class FileManagement:
                     pass
                 self.add_file((file_name, file_type))
             else:
-                logging.warning(f"The file {file_name} already exists in {part2}.")
+                logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The file {file_name} already exists in {part2}.")
                 # insert the file into the list of files if it does not exist
                 if (file_name, file_type) not in self.files:
                     self.add_file((file_name, file_type))
 
         else:
-            logging.error(f"The path {abs_path} does not exist or is not a directory.")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The path {abs_path} does not exist or is not a directory.")
     
     def add_folder(self, folder_name: str) -> None:
         self.__folders.append(folder_name)

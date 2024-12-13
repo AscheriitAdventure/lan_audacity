@@ -3,6 +3,7 @@ import os
 import sys
 from dotenv import load_dotenv
 import yaml
+import inspect
 
 # Librairies personnalisées
 from dev.project.src.cl_short import SQLServer
@@ -28,7 +29,7 @@ def load_resources():
     for repo in git_repository:
         repo_name = repo.split('/')[-1].replace('.git', '')
         if os.path.exists(f"assets/{repo_name}"):
-            logging.info(f"Repository {repo_name} already cloned.")
+            logging.info(f"{inspect.currentframe().f_code.co_name}:Repository {repo_name} already cloned.")
         else:
             # placement du répertoire de ressources 'asssets' dans le répertoire de l'application
             os.system(f"git clone {repo} assets/")
@@ -69,9 +70,9 @@ def load_sql_server():
 
     # Check Users Table
     if getAllUsers(sqlServer):
-        logging.info("Users table is not empty")
+        logging.info(f"{inspect.currentframe().f_code.co_name}:Users table is not empty")
     else:
-        logging.error("ERROR: Users table is empty")
+        logging.error(f"{inspect.currentframe().f_code.co_name}:ERROR: Users table is empty")
         # CREATE Default Users
         id_root = createUser(sqlServer, "root", "root@localhost", "Root846")
         id_admin = createUser(sqlServer, "admin", "admin@localhost", "Admin813+")
@@ -84,19 +85,19 @@ def load_sql_server():
 
     # Check OSILayer Table
     if len(getAllOSILayers(sqlServer)) != 7:
-        logging.error("ERROR: OSI Layers table is not complete")
+        logging.error(f"{inspect.currentframe().f_code.co_name}:ERROR: OSI Layers table is not complete")
     else:
-        logging.info("OSI Layers table is complete")
+        logging.info(f"{inspect.currentframe().f_code.co_name}:OSI Layers table is complete")
     
     # Check DeviceType Table
     if getAllDeviceTypes(sqlServer):
-        logging.info("Device Types table is not empty")
+        logging.info(f"{inspect.currentframe().f_code.co_name}: Device Types table is not empty")
     else:
-        logging.error("ERROR: Device Types table is empty")
-        logging.info("Generate default Device Types")
+        logging.error(f"{inspect.currentframe().f_code.co_name}: ERROR: Device Types table is empty")
+        logging.info(f"{inspect.currentframe().f_code.co_name}: Generate default Device Types")
 
         # CREATE Default Device Types
-        logging.debug(os.getenv("DEVICETYPE_FILE_RSC"))
+        logging.debug(f"{inspect.currentframe().f_code.co_name}: {os.getenv("DEVICETYPE_FILE_RSC")}")
         generateDeviceTypeDefault(sqlServer, os.getenv("DEVICETYPE_FILE_RSC"))
     
     # Check Language Table
@@ -104,8 +105,8 @@ def load_sql_server():
 
 # Load the application GUI
 def load_app():
-    logging.info("Chargement de l'interface graphique.")
-    logging.info(f"{os.getenv('APP_NAME')} démarrée.")
+    logging.info(f"{inspect.currentframe().f_code.co_name}: Chargement de l'interface graphique.")
+    logging.info(f"{inspect.currentframe().f_code.co_name}: {os.getenv('APP_NAME')} démarrée.")
 
     from qtpy.QtWidgets import QApplication, QMainWindow
 

@@ -1,4 +1,4 @@
-from typing import Optional, ClassVar, Any, Union
+from typing import Optional, Any, Union
 import logging
 import json
 import yaml
@@ -7,6 +7,7 @@ import csv
 import os
 import enum
 import configparser
+import inspect
 
 """ 
     Remarques:
@@ -84,22 +85,22 @@ class FactoryConfFile:
     def check_file_exist(self) -> bool:
         exist = os.path.exists(self.file_path)
         if exist:
-            logging.debug(f"FactoryConfFile::check_file_exist: The file {self.file_path} exist.")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The file {self.file_path} exist.")
         else:
-            logging.error(f"FactoryConfFile::check_file_exist: The file {self.file_path} doesn't exist.")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The file {self.file_path} doesn't exist.")
         return exist
 
     def action_file(self, rw_mode: Optional[RWX]) -> None:
         if rw_mode:
             self.rw_mode = rw_mode
-            logging.debug(f"FactoryConfFile::action_file: rw_mode set to {rw_mode.name}")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: rw_mode set to {rw_mode.name}")
         
         if self.exist and self.rw_mode == FactoryConfFile.RWX.READ:
-            logging.debug(f"FactoryConfFile::action_file: Reading file {self.file_basename}")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Reading file {self.file_basename}")
             self.read_file()
         
         elif self.exist and self.rw_mode == FactoryConfFile.RWX.WRITE:
-            logging.debug(f"FactoryConfFile::action_file: Writing file {self.file_basename}")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Writing file {self.file_basename}")
             self.write_file()
         
     def read_file(self) -> None:
@@ -152,3 +153,61 @@ class FactoryConfFile:
     
     # def update_file(self) -> None:
     #     pass
+
+import qtawesome as qta
+from qtpy.QtGui import QIcon
+
+class IconsManager(FactoryConfFile):
+    def __init__(self, file_path: str) -> None:
+        super().__init__(file_path, FactoryConfFile.RWX.READ)
+        self.action_file(self.rw_mode)
+    
+    def get_icon(self, icon_name: str) -> Optional[QIcon]:
+        for data in self.file_data:
+            if data["name"] == icon_name:
+                if data["options"] is None:
+                    ico_obj = qta.icon(*data["platform_and_name"])
+                else:
+                    ico_obj = qta.icon(
+                        *data["platform_and_name"], options=data["options"]
+                    )
+                return ico_obj
+        return None
+
+class ShortcutsManager(FactoryConfFile):
+    def __init__(self, file_path: str) -> None:
+        super().__init__(file_path, FactoryConfFile.RWX.READ)
+        self.action_file(self.rw_mode)
+    
+    def get_shortcut(self, shortcut_name: str) -> Optional[str]:
+        for data in self.file_data:
+            if data["name"] == shortcut_name:
+                return data["shortcut"]
+        return None
+
+class MenuBarManager(FactoryConfFile):
+    def __init__(self, file_path: str) -> None:
+        super().__init__(file_path, FactoryConfFile.RWX.READ)
+        self.action_file(self.rw_mode)
+    
+    def get_menu_name(self, menu_name: str) -> Optional[str]:
+        for data in self.file_data:
+            if data["name"] == menu_name:
+                return data["title"]
+        return None
+    
+    def get_one_menu(self, menu_name: str) -> Optional[dict]:
+        for data in self.file_data:
+            if data["name"] == menu_name:
+                return data
+        return None
+    
+    def get_one_action(self, menu_name: str, action_name: str) -> Optional[dict]:
+        menu = self.get_one_menu(menu_name)
+        if menu is not None:
+            for action in menu["actions"]:
+                if action["name_low"] == action_name:
+                    return action
+        
+        return None
+    

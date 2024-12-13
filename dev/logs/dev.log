@@ -860,3 +860,77 @@
 2024-12-13 10:02:46,054 - INFO - Chargement de l'interface graphique.
 2024-12-13 10:02:46,054 - INFO - Lan Audacity démarrée.
 2024-12-13 10:02:46,101 - ERROR - Le fichier de configuration menu_bar_obj.json n'existe pas.
+2024-12-13 11:56:51,550 - INFO - Application démarrée.
+2024-12-13 11:56:51,550 - DEBUG - Mode débogage activé.
+2024-12-13 11:56:51,550 - WARNING - Attention, ceci est un avertissement.
+2024-12-13 11:56:51,661 - INFO - Connection to MySQL database was successful
+2024-12-13 11:56:51,692 - INFO - Data fetched successfully
+2024-12-13 11:56:51,698 - INFO - Users table is not empty
+2024-12-13 11:56:51,698 - INFO - Data fetched successfully
+2024-12-13 11:56:51,698 - INFO - OSI Layers table is complete
+2024-12-13 11:56:51,698 - INFO - Data fetched successfully
+2024-12-13 11:56:51,698 - INFO - Device Types table is not empty
+2024-12-13 11:56:51,698 - INFO - MySQL connection is closed
+2024-12-13 11:56:51,698 - INFO - Chargement de l'interface graphique.
+2024-12-13 11:56:51,698 - INFO - Lan Audacity démarrée.
+2024-12-13 11:56:52,099 - DEBUG - FactoryConfFile::check_file_exist: The file backup/resources/icon_list.json exist.
+2024-12-13 11:57:57,119 - INFO - Application démarrée.
+2024-12-13 11:57:57,119 - DEBUG - Mode débogage activé.
+2024-12-13 11:57:57,119 - WARNING - Attention, ceci est un avertissement.
+2024-12-13 11:57:57,150 - INFO - Connection to MySQL database was successful
+2024-12-13 11:57:57,150 - INFO - Data fetched successfully
+2024-12-13 11:57:57,150 - INFO - Users table is not empty
+2024-12-13 11:57:57,166 - INFO - Data fetched successfully
+2024-12-13 11:57:57,166 - INFO - OSI Layers table is complete
+2024-12-13 11:57:57,166 - INFO - Data fetched successfully
+2024-12-13 11:57:57,166 - INFO - Device Types table is not empty
+2024-12-13 11:57:57,166 - INFO - MySQL connection is closed
+2024-12-13 11:57:57,166 - INFO - Chargement de l'interface graphique.
+2024-12-13 11:57:57,166 - INFO - Lan Audacity démarrée.
+2024-12-13 11:57:57,238 - DEBUG - FactoryConfFile::check_file_exist: The file backup/resources/icon_list.json exist.
+2024-12-13 11:57:57,238 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 11:57:57,245 - DEBUG - FactoryConfFile::action_file: Reading file icon_list.json
+2024-12-13 11:57:57,245 - ERROR - FactoryConfFile::check_file_exist: The file dev/server/mongodb/database/menu_bar_obj.json doesn't exist.
+2024-12-13 11:57:57,245 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 11:59:35,652 - INFO - Application démarrée.
+2024-12-13 11:59:35,652 - DEBUG - Mode débogage activé.
+2024-12-13 11:59:35,652 - WARNING - Attention, ceci est un avertissement.
+2024-12-13 11:59:35,683 - INFO - Connection to MySQL database was successful
+2024-12-13 11:59:35,683 - INFO - Data fetched successfully
+2024-12-13 11:59:35,683 - INFO - Users table is not empty
+2024-12-13 11:59:35,683 - INFO - Data fetched successfully
+2024-12-13 11:59:35,695 - INFO - OSI Layers table is complete
+2024-12-13 11:59:35,699 - INFO - Data fetched successfully
+2024-12-13 11:59:35,699 - INFO - Device Types table is not empty
+2024-12-13 11:59:35,699 - INFO - MySQL connection is closed
+2024-12-13 11:59:35,699 - INFO - Chargement de l'interface graphique.
+2024-12-13 11:59:35,699 - INFO - Lan Audacity démarrée.
+2024-12-13 11:59:35,746 - DEBUG - FactoryConfFile::check_file_exist: The file backup/resources/icon_list.json exist.
+2024-12-13 11:59:35,746 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 11:59:35,746 - DEBUG - FactoryConfFile::action_file: Reading file icon_list.json
+2024-12-13 11:59:35,746 - ERROR - FactoryConfFile::check_file_exist: The file dev/server/mongodb/database/menu_bar_obj.json doesn't exist.
+2024-12-13 11:59:35,746 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 11:59:35,746 - ERROR - FactoryConfFile::check_file_exist: The file backup/resources/keyboard_list.json doesn't exist.
+2024-12-13 11:59:35,746 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 12:03:08,678 - INFO - Application démarrée.
+2024-12-13 12:03:08,678 - DEBUG - Mode débogage activé.
+2024-12-13 12:03:08,678 - WARNING - Attention, ceci est un avertissement.
+2024-12-13 12:03:08,709 - INFO - Connection to MySQL database was successful
+2024-12-13 12:03:08,709 - INFO - Data fetched successfully
+2024-12-13 12:03:08,709 - INFO - Users table is not empty
+2024-12-13 12:03:08,709 - INFO - Data fetched successfully
+2024-12-13 12:03:08,709 - INFO - OSI Layers table is complete
+2024-12-13 12:03:08,709 - INFO - Data fetched successfully
+2024-12-13 12:03:08,709 - INFO - Device Types table is not empty
+2024-12-13 12:03:08,709 - INFO - MySQL connection is closed
+2024-12-13 12:03:08,709 - INFO - Chargement de l'interface graphique.
+2024-12-13 12:03:08,709 - INFO - Lan Audacity démarrée.
+2024-12-13 12:03:08,757 - DEBUG - FactoryConfFile::check_file_exist: The file backup/resources/icon_list.json exist.
+2024-12-13 12:03:08,757 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 12:03:08,771 - DEBUG - FactoryConfFile::action_file: Reading file icon_list.json
+2024-12-13 12:03:08,773 - DEBUG - FactoryConfFile::check_file_exist: The file dev/servers/mongodb/database/menu_bar_obj.json exist.
+2024-12-13 12:03:08,773 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 12:03:08,773 - DEBUG - FactoryConfFile::action_file: Reading file menu_bar_obj.json
+2024-12-13 12:03:08,773 - DEBUG - FactoryConfFile::check_file_exist: The file backup/resources/keyboard_list.json exist.
+2024-12-13 12:03:08,773 - DEBUG - FactoryConfFile::action_file: rw_mode set to READ
+2024-12-13 12:03:08,773 - DEBUG - FactoryConfFile::action_file: Reading file keyboard_list.json
