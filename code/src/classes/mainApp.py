@@ -141,15 +141,15 @@ class MainApp(QMainWindow):
         self.addToolBar(Qt.ToolBarArea.TopToolBarArea, infobar)
         # Add a Spacer
         spacerI = QWidget(self)
-        spacerI.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        spacerI.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         infobar.addWidget(spacerI)
 
         toolsbar = QToolBar(self)
         # Set the toolbar to a fixed left position
-        self.addToolBar(Qt.LeftToolBarArea, toolsbar)
+        self.addToolBar(Qt.ToolBarArea.LeftToolBarArea, toolsbar)
 
         commandLine = QLineEdit("Lan Audacity")
-        commandLine.setAlignment(Qt.AlignCenter)
+        commandLine.setAlignment(Qt.AlignmentFlag.AlignCenter)
         commandLine.setClearButtonEnabled(True)
         commandLine.setAcceptDrops(True)
         commandLine.setDragEnabled(True)
