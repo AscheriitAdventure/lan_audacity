@@ -5,6 +5,7 @@ from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 import logging
 import os
+import inspect
 
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
 # from dev.project.src.classes.cl_menu_barManager import MenuBarManager, ShortcutManager
@@ -30,6 +31,8 @@ class MainGUI(QMainWindow):
         self.loadUI()
         self.tool_uiMenu()
         self.initUI_central()
+
+        self.initUI_menuBar()
 
     def setLinkAction(self) -> list:
         return [
@@ -158,17 +161,22 @@ class MainGUI(QMainWindow):
         self.primary_side_bar.setCurrentIndex(0)
 
     def initUI_menuBar(self):
-        data_obj = self.menuBarManager.data_manager
+        data_obj = self.menuBarManager.file_data
+        #logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data_obj}")
         for menu in data_obj:
-            menu_obj = self.menuBar().addMenu(menu=["title"])
+            menu_obj = self.menuBar().addMenu(menu["title"])
             for action in menu["actions"]:
-                q_action = newAction(
-                    parent=self, 
-                    text=action["name"], 
-                    slot=get_spcValue(self.link_action, "name_acte", action["name_low"]), 
-                    shortcut=self.shortcutManager.get_shortcut(action["shortcut_name"]), 
-                    icon=self.iconsManager.get_icon(action["icon_name"]), 
-                    tip=action["status_tip"])
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {action}")
+                z = {"parent": self, "text": action["name"]}
+                if slot := get_spcValue(self.link_action, "name_acte", action["name_low"], True):
+                    z["slot"] = slot
+                if shortcut := self.shortcutManager.get_shortcut(action["shortcut_name"]):
+                    z["shortcut"] = shortcut  
+                if icon := self.iconsManager.get_icon(action["icon_name"]):
+                    z["icon"] = icon
+                if "status_tip" in action and action["status_tip"]:
+                    z["tip"] = action["status_tip"]
+                q_action = newAction(**z)
                 menu_obj.addAction(q_action)
                 if action["name_low"] == "save_project":
                     menu_obj.addSeparator()

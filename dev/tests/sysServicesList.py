@@ -30,6 +30,6 @@ def sysServicesList(tag_oid: int) -> List[str]:
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    test_value = 250  # Exemple de valeur à analyser
+    test_value = 64  # Exemple de valeur à analyser
     result = sysServicesList(test_value)
     print(f"Services for tag_oid {test_value}: {result}")

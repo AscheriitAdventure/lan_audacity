@@ -1,0 +1,100 @@
+[
+    {
+        "title": "&File",
+        "icon": null,
+        "separator": false,
+        "actions": [
+            {
+                "icon": null,
+                "text": "&New",
+                "shortcut": "Ctrl+N",
+                "tip": "Create a new file",
+                "checkable": false,
+                "enabled": true,
+                "slot": {
+                    "name": "newFile"
+                },
+                "separator": false
+            },
+            {
+                "icon": null,
+                "text": "&Open",
+                "shortcut": "Ctrl+O",
+                "tip": "Open an existing file",
+                "checkable": false,
+                "enabled": true,
+                "slot": {
+                    "name": "openFile",
+                    "args": []
+                },
+                "separator": false
+            },
+            {
+                "icon": null,
+                "text": "&Save",
+                "shortcut": "Ctrl+S",
+                "tip": "Save the document to disk",
+                "checkable": false,
+                "enabled": true,
+                "slot": null,
+                "separator": true
+            },
+            {
+                "icon": null,
+                "text": "&Exit",
+                "shortcut": "Alt+F4",
+                "tip": "Exit the application",
+                "checkable": false,
+                "enabled": true,
+                "slot": {
+                    "name": "quit"
+                },
+                "separator": false
+            }
+        ]
+    },
+    {
+        "title": "&Edit",
+        "icon": null,
+        "separator": false,
+        "actions": [
+            {
+                "icon": null,
+                "text": "&Undo",
+                "shortcut": "Ctrl+Z",
+                "tip": "Undo the last operation",
+                "checkable": false,
+                "enabled": true,
+                "slot": null,
+                "separator": false
+            },
+            {
+                "icon": null,
+                "text": "&Redo",
+                "shortcut": "Ctrl+Y",
+                "tip": "Redo the last operation",
+                "checkable": false,
+                "enabled": true,
+                "slot": null,
+                "separator": true
+            }
+        ]
+    },
+    {
+        "title": "&Help",
+        "icon": null,
+        "separator": false,
+        "actions": [
+            {
+                "icon": null,
+                "text": "&About",
+                "shortcut": "F1",
+                "tip": "About the application",
+                "checkable": false,
+                "enabled": true,
+                "slot": null,
+                "separator": false
+            }
+        ]
+    }
+]

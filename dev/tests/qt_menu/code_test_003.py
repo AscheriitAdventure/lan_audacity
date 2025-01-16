@@ -1,11 +1,22 @@
-from typing import Optional, Union, Callable, List, Any
-from qtpy.QtWidgets import *
-from qtpy.QtGui import *
-from qtpy.QtCore import *
+import json
+import sys
 import os
+from typing import Optional, Union, Callable, List, Any
 import logging
 import inspect
 
+from qtpy.QtGui import *
+from qtpy.QtWidgets import *
+from qtpy.QtCore import *
+
+# FORMAT_QMENU_PATH = "D:\\lan_audacity\\dev\\tests\\qt_menu\\format.json"
+FORMAT_QMENU_PATH = "D:\\lan_audacity\\dev\\tests\\qt_menu\\format_prod_test.json"
+
+
+def loadJsonFile(json_file):
+    with open(json_file, 'r', encoding='utf-8') as file:
+        menu_data = json.load(file)
+    return menu_data
 
 
 def newAction(
@@ -47,19 +58,46 @@ def newAction(
         a.setToolTip(tip)
         a.setStatusTip(tip)
 
-    if slot and "name" in slot and slot["name"] in SLOT_REGISTRY:
-        a.triggered.connect(lambda _: SLOT_REGISTRY[slot["name"]](parent))
+    if slot is not None:
+        a.triggered.connect(slot["trigger"])
 
     a.setCheckable(checkable)
     a.setEnabled(enabled)
     return a
 
 
-def get_spcValue(liste_add: list, arg_1: str, obj_src: str, write_log: bool = False) -> Optional[dict]:
-    for obj_dict in liste_add:
-        if obj_dict[arg_1] == obj_src:
-            if write_log:
-                logging.debug(f"{inspect.currentframe().f_code.co_name}: {obj_dict}")
-            return obj_dict
-    return None
+def createMenu(menu_bar, menu_data, parent=None):
+    for a in menu_data:
+        if a["separator"]:
+            menu_bar.addSeparator()
+        b = QMenu(a["title"], menu_bar)
+        if a["icon"]:
+            b.setIcon(a["icon"])
+        menu_bar.addMenu(b)
 
+        if a["actions"]:
+            for c in a["actions"]:
+                c["parent"] = parent
+                if c.get("separator"):
+                    b.addSeparator()
+                c.pop("separator", None)
+                logging.debug(f"{inspect.currentframe().f_code.co_name}: {c}")
+                d = newAction(**c)
+                b.addAction(d)
+        else:
+            b.addSeparator()
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Dynamic QMenu from JSON")
+        menu_bar = self.menuBar()
+        menu_data = loadJsonFile(FORMAT_QMENU_PATH)
+        createMenu(menu_bar, menu_data, self)
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())

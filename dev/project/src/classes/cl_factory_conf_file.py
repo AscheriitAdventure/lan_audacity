@@ -182,7 +182,7 @@ class ShortcutsManager(FactoryConfFile):
     def get_shortcut(self, shortcut_name: str) -> Optional[str]:
         for data in self.file_data:
             if data["name"] == shortcut_name:
-                return data["shortcut"]
+                return data["keys"]
         return None
 
 class MenuBarManager(FactoryConfFile):
@@ -210,4 +210,4 @@ class MenuBarManager(FactoryConfFile):
                     return action
         
         return None
-    
+
