@@ -108,13 +108,12 @@ def load_app():
     logging.info(f"{inspect.currentframe().f_code.co_name}: Chargement de l'interface graphique.")
     logging.info(f"{inspect.currentframe().f_code.co_name}: {os.getenv('APP_NAME')} démarrée.")
 
-    from qtpy.QtWidgets import QApplication, QMainWindow
+    from qtpy.QtWidgets import QApplication
 
     app = QApplication(sys.argv)
     app.setApplicationName(os.getenv("APP_NAME"))
     app.setOrganizationName(os.getenv("APP_ORGANIZATION"))
     app.setApplicationVersion(os.getenv("APP_VERSION"))
-    # app.setStyle("Fusion")
 
     mainGUI = MainGUI()
     mainGUI.show()

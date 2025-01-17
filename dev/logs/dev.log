@@ -1512,3 +1512,62 @@
 2025-01-15 11:12:54,352 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'exit', 'name': '&Exit', 'icon_name': 'exit', 'shortcut_name': 'exit', 'status_tip': 'Exit the application'}
 2025-01-15 11:12:54,352 - DEBUG - get_spcValue: {'name_acte': 'exit', 'trigger': <bound method MainGUI.quitAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x1df478ed340) at 0x000001DF4A9229C0>>}
 2025-01-15 11:12:54,353 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'undo', 'name': '&Undo', 'icon_name': 'undoAction', 'shortcut_name': 'undoAction', 'status_tip': 'Undo the last action'}
+2025-01-16 11:01:46,021 - INFO - Application démarrée.
+2025-01-16 11:01:46,023 - DEBUG - Mode débogage activé.
+2025-01-16 11:01:46,023 - WARNING - Attention, ceci est un avertissement.
+2025-01-16 11:01:46,183 - INFO - MySQLConnection::connect: Connection to MySQL database was successful
+2025-01-16 11:01:46,221 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-01-16 11:01:46,221 - INFO - load_sql_server:Users table is not empty
+2025-01-16 11:01:46,233 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-01-16 11:01:46,234 - INFO - load_sql_server:OSI Layers table is complete
+2025-01-16 11:01:46,241 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-01-16 11:01:46,241 - INFO - load_sql_server: Device Types table is not empty
+2025-01-16 11:01:46,242 - INFO - MySQLConnection::disconnect: MySQL connection is closed
+2025-01-16 11:01:46,242 - INFO - load_app: Chargement de l'interface graphique.
+2025-01-16 11:01:46,243 - INFO - load_app: Lan Audacity démarrée.
+2025-01-16 11:01:46,349 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-01-16 11:01:46,349 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-01-16 11:01:46,349 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-01-16 11:01:46,357 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_obj.json exist.
+2025-01-16 11:01:46,357 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-01-16 11:01:46,357 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_obj.json
+2025-01-16 11:01:46,364 - DEBUG - ShortcutsManager::check_file_exist: The file backup/resources/keyboard_list.json exist.
+2025-01-16 11:01:46,365 - DEBUG - ShortcutsManager::action_file: rw_mode set to READ
+2025-01-16 11:01:46,365 - DEBUG - ShortcutsManager::action_file: Reading file keyboard_list.json
+2025-01-16 11:01:46,716 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'new_project', 'name': '&New Project', 'icon_name': 'newProject', 'shortcut_name': 'newProject', 'status_tip': 'Create a new project'}
+2025-01-16 11:01:46,716 - DEBUG - get_spcValue: {'name_acte': 'new_project', 'trigger': <bound method MainGUI.newProjectAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,718 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'open_project', 'name': '&Open Project', 'icon_name': 'openProject', 'shortcut_name': 'openProject', 'status_tip': 'Open a project'}
+2025-01-16 11:01:46,718 - DEBUG - get_spcValue: {'name_acte': 'open_project', 'trigger': <bound method MainGUI.openProjectAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,718 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'save_project', 'name': '&Save Project', 'icon_name': 'saveProject', 'shortcut_name': 'saveProject', 'status_tip': 'Save the project'}
+2025-01-16 11:01:46,719 - DEBUG - get_spcValue: {'name_acte': 'save_project', 'trigger': <bound method MainGUI.saveProjectAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,719 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'save_as_project', 'name': '&Save As Project', 'icon_name': 'saveAsProject', 'shortcut_name': 'saveAsProject', 'status_tip': 'Save the project as'}
+2025-01-16 11:01:46,719 - DEBUG - get_spcValue: {'name_acte': 'save_as_project', 'trigger': <bound method MainGUI.saveAsProjectAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,720 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'close_project', 'name': '&Close Project', 'icon_name': 'closeProject', 'shortcut_name': 'closeProject', 'status_tip': 'Close the project'}
+2025-01-16 11:01:46,720 - DEBUG - get_spcValue: {'name_acte': 'close_project', 'trigger': <bound method MainGUI.closeProjectAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,721 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'exit', 'name': '&Exit', 'icon_name': 'exit', 'shortcut_name': 'exit', 'status_tip': 'Exit the application'}
+2025-01-16 11:01:46,721 - DEBUG - get_spcValue: {'name_acte': 'exit', 'trigger': <bound method MainGUI.quitAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,721 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'undo', 'name': '&Undo', 'icon_name': 'undoAction', 'shortcut_name': 'undoAction', 'status_tip': 'Undo the last action'}
+2025-01-16 11:01:46,722 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'redo', 'name': '&Redo', 'icon_name': 'redoAction', 'shortcut_name': 'redoAction', 'status_tip': 'Redo the last action'}
+2025-01-16 11:01:46,722 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'cut', 'name': '&Cut', 'icon_name': 'cutAction', 'shortcut_name': 'cutAction', 'status_tip': 'Cut the selected text'}
+2025-01-16 11:01:46,722 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'copy', 'name': '&Copy', 'icon_name': 'copyAction', 'shortcut_name': 'copyAction', 'status_tip': 'Copy the selected text'}
+2025-01-16 11:01:46,723 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'paste', 'name': '&Paste', 'icon_name': 'pasteAction', 'shortcut_name': 'pasteAction', 'status_tip': 'Paste the selected text'}
+2025-01-16 11:01:46,723 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'delete', 'name': '&Delete', 'icon_name': 'deleteAction', 'shortcut_name': 'deleteAction', 'status_tip': 'Delete the selected text'}
+2025-01-16 11:01:46,724 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'select_all', 'name': '&Select All', 'icon_name': 'selectAllAction', 'shortcut_name': 'selectAllAction', 'status_tip': 'Select all text'}
+2025-01-16 11:01:46,725 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'select_none', 'name': '&Select None', 'icon_name': 'selectNoneAction', 'shortcut_name': 'selectNoneAction', 'status_tip': 'Select none text'}
+2025-01-16 11:01:46,725 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'select_inverse', 'name': '&Select Inverse', 'icon_name': 'selectInverseAction', 'shortcut_name': 'selectInverseAction', 'status_tip': 'Select inverse text'}
+2025-01-16 11:01:46,726 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'file_explorer', 'name': '&File Explorer', 'icon_name': 'fileExplorerAction', 'shortcut_name': 'fileExplorerAction', 'status_tip': 'Open file explorer'}
+2025-01-16 11:01:46,726 - DEBUG - get_spcValue: {'name_acte': 'file_explorer', 'trigger': <bound method MainGUI.fileExplorerAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,728 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'net_explorer', 'name': '&Network Explorer', 'icon_name': 'netExplorerAction', 'shortcut_name': 'netExplorerAction', 'status_tip': 'Open network explorer'}
+2025-01-16 11:01:46,728 - DEBUG - get_spcValue: {'name_acte': 'net_explorer', 'trigger': <bound method MainGUI.netExplorerAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,729 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'extension', 'name': '&Extension', 'icon_name': 'extensionAction', 'shortcut_name': 'extensionAction', 'status_tip': 'Show Extension Library'}
+2025-01-16 11:01:46,729 - DEBUG - get_spcValue: {'name_acte': 'extension', 'trigger': <bound method MainGUI.extensionAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,729 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'user', 'name': '&User', 'icon_name': 'userAction', 'shortcut_name': 'userAction', 'status_tip': 'Open Window User'}
+2025-01-16 11:01:46,730 - DEBUG - get_spcValue: {'name_acte': 'user', 'trigger': <bound method MainGUI.userAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,730 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'preferences', 'name': '&Preferences', 'icon_name': 'preferencesAction', 'shortcut_name': 'preferencesAction', 'status_tip': 'Open Window Preferences'}
+2025-01-16 11:01:46,730 - DEBUG - get_spcValue: {'name_acte': 'preferences', 'trigger': <bound method MainGUI.preferencesAction of <dev.project.src.classes.cl_mainGUI.MainGUI(0x22414eb9330) at 0x0000022416053100>>}
+2025-01-16 11:01:46,731 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'language', 'name': '&Language', 'icon_name': 'languageAction', 'shortcut_name': 'languageAction', 'status_tip': 'Change language'}
+2025-01-16 11:01:46,731 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'shortcut_key', 'name': '&Shortcut Key', 'icon_name': 'shortcutKeyAction', 'shortcut_name': 'shortcutKeyAction', 'status_tip': 'Change shortcut key'}
+2025-01-16 11:01:46,732 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'notification', 'name': '&Notification', 'icon_name': 'notificationAction', 'shortcut_name': 'notificationAction', 'status_tip': 'Show notification'}
+2025-01-16 11:01:46,732 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'open_terminal', 'name': '&Open Terminal', 'icon_name': 'terminalAction', 'shortcut_name': 'terminalAction', 'status_tip': 'Open terminal'}
+2025-01-16 11:01:46,733 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'help', 'name': '&Help', 'icon_name': 'helpAction', 'shortcut_name': 'helpAction', 'status_tip': 'Help'}
+2025-01-16 11:01:46,733 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'about', 'name': '&About', 'icon_name': 'aboutAction', 'shortcut_name': 'aboutAction', 'status_tip': 'About'}

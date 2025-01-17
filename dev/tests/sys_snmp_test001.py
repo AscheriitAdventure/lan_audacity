@@ -3,21 +3,21 @@ import asyncio
 
 
 form_snmp = {
-    "ip_address": "192.168.90.251",
+    "ip_address": "192.168.90.250",
     "port": 161,
     "version": SnmpForm.SnmpVersion.SNMPv2c,
     "community": "ArteEyrein"
 }
 
-# oid = "1.3.6.1.2.1.4.24.3"
-oid = "1.3.6.1.2.1.1"
+# oid = ["1.3.6.1.2.1.4.24.3","1.3.6.1.2.1.1"]
+oid = "1.3.6.1.2.1.16.19.1"
 
 cmd_snmp = SnmpForm(**form_snmp)
 
 
 async def main():
     result_data = await cmd_snmp.getWalkOID(oid)
-    print(result_data)
+    # print(result_data)
     for res in result_data:
         print(f"{res.oid}: [{res.data_type}] = {res.rawValue}")
 

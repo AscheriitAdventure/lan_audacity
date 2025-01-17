@@ -162,7 +162,6 @@ class MainGUI(QMainWindow):
 
     def initUI_menuBar(self):
         data_obj = self.menuBarManager.file_data
-        #logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data_obj}")
         for menu in data_obj:
             menu_obj = self.menuBar().addMenu(menu["title"])
             for action in menu["actions"]:
@@ -178,9 +177,7 @@ class MainGUI(QMainWindow):
                     z["tip"] = action["status_tip"]
                 q_action = newAction(**z)
                 menu_obj.addAction(q_action)
-                if action["name_low"] == "save_project":
-                    menu_obj.addSeparator()
-                elif action["name_low"] == "exit":
+                if action["name_low"] == ("save_project" or "exit"):
                     menu_obj.addSeparator()
                 
     def setStackedWidget(self, index: int) -> None:
@@ -189,38 +186,11 @@ class MainGUI(QMainWindow):
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
 
-    def newProjectAction(self) -> None:
-        pass
-
-    def openProjectAction(self) -> None:
-        pass
-
-    def saveProjectAction(self) -> None:
-        pass
-
-    def saveAsProjectAction(self) -> None:
-        pass
-
-    def closeProjectAction(self) -> None:
-        pass
-
-    def quitAction(self) -> None:
-        pass
-
     def fileExplorerAction(self) -> None:
         self.setStackedWidget(0)
     
     def netExplorerAction(self) -> None:
         self.setStackedWidget(1)
-    
-    def extensionAction(self) -> None:
-        pass
-
-    def userAction(self) -> None:
-        pass
-
-    def preferencesAction(self) -> None:
-        pass
 ########################################################################################
 """
     Remarques:

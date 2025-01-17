@@ -18,8 +18,9 @@ mib_list = [
     'DISMAN-EXPRESSION-MIB',
     'DISMAN-EVENT-MIB',
     'EXPRESSION-MIB',
-    'RFC1213-MIB'
+    'RFC1213-MIB',
 ]
+
 for mib in mib_list:
     try:
         mibBuilder.load_modules(mib)
