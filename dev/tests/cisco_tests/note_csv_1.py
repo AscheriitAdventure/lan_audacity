@@ -4,30 +4,8 @@ from qtpy.QtWidgets import QApplication, QMainWindow, QTreeWidget, QTreeWidgetIt
 from pysnmp.smi import builder, view, compiler
 from pysnmp.smi.rfc1902 import ObjectIdentity
 
-# 📌 Chemin vers le dossier contenant les MIBs convertis en .py
-MIB_PATH = 'D:/lan_audacity/backup/dev/py_mibs'
-START_OID = "1.3.6.1.2"  # Filtrer à partir de mib-2
 
-# 🔹 Charger les fichiers MIB
-mibBuilder = builder.MibBuilder()
-mibBuilder.add_mib_sources(builder.DirMibSource(MIB_PATH))
-compiler.add_mib_compiler(mibBuilder, sources=['http://mibs.snmplabs.com/asn1/@mib@'])
-
-# 🔹 Charger les modules MIB nécessaires
-mib_list = [
-    'SNMPv2-MIB', 'IP-MIB', 'IP-FORWARD-MIB', 'IF-MIB', 'DISMAN-EXPRESSION-MIB',
-    'DISMAN-EVENT-MIB', 'RFC1213-MIB', 'EtherLike-MIB', 'RMON-MIB', 'RMON2-MIB',
-    'SMON-MIB', 'BRIDGE-MIB', 'POWER-ETHERNET-MIB'
-]
-for mib in mib_list:
-    try:
-        mibBuilder.load_modules(mib)
-    except Exception as e:
-        print(f"⚠️ Erreur lors du chargement du module {mib} : {e}")
-
-# 🔹 Construire un traducteur
-mibViewController = view.MibViewController(mibBuilder)
-
+START_OID = "1.3.6.1.2"
 
 class OidTreeApp(QMainWindow):
     def __init__(self):
@@ -59,17 +37,6 @@ class OidTreeApp(QMainWindow):
         if file_path:
             self.load_csv_data(file_path)
 
-    def resolve_oid(self, oid):
-        """ Essaie de trouver le nom lisible de l'OID avec la MIB """
-        try:
-            obj_lab = ObjectIdentity(oid)
-            obj_lab.resolve_with_mib(mibViewController)
-            full_name = ".".join(map(str, obj_lab.get_label()))  # Nom complet
-            short_name = obj_lab.get_label()[-1]  # Dernier label
-            return full_name, short_name
-        except Exception:
-            return "N/A", "N/A"
-
     def load_csv_data(self, file_path):
         """ Charge les OID depuis un fichier CSV et affiche ceux à partir de mib-2 """
         try:
@@ -85,10 +52,16 @@ class OidTreeApp(QMainWindow):
 
             oid_dict = {}
             for _, row in df.iterrows():
-                full_oid = row["OID"]
-                full_desc, short_name = self.resolve_oid(full_oid)  # 🔎 Résolution du nom lisible via MIB
+                full_oid = str(row["OID"])
+                full_desc = str(row["DSC"])
+                short_name = str(row["TXT-END"])
 
-                # Supprimer le préfixe "1.3.6.1.2" pour ne pas l'afficher plusieurs fois
+                # Ignorer les entrées où TXT-END est "#N/A"
+                if short_name == "nan":
+                    # print(f"⚠️ Entrée ignorée : OID={full_oid}, Description={full_desc}")
+                    # passer à l'iteration suivante
+                    continue
+                
                 relative_oid = full_oid[len(START_OID) + 1:]  # Supprime "1.3.6.1.2."
 
                 oid_parts = relative_oid.split(".")  # Découpage de l'OID

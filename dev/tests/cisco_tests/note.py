@@ -1,6 +1,7 @@
 from pysnmp.smi import builder, view, compiler
 from pysnmp.smi.rfc1902 import ObjectIdentity
 import os
+import sys
 
 VAR_SRC_MIBS = 'D:/lan_audacity/backup/dev/py_mibs'
 
@@ -10,6 +11,10 @@ mibBuilder.add_mib_sources(builder.DirMibSource(VAR_SRC_MIBS))
 compiler.add_mib_compiler(mibBuilder, sources=[
                           'http://mibs.snmplabs.com/asn1/@mib@', f'file://{VAR_SRC_MIBS}'])
 
+mib_list = ['POWER-ETHERNET-MIB', 'CISCO-SMI', 'HC-RMON-MIB', 'SMON-MIB']
+for mib in mib_list:
+    mibBuilder.load_modules(mib)
+
 # Construire un traducteur MIB
 mibViewController = view.MibViewController(mibBuilder)
 
@@ -18,7 +23,7 @@ def load_mib_for_oid(oid):
     """Essaye de résoudre un OID, et charge la MIB correspondante s'il échoue"""
     obj = ObjectIdentity(oid)
     try:
-        obj.resolve_with_mib(mibViewController)
+        obj.resolve_with_mib(mibViewController, False)
         return obj.get_label()
     except Exception:
         print(f"OID inconnu : {oid}. Recherche de la MIB correspondante...")
@@ -40,10 +45,11 @@ def load_mib_for_oid(oid):
 
 
 # Exemple avec un OID inconnu initialement
-oid_test = ['1.3.6.1.2.1.105.1.1.1.3.1.1', '1.3.6.1.2.1.1.9.1.2.1']
+oid_test = ['1.3.6.1.2.1.105.1.1.1.3.1.1', '1.3.6.1.2.1.1.9.1.2.1', '1.3.6.1.2.1.105']
 for i in oid_test:
     try:
         label = load_mib_for_oid(i)
         print(f"OID résolu : {i} -> {label}")
     except Exception as e:
         print(e)
+sys.exit(0)

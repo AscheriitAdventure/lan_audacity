@@ -1,0 +1,46 @@
+version: 1
+
+mib-source: ./assets/snmp-mibs/mibs/
+destination-directory: ./assets/snmp-mibs/mibs-py/
+rebuild: true
+mibs:
+  - name: SNMPv2-SMI
+  - name: RFC1213-MIB
+  - name: UPS-MIB
+  - name: SNMPv2-SMI-v1
+  - name: SNMPv2-MIB
+  - name: DISMAN-EXPRESSION-MIB
+  - name: DISMAN-EVENT-MIB
+  - name: EXPRESSION-MIB
+  - name: IF-MIB
+  - name: IP-MIB
+  - name: IP-FORWARD-MIB
+  - name: TCP-MIB
+  - name: UDP-MIB
+  - name: RFC1382-MIB
+  - name: EtherLike-MIB
+  - name: APPLETALK-MIB
+  - name: OSPF-MIB
+  - name: BGP4-MIB
+  - name: RMON-MIB
+  - name: RFC1271-MIB
+  - name: RMON2-MIB
+  - name: SMON-MIB
+  - name: TOKEN-RING-RMON-MIB
+  - name: HC-RMON-MIB
+  - name: APM-MIB
+  - name: DSMON-MIB
+  - name: INTERFACETOPN-MIB
+  - name: SSPM-MIB
+  - name: HC-ALARM-MIB
+  - name: RAQMON-MIB
+  - name: BRIDGE-MIB
+  - name: P-BRIDGE-MIB
+  - name: Q-BRIDGE-MIB
+  - name: SOURCE-ROUTING-MIB
+  - name: RSTP-MIB
+  - name: SCTP-MIB
+  - name: POWER-ETHERNET-MIB
+  - name: SNMPv2-TC
+  - name: SNMPv2-CONF
+  - name: SNMP-FRAMEWORK-MIB

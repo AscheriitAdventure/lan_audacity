@@ -1,24 +1,26 @@
+# __
+
 en entrée j'ai un OID(1.3.6.1.2.1.105.1.1.1.3.1.1)  
 en sorti je demande TXT(iso.org.dod.internet.mgmt.mib-2.powerEthernetMIB.pethObjects.pethPsePortTable.pethPsePortEntry.pethPsePortAdminEnable)  
 en sortie je demande TXT-END(pethPsePortAdminEnable)  
 
 en sortie je demande aussi un arbre de l'OID en partant de mib-2(1.3.6.1.2.1)  
 donc une liste de valeurs (théorique):  
+
 OID|TXT-END|DSC
 :--|:--|:--
 1.3.6.1.2.1|mib-2|SNMPv2-MIB.mib-2
 1.3.6.1.2.1.1|system|SNMPv2-MIB.mib-2.system
 1.3.6.1.2.1.1.1|sysDescr|SNMPv2-MIB.mib-2.system.sysDescr
 
-
 donc une liste de valeurs (pratique):
 ce tableau est l'exemple typique à ne pas voir.  
-OID|TXT-END|DSC
-:--|:--|:--
-1.3.6.1.2.1||
-1.3.6.1.2.1.1||
-1.3.6.1.2.1.1.1|sysDescr|SNMPv2-MIB.mib-2.system.sysDescr
 
+| OID             | TXT-END  | DSC                                             |
+|:----------------|:---------|:------------------------------------------------|
+| 1.3.6.1.2.1     |          |                                                 |
+| 1.3.6.1.2.1.1   |          |                                                 |
+| 1.3.6.1.2.1.1.1 | sysDescr | iso.org.dod.internet.mgmt.mib-2.system.sysDescr |
 
 ```python
 import sys

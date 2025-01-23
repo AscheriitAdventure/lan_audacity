@@ -1,0 +1,19 @@
+{
+  "uuidLink": "d547be9c-cfa6-4430-8679-60ccc4a6ed1b",
+  "nameObject": "CISCO MIB List",
+  "versionObject": "0.1.0",
+  "newsUpdate": null,
+  "readMeObject": null,
+  "vendor": "Cisco",
+  "nameAuthors": "Geoffrey TRONCHE",
+  "keyWords": ["MIB", "OID", "SNMP", "CISCO"],
+  "packageLinkExtension": null,
+  "categoryExtension": ["Catégorie de l'extension", "Catégorie de l'extension"],
+  "cerficateObject": null,
+  "pathObject": {
+    "pathIcon": null,
+    "pathUrlLocal": "D:/lan_audacity/dev/apps/hardware/network/cisco.conf",
+    "pathUrlWeb": null,
+    "pathUrlGit": null
+  }
+}

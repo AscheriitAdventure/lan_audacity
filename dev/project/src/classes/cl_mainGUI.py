@@ -80,22 +80,6 @@ class MainGUI(QMainWindow):
                 "name_acte": "preferences",
                 "trigger": self.preferencesAction
             },
-            # {
-            #     "name_acte": "language",
-            #     "trigger": self.openLanguage
-            # },
-            # {
-            #     "name_acte": "shortcut_key",
-            #     "trigger": self.openShortcutKey
-            # },
-            # {
-            #     "name_acte": "notification",
-            #     "trigger": self.openNotification
-            # },
-            # {
-            #     "name_acte": "open_terminal",
-            #     "trigger": self.openTerminal
-            # },
         ]
 
     def loadUI(self):
@@ -191,6 +175,28 @@ class MainGUI(QMainWindow):
     
     def netExplorerAction(self) -> None:
         self.setStackedWidget(1)
+#######################################################################################
+    def newProjectAction(self) -> None:
+        pass
+
+    def openProjectAction(self) -> None:
+        pass
+
+    def saveProjectAction(self) -> None:
+        pass
+    def saveAsProjectAction(self) -> None:
+        pass
+    def closeProjectAction(self) -> None:
+        pass
+    def quitAction(self) -> None:
+        pass
+    def extensionAction(self) -> None:
+        pass
+    def userAction(self) -> None:
+        pass
+    def preferencesAction(self) -> None:
+        pass
+
 ########################################################################################
 """
     Remarques:
