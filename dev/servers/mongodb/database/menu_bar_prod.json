@@ -1,0 +1,267 @@
+[
+  {
+    "title": "&File",
+    "icon": null,
+    "separator": false,
+    "actions": [
+      {
+        "text": "&New Text File",
+        "shortcut": "Ctrl+N",
+        "tip": "Create a new text file",
+        "slot": { "name": "new_text_file" },
+        "enabled": false
+      },
+      {
+        "text": "&New Project",
+        "shortcut": "Ctrl+N+P",
+        "tip": "Create a new project",
+        "slot": { "name": "new_project" },
+        "enabled": true
+      },
+      {
+        "text": "&New Window",
+        "shortcut": "Ctrl+Shift+N",
+        "tip": "Open a new window",
+        "slot": { "name": "open_new_window" },
+        "enabled": true
+      },
+      {
+        "separator": true,
+        "text": "&Open Text File",
+        "shortcut": "Ctrl+O",
+        "tip": "Open an existing text file",
+        "slot": { "name": "open_text_file" },
+        "enabled": false
+      },
+      {
+        "text": "&Open Folder Project",
+        "shortcut": "Ctrl+Shift+O",
+        "tip": "Open an existing folder project",
+        "slot": { "name": "open_folder_project" },
+        "enabled": true
+      },
+      {
+        "text": "&Open Recent",
+        "shortcut": "Ctrl+Alt+H",
+        "tip": "Open a tab with the recents files or projects",
+        "slot": { "name": "action_open_recent" },
+        "enabled": true
+      },
+      {
+        "separator": true,
+        "text": "&Save",
+        "shortcut": "Ctrl+S",
+        "tip": "Save the document to disk",
+        "slot": { "name": "action_save" },
+        "enabled": false
+      },
+      {
+        "text": "&Save As",
+        "shortcut": "Ctrl+Shift+S",
+        "tip": "Save the document to disk with a new name",
+        "slot": { "name": "action_save_as" },
+        "enabled": false
+      },
+      {
+        "separator": true,
+        "text": "&Close Current Window",
+        "shortcut": "Ctrl+Alt+W",
+        "tip": "Close the current window",
+        "slot": { "name": "close_current_window" },
+        "enabled": true
+      },
+      {
+        "text": "&Close All Windows",
+        "shortcut": "Alt+F4",
+        "tip": "Close all windows",
+        "slot": { "name": "close_all_windows" },
+        "enabled": true
+      },
+      {
+        "separator": true,
+        "text": "&Exit",
+        "shortcut": "Ctrl+Q",
+        "tip": "Exit the application",
+        "slot": { "name": "end_application" },
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "title": "&Edit",
+    "icon": null,
+    "separator": false,
+    "actions": [
+      {
+        "text": "&Undo",
+        "shortcut": "Ctrl+Z",
+        "tip": "Undo the last operation",
+        "slot": { "name": "action_undo" },
+        "enabled": false
+      },
+      {
+        "text": "&Redo",
+        "shortcut": "Ctrl+Y",
+        "tip": "Redo the last operation",
+        "slot": { "name": "action_redo" },
+        "enabled": false
+      },
+      {
+        "separator": true,
+        "text": "&Cut",
+        "shortcut": "Ctrl+X",
+        "tip": "Cut the selection to the clipboard",
+        "slot": { "name": "action_cut" },
+        "enabled": false
+      },
+      {
+        "text": "&Copy",
+        "shortcut": "Ctrl+C",
+        "tip": "Copy the selection to the clipboard",
+        "slot": { "name": "action_copy" },
+        "enabled": false
+      },
+      {
+        "text": "&Paste",
+        "shortcut": "Ctrl+V",
+        "tip": "Paste the clipboard's content",
+        "slot": { "name": "action_paste" },
+        "enabled": false
+      },
+      {
+        "separator": true,
+        "text": "&Find",
+        "shortcut": "Ctrl+F",
+        "tip": "Find a text in the document",
+        "slot": { "name": "action_find" },
+        "enabled": false
+      },
+      {
+        "text": "&Replace",
+        "shortcut": "Ctrl+H",
+        "tip": "Replace a text in the document",
+        "slot": { "name": "action_replace" },
+        "enabled": false
+      }
+    ]
+  },
+  {
+    "title": "&Select",
+    "icon": null,
+    "separator": false,
+    "actions": [
+      {
+        "text": "&Select All",
+        "shortcut": "Ctrl+A",
+        "tip": "Select all the text in the document",
+        "slot": { "name": "action_select_all" },
+        "enabled": true
+      }
+    ]
+  },
+  {
+    "title": "&View",
+    "icon": null,
+    "separator": false,
+    "actions": [
+      {
+        "text": "&File Explorer",
+        "icon": null,
+        "shortcut": null,
+        "slot": { "name": "file_explorer_show" },
+        "tip": "Show the file explorer"
+      },
+      {
+        "text": "&Network Explorer",
+        "icon": null,
+        "shortcut": null,
+        "slot": { "name": "network_explorer_show" },
+        "tip": "Show the network explorer"
+      },
+      {
+        "separator": true,
+        "text": "&Extensions",
+        "icon": null,
+        "shortcut": null,
+        "slot": { "name": "extensions_show" },
+        "tip": "Show the extension library"
+      }
+    ]
+  },
+  {
+    "title": "&Settings",
+    "icon": null,
+    "separator": false,
+    "actions": [
+      {
+        "text": "&Preferences",
+        "icon": null,
+        "shortcut": "Ctrl+,",
+        "slot": { "name": "preferences_open" },
+        "tip": "Show the application's preferences"
+      },
+      {
+        "separator": true,
+        "text": "&User Settings",
+        "icon": null,
+        "shortcut": null,
+        "slot": { "name": "user_settings_open" },
+        "tip": "Show the user's settings"
+      }
+    ]
+  },
+  {
+    "title": "&Terminal",
+    "icon": null,
+    "separator": false,
+    "actions": [
+      {
+        "text": "&New Terminal",
+        "icon": null,
+        "shortcut": "Ctrl+Shift+ù",
+        "slot": { "name": "new_terminal" },
+        "tip": "Open a new terminal"
+      }
+    ]
+  },
+  {
+    "title": "&Help",
+    "icon": null,
+    "separator": false,
+    "actions": [
+      {
+        "text": "&Welcome",
+        "tip": "Show the application's welcome box",
+        "slot": { "name": "welcome_open" },
+        "enabled": true
+      },
+      {
+        "text": "&Documentation",
+        "tip": "Show the application's documentation",
+        "slot": { "name": "documentation_open" },
+        "enabled": true
+      },
+      {
+        "text": "Show update notes",
+        "tip": "Show the application's update notes",
+        "slot": { "name": "show_update_notes" },
+        "enabled": true
+      },
+      {
+        "separator": true,
+        "text": "&Search Updates",
+        "tip": "Search for updates",
+        "slot": { "name": "search_updates" },
+        "enabled": true
+      },
+      {
+        "separator": true,
+        "text": "&About",
+        "shortcut": "F1",
+        "tip": "Show the application's about box",
+        "slot": { "name": "about_open" },
+        "enabled": true
+      }
+    ]
+  }
+]

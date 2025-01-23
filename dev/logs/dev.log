@@ -1678,3 +1678,93 @@
 2025-01-23 15:28:05,554 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'open_terminal', 'name': '&Open Terminal', 'icon_name': 'terminalAction', 'shortcut_name': 'terminalAction', 'status_tip': 'Open terminal'}
 2025-01-23 15:28:05,555 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'help', 'name': '&Help', 'icon_name': 'helpAction', 'shortcut_name': 'helpAction', 'status_tip': 'Help'}
 2025-01-23 15:28:05,555 - DEBUG - MainGUI::initUI_menuBar: {'name_low': 'about', 'name': '&About', 'icon_name': 'aboutAction', 'shortcut_name': 'aboutAction', 'status_tip': 'About'}
+2025-01-23 16:24:50,313 - INFO - Application démarrée.
+2025-01-23 16:24:50,314 - DEBUG - Mode débogage activé.
+2025-01-23 16:24:50,315 - WARNING - Attention, ceci est un avertissement.
+2025-01-23 16:24:50,613 - INFO - MySQLConnection::connect: Connection to MySQL database was successful
+2025-01-23 16:24:50,648 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-01-23 16:24:50,649 - INFO - load_sql_server:Users table is not empty
+2025-01-23 16:24:50,654 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-01-23 16:24:50,655 - INFO - load_sql_server:OSI Layers table is complete
+2025-01-23 16:24:50,661 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-01-23 16:24:50,662 - INFO - load_sql_server: Device Types table is not empty
+2025-01-23 16:24:50,665 - INFO - MySQLConnection::disconnect: MySQL connection is closed
+2025-01-23 16:24:50,665 - INFO - load_app: Chargement de l'interface graphique.
+2025-01-23 16:24:50,666 - INFO - load_app: Lan Audacity démarrée.
+2025-01-23 16:24:50,820 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-01-23 16:24:50,821 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-01-23 16:24:50,821 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-01-23 16:24:50,824 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-01-23 16:24:50,825 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-01-23 16:24:50,825 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-01-23 16:24:50,826 - DEBUG - ShortcutsManager::check_file_exist: The file backup/resources/keyboard_list.json exist.
+2025-01-23 16:24:50,827 - DEBUG - ShortcutsManager::action_file: rw_mode set to READ
+2025-01-23 16:24:50,827 - DEBUG - ShortcutsManager::action_file: Reading file keyboard_list.json
+2025-01-23 16:24:51,182 - DEBUG - createMenu: {'text': '&New Text File', 'shortcut': 'Ctrl+N', 'tip': 'Create a new text file', 'slot': {'name': 'new_text_file'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,184 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,187 - DEBUG - createMenu: {'text': '&New Project', 'shortcut': 'Ctrl+N+P', 'tip': 'Create a new project', 'slot': {'name': 'new_project'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,187 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,188 - DEBUG - createMenu: {'text': '&New Window', 'shortcut': 'Ctrl+Shift+N', 'tip': 'Open a new window', 'slot': {'name': 'open_new_window'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,188 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,188 - DEBUG - createMenu: {'text': '&Open Text File', 'shortcut': 'Ctrl+O', 'tip': 'Open an existing text file', 'slot': {'name': 'open_text_file'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,189 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,189 - DEBUG - createMenu: {'text': '&Open Folder Project', 'shortcut': 'Ctrl+Shift+O', 'tip': 'Open an existing folder project', 'slot': {'name': 'open_folder_project'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,189 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,190 - DEBUG - createMenu: {'text': '&Open Recent', 'shortcut': 'Ctrl+Alt+H', 'tip': 'Open a tab with the recents files or projects', 'slot': {'name': 'action_open_recent'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,190 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,190 - DEBUG - createMenu: {'text': '&Save', 'shortcut': 'Ctrl+S', 'tip': 'Save the document to disk', 'slot': {'name': 'action_save'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,191 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,191 - DEBUG - createMenu: {'text': '&Save As', 'shortcut': 'Ctrl+Shift+S', 'tip': 'Save the document to disk with a new name', 'slot': {'name': 'action_save_as'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,191 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,192 - DEBUG - createMenu: {'text': '&Close Current Window', 'shortcut': 'Ctrl+Alt+W', 'tip': 'Close the current window', 'slot': {'name': 'close_current_window'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,192 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,192 - DEBUG - createMenu: {'text': '&Close All Windows', 'shortcut': 'Alt+F4', 'tip': 'Close all windows', 'slot': {'name': 'close_all_windows'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,192 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,193 - DEBUG - createMenu: {'text': '&Exit', 'shortcut': 'Ctrl+Q', 'tip': 'Exit the application', 'slot': {'name': 'end_application'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,193 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,193 - DEBUG - createMenu: {'text': '&Undo', 'shortcut': 'Ctrl+Z', 'tip': 'Undo the last operation', 'slot': {'name': 'action_undo'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,194 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,194 - DEBUG - createMenu: {'text': '&Redo', 'shortcut': 'Ctrl+Y', 'tip': 'Redo the last operation', 'slot': {'name': 'action_redo'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,194 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,195 - DEBUG - createMenu: {'text': '&Cut', 'shortcut': 'Ctrl+X', 'tip': 'Cut the selection to the clipboard', 'slot': {'name': 'action_cut'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,195 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,195 - DEBUG - createMenu: {'text': '&Copy', 'shortcut': 'Ctrl+C', 'tip': 'Copy the selection to the clipboard', 'slot': {'name': 'action_copy'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,196 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,196 - DEBUG - createMenu: {'text': '&Paste', 'shortcut': 'Ctrl+V', 'tip': "Paste the clipboard's content", 'slot': {'name': 'action_paste'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,196 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,197 - DEBUG - createMenu: {'text': '&Find', 'shortcut': 'Ctrl+F', 'tip': 'Find a text in the document', 'slot': {'name': 'action_find'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,197 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,197 - DEBUG - createMenu: {'text': '&Replace', 'shortcut': 'Ctrl+H', 'tip': 'Replace a text in the document', 'slot': {'name': 'action_replace'}, 'enabled': False, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,197 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,198 - DEBUG - createMenu: {'text': '&Select All', 'shortcut': 'Ctrl+A', 'tip': 'Select all the text in the document', 'slot': {'name': 'action_select_all'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,198 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,199 - DEBUG - createMenu: {'text': '&File Explorer', 'icon': None, 'shortcut': None, 'slot': {'name': 'file_explorer_show'}, 'tip': 'Show the file explorer', 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,199 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,200 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,200 - DEBUG - createMenu: {'text': '&Network Explorer', 'icon': None, 'shortcut': None, 'slot': {'name': 'network_explorer_show'}, 'tip': 'Show the network explorer', 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,200 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,201 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,201 - DEBUG - createMenu: {'text': '&Extensions', 'icon': None, 'shortcut': None, 'slot': {'name': 'extensions_show'}, 'tip': 'Show the extension library', 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,201 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,202 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,202 - DEBUG - createMenu: {'text': '&Preferences', 'icon': None, 'shortcut': 'Ctrl+,', 'slot': {'name': 'preferences_open'}, 'tip': "Show the application's preferences", 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,202 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,203 - DEBUG - createMenu: {'text': '&User Settings', 'icon': None, 'shortcut': None, 'slot': {'name': 'user_settings_open'}, 'tip': "Show the user's settings", 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,206 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,206 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,207 - DEBUG - createMenu: {'text': '&New Terminal', 'icon': None, 'shortcut': 'Ctrl+Shift+ù', 'slot': {'name': 'new_terminal'}, 'tip': 'Open a new terminal', 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,207 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,208 - DEBUG - createMenu: {'text': '&Welcome', 'tip': "Show the application's welcome box", 'slot': {'name': 'welcome_open'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,208 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,208 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,208 - DEBUG - createMenu: {'text': '&Documentation', 'tip': "Show the application's documentation", 'slot': {'name': 'documentation_open'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,209 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,209 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,209 - DEBUG - createMenu: {'text': 'Show update notes', 'tip': "Show the application's update notes", 'slot': {'name': 'show_update_notes'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,209 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,210 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,210 - DEBUG - createMenu: {'text': '&Search Updates', 'tip': 'Search for updates', 'slot': {'name': 'search_updates'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,210 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-01-23 16:24:51,211 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-01-23 16:24:51,211 - DEBUG - createMenu: {'text': '&About', 'shortcut': 'F1', 'tip': "Show the application's about box", 'slot': {'name': 'about_open'}, 'enabled': True, 'parent': <dev.project.src.classes.cl_mainGUI.MainGUI(0x20f770cf730) at 0x0000020F74531BC0>}
+2025-01-23 16:24:51,211 - WARNING - Icon None is not a valid type. Must be str or QIcon

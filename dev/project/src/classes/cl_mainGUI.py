@@ -7,7 +7,7 @@ import logging
 import os
 import inspect
 
-from dev.project.src.lib.qt_obj import newAction, get_spcValue
+from dev.project.src.lib.qt_obj import newAction, get_spcValue, createMenu
 # from dev.project.src.classes.cl_menu_barManager import MenuBarManager, ShortcutManager
 # from dev.project.src.cl_short import IconsApp as IconsManager
 # from dev.project.src.classes.configurationFile import ConfigurationFile
@@ -26,61 +26,14 @@ class MainGUI(QMainWindow):
         self.menuBarManager = MenuBarManager(os.getenv("MENUBAR_FILE"))
         self.shortcutManager = ShortcutsManager(os.getenv("KEYBOARD_FILE_RSC"))
         self.stackedWidgetList = []
-        self.link_action = self.setLinkAction()
+        # self.link_action = self.setLinkAction()
 
         self.loadUI()
         self.tool_uiMenu()
         self.initUI_central()
 
-        self.initUI_menuBar()
-
-    def setLinkAction(self) -> list:
-        return [
-            {
-                "name_acte": "new_project",
-                "trigger": self.newProjectAction
-            },
-            {
-                "name_acte": "open_project",
-                "trigger": self.openProjectAction
-            },
-            {
-                "name_acte": "save_project",
-                "trigger": self.saveProjectAction
-            },
-            {
-                "name_acte": "save_as_project",
-                "trigger": self.saveAsProjectAction
-            },
-            {
-                "name_acte": "close_project",
-                "trigger": self.closeProjectAction
-            },
-            {
-                "name_acte": "exit",
-                "trigger": self.quitAction
-            },
-            {
-                "name_acte": "file_explorer",
-                "trigger": self.fileExplorerAction
-            },
-            {
-                "name_acte": "net_explorer",
-                "trigger": self.netExplorerAction
-            },
-            {
-                "name_acte": "extension",
-                "trigger": self.extensionAction
-            },
-            {
-                "name_acte": "user",
-                "trigger": self.userAction
-            },
-            {
-                "name_acte": "preferences",
-                "trigger": self.preferencesAction
-            },
-        ]
+        # self.initUI_menuBar()
+        createMenu(self.menuBar(), self.menuBarManager.file_data, self)
 
     def loadUI(self):
         self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
