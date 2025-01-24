@@ -5,6 +5,7 @@ from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 import logging
 import os
+import sys
 import inspect
 from dev.project.src.classes.cl_extented import IconApp
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
@@ -122,7 +123,21 @@ class MainGUI(QMainWindow):
     
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
-
+    
+    def open_new_window(self):
+        self.new_window = MainGUI()
+        self.new_window.show()
+    
+    def close_current_window(self):
+        self.close()
+    
+    def close_all_windows(self):
+        for widget in QApplication.topLevelWidgets():
+            if isinstance(widget, MainGUI):
+                widget.close()
+    
+    def end_application(self):
+        sys.exit(QApplication.exec_())
 
 """
     Remarques:
