@@ -1,12 +1,19 @@
 [
   {
     "title": "&File",
-    "icon": null,
+    "icon": {
+      "names": "mdi6.file-cog",
+      "options": null
+    },
     "separator": false,
     "actions": [
       {
         "text": "&New Text File",
         "shortcut": "Ctrl+N",
+        "icon": {
+          "names": "mdi6.file-document-plus",
+          "options": null
+        },
         "tip": "Create a new text file",
         "slot": { "name": "new_text_file" },
         "enabled": false
@@ -14,12 +21,20 @@
       {
         "text": "&New Project",
         "shortcut": "Ctrl+N+P",
+        "icon": {
+          "names": "mdi6.new-box",
+          "options": null
+        },
         "tip": "Create a new project",
         "slot": { "name": "new_project" },
         "enabled": true
       },
       {
         "text": "&New Window",
+        "icon": {
+          "names": "mdi6.tab-plus",
+          "options": null
+        },
         "shortcut": "Ctrl+Shift+N",
         "tip": "Open a new window",
         "slot": { "name": "open_new_window" },
@@ -29,6 +44,10 @@
         "separator": true,
         "text": "&Open Text File",
         "shortcut": "Ctrl+O",
+        "icon": {
+          "names": "mdi6.file-download",
+          "options": null
+        },
         "tip": "Open an existing text file",
         "slot": { "name": "open_text_file" },
         "enabled": false
@@ -36,6 +55,10 @@
       {
         "text": "&Open Folder Project",
         "shortcut": "Ctrl+Shift+O",
+        "icon": {
+          "names": "mdi6.open-in-app",
+          "options": null
+        },
         "tip": "Open an existing folder project",
         "slot": { "name": "open_folder_project" },
         "enabled": true
@@ -43,6 +66,26 @@
       {
         "text": "&Open Recent",
         "shortcut": "Ctrl+Alt+H",
+        "icon": {
+          "names": ["mdi6.folder-open", "mdi6.circle", "mdi6.history"],
+          "options": [
+            {
+              "scale_factor": 1,
+              "color": "Orange",
+              "active": "mdi6.folder-open"
+            },
+            {
+              "scale_factor": 0.5,
+              "color": "AliceBlue",
+              "offset": [0.3, 0.2]
+            },
+            {
+              "scale_factor": 0.5,
+              "color": "Lime",
+              "offset": [0.3, 0.2]
+            }
+          ]
+        },
         "tip": "Open a tab with the recents files or projects",
         "slot": { "name": "action_open_recent" },
         "enabled": true
@@ -51,6 +94,10 @@
         "separator": true,
         "text": "&Save",
         "shortcut": "Ctrl+S",
+        "icon": {
+          "names": "mdi6.content-save",
+          "options": null
+        },
         "tip": "Save the document to disk",
         "slot": { "name": "action_save" },
         "enabled": false
@@ -58,6 +105,10 @@
       {
         "text": "&Save As",
         "shortcut": "Ctrl+Shift+S",
+        "icon": {
+          "names": "mdi6.content-save-plus",
+          "options": null
+        },
         "tip": "Save the document to disk with a new name",
         "slot": { "name": "action_save_as" },
         "enabled": false
@@ -66,6 +117,10 @@
         "separator": true,
         "text": "&Close Current Window",
         "shortcut": "Ctrl+Alt+W",
+        "icon": {
+          "names": "mdi6.close-box",
+          "options": null
+        },
         "tip": "Close the current window",
         "slot": { "name": "close_current_window" },
         "enabled": true
@@ -73,6 +128,10 @@
       {
         "text": "&Close All Windows",
         "shortcut": "Alt+F4",
+        "icon": {
+          "names": "mdi6.close-box-multiple",
+          "options": null
+        },
         "tip": "Close all windows",
         "slot": { "name": "close_all_windows" },
         "enabled": true
@@ -81,6 +140,10 @@
         "separator": true,
         "text": "&Exit",
         "shortcut": "Ctrl+Q",
+        "icon": {
+          "names": "mdi6.exit-to-app",
+          "options": null
+        },
         "tip": "Exit the application",
         "slot": { "name": "end_application" },
         "enabled": true
@@ -89,12 +152,19 @@
   },
   {
     "title": "&Edit",
-    "icon": null,
+    "icon": {
+      "names": "mdi6.pencil",
+      "options": null
+    },
     "separator": false,
     "actions": [
       {
         "text": "&Undo",
         "shortcut": "Ctrl+Z",
+        "icon": {
+          "names": "mdi6.arrow-u-left-top",
+          "options": null
+        },
         "tip": "Undo the last operation",
         "slot": { "name": "action_undo" },
         "enabled": false
@@ -102,6 +172,10 @@
       {
         "text": "&Redo",
         "shortcut": "Ctrl+Y",
+        "icon": {
+          "names": "mdi6.arrow-u-right-top",
+          "options": null
+        },
         "tip": "Redo the last operation",
         "slot": { "name": "action_redo" },
         "enabled": false
@@ -110,6 +184,10 @@
         "separator": true,
         "text": "&Cut",
         "shortcut": "Ctrl+X",
+        "icon": {
+          "names": "fa5s.cut",
+          "options": null
+        },
         "tip": "Cut the selection to the clipboard",
         "slot": { "name": "action_cut" },
         "enabled": false
@@ -117,6 +195,10 @@
       {
         "text": "&Copy",
         "shortcut": "Ctrl+C",
+        "icon": {
+          "names": "fa5s.copy",
+          "options": null
+        },
         "tip": "Copy the selection to the clipboard",
         "slot": { "name": "action_copy" },
         "enabled": false
@@ -124,6 +206,10 @@
       {
         "text": "&Paste",
         "shortcut": "Ctrl+V",
+        "icon": {
+          "names": "fa5s.paste",
+          "options": null
+        },
         "tip": "Paste the clipboard's content",
         "slot": { "name": "action_paste" },
         "enabled": false
@@ -132,6 +218,10 @@
         "separator": true,
         "text": "&Find",
         "shortcut": "Ctrl+F",
+        "icon": {
+          "names": "mdi6.file-find",
+          "options": null
+        },
         "tip": "Find a text in the document",
         "slot": { "name": "action_find" },
         "enabled": false
@@ -139,6 +229,10 @@
       {
         "text": "&Replace",
         "shortcut": "Ctrl+H",
+        "icon": {
+          "names": "mdi6.find-replace",
+          "options": null
+        },
         "tip": "Replace a text in the document",
         "slot": { "name": "action_replace" },
         "enabled": false
@@ -147,7 +241,10 @@
   },
   {
     "title": "&Select",
-    "icon": null,
+    "icon": {
+      "names": "mdi6.selection-multiple",
+      "options": null
+    },
     "separator": false,
     "actions": [
       {
@@ -161,19 +258,45 @@
   },
   {
     "title": "&View",
-    "icon": null,
+    "icon": {
+      "names": "mdi6.view-dashboard",
+      "options": null
+    },
     "separator": false,
     "actions": [
       {
         "text": "&File Explorer",
-        "icon": null,
+        "icon": {
+          "names": ["mdi6.folder", "mdi6.settings-helper"],
+          "options": [
+            {
+              "color": "Orange",
+              "active": "mdi6.folder-open"
+            },
+            {
+              "color": "LightSlateGray"
+            }
+          ]
+        },
         "shortcut": null,
         "slot": { "name": "file_explorer_show" },
         "tip": "Show the file explorer"
       },
       {
         "text": "&Network Explorer",
-        "icon": null,
+        "icon": {
+          "names": ["mdi6.network", "mdi6.image-filter-drama"],
+          "options": [
+            {
+              "color": "Blue",
+              "scale_factor": 0.75
+            },
+            {
+              "color": "SkyBlue",
+              "offset": [0, -0.15]
+            }
+          ]
+        },
         "shortcut": null,
         "slot": { "name": "network_explorer_show" },
         "tip": "Show the network explorer"
@@ -181,7 +304,35 @@
       {
         "separator": true,
         "text": "&Extensions",
-        "icon": null,
+        "icon": {
+          "names": [
+            "mdi6.puzzle",
+            "mdi6.puzzle",
+            "mdi6.puzzle",
+            "fa5s.microchip"
+          ],
+          "options": [
+            {
+              "color": "Red",
+              "scale_factor": 0.75,
+              "offset": [0.2, 0.2]
+            },
+            {
+              "color": "Green",
+              "scale_factor": 0.75,
+              "offset": [-0.2, 0.2]
+            },
+            {
+              "color": "Blue",
+              "scale_factor": 0.75,
+              "offset": [-0.2, -0.2]
+            },
+            {
+              "scale_factor": 0.5,
+              "color": "LightGrey"
+            }
+          ]
+        },
         "shortcut": null,
         "slot": { "name": "extensions_show" },
         "tip": "Show the extension library"
@@ -190,12 +341,28 @@
   },
   {
     "title": "&Settings",
-    "icon": null,
+    "icon": {
+      "names": "mdi6.application-cog-outline",
+      "options": null
+    },
     "separator": false,
     "actions": [
       {
         "text": "&Preferences",
-        "icon": null,
+        "icon": {
+          "names": ["mdi6.cog-outline", "mdi6.wrench"],
+          "options": [
+            {
+              "color": "Blue"
+            },
+            {
+              "color": "SkyBlue",
+              "scale_factor": 0.75,
+              "rotated": 345,
+              "offset": [0.2, 0.2]
+            }
+          ]
+        },
         "shortcut": "Ctrl+,",
         "slot": { "name": "preferences_open" },
         "tip": "Show the application's preferences"
@@ -203,7 +370,18 @@
       {
         "separator": true,
         "text": "&User Settings",
-        "icon": null,
+        "icon": {
+          "names": ["mdi6.account-circle", "mdi6.settings-helper"],
+          "options": [
+            {
+              "active": "mdi6.account-circle",
+              "offset": [0, -0.05]
+            },
+            {
+              "color": "LightSlateGray"
+            }
+          ]
+        },
         "shortcut": null,
         "slot": { "name": "user_settings_open" },
         "tip": "Show the user's settings"
@@ -212,12 +390,18 @@
   },
   {
     "title": "&Terminal",
-    "icon": null,
+    "icon": {
+      "names": "mdi6.console",
+      "options": null
+    },
     "separator": false,
     "actions": [
       {
         "text": "&New Terminal",
-        "icon": null,
+        "icon": {
+          "names": "mdi6.console-line",
+          "options": null
+        },
         "shortcut": "Ctrl+Shift+ù",
         "slot": { "name": "new_terminal" },
         "tip": "Open a new terminal"
@@ -226,7 +410,10 @@
   },
   {
     "title": "&Help",
-    "icon": null,
+    "icon": {
+      "names": "mdi6.help-circle-outline",
+      "options": null
+    },
     "separator": false,
     "actions": [
       {
@@ -243,6 +430,24 @@
       },
       {
         "text": "Show update notes",
+        "icon": {
+          "names": ["mdi6.newspaper", "mdi6.circle", "mdi6.update"],
+          "options": [
+            {
+              "color": "Crimson"
+            },
+            {
+              "scale_factor": 0.5,
+              "color": "White",
+              "offset": [0.3, 0.2]
+            },
+            {
+              "scale_factor": 0.5,
+              "color": "Lime",
+              "offset": [0.3, 0.2]
+            }
+          ]
+        },
         "tip": "Show the application's update notes",
         "slot": { "name": "show_update_notes" },
         "enabled": true
@@ -250,6 +455,14 @@
       {
         "separator": true,
         "text": "&Search Updates",
+        "icon": {
+          "names": "mdi6.update",
+          "options": [
+            {
+              "color": "Lime"
+            }
+          ]
+        },
         "tip": "Search for updates",
         "slot": { "name": "search_updates" },
         "enabled": true
@@ -258,6 +471,10 @@
         "separator": true,
         "text": "&About",
         "shortcut": "F1",
+        "icon": {
+          "names": "mdi6.information-variant",
+          "options": null
+        },
         "tip": "Show the application's about box",
         "slot": { "name": "about_open" },
         "enabled": true

@@ -95,25 +95,3 @@ def get_spcValue(liste_add: list, arg_1: str, obj_src: str, write_log: bool = Fa
             return obj_dict
     return None
 
-
-def createMenu(menu_bar, menu_data, parent=None):
-    for a in menu_data:
-        if a["separator"]:
-            menu_bar.addSeparator()
-        b = QMenu(a["title"], menu_bar)
-        if a["icon"]:
-            b.setIcon(a["icon"])
-        menu_bar.addMenu(b)
-
-        if a["actions"]:
-            for c in a["actions"]:
-                c["parent"] = parent
-                if c.get("separator"):
-                    b.addSeparator()
-                c.pop("separator", None)
-                logging.debug(f"{inspect.currentframe().f_code.co_name}: {c}")
-                d = newAction(**c)
-                b.addAction(d)
-        else:
-            b.addSeparator()
-

@@ -6,11 +6,8 @@ from qtpy.QtGui import *
 import logging
 import os
 import inspect
-
-from dev.project.src.lib.qt_obj import newAction, get_spcValue, createMenu
-# from dev.project.src.classes.cl_menu_barManager import MenuBarManager, ShortcutManager
-# from dev.project.src.cl_short import IconsApp as IconsManager
-# from dev.project.src.classes.configurationFile import ConfigurationFile
+from dev.project.src.classes.cl_extented import IconApp
+from dev.project.src.lib.qt_obj import newAction, get_spcValue
 from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
 from dev.project.src.classes.cl_factory_conf_file import IconsManager, MenuBarManager, ShortcutsManager
 
@@ -24,16 +21,14 @@ class MainGUI(QMainWindow):
 
         self.iconsManager = IconsManager(os.getenv("ICON_FILE_RSC"))
         self.menuBarManager = MenuBarManager(os.getenv("MENUBAR_FILE"))
-        self.shortcutManager = ShortcutsManager(os.getenv("KEYBOARD_FILE_RSC"))
+        self.shortcutManager = ShortcutsManager(os.getenv("KEYBOARD_FILE_RSC")) # <-- va t il rester ici ?
         self.stackedWidgetList = []
-        # self.link_action = self.setLinkAction()
 
         self.loadUI()
         self.tool_uiMenu()
         self.initUI_central()
 
-        # self.initUI_menuBar()
-        createMenu(self.menuBar(), self.menuBarManager.file_data, self)
+        self.initUI_menuBar()
 
     def loadUI(self):
         self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
@@ -96,61 +91,39 @@ class MainGUI(QMainWindow):
         self.primary_side_bar.addWidget(self.dlcExplorer)
 
         self.primary_side_bar.setCurrentIndex(0)
-
+    
     def initUI_menuBar(self):
-        data_obj = self.menuBarManager.file_data
-        for menu in data_obj:
-            menu_obj = self.menuBar().addMenu(menu["title"])
-            for action in menu["actions"]:
-                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {action}")
-                z = {"parent": self, "text": action["name"]}
-                if slot := get_spcValue(self.link_action, "name_acte", action["name_low"], True):
-                    z["slot"] = slot
-                if shortcut := self.shortcutManager.get_shortcut(action["shortcut_name"]):
-                    z["shortcut"] = shortcut  
-                if icon := self.iconsManager.get_icon(action["icon_name"]):
-                    z["icon"] = icon
-                if "status_tip" in action and action["status_tip"]:
-                    z["tip"] = action["status_tip"]
-                q_action = newAction(**z)
-                menu_obj.addAction(q_action)
-                if action["name_low"] == ("save_project" or "exit"):
-                    menu_obj.addSeparator()
-                
+        for a in self.menuBarManager.menubar_object:
+            if a.separator:
+                self.menuBar().addSeparator()
+            b = QMenu(a.title, self.menuBar())
+            if a.icon:
+                if isinstance(a.icon, IconApp):
+                    b.setIcon(a.icon.get_qIcon())
+                else:
+                    logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {a.icon}")
+            
+            self.menuBar().addMenu(b)
+
+            if a.actions:
+                for c in a.actions:
+                    if c.separator:
+                        b.addSeparator()
+                    d = c.get_dict()
+                    d["parent"] = self
+                    logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}")
+                    e = newAction(**d)
+                    b.addAction(e)
+            else:
+                b.addSeparator()
+
     def setStackedWidget(self, index: int) -> None:
         self.primary_side_bar.setCurrentIndex(index)
     
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
 
-    def fileExplorerAction(self) -> None:
-        self.setStackedWidget(0)
-    
-    def netExplorerAction(self) -> None:
-        self.setStackedWidget(1)
-#######################################################################################
-    def newProjectAction(self) -> None:
-        pass
 
-    def openProjectAction(self) -> None:
-        pass
-
-    def saveProjectAction(self) -> None:
-        pass
-    def saveAsProjectAction(self) -> None:
-        pass
-    def closeProjectAction(self) -> None:
-        pass
-    def quitAction(self) -> None:
-        pass
-    def extensionAction(self) -> None:
-        pass
-    def userAction(self) -> None:
-        pass
-    def preferencesAction(self) -> None:
-        pass
-
-########################################################################################
 """
     Remarques:
         Bon je me débrouille pas trop mal pour le moment, j'ai réussi à mettre en place une disposition de fenêtre pas trop mal.
