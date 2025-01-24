@@ -7,17 +7,17 @@ import logging
 import inspect
 
 SLOT_REGISTRY = {
+    "open_new_window": lambda parent: parent.open_new_window(),
+    "close_current_window": lambda parent: parent.close_current_window(),
+    "close_all_windows": lambda parent: parent.close_all_windows(),
+    "end_application": lambda parent: parent.end_application(),
     "new_text_file": lambda parent: print("New Text File"),
     "new_project": lambda parent: print("New Project"),
-    "open_new_window": lambda parent: parent.open_new_window(),
     "open_text_file": lambda parent: print("Open Text File"),
     "open_folder_project": lambda parent: print("Open Folder Project"),
     "action_open_recent": lambda parent: print("Open Recent"),
     "action_save": lambda parent: print("Save"),
     "action_save_as": lambda parent: print("Save As"),
-    "close_current_window": lambda parent: parent.close_current_window(),
-    "close_all_windows": lambda parent: parent.close_all_windows(),
-    "end_application": lambda parent: parent.end_application(),
     "action_undo": lambda parent: print("Undo"),
     "action_redo": lambda parent: print("Redo"),
     "action_cut": lambda parent: print("Cut"),

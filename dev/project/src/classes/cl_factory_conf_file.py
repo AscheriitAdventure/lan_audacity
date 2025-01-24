@@ -210,7 +210,6 @@ class MenuBarManager(FactoryConfFile):
                 return menu
         return None
     
-
     def get_one_menu(self, menu_name: str) -> Optional[dict]:
         for data in self.file_data:
             if data["name"] == menu_name:

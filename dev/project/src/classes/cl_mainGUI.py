@@ -7,10 +7,11 @@ import logging
 import os
 import sys
 import inspect
-from dev.project.src.classes.cl_extented import IconApp
+import time
+from dev.project.src.classes.cl_extented import IconApp, ProjectOpen
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
 from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
-from dev.project.src.classes.cl_factory_conf_file import IconsManager, MenuBarManager, ShortcutsManager
+from dev.project.src.classes.cl_factory_conf_file import IconsManager, MenuBarManager, ShortcutsManager, FactoryConfFile
 
 
 class MainGUI(QMainWindow):
@@ -23,6 +24,7 @@ class MainGUI(QMainWindow):
         self.iconsManager = IconsManager(os.getenv("ICON_FILE_RSC"))
         self.menuBarManager = MenuBarManager(os.getenv("MENUBAR_FILE"))
         self.shortcutManager = ShortcutsManager(os.getenv("KEYBOARD_FILE_RSC")) # <-- va t il rester ici ?
+        self.recent_projects = []
         self.stackedWidgetList = []
 
         self.loadUI()
@@ -119,7 +121,13 @@ class MainGUI(QMainWindow):
                 b.addSeparator()
 
     def setStackedWidget(self, index: int) -> None:
-        self.primary_side_bar.setCurrentIndex(index)
+        if self.primary_side_bar.indexOf(self.primary_side_bar.currentWidget()) == index:
+            self.primary_side_bar.setWidth(0)
+        elif self.primary_side_bar.indexOf(self.primary_side_bar.currentWidget()) != index and self.primary_side_bar.width() == 0:
+            self.primary_side_bar.setWidth(120)
+            self.primary_side_bar.setCurrentIndex(index)
+        else:
+            self.primary_side_bar.setCurrentIndex(index)
     
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
@@ -138,6 +146,45 @@ class MainGUI(QMainWindow):
     
     def end_application(self):
         sys.exit(QApplication.exec_())
+
+    def load_recent_project(self):
+        try:
+            a = FactoryConfFile(os.getenv("LAST_OPENED_FILE"), FactoryConfFile.RWX.READ)
+            self.recent_projects = [ProjectOpen.from_dict(i) for i in a.file_data]
+        except Exception as e:
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {e}")
+    
+    def save_recent_project(self):
+        try:
+            a = FactoryConfFile(os.getenv("LAST_OPENED_FILE"), FactoryConfFile.RWX.WRITE)
+            a.file_data = [i.get_dict() for i in self.recent_projects]
+        except Exception as e:
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {e}")
+    
+    def add_recent_project(self, project: ProjectOpen):
+        if project in self.recent_projects:
+            self.recent_projects.remove(project)
+        self.recent_projects.insert(0, project)
+        self.recent_projects = self.recent_projects[:10]
+        self.save_recent_project()
+    
+    def open_folder_project(self):
+        fd = QFileDialog(self)
+        fd.setFileMode(QFileDialog.FileMode.Directory)
+        fd.setNameFilter("")
+        fd.exec_()
+
+        fp = fd.selectedFiles()[0]
+
+        if fp:
+            pf = os.path.join(fp, "lan_audacity.json")
+            if os.path.exists(pf):
+                
+                self.add_recent_project(ProjectOpen(os.path.basename(os.path.dirname(pf)), fp, time.time()))
+                self.update_recent_menu()
+                # chargement du projet dans le GUI
+            else:
+                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {pf} doesn't exist.")
 
 """
     Remarques:
