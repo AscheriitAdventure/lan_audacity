@@ -1,5 +1,5 @@
 import enum
-from typing import Optional, ClassVar, Any
+from typing import Optional, ClassVar, Any, List
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -16,7 +16,7 @@ from dev.project.src.classes.cl_factory_conf_file import IconsManager, MenuBarMa
 
 class MainGUI(QMainWindow):
 
-    processRunList: ClassVar[Signal] = Signal(list[Any])
+    # processRunList: ClassVar[Signal] = Signal(List[Any])
 
     def __init__(self, parent=None):
         super(MainGUI, self).__init__(parent)
