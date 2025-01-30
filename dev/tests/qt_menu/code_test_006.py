@@ -1,6 +1,14 @@
 import sys
 import json
-from qtpy.QtWidgets import QApplication, QMainWindow, QMenu, QAction, QFileDialog, QMessageBox
+from qtpy.QtWidgets import (
+    QApplication,
+    QMainWindow,
+    QMenu,
+    QAction,
+    QFileDialog,
+    QMessageBox,
+)
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -11,7 +19,9 @@ class MainWindow(QMainWindow):
         # Attribut pour stocker les projets récents
         self.recent_projects = []
         self.max_recent_projects = 5  # Nombre maximum de projets récents à stocker
-        self.recent_file_path = "recent_projects.json"  # Chemin pour stocker les récents
+        self.recent_file_path = (
+            "recent_projects.json"  # Chemin pour stocker les récents
+        )
 
         # Barre de menus
         menu_bar = self.menuBar()
@@ -32,18 +42,24 @@ class MainWindow(QMainWindow):
 
     def open_project(self):
         """Ouvre un projet à partir d'un fichier choisi par l'utilisateur."""
-        file_path, _ = QFileDialog.getOpenFileName(self, "Ouvrir un projet", "", "Projets (*.json *.txt)")
+        file_path, _ = QFileDialog.getOpenFileName(
+            self, "Ouvrir un projet", "", "Projets (*.json *.txt)"
+        )
         if file_path:
             self.add_to_recent_projects(file_path)
             self.update_recent_menu()
-            QMessageBox.information(self, "Projet chargé", f"Projet chargé : {file_path}")
+            QMessageBox.information(
+                self, "Projet chargé", f"Projet chargé : {file_path}"
+            )
 
     def add_to_recent_projects(self, file_path):
         """Ajoute un chemin à la liste des récents."""
         if file_path in self.recent_projects:
             self.recent_projects.remove(file_path)
         self.recent_projects.insert(0, file_path)
-        self.recent_projects = self.recent_projects[:self.max_recent_projects]  # Limiter le nombre d'éléments
+        self.recent_projects = self.recent_projects[
+            : self.max_recent_projects
+        ]  # Limiter le nombre d'éléments
         self.save_recent_projects()
 
     def update_recent_menu(self):
@@ -51,12 +67,16 @@ class MainWindow(QMainWindow):
         self.recent_menu.clear()
         for project in self.recent_projects:
             action = QAction(project, self)
-            action.triggered.connect(lambda checked, p=project: self.open_recent_project(p))
+            action.triggered.connect(
+                lambda checked, p=project: self.open_recent_project(p)
+            )
             self.recent_menu.addAction(action)
 
     def open_recent_project(self, project_path):
         """Ouvre un projet à partir de la liste des récents."""
-        QMessageBox.information(self, "Ouvrir projet récent", f"Projet chargé : {project_path}")
+        QMessageBox.information(
+            self, "Ouvrir projet récent", f"Projet chargé : {project_path}"
+        )
         # Vous pouvez ajouter ici la logique pour charger les données du projet
 
     def load_recent_projects(self):
@@ -71,6 +91,7 @@ class MainWindow(QMainWindow):
         """Sauvegarde les projets récents dans un fichier JSON."""
         with open(self.recent_file_path, "w") as f:
             json.dump(self.recent_projects, f)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

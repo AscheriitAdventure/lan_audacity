@@ -24,10 +24,7 @@ class IconApp:
 
     @staticmethod
     def from_dict(data: dict) -> "IconApp":
-        return IconApp(
-            names=data["names"],
-            options=data.get("options")
-        )
+        return IconApp(names=data["names"], options=data.get("options"))
 
 
 @dataclass
@@ -40,6 +37,7 @@ class ActionObject:
     checkable: bool = False
     enabled: bool = True
     separator: bool = field(default=False)
+    type: Optional[str] = None
 
     @staticmethod
     def from_dict(data: dict) -> "ActionObject":
@@ -47,23 +45,41 @@ class ActionObject:
             text=data["text"],
             slot=data.get("slot"),
             shortcut=data.get("shortcut"),
-            icon=IconApp.from_dict(data["icon"]) if isinstance(data.get("icon"), dict) else data.get("icon"),
+            icon=(
+                IconApp.from_dict(data["icon"])
+                if isinstance(data.get("icon"), dict)
+                else data.get("icon")
+            ),
             tip=data.get("tip"),
             checkable=data.get("checkable", False),
             enabled=data.get("enabled", True),
             separator=data.get("separator", False),
+            type=data.get("type"),
         )
-    
+
     def get_dict(self) -> dict:
-        return {
-            "text": self.text,
-            "slot": self.slot,
-            "shortcut": self.shortcut,
-            "icon": self.icon.get_qIcon() if isinstance(self.icon, IconApp) else self.icon,
-            "tip": self.tip,
-            "checkable": self.checkable,
-            "enabled": self.enabled,
-        }
+        if self.type is None:
+            return {
+                "text": self.text,
+                "slot": self.slot,
+                "shortcut": self.shortcut,
+                "icon": (
+                    self.icon.get_qIcon()
+                    if isinstance(self.icon, IconApp)
+                    else self.icon
+                ),
+                "tip": self.tip,
+                "checkable": self.checkable,
+                "enabled": self.enabled,
+            }
+        else:
+            return {
+                "text": self.text,
+                "type": self.type,
+                "slot": self.slot,
+                "tip": self.tip,
+                "enabled": self.enabled,
+            }
 
 
 @dataclass
@@ -77,10 +93,17 @@ class MenuBarObject:
     def from_dict(data: dict) -> "MenuBarObject":
         return MenuBarObject(
             title=data["title"],
-            icon=IconApp.from_dict(data["icon"]) if isinstance(data.get("icon"), dict) else data.get("icon"),
-            actions=[ActionObject.from_dict(action) for action in data.get("actions", [])],
+            icon=(
+                IconApp.from_dict(data["icon"])
+                if isinstance(data.get("icon"), dict)
+                else data.get("icon")
+            ),
+            actions=[
+                ActionObject.from_dict(action) for action in data.get("actions", [])
+            ],
             separator=data.get("separator", False),
         )
+
 
 @dataclass
 class ProjectOpen:
@@ -91,18 +114,12 @@ class ProjectOpen:
     @staticmethod
     def from_dict(data: dict) -> "ProjectOpen":
         return ProjectOpen(
-            name=data["name"],
-            path=data["path"],
-            last_opened=data["last_opened"]
+            name=data["name"], path=data["path"], last_opened=data["last_opened"]
         )
-    
+
     def get_dict(self) -> dict:
-        return {
-            "name": self.name,
-            "path": self.path,
-            "last_opened": self.last_opened
-        }
-    
+        return {"name": self.name, "path": self.path, "last_opened": self.last_opened}
+
     def get_last_opened(self) -> str:
         if isinstance(self.last_opened, float):
             return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.last_opened))

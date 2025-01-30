@@ -64,8 +64,9 @@
         "enabled": true
       },
       {
-        "text": "&Open Recent",
-        "shortcut": "Ctrl+Alt+H",
+        "text": "Open &Recent",
+        "type": "submenu",
+        "shortcut": null,
         "icon": {
           "names": ["mdi6.folder-open", "mdi6.circle", "mdi6.history"],
           "options": [
@@ -87,7 +88,7 @@
           ]
         },
         "tip": "Open a tab with the recents files or projects",
-        "slot": { "name": "action_open_recent" },
+        "slot": null,
         "enabled": true
       },
       {

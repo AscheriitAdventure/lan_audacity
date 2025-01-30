@@ -14,7 +14,7 @@ SLOT_REGISTRY = {
     "new_text_file": lambda parent: print("New Text File"),
     "new_project": lambda parent: print("New Project"),
     "open_text_file": lambda parent: print("Open Text File"),
-    "open_folder_project": lambda parent: print("Open Folder Project"),
+    "open_folder_project": lambda parent: parent.open_folder_project(),
     "action_open_recent": lambda parent: print("Open Recent"),
     "action_save": lambda parent: print("Save"),
     "action_save_as": lambda parent: print("Save As"),
@@ -41,24 +41,27 @@ SLOT_REGISTRY = {
 
 
 def newAction(
-        parent: QWidget,
-        text: str,
-        slot: Optional[Callable] = None,
-        shortcut: Optional[Union[str, List[str]]] = None,
-        icon: Optional[str|QIcon] = None,
-        tip: Optional[str] = None,
-        checkable: bool = False,
-        enabled: bool = True,
-        write_log: bool = False
+    parent: QWidget,
+    text: str,
+    slot: Optional[Callable] = None,
+    shortcut: Optional[Union[str, List[str]]] = None,
+    icon: Optional[str | QIcon] = None,
+    tip: Optional[str] = None,
+    checkable: bool = False,
+    enabled: bool = True,
+    write_log: bool = False,
 ) -> Any:
     """Create a new action and assign callbacks, shortcuts, etc."""
     if write_log:
-        logging.debug(f"{inspect.currentframe().f_code.co_name}: {slot, shortcut, icon, tip}")
+        logging.debug(
+            f"{inspect.currentframe().f_code.co_name}: {slot, shortcut, icon, tip}"
+        )
     a = QAction(text, parent)
 
     if isinstance(icon, str):
-        """ si le retour est une string alors on a deux solutions soit on a un chemin absolu soit on a un chemin relatif
-        si on a un chemin absolu alors on peut utiliser QIcon(icon) sinon on doit utiliser QIcon(os.path.join(os.path.dirname(__file__), icon))"""
+        """si le retour est une string alors on a deux solutions soit on a un chemin absolu soit on a un chemin relatif
+        si on a un chemin absolu alors on peut utiliser QIcon(icon) sinon on doit utiliser QIcon(os.path.join(os.path.dirname(__file__), icon))
+        """
         if os.path.isabs(icon):
             a.setIcon(QIcon(icon))
         else:
@@ -73,8 +76,10 @@ def newAction(
     elif isinstance(shortcut, (list, tuple)):
         a.setShortcuts(shortcut)
     else:
-        logging.warning(f"Shortcut {shortcut} is not a valid type. Must be str or List[str]")
-    
+        logging.warning(
+            f"Shortcut {shortcut} is not a valid type. Must be str or List[str]"
+        )
+
     if tip is not None:
         a.setToolTip(tip)
         a.setStatusTip(tip)
@@ -87,11 +92,12 @@ def newAction(
     return a
 
 
-def get_spcValue(liste_add: list, arg_1: str, obj_src: str, write_log: bool = False) -> Optional[dict]:
+def get_spcValue(
+    liste_add: list, arg_1: str, obj_src: str, write_log: bool = False
+) -> Optional[dict]:
     for obj_dict in liste_add:
         if obj_dict[arg_1] == obj_src:
             if write_log:
                 logging.debug(f"{inspect.currentframe().f_code.co_name}: {obj_dict}")
             return obj_dict
     return None
-
