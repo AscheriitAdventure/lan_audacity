@@ -1,19 +1,7 @@
 import enum
 from typing import Optional, ClassVar, Any, List
 from qtpy.QtCore import *
-from qtpy.QtWidgets import (
-    QMainWindow,
-    QMenu,
-    QWidget,
-    QStackedWidget,
-    QTabWidget,
-    QSplitter,
-    QVBoxLayout,
-    QAction,
-    QToolBar,
-    QApplication,
-    QFileDialog,
-)
+from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 import logging
 import os
@@ -232,17 +220,17 @@ class MainGUI(QMainWindow):
         mb_list = self.menuBar().findChildren(
             QMenu
         )  # liste des menus de la barre de menu
-        mb_f: Optional[QMenu] = None
+        mb_f: Optional[QMenu] = None  # type: ignore
         mb_orp: Any = None
-        for mb in mb_list:  # type: QMenu
-            if mb.title() == "&File":
+        for mb in mb_list:
+            if mb.title() == "&File":  # type: QMenu
                 logging.debug(
                     f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {mb}"
                 )
                 mb_f = mb
                 break
 
-        if mb_f:
+        if mb_f:  # type: QMenu
             for sb in mb_f.findChildren(QMenu):
                 if sb.title() == "Open &Recent":
                     logging.debug(
