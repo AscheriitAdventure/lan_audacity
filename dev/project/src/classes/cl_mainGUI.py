@@ -7,6 +7,8 @@ import os
 import sys
 import inspect
 import time
+from dev.project.src.classes.cl_dialog import NProject
+from dev.project.src.classes.cl_lan_audacity import LanAudacity
 from dev.project.src.classes.cl_extented import IconApp, ProjectOpen
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
 from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
@@ -32,7 +34,7 @@ class MainGUI(QMainWindow):
         )  # <-- va t il rester ici ?
         self.recent_projects: List = [] # Liste des projets récents
         self.stackedWidgetList: List = [] # Liste des widgets à empiler
-        self.active_projects: List[Any] = [] # Liste des projets actifs
+        self.active_projects: List[LanAudacity] = [] # Liste des projets actifs
 
         self.loadUI()
         self.tool_uiMenu()
@@ -288,7 +290,56 @@ class MainGUI(QMainWindow):
             self.update_recent_menu() # Update the menu
             self.load_project(project) # Load the project
 
-    ######## Native Function "load project" ########
+    ######## class Method for "Project" ########
+    def new_project(self, debug: bool = False) -> None:
+        """
+        Create a new project
+        """
+        if debug:
+            logging.debug(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self}"
+            )
+        
+        # Open a dialog to ask for: name of the project and the absolute path
+        dialog_1 = NProject(self)
+        if dialog_1.exec_() == QDialog.Accepted:
+            data_1 = dialog_1.get_data()
+            if debug:
+                logging.debug(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data_1}"
+                )
+
+            # init the project
+            z = os.path.join(data_1["save_path"], data_1["project_name"])
+            new_project = LanAudacity(directory_path=z, directory_name=data_1["project_name"])
+            self.active_projects.append(new_project)
+
+            new_project.software_id.name = os.getenv("APP_NAME")
+            new_project.software_id.version = os.getenv("APP_VERSION")
+
+            if data_1["author"]:
+                new_project.add_author(data_1["author"])
+            else:
+                author = os.environ.get("USERNAME") or os.environ.get("USER")
+                new_project.add_author(author) # add the name of the terminal user
+
+            new_project.generate_environment()
+
+            # Change the log pointer to the new log file generated
+            logging.getLogger().handlers[0].stream.close()
+            stream_log = os.path.join(new_project.directory_path,"logs","lan_audacity.log")
+            logging.basicConfig(filename=stream_log)
+
+            # Open a dialog to ask for auto-discovery mode or manual mode
+            dialog = QInputDialog(self)
+            dialog.exec_()
+        # if auto-discovery mode
+            # open a window worker to start the auto-discovery
+            # load the project in the GUI
+        # else manual mode
+            # load the project in the GUI
+        # end
+        
     def load_project(self, project: ProjectOpen):
         """
             Load the project in the GUI

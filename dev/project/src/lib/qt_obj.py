@@ -12,7 +12,7 @@ SLOT_REGISTRY = {
     "close_all_windows": lambda parent: parent.close_all_windows(),
     "end_application": lambda parent: parent.end_application(),
     "new_text_file": lambda parent: print("New Text File"),
-    "new_project": lambda parent: print("New Project"),
+    "new_project": lambda parent: parent.new_project(True),
     "open_text_file": lambda parent: print("Open Text File"),
     "open_folder_project": lambda parent: parent.open_folder_project(),
     "action_open_recent": lambda parent: print("Open Recent"),
