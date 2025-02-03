@@ -1,4 +1,3 @@
-import enum
 from typing import Optional, ClassVar, Any, List
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
@@ -31,14 +30,16 @@ class MainGUI(QMainWindow):
         self.shortcutManager = ShortcutsManager(
             os.getenv("KEYBOARD_FILE_RSC")
         )  # <-- va t il rester ici ?
-        self.recent_projects = []
-        self.stackedWidgetList = []
+        self.recent_projects: List = [] # Liste des projets récents
+        self.stackedWidgetList: List = [] # Liste des widgets à empiler
+        self.active_projects: List[Any] = [] # Liste des projets actifs
 
         self.loadUI()
         self.tool_uiMenu()
         self.initUI_central()
 
         self.initUI_menuBar()
+        self.load_recent_project()
 
     def loadUI(self):
         self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
@@ -159,6 +160,7 @@ class MainGUI(QMainWindow):
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
 
+    ######## Native Function Operate on Windows ########
     def open_new_window(self):
         self.new_window = MainGUI()
         self.new_window.show()
@@ -171,8 +173,34 @@ class MainGUI(QMainWindow):
             if isinstance(widget, MainGUI):
                 widget.close()
 
+    ######## Function "Exit Application" ########
     def end_application(self):
         sys.exit(QApplication.exec_())
+    
+    ######## Function "Open Folder Project" ########
+    def open_folder_project(self):
+        """Ouvre un dossier de projet et met à jour la liste des récents."""
+        fd = QFileDialog(self)
+        fd.setFileMode(QFileDialog.FileMode.Directory)
+        fd.exec_()
+    
+        selected_files = fd.selectedFiles()
+        if not selected_files:
+            return
+    
+        folder_path = selected_files[0]
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {folder_path}")
+    
+        project_file = os.path.join(folder_path, "lan_audacity.json")
+        if os.path.exists(project_file):
+            project_name = os.path.basename(os.path.dirname(project_file))
+            var_project =ProjectOpen(project_name, folder_path, time.time())
+            self.add_recent_project(var_project)
+            self.update_recent_menu()
+
+            self.load_project(var_project)
+        else:
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {project_file} doesn't exist.")
 
     ######## Function to open a "recent project" ########
     def load_recent_project(self):
@@ -183,7 +211,9 @@ class MainGUI(QMainWindow):
         """
         try:
             a = FactoryConfFile(os.getenv("LAST_OPENED_FILE"), FactoryConfFile.RWX.READ)
+            a.read_file()
             self.recent_projects = [ProjectOpen.from_dict(i) for i in a.file_data]
+            self.update_recent_menu()
         except Exception as e:
             logging.error(
                 f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {e}"
@@ -200,6 +230,10 @@ class MainGUI(QMainWindow):
                 os.getenv("LAST_OPENED_FILE"), FactoryConfFile.RWX.WRITE
             )
             a.file_data = [i.get_dict() for i in self.recent_projects]
+            logging.debug(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {a.file_data}"
+            )
+            a.write_file()
         except Exception as e:
             logging.error(
                 f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {e}"
@@ -217,64 +251,55 @@ class MainGUI(QMainWindow):
 
     def update_recent_menu(self):
         """Met à jour le menu des récents avec les projets actuels."""
-        mb_list = self.menuBar().findChildren(
-            QMenu
-        )  # liste des menus de la barre de menu
-        mb_f: Optional[QMenu] = None  # type: ignore
-        mb_orp: Any = None
-        for mb in mb_list:
-            if mb.title() == "&File":  # type: QMenu
-                logging.debug(
-                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {mb}"
-                )
-                mb_f = mb
-                break
-
-        if mb_f:  # type: QMenu
-            for sb in mb_f.findChildren(QMenu):
-                if sb.title() == "Open &Recent":
-                    logging.debug(
-                        f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {sb}"
-                    )
-                    mb_orp = sb
-                    break
-
-        if mb_orp:
-            mb_orp.clear()
-            logging.debug(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.recent_projects.__len__()}"
-            )
-            for project in self.recent_projects:
-                action = QAction(project.name, self)
-                action.triggered.connect(
-                    lambda checked, p=project: self.open_folder_project(p)
-                )
-                mb_orp.addAction(action)
-
-    def open_folder_project(self):
-        fd = QFileDialog(self)
-        fd.setFileMode(QFileDialog.FileMode.Directory)
-        fd.setNameFilter("")
-        fd.exec_()
-
-        fp = fd.selectedFiles()[0]
-        logging.debug(
-            f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {fp}"
+        file_menu = next(
+            (menu for menu in self.menuBar().findChildren(QMenu) if menu.title() == "&File"),
+            None,
         )
+    
+        if not file_menu:
+            return
+    
+        recent_menu_action = next(
+            (action for action in file_menu.actions() if action.menu() and action.menu().title() == "Open &Recent"),
+            None,
+        )
+    
+        if not recent_menu_action:
+            return
+    
+        recent_menu = recent_menu_action.menu()
+        recent_menu.clear()
+    
+        logging.debug(
+            f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(self.recent_projects)} projets récents"
+        )
+    
+        for project in self.recent_projects:
+            action = QAction(project.name, self)
+            action.triggered.connect(lambda checked, p=project: self.open_recent_project(p))
+            recent_menu.addAction(action)
 
-        if fp:
-            pf = os.path.join(fp, "lan_audacity.json")
-            if os.path.exists(pf):
+    def open_recent_project(self, project: ProjectOpen):
+        """
+        Open the project from the recent project list
+        """
+        if project.path:
+            self.add_recent_project(project) # Move to the top
+            self.update_recent_menu() # Update the menu
+            self.load_project(project) # Load the project
 
-                self.add_recent_project(
-                    ProjectOpen(os.path.basename(os.path.dirname(pf)), fp, time.time())
-                )
-                self.update_recent_menu()
-                # chargement du projet dans le GUI
-            else:
-                logging.error(
-                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {pf} doesn't exist."
-                )
+    ######## Native Function "load project" ########
+    def load_project(self, project: ProjectOpen):
+        """
+            Load the project in the GUI
+        Args:
+            project (ProjectOpen): a simple object with the project name and the absolute path
+        """
+        dataProjectFileName = "lan_audacity.json"
+        fp, _ = QFileDialog.getExistingDirectory(self, "Open Project", project.path)
+        logging.debug(
+            f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {project}"
+        )
 
     ########################################################
 

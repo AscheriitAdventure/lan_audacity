@@ -20,7 +20,7 @@ import inspect
     - Créer une classe qui gère les fichiers de configuration ou les fichiers de données.
     - Cette classe doit être capable de lire
     - Cette classe doit être capable d'écrire
-    - Cette classe doit être capable de modifier [?]
+    - Cette classe doit être capable de modifier [?] (presque achevé)
     - 
 """
 
