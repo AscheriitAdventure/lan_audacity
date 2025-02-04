@@ -45,7 +45,10 @@ class FileManagement:
 
     def generate_folder(self, folder_name: str, absolute_path: str = os.getcwd()) -> None:
         """Creates a folder inside the project directory if it does not already exist."""
-        project_path = os.path.join(absolute_path, self.directory_name)
+        if os.path.basename(absolute_path) != self.directory_name:
+            project_path = os.path.join(absolute_path, self.directory_name)
+        else:
+            project_path = absolute_path
         folder_path = os.path.join(project_path, folder_name)
 
         if not os.path.isdir(project_path):
@@ -258,8 +261,12 @@ class LanAudacity(FileManagement):
             for item in data_tree:
                 folder_path = os.path.join(self.directory_path, item["name"])
 
+                if debug:
+                    logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {folder_path}")
+
                 if not os.path.exists(folder_path):
                     os.mkdir(folder_path)
+                    self.add_folder(item["name"])
                     if debug:
                         logging.info(f"{self.__class__.__name__}::{inspect.currentframe(
                         ).f_code.co_name}: The folder {item['name']} has been created.")
@@ -270,6 +277,8 @@ class LanAudacity(FileManagement):
                 # Create subfolders
                 if "folders" in item and item["folders"]:
                     for subfolder in item["folders"]:
+                        if debug:
+                            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {subfolder}")
                         file_manager.generate_folder(subfolder, folder_path)
 
                 # Create files
@@ -288,8 +297,9 @@ class LanAudacity(FileManagement):
     def update_lan_audacity(self) -> None:
         """Update the project file "lan_audacity.json"."""
         os_path = os.path.join(self.directory_path, "lan_audacity.json")
+        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {os_path}")
         data = self.get_dict()
-        SwitchFile.json_write(data, os_path)
+        SwitchFile.json_write(abs_path=os_path, data=data)
 
     ######## Native Function Format File Management ########
     def set_file_encoding(self, encoding: str) -> None:

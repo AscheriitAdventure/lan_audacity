@@ -7,10 +7,11 @@ import os
 import sys
 import inspect
 import time
-from dev.project.src.classes.cl_dialog import NProject
+from dev.project.src.classes.cl_dialog import DynFormDialog
 from dev.project.src.classes.cl_lan_audacity import LanAudacity
 from dev.project.src.classes.cl_extented import IconApp, ProjectOpen
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
+from dev.project.src.lib.template_dialog import *
 from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
 from dev.project.src.classes.cl_factory_conf_file import (
     IconsManager,
@@ -301,16 +302,17 @@ class MainGUI(QMainWindow):
             )
         
         # Open a dialog to ask for: name of the project and the absolute path
-        dialog_1 = NProject(self)
+        dialog_1 = DynFormDialog(self, False)
+        dialog_1.load_form(NEW_PROJECT)
         if dialog_1.exec_() == QDialog.Accepted:
-            data_1 = dialog_1.get_data()
+            data_1 = dialog_1.get_form_data()
             if debug:
                 logging.debug(
                     f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data_1}"
                 )
 
             # init the project
-            z = os.path.join(data_1["save_path"], data_1["project_name"])
+            z = os.path.normpath(os.path.join(data_1["save_path"], data_1["project_name"]))
             new_project = LanAudacity(directory_path=z, directory_name=data_1["project_name"])
             self.active_projects.append(new_project)
 
@@ -323,16 +325,30 @@ class MainGUI(QMainWindow):
                 author = os.environ.get("USERNAME") or os.environ.get("USER")
                 new_project.add_author(author) # add the name of the terminal user
 
-            new_project.generate_environment()
+            new_project.generate_environment(True)
 
             # Change the log pointer to the new log file generated
             logging.getLogger().handlers[0].stream.close()
             stream_log = os.path.join(new_project.directory_path,"logs","lan_audacity.log")
             logging.basicConfig(filename=stream_log)
 
+            new_project.update_lan_audacity()
+            po = ProjectOpen(new_project.directory_name, new_project.directory_path, time.time())
+            self.add_recent_project(po)
+            self.update_recent_menu()
+
             # Open a dialog to ask for auto-discovery mode or manual mode
-            dialog = QInputDialog(self)
-            dialog.exec_()
+            dialog_2 = DynFormDialog(self, False)
+            dialog_2.load_form(DISCOVERY_MODE)
+
+        if dialog_2.exec_() == QDialog.Accepted:
+            data_2 = dialog_2.get_form_data()
+            if debug:
+                logging.debug(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data_2}"
+                    )
+        
+
         # if auto-discovery mode
             # open a window worker to start the auto-discovery
             # load the project in the GUI
