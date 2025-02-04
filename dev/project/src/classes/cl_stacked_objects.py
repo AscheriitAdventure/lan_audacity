@@ -24,7 +24,7 @@
             slot: Optional[str] = None, # slot = None => pas de slot
             tooltip: Optional[str] = None, # tooltip = None => pas de tooltip
             shortcut: Optional[str] = None, # shortcut = None => pas de shortcut
-            icon: Optional[Union[Dict, QIcon, str]] = None, # icon = None => pas d'icon
+            icon: Optional[Union[Dict, QIcon, IconApp, str]] = None, # icon = None => pas d'icon
         }
         field => {
             field_name: str,
@@ -47,10 +47,32 @@
             west: bool = False, # west = True => le spacer est ajouté à l'ouest du stacked_widget
         }
 """
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional, Union, ClassVar
 import logging
 import inspect
 
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 from qtpy.QtCore import *
+
+from dev.project.src.classes.cl_extented import IconApp
+
+
+class SDFSP(QWidget):
+
+    exchangeContext: ClassVar[Signal] = ... # Signal pour échanger des informations 
+
+    def __init__(self, debug: bool = False, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self.debug: bool = debug
+        self.active_fields: List = []
+        self.link_tab: Optional[QTabWidget] = None
+
+        self.loadUI()
+    
+    def loadUI(self):
+        pass
+
+    def load_fields(self, fields: List[Dict[str, Any]]):
+        pass
+
