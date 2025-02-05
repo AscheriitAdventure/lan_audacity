@@ -20,7 +20,7 @@
       },
       {
         "text": "&New Project",
-        "shortcut": "Ctrl+N+P",
+        "shortcut": null,
         "icon": {
           "names": "mdi6.new-box",
           "options": null
@@ -279,7 +279,7 @@
             }
           ]
         },
-        "shortcut": null,
+        "shortcut": "Ctrl+Shift+E",
         "slot": { "name": "file_explorer_show" },
         "tip": "Show the file explorer"
       },
@@ -298,7 +298,7 @@
             }
           ]
         },
-        "shortcut": null,
+        "shortcut": "Ctrl+Shift+W",
         "slot": { "name": "network_explorer_show" },
         "tip": "Show the network explorer"
       },

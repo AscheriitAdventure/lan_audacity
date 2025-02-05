@@ -38,7 +38,6 @@ class MainGUI(QMainWindow):
         self.active_projects: List[LanAudacity] = [] # Liste des projets actifs
 
         self.loadUI()
-        self.tool_uiMenu()
         self.initUI_central()
 
         self.initUI_menuBar()
@@ -51,13 +50,6 @@ class MainGUI(QMainWindow):
         self.setCentralWidget(self.centralWidget())
         self.setMenuBar(self.menuBar())
         self.setStatusBar(self.statusBar())
-
-    def tool_uiMenu(self):
-        toolsBar = QToolBar(self)
-        toolsBar.setMovable(False)
-        toolsBar.setFloatable(False)
-
-        self.addToolBar(Qt.ToolBarArea.LeftToolBarArea, toolsBar)
 
     def initUI_central(self) -> None:
         # Central Widget
@@ -109,6 +101,14 @@ class MainGUI(QMainWindow):
         self.primary_side_bar.setCurrentIndex(0)
 
     def initUI_menuBar(self):
+        toolsBar = QToolBar(self)
+        toolsBar.setMovable(False)
+        toolsBar.setFloatable(False)
+
+        self.addToolBar(Qt.ToolBarArea.LeftToolBarArea, toolsBar)
+
+        names = ["&View", "&Settings"]
+
         for a in self.menuBarManager.menubar_object:
             if a.separator:
                 self.menuBar().addSeparator()
@@ -120,7 +120,12 @@ class MainGUI(QMainWindow):
                     logging.debug(
                         f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {a.icon}"
                     )
-
+            
+            if a.title in names[1]:
+                spacer = QWidget()
+                spacer.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+                toolsBar.addWidget(spacer)
+                
             self.menuBar().addMenu(b)
 
             if a.actions:
@@ -134,6 +139,8 @@ class MainGUI(QMainWindow):
                             f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}"
                         )
                         e = newAction(**d)
+                        if a.title in names:
+                            toolsBar.addAction(e)
                         b.addAction(e)
                     else:
                         e = QMenu(c.text, self)
