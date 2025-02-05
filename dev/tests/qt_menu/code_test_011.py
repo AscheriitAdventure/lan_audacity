@@ -1,4 +1,4 @@
-from dev.project.src.classes.cl_stacked_objects import SDFSPv2
+from dev.project.src.classes.cl_stacked_objects import SDFSP
 
 import sys
 import logging
@@ -9,7 +9,7 @@ from qtpy.QtCore import *
 class DemoWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("SDFSPv2 Demo")
+        self.setWindowTitle("SDFSP Demo")
         self.resize(400, 800)
         
         central_widget = QWidget()
@@ -19,7 +19,7 @@ class DemoWindow(QMainWindow):
         self.log_text = QTextEdit()
         self.log_text.setReadOnly(True)
         
-        self.side_panel = SDFSPv2(debug=True)
+        self.side_panel = SDFSP(debug=True)
         self.side_panel.exchangeContext.connect(self.on_context_changed)
         
         # Widgets de démo
@@ -54,13 +54,13 @@ class DemoWindow(QMainWindow):
                     'widget': file_tree,
                     'widget_layout': QVBoxLayout(),
                     'visible': True,
-                    'separator': True,
                     'actions': [self.on_file_clicked],
                     'field_description': 'File explorer'
                 },
                 {
                     'field_name': 'Tasks',
                     'field_type': 'list-btn',
+                    'separator': True,
                     'widget': task_container,
                     'widget_layout': QVBoxLayout(),
                     'visible': True,
