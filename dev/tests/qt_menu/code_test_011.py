@@ -1,10 +1,12 @@
 from dev.project.src.classes.cl_stacked_objects import SDFSP
-
+from dev.project.src.lib.template_tools_bar import *
 import sys
 import logging
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 from qtpy.QtCore import *
+
+
 
 class DemoWindow(QMainWindow):
     def __init__(self):
@@ -49,37 +51,37 @@ class DemoWindow(QMainWindow):
             'shortcut': 'Ctrl+E',
             'fields': [
                 {
-                    'field_name': 'Files',
-                    'field_type': 'tree-file',
+                    'title': 'Files',
+                    'form_list': 'tree-file',
                     'widget': file_tree,
                     'widget_layout': QVBoxLayout(),
                     'visible': True,
                     'actions': [self.on_file_clicked],
-                    'field_description': 'File explorer'
+                    'description': 'File explorer'
                 },
                 {
-                    'field_name': 'Tasks',
-                    'field_type': 'list-btn',
+                    'title': 'Tasks',
+                    'form_list': 'list-btn',
                     'separator': True,
                     'widget': task_container,
                     'widget_layout': QVBoxLayout(),
                     'visible': True,
                     'actions': [self.on_task_added],
                     'tooltip': 'Manage tasks',
-                    'field_description': 'Task manager'
+                    'description': 'Task manager'
                 },
                 {
-                    'field_name': 'Properties',
-                    'field_type': 'tree',
+                    'title': 'Properties',
+                    'form_list': 'tree',
                     'widget': properties_tree,
                     'widget_layout': QVBoxLayout(),
                     'visible': True,
-                    'field_description': 'File properties'
+                    'description': 'File properties'
                 }
             ]
         }
         
-        self.side_panel.load_stack_data(demo_stack)
+        self.side_panel.load_stack_data(DEFAULT_SIDE_PANEL)
         
         layout.addWidget(self.side_panel)
         layout.addWidget(self.log_text)
