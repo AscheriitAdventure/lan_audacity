@@ -22,8 +22,7 @@
         field => {
             title: str,
             form_list: str, # "tree", "list-btn", "list", "tree-file"
-            widget: QWidget,
-            widget_layout: QVBoxLayout,
+            widget_data: Any, # <= l'ensemble des données de l'objet en alliance avec le form_list
             separator: bool = False, 
             collapsed: bool = False, # collapsed = True => le stacked_widget est caché
             tooltip: Optional[str] = None,
@@ -41,14 +40,19 @@ from qtpy.QtGui import *
 from qtpy.QtCore import *
 import logging
 import inspect
+import os
 
 class TitleBlock(QWidget):
     """Widget pour le bloc de titre avec actions optionnelles"""
-    def __init__(self, text: Union[str, QLabel], actions: Optional[List[Union[QPushButton, Dict]]] = None):
+    def __init__(self, text: Union[str, QLabel], collapse_btn: Optional[QPushButton] = None, actions: Optional[List[Union[QPushButton, Dict]]] = None):
         super().__init__()
         self.setFixedHeight(25)
         self.layout = QHBoxLayout(self)
         self.layout.setContentsMargins(2, 2, 2, 2)
+        
+        # Ajout du bouton collapse s'il existe
+        if collapse_btn:
+            self.layout.addWidget(collapse_btn)
         
         # Gestion du titre
         if isinstance(text, str):
@@ -90,7 +94,7 @@ class TitleBlock(QWidget):
                 btn.clicked.connect(action['callback'])
             if 'tooltip' in action:
                 btn.setToolTip(action['tooltip'])
-            self.layout.addWidget(btn)
+            self.layout.addWidget(btn) 
 
 class SDFSP(QWidget):
     exchangeContext: ClassVar[Signal] = Signal(dict)
@@ -135,19 +139,28 @@ class SDFSP(QWidget):
         container_layout.setContentsMargins(4, 0, 4, 0)
         container_layout.setSpacing(1)
 
-        # Création du header avec TitleBlock
+        # Création du bouton collapse
         collapse_btn = QPushButton("↓")
         collapse_btn.setFixedSize(20, 20)
         collapse_btn.setStyleSheet("QPushButton { border: none; }")
         
+        # Récupération des actions du field pour les mettre dans la barre de titre
+        actions = []
+        if field.get("actions"):
+            for action in field.get("actions", []):
+                if isinstance(action, dict) and action.get('type') != 'callback':
+                    actions.append(action)
+        
+        # Création du header avec TitleBlock incluant le collapse_btn et les actions
         header = TitleBlock(
             field.get("title", "").upper(),
-            actions=[collapse_btn]
+            collapse_btn=collapse_btn,
+            actions=actions
         )
 
         # Widget principal du field
-        field_widget = field.get("widget", QWidget())
-        field_layout = field.get("widget_layout", QVBoxLayout())
+        field_widget = self.create_specific_widget(field)
+        field_layout = QVBoxLayout()                
         field_layout.setContentsMargins(4, 4, 4, 4)
         field_widget.setLayout(field_layout)
 
@@ -172,14 +185,14 @@ class SDFSP(QWidget):
         if field.get("tooltip"):
             container.setToolTip(field["tooltip"])
 
-        # Connexion des actions
+        # Connexion des callbacks uniquement (pas les boutons)
         if field.get("actions"):
             for action in field["actions"]:
-                if callable(action):
+                if isinstance(action, dict) and action.get('type') == 'callback':
                     if isinstance(field_widget, QTreeWidget):
-                        field_widget.itemClicked.connect(action)
+                        field_widget.itemClicked.connect(action['callback'])
                     elif isinstance(field_widget, QListWidget):
-                        field_widget.itemClicked.connect(action)
+                        field_widget.itemClicked.connect(action['callback'])
 
         # Gestion du collapse
         def toggle_collapse():
@@ -201,6 +214,112 @@ class SDFSP(QWidget):
             )
 
         return container
+
+    def create_specific_widget(self, field: Dict[str, Any]) -> QWidget:
+        """Crée le widget spécifique selon le form_list"""
+        form_type = field.get('form_list')
+        widget_data = field.get('widget_data')
+
+        if form_type == 'tree-file':
+            widget = QTreeWidget()
+            widget.setHeaderLabels(['Fichiers'])
+            if widget_data and os.path.exists(widget_data):
+                root_item = QTreeWidgetItem(widget, [os.path.basename(widget_data)])
+                self.populate_file_tree(root_item, widget_data)
+            return widget
+
+        elif form_type == 'list-btn':
+            container = QWidget()
+            layout = QVBoxLayout(container)
+            list_widget = QListWidget()
+        
+            if isinstance(widget_data, list):
+                list_widget.addItems(widget_data)
+            
+            layout.addWidget(list_widget)
+            return container
+
+        elif form_type == 'tree':
+            widget = QTreeWidget()
+            widget.setHeaderLabels(['Objets'])
+            if isinstance(widget_data, list):
+                for item_data in widget_data:
+                    self.add_tree_items(widget, item_data)
+            return widget
+
+        return QWidget()
+
+    def add_tree_items(self, parent_widget, data: Dict[str, Any]) -> None:
+        """Ajoute récursivement les items à l'arbre"""
+        if isinstance(data, dict):
+            item = QTreeWidgetItem([data.get('name', '')])
+            if isinstance(parent_widget, QTreeWidget):
+                parent_widget.addTopLevelItem(item)
+            else:
+                parent_widget.addChild(item)
+        
+            if 'childs' in data and isinstance(data['childs'], list):
+                for child in data['childs']:
+                    self.add_tree_items(item, child)
+    
+    def populate_file_tree(self, parent_item: QTreeWidgetItem, path: str) -> None:
+        """Remplit récursivement l'arbre des fichiers"""
+        try:
+            # Trie les entrées : dossiers d'abord, puis fichiers
+            entries = os.listdir(path)
+            dirs = []
+            files = []
+        
+            for entry in entries:
+                full_path = os.path.join(path, entry)
+                if os.path.isdir(full_path):
+                    dirs.append(entry)
+                else:
+                    files.append(entry)
+                
+            # Ajoute les dossiers d'abord
+            for dir_name in sorted(dirs):
+                full_path = os.path.join(path, dir_name)
+                dir_item = QTreeWidgetItem(parent_item, [dir_name])
+                self.populate_file_tree(dir_item, full_path)
+            
+            # Puis ajoute les fichiers
+            for file_name in sorted(files):
+                file_item = QTreeWidgetItem(parent_item, [file_name])
+            
+        except PermissionError:
+            error_item = QTreeWidgetItem(parent_item, ["Accès refusé"])
+            error_item.setForeground(0, QBrush(Qt.red))
+        except Exception as e:
+            error_item = QTreeWidgetItem(parent_item, [str(e)])
+            error_item.setForeground(0, QBrush(Qt.red))
+
+    def update_field_state(self, title: str, **kwargs):
+        """Met à jour l'état d'un field"""
+        field = self.get_field(title)
+        if field:
+            field.update(kwargs)
+            if "visible" in kwargs:
+                # On doit mettre à jour à la fois le conteneur et le widget interne
+                field["widget"].setVisible(kwargs["visible"])
+                # Pour un tree widget, on doit s'assurer que son parent est aussi visible
+                if isinstance(field["widget"].layout().itemAt(1).widget(), QTreeWidget):
+                    field["widget"].layout().itemAt(1).widget().setVisible(kwargs["visible"])
+            if "tooltip" in kwargs:
+                field["widget"].setToolTip(kwargs["tooltip"])
+
+            self.exchangeContext.emit({
+                "action": "field_state_updated",
+                "title": title,
+                "updates": kwargs,
+            })
+
+    def get_field(self, title: str) -> Optional[Dict[str, Any]]:
+        """Récupère toutes les informations d'un field par son titre"""
+        return next(
+            (field for field in self.active_fields if field["title"] == title),
+            None,
+        )
 
     def load_stack_data(self, data: Dict[str, Any]):
         """Charge les données de stack spécifiées"""
@@ -256,7 +375,6 @@ class SDFSP(QWidget):
 
         self.content_layout.addWidget(title_block)
 
-        # Ajout du séparateur si nécessaire
         if data.get("separator", False):
             separator = QFrame()
             separator.setFrameShape(QFrame.HLine)
@@ -303,29 +421,6 @@ class SDFSP(QWidget):
             "title": data["stacked_title"],
             "enabled": data.get("enable", True),
         })
-
-    def get_field(self, title: str) -> Optional[Dict[str, Any]]:
-        """Récupère toutes les informations d'un field par son titre"""
-        return next(
-            (field for field in self.active_fields if field["title"] == title),
-            None,
-        )
-
-    def update_field_state(self, title: str, **kwargs):
-        """Met à jour l'état d'un field"""
-        field = self.get_field(title)
-        if field:
-            field.update(kwargs)
-            if "visible" in kwargs:
-                field["widget"].setVisible(kwargs["visible"] and not field["collapsed"])
-            if "tooltip" in kwargs:
-                field["widget"].setToolTip(kwargs["tooltip"])
-
-            self.exchangeContext.emit({
-                "action": "field_state_updated",
-                "title": title,
-                "updates": kwargs,
-            })
 
     def toggle_stack_visibility(self, stack_title: str):
         """Bascule la visibilité d'un stack"""
