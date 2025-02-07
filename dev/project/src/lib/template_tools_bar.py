@@ -1,5 +1,6 @@
 from typing import Dict, Callable
 import os
+from dev.project.src.classes.cl_extented import IconApp
 
 
 DEFAULT_SIDE_PANEL: Dict = {
@@ -72,17 +73,73 @@ FILES_EXPLORER: Dict = {
             "separator": True,
             "collapsed": False,
             "tooltip": "Liste des fichiers textes ouverts",
-            "actions": [], # Penser à ajouter les actions
+            "actions": [],  # Penser à ajouter les actions
             "description": "Liste des onglets de type editeur ouverts",
             "visible": False
         },
         {
-            "title": os.path.basename(os.getcwd()), # Nom du dossier implémenter
+            # Nom du dossier implémenter
+            "title": os.path.basename(os.getcwd()),
             "form_list": "tree-file",
             "separator": True,
             "collapsed": False,
             "tooltip": f"Explorateur de fichiers de {os.path.basename(os.getcwd())}",
-            "actions": [], # Penser à ajouter les actions
+            "actions": [
+                {
+                    'icon': IconApp(names=[
+                        "mdi6.file-outline",
+                        "mdi6.circle",
+                        "fa5s.plus-circle"
+                    ], options=[
+                        {
+                            "scale_factor": 1
+                        },
+                        {
+                            "scale_factor": 0.5,
+                            "color": "AliceBlue",
+                            "offset": [0.3, 0.2]
+                        },
+                        {
+                            "scale_factor": 0.5,
+                            "color": "Lime",
+                            "offset": [0.3, 0.2]
+                        }
+                    ]).get_qIcon(),
+                    'callback': None,
+                    'tooltip': 'Nouveau fichier'
+                },
+                {
+                    'icon': IconApp(names=["mdi6.folder", "mdi6.circle", "fa5s.plus-circle"], options=[
+                        {
+                            "scale_factor": 1,
+                            "color": "Orange",
+                            "active": "mdi6.folder-open"
+                        },
+                        {
+                            "scale_factor": 0.5,
+                            "color": "AliceBlue",
+                            "offset": [0.3, 0.2]
+                        },
+                        {
+                            "scale_factor": 0.5,
+                            "color": "Lime",
+                            "offset": [0.3, 0.2]
+                        }
+                    ]).get_qIcon(),
+                    'callback': None,
+                    'tooltip': 'Nouveau dossier'
+                },
+                {
+                    'icon': IconApp(names=["mdi6.refresh"]).get_qIcon(),
+                    'callback': None,
+                    'tooltip': 'Rafrachir'
+                },
+                {
+                    'icon': IconApp(names=["mdi6.minus-box-multiple-outline"]).get_qIcon(),
+                    'callback': None,
+                    'tooltip': 'Tout réduire'
+                },
+            ],  # Penser à ajouter les actions
             "description": "Navigation dans les fichiers",
             "visible": True
         }

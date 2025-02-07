@@ -34,6 +34,7 @@
         }
 """
 
+from dev.project.src.classes.cl_extented import IconApp
 from typing import List, Dict, Any, Optional, Union, ClassVar
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -140,7 +141,7 @@ class SDFSP(QWidget):
         container_layout.setSpacing(1)
 
         # Création du bouton collapse
-        collapse_btn = QPushButton("↓")
+        collapse_btn = QPushButton(IconApp("mdi6.chevron-double-right").get_qIcon(), "")
         collapse_btn.setFixedSize(20, 20)
         collapse_btn.setStyleSheet("QPushButton { border: none; }")
         
@@ -198,7 +199,7 @@ class SDFSP(QWidget):
         def toggle_collapse():
             current_visible = field_widget.isVisible()
             field_widget.setVisible(not current_visible)
-            collapse_btn.setText("→" if current_visible else "↓")
+            collapse_btn.setIcon(IconApp("mdi6.chevron-double-right").get_qIcon() if current_visible else IconApp("mdi6.chevron-double-down").get_qIcon())
             field["collapsed"] = current_visible
             self.exchangeContext.emit({
                 "action": "field_collapsed",
@@ -223,6 +224,8 @@ class SDFSP(QWidget):
         if form_type == 'tree-file':
             widget = QTreeWidget()
             widget.setHeaderLabels(['Fichiers'])
+            widget.setRootIsDecorated(True)
+            widget.setHeaderHidden(True)
             if widget_data and os.path.exists(widget_data):
                 root_item = QTreeWidgetItem(widget, [os.path.basename(widget_data)])
                 self.populate_file_tree(root_item, widget_data)
@@ -242,6 +245,8 @@ class SDFSP(QWidget):
         elif form_type == 'tree':
             widget = QTreeWidget()
             widget.setHeaderLabels(['Objets'])
+            widget.setRootIsDecorated(True)
+            widget.setHeaderHidden(True)
             if isinstance(widget_data, list):
                 for item_data in widget_data:
                     self.add_tree_items(widget, item_data)
@@ -352,7 +357,7 @@ class SDFSP(QWidget):
         # Configuration du bouton de visibilité
         visibility_btn = None
         if len(data.get("fields", [])) > 1:
-            visibility_btn = QPushButton("👁")
+            visibility_btn = QPushButton(IconApp(names=["fa5s.eye"]).get_qIcon(), "")
             visibility_btn.setFixedSize(16, 16)
             visibility_btn.setStyleSheet("QPushButton { border: none; }")
             visibility_btn.clicked.connect(

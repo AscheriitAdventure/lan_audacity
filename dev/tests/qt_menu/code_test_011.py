@@ -1,6 +1,7 @@
 from dev.project.src.classes.cl_stacked_objects import SDFSP
 from dev.project.src.lib.template_tools_bar import *
 import sys
+from typing import Dict, Any, List
 import os
 import logging
 import inspect
@@ -30,7 +31,7 @@ class DemoWindow(QMainWindow):
 
         # Widgets de démo
         default_path = os.getcwd()
-        default_list_obj = [
+        default_list_obj: List[Dict[str, Any]] = [
             {
                 "name": "Site 1",
                 "childs": [
