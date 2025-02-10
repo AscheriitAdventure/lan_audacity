@@ -10,7 +10,7 @@ import time
 from dev.project.src.classes.cl_stacked_objects import SDFSP
 from dev.project.src.lib.template_tools_bar import *
 from dev.project.src.classes.cl_dialog import DynFormDialog
-from dev.project.src.classes.cl_lan_audacity import LanAudacity
+from dev.project.src.classes.cl_lan_audacity import LanAudacity, Interfaces
 from dev.project.src.classes.cl_extented import IconApp, ProjectOpen
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
 from dev.project.src.lib.template_dialog import *
@@ -144,24 +144,29 @@ class MainGUI(QMainWindow):
                         field['widget'].findChild(QLabel).setText(data['directory_name'].upper())
                         # Mettre à jour le tooltip
                         field['widget'].setToolTip(f"Explorateur de Réseaux de {data['directory_name']}")
-                    
+                        
                         # Mettre à jour l'arborescence
-                        tree_widget = field['widget'].findChild(QTreeWidget)
-                        if tree_widget:
-                            tree_widget.clear()
-                            root_item = QTreeWidgetItem(tree_widget, [data['directory_name']])
-                            sdfsp.populate_file_tree(root_item, data['directory_path'])
+                        tree_view = field['widget'].findChild(QTreeView)
+                        if tree_view:
+                            model = QFileSystemModel()
+                            model.setRootPath(data['directory_path'])
+                            model.setFilter(QDir.Filter.NoDotAndDotDot | QDir.Filter.AllDirs | QDir.Filter.Files)
+                            tree_view.setModel(model)
+                            tree_view.setRootIndex(model.index(data['directory_path']))
                         
                 elif form_type == 'tree':
                     # Si c'est un arbre d'objets (pour les réseaux par exemple)
-                    tree_widget = field['widget'].findChild(QTreeWidget)
-                    if tree_widget:
-                        tree_widget.clear()
+                    tree_view = field['widget'].findChild(QTreeView)
+                    if tree_view:
+                        model = QStandardItemModel()
+                        model.setHorizontalHeaderLabels(['alias'])
+                    
                         # Ajouter les réseaux s'ils existent
                         if 'networks' in data:
                             for network in data['networks']:
-                                network_item = QTreeWidgetItem(tree_widget, [network['name']])
-                                # Ajouter les sous-éléments si nécessaire
+                                niqsi = QStandardItem(network['alias' or 'name'])
+                                model.appendRow(niqsi)
+                        tree_view.setModel(model)
                             
                 elif form_type == 'list-btn':
                     # Si c'est une liste de boutons

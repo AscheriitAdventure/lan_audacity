@@ -165,7 +165,7 @@ LAN_EXPLORER: Dict = {
         {
             # Nom du dossier implémenter
             "title": "Project Name",
-            "form_list": "tree-file",
+            "form_list": "tree",
             "separator": True,
             "collapsed": False,
             "tooltip": f"Explorateur de Réseaux de Prject Name",

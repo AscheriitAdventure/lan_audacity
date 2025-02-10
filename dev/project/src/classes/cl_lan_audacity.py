@@ -159,6 +159,31 @@ class SoftwareIdentity:
         }
 
 
+
+@dataclass
+class Interfaces:
+    name_file: str
+    alias: str
+    path: str
+
+    @staticmethod
+    def from_dict(data: dict) -> "Interfaces":
+        """Creates an Interfaces instance from a dictionary."""
+        return Interfaces(
+            name_file=data.get("name_file" or "uuid", ""),
+            alias=data.get("alias" or "name", ""),
+            path=data.get("path", ""),
+        )
+    
+    def get_dict(self) -> dict:
+        """Returns a dictionary representation of the instance."""
+        return {
+            "name_file": self.name_file,
+            "alias": self.alias,
+            "path": self.path,
+        }
+
+
 @dataclass
 class LanAudacity(FileManagement):
     directory_name: str     # Nom du projet
@@ -174,7 +199,7 @@ class LanAudacity(FileManagement):
     # Liste des extensions liées au projet
     extensions: List[Any] = field(default_factory=list)
     # Liste des réseaux liés au projet
-    networks: List[Any] = field(default_factory=list)
+    networks: List[Union[Interfaces, dict]] = field(default_factory=list)
     # Liste des cartes générées par le projet
     pixmaps: List[Any] = field(default_factory=list)
 

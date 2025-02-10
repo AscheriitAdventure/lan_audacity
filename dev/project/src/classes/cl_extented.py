@@ -124,3 +124,4 @@ class ProjectOpen:
         if isinstance(self.last_opened, float):
             return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.last_opened))
         return self.last_opened
+

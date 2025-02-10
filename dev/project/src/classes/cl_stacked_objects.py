@@ -133,9 +133,6 @@ class SDFSP(QWidget):
         self.scroll_area.setWidget(self.content_widget)
         self.main_layout.addWidget(self.scroll_area)
 
-        if self.debug:
-            logging.debug("UI initialized")
-
     def create_field_widget(self, field: Dict[str, Any]) -> QWidget:
         """Crée un widget basé sur le type de champ spécifié"""
         if self.debug:
@@ -227,86 +224,80 @@ class SDFSP(QWidget):
     def create_specific_widget(self, field: Dict[str, Any]) -> QWidget:
         """Crée le widget spécifique selon le form_list"""
         form_type = field.get('form_list')
-        widget_data = field.get('widget_data')
+        widget_data = field.get('widget_data', os.getcwd())
 
         if form_type == 'tree-file':
-            widget = QTreeWidget()
-            widget.setHeaderLabels(['Fichiers'])
-            widget.setRootIsDecorated(True)
-            widget.setHeaderHidden(True)
+            # Utiliser QTreeView au lieu de QTreeWidget pour le modèle de système de fichiers
+            widget = QTreeView()
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Creating tree-file '{widget_data}'")
             if widget_data and os.path.exists(widget_data):
-                root_item = QTreeWidgetItem(widget, [os.path.basename(widget_data)])
-                self.populate_file_tree(root_item, widget_data)
+                model = QFileSystemModel()
+                model.setRootPath(widget_data)
+                model.setFilter(QDir.Filter.NoDotAndDotDot | QDir.Filter.AllDirs | QDir.Filter.Files)
+            
+                widget.setModel(model)
+                widget.setRootIndex(model.index(widget_data))
+            
+            # Cacher les colonnes non désirées
+            widget.setColumnHidden(1, True)  # Size
+            widget.setColumnHidden(2, True)  # Type
+            widget.setColumnHidden(3, True)  # Date Modified
+            
+            # Configuration du widget
+            widget.setSortingEnabled(True)
+            widget.sortByColumn(0, Qt.SortOrder.AscendingOrder)
+            widget.setAnimated(True)
+            widget.setIndentation(20)
+            widget.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
+            widget.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
+            widget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+            widget.setDragDropMode(QAbstractItemView.DragDropMode.DragDrop)
+            widget.setDropIndicatorShown(True)
+            widget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
+            widget.setHeaderHidden(True)
+
             return widget
 
         elif form_type == 'list-btn':
             container = QWidget()
             layout = QVBoxLayout(container)
             list_widget = QListWidget()
-        
+    
             if isinstance(widget_data, list):
                 list_widget.addItems(widget_data)
-            
+        
             layout.addWidget(list_widget)
             return container
 
         elif form_type == 'tree':
-            widget = QTreeWidget()
-            widget.setHeaderLabels(['Objets'])
+            widget = QTreeView()
+            model = QStandardItemModel()
+            widget.setModel(model)
             widget.setRootIsDecorated(True)
             widget.setHeaderHidden(True)
+        
             if isinstance(widget_data, list):
                 for item_data in widget_data:
-                    self.add_tree_items(widget, item_data)
+                    self.add_tree_items(model.invisibleRootItem(), item_data)
+        
             return widget
 
         return QWidget()
 
-    def add_tree_items(self, parent_widget, data: Dict[str, Any]) -> None:
+    def add_tree_items(self, parent_item, data: Dict[str, Any]) -> None:
         """Ajoute récursivement les items à l'arbre"""
         if isinstance(data, dict):
-            item = QTreeWidgetItem([data.get('name', '')])
-            if isinstance(parent_widget, QTreeWidget):
-                parent_widget.addTopLevelItem(item)
-            else:
-                parent_widget.addChild(item)
+            item = QStandardItem(data.get('name', ''))
+        
+            if isinstance(parent_item, QStandardItem):
+                parent_item.appendRow(item)
+            else:  # Si c'est le root item
+                parent_item.model().appendRow(item)
         
             if 'childs' in data and isinstance(data['childs'], list):
                 for child in data['childs']:
                     self.add_tree_items(item, child)
     
-    def populate_file_tree(self, parent_item: QTreeWidgetItem, path: str) -> None:
-        """Remplit récursivement l'arbre des fichiers"""
-        try:
-            # Trie les entrées : dossiers d'abord, puis fichiers
-            entries = os.listdir(path)
-            dirs = []
-            files = []
-        
-            for entry in entries:
-                full_path = os.path.join(path, entry)
-                if os.path.isdir(full_path):
-                    dirs.append(entry)
-                else:
-                    files.append(entry)
-                
-            # Ajoute les dossiers d'abord
-            for dir_name in sorted(dirs):
-                full_path = os.path.join(path, dir_name)
-                dir_item = QTreeWidgetItem(parent_item, [dir_name])
-                self.populate_file_tree(dir_item, full_path)
-            
-            # Puis ajoute les fichiers
-            for file_name in sorted(files):
-                file_item = QTreeWidgetItem(parent_item, [file_name])
-            
-        except PermissionError:
-            error_item = QTreeWidgetItem(parent_item, ["Accès refusé"])
-            error_item.setForeground(0, QBrush(Qt.red))
-        except Exception as e:
-            error_item = QTreeWidgetItem(parent_item, [str(e)])
-            error_item.setForeground(0, QBrush(Qt.red))
-
     def update_field_state(self, title: str, **kwargs):
         """Met à jour l'état d'un field"""
         field = self.get_field(title)
