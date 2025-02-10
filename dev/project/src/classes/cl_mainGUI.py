@@ -137,9 +137,9 @@ class MainGUI(QMainWindow):
                 form_type = field.get('form_list')
             
                 # Mettre à jour selon le type de formulaire
-                if form_type == 'tree':
+                if form_type == 'tree-file':
                     # Si c'est un explorateur de fichiers
-                    if field['title'] == "Project Name":
+                    if field['title']:
                         # Mettre à jour le titre avec le nom du projet
                         field['widget'].findChild(QLabel).setText(data['directory_name'].upper())
                         # Mettre à jour le tooltip
@@ -152,7 +152,7 @@ class MainGUI(QMainWindow):
                             root_item = QTreeWidgetItem(tree_widget, [data['directory_name']])
                             sdfsp.populate_file_tree(root_item, data['directory_path'])
                         
-                elif form_type == 'tree-file':
+                elif form_type == 'tree':
                     # Si c'est un arbre d'objets (pour les réseaux par exemple)
                     tree_widget = field['widget'].findChild(QTreeWidget)
                     if tree_widget:

@@ -9653,3 +9653,167 @@
 2025-02-10 14:34:48,766 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
 2025-02-10 14:34:48,804 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
 2025-02-10 14:34:48,804 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan2\lan_audacity.json exist.
+2025-02-10 15:08:41,654 - INFO - Application démarrée.
+2025-02-10 15:08:41,658 - DEBUG - Mode débogage activé.
+2025-02-10 15:08:41,658 - WARNING - Attention, ceci est un avertissement.
+2025-02-10 15:08:41,768 - INFO - MySQLConnection::connect: Connection to MySQL database was successful
+2025-02-10 15:08:41,791 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-02-10 15:08:41,791 - INFO - load_sql_server:Users table is not empty
+2025-02-10 15:08:41,792 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-02-10 15:08:41,793 - INFO - load_sql_server:OSI Layers table is complete
+2025-02-10 15:08:41,795 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-02-10 15:08:41,795 - INFO - load_sql_server: Device Types table is not empty
+2025-02-10 15:08:41,796 - INFO - MySQLConnection::disconnect: MySQL connection is closed
+2025-02-10 15:08:41,797 - INFO - load_app: Chargement de l'interface graphique.
+2025-02-10 15:08:41,797 - INFO - load_app: Lan Audacity démarrée.
+2025-02-10 15:08:41,876 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-02-10 15:08:41,877 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-02-10 15:08:41,877 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-02-10 15:08:41,881 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-02-10 15:08:41,882 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-02-10 15:08:41,882 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-02-10 15:08:41,885 - DEBUG - ShortcutsManager::check_file_exist: The file backup/resources/keyboard_list.json exist.
+2025-02-10 15:08:41,886 - DEBUG - ShortcutsManager::action_file: rw_mode set to READ
+2025-02-10 15:08:41,886 - DEBUG - ShortcutsManager::action_file: Reading file keyboard_list.json
+2025-02-10 15:08:42,126 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:08:42,128 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,129 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:08:42,129 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,130 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:08:42,130 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,131 - DEBUG - MainGUI::initUI_menuBar: <PySide6.QtWidgets.QMenu(0x23aeb6b2be0) at 0x0000023AF076C240>
+2025-02-10 15:08:42,132 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:08:42,132 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:08:42,134 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:08:42,134 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,135 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:08:42,135 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:08:42,136 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:08:42,136 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:08:42,137 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:08:42,137 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:08:42,138 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:08:42,138 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:08:42,139 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,139 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-02-10 15:08:42,140 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,141 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,142 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:08:42,142 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:08:42,143 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,144 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:08:42,145 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:08:42,145 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,148 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,149 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-02-10 15:08:42,149 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:08:42,149 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,150 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-02-10 15:08:42,150 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:08:42,150 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:08:42,151 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:08:42,151 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:08:42,152 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:08:42,152 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:08:42,153 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-02-10 15:08:42,155 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-02-10 15:08:42,158 - DEBUG - UI initialized
+2025-02-10 15:08:42,159 - INFO - SDFSP::load_stack_data: Loading stack data
+2025-02-10 15:08:42,168 - DEBUG - SDFSP::create_field_widget: Creating field widget for Network Object Ouvert
+2025-02-10 15:08:42,173 - DEBUG - SDFSP::create_field_widget: Creating field widget for Project Name
+2025-02-10 15:08:42,285 - DEBUG - UI initialized
+2025-02-10 15:08:42,286 - INFO - SDFSP::load_stack_data: Loading stack data
+2025-02-10 15:08:42,287 - DEBUG - SDFSP::create_field_widget: Creating field widget for Editeur Ouvert
+2025-02-10 15:08:42,288 - DEBUG - SDFSP::create_field_widget: Creating field widget for lan_audacity
+2025-02-10 15:08:42,330 - DEBUG - UI initialized
+2025-02-10 15:08:42,330 - INFO - SDFSP::load_stack_data: Loading stack data
+2025-02-10 15:08:42,332 - DEBUG - SDFSP::create_field_widget: Creating field widget for Extensions Ouvert
+2025-02-10 15:08:42,334 - DEBUG - SDFSP::create_field_widget: Creating field widget for Liste Simple
+2025-02-10 15:08:52,851 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-02-10 15:08:52,853 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-02-10 15:08:52,871 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-02-10 15:08:52,872 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan2\lan_audacity.json exist.
+2025-02-10 15:09:13,583 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-02-10 15:09:13,583 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-02-10 15:09:13,600 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-02-10 15:09:13,600 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan3\lan_audacity.json exist.
+2025-02-10 15:11:55,482 - INFO - Application démarrée.
+2025-02-10 15:11:55,482 - DEBUG - Mode débogage activé.
+2025-02-10 15:11:55,482 - WARNING - Attention, ceci est un avertissement.
+2025-02-10 15:11:55,514 - INFO - MySQLConnection::connect: Connection to MySQL database was successful
+2025-02-10 15:11:55,514 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-02-10 15:11:55,514 - INFO - load_sql_server:Users table is not empty
+2025-02-10 15:11:55,514 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-02-10 15:11:55,514 - INFO - load_sql_server:OSI Layers table is complete
+2025-02-10 15:11:55,514 - DEBUG - MySQLConnection::fetch_data: Data fetched successfully
+2025-02-10 15:11:55,514 - INFO - load_sql_server: Device Types table is not empty
+2025-02-10 15:11:55,514 - INFO - MySQLConnection::disconnect: MySQL connection is closed
+2025-02-10 15:11:55,514 - INFO - load_app: Chargement de l'interface graphique.
+2025-02-10 15:11:55,514 - INFO - load_app: Lan Audacity démarrée.
+2025-02-10 15:11:55,561 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-02-10 15:11:55,561 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-02-10 15:11:55,577 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-02-10 15:11:55,577 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-02-10 15:11:55,577 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-02-10 15:11:55,577 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-02-10 15:11:55,577 - DEBUG - ShortcutsManager::check_file_exist: The file backup/resources/keyboard_list.json exist.
+2025-02-10 15:11:55,577 - DEBUG - ShortcutsManager::action_file: rw_mode set to READ
+2025-02-10 15:11:55,577 - DEBUG - ShortcutsManager::action_file: Reading file keyboard_list.json
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,768 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: <PySide6.QtWidgets.QMenu(0x154a3de1170) at 0x00000154A8D8C840>
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:11:55,768 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,784 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:11:55,784 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:11:55,784 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,784 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-02-10 15:11:55,784 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:11:55,784 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,784 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-02-10 15:11:55,793 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:11:55,793 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-02-10 15:11:55,793 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:11:55,793 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:11:55,793 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-02-10 15:11:55,793 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-02-10 15:11:55,793 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-02-10 15:11:55,793 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-02-10 15:11:55,793 - DEBUG - UI initialized
+2025-02-10 15:11:55,793 - INFO - SDFSP::load_stack_data: Loading stack data
+2025-02-10 15:11:55,800 - DEBUG - SDFSP::create_field_widget: Creating field widget for Network Object Ouvert
+2025-02-10 15:11:55,800 - DEBUG - SDFSP::create_field_widget: Creating field widget for Project Name
+2025-02-10 15:11:56,101 - DEBUG - UI initialized
+2025-02-10 15:11:56,102 - INFO - SDFSP::load_stack_data: Loading stack data
+2025-02-10 15:11:56,105 - DEBUG - SDFSP::create_field_widget: Creating field widget for Editeur Ouvert
+2025-02-10 15:11:56,107 - DEBUG - SDFSP::create_field_widget: Creating field widget for lan_audacity
+2025-02-10 15:11:56,213 - DEBUG - UI initialized
+2025-02-10 15:11:56,213 - INFO - SDFSP::load_stack_data: Loading stack data
+2025-02-10 15:11:56,215 - DEBUG - SDFSP::create_field_widget: Creating field widget for Extensions Ouvert
+2025-02-10 15:11:56,215 - DEBUG - SDFSP::create_field_widget: Creating field widget for Liste Simple
+2025-02-10 15:12:02,763 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-02-10 15:12:02,763 - DEBUG - MainGUI::save_recent_project: [{'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}, {'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}]
+2025-02-10 15:12:02,779 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-02-10 15:12:02,791 - DEBUG - FactoryConfFile::check_file_exist: The file C:/Users/g.tronche/Documents/test_app/Eyrein Network\lan_audacity.json exist.
