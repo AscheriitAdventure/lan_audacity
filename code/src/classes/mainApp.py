@@ -377,7 +377,7 @@ class MainApp(QMainWindow):
                                     data_network = json.load(file)
                                 except json.JSONDecodeError as e:
                                     msg_box = QMessageBox(self)
-                                    msg_box.setIcon(QMessageBox.Warning)
+                                    msg_box.setIcon(QMessageBox.Icon.Warning)
                                     msg_box.setWindowTitle("ERROR")
                                     msg_box.setInformativeText(f"Failed to load network file: {e}")
                                     msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
