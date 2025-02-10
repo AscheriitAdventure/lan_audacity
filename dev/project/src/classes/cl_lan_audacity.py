@@ -175,7 +175,7 @@ class LanAudacity(FileManagement):
     extensions: List[Any] = field(default_factory=list)
     # Liste des réseaux liés au projet
     networks: List[Any] = field(default_factory=list)
-    # Liste des cartes générer par le projet
+    # Liste des cartes générées par le projet
     pixmaps: List[Any] = field(default_factory=list)
 
     @staticmethod
@@ -184,13 +184,21 @@ class LanAudacity(FileManagement):
         data.setdefault("directory_path", data.pop("abs_path", ""))
         data.setdefault("directory_name", os.path.basename(
             data["directory_path"]))
+        if co := data.get("clock_manager"):
+            co2 = ClockManager().from_dict(co)
+        else:
+            co2 = ClockManager()
+        if si := data.get("software_id"):
+            si2 = SoftwareIdentity().from_dict(si)
+        else:
+            si2 = SoftwareIdentity()
         return LanAudacity(
             directory_path=data["directory_path"],
             directory_name=data["directory_name"],
             folders=data.get("folders", []),
             files=data.get("files", []),
-            clock_manager=data.get("clock_manager", ClockManager()),
-            software_id=data.get("software_id", SoftwareIdentity()),
+            clock_manager=co2,
+            software_id=si2,
             authors=data.get("authors", []),
             encode_file=data.get("encode_file", "UTF-8"),
             extensions=data.get("extensions", []),

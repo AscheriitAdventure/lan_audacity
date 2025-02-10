@@ -7,6 +7,8 @@ import os
 import sys
 import inspect
 import time
+from dev.project.src.classes.cl_stacked_objects import SDFSP
+from dev.project.src.lib.template_tools_bar import *
 from dev.project.src.classes.cl_dialog import DynFormDialog
 from dev.project.src.classes.cl_lan_audacity import LanAudacity
 from dev.project.src.classes.cl_extented import IconApp, ProjectOpen
@@ -23,7 +25,7 @@ from dev.project.src.classes.cl_factory_conf_file import (
 
 class MainGUI(QMainWindow):
 
-    # processRunList: ClassVar[Signal] = Signal(List[Any])
+    processRunList: ClassVar[Signal] = Signal(list)
 
     def __init__(self, parent=None):
         super(MainGUI, self).__init__(parent)
@@ -42,6 +44,8 @@ class MainGUI(QMainWindow):
 
         self.initUI_menuBar()
         self.load_recent_project()
+        # imposer un dialog pour ouvrir un projet sinon il y aura des problème de chargements
+        self.init_stackedWidget()
 
     def loadUI(self):
         self.setWindowIcon(self.iconsManager.get_icon("lan_audacity"))
@@ -87,18 +91,112 @@ class MainGUI(QMainWindow):
         self.central_widget.setLayout(layout)
 
     def init_stackedWidget(self):
-        # self.networkExplorer = NetworkExplorer(self)
-        self.networkExplorer = QWidget(self)
-        # self.dlcExplorer = DLCExplorer(self)
-        self.dlcExplorer = QWidget(self)
-        # self.fileExplorer = FileExplorer(self)
-        self.fileExplorer = QWidget(self)
+        stacks = [LAN_EXPLORER, FILES_EXPLORER, DLC_EXPLORER]
+        for stack in stacks:
+            # Create the widget
+            sdfsp = SDFSP(debug=True, parent=self)
+            self.primary_side_bar.addWidget(sdfsp)
+            self.stackedWidgetList.append(sdfsp)
 
-        self.primary_side_bar.addWidget(self.fileExplorer)
-        self.primary_side_bar.addWidget(self.networkExplorer)
-        self.primary_side_bar.addWidget(self.dlcExplorer)
+            if self.active_projects != []:
+                ao = self.active_projects[0]
+                for field in stack["fields"]:
+                    if field_form := field.get("form_list"):
+                        if field_form == 'tree-file':
+                            field["widget_data"] = ao.directory_path
+                            field['title'] = ao.directory_name
+                            # field['actions'].append()
+                        elif field_form == 'tree':
+                            field["widget_data"] = []
+                            # field['actions'].append()
+                        elif field_form == 'list-btn':
+                            field["widget_data"] = []
+                            # field['actions'].append()
+                    else:
+                        logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {field_form} Unknown")
+                        continue
+            else:
+                # Add Data and/or Objects in the widget
+                sdfsp.load_stack_data(stack)
 
         self.primary_side_bar.setCurrentIndex(0)
+    
+    def update_stackedWidget(self, index: int, data: dict):
+        """
+        Met à jour les données d'un widget et de ses fields
+       Args:
+            index (int): Index du widget à mettre à jour
+            data (dict): Données à mettre à jour
+        """
+        try:
+            # Récupérer le widget SDFSP correspondant à l'index
+            sdfsp: SDFSP = self.stackedWidgetList[index]
+
+            # Pour chaque field dans le widget
+            for field in sdfsp.active_fields:
+                form_type = field.get('form_list')
+            
+                # Mettre à jour selon le type de formulaire
+                if form_type == 'tree':
+                    # Si c'est un explorateur de fichiers
+                    if field['title'] == "Project Name":
+                        # Mettre à jour le titre avec le nom du projet
+                        field['widget'].findChild(QLabel).setText(data['directory_name'].upper())
+                        # Mettre à jour le tooltip
+                        field['widget'].setToolTip(f"Explorateur de Réseaux de {data['directory_name']}")
+                    
+                        # Mettre à jour l'arborescence
+                        tree_widget = field['widget'].findChild(QTreeWidget)
+                        if tree_widget:
+                            tree_widget.clear()
+                            root_item = QTreeWidgetItem(tree_widget, [data['directory_name']])
+                            sdfsp.populate_file_tree(root_item, data['directory_path'])
+                        
+                elif form_type == 'tree-file':
+                    # Si c'est un arbre d'objets (pour les réseaux par exemple)
+                    tree_widget = field['widget'].findChild(QTreeWidget)
+                    if tree_widget:
+                        tree_widget.clear()
+                        # Ajouter les réseaux s'ils existent
+                        if 'networks' in data:
+                            for network in data['networks']:
+                                network_item = QTreeWidgetItem(tree_widget, [network['name']])
+                                # Ajouter les sous-éléments si nécessaire
+                            
+                elif form_type == 'list-btn':
+                    # Si c'est une liste de boutons
+                    list_widget = field['widget'].findChild(QListWidget)
+                    if list_widget:
+                        list_widget.clear()
+                        # Ajouter les éléments selon le contexte
+                        if field['title'] == "Extensions Ouvert":
+                            for ext in data.get('extensions', []):
+                                list_widget.addItem(ext['name'])
+                        elif field['title'] == "Network Object Ouvert":
+                            # Ajouter les objets réseau ouverts
+                            pass
+                            
+                # Mise à jour des actions si nécessaire
+                if field.get('actions'):
+                    for action in field['actions']:
+                        if isinstance(action, dict) and action.get('callback') is None:
+                            # Mettre à jour le callback avec le nouveau contexte
+                            if action.get('tooltip') == 'Nouvelle Machine':
+                                action['callback'] = lambda: self.create_new_machine(data)
+                            elif action.get('tooltip') == 'Nouveau Réseau':
+                                action['callback'] = lambda: self.create_new_network(data)
+            
+            # Émettre un signal pour informer de la mise à jour
+            sdfsp.exchangeContext.emit({
+                "action": "stack_updated",
+                "index": index,
+                "data": data
+            })
+            
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error updating stack widget: {str(e)}"
+            )
 
     def initUI_menuBar(self):
         toolsBar = QToolBar(self)
@@ -152,20 +250,26 @@ class MainGUI(QMainWindow):
                 b.addSeparator()
 
     def setStackedWidget(self, index: int) -> None:
-        if (
-            self.primary_side_bar.indexOf(self.primary_side_bar.currentWidget())
-            == index
-        ):
-            self.primary_side_bar.setWidth(0)
-        elif (
-            self.primary_side_bar.indexOf(self.primary_side_bar.currentWidget())
-            != index
-            and self.primary_side_bar.width() == 0
-        ):
-            self.primary_side_bar.setWidth(120)
-            self.primary_side_bar.setCurrentIndex(index)
-        else:
-            self.primary_side_bar.setCurrentIndex(index)
+        """
+        Change the current stacked widget and handle its visibility/size
+        Args:
+            index (int): Index of the stacked widget to show
+        """
+        current_index = self.primary_side_bar.currentIndex()
+    
+        if current_index == index:
+            if self.h_splitter.sizes()[0] == 0:
+                self.h_splitter.setSizes([220, self.h_splitter.width() - 220])
+            else:
+                self.h_splitter.setSizes([0, self.h_splitter.width()])
+        elif current_index != index:
+            if self.h_splitter.sizes()[0] == 0:
+                # If sidebar is collapsed, expand it and change tab
+                self.h_splitter.setSizes([220, self.h_splitter.width() - 220])
+                self.primary_side_bar.setCurrentIndex(index)
+            else:
+                # Just change the tab
+                self.primary_side_bar.setCurrentIndex(index)
 
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
@@ -369,12 +473,29 @@ class MainGUI(QMainWindow):
         Args:
             project (ProjectOpen): a simple object with the project name and the absolute path
         """
-        dataProjectFileName = "lan_audacity.json"
-        fp, _ = QFileDialog.getExistingDirectory(self, "Open Project", project.path)
-        logging.debug(
-            f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {project}"
-        )
+        try:
+            # Lire le fichier de configuration
+            a = FactoryConfFile(os.path.join(project.path, "lan_audacity.json"))
+            a.read_file()
 
+            # Créer une instance de LanAudacity avec les arguments requis
+            rf = LanAudacity(directory_path=project.path,
+                             directory_name=project.name)
+
+            # Charger les données du fichier dans l'instance
+            rf = rf.from_dict(a.file_data)
+
+            # Ajouter le projet à la liste des projets actifs
+            self.active_projects.append(rf)
+
+            # Mettre à jour les widgets
+            self.update_stackedWidget(0, rf.get_dict())
+            self.update_stackedWidget(1, rf.get_dict())
+
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading project: {str(e)}"
+            )
     ########################################################
 
 

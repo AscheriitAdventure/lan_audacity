@@ -16,7 +16,7 @@ class DemoWindow(QMainWindow):
         self.setWindowTitle("SDFSP Démo")
         self.resize(400, 800)
 
-        self.template: dict = DEFAULT_SIDE_PANEL
+        self.template: dict = LAN_EXPLORER
         self.sketchs: list[dict] = []
 
         central_widget = QWidget()

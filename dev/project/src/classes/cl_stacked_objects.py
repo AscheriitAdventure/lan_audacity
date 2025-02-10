@@ -70,7 +70,11 @@ class TitleBlock(QWidget):
                 if isinstance(action, QPushButton):
                     self.layout.addWidget(action)
                 elif isinstance(action, dict):
-                    btn = QPushButton(action.get('icon', ''))
+                    btn = QPushButton()
+                    if isinstance(action.get('icon'), str):
+                        btn.setText(action.get('icon', ''))
+                    elif isinstance(action.get('icon'), dict):
+                        btn.setIcon(IconApp.from_dict(action.get('icon')).get_qIcon())
                     btn.setFixedSize(16, 16)
                     btn.setStyleSheet("QPushButton { border: none; }")
                     if 'callback' in action:
@@ -88,14 +92,18 @@ class TitleBlock(QWidget):
         if isinstance(action, QPushButton):
             self.layout.addWidget(action)
         elif isinstance(action, dict):
-            btn = QPushButton(action.get('icon', ''))
+            btn = QPushButton()
+            if isinstance(action.get('icon'), str):
+                btn.setText(action.get('icon', ''))
+            elif isinstance(action.get('icon'), dict):
+                btn.setIcon(IconApp.from_dict(action.get('icon')).get_qIcon())
             btn.setFixedSize(16, 16)
             btn.setStyleSheet("QPushButton { border: none; }")
             if 'callback' in action:
                 btn.clicked.connect(action['callback'])
             if 'tooltip' in action:
                 btn.setToolTip(action['tooltip'])
-            self.layout.addWidget(btn) 
+            self.layout.addWidget(btn)
 
 class SDFSP(QWidget):
     exchangeContext: ClassVar[Signal] = Signal(dict)
@@ -140,7 +148,7 @@ class SDFSP(QWidget):
         container_layout.setContentsMargins(4, 0, 4, 0)
         container_layout.setSpacing(1)
 
-        # Création du bouton collapse
+        # Création du bouton collapse        
         collapse_btn = QPushButton(IconApp("mdi6.chevron-double-right").get_qIcon(), "")
         collapse_btn.setFixedSize(20, 20)
         collapse_btn.setStyleSheet("QPushButton { border: none; }")
@@ -357,7 +365,7 @@ class SDFSP(QWidget):
         # Configuration du bouton de visibilité
         visibility_btn = None
         if len(data.get("fields", [])) > 1:
-            visibility_btn = QPushButton(IconApp(names=["fa5s.eye"]).get_qIcon(), "")
+            visibility_btn = QPushButton(IconApp(names="fa5s.eye").get_qIcon(), "")
             visibility_btn.setFixedSize(16, 16)
             visibility_btn.setStyleSheet("QPushButton { border: none; }")
             visibility_btn.clicked.connect(
