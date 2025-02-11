@@ -132,12 +132,12 @@ FILES_EXPLORER: Dict = {
                 },
                 {
                     'icon': {"names": ["mdi6.refresh"]},
-                    'callback': None,
+                    'callback': 'refresh_tree_view',
                     'tooltip': 'Rafrachir'
                 },
                 {
                     'icon': {"names": ["mdi6.minus-box-multiple-outline"]},
-                    'callback': None,
+                    'callback': 'collapse_all_tree_items',
                     'tooltip': 'Tout réduire'
                 },
             ],  # Penser à ajouter les actions
@@ -216,12 +216,12 @@ LAN_EXPLORER: Dict = {
                 },
                 {
                     'icon': {"names": ["mdi6.refresh"]},
-                    'callback': None,
+                    'callback': 'refresh_tree_view',
                     'tooltip': 'Rafrachir'
                 },
                 {
                     'icon': {"names": ["mdi6.minus-box-multiple-outline"]},
-                    'callback': None,
+                    'callback': 'collapse_all_tree_items',
                     'tooltip': 'Tout réduire'
                 },
             ],  # Penser à ajouter les actions

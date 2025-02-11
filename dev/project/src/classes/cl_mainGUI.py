@@ -539,7 +539,54 @@ class MainGUI(QMainWindow):
             logging.error(
                 f"{self.__class__.__name__}::collapse_all_tree_items: {str(e)}"
             )
-
+    
+    def refresh_tree_view(self) -> None:
+        """
+        Refresh all tree views (both file explorer and object trees) in the current stacked widget.
+        Handles both QFileSystemModel and QStandardItemModel.
+        """
+        try:
+            # Get the current stacked widget
+            current_widget = self.primary_side_bar.currentWidget()
+            if not current_widget or not hasattr(current_widget, 'active_fields'):
+                return
+            
+            # Find all tree views in the current widget
+            for field in current_widget.active_fields:
+                if field.get('form_list') in ['tree-file', 'tree']:
+                    tree_view = field['widget'].findChild(QTreeView)
+                    if not tree_view:
+                        continue
+                    
+                    # Get the current model
+                    model = tree_view.model()
+                
+                    if isinstance(model, QFileSystemModel):
+                        # Refresh file system model
+                        current_path = model.rootPath()
+                        model.setRootPath("")  # Force refresh
+                        model.setRootPath(current_path)
+                
+                    elif isinstance(model, QStandardItemModel):
+                        # For object trees, we need to reload the data
+                        if self.active_projects:
+                            project = self.active_projects[0]
+                            # Reload data based on the field title/type
+                            if field.get('title') == "Project Name":
+                                # Refresh network tree
+                                self.update_stackedWidget(
+                                    self.primary_side_bar.currentIndex(), 
+                                    project.get_dict()
+                                )
+                
+                    # Restore expanded state if needed
+                    tree_view.repaint()
+                
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::refresh_tree_view: {str(e)}"
+            )
+               
     ########################################################
 
 
