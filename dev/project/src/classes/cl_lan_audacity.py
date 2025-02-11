@@ -4,7 +4,9 @@ import os
 import logging
 import inspect
 import time
-
+from uuid import UUID
+import re
+import enum
 from dev.project.src.classes.switchFile import SwitchFile
 
 
@@ -159,7 +161,6 @@ class SoftwareIdentity:
         }
 
 
-
 @dataclass
 class Interfaces:
     name_file: str
@@ -182,6 +183,115 @@ class Interfaces:
             "alias": self.alias,
             "path": self.path,
         }
+
+# Classe pour la table OSILayer
+class OSILayer(enum.Enum):
+    APPLICATION = 7
+    PRESENTATION = 6
+    SESSION = 5
+    TRANSPORT = 4
+    NETWORK = 3
+    DATA_LINK = 2
+    PHYSICAL = 1
+
+# Classe pour la table WebAddress
+@dataclass
+class WebAddress:
+    ipv4: Optional[str] = None
+    mask_ipv4: Optional[str] = None
+    ipv4_public: Optional[str] = None
+    cidr: Optional[str] = None
+    ipv6_local: Optional[str] = None
+    ipv6_global: Optional[str] = None
+
+    @staticmethod
+    def validate_ipv4(ipv4: str) -> bool:
+        pattern = re.compile(r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
+        if pattern.match(ipv4):
+            parts = ipv4.split(".")
+            for part in parts:
+                if not 0 <= int(part) <= 255:
+                    return False
+            return True
+        return False
+    
+    @staticmethod
+    def validate_ipv6(ipv6: str) -> bool:
+        pattern = re.compile(r"^([0-9a-fA-F]{1,4}:){7}([0-9a-fA-F]{1,4})$|^::([0-9a-fA-F]{1,4}:){0,5}([0-9a-fA-F]{1,4})$|^([0-9a-fA-F]{1,4}:){1,6}:$|^([0-9a-fA-F]{1,4}:){1,7}:$")
+        return bool(pattern.match(ipv6))
+    
+    @staticmethod
+    def validate_cidr(cidr: str) -> bool:
+        pattern = re.compile(r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}$")
+        if pattern.match(cidr):
+            parts = cidr.split("/")
+            if 0 <= int(parts[1]) <= 32:
+                return WebAddress.validate_ipv4(parts[0])
+        return False
+
+# Classe pour la table DeviceType
+@dataclass
+class DeviceType:
+    category_name: str
+    osi_layer: OSILayer
+    category_description: Optional[str] = None
+    pixmap_path: Optional[str] = None
+    sub_devices: List['DeviceType'] = field(default_factory=list)  # Liste de sous-périphériques
+
+# Classe pour la table Device
+@dataclass
+class Device:
+    uuid: UUID
+    name_object: str = "Unknown Device"
+    web_address: Optional[WebAddress] = None
+    clock_manager: ClockManager = field(default_factory=ClockManager)
+    type_device: Optional[DeviceType] = None
+    vendor: Optional[str] = None
+    mac_address: Optional[str] = None
+
+# Classe pour la table Network
+@dataclass
+class Network:
+    uuid: UUID
+    name_object: str = "Unknown Network"
+    web_address: Optional[WebAddress] = None
+    clock_manager: ClockManager = field(default_factory=ClockManager)
+    dns_object: Optional[str] = None
+    devices: List[Device] = field(default_factory=list)
+
+# Classe pour la table OSAccuracy
+@dataclass
+class OSAccuracy:
+    name_object: str
+    accuracy_int: int
+    device: Device
+
+    @staticmethod
+    def validate_accuracy_int(accuracy_int: int) -> bool:
+        return 0 <= accuracy_int <= 100
+    
+# Classe pour la table PortsObject
+@dataclass
+class PortsObject:
+    port_number: int
+    device: Device
+    protocol: Optional[str] = None
+    port_status: Optional[str] = None
+    port_service: Optional[str] = None
+    port_version: Optional[str] = None
+
+    @staticmethod
+    def validate_port_number(port_number: int) -> bool:
+        """
+        Validate if the port number is within the valid range for TCP/UDP ports.
+        
+        Args:
+            port_number (int): The port number to validate.
+        
+        Returns:
+            bool: True if the port number is valid, False otherwise.
+        """
+        return 0 <= port_number <= 65535
 
 
 @dataclass
@@ -362,3 +472,4 @@ class LanAudacity(FileManagement):
 
     ######## Native Function Networks Management ########
     ######## Native Function Pixmaps Management ########
+

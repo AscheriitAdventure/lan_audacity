@@ -1,4 +1,4 @@
-from dev.project.src.classes.configurationFile import ConfigurationFile
+from dev.project.src.archives.configurationFile import ConfigurationFile
 from dev.project.src.lib.qt_obj import newAction
 import os
 import typing

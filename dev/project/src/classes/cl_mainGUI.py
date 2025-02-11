@@ -143,7 +143,7 @@ class MainGUI(QMainWindow):
                         # Mettre à jour le titre avec le nom du projet
                         field['widget'].findChild(QLabel).setText(data['directory_name'].upper())
                         # Mettre à jour le tooltip
-                        field['widget'].setToolTip(f"Explorateur de Réseaux de {data['directory_name']}")
+                        field['widget'].setToolTip(f"Explorateur de Fichiers de {data['directory_name']}")
                         
                         # Mettre à jour l'arborescence
                         tree_view = field['widget'].findChild(QTreeView)
@@ -156,6 +156,12 @@ class MainGUI(QMainWindow):
                         
                 elif form_type == 'tree':
                     # Si c'est un arbre d'objets (pour les réseaux par exemple)
+                    if field['title']:
+                        # Mettre à jour le titre avec le nom du projet
+                        field['widget'].findChild(QLabel).setText(data['directory_name'].upper())
+                        # Mettre à jour le tooltip
+                        field['widget'].setToolTip(f"Explorateur de Réseaux de {data['directory_name']}")
+
                     tree_view = field['widget'].findChild(QTreeView)
                     if tree_view:
                         model = QStandardItemModel()
@@ -279,7 +285,7 @@ class MainGUI(QMainWindow):
     def add_widgetInStackedWidget(self, widget: QWidget) -> None:
         self.primary_side_bar.addWidget(widget)
 
-    ######## Native Function Operate on Windows ########
+    ######## Native Function Operate on windows ########
     def open_new_window(self):
         self.new_window = MainGUI()
         self.new_window.show()
@@ -501,6 +507,39 @@ class MainGUI(QMainWindow):
             logging.error(
                 f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading project: {str(e)}"
             )
+    
+    ######## class Method for stack functions ########
+    def collapse_all_tree_items(self) -> None:
+        """
+        Collapse all expanded items in both file explorer and object trees 
+        in the current stacked widget.
+        """
+        try:
+            # Get the current stacked widget
+            current_widget = self.primary_side_bar.currentWidget()
+            if not current_widget or not hasattr(current_widget, 'active_fields'):
+                return
+            
+            # Find all tree views in the current widget
+            for field in current_widget.active_fields:
+                if field.get('form_list') in ['tree-file', 'tree']:
+                    tree_view = field['widget'].findChild(QTreeView)
+                    if tree_view:
+                        # Collapse all items
+                        tree_view.collapseAll()
+                    
+                        # For file system, ensure root is visible
+                        model = tree_view.model()
+                        if isinstance(model, QFileSystemModel):
+                            root_index = model.index(model.rootPath())
+                            tree_view.scrollTo(root_index)
+                            tree_view.setExpanded(root_index, True)
+                    
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::collapse_all_tree_items: {str(e)}"
+            )
+
     ########################################################
 
 
