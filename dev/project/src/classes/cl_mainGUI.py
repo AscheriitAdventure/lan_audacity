@@ -634,18 +634,7 @@ class MainGUI(QMainWindow):
         try:
             # Create dialog for new file
             dialog = DynFormDialog(self, False)
-            dialog.load_form({
-                "title": "Nouveau Fichier",
-                "fields": [
-                    {
-                        "name": "filename",
-                        "type": "line",
-                        "label": "Nom du fichier:",
-                        "placeholder": "nouveau_fichier.txt",
-                        "required": True
-                    }
-                ]
-            })
+            dialog.load_form(NEW_FILE)
             
             if dialog.exec_() == QDialog.DialogCode.Accepted:
                 data = dialog.get_form_data()
@@ -700,18 +689,7 @@ class MainGUI(QMainWindow):
         try:
             # Create dialog for new folder
             dialog = DynFormDialog(self, False)
-            dialog.load_form({
-                "title": "Nouveau Dossier",
-                "fields": [
-                    {
-                        "name": "foldername",
-                        "type": "line",
-                        "label": "Nom du dossier:",
-                        "placeholder": "nouveau_dossier",
-                        "required": True
-                    }
-                ]
-            })
+            dialog.load_form(NEW_FOLDER)
             
             if dialog.exec_() == QDialog.DialogCode.Accepted:
                 data = dialog.get_form_data()
@@ -754,6 +732,8 @@ class MainGUI(QMainWindow):
                 f"{self.__class__.__name__}::create_new_folder: {str(e)}"
             )
     
+    def create_new_network(self) -> None:
+        pass
     ######## class Method for tab functions ######
     def open_file_in_editor(self, file_path: str) -> None:
         """Open a file in a new editor tab"""
@@ -853,6 +833,7 @@ class MainGUI(QMainWindow):
             if isinstance(tab, WelcomeTab):
                 tab.update_recent_projects(self.recent_projects)
                 break
+    
     ########################################################
 
 

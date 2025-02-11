@@ -227,6 +227,42 @@ NEW_UC: dict = {
                 "placeholder": "Enter UC MAC address, ex: 00:00:00:00:00:00",
                 "value": ""
             }
-        }        
+        }
+    ]
+}
+
+NEW_FILE: dict = {
+    "window_title": "Setup Explorer",
+    "title": "New File",
+    "separator": True,
+    "fields": [
+        {
+            "input": {
+                "type": "text",
+                "placeholder": "new_file.txt",
+                "name": "filename",
+                "value": ""
+            },
+            "label": "Nom du fichier:",
+            "required": True
+        }
+    ]
+}
+
+NEW_FOLDER: dict = {
+    "window_title": "Setup Explorer",
+    "title": "New Folder",
+    "separator": True,
+    "fields": [
+        {
+            "label": "Nom du dossier:",
+            "required": True,
+            "input": {
+                "type": "text",
+                "name": "foldername",
+                "placeholder": "nouveau_dossier.d",
+                "value": ""
+            }
+        }
     ]
 }
