@@ -7,10 +7,11 @@ import os
 import sys
 import inspect
 import time
+from dev.project.src.classes.welcome_tab import TabManager, Tab, TabType, WelcomeTab, EditorTab, NetworkObjectTab, ExtensionTab
 from dev.project.src.classes.cl_stacked_objects import SDFSP
 from dev.project.src.lib.template_tools_bar import *
 from dev.project.src.classes.cl_dialog import DynFormDialog
-from dev.project.src.classes.cl_lan_audacity import LanAudacity, Interfaces
+from dev.project.src.classes.cl_lan_audacity import LanAudacity
 from dev.project.src.classes.cl_extented import IconApp, ProjectOpen
 from dev.project.src.lib.qt_obj import newAction, get_spcValue
 from dev.project.src.lib.template_dialog import *
@@ -35,8 +36,8 @@ class MainGUI(QMainWindow):
         self.shortcutManager = ShortcutsManager(
             os.getenv("KEYBOARD_FILE_RSC")
         )  # <-- va t il rester ici ?
-        self.recent_projects: List = [] # Liste des projets récents
-        self.stackedWidgetList: List = [] # Liste des widgets à empiler
+        self.recent_projects: List[ProjectOpen] = [] # Liste des projets récents
+        self.stackedWidgetList: List[SDFSP] = [] # Liste des widgets à empiler
         self.active_projects: List[LanAudacity] = [] # Liste des projets actifs
 
         self.loadUI()
@@ -65,8 +66,13 @@ class MainGUI(QMainWindow):
         self.primary_side_bar.setMinimumWidth(100)
 
         # Primary Center Object (Center with Tab Widget)
-        self.primary_center = QTabWidget(self)
+        self.primary_center = TabManager(self)
         self.primary_center.setMinimumHeight(100)
+        self.primary_center.tab_closed.connect(self.on_tab_closed)
+        self.primary_center.tab_changed.connect(self.on_tab_changed)
+
+        # Add welcome tab
+        self.add_welcome_tab()
 
         # Primary Panel (Bottom with Tab Widget)
         self.primary_panel = QTabWidget(self)
@@ -95,6 +101,21 @@ class MainGUI(QMainWindow):
         for stack in stacks:
             # Create the widget
             sdfsp = SDFSP(debug=True, parent=self)
+
+            for field in stack["fields"]:
+                if "actions" in field and isinstance(field["actions"], list):
+                    for action in field["actions"]:
+                        if isinstance(action, dict):
+                            callback = action.get("callback")
+                            # Vérifier que callback est une chaîne de caractères
+                            if isinstance(callback, str):
+                                if callback_method := self.get_callback(callback):
+                                    action["callback"] = callback_method
+                                else:
+                                    logging.warning(f"Callback '{callback}' not found")
+                            elif callback is not None:
+                                logging.warning(f"Invalid callback type: {type(callback)}")
+
             self.primary_side_bar.addWidget(sdfsp)
             self.stackedWidgetList.append(sdfsp)
 
@@ -508,38 +529,22 @@ class MainGUI(QMainWindow):
                 f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading project: {str(e)}"
             )
     
-    ######## class Method for stack functions ########
-    def collapse_all_tree_items(self) -> None:
+    ######## class Method for stack functions #######
+    def get_callback(self, callback_name: str):
         """
-        Collapse all expanded items in both file explorer and object trees 
-        in the current stacked widget.
-        """
-        try:
-            # Get the current stacked widget
-            current_widget = self.primary_side_bar.currentWidget()
-            if not current_widget or not hasattr(current_widget, 'active_fields'):
-                return
+        Get the method reference for a callback name.
+        
+        Args:
+            callback_name (str): Name of the callback method
             
-            # Find all tree views in the current widget
-            for field in current_widget.active_fields:
-                if field.get('form_list') in ['tree-file', 'tree']:
-                    tree_view = field['widget'].findChild(QTreeView)
-                    if tree_view:
-                        # Collapse all items
-                        tree_view.collapseAll()
-                    
-                        # For file system, ensure root is visible
-                        model = tree_view.model()
-                        if isinstance(model, QFileSystemModel):
-                            root_index = model.index(model.rootPath())
-                            tree_view.scrollTo(root_index)
-                            tree_view.setExpanded(root_index, True)
-                    
-        except Exception as e:
-            logging.error(
-                f"{self.__class__.__name__}::collapse_all_tree_items: {str(e)}"
-            )
-    
+        Returns:
+            method: Reference to the method or None if not found
+        """
+        if hasattr(self, callback_name):
+            return getattr(self, callback_name)
+        logging.warning(f"{self.__class__.__name__}::get_callback: Callback {callback_name} not found")
+        return None
+
     def refresh_tree_view(self) -> None:
         """
         Refresh all tree views (both file explorer and object trees) in the current stacked widget.
@@ -550,23 +555,23 @@ class MainGUI(QMainWindow):
             current_widget = self.primary_side_bar.currentWidget()
             if not current_widget or not hasattr(current_widget, 'active_fields'):
                 return
-            
+                
             # Find all tree views in the current widget
             for field in current_widget.active_fields:
                 if field.get('form_list') in ['tree-file', 'tree']:
                     tree_view = field['widget'].findChild(QTreeView)
                     if not tree_view:
                         continue
-                    
+                        
                     # Get the current model
                     model = tree_view.model()
-                
+                    
                     if isinstance(model, QFileSystemModel):
                         # Refresh file system model
                         current_path = model.rootPath()
                         model.setRootPath("")  # Force refresh
                         model.setRootPath(current_path)
-                
+                    
                     elif isinstance(model, QStandardItemModel):
                         # For object trees, we need to reload the data
                         if self.active_projects:
@@ -578,15 +583,276 @@ class MainGUI(QMainWindow):
                                     self.primary_side_bar.currentIndex(), 
                                     project.get_dict()
                                 )
-                
+                    
                     # Restore expanded state if needed
                     tree_view.repaint()
-                
+                    
         except Exception as e:
             logging.error(
                 f"{self.__class__.__name__}::refresh_tree_view: {str(e)}"
             )
-               
+
+    def collapse_all_tree_items(self) -> None:
+        """
+        Collapse all expanded items in both file explorer and object trees 
+        in the current stacked widget.
+        """
+        try:
+            # Get the current stacked widget
+            current_widget = self.primary_side_bar.currentWidget()
+            if not current_widget or not hasattr(current_widget, 'active_fields'):
+                return
+                
+            # Find all tree views in the current widget
+            for field in current_widget.active_fields:
+                if field.get('form_list') in ['tree-file', 'tree']:
+                    tree_view = field['widget'].findChild(QTreeView)
+                    if tree_view:
+                        # Collapse all items
+                        tree_view.collapseAll()
+                        
+                        # For file system, ensure root is visible
+                        model = tree_view.model()
+                        if isinstance(model, QFileSystemModel):
+                            root_index = model.index(model.rootPath())
+                            tree_view.scrollTo(root_index)
+                            tree_view.setExpanded(root_index, True)
+                        
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::collapse_all_tree_items: {str(e)}"
+            )
+
+    def create_new_file(self, parent_path: str = None) -> None:
+        """
+        Create a new file via a dialog and refresh the file explorer.
+        
+        Args:
+            parent_path (str, optional): Path where the new file should be created.
+                                    If None, uses current directory.
+        """
+        try:
+            # Create dialog for new file
+            dialog = DynFormDialog(self, False)
+            dialog.load_form({
+                "title": "Nouveau Fichier",
+                "fields": [
+                    {
+                        "name": "filename",
+                        "type": "line",
+                        "label": "Nom du fichier:",
+                        "placeholder": "nouveau_fichier.txt",
+                        "required": True
+                    }
+                ]
+            })
+            
+            if dialog.exec_() == QDialog.DialogCode.Accepted:
+                data = dialog.get_form_data()
+                filename = data.get("filename")
+                
+                # Determine the full path
+                if parent_path:
+                    full_path = os.path.join(parent_path, filename)
+                else:
+                    if self.active_projects:
+                        full_path = os.path.join(self.active_projects[0].directory_path, filename)
+                    else:
+                        full_path = os.path.join(os.getcwd(), filename)
+                        
+                # Check if file already exists
+                if os.path.exists(full_path):
+                    QMessageBox.warning(
+                        self,
+                        "Erreur",
+                        f"Le fichier {filename} existe déjà!"
+                    )
+                    return
+                    
+                # Create the file
+                try:
+                    with open(full_path, 'w') as f:
+                        f.write('')
+                        
+                    # Refresh the file explorer view
+                    self.refresh_tree_view()
+                        
+                except IOError as e:
+                    QMessageBox.critical(
+                        self,
+                        "Erreur",
+                        f"Impossible de créer le fichier: {str(e)}"
+                    )
+                    
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::create_new_file: {str(e)}"
+            )
+
+    def create_new_folder(self, parent_path: str = None) -> None:
+        """
+        Create a new folder via a dialog and refresh the file explorer.
+        
+        Args:
+            parent_path (str, optional): Path where the new folder should be created.
+                                    If None, uses current directory.
+        """
+        try:
+            # Create dialog for new folder
+            dialog = DynFormDialog(self, False)
+            dialog.load_form({
+                "title": "Nouveau Dossier",
+                "fields": [
+                    {
+                        "name": "foldername",
+                        "type": "line",
+                        "label": "Nom du dossier:",
+                        "placeholder": "nouveau_dossier",
+                        "required": True
+                    }
+                ]
+            })
+            
+            if dialog.exec_() == QDialog.DialogCode.Accepted:
+                data = dialog.get_form_data()
+                foldername = data.get("foldername")
+                
+                # Determine the full path
+                if parent_path:
+                    full_path = os.path.join(parent_path, foldername)
+                else:
+                    if self.active_projects:
+                        full_path = os.path.join(self.active_projects[0].directory_path, foldername)
+                    else:
+                        full_path = os.path.join(os.getcwd(), foldername)
+                        
+                # Check if folder already exists
+                if os.path.exists(full_path):
+                    QMessageBox.warning(
+                        self,
+                        "Erreur",
+                        f"Le dossier {foldername} existe déjà!"
+                    )
+                    return
+                    
+                # Create the folder
+                try:
+                    os.makedirs(full_path)
+                    
+                    # Refresh the file explorer view
+                    self.refresh_tree_view()
+                        
+                except OSError as e:
+                    QMessageBox.critical(
+                        self,
+                        "Erreur",
+                        f"Impossible de créer le dossier: {str(e)}"
+                    )
+                    
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::create_new_folder: {str(e)}"
+            )
+    
+    ######## class Method for tab functions ######
+    def open_file_in_editor(self, file_path: str) -> None:
+        """Open a file in a new editor tab"""
+        # Check if file is already open
+        for tab in self.primary_center.get_tabs_by_type(TabType.EDITOR):
+            if isinstance(tab, EditorTab) and tab.file_path == file_path:
+                self.primary_center.setCurrentWidget(tab)
+                return
+
+        # Create new editor tab
+        editor_tab = EditorTab(self.primary_center, file_path)
+        index = self.primary_center.add_tab(editor_tab)
+        self.primary_center.setCurrentIndex(index)
+
+        # Update "Editeur Ouvert" list
+        self.update_open_tabs_list(TabType.EDITOR)
+
+    def open_network_object(self, object_data: dict) -> None:
+        """Open a network object in a new tab"""
+        # Check if object is already open
+        object_id = object_data.get('id')
+        for tab in self.primary_center.get_tabs_by_type(TabType.NETWORK):
+            if isinstance(tab, NetworkObjectTab) and tab.object_data.get('id') == object_id:
+                self.primary_center.setCurrentWidget(tab)
+                return
+
+        # Create new network object tab
+        network_tab = NetworkObjectTab(self.primary_center, object_data)
+        index = self.primary_center.add_tab(network_tab)
+        self.primary_center.setCurrentIndex(index)
+
+        # Update "Network Object Ouvert" list
+        self.update_open_tabs_list(TabType.NETWORK)
+
+    def open_extension(self, extension_data: dict) -> None:
+        """Open an extension in a new tab"""
+        # Check if extension is already open
+        ext_id = extension_data.get('id')
+        for tab in self.primary_center.get_tabs_by_type(TabType.EXTENSION):
+            if isinstance(tab, ExtensionTab) and tab.extension_data.get('id') == ext_id:
+                self.primary_center.setCurrentWidget(tab)
+                return
+
+        # Create new extension tab
+        extension_tab = ExtensionTab(self.primary_center, extension_data)
+        index = self.primary_center.add_tab(extension_tab)
+        self.primary_center.setCurrentIndex(index)
+
+        # Update "Extensions Ouvert" list
+        self.update_open_tabs_list(TabType.EXTENSION)
+
+    def update_open_tabs_list(self, tab_type: TabType) -> None:
+        """Update the corresponding open tabs list based on tab type"""
+        tabs = self.primary_center.get_tabs_by_type(tab_type)
+        tab_titles = [tab.title for tab in tabs]
+
+        # Find the correct list widget based on tab type
+        list_widget = None
+        field_title = None
+
+        if tab_type == TabType.EDITOR:
+            field_title = "Editeur Ouvert"
+        elif tab_type == TabType.NETWORK:
+            field_title = "Network Object Ouvert"
+        elif tab_type == TabType.EXTENSION:
+            field_title = "Extensions Ouvert"
+
+        # Update the corresponding list widget
+        for stack_widget in self.stackedWidgetList:
+            for field in stack_widget.active_fields:
+                if field.get('title') == field_title:
+                    list_widget = field['widget'].findChild(QListWidget)
+                    if list_widget:
+                        list_widget.clear()
+                        list_widget.addItems(tab_titles)
+                    break
+
+    def on_tab_closed(self, tab: Tab) -> None:
+        """Handle tab closure"""
+        self.update_open_tabs_list(tab.tab_type)
+
+    def on_tab_changed(self, tab: Tab) -> None:
+        """Handle tab change"""
+        # Update UI elements based on the type of tab that's now active
+        pass  # Implement based on specific requirements
+
+    def add_welcome_tab(self) -> None:
+        """Add the welcome tab to the primary center"""
+        welcome_tab = WelcomeTab(self.primary_center)
+        welcome_tab.update_recent_projects(self.recent_projects)
+        self.primary_center.add_tab(welcome_tab)
+    
+    def update_welcome_tab(self) -> None:
+        """Update the welcome tab with current data"""
+        for i in range(self.primary_center.count()):
+            tab = self.primary_center.widget(i)
+            if isinstance(tab, WelcomeTab):
+                tab.update_recent_projects(self.recent_projects)
+                break
     ########################################################
 
 

@@ -103,7 +103,7 @@ FILES_EXPLORER: Dict = {
                             }
                         ]
                     },
-                    'callback': None,
+                    'callback': "create_new_file",
                     'tooltip': 'Nouveau fichier'
                 },
                 {
@@ -127,17 +127,17 @@ FILES_EXPLORER: Dict = {
                             }
                         ]
                     },
-                    'callback': None,
+                    'callback': "create_new_folder",
                     'tooltip': 'Nouveau dossier'
                 },
                 {
                     'icon': {"names": ["mdi6.refresh"]},
-                    'callback': 'refresh_tree_view',
+                    'callback': "refresh_tree_view",
                     'tooltip': 'Rafrachir'
                 },
                 {
                     'icon': {"names": ["mdi6.minus-box-multiple-outline"]},
-                    'callback': 'collapse_all_tree_items',
+                    'callback': "collapse_all_tree_items",
                     'tooltip': 'Tout réduire'
                 },
             ],  # Penser à ajouter les actions
@@ -216,12 +216,12 @@ LAN_EXPLORER: Dict = {
                 },
                 {
                     'icon': {"names": ["mdi6.refresh"]},
-                    'callback': 'refresh_tree_view',
+                    'callback': "refresh_tree_view",
                     'tooltip': 'Rafrachir'
                 },
                 {
                     'icon': {"names": ["mdi6.minus-box-multiple-outline"]},
-                    'callback': 'collapse_all_tree_items',
+                    'callback': "collapse_all_tree_items",
                     'tooltip': 'Tout réduire'
                 },
             ],  # Penser à ajouter les actions
