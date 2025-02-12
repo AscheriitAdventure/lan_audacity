@@ -419,7 +419,7 @@ class MainApp(QMainWindow):
                 self.network_explorer.set_extObjDisplay()
             else:
                 msg_box = QMessageBox(self)
-                msg_box.setIcon(QMessageBox.Warning)
+                msg_box.setIcon(QMessageBox.Icon.Warning)
                 msg_box.setWindowTitle("ERROR")
                 msg_box.setInformativeText("lan_audacity.json not found in the selected directory.")
                 msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
