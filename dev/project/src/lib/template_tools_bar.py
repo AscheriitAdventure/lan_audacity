@@ -146,6 +146,7 @@ FILES_EXPLORER: Dict = {
         }
     ]
 }
+
 LAN_EXPLORER: Dict = {
     "stacked_title": "Networks",
     "separator": True,
@@ -168,7 +169,7 @@ LAN_EXPLORER: Dict = {
             "form_list": "tree",
             "separator": True,
             "collapsed": False,
-            "tooltip": f"Explorateur de Réseaux de Prject Name",
+            "tooltip": f"Explorateur de Réseaux de Project Name",
             "actions": [
                 {
                     'icon': {
@@ -189,7 +190,7 @@ LAN_EXPLORER: Dict = {
                             }
                         ]
                     },
-                    'callback': None,
+                    'callback': "create_new_device",
                     'tooltip': 'Nouvelle Machine'
                 },
                 {
@@ -211,7 +212,7 @@ LAN_EXPLORER: Dict = {
                             }
                         ]
                     },
-                    'callback': None,
+                    'callback': "create_new_network",
                     'tooltip': 'Nouveau Réseau'
                 },
                 {
@@ -230,6 +231,7 @@ LAN_EXPLORER: Dict = {
         }
     ]
 }
+
 DLC_EXPLORER: Dict = {
     "stacked_title": "Extensions",
     "separator": True,

@@ -1,10 +1,12 @@
 from typing import Optional, List, Union, Any
+import typing
 from dataclasses import dataclass, field
 import os
 import logging
 import inspect
 import time
 from uuid import UUID
+import uuid
 import re
 import enum
 from dev.project.src.classes.switchFile import SwitchFile
@@ -229,6 +231,38 @@ class WebAddress:
                 return WebAddress.validate_ipv4(parts[0])
         return False
 
+    def get_dict(self) -> dict:
+        """Returns a dictionary representation of the instance."""
+        return {
+            "ipv4": self.ipv4,
+            "mask_ipv4": self.mask_ipv4,
+            "ipv4_public": self.ipv4_public,
+            "cidr": self.cidr,
+            "ipv6_local": self.ipv6_local,
+            "ipv6_global": self.ipv6_global,
+        }
+    
+    def check_data(self) -> None:
+        if self.ipv4:
+            if not WebAddress.validate_ipv4(self.ipv4):
+                self.ipv4 = None
+        if self.mask_ipv4:
+            if not WebAddress.validate_ipv4(self.mask_ipv4):
+                self.mask_ipv4 = None
+        if self.ipv4_public:
+            if not WebAddress.validate_ipv4(self.ipv4_public):
+                self.ipv4_public = None
+        if self.cidr:
+            if not WebAddress.validate_cidr(self.cidr):
+                self.cidr = None
+        if self.ipv6_local:
+            if not WebAddress.validate_ipv6(self.ipv6_local):
+                self.ipv6_local = None
+        if self.ipv6_global:
+            if not WebAddress.validate_ipv6(self.ipv6_global):
+                self.ipv6_global = None
+
+
 # Classe pour la table DeviceType
 @dataclass
 class DeviceType:
@@ -249,6 +283,18 @@ class Device:
     vendor: Optional[str] = None
     mac_address: Optional[str] = None
 
+    def get_dict(self) -> dict:
+        """Returns a dictionary representation of the instance."""
+        return {
+            "uuid": self.uuid,
+            "name_object": self.name_object,
+            "web_address": self.web_address.get_dict(),
+            "clock_manager": self.clock_manager.get_dict(),
+            "type_device": self.type_device,
+            "vendor": self.vendor,
+            "mac_address": self.mac_address,
+        }
+
 # Classe pour la table Network
 @dataclass
 class Network:
@@ -258,6 +304,54 @@ class Network:
     clock_manager: ClockManager = field(default_factory=ClockManager)
     dns_object: Optional[str] = None
     devices: List[Device] = field(default_factory=list)
+    path: Optional[str] = None
+
+    def __init__(self, name_object: str = "Unknown Network", ospath: Optional[str] = None):
+        """
+        Initialize a Network instance.
+        
+        Args:
+            name_object (str): Name of the network object. Defaults to "Unknown Network".
+            ospath (Optional[str]): Path where the network file should be stored. If provided,
+                                  creates a JSON file at this location.
+        """
+        self.name_object = name_object
+        self.uuid = uuid.uuid4()
+        self.web_address = WebAddress()
+        self.clock_manager = ClockManager()
+        self.devices = []
+        self.dns_object = None
+        
+        if ospath is not None:
+            self.path = os.path.join(ospath, f"{self.uuid}.json")
+            self.update_network()
+        else:
+            self.path = None
+
+    def get_dict(self) -> dict:
+        """Returns a dictionary representation of the instance."""
+        return {
+            "uuid": str(self.uuid),  # Convert UUID to string for JSON serialization
+            "name_object": self.name_object,
+            "web_address": self.web_address.get_dict() if self.web_address else None,
+            "clock_manager": self.clock_manager.get_dict(),
+            "dns_object": self.dns_object,
+            "devices": [device.get_dict() for device in self.devices],
+            "path": self.path,
+        }
+    
+    def get_interface(self) -> Interfaces:
+        """Returns an Interfaces instance representing this network."""
+        return Interfaces(
+            name_file=str(self.uuid),  # Convert UUID to string
+            alias=self.name_object,
+            path=self.path
+        )
+    
+    def update_network(self) -> None:
+        """Updates the network file with the current data."""
+        if self.path is not None:
+            SwitchFile.json_write(abs_path=self.path, data=self.get_dict())
 
 # Classe pour la table OSAccuracy
 @dataclass
@@ -342,19 +436,36 @@ class LanAudacity(FileManagement):
         )
 
     def get_dict(self) -> dict:
-        """Returns a dictionary representation of the instance."""
+        """
+        Returns an optimized dictionary representation of the LanAudacity instance.
+    
+        Returns:
+            dict: A dictionary containing all serializable instance data.
+        
+        Note:
+            - Utilise dict comprehension pour de meilleures performances
+            - Traite efficacement la sérialisation des objets networks
+            - Hérite des attributs de FileManagement via super()
+        """
+        # Récupérer les attributs de base de FileManagement
+        base_dict = super().get_dict()
+    
+        # Préparer la liste des réseaux avec une seule compréhension de liste
+        networks_data = [
+            obj.get_dict() if isinstance(obj, Interfaces) else obj 
+            for obj in self.networks
+        ]
+    
+        # Combiner les données de base avec les attributs spécifiques
         return {
-            "directory_path": self.directory_path,
-            "directory_name": self.directory_name,
-            "folders": self.folders,
-            "files": self.files,
+            **base_dict,
             "clock_manager": self.clock_manager.get_dict(),
             "software_id": self.software_id.get_dict(),
             "authors": self.authors,
             "encode_file": self.encode_file,
             "extensions": self.extensions,
-            "networks": self.networks,
-            "pixmaps": self.pixmaps,
+            "networks": networks_data,
+            "pixmaps": self.pixmaps
         }
 
     ######## Class Methods ########
@@ -471,5 +582,15 @@ class LanAudacity(FileManagement):
             self.extensions.remove(extension)
 
     ######## Native Function Networks Management ########
+    def add_network(self, network: Union[Interfaces, dict]) -> None:
+        """Adds a network to the list of networks."""
+        if network not in self.networks:
+            self.networks.append(network)
+
+    def remove_network(self, network: Union[Interfaces, dict]) -> None:
+        """Removes a network from the list of networks."""
+        if network in self.networks:
+            self.networks.remove(network)
+
     ######## Native Function Pixmaps Management ########
 

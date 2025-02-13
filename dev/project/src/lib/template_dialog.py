@@ -114,16 +114,6 @@ NEW_LAN: dict = {
             }
         },
         {
-            "label": "Network Gateway",
-            "required": False,
-            "input": {
-                "type": "text",
-                "name": "gateway",
-                "placeholder": "127.0.0.0",
-                "value": ""
-            }
-        },
-        {
             "label": "Network DNS",
             "required": False,
             "input": {
@@ -245,6 +235,13 @@ NEW_FILE: dict = {
             },
             "label": "Nom du fichier:",
             "required": True
+        },
+        {
+            "input": {
+                "type": "hidden",
+                "name": "parent_path",
+                "value": ""
+            }
         }
     ]
 }
@@ -261,6 +258,13 @@ NEW_FOLDER: dict = {
                 "type": "text",
                 "name": "foldername",
                 "placeholder": "nouveau_dossier.d",
+                "value": ""
+            }
+        },
+        {
+            "input": {
+                "type": "hidden",
+                "name": "parent_path",
                 "value": ""
             }
         }

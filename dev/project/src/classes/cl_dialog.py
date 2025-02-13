@@ -168,8 +168,15 @@ class DynFormDialog(QDialog):
             
         input_type = input_config.get('type', '').lower()
         widget = None
+
+        if input_type == 'hidden':
+            # Pour les champs cachés, on crée un QLineEdit invisible
+            widget = QLineEdit()
+            widget.setVisible(False)
+            if value := input_config.get('value'):
+                widget.setText(str(value))
         
-        if input_type == 'folder':
+        elif input_type == 'folder':
             container = QWidget()
             layout = QHBoxLayout(container)
             layout.setContentsMargins(0, 0, 0, 0)
@@ -274,7 +281,7 @@ class DynFormDialog(QDialog):
                 self.fields[name] = widget
                 self.active_fields.append(widget)
         
-        return widget, row + 1
+        return widget, row + (0 if input_type == 'hidden' else 1)
     
     def load_form_field(self, field: Dict[str, Any], row: int) -> int:
         """Charge un champ du formulaire avec son label et son widget d'entrée

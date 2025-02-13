@@ -11,17 +11,12 @@ from dev.project.src.classes.welcome_tab import TabManager, Tab, TabType, Welcom
 from dev.project.src.classes.cl_stacked_objects import SDFSP
 from dev.project.src.lib.template_tools_bar import *
 from dev.project.src.classes.cl_dialog import DynFormDialog
-from dev.project.src.classes.cl_lan_audacity import LanAudacity
+from dev.project.src.classes.cl_lan_audacity import LanAudacity, Network
 from dev.project.src.classes.cl_extented import IconApp, ProjectOpen
-from dev.project.src.lib.qt_obj import newAction, get_spcValue
+from dev.project.src.lib.qt_obj import newAction
 from dev.project.src.lib.template_dialog import *
-from dev.project.src.classes.sql_server import MySQLConnection as SQLServer
-from dev.project.src.classes.cl_factory_conf_file import (
-    IconsManager,
-    MenuBarManager,
-    ShortcutsManager,
-    FactoryConfFile,
-)
+from dev.project.src.classes.cl_factory_conf_file import IconsManager, MenuBarManager, FactoryConfFile
+
 
 
 class MainGUI(QMainWindow):
@@ -33,9 +28,7 @@ class MainGUI(QMainWindow):
 
         self.iconsManager = IconsManager(os.getenv("ICON_FILE_RSC"))
         self.menuBarManager = MenuBarManager(os.getenv("MENUBAR_FILE"))
-        self.shortcutManager = ShortcutsManager(
-            os.getenv("KEYBOARD_FILE_RSC")
-        )  # <-- va t il rester ici ?
+
         self.recent_projects: List[ProjectOpen] = [] # Liste des projets récents
         self.stackedWidgetList: List[SDFSP] = [] # Liste des widgets à empiler
         self.active_projects: List[LanAudacity] = [] # Liste des projets actifs
@@ -100,7 +93,10 @@ class MainGUI(QMainWindow):
         stacks = [LAN_EXPLORER, FILES_EXPLORER, DLC_EXPLORER]
         for stack in stacks:
             # Create the widget
-            sdfsp = SDFSP(debug=True, parent=self)
+            sdfsp = SDFSP(debug=False, parent=self)
+
+            # Connecter les signaux de double-clic
+            sdfsp.itemDoubleClicked.connect(self.handle_item_double_click)
 
             for field in stack["fields"]:
                 if "actions" in field and isinstance(field["actions"], list):
@@ -126,13 +122,10 @@ class MainGUI(QMainWindow):
                         if field_form == 'tree-file':
                             field["widget_data"] = ao.directory_path
                             field['title'] = ao.directory_name
-                            # field['actions'].append()
                         elif field_form == 'tree':
                             field["widget_data"] = []
-                            # field['actions'].append()
                         elif field_form == 'list-btn':
                             field["widget_data"] = []
-                            # field['actions'].append()
                     else:
                         logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {field_form} Unknown")
                         continue
@@ -729,12 +722,93 @@ class MainGUI(QMainWindow):
                     
         except Exception as e:
             logging.error(
-                f"{self.__class__.__name__}::create_new_folder: {str(e)}"
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {str(e)}"
             )
     
     def create_new_network(self) -> None:
-        pass
+        try:
+            dialog = DynFormDialog(self, False)
+            dialog.load_form(NEW_LAN)
+
+            if dialog.exec_() == QDialog.DialogCode.Accepted:
+                data = dialog.get_form_data()
+                logging.debug(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data}"
+                )
+                # récupère le projet actif
+                project = self.active_projects[0]
+                new_lan = Network(name_object=data['network_name'], ospath=os.path.join(project.directory_path,"db","interfaces"))                
+                # ajoute le réseau au projet
+                project.add_network(new_lan.get_interface())
+                project.update_lan_audacity()
+                new_lan.dns_object = data.get('dns', None)
+                new_lan.web_address.ipv4 = data.get('ipv4', None)
+                new_lan.web_address.mask_ipv4 = data.get('mask_ipv4', None)
+                new_lan.web_address.ipv6_local = data.get('ipv6', None)
+                new_lan.web_address.check_data()
+
+                self.update_stackedWidget(1, project.get_dict())
+
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {str(e)}")
+
+    def create_new_device(self, parent_path = None) -> None:
+        try:
+            dialog = DynFormDialog(self, False)
+            dialog.load_form(NEW_UC)
+
+            if dialog.exec_() == QDialog.DialogCode.Accepted:
+                data = dialog.get_form_data()
+                logging.debug(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {data}"
+                )
+                # récupère le projet actif
+                project = self.active_projects[0]
+                new_lan = Network(name_object=data['network_name'], ospath=os.path.join(project.directory_path,"db","interfaces"))                
+                # ajoute le réseau au projet
+                project.add_network(new_lan.get_interface())
+                project.update_lan_audacity()
+                new_lan.dns_object = data.get('dns', None)
+                new_lan.web_address.ipv4 = data.get('ipv4', None)
+                new_lan.web_address.mask_ipv4 = data.get('mask_ipv4', None)
+                new_lan.web_address.ipv6_local = data.get('ipv6', None)
+                new_lan.web_address.check_data()
+
+                self.update_stackedWidget(1, project.get_dict())
+
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {str(e)}")
+    
     ######## class Method for tab functions ######
+    def handle_item_double_click(self, item_data: dict):
+        """
+        Gère le double-clic sur un élément du TreeView.
+        
+        Args:
+            item_data (dict): Données de l'élément cliqué avec les clés :
+                - type: 'file' ou 'network'
+                - path: chemin du fichier (pour type='file')
+                - is_dir: booléen indiquant si c'est un dossier (pour type='file')
+                - name: nom de l'objet (pour type='network')
+                - id: identifiant de l'objet (pour type='network')
+        """
+        try:
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {item_data}")
+            if item_data['type'] == 'file' and not item_data['is_dir']:
+                # Ouvre le fichier dans un éditeur
+                self.open_file_in_editor(item_data['path'])
+                
+            elif item_data['type'] == 'network':
+                # Ouvre l'objet réseau dans un nouvel onglet
+                self.open_network_object(item_data)
+                
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::handle_item_double_click: {str(e)}"
+            )
+    
     def open_file_in_editor(self, file_path: str) -> None:
         """Open a file in a new editor tab"""
         # Check if file is already open
