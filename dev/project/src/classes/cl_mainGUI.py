@@ -179,13 +179,14 @@ class MainGUI(QMainWindow):
                     tree_view = field['widget'].findChild(QTreeView)
                     if tree_view:
                         model = QStandardItemModel()
-                        model.setHorizontalHeaderLabels(['alias'])
-                    
+                        model.setHorizontalHeaderLabels(["alias","path"])
                         # Ajouter les réseaux s'ils existent
                         if 'networks' in data:
                             for network in data['networks']:
-                                niqsi = QStandardItem(network['alias' or 'name'])
-                                model.appendRow(niqsi)
+                                alias_item = QStandardItem(network["alias"])
+                                path_item = QStandardItem(network["path"])
+                                # Ajouter la ligne au modèle
+                                model.appendRow([alias_item, path_item])
                         tree_view.setModel(model)
                             
                 elif form_type == 'list-btn':

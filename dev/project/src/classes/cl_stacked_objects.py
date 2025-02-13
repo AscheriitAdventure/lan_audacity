@@ -140,6 +140,8 @@ class SDFSP(QWidget):
             widget.setModel(model)
             widget.setRootIsDecorated(True)
             widget.setHeaderHidden(True)
+            model.setColumnCount(2)
+            widget.setColumnHidden(1, True)
             widget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
             if isinstance(widget_data, list):
                 for item_data in widget_data:
@@ -148,7 +150,8 @@ class SDFSP(QWidget):
             # Connecter le signal pour double-clic
             widget.doubleClicked.connect(lambda index: self.itemDoubleClicked.emit({
                 'type': 'network',
-                'name': index.data(),
+                'path': index.sibling(index.row(), 1).data(), # filter on 'path'
+                'name': index.sibling(index.row(), 0).data(), # filter on 'alias'
                 'id': index.row()
             }))
             
