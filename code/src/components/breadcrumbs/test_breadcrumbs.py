@@ -1,5 +1,7 @@
-from src.components.breadcrumbs.cl_breadcrumbs import QBreadcrumbs as QBreadcrumbsTVU1  # Importation de la classe QBreadcrumbs
-from qtpy.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel
+from src.components.breadcrumbs.cl_breadcrumbs_2 import QBreadcrumbs
+from qtpy.QtWidgets import *
+from qtpy.QtCore import *
+from qtpy.QtGui import *
 import sys
 import logging
 
@@ -19,7 +21,9 @@ class MainWindow(QWidget):
         self.setLayout(layout)
 
         # Ajout de la classe Breadcrumbs
-        breadcrumbs = QBreadcrumbsTVU1(parent=self)
+        breadcrumbs = QBreadcrumbs(["Terre", "Europe", "France", "Paris", "Eiffel Tower"],True, self)
+        breadcrumbs.setBtnStyle(QBreadcrumbs.BtnStyle.NoStyle)
+        breadcrumbs.setSeparator(self.style().standardIcon(QStyle.StandardPixmap.SP_ArrowRight))
         layout.addWidget(breadcrumbs)
 
 
