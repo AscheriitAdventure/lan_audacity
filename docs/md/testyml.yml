@@ -1,0 +1,59 @@
+version: '3.8'  # Version de syntaxe de Docker Compose utilisée, ici 3.8, compatible avec les fonctionnalités modernes
+
+services:
+  # Service pour MariaDB, une base de données relationnelle compatible avec MySQL
+  mariadb:
+    image: mariadb:latest  # Utilise la dernière version de l'image officielle MariaDB
+    env_file:
+      - ./dev/.env.dev  # Fichier d'environnement pour les variables dans un environnement de développement
+      # - ./prod/.env.prod  # (Commenté) Pour un environnement de production
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MARIADB_PASSWORD}  # Mot de passe root de MariaDB pris du fichier d'env
+      MYSQL_DATABASE: ${MARIADB_DATABASE}       # Nom de la base de données initiale
+    volumes:
+      - ./dev/server_mariadb_dev/data:/var/lib/mysql  # Persist les données de la base MariaDB sur le disque local
+      - ./dev/server_mariadb_dev/conf:/etc/mysql/conf.d  # Persiste les fichiers de configuration MySQL
+      - ./dev/server_mariadb_dev/logs:/var/log/mysql  # Persiste les logs de MariaDB
+    ports:
+      - "3306:3306"  # Expose le port 3306 de MariaDB pour pouvoir y accéder en dehors du conteneur
+    networks:
+      - lan_network  # Connecte ce service au réseau `lan_network`
+
+  # Service pour MongoDB, une base de données NoSQL
+  mongodb:
+    image: mongo:latest  # Utilise la dernière version de l'image MongoDB officielle
+    env_file:
+      - ./dev/.env.dev  # Fichier d'environnement de développement
+      # - ./prod/.env.prod  # (Commenté) Pour un environnement de production
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}     # Nom d'utilisateur root MongoDB pris du fichier d'environnement
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD} # Mot de passe root MongoDB pris du fichier d'environnement
+    volumes:
+      - ./dev/server_mongodb_dev/data:/data/db  # Persiste les données de MongoDB sur le disque local
+      - ./dev/server_mongodb_dev/logs:/var/log/mongodb  # Persiste les logs MongoDB
+
+  # Service pour l'application `lan-audacity`
+  lan-audacity-app:
+    build: ./dev/lan-audacity_app_dev  # Chemin de construction du Dockerfile pour l'application
+    env_file:
+      - ./dev/.env.dev  # Fichier d'environnement pour les variables de développement
+      # - ./prod/.env.prod  # (Commenté) Pour un environnement de production
+    environment:
+      APP_PORT: ${APP_PORT}   # Port de l'application pris du fichier d'environnement
+      LOG_LEVEL: ${LOG_LEVEL} # Niveau de log pour l'application
+    ports:
+      - "${APP_PORT}:5678"  # Lie le port défini par APP_PORT à 5678 dans le conteneur
+    volumes:
+      - ./dev/lan-audacity_app_dev/src:/app/src  # Monte le dossier source de l'application pour faciliter le développement
+      - ./dev/lan-audacity_app_dev/data:/app/data  # Monte le dossier data pour persister les données spécifiques de l'app
+      - ./dev/lan-audacity_app_dev/logs:/app/logs  # Monte le dossier des logs pour pouvoir les consulter depuis l'hôte
+    depends_on:
+      - mariadb  # Assure que le service MariaDB démarre avant l'application
+      - mongodb  # Assure que le service MongoDB démarre avant l'application
+    networks:
+      - lan_network  # Connecte l'application au réseau `lan_network`
+
+# Définition du réseau pour relier les conteneurs entre eux
+networks:
+    lan_network:
+        driver: bridge  # Utilise un réseau bridge pour isoler les conteneurs de ce projet des autres conteneurs

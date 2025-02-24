@@ -35,7 +35,7 @@ Les objectifs de "Lan Audacity" sont :
 - Simplicité de paramétrage : L'outil facilite le processus de configuration grâce à des interfaces conviviales et des fonctionnalités automatisées.
 - Gain de performances grâce à l’automatisation : En automatisant les tâches courantes de gestion et de configuration des réseaux, Lan Audacity améliore les performances globales et réduit les risques d'erreurs humaines.
 
-## Description pour Béotiens
+## Description pour les Néophytes
 Lan Audacity est un outil conçu pour simplifier et accélérer la configuration des équipements réseaux. Que vous soyez un débutant ou ayez peu d'expérience dans le domaine des réseaux, Lan Audacity vous permet de configurer vos appareils de manière rapide et efficace. Grâce à son interface intuitive, il rend les tâches complexes accessibles et faciles à réaliser pour tous.
 
 Il utilise plusieurs protocoles Internet tels que :

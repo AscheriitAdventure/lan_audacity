@@ -1,0 +1,28 @@
+version: 1
+
+formatters:
+  simple:
+    format: '%(levelname)s - %(message)s'
+  custom:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: WARNING
+    formatter: simple
+    stream: ext://sys.stdout
+  file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: custom
+    filename: logs/app.log
+    encoding: utf-8
+    maxBytes: 2621440  # Taille max en bytes (2,56 MB)
+    backupCount: 5
+
+loggers:
+  root:
+    level: DEBUG
+    handlers: [console, file_handler]
+    propagate: no
