@@ -1,5 +1,5 @@
 from enum import Enum, auto
-from typing import Union, List, Dict, ClassVar
+from typing import Union, List, Dict, ClassVar, Optional
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -22,71 +22,72 @@ class Tab(QWidget):
         EXTENSION = auto()
 
     """Base class for all tabs"""
+
     def __init__(self, parent=None, tab_type: TabType = None, title: str = ""):
         super().__init__(parent)
         self.tab_type = tab_type
         self.title = title
         self.modified = False
-        
+
     def get_title(self) -> str:
         return f"{'*' if self.modified else ''}{self.title}"
 
 
 class TabManager(QTabWidget):
     """Enhanced tab widget with additional management features"""
-    
+
     tab_closed = Signal(Tab)  # Emitted when a tab is closed
     tab_changed = Signal(Tab)  # Emitted when active tab changes
-    
+
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setTabsClosable(True)
         self.setMovable(True)
         self.setDocumentMode(True)
-        
+
         # Connect signals
         self.tabCloseRequested.connect(self.close_tab)
         self.currentChanged.connect(self.on_current_changed)
-        
+
     def add_tab(self, tab: Tab) -> int:
         """Add a new tab and return its index"""
         index = self.addTab(tab, tab.get_title())
         return index
-        
+
     def close_tab(self, index: int) -> None:
         """Handle tab closing with confirmation if needed"""
         tab = self.widget(index)
         if isinstance(tab, Tab):
             if tab.modified:
                 reply = QMessageBox.question(
-                    self, 
+                    self,
                     'Save Changes?',
                     f'Do you want to save changes to {tab.title}?',
                     QMessageBox.StandardButton.Save | QMessageBox.StandardButton.Discard | QMessageBox.StandardButton.Cancel
                 )
-                
+
                 if reply == QMessageBox.StandardButton.Save:
                     # Handle saving
                     pass
                 elif reply == QMessageBox.StandardButton.Cancel:
                     return
-                    
+
             self.removeTab(index)
             self.tab_closed.emit(tab)
-            
+
     def update_tab_title(self, tab: Tab) -> None:
         """Update the title of a tab"""
         index = self.indexOf(tab)
         if index >= 0:
             self.setTabText(index, tab.get_title())
-            
+
     def on_current_changed(self, index: int) -> None:
         """Handle tab selection change"""
         if index >= 0:
             tab = self.widget(index)
             if isinstance(tab, Tab):
                 self.tab_changed.emit(tab)
-                
+
     def get_tabs_by_type(self, tab_type: Tab.TabType) -> List[Tab]:
         """Get all tabs of a specific type"""
         return [
@@ -97,11 +98,11 @@ class TabManager(QTabWidget):
 
 class WelcomeTab(Tab):
     """Welcome tab shown by default when the application starts"""
-    
+
     def __init__(self, parent=None):
         super().__init__(parent, Tab.TabType.DEFAULT, "Welcome")
         self.initUI()
-        
+
     def initUI(self):
         # Main layout
         main_layout = QVBoxLayout(self)
@@ -111,7 +112,8 @@ class WelcomeTab(Tab):
         # Add QScrollArea as main container
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)
-        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        scroll.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
 
         # Create container widget for scroll area
         container = QWidget()
@@ -125,24 +127,24 @@ class WelcomeTab(Tab):
 
         # Use scroll_layout instead of main_layout for content
         main_layout = scroll_layout
-        
+
         # Header section
         header_widget = QWidget()
         header_layout = QVBoxLayout(header_widget)
-        
+
         title = QLabel("Welcome to LAN Audacity")
         title.setStyleSheet("font-size: 24px; font-weight: bold;")
         subtitle = QLabel("Get started with your network management")
         subtitle.setStyleSheet("font-size: 16px; color: #666;")
-        
+
         header_layout.addWidget(title, alignment=Qt.AlignCenter)
         header_layout.addWidget(subtitle, alignment=Qt.AlignCenter)
-        
+
         # Actions section
         actions_widget = QWidget()
         actions_layout = QHBoxLayout(actions_widget)
         actions_layout.setSpacing(20)
-        
+
         # Start box
         start_box = self._create_action_box(
             "Get Started",
@@ -152,14 +154,14 @@ class WelcomeTab(Tab):
                 ("Import Project", "mdi6.folder-download-outline", None)
             ]
         )
-        
+
         # Recent box
         recent_box = self._create_action_box(
             "Recent Projects",
             [("No recent projects", "", None)],
             fixed_height=200
         )
-        
+
         # Help box
         help_box = self._create_action_box(
             "Help & Resources",
@@ -169,19 +171,19 @@ class WelcomeTab(Tab):
                 ("About", "mdi6.information-outline", None)
             ]
         )
-        
+
         actions_layout.addWidget(start_box)
         actions_layout.addWidget(recent_box)
         actions_layout.addWidget(help_box)
-        
+
         # Add all sections to main layout
         main_layout.addWidget(header_widget)
         main_layout.addWidget(actions_widget)
         main_layout.addStretch()
-        
+
     def _create_action_box(self, title: str, actions: list, fixed_height: int = None) -> QGroupBox:
         """Create a grouped box of actions
-        
+
         Args:
             title (str): Box title
             actions (list): List of tuples (label, icon_name, callback_name)
@@ -202,13 +204,13 @@ class WelcomeTab(Tab):
                 padding: 0 3px;
             }
         """)
-        
+
         if fixed_height:
             box.setFixedHeight(fixed_height)
-        
+
         layout = QVBoxLayout(box)
         layout.setSpacing(10)
-        
+
         for label, icon_name, callback_name in actions:
             btn = QPushButton(label)
             btn.setStyleSheet("""
@@ -223,24 +225,24 @@ class WelcomeTab(Tab):
                     border-radius: 4px;
                 }
             """)
-            
+
             if icon_name:
                 from qtawesome import icon
                 btn.setIcon(icon(icon_name))
-            
+
             if callback_name and hasattr(self.parent(), callback_name):
                 btn.clicked.connect(getattr(self.parent(), callback_name))
             elif not callback_name:
                 btn.setEnabled(False)
-            
+
             layout.addWidget(btn)
-        
+
         layout.addStretch()
         return box
-        
+
     def update_recent_projects(self, recent_projects: list) -> None:
         """Update the recent projects list
-        
+
         Args:
             recent_projects (list): List of recent project objects
         """
@@ -251,7 +253,7 @@ class WelcomeTab(Tab):
                 item = recent_box.layout().takeAt(0)
                 if item.widget():
                     item.widget().deleteLater()
-            
+
             # Add new project buttons
             if recent_projects:
                 for project in recent_projects:
@@ -276,7 +278,7 @@ class WelcomeTab(Tab):
                 label = QLabel("No recent projects")
                 label.setStyleSheet("color: #666; padding: 8px;")
                 recent_box.layout().addWidget(label)
-            
+
             recent_box.layout().addStretch()
 
 
@@ -285,21 +287,23 @@ class EditorTab(Tab):
     cursorLocationChanged: ClassVar[Signal] = Signal(int, int)
 
     def __init__(self, file_path: str = "", debug: bool = False, parent=None):
-        super().__init__(parent, Tab.TabType.EDITOR, os.path.basename(file_path) if file_path else "Untitled")
+        super().__init__(parent, Tab.TabType.EDITOR, os.path.basename(
+            file_path) if file_path else "Untitled")
         self.file_path = ""
         self.debug = debug
         self.functionBtnList: List[QPushButton] = []
-        
+
         self.setFilePath(file_path)
         self.initUI()
-    
+
     def initUI(self):
         layout = QGridLayout()
         layout.setContentsMargins(0, 0, 0, 0)
         self.setLayout(layout)
 
         # Breadcrumbs
-        self.breadcrumbs = QBreadcrumbs(self._generatedBtnList(),self.debug, self)
+        self.breadcrumbs = QBreadcrumbs(
+            self._generatedBtnList(), self.debug, self)
         layout.addWidget(self.breadcrumbs, 0, 0, 1, 1)
         # Actions (Save, Read[On/Off])
         self.actions = QWidget()
@@ -319,8 +323,9 @@ class EditorTab(Tab):
             self.file_path = Path(os.path.normpath(file_path))
         else:
             self.file_path = ""
-            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier n'existe pas")
-    
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier n'existe pas")
+
     def _generatedBtnList(self) -> List[QPushButton]:
         btnList = []
         objPathList = self.file_path.parts
@@ -335,20 +340,21 @@ class EditorTab(Tab):
             # Ajoute à la liste des boutons
             btnList.append(btn)
         return btnList
-    
+
     def onTextChanged(self):
         if not self.modified:
             self.modified = True
             if hasattr(self.parent(), "update_tab_title"):
                 self.parent().update_tab_title(self)
-    
+
     def _loadText(self):
         try:
             with open(self.file_path, 'r') as f:
                 self.editor.setText(f.read())
         except Exception as e:
-            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading file {self.file_path}: {str(e)}")
-    
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading file {self.file_path}: {str(e)}")
+
     def addFuncBtn(self, btns: Union[QPushButton, List[QPushButton]]):
         if isinstance(btns, list):
             for btn in btns:
@@ -356,34 +362,145 @@ class EditorTab(Tab):
         else:
             self.functionBtnList.append(btns)
 
+# data in  ex: {'id': 0, 'name': 'Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\25921af0-3582-4ee6-94ce-7422dbe21972.json', 'type': 'network'}
+
+NETWORK_STAKED = [
+    {
+        "btn": {
+            "label": "Dashboard",
+            "icon": "mdi6.view-dashboard",
+            "slot": "show_dashboard"
+        },
+        "widget": {
+            "type": "dashboard",
+            "data": {}
+        },
+    },
+    {
+        "btn": {
+            "label": "Devices",
+            "icon": "mdi6.router-network",
+            "slot": "show_devices"
+        },
+        "widget": {
+            "type": "devices",
+            "data": {}
+        },
+    },
+    {
+        "btn": {
+            "label": "Interfaces",
+            "icon": "mdi6.network",
+            "slot": "show_interfaces"
+        },
+        "widget": {
+            "type": "interfaces",
+            "data": {}
+        },
+    },
+    {
+        "btn": {
+            "label": "VLANs",
+            "icon": "mdi6.tag",
+            "tooltip": "Show VLANs in the network",
+            "slot": "show_vlans"
+        },
+        "widget": {
+            "type": "vlans",
+            "data": {}
+        },
+    },
+    {
+        "btn": {
+            "label": "Network Map",
+            "icon": "mdi6.map",
+            "tooltip": "Show network map",
+            "slot": "show_network_map"
+        },
+        "widget": {
+            "type": "network_map",
+            "data": {}
+        },
+    },
+    {
+        "btn": {
+            "label": "Sync Scanner",
+            "icon": "mdi6.sync",
+            "tooltip": "Run a network scan",
+            "slot": "scan_jobs_run"
+        },
+        "widget": None
+    }
+]
 
 class NetworkObjectTab(Tab):
+    class DomainType(Enum):
+        DEVICE = auto() # Objet créer à partir d'un device brut
+        INTERFACE = auto() # Objet créer à partir d'une box FAI
+        VLAN = auto() # Objet créer à partir d'un device
+        OTHER = auto() # Objet créer à partir de qqch
+
     """Tab for network objects like devices, interfaces etc."""
-    def __init__(self, parent=None, object_data: Dict = None):
-        title = object_data.get('name', 'Network Object')
-        super().__init__(parent, Tab.TabType.NETWORK, title)
-        self.object_data = object_data
+
+    def __init__(self, object_data: Optional[Dict] = None, parent=None):
+        super().__init__(parent, Tab.TabType.NETWORK, object_data.get('name', 'Network Object'))
+        self.rootData = object_data
+
         self.initUI()
-        
+        self._loadData()
+
     def initUI(self):
-        layout = QVBoxLayout(self)
-        # Add network object specific widgets here
-        # This is a placeholder for the actual implementation
-        layout.addWidget(QLabel(f"Network Object: {self.title}"))
+        # Main layout
+        self.mainLayout = QVBoxLayout(self)
+        self.mainLayout.contentsMargins(0, 0, 0, 0)
+        self.setLayout(self.mainLayout)
+
+        # Add Scroll Area
+        self._loadScrollArea()
+
+        # Add Object 1 --> Custom List Widget Icon Text
+        self._zone1 = QWidget()
+        self._zone1Layout = QVBoxLayout(self._zone1)
+        self.scrollLayout.addWidget(self._zone1, 0, 0, 1, 1)
+
+        # Add Object 2 --> Stacked 
+        self._zone2Layout = QStackedLayout()
+        self.scrollLayout.addLayout(self._zone2Layout, 0, 1, Qt.AlignmentFlag.AlignTop)
+
+    def _loadScrollArea(self):
+        self.scrollArea = QScrollArea(self)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.mainLayout.addWidget(self.scrollArea)
+
+        # Create container widget for scroll area
+        self.scrollContainer = QWidget()
+        self.scrollArea.setWidget(self.scrollContainer)
+        self.scrollLayout = QGridLayout(self.scrollContainer)
+
+    def _loadData(self):
+        # Load data from rootData in all stack objects
+        pass
+
+    def _saveData(self):
+        pass
+
+    def _updateData(self):
+        pass
 
 
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""
+
     def __init__(self, parent=None, extension_data: Dict = None):
         title = extension_data.get('name', 'Extension')
         super().__init__(parent, Tab.TabType.EXTENSION, title)
         self.extension_data = extension_data
         self.initUI()
-        
+
     def initUI(self):
         layout = QVBoxLayout(self)
         # Add extension specific widgets here
         # This is a placeholder for the actual implementation
         layout.addWidget(QLabel(f"Extension: {self.title}"))
-    
-

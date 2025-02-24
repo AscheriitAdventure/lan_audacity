@@ -966,3 +966,4 @@
 2025-02-24 15:13:11,215 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan2\lan_audacity.json exist.
 2025-02-24 15:13:14,614 - INFO - MainGUI::handle_item_double_click: {'is_dir': False, 'path': 'C:/Users/g.tronche/Documents/test_app/lan2/lan_audacity.json', 'type': 'file'}
 2025-02-24 15:16:37,102 - INFO - MainGUI::handle_item_double_click: {'id': 0, 'name': 'Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\25921af0-3582-4ee6-94ce-7422dbe21972.json', 'type': 'network'}
+2025-02-24 16:11:36,626 - INFO - MainGUI::handle_item_double_click: {'id': 1, 'name': 'Terminaux', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\c868b786-6b3d-4c44-a505-2eb6fea43d57.json', 'type': 'network'}
