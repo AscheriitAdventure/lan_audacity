@@ -7,7 +7,7 @@ import os
 import sys
 import inspect
 import time
-from dev.project.src.classes.welcome_tab import TabManager, Tab, TabType, WelcomeTab, EditorTab, NetworkObjectTab, ExtensionTab
+from dev.project.src.classes.cl_tab_2 import TabManager, Tab, WelcomeTab, EditorTab, NetworkObjectTab, ExtensionTab
 from dev.project.src.classes.cl_stacked_objects import SDFSP
 from dev.project.src.lib.template_tools_bar import *
 from dev.project.src.classes.cl_dialog import DynFormDialog
@@ -766,16 +766,11 @@ class MainGUI(QMainWindow):
                 )
                 # récupère le projet actif
                 project = self.active_projects[0]
-                new_lan = Network(name_object=data['network_name'], ospath=os.path.join(project.directory_path,"db","interfaces"))                
-                # ajoute le réseau au projet
-                project.add_network(new_lan.get_interface())
-                project.update_lan_audacity()
-                new_lan.dns_object = data.get('dns', None)
-                new_lan.web_address.ipv4 = data.get('ipv4', None)
-                new_lan.web_address.mask_ipv4 = data.get('mask_ipv4', None)
-                new_lan.web_address.ipv6_local = data.get('ipv6', None)
-                new_lan.web_address.check_data()
-
+                # récupère le réseau actif
+                # crée un nouvel équipement
+                # ajoute l'équipement au réseau
+                # met à jour le projet
+                # met à jour les widgets
                 self.update_stackedWidget(1, project.get_dict())
 
         except Exception as e:
@@ -813,54 +808,54 @@ class MainGUI(QMainWindow):
     def open_file_in_editor(self, file_path: str) -> None:
         """Open a file in a new editor tab"""
         # Check if file is already open
-        for tab in self.primary_center.get_tabs_by_type(TabType.EDITOR):
+        for tab in self.primary_center.get_tabs_by_type(Tab.TabType.EDITOR):
             if isinstance(tab, EditorTab) and tab.file_path == file_path:
                 self.primary_center.setCurrentWidget(tab)
                 return
 
         # Create new editor tab
-        editor_tab = EditorTab(self.primary_center, file_path)
+        editor_tab = EditorTab(parent=self.primary_center, file_path=file_path)
         index = self.primary_center.add_tab(editor_tab)
         self.primary_center.setCurrentIndex(index)
 
         # Update "Editeur Ouvert" list
-        self.update_open_tabs_list(TabType.EDITOR)
+        self.update_open_tabs_list(Tab.TabType.EDITOR)
 
     def open_network_object(self, object_data: dict) -> None:
         """Open a network object in a new tab"""
         # Check if object is already open
         object_id = object_data.get('id')
-        for tab in self.primary_center.get_tabs_by_type(TabType.NETWORK):
+        for tab in self.primary_center.get_tabs_by_type(Tab.TabType.NETWORK):
             if isinstance(tab, NetworkObjectTab) and tab.object_data.get('id') == object_id:
                 self.primary_center.setCurrentWidget(tab)
                 return
 
         # Create new network object tab
-        network_tab = NetworkObjectTab(self.primary_center, object_data)
+        network_tab = NetworkObjectTab(object_data=object_data, parent=self.primary_center)
         index = self.primary_center.add_tab(network_tab)
         self.primary_center.setCurrentIndex(index)
 
         # Update "Network Object Ouvert" list
-        self.update_open_tabs_list(TabType.NETWORK)
+        self.update_open_tabs_list(Tab.TabType.NETWORK)
 
     def open_extension(self, extension_data: dict) -> None:
         """Open an extension in a new tab"""
         # Check if extension is already open
         ext_id = extension_data.get('id')
-        for tab in self.primary_center.get_tabs_by_type(TabType.EXTENSION):
+        for tab in self.primary_center.get_tabs_by_type(Tab.TabType.EXTENSION):
             if isinstance(tab, ExtensionTab) and tab.extension_data.get('id') == ext_id:
                 self.primary_center.setCurrentWidget(tab)
                 return
 
         # Create new extension tab
-        extension_tab = ExtensionTab(self.primary_center, extension_data)
+        extension_tab = ExtensionTab(parent=self.primary_center, extension_data=extension_data)
         index = self.primary_center.add_tab(extension_tab)
         self.primary_center.setCurrentIndex(index)
 
         # Update "Extensions Ouvert" list
-        self.update_open_tabs_list(TabType.EXTENSION)
+        self.update_open_tabs_list(Tab.TabType.EXTENSION)
 
-    def update_open_tabs_list(self, tab_type: TabType) -> None:
+    def update_open_tabs_list(self, tab_type: Tab.TabType) -> None:
         """Update the corresponding open tabs list based on tab type"""
         tabs = self.primary_center.get_tabs_by_type(tab_type)
         tab_titles = [tab.title for tab in tabs]
@@ -869,11 +864,11 @@ class MainGUI(QMainWindow):
         list_widget = None
         field_title = None
 
-        if tab_type == TabType.EDITOR:
+        if tab_type == Tab.TabType.EDITOR:
             field_title = "Editeur Ouvert"
-        elif tab_type == TabType.NETWORK:
+        elif tab_type == Tab.TabType.NETWORK:
             field_title = "Network Object Ouvert"
-        elif tab_type == TabType.EXTENSION:
+        elif tab_type == Tab.TabType.EXTENSION:
             field_title = "Extensions Ouvert"
 
         # Update the corresponding list widget

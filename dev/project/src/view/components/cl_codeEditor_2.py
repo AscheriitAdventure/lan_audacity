@@ -74,7 +74,7 @@ class CodeEditor(QPlainTextEdit):
         self.cursorPositionChanged.connect(self.emitCursorLocation)
         self.cursorPositionChanged.connect(self.highlightCurrentLine)
         
-        if self._areaActions.__len__ == 0:
+        if len(self._areaActions) == 0:
             self.addAreaActions(CodeEditor.ActionArea.LineNumber)
 
         for action in self._areaActions:

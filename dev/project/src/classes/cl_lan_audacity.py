@@ -282,6 +282,30 @@ class Device:
     type_device: Optional[DeviceType] = None
     vendor: Optional[str] = None
     mac_address: Optional[str] = None
+    path: Optional[str] = None
+
+    def __init__(self, name_object: str = "Unknown Device", ospath: Optional[str] = None):
+        """
+        Initialize a Device instance.
+        
+        Args:
+            name_object (str): Name of the device object. Defaults to "Unknown Device".
+            ospath (Optional[str]): Path where the device file should be stored. If provided,
+                                  creates a JSON file at this location.
+        """
+        self.name_object = name_object
+        self.uuid = uuid.uuid4()
+        self.web_address = WebAddress()
+        self.clock_manager = ClockManager()
+        self.type_device = None
+        self.vendor = None
+        self.mac_address = None
+        
+        if ospath is not None:
+            self.path = os.path.join(ospath, f"{self.uuid}.json")
+            self.update_device()
+        else:
+            self.path = None
 
     def get_dict(self) -> dict:
         """Returns a dictionary representation of the instance."""
@@ -295,6 +319,43 @@ class Device:
             "mac_address": self.mac_address,
         }
 
+    def get_interface(self) -> Interfaces:
+        """Returns an Interfaces instance representing this device."""
+        return Interfaces(
+            name_file=str(self.uuid),  # Convert UUID to string
+            alias=self.name_object,
+            path=self.path
+        )
+    
+    def update_device(self) -> None:
+        """Updates the device file with the current data."""
+        if self.path is not None:
+            SwitchFile.json_write(abs_path=self.path, data=self.get_dict())
+
+    @staticmethod
+    def from_dict(data: dict) -> "Device":
+        """Creates a Device instance from a dictionary."""
+        device = Device(
+            name_object=data.get("alias", "Unknown Device"),
+            ospath=data.get("path"),
+        )
+        device.uuid = UUID(data["name_file"])
+
+        try:
+            # si le chemin fourni est vrai alors chareger les données
+            if device.path is not None and os.path.exists(device.path):
+                device_data = SwitchFile.json_read(abs_path=device.path)
+                device.web_address = WebAddress(**device_data["web_address"])
+                device.clock_manager = ClockManager.from_dict(device_data["clock_manager"])
+                device.type_device = device_data["type_device"]
+                device.vendor = device_data["vendor"]
+                device.mac_address = device_data["mac_address"]
+            
+        except Exception as e:
+            logging.error(f"{device.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading device - {str(e)}")
+
+        return device
+
 # Classe pour la table Network
 @dataclass
 class Network:
@@ -303,7 +364,7 @@ class Network:
     web_address: Optional[WebAddress] = None
     clock_manager: ClockManager = field(default_factory=ClockManager)
     dns_object: Optional[str] = None
-    devices: List[Device] = field(default_factory=list)
+    devices: List[Interfaces] = field(default_factory=list)
     path: Optional[str] = None
 
     def __init__(self, name_object: str = "Unknown Network", ospath: Optional[str] = None):
@@ -352,6 +413,29 @@ class Network:
         """Updates the network file with the current data."""
         if self.path is not None:
             SwitchFile.json_write(abs_path=self.path, data=self.get_dict())
+    
+    @staticmethod
+    def from_dict(data: dict) -> "Network":
+        """Creates a Network instance from a dictionary."""
+        network = Network(
+            name_object=data.get("alias", "Unknown Network"),
+            ospath=data.get("path"),
+        )
+        network.uuid = UUID(data["name_file"])
+
+        try:
+            # si le chemin fourni est vrai alors chareger les données
+            if network.path is not None and os.path.exists(network.path):
+                network_data = SwitchFile.json_read(abs_path=network.path)
+                network.web_address = WebAddress(**network_data["web_address"])
+                network.clock_manager = ClockManager.from_dict(network_data["clock_manager"])
+                network.dns_object = network_data["dns_object"]
+                # Charger les périphériques (StandBy)
+            
+        except Exception as e:
+            logging.error(f"{network.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading network - {str(e)}")
+
+        return network
 
 # Classe pour la table OSAccuracy
 @dataclass
@@ -591,6 +675,27 @@ class LanAudacity(FileManagement):
         """Removes a network from the list of networks."""
         if network in self.networks:
             self.networks.remove(network)
+    
+    def get_network(self, network_data: Union[UUID, str]) -> Union[Network, None]:
+        """Returns the network object with the specified UUID."""
+        for network in self.networks:
+            if isinstance(network, Interfaces):
+                if network_data == UUID(network.name_file):
+                    return Network(name_object=network.alias, ospath=network.path)
+                elif network_data == network.alias:
+                    return Network(name_object=network.alias, ospath=network.path)
+                elif network_data == network.name_file:
+                    return Network(name_object=network.alias, ospath=network.path)
+                
+            elif isinstance(network, dict):
+                if network_data == UUID(network["uuid"]):
+                    return Network.from_dict(network)
+                elif network_data == network["alias"]:
+                    return Network.from_dict(network)
+                elif network_data == network["name_file"]:
+                    return Network.from_dict(network)
+                            
+        return None
 
     ######## Native Function Pixmaps Management ########
 

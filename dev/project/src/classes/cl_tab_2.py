@@ -1,5 +1,5 @@
 from enum import Enum, auto
-from typing import Optional, List, Dict
+from typing import Union, List, Dict, ClassVar
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -13,22 +13,14 @@ from pathlib import Path
 from dev.project.src.view.components.cl_codeEditor_2 import CodeEditor
 from dev.project.src.view.components.cl_breadcrumbs_2 import QBreadcrumbs
 
-"""
-    Objectif:
-        - Créer une classe qui permet de créer un onglet avec des paramètres par défaut
-        - Créer un onglet de bienvenue
-    Remarque:
-        Je compte bien comprendre comment fonctionne les classes "QTabWidget" et "QTabBar".
-"""
-
-class TabType(Enum):
-    DEFAULT = auto()
-    EDITOR = auto()
-    NETWORK = auto()
-    EXTENSION = auto()
-
 
 class Tab(QWidget):
+    class TabType(Enum):
+        DEFAULT = auto()
+        EDITOR = auto()
+        NETWORK = auto()
+        EXTENSION = auto()
+
     """Base class for all tabs"""
     def __init__(self, parent=None, tab_type: TabType = None, title: str = ""):
         super().__init__(parent)
@@ -40,101 +32,74 @@ class Tab(QWidget):
         return f"{'*' if self.modified else ''}{self.title}"
 
 
-class EditorTab(Tab):
-    """Tab for file editing"""
-    def __init__(self, parent=None, file_path: str = ""):
-        super().__init__(parent, TabType.EDITOR, os.path.basename(file_path))
-        self.file_path = ""
-        self.setFilePath(file_path)
-        self.initUI()
-        
-    def initUI(self):
-        layout = QVBoxLayout(self)
-        self.bredcrumbs = QBreadcrumbs(parent=self)
-        self.editor = CodeEditor(parent=self)
-        self.editor.addAreaActions(CodeEditor.ActionArea.LineNumber)
-        layout.addWidget(self.bredcrumbs)
-        layout.addWidget(self.editor)
-        
-        # Load file content if exists
-        try:
-            with open(self.file_path, 'r') as f:
-                self.editor.setText(f.read())
-        except Exception as e:
-            logging.error(f"Error loading file {self.file_path}: {str(e)}")
+class TabManager(QTabWidget):
+    """Enhanced tab widget with additional management features"""
+    
+    tab_closed = Signal(Tab)  # Emitted when a tab is closed
+    tab_changed = Signal(Tab)  # Emitted when active tab changes
+    
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setTabsClosable(True)
+        self.setMovable(True)
+        self.setDocumentMode(True)
         
         # Connect signals
-        self.editor.textChanged.connect(self.on_text_changed)
-
-    def setFilePath(self, file_path: str):
-        if os.path.exists(file_path):
-            self.file_path = Path(os.path.normpath(file_path))
-        else:
-            self.file_path = ""
-            logging.error("Le fichier n'existe pas")
-
-    def on_text_changed(self):
-        if not self.modified:
-            self.modified = True
-            # Emit signal to update tab title
-            if hasattr(self.parent(), 'update_tab_title'):
-                self.parent().update_tab_title(self)
-    
-    def breadcrumbsList(self) -> List[QPushButton]:
-        listBtn = []
-        # Divise le chemin en une liste
-        list_obj_path = self.file_path.parts
+        self.tabCloseRequested.connect(self.close_tab)
+        self.currentChanged.connect(self.on_current_changed)
         
-        # Crée un bouton pour chaque élément de la liste
-        for i in range(len(list_obj_path)):
-            btn = QPushButton(list_obj_path[i])
-            fontMetrics = QFontMetrics(btn.font())
-            btn.setFlat(True)
-            btn.setMaximumWidth(fontMetrics.horizontalAdvance(btn.text())+10)
-            # Ajoute un tooltip indiquant le chemin absolu
-            absPath = os.path.abspath(os.sep.join(list_obj_path[:i+1]))
-            btn.setToolTip(absPath)
-            # Ajoute à la liste des boutons
-            listBtn.append(btn)
+    def add_tab(self, tab: Tab) -> int:
+        """Add a new tab and return its index"""
+        index = self.addTab(tab, tab.get_title())
+        return index
         
-        return listBtn
-
-
-class NetworkObjectTab(Tab):
-    """Tab for network objects like devices, interfaces etc."""
-    def __init__(self, parent=None, object_data: Dict = None):
-        title = object_data.get('name', 'Network Object')
-        super().__init__(parent, TabType.NETWORK, title)
-        self.object_data = object_data
-        self.initUI()
-        
-    def initUI(self):
-        layout = QVBoxLayout(self)
-        # Add network object specific widgets here
-        # This is a placeholder for the actual implementation
-        layout.addWidget(QLabel(f"Network Object: {self.title}"))
-
-
-class ExtensionTab(Tab):
-    """Tab for extensions/plugins"""
-    def __init__(self, parent=None, extension_data: Dict = None):
-        title = extension_data.get('name', 'Extension')
-        super().__init__(parent, TabType.EXTENSION, title)
-        self.extension_data = extension_data
-        self.initUI()
-        
-    def initUI(self):
-        layout = QVBoxLayout(self)
-        # Add extension specific widgets here
-        # This is a placeholder for the actual implementation
-        layout.addWidget(QLabel(f"Extension: {self.title}"))
+    def close_tab(self, index: int) -> None:
+        """Handle tab closing with confirmation if needed"""
+        tab = self.widget(index)
+        if isinstance(tab, Tab):
+            if tab.modified:
+                reply = QMessageBox.question(
+                    self, 
+                    'Save Changes?',
+                    f'Do you want to save changes to {tab.title}?',
+                    QMessageBox.StandardButton.Save | QMessageBox.StandardButton.Discard | QMessageBox.StandardButton.Cancel
+                )
+                
+                if reply == QMessageBox.StandardButton.Save:
+                    # Handle saving
+                    pass
+                elif reply == QMessageBox.StandardButton.Cancel:
+                    return
+                    
+            self.removeTab(index)
+            self.tab_closed.emit(tab)
+            
+    def update_tab_title(self, tab: Tab) -> None:
+        """Update the title of a tab"""
+        index = self.indexOf(tab)
+        if index >= 0:
+            self.setTabText(index, tab.get_title())
+            
+    def on_current_changed(self, index: int) -> None:
+        """Handle tab selection change"""
+        if index >= 0:
+            tab = self.widget(index)
+            if isinstance(tab, Tab):
+                self.tab_changed.emit(tab)
+                
+    def get_tabs_by_type(self, tab_type: Tab.TabType) -> List[Tab]:
+        """Get all tabs of a specific type"""
+        return [
+            self.widget(i) for i in range(self.count())
+            if isinstance(self.widget(i), Tab) and self.widget(i).tab_type == tab_type
+        ]
 
 
 class WelcomeTab(Tab):
     """Welcome tab shown by default when the application starts"""
     
     def __init__(self, parent=None):
-        super().__init__(parent, TabType.DEFAULT, "Welcome")
+        super().__init__(parent, Tab.TabType.DEFAULT, "Welcome")
         self.initUI()
         
     def initUI(self):
@@ -315,65 +280,110 @@ class WelcomeTab(Tab):
             recent_box.layout().addStretch()
 
 
-class TabManager(QTabWidget):
-    """Enhanced tab widget with additional management features"""
-    
-    tab_closed = Signal(Tab)  # Emitted when a tab is closed
-    tab_changed = Signal(Tab)  # Emitted when active tab changes
-    
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setTabsClosable(True)
-        self.setMovable(True)
-        self.setDocumentMode(True)
+class EditorTab(Tab):
+
+    cursorLocationChanged: ClassVar[Signal] = Signal(int, int)
+
+    def __init__(self, file_path: str = "", debug: bool = False, parent=None):
+        super().__init__(parent, Tab.TabType.EDITOR, os.path.basename(file_path) if file_path else "Untitled")
+        self.file_path = ""
+        self.debug = debug
+        self.functionBtnList: List[QPushButton] = []
         
+        self.setFilePath(file_path)
+        self.initUI()
+    
+    def initUI(self):
+        layout = QGridLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
+        self.setLayout(layout)
+
+        # Breadcrumbs
+        self.breadcrumbs = QBreadcrumbs(self._generatedBtnList(),self.debug, self)
+        layout.addWidget(self.breadcrumbs, 0, 0, 1, 1)
+        # Actions (Save, Read[On/Off])
+        self.actions = QWidget()
+        layout.addWidget(self.actions, 0, 2, 1, 1)
+        # Code Editor
+        self.editor = CodeEditor(parent=self)
+        self.editor.addAreaActions(CodeEditor.ActionArea.LineNumber)
+        layout.addWidget(self.editor, 1, 0, 1, 3)
+
+        self._loadText()
+
         # Connect signals
-        self.tabCloseRequested.connect(self.close_tab)
-        self.currentChanged.connect(self.on_current_changed)
+        self.editor.textChanged.connect(self.onTextChanged)
+
+    def setFilePath(self, file_path: str):
+        if os.path.exists(file_path):
+            self.file_path = Path(os.path.normpath(file_path))
+        else:
+            self.file_path = ""
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier n'existe pas")
+    
+    def _generatedBtnList(self) -> List[QPushButton]:
+        btnList = []
+        objPathList = self.file_path.parts
+        for i in range(len(objPathList)):
+            btn = QPushButton(objPathList[i])
+            fontMetrics = QFontMetrics(btn.font())
+            btn.setFlat(True)
+            btn.setMaximumWidth(fontMetrics.horizontalAdvance(btn.text())+10)
+            # Ajoute un tooltip indiquant le chemin absolu
+            absPath = os.path.abspath(os.sep.join(objPathList[:i+1]))
+            btn.setToolTip(absPath)
+            # Ajoute à la liste des boutons
+            btnList.append(btn)
+        return btnList
+    
+    def onTextChanged(self):
+        if not self.modified:
+            self.modified = True
+            if hasattr(self.parent(), "update_tab_title"):
+                self.parent().update_tab_title(self)
+    
+    def _loadText(self):
+        try:
+            with open(self.file_path, 'r') as f:
+                self.editor.setText(f.read())
+        except Exception as e:
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading file {self.file_path}: {str(e)}")
+    
+    def addFuncBtn(self, btns: Union[QPushButton, List[QPushButton]]):
+        if isinstance(btns, list):
+            for btn in btns:
+                self.functionBtnList.append(btn)
+        else:
+            self.functionBtnList.append(btns)
+
+
+class NetworkObjectTab(Tab):
+    """Tab for network objects like devices, interfaces etc."""
+    def __init__(self, parent=None, object_data: Dict = None):
+        title = object_data.get('name', 'Network Object')
+        super().__init__(parent, Tab.TabType.NETWORK, title)
+        self.object_data = object_data
+        self.initUI()
         
-    def add_tab(self, tab: Tab) -> int:
-        """Add a new tab and return its index"""
-        index = self.addTab(tab, tab.get_title())
-        return index
+    def initUI(self):
+        layout = QVBoxLayout(self)
+        # Add network object specific widgets here
+        # This is a placeholder for the actual implementation
+        layout.addWidget(QLabel(f"Network Object: {self.title}"))
+
+
+class ExtensionTab(Tab):
+    """Tab for extensions/plugins"""
+    def __init__(self, parent=None, extension_data: Dict = None):
+        title = extension_data.get('name', 'Extension')
+        super().__init__(parent, Tab.TabType.EXTENSION, title)
+        self.extension_data = extension_data
+        self.initUI()
         
-    def close_tab(self, index: int) -> None:
-        """Handle tab closing with confirmation if needed"""
-        tab = self.widget(index)
-        if isinstance(tab, Tab):
-            if tab.modified:
-                reply = QMessageBox.question(
-                    self, 
-                    'Save Changes?',
-                    f'Do you want to save changes to {tab.title}?',
-                    QMessageBox.StandardButton.Save | QMessageBox.StandardButton.Discard | QMessageBox.StandardButton.Cancel
-                )
-                
-                if reply == QMessageBox.StandardButton.Save:
-                    # Handle saving
-                    pass
-                elif reply == QMessageBox.StandardButton.Cancel:
-                    return
-                    
-            self.removeTab(index)
-            self.tab_closed.emit(tab)
-            
-    def update_tab_title(self, tab: Tab) -> None:
-        """Update the title of a tab"""
-        index = self.indexOf(tab)
-        if index >= 0:
-            self.setTabText(index, tab.get_title())
-            
-    def on_current_changed(self, index: int) -> None:
-        """Handle tab selection change"""
-        if index >= 0:
-            tab = self.widget(index)
-            if isinstance(tab, Tab):
-                self.tab_changed.emit(tab)
-                
-    def get_tabs_by_type(self, tab_type: TabType) -> List[Tab]:
-        """Get all tabs of a specific type"""
-        return [
-            self.widget(i) for i in range(self.count())
-            if isinstance(self.widget(i), Tab) and self.widget(i).tab_type == tab_type
-        ]
+    def initUI(self):
+        layout = QVBoxLayout(self)
+        # Add extension specific widgets here
+        # This is a placeholder for the actual implementation
+        layout.addWidget(QLabel(f"Extension: {self.title}"))
+    
 
