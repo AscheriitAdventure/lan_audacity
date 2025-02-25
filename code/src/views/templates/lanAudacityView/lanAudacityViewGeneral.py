@@ -80,7 +80,7 @@ class LanAudacityViewGeneral(QWidget):
             search_panel=True,
             parent=self
             )
-        self.layout.addWidget(btn_container, 0, 0, Qt.AlignLeft | Qt.AlignTop)
+        self.layout.addWidget(btn_container, 0, 0, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
 
         for btn in self.btnList:
             btn_obj = QPushButton(btn["name"])
