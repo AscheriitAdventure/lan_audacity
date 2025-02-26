@@ -444,7 +444,9 @@ class NetworkObjectTab(Tab):
 
     def __init__(self, object_data: Optional[Dict] = None, parent=None):
         super().__init__(parent, Tab.TabType.NETWORK, object_data.get('name', 'Network Object'))
+        
         self.rootData = object_data
+        self.stackedWidgetList: List[QWidget] = []
 
         self.initUI()
         self._loadData()
@@ -470,8 +472,7 @@ class NetworkObjectTab(Tab):
     def _loadScrollArea(self):
         self.scrollArea = QScrollArea(self)
         self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setHorizontalScrollBarPolicy(
-            Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.mainLayout.addWidget(self.scrollArea)
 
         # Create container widget for scroll area

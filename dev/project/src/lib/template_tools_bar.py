@@ -60,6 +60,7 @@ DEFAULT_SIDE_PANEL: Dict = {
 }
 
 # Templates à implémenter
+# Side Panel
 FILES_EXPLORER: Dict = {
     "stacked_title": "Explorateur Fichiers",
     "separator": True,
@@ -261,4 +262,20 @@ DLC_EXPLORER: Dict = {
             "slots": []
         },
     ]
+}
+
+# Object Tab
+DEVICE_TAB: Dict = {
+    "stacked_title": "Device Tab",
+    "separator": True,
+    "shortcut": "Ctrl+Shift+E",
+    "enable": True,
+    "fields": []
+}
+NETWORK_TAB: Dict = {
+    "stacked_title": "Network Tab",
+    "separator": True,
+    "shortcut": "Ctrl+Shift+E",
+    "enable": True,
+    "fields": []
 }

@@ -67,7 +67,7 @@ class SDFSP(QWidget):
 
         self.scroll_area = QScrollArea()
         self.scroll_area.setWidgetResizable(True)
-        self.scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.scroll_area.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
 
         self.content_widget = QWidget()
         self.content_layout = QVBoxLayout(self.content_widget)
@@ -409,3 +409,5 @@ class SDFSP(QWidget):
                 "visible": new_visible,
             })
 
+class SDFOT(QWidget):
+    """Stacked Dynamic Factory Object Tab"""
