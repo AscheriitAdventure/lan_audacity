@@ -70,12 +70,12 @@ class SDFD(QWidget):
 
         self.visibilityBtnEnabled: bool = False
 
-    def setupClass(self): pass
+    def setupClass(self):
+        pass
 
     def initUI(self):
         # Main layout
         self.mainLayout = QVBoxLayout(self)
-        self.mainLayout.contentsMargins(0, 0, 0, 0)
         self.setLayout(self.mainLayout)
 
         # Add Scroll Area
@@ -379,6 +379,8 @@ class SDFSP(SDFD):
 
     def __init__(self, debug: bool = False, parent: Optional[QWidget] = None):
         super(SDFSP, self).__init__(layout_field=SDFD.StackLayout.VERTICAL, debug=debug, parent=parent)
+
+        self.initUI()
     
     def _createSpecificFieldWidget(self, field: Dict[str, Any]) -> QWidget:
         """Crée le widget spécifique selon le form_list"""

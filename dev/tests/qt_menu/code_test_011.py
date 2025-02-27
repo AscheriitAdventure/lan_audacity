@@ -1,4 +1,4 @@
-from dev.project.src.classes.cl_stacked_objects import SDFSP
+from dev.project.src.classes.cl_stacked_objects_2 import SDFSP
 from dev.project.src.lib.template_tools_bar import *
 import sys
 from typing import Dict, Any, List
@@ -82,7 +82,7 @@ class DemoWindow(QMainWindow):
                 self.sketchs.append(sketch_data)
                 field['widget_data'] = sketch_data["widget_data"]
 
-        self.side_panel.load_stack_data(self.template)
+        self.side_panel.initDisplay(self.template)
 
         layout.addWidget(self.side_panel)
         layout.addWidget(self.log_text)

@@ -9,7 +9,7 @@ import sys
 import inspect
 from pathlib import Path
 
-
+from dev.project.src.lib.template_tools_bar import DEVICE_TAB, NETWORK_TAB, DEFAULT_SIDE_PANEL
 from dev.project.src.view.components.cl_codeEditor_2 import CodeEditor
 from dev.project.src.view.components.cl_breadcrumbs_2 import QBreadcrumbs
 
@@ -362,76 +362,7 @@ class EditorTab(Tab):
         else:
             self.functionBtnList.append(btns)
 
-# data in  ex: {'id': 0, 'name': 'Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\25921af0-3582-4ee6-94ce-7422dbe21972.json', 'type': 'network'}
-
-NETWORK_STAKED = [
-    {
-        "btn": {
-            "label": "Dashboard",
-            "icon": "mdi6.view-dashboard",
-            "slot": "show_dashboard"
-        },
-        "widget": {
-            "type": "dashboard",
-            "data": {}
-        },
-    },
-    {
-        "btn": {
-            "label": "Devices",
-            "icon": "mdi6.router-network",
-            "slot": "show_devices"
-        },
-        "widget": {
-            "type": "devices",
-            "data": {}
-        },
-    },
-    {
-        "btn": {
-            "label": "Interfaces",
-            "icon": "mdi6.network",
-            "slot": "show_interfaces"
-        },
-        "widget": {
-            "type": "interfaces",
-            "data": {}
-        },
-    },
-    {
-        "btn": {
-            "label": "VLANs",
-            "icon": "mdi6.tag",
-            "tooltip": "Show VLANs in the network",
-            "slot": "show_vlans"
-        },
-        "widget": {
-            "type": "vlans",
-            "data": {}
-        },
-    },
-    {
-        "btn": {
-            "label": "Network Map",
-            "icon": "mdi6.map",
-            "tooltip": "Show network map",
-            "slot": "show_network_map"
-        },
-        "widget": {
-            "type": "network_map",
-            "data": {}
-        },
-    },
-    {
-        "btn": {
-            "label": "Sync Scanner",
-            "icon": "mdi6.sync",
-            "tooltip": "Run a network scan",
-            "slot": "scan_jobs_run"
-        },
-        "widget": None
-    }
-]
+# data in ex: {'id': 0, 'name': 'Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\25921af0-3582-4ee6-94ce-7422dbe21972.json', 'type': 'network'}
 
 class NetworkObjectTab(Tab):
     class DomainType(Enum):
@@ -447,6 +378,7 @@ class NetworkObjectTab(Tab):
         
         self.rootData = object_data
         self.stackedWidgetList: List[QWidget] = []
+        self.domainType: NetworkObjectTab.DomainType = self.DomainType.OTHER
 
         self.initUI()
         self._loadData()
@@ -454,7 +386,6 @@ class NetworkObjectTab(Tab):
     def initUI(self):
         # Main layout
         self.mainLayout = QVBoxLayout(self)
-        self.mainLayout.contentsMargins(0, 0, 0, 0)
         self.setLayout(self.mainLayout)
 
         # Add Scroll Area
@@ -481,8 +412,21 @@ class NetworkObjectTab(Tab):
         self.scrollLayout = QGridLayout(self.scrollContainer)
 
     def _loadData(self):
+        dataFields = None
+        # Définir quel stack utilisé pour l'affichage
+        if os.path.curdir(self.rootData['path']) == 'interfaces':
+            self.domainType = self.DomainType.INTERFACE
+            dataFields = NETWORK_TAB
+        elif os.path.curdir(self.rootData['path']) == 'desktop':
+            self.domainType = self.DomainType.DEVICE
+            dataFields = DEVICE_TAB
+        else:
+            self.domainType = self.DomainType.OTHER
+            dataFields = DEFAULT_SIDE_PANEL
+                
         # Load data from rootData in all stack objects
-        pass
+        if dataFields is not None:
+            pass
 
     def _saveData(self):
         pass

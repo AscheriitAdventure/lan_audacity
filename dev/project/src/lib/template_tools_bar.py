@@ -1,4 +1,4 @@
-from typing import Dict, Callable
+from typing import Dict
 import os
 
 
@@ -191,7 +191,7 @@ LAN_EXPLORER: Dict = {
                             }
                         ]
                     },
-                    'callback': "create_new_device",
+                    'callback': "create_new_machine",
                     'tooltip': 'Nouvelle Machine'
                 },
                 {
@@ -268,14 +268,238 @@ DLC_EXPLORER: Dict = {
 DEVICE_TAB: Dict = {
     "stacked_title": "Device Tab",
     "separator": True,
-    "shortcut": "Ctrl+Shift+E",
+    "shortcut": None,
     "enable": True,
-    "fields": []
+    "fields": [
+        {
+            "title": "Dashboard",
+            "form_list": "fmcg", # Fixed Mosaics Cards Grid
+            "separator": True,
+            "collapsed": False,
+            "tooltip": "Affiche le tableau de bord",
+            "actions": [
+                {
+                    'icon': {
+                        "names:": ["mdi6.plus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Lime",
+                                "active": "mdi6.plus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "More"
+                },
+                {
+                    'icon': {
+                        "names:": ["mdi6.minus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Red",
+                                "active": "mdi6.minus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "Less"
+                },
+            ],  
+            "description": "Affiche le tableau de bord et les informations de l'objet",
+            "visible": True
+        },
+        {
+            "title": "Interfaces",
+            "form_list": "dmcg", # Dynamic Mosaics Cards Grid
+            "separator": True,
+            "collapsed": False,
+            "tooltip": "Affiche les données de l'objet",
+            "actions": [
+                {
+                    'icon': {},
+                    'callback': "",
+                    'tooltip': "grid X colonne"
+                },
+                {
+                    'icon': {
+                        "names:": ["mdi6.plus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Lime",
+                                "active": "mdi6.plus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "More"
+                },
+                {
+                    'icon': {
+                        "names:": ["mdi6.minus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Red",
+                                "active": "mdi6.minus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "Less"
+                },
+            ],  
+            "description": "Affiche les interfaces de l'objet",
+            "visible": True
+        },
+    ]
 }
+
 NETWORK_TAB: Dict = {
     "stacked_title": "Network Tab",
     "separator": True,
-    "shortcut": "Ctrl+Shift+E",
+    "shortcut": None,
     "enable": True,
-    "fields": []
+    "fields": [
+        {
+            "title": "Dashboard",
+            "form_list": "fmcg", # Fixed Mosaics Cards Grid
+            "separator": True,
+            "collapsed": False,
+            "tooltip": "Affiche le tableau de bord",
+            "actions": [
+                {
+                    'icon': {
+                        "names:": ["mdi6.plus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Lime",
+                                "active": "mdi6.plus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "More"
+                },
+                {
+                    'icon': {
+                        "names:": ["mdi6.minus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Red",
+                                "active": "mdi6.minus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "Less"
+                },
+            ],  
+            "description": "Affiche le tableau de bord et les informations de l'objet",
+            "visible": True
+        },
+        {
+            "title": "Interfaces",
+            "form_list": "dmcg", # Dynamic Mosaics Cards Grid
+            "separator": True,
+            "collapsed": False,
+            "tooltip": "Affiche les données de l'objet",
+            "actions": [
+                {
+                    'icon': {},
+                    'callback': "",
+                    'tooltip': "grid X colonne"
+                },
+                {
+                    'icon': {
+                        "names:": ["mdi6.plus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Lime",
+                                "active": "mdi6.plus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "More"
+                },
+                {
+                    'icon': {
+                        "names:": ["mdi6.minus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Red",
+                                "active": "mdi6.minus-circle-outline"
+                            }
+                        ]
+                    },
+                    'callback': "",
+                    'tooltip': "Less"
+                },
+            ],  
+            "description": "Affiche les interfaces de l'objet",
+            "visible": True
+        },
+        {
+            "title": "Devices",
+            "form_list": "dmcg", # Dynamic Mosaics Cards Grid
+            "separator": True,
+            "collapsed": False,
+            "tooltip": "Affiche les données de l'objet",
+            "actions": [
+                {
+                    'icon': {},
+                    'callback': "",
+                    'tooltip': "grid X colonne"
+                },
+                {
+                    'icon': {},
+                    'callback': "",
+                    'tooltip': "More"
+                },
+                {
+                    'icon': {},
+                    'callback': "",
+                    'tooltip': "Less"
+                },
+            ],  
+            "description": "Affiche les interfaces de l'objet",
+            "visible": True
+        },
+        {
+            "title": "VLANs",
+            "icon": {
+                "names": ["mdi6.lan"],
+                "options": None
+            },
+            "form_list": "map",
+            "separator": True,
+            "collapsed": False,
+            "tooltip": "Affiche les VLAN sur réseau",
+            "actions": [],
+            "description": "Affiche les VLAN du réseau",
+            "visible": True                
+        },
+        {
+            "title": "Network Map",
+            "icon": {
+                "names": ["mdi6.map"],
+                "options": None
+            },
+            "form_list": "map",
+            "separator": True,
+            "collapsed": False,
+            "tooltip": "Affiche la carte du réseau",
+            "actions": [],
+            "description": "Affiche la carte du réseau",
+            "visible": True                
+        },
+    ]
 }
+

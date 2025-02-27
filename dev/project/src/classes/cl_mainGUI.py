@@ -8,7 +8,7 @@ import sys
 import inspect
 import time
 from dev.project.src.classes.cl_tab_2 import TabManager, Tab, WelcomeTab, EditorTab, NetworkObjectTab, ExtensionTab
-from dev.project.src.classes.cl_stacked_objects import SDFSP
+from dev.project.src.classes.cl_stacked_objects_2 import SDFSP
 from dev.project.src.lib.template_tools_bar import *
 from dev.project.src.classes.cl_dialog import DynFormDialog
 from dev.project.src.classes.cl_lan_audacity import LanAudacity, Network
@@ -131,7 +131,7 @@ class MainGUI(QMainWindow):
                         continue
             else:
                 # Add Data and/or Objects in the widget
-                sdfsp.load_stack_data(stack)
+                sdfsp.initDisplay(stack)
 
         self.primary_side_bar.setCurrentIndex(0)
     
@@ -147,7 +147,7 @@ class MainGUI(QMainWindow):
             sdfsp: SDFSP = self.stackedWidgetList[index]
 
             # Pour chaque field dans le widget
-            for field in sdfsp.active_fields:
+            for field in sdfsp.activeFields:
                 form_type = field.get('form_list')
             
                 # Mettre à jour selon le type de formulaire
@@ -547,11 +547,11 @@ class MainGUI(QMainWindow):
         try:
             # Get the current stacked widget
             current_widget = self.primary_side_bar.currentWidget()
-            if not current_widget or not hasattr(current_widget, 'active_fields'):
+            if not current_widget or not hasattr(current_widget, 'activeFields'):
                 return
                 
             # Find all tree views in the current widget
-            for field in current_widget.active_fields:
+            for field in current_widget.activeFields:
                 if field.get('form_list') in ['tree-file', 'tree']:
                     tree_view = field['widget'].findChild(QTreeView)
                     if not tree_view:
@@ -594,11 +594,11 @@ class MainGUI(QMainWindow):
         try:
             # Get the current stacked widget
             current_widget = self.primary_side_bar.currentWidget()
-            if not current_widget or not hasattr(current_widget, 'active_fields'):
+            if not current_widget or not hasattr(current_widget, 'activeFields'):
                 return
                 
             # Find all tree views in the current widget
-            for field in current_widget.active_fields:
+            for field in current_widget.activeFields:
                 if field.get('form_list') in ['tree-file', 'tree']:
                     tree_view = field['widget'].findChild(QTreeView)
                     if tree_view:
@@ -754,7 +754,7 @@ class MainGUI(QMainWindow):
             logging.error(
                 f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {str(e)}")
 
-    def create_new_device(self, parent_path = None) -> None:
+    def create_new_machine(self, parent_path = None) -> None:
         try:
             dialog = DynFormDialog(self, False)
             dialog.load_form(NEW_UC)
@@ -826,7 +826,7 @@ class MainGUI(QMainWindow):
         # Check if object is already open
         object_id = object_data.get('id')
         for tab in self.primary_center.get_tabs_by_type(Tab.TabType.NETWORK):
-            if isinstance(tab, NetworkObjectTab) and tab.object_data.get('id') == object_id:
+            if isinstance(tab, NetworkObjectTab) and tab.rootData.get('id') == object_id:
                 self.primary_center.setCurrentWidget(tab)
                 return
 
@@ -873,7 +873,7 @@ class MainGUI(QMainWindow):
 
         # Update the corresponding list widget
         for stack_widget in self.stackedWidgetList:
-            for field in stack_widget.active_fields:
+            for field in stack_widget.activeFields:
                 if field.get('title') == field_title:
                     list_widget = field['widget'].findChild(QListWidget)
                     if list_widget:
