@@ -479,11 +479,21 @@ class SDFSP(SDFD):
 class SDFOT(SDFD):
     """Stacked Dynamic Factory Object Tab"""
 
-    def __init__(self, context_menu: QWidget, debug = False, parent = None):
+    def __init__(self, debug = False, parent = None):
         super(SDFOT, self).__init__(layout_field=SDFD.StackLayout.GRID, debug=debug, parent=parent)
 
-        self.setStackContextMenu(context_menu)
         self.initUI()
         
-    def setupClass(self):
-        pass
+    def _createSpecificFieldWidget(self, field: Dict[str, Any]) -> QWidget:
+        """Crée le widget spécifique selon le form_list"""
+        form_type = field.get('form_list', "")
+        widget_data = field.get('widget_data', {})
+
+        if form_type == "fmcg": # Fixed Mosaics Cards Grid
+            pass
+        elif form_type == "dmcg": # Dynamic Mosaics Cards Grid
+            pass
+        else: # Default Ressource Form
+            pass
+
+        return QWidget()

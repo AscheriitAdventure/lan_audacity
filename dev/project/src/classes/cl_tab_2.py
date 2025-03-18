@@ -9,7 +9,8 @@ import sys
 import inspect
 from pathlib import Path
 
-from dev.project.src.classes.cl_stacked_objects_2 import SDFSP
+from dev.project.src.classes.cl_clicontext import CLIconText
+from dev.project.src.classes.cl_stacked_objects_2 import SDFOT, SDFSP
 from dev.project.src.lib.template_tools_bar import DEVICE_TAB, NETWORK_TAB, DEFAULT_SIDE_PANEL
 from dev.project.src.view.components.cl_codeEditor_2 import CodeEditor
 from dev.project.src.view.components.cl_breadcrumbs_2 import QBreadcrumbs
@@ -398,7 +399,7 @@ class NetworkObjectTab(Tab):
         # Add Object 2 --> Stacked 
         self._zone2 = QStackedWidget(self)
         self._zone2.setMinimumWidth(100)
-        self.scrollLayout.addLayout(self._zone2, 0, 1, Qt.AlignmentFlag.AlignTop)
+        self.scrollLayout.addWidget(self._zone2, 0, 1, Qt.AlignmentFlag.AlignTop)
 
     def _loadScrollArea(self):
         self.scrollArea = QScrollArea(self)
@@ -427,27 +428,43 @@ class NetworkObjectTab(Tab):
             self._loadStackData(DEFAULT_SIDE_PANEL)
     
     def _loadStackData(self, data: Dict):
-        sdfsp = SDFSP(debug=False, parent=self)
-
-        # sdfsp.itemDoubleClicked.connect(self.onItemDoubleClicked)
+        sdfsp = SDFOT(debug=False, parent=self)
+        btn_list: List[QPushButton] = []
 
         for f in data.get("fields", []):
-            if "actions" in f and isinstance(f["actions"], list):
-                for a in f["actions"]:
-                    if isinstance(a, dict):
-                        cbk = a.get("callback")
-                        if isinstance(cbk, str):
-                            if cbk_method := self.get_callback(cbk):
-                                a["callback"] = cbk_method
-                            else:
-                                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Callback method {cbk} not found")
-                        elif cbk is not None:
-                            logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid callback type: {type(cbk)}")
+            btn = QPushButton(self)
+            btn.setText(f.get("title", ""))
+            btn.setToolTip(f.get("tooltip", ""))
+            btn.setFlat(True)
+            btn_list.append(btn)
+
+            # if "actions" in f and isinstance(f["actions"], list):
+            #     for a in f["actions"]:
+            #         if isinstance(a, dict) and "callback" in a and a["callback"] is not None:
+            #             cbk = a.get("callback")
+            #             if isinstance(cbk, str):
+            #                 if cbk_method := self.get_callback(cbk):
+            #                     a["callback"] = cbk_method
+            #                 else:
+            #                     logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Callback method {cbk} not found")
+            #             elif cbk is not None:
+            #                 logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid callback type: {type(cbk)}")
         
-            self._zone2.addWidget(sdfsp)
-            self.stackedWidgetList.append(sdfsp)
+            # self._zone2.addWidget(sdfsp)
+            # self.stackedWidgetList.append(sdfsp)
         
-            sdfsp.initDisplay(f)
+            # sdfsp.initDisplay(f)
+        
+        params = {
+            "list_objets": btn_list,
+            "toggle_icon": True, 
+            "search_panel": False,
+            "logger": False,
+            "parent": self
+        }
+
+        if btn_list.__len__() > 0:
+            self._zone1Layout.addWidget(CLIconText(**params))
 
     def updateStackedWidget(self, index: int, data: Dict):
         """
@@ -457,7 +474,7 @@ class NetworkObjectTab(Tab):
                 data (dict): Données à mettre à jour
         """
         try:
-            sdfsp: SDFSP = self.stackedWidgetList[index]
+            sdfsp: SDFOT = self.stackedWidgetList[index]
 
             for f in sdfsp.activeFields:
                 form_type = f.get("form_list")
@@ -485,6 +502,22 @@ class NetworkObjectTab(Tab):
             logging.error(
                 f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error updating stack widget: {str(e)}"
             )
+
+    def get_callback(self, callback_name: str):
+        """
+        Get the method reference for a callback name.
+        
+        Args:
+            callback_name (str): Name of the callback method
+            
+        Returns:
+            method: Reference to the method or None if not found
+        """
+        if hasattr(self, callback_name):
+            return getattr(self, callback_name)
+        logging.warning(f"{self.__class__.__name__}::get_callback: Callback {callback_name} not found")
+        return None
+    
 
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""

@@ -160,7 +160,7 @@ class MainGUI(QMainWindow):
                         field['widget'].setToolTip(f"Explorateur de Fichiers de {data['directory_name']}")
                         
                         # Mettre à jour l'arborescence
-                        tree_view = field['widget'].findChild(QTreeView)
+                        tree_view: QTreeView = field['widget'].findChild(QTreeView)
                         if tree_view:
                             model = QFileSystemModel()
                             model.setRootPath(data['directory_path'])

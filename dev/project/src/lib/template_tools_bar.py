@@ -289,7 +289,7 @@ DEVICE_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "More"
                 },
                 {
@@ -303,7 +303,7 @@ DEVICE_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "Less"
                 },
             ],  
@@ -319,7 +319,7 @@ DEVICE_TAB: Dict = {
             "actions": [
                 {
                     'icon': {},
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "grid X colonne"
                 },
                 {
@@ -333,7 +333,7 @@ DEVICE_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "More"
                 },
                 {
@@ -347,7 +347,7 @@ DEVICE_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "Less"
                 },
             ],  
@@ -381,7 +381,7 @@ NETWORK_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "More"
                 },
                 {
@@ -395,7 +395,7 @@ NETWORK_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "Less"
                 },
             ],  
@@ -411,7 +411,7 @@ NETWORK_TAB: Dict = {
             "actions": [
                 {
                     'icon': {},
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "grid X colonne"
                 },
                 {
@@ -425,7 +425,7 @@ NETWORK_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "More"
                 },
                 {
@@ -439,7 +439,7 @@ NETWORK_TAB: Dict = {
                             }
                         ]
                     },
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "Less"
                 },
             ],  
@@ -455,17 +455,17 @@ NETWORK_TAB: Dict = {
             "actions": [
                 {
                     'icon': {},
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "grid X colonne"
                 },
                 {
                     'icon': {},
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "More"
                 },
                 {
                     'icon': {},
-                    'callback': "",
+                    'callback': None,
                     'tooltip': "Less"
                 },
             ],  
