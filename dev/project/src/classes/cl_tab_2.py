@@ -9,6 +9,7 @@ import sys
 import inspect
 from pathlib import Path
 
+from dev.project.src.classes.cl_stacked_objects_2 import SDFSP
 from dev.project.src.lib.template_tools_bar import DEVICE_TAB, NETWORK_TAB, DEFAULT_SIDE_PANEL
 from dev.project.src.view.components.cl_codeEditor_2 import CodeEditor
 from dev.project.src.view.components.cl_breadcrumbs_2 import QBreadcrumbs
@@ -362,7 +363,6 @@ class EditorTab(Tab):
         else:
             self.functionBtnList.append(btns)
 
-# data in ex: {'id': 0, 'name': 'Bureau', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\25921af0-3582-4ee6-94ce-7422dbe21972.json', 'type': 'network'}
 
 class NetworkObjectTab(Tab):
     class DomainType(Enum):
@@ -375,7 +375,6 @@ class NetworkObjectTab(Tab):
 
     def __init__(self, object_data: Optional[Dict] = None, parent=None):
         super().__init__(parent, Tab.TabType.NETWORK, object_data.get('name', 'Network Object'))
-        
         self.rootData = object_data
         self.stackedWidgetList: List[QWidget] = []
         self.domainType: NetworkObjectTab.DomainType = self.DomainType.OTHER
@@ -395,10 +394,11 @@ class NetworkObjectTab(Tab):
         self._zone1 = QWidget()
         self._zone1Layout = QVBoxLayout(self._zone1)
         self.scrollLayout.addWidget(self._zone1, 0, 0, 1, 1)
-
+        
         # Add Object 2 --> Stacked 
-        self._zone2Layout = QStackedLayout()
-        self.scrollLayout.addLayout(self._zone2Layout, 0, 1, Qt.AlignmentFlag.AlignTop)
+        self._zone2 = QStackedWidget(self)
+        self._zone2.setMinimumWidth(100)
+        self.scrollLayout.addLayout(self._zone2, 0, 1, Qt.AlignmentFlag.AlignTop)
 
     def _loadScrollArea(self):
         self.scrollArea = QScrollArea(self)
@@ -412,28 +412,79 @@ class NetworkObjectTab(Tab):
         self.scrollLayout = QGridLayout(self.scrollContainer)
 
     def _loadData(self):
-        dataFields = None
         # Définir quel stack utilisé pour l'affichage
-        if os.path.curdir(self.rootData['path']) == 'interfaces':
+        domain_type = os.path.basename(os.path.dirname(self.rootData['path']))
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Domain type: {domain_type}")
+
+        if domain_type == 'interfaces':
             self.domainType = self.DomainType.INTERFACE
-            dataFields = NETWORK_TAB
-        elif os.path.curdir(self.rootData['path']) == 'desktop':
+            self._loadStackData(NETWORK_TAB)
+        elif domain_type == 'desktop':
             self.domainType = self.DomainType.DEVICE
-            dataFields = DEVICE_TAB
+            self._loadStackData(DEVICE_TAB)
         else:
             self.domainType = self.DomainType.OTHER
-            dataFields = DEFAULT_SIDE_PANEL
+            self._loadStackData(DEFAULT_SIDE_PANEL)
+    
+    def _loadStackData(self, data: Dict):
+        sdfsp = SDFSP(debug=False, parent=self)
+
+        # sdfsp.itemDoubleClicked.connect(self.onItemDoubleClicked)
+
+        for f in data.get("fields", []):
+            if "actions" in f and isinstance(f["actions"], list):
+                for a in f["actions"]:
+                    if isinstance(a, dict):
+                        cbk = a.get("callback")
+                        if isinstance(cbk, str):
+                            if cbk_method := self.get_callback(cbk):
+                                a["callback"] = cbk_method
+                            else:
+                                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Callback method {cbk} not found")
+                        elif cbk is not None:
+                            logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid callback type: {type(cbk)}")
+        
+            self._zone2.addWidget(sdfsp)
+            self.stackedWidgetList.append(sdfsp)
+        
+            sdfsp.initDisplay(f)
+
+    def updateStackedWidget(self, index: int, data: Dict):
+        """
+            Met à jour les données d'un widget et de ses fields
+            Args:
+                index (int): Index du widget à mettre à jour
+                data (dict): Données à mettre à jour
+        """
+        try:
+            sdfsp: SDFSP = self.stackedWidgetList[index]
+
+            for f in sdfsp.activeFields:
+                form_type = f.get("form_list")
+
+                if form_type == "fmcg": # Fixed Mosaics Cards Grid
+                    pass
+                elif form_type == "dmcg": # Dynamic Mosaics Cards Grid
+                    pass
+                else: # Default Ressource Form
+                    pass
+
+                if f.get('actions'):
+                    for a in f['actions']:
+                        if isinstance(a, dict) and a.get('callback') is None:
+                            if a.get('tooltip') == 'update':
+                                a['callback'] = self.updateStackedWidget
                 
-        # Load data from rootData in all stack objects
-        if dataFields is not None:
-            pass
+            sdfsp.exchangeContext.emit({
+                "action": "stack_updated",
+                "index": index,
+                "data": data
+            })
 
-    def _saveData(self):
-        pass
-
-    def _updateData(self):
-        pass
-
+        except Exception as e:
+            logging.error(
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error updating stack widget: {str(e)}"
+            )
 
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""

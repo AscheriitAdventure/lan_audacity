@@ -802,7 +802,7 @@ class MainGUI(QMainWindow):
                 
         except Exception as e:
             logging.error(
-                f"{self.__class__.__name__}::handle_item_double_click: {str(e)}"
+                f"{self.__class__.__name__}::{inspect.currentframe}: {str(e)}"
             )
     
     def open_file_in_editor(self, file_path: str) -> None:
@@ -829,7 +829,7 @@ class MainGUI(QMainWindow):
             if isinstance(tab, NetworkObjectTab) and tab.rootData.get('id') == object_id:
                 self.primary_center.setCurrentWidget(tab)
                 return
-
+            
         # Create new network object tab
         network_tab = NetworkObjectTab(object_data=object_data, parent=self.primary_center)
         index = self.primary_center.add_tab(network_tab)

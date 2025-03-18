@@ -33,7 +33,7 @@ def load_resources():
         else:
             # placement du répertoire de ressources 'asssets' dans le répertoire de l'application
             os.system(f"git clone {repo} assets/")
-            
+
 
 # Load the environment variables
 def load_env_vars():
@@ -131,5 +131,5 @@ def dev_main():
     logger.debug("Mode débogage activé.")
     logger.warning("Attention, ceci est un avertissement.")
 
-    load_sql_server()
+    # load_sql_server()
     load_app()
