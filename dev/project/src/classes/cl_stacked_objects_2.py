@@ -1054,3 +1054,235 @@ class Card(QWidget):
             if widget is not None and widget not in [self.topCard, self.leftCard, self.centerCard, self.rightCard, self.bottomCard]:
                 widget.setParent(None)
 
+# Mosaïcs Cards
+from typing import List, Dict, Any, Optional, ClassVar, Union
+from qtpy.QtWidgets import *
+from qtpy.QtGui import *
+from qtpy.QtCore import *
+from enum import Enum
+import logging
+import inspect
+import os
+
+
+class FixedMosaicsCards(QWidget):
+    cardsLoaded = Signal()  # Signal émis quand les cartes sont chargées
+    progressChanged = Signal(int)  # Signal pour mettre à jour la progression
+    workerFinished = Signal(object)  # Signal émis quand le worker a terminé, avec le résultat
+    workerError = Signal(str)  # Signal émis en cas d'erreur
+
+    def __init__(self, debug: bool = False, parent=None):
+        super(FixedMosaicsCards, self).__init__(parent)
+        
+        self.debug = debug
+        self._cards: List[Dict] = []  # Liste des cartes avec leur configuration
+        self._title: Optional[Union[QLabel, str]] = None
+        self.object_view: Optional[Any] = None
+        
+        self.worker: Optional[Any] = None
+        self.progress_dialog: Optional[QDialog] = None
+        self.thread_pool = QThreadPool()
+        
+        self.initUI()
+        self._clearCardsLayout()
+        
+        self.cardsLoaded.connect(self.setCardsView)
+        self.progressChanged.connect(self._updateProgressDialog)
+        self.workerFinished.connect(self._handleWorkerFinished)
+        self.workerError.connect(self._handleWorkerError)
+        
+        if len(self.cards) > 0:
+            self.setCardsView()
+    
+    def initUI(self):
+        self.mainLayout = QVBoxLayout(self)
+        self.setLayout(self.mainLayout)
+        self.mainLayout.setContentsMargins(0, 0, 0, 0)
+        
+        ttlw = QWidget(self)        # Title Widget
+        ttlwcnt = QVBoxLayout(ttlw) # Title Widget Container
+        ttlwcnt.setContentsMargins(5, 5, 5, 0)  # Marge pour le titre
+        self.mainLayout.addWidget(ttlw, alignment=Qt.AlignmentFlag.AlignTop)
+        
+        self.title_label = QLabel("Title", self) # Title Label
+        self.title_label.setFont(QFont("Arial", 12, QFont.Weight.Bold))
+        ttlwcnt.addWidget(self.title_label)
+        ttlwcnt.addStretch(1)
+        
+        sep = QFrame(self)          # Separator
+        sep.setFrameShape(QFrame.Shape.HLine)
+        sep.setFrameShadow(QFrame.Shadow.Sunken)
+        self.mainLayout.addWidget(sep)
+        
+        self._loadScrollArea()
+
+    def _loadScrollArea(self):
+        self.scrollArea = QScrollArea(self)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.mainLayout.addWidget(self.scrollArea)
+        
+        self.scrollContainer = QWidget(self)
+        self.scrollArea.setWidget(self.scrollContainer)
+        self.scrollLayout = QGridLayout(self.scrollContainer)
+        self.scrollLayout.setContentsMargins(0, 0, 0, 0)
+
+    def _updateProgressDialog(self, value: int):
+        """Met à jour la barre de progression si elle existe"""
+        if self.progress_dialog and hasattr(self.progress_dialog, 'setValue'):
+            self.progress_dialog.setValue(value)
+
+    def _handleWorkerFinished(self, result: object):
+        """Gère le résultat du worker une fois terminé"""
+        if self.progress_dialog:
+            self.progress_dialog.accept()
+            self.progress_dialog = None
+            
+        if self.debug:
+            logging.debug(f"Worker finished with result: {result}")
+
+    def _handleWorkerError(self, error_msg: str):
+        """Gère les erreurs du worker"""
+        if self.progress_dialog:
+            self.progress_dialog.reject()
+            self.progress_dialog = None
+            
+        QMessageBox.critical(self, "Error", f"An error occurred: {error_msg}")
+        if self.debug:
+            logging.error(f"Worker error: {error_msg}")
+
+    @property
+    def progressDialog(self):
+        return self.progress_dialog
+    
+    @progressDialog.setter
+    def progressDialog(self, dialog: QDialog):
+        self.progress_dialog = dialog
+    
+    @property
+    def cards(self) -> List[Dict]:
+        return self._cards
+    
+    @cards.setter
+    def cards(self, cards_list: List[Dict]):
+        """
+            Les cards doivent avoir ce format:
+            {
+                "layout": {
+                    "row": 0,   <-- int
+                    "column": 0,<--- int
+                    "rowSpan": None,<--- Optional[int]
+                    "columnSpan": None, <--- Optional[int]
+                    "alignment": None  <--- Optional[Qt.AlignmentFlag]
+                },
+                "top_card": QLabel("Hello World!"), <--- Optional[QWidget]
+                "left_card": None,  <--- Optional[QWidget]
+                "center_card": QLabel("Welcome!"),  <--- Optional[QWidget]
+                "right_card": None, <--- Optional[QWidget]
+                "bottom_card": QLabel("Bye!")   <--- Optional[QWidget]
+            }
+        """
+        self._cards = cards_list
+        
+        if len(cards_list) > 0:
+            self.cardsLoaded.emit()
+    
+    @property
+    def title(self) -> Optional[Union[QLabel, str]]:
+        return self._title
+    
+    @title.setter
+    def title(self, title_value: Union[QLabel, str]):
+        self._title = title_value
+        
+        if isinstance(title_value, str):
+            self.title_label.setText(title_value)
+        elif isinstance(title_value, QLabel):
+            index = self.mainLayout.indexOf(self.scrollArea) - 1
+            if index >= 0:
+                widget = self.mainLayout.itemAt(index).widget()
+                if widget:
+                    layout = widget.layout()
+                    if layout and layout.count() > 0:
+                        old_title = layout.itemAt(0).widget()
+                        if old_title:
+                            layout.replaceWidget(old_title, title_value)
+    
+    @property
+    def objectView(self) -> Optional[Any]:
+        return self.object_view
+    
+    @objectView.setter
+    def objectView(self, view: Any):
+        self.object_view = view
+    
+    @property
+    def workerThread(self) -> Optional[Any]:
+        return self.worker
+    
+    @workerThread.setter
+    def workerThread(self, worker_thread: Any):
+        self.worker = worker_thread
+        if worker_thread:
+            if hasattr(worker_thread, 'finished'):
+                worker_thread.finished.connect(self._onWorkerFinished)
+            if hasattr(worker_thread, 'error'):
+                worker_thread.error.connect(self.workerError.emit)
+            if hasattr(worker_thread, 'progress'):
+                worker_thread.progress.connect(self.progressChanged.emit)
+    
+    def _onWorkerFinished(self):
+        """Callback quand le worker a terminé"""
+        if self.worker and hasattr(self.worker, 'result'):
+            self.workerFinished.emit(self.worker.result)
+        else:
+            self.workerFinished.emit(None)
+    
+    def runWorker(self):
+        """Lance le worker dans un thread séparé"""
+        if not self.worker:
+            return
+        
+        if hasattr(self.worker, 'setAutoDelete'):
+            self.worker.setAutoDelete(True)
+            
+        self.thread_pool.start(self.worker)
+    
+    def _clearCardsLayout(self):
+        """Clear all cards from the layout"""
+        while self.scrollLayout.count():
+            item = self.scrollLayout.takeAt(0)
+            if item.widget():
+                item.widget().deleteLater()
+            elif item.layout():
+                layout = item.layout()
+                while layout.count():
+                    sub_item = layout.takeAt(0)
+                    if sub_item.widget():
+                        sub_item.widget().deleteLater()
+    
+    def setCardsView(self):
+        """Configure la vue des cartes basée sur les données de self.cards"""
+        self._clearCardsLayout()
+        
+        for ecd in self.cards:  # Edit Card Data
+            ls = ecd["layout"]  # Layout Settings
+            kwargs = {
+                "top": ecd.get("top_card"), 
+                "left": ecd.get("left_card"), 
+                "center": ecd.get("center_card"), 
+                "right": ecd.get("right_card"), 
+                "bottom": ecd.get("bottom_card")
+            }
+
+            c = Card(debug=self.debug, parent=self)
+            c.setAllCards(**kwargs)
+            
+            if ls.get("rowSpan") is None and ls.get("columnSpan") is None:
+                self.scrollLayout.addWidget(c, ls["row"], ls["column"])
+            else:
+                layout_params = {k: v for k, v in ls.items() if v is not None}
+                self.scrollLayout.addWidget(c, **layout_params)
+                
+        self.scrollLayout.setRowStretch(self.scrollLayout.rowCount(), 1)
+        self.scrollLayout.setColumnStretch(self.scrollLayout.columnCount(), 1)

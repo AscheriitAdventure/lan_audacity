@@ -414,6 +414,7 @@ class NetworkObjectTab(Tab):
         self.scrollContainer = QWidget()
         self.scrollArea.setWidget(self.scrollContainer)
         self.scrollLayout = QGridLayout(self.scrollContainer)
+        self.scrollLayout.setContentsMargins(0, 0, 0, 0)
 
     def _loadData(self):
         # Définir quel stack utilisé pour l'affichage
