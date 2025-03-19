@@ -698,42 +698,21 @@ class Card(QWidget):
 
         self.initUI()
 
-    def initUI(self):
-        self.mainLayout = QGridLayout(self)
-        self.setLayout(self.mainLayout)
-
-        rowStart: int = 0
-        colStart: int = 0
-        colSpan: int = 3
-
-        if self.topCard is not None:
-            if self.debug:
-                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting top card")
-            self.mainLayout.addWidget(self.topCard, rowStart, colStart, 1, colSpan, Qt.AlignmentFlag.AlignTop)
-            rowStart += 1
-
-        if self.bottomCard is not None:
-            if self.debug:
-                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting bottom card")
-            self.mainLayout.addWidget(self.bottomCard, 2, 0, 1, 3)
-
-        if self.leftCard is not None:
-            if self.debug:
-                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting left card")
-            self.mainLayout.addWidget(self.leftCard, rowStart, colStart, 1, 1)
-            colStart += 1
-            colSpan -= 1
-
-        if self.rightCard is not None:
-            if self.debug:
-                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting right card")
-            self.mainLayout.addWidget(self.rightCard, rowStart, 2, 1, 1)
-            colSpan -= 1
-
-        if self.centerCard is not None:
-            if self.debug:
-                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting center card")
-            self.mainLayout.addWidget(self.centerCard, rowStart, colStart, 1, colSpan)
+    def initUI(self, rebuild=False):
+        """Initialise ou réinitialise la mise en page
+    
+        Args:
+            rebuild (bool): Si True, supprime d'abord tous les widgets existants
+        """
+        
+        if rebuild and self.mainLayout is not None:
+            self._clearLayout()
+        else:
+            self.mainLayout = QGridLayout(self)
+            self.setLayout(self.mainLayout)
+        
+        self._arrangeWidgets(0, 0, 3)
+        self.markAllDirty()
 
     def cssParameters(self, css_params: Optional[dict] = None):
         """Sets the CSS parameters for the CardUI widget."""
@@ -749,33 +728,58 @@ class Card(QWidget):
 
     def setTopCard(self, top_card: Optional[QWidget] = None):
         """Sets the top card widget."""
+        oldCard = self.topCard
         self.topCard = top_card
+        
+        if oldCard is not None and oldCard != top_card:
+            oldCard.setParent(None)
+    
         self.dirtyRects["top"] = True
-        self.update()
+        self.initUI(rebuild=True)
 
     def setLeftCard(self, left_card: Optional[QWidget] = None):
         """Sets the left card widget."""
+        oldCard = self.leftCard
         self.leftCard = left_card
+    
+        if oldCard is not None and oldCard != left_card:
+            oldCard.setParent(None)
+    
         self.dirtyRects["left"] = True
-        self.update()
+        self.initUI(rebuild=True)
 
     def setCenterCard(self, center_card: Optional[QWidget] = None):
         """Sets the center card widget."""
+        oldCart = self.centerCard
         self.centerCard = center_card
+
+        if oldCart is not None and oldCart != center_card:
+            oldCart.setParent(None)
+        
         self.dirtyRects["center"] = True
-        self.update()
+        self.initUI(rebuild=True)
 
     def setRightCard(self, right_card: Optional[QWidget] = None):
         """Sets the right card widget."""
+        oldCard = self.rightCard
         self.rightCard = right_card
+
+        if oldCard is not None and oldCard != right_card:
+            oldCard.setParent(None)
+
         self.dirtyRects["right"] = True
-        self.update()
+        self.initUI(rebuild=True)
 
     def setBottomCard(self, bottom_card: Optional[QWidget] = None):
         """Sets the bottom card widget."""
+        oldCard = self.bottomCard
         self.bottomCard = bottom_card
+
+        if oldCard is not None and oldCard != bottom_card:
+            oldCard.setParent(None)
+
         self.dirtyRects["bottom"] = True
-        self.update()
+        self.initUI(rebuild=True)
 
     def paintEvent(self, event):
         painter = QPainter(self)
@@ -803,8 +807,7 @@ class Card(QWidget):
             styles = self.paintProperties.get(section, {})
             if styles:
                 self.paintSection(painter, rect, styles)
-            
-            # Marquer la section comme "propre" une fois redessinée
+                
             self.dirtyRects[section] = False
         
         painter.end()
@@ -840,7 +843,7 @@ class Card(QWidget):
 
         # Dessiner le fond
         if bcko.get("color"):
-            bckc = QColor(bcko["color"])    # Background Color
+            bckc = self._parseColor(bcko["color"])    # Background Color
             painter.setBrush(QBrush(bckc))
             qpp = QPainterPath()
             qpp.addRoundedRect(rect, borderRadius, borderRadius)
@@ -962,4 +965,92 @@ class Card(QWidget):
         
         self.markAllDirty()
         self.update()
+
+    def _clearLayout(self):
+        """Supprime tous les widgets du layout"""
+        if self.mainLayout is None:
+            return
+        
+        while self.mainLayout.count():
+            item = self.mainLayout.takeAt(0)
+            if item.widget():
+                if item.widget() in [self.topCard, self.leftCard, self.centerCard, self.rightCard, self.bottomCard]:
+                    item.widget().setParent(None)
+                else:
+                    item.widget().deleteLater()
+
+    def _arrangeWidgets(self, rowStart=0, colStart=0, colSpan=3):
+        """
+        Arrange les widgets dans le layout
+    
+        Args:
+            rowStart (int): Ligne de départ
+            colStart (int): Colonne de départ
+            colSpan (int): Nombre de colonnes à occuper
+        """
+        if self.topCard is not None:
+            if self.debug:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting top card")
+            self.mainLayout.addWidget(self.topCard, rowStart, colStart, 1, colSpan, Qt.AlignmentFlag.AlignTop)
+            rowStart += 1
+
+        if self.bottomCard is not None:
+            if self.debug:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting bottom card")
+            self.mainLayout.addWidget(self.bottomCard, 2, 0, 1, 3)
+
+        if self.leftCard is not None:
+            if self.debug:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting left card")
+            self.mainLayout.addWidget(self.leftCard, rowStart, colStart, 1, 1)
+            colStart += 1
+            colSpan -= 1
+
+        if self.rightCard is not None:
+            if self.debug:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting right card")
+            self.mainLayout.addWidget(self.rightCard, rowStart, 2, 1, 1)
+            colSpan -= 1
+
+        if self.centerCard is not None:
+            if self.debug:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Setting center card")
+            self.mainLayout.addWidget(self.centerCard, rowStart, colStart, 1, colSpan)
+
+    def setAllCards(self, top=None, left=None, center=None, right=None, bottom=None):
+        """Met à jour tous les widgets d'un coup pour éviter plusieurs rebuilds
+    
+        Args:
+            top (QWidget, optional): Widget supérieur
+            left (QWidget, optional): Widget gauche
+            center (QWidget, optional): Widget central
+            right (QWidget, optional): Widget droit
+            bottom (QWidget, optional): Widget inférieur
+        """
+        old_widgets = [self.topCard, self.leftCard, self.centerCard, self.rightCard, self.bottomCard]
+        
+        if top is not None:
+            self.topCard = top
+            self.dirtyRects["top"] = True
+    
+        if left is not None:
+            self.leftCard = left
+            self.dirtyRects["left"] = True
+    
+        if center is not None:
+            self.centerCard = center
+            self.dirtyRects["center"] = True
+    
+        if right is not None:
+            self.rightCard = right
+            self.dirtyRects["right"] = True
+    
+        if bottom is not None:
+            self.bottomCard = bottom
+            self.dirtyRects["bottom"] = True
+        
+        self.initUI(rebuild=True)
+        for widget in old_widgets:
+            if widget is not None and widget not in [self.topCard, self.leftCard, self.centerCard, self.rightCard, self.bottomCard]:
+                widget.setParent(None)
 
