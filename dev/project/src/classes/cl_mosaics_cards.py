@@ -551,7 +551,7 @@ class FixedMosaicsCards(QWidget):
             if child.widget():
                 child.widget().deleteLater()
             elif child.layout():
-                self.clear_card_layout(child.layout())
+                self.clearCardLayout(child.layout())
 
     def setCardsList(self):
         self.cardList = [
@@ -638,8 +638,8 @@ class DynamicsMosaicsCards(QWidget):
         ttl_wdg_cnt = QHBoxLayout(title_widget)
         # Set the title
         title = QLabel(self.stackTitle)
-        title.setFont(QFont("Arial", 12, QFont.Bold))
-        ttl_wdg_cnt.addWidget(title, alignment=Qt.AlignCenter)
+        title.setFont(QFont("Arial", 12, QFont.Weight.Bold))
+        ttl_wdg_cnt.addWidget(title, alignment=Qt.AlignmentFlag.AlignCenter)
         ttl_wdg_cnt.addStretch()
         # Set the btn view
         btn_grid5_view = QPushButton(qta.icon("fa5s.th"), "")
@@ -654,8 +654,8 @@ class DynamicsMosaicsCards(QWidget):
 
         # set the separator
         sep = QFrame(self)
-        sep.setFrameShape(QFrame.HLine)
-        sep.setFrameShadow(QFrame.Sunken)
+        sep.setFrameShape(QFrame.Shape.HLine)
+        sep.setFrameShadow(QFrame.Shadow.Sunken)
         self.layout.addWidget(sep)
 
         # Set up the scroll area
@@ -693,7 +693,7 @@ class DynamicsMosaicsCards(QWidget):
             if child.widget():
                 child.widget().deleteLater()
             elif child.layout():
-                self.clear_card_layout(child.layout())
+                self.clearCardLayout(child.layout())
 
 # Extensions Mosaics Cards
 class PaletteIconSettingsDMC(DynamicsMosaicsCards):

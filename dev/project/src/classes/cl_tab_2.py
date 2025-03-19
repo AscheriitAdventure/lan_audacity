@@ -9,7 +9,8 @@ import sys
 import inspect
 from pathlib import Path
 
-from dev.project.src.classes.cl_clicontext import CLIconText
+from dev.project.src.classes.cl_clicontext import CLIconText, CLWIT
+from dev.project.src.classes.cl_extented import IconApp
 from dev.project.src.classes.cl_stacked_objects_2 import SDFOT, SDFSP
 from dev.project.src.lib.template_tools_bar import DEVICE_TAB, NETWORK_TAB, DEFAULT_SIDE_PANEL
 from dev.project.src.view.components.cl_codeEditor_2 import CodeEditor
@@ -387,6 +388,7 @@ class NetworkObjectTab(Tab):
         # Main layout
         self.mainLayout = QVBoxLayout(self)
         self.setLayout(self.mainLayout)
+        self.mainLayout.setContentsMargins(0, 0, 0, 0)
 
         # Add Scroll Area
         self._loadScrollArea()
@@ -394,12 +396,13 @@ class NetworkObjectTab(Tab):
         # Add Object 1 --> Custom List Widget Icon Text
         self._zone1 = QWidget()
         self._zone1Layout = QVBoxLayout(self._zone1)
+        self._zone1Layout.setContentsMargins(0, 0, 0, 0)
         self.scrollLayout.addWidget(self._zone1, 0, 0, 1, 1)
         
         # Add Object 2 --> Stacked 
         self._zone2 = QStackedWidget(self)
         self._zone2.setMinimumWidth(100)
-        self.scrollLayout.addWidget(self._zone2, 0, 1, Qt.AlignmentFlag.AlignTop)
+        self.scrollLayout.addWidget(self._zone2, 0, 1, 1, 1, Qt.AlignmentFlag.AlignTop)
 
     def _loadScrollArea(self):
         self.scrollArea = QScrollArea(self)
@@ -429,13 +432,18 @@ class NetworkObjectTab(Tab):
     
     def _loadStackData(self, data: Dict):
         sdfsp = SDFOT(debug=False, parent=self)
+
         btn_list: List[QPushButton] = []
 
         for f in data.get("fields", []):
-            btn = QPushButton(self)
+            btn = QPushButton()
             btn.setText(f.get("title", ""))
             btn.setToolTip(f.get("tooltip", ""))
+            if icon := f.get("icon"):
+                ico = IconApp.from_dict(icon)
+                btn.setIcon(ico.get_qIcon())
             btn.setFlat(True)
+            # btn.clicked.connect(lambda checked, f=f: self.updateStackedWidget(0, f))
             btn_list.append(btn)
 
             # if "actions" in f and isinstance(f["actions"], list):
@@ -455,16 +463,18 @@ class NetworkObjectTab(Tab):
         
             # sdfsp.initDisplay(f)
         
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Button list: {btn_list}")
         params = {
-            "list_objets": btn_list,
-            "toggle_icon": True, 
-            "search_panel": False,
-            "logger": False,
+            "toggle": True, 
+            "search": False,
             "parent": self
         }
 
-        if btn_list.__len__() > 0:
-            self._zone1Layout.addWidget(CLIconText(**params))
+        if len(btn_list) > 0:
+            o = CLWIT(**params)
+            for b in btn_list:
+                o.add_btn(b)
+            self._zone1Layout.addWidget(o)
 
     def updateStackedWidget(self, index: int, data: Dict):
         """
@@ -518,6 +528,17 @@ class NetworkObjectTab(Tab):
         logging.warning(f"{self.__class__.__name__}::get_callback: Callback {callback_name} not found")
         return None
     
+    def handleItemSimpleClick(self, data: Dict):
+        """
+        Gère le clic sur un élément du CLWIT.
+        
+        Args:
+            item_data (dict): Données de l'élément cliqué avec les clés :
+                - name: nom de l'objet 
+                - id: identifiant de l'objet 
+        """
+        pass
+
 
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""

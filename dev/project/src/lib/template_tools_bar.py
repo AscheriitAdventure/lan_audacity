@@ -273,7 +273,7 @@ DEVICE_TAB: Dict = {
     "fields": [
         {
             "title": "Dashboard",
-            "form_list": "fmcg", # Fixed Mosaics Cards Grid
+            "form_list": "fmcg",  # Fixed Mosaics Cards Grid
             "separator": True,
             "collapsed": False,
             "tooltip": "Affiche le tableau de bord",
@@ -306,13 +306,13 @@ DEVICE_TAB: Dict = {
                     'callback': None,
                     'tooltip': "Less"
                 },
-            ],  
+            ],
             "description": "Affiche le tableau de bord et les informations de l'objet",
             "visible": True
         },
         {
             "title": "Interfaces",
-            "form_list": "dmcg", # Dynamic Mosaics Cards Grid
+            "form_list": "dmcg",  # Dynamic Mosaics Cards Grid
             "separator": True,
             "collapsed": False,
             "tooltip": "Affiche les données de l'objet",
@@ -350,7 +350,7 @@ DEVICE_TAB: Dict = {
                     'callback': None,
                     'tooltip': "Less"
                 },
-            ],  
+            ],
             "description": "Affiche les interfaces de l'objet",
             "visible": True
         },
@@ -365,7 +365,15 @@ NETWORK_TAB: Dict = {
     "fields": [
         {
             "title": "Dashboard",
-            "form_list": "fmcg", # Fixed Mosaics Cards Grid
+            "form_list": "fmcg",  # Fixed Mosaics Cards Grid
+            "icon": {
+                "names": ["mdi6.view-dashboard"],
+                "options": [
+                    {
+                        "color": "PaleTurquoise"
+                    }
+                ],
+            },
             "separator": True,
             "collapsed": False,
             "tooltip": "Affiche le tableau de bord",
@@ -398,13 +406,21 @@ NETWORK_TAB: Dict = {
                     'callback': None,
                     'tooltip': "Less"
                 },
-            ],  
+            ],
             "description": "Affiche le tableau de bord et les informations de l'objet",
             "visible": True
         },
         {
             "title": "Interfaces",
-            "form_list": "dmcg", # Dynamic Mosaics Cards Grid
+            "form_list": "dmcg",  # Dynamic Mosaics Cards Grid
+            "icon": {
+                "names": ["mdi6.cogs"],
+                "options": [
+                    {
+                        "color": "LightSlateGray"
+                    }
+                ]
+            },
             "separator": True,
             "collapsed": False,
             "tooltip": "Affiche les données de l'objet",
@@ -442,13 +458,21 @@ NETWORK_TAB: Dict = {
                     'callback': None,
                     'tooltip': "Less"
                 },
-            ],  
+            ],
             "description": "Affiche les interfaces de l'objet",
             "visible": True
         },
         {
             "title": "Devices",
-            "form_list": "dmcg", # Dynamic Mosaics Cards Grid
+            "form_list": "dmcg",  # Dynamic Mosaics Cards Grid
+            "icon": {
+                "names": ["mdi6.desktop-tower"],
+                "options": [
+                    {
+                        "color": "LightSlateGray"
+                    }
+                ]
+            },
             "separator": True,
             "collapsed": False,
             "tooltip": "Affiche les données de l'objet",
@@ -468,15 +492,22 @@ NETWORK_TAB: Dict = {
                     'callback': None,
                     'tooltip': "Less"
                 },
-            ],  
+            ],
             "description": "Affiche les interfaces de l'objet",
             "visible": True
         },
         {
             "title": "VLANs",
             "icon": {
-                "names": ["mdi6.lan"],
-                "options": None
+                "names": ["mdi6.lan", "mdi6.scan-helper"],
+                "options": [
+                    {
+                        "scale_factor": 0.75
+                    },
+                    {
+                        "color": "Black"
+                    }
+                ]
             },
             "form_list": "map",
             "separator": True,
@@ -484,13 +515,22 @@ NETWORK_TAB: Dict = {
             "tooltip": "Affiche les VLAN sur réseau",
             "actions": [],
             "description": "Affiche les VLAN du réseau",
-            "visible": True                
+            "visible": True
         },
         {
             "title": "Network Map",
             "icon": {
-                "names": ["mdi6.map"],
-                "options": None
+                "names": ["mdi6.map-legend", "mdi6.routes"],
+                "options": [
+                    {
+                        "scale_factor": 1,
+                        "color": "Silver"
+                    },
+                    {
+                        "scale_factor": 0.75,
+                        "color": "ForestGreen"
+                    }
+                ]
             },
             "form_list": "map",
             "separator": True,
@@ -498,8 +538,7 @@ NETWORK_TAB: Dict = {
             "tooltip": "Affiche la carte du réseau",
             "actions": [],
             "description": "Affiche la carte du réseau",
-            "visible": True                
+            "visible": True
         },
     ]
 }
-
