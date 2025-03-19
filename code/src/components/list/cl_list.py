@@ -37,10 +37,10 @@ class CLWIconText(QWidget):
         self.searchPanel: Optional[QWidget] = None
 
         if toggle_icon:
-            self.set_toggleIcon()
+            self.set_toggleIconFunc()
 
         if search_panel:
-            self.set_searchPanel()
+            self.set_searchPanelFunc()
 
     def set_listUI(self):
         self.logger.debug(f"Setting List UI: {len(self.listObj)}")
@@ -75,6 +75,22 @@ class CLWIconText(QWidget):
         searchPanel.setWindowIcon(qta.icon("mdi6.magnify"))
 
         self.searchPanel = searchPanel
+    
+    def toggleIcon(self):
+        if self.listObj and len(self.listObj) == len(self.storedText):  # Vérification de la synchronisation
+            if self.listObj[0].text() == "":
+                if self.searchPanel is not None:
+                    self.searchPanel.show()
+                for i in range(len(self.listObj)):
+                    self.listObj[i].setText(self.storedText[i])
+            else:
+                if self.searchPanel is not None:
+                    self.searchPanel.hide()
+                for i in range(len(self.listObj)):
+                    self.listObj[i].setText("")
+        else:
+            logging.error("ListObj and StoredText are not synchronized!")
+
 
 
 """
