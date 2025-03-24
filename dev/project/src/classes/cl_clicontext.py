@@ -236,6 +236,7 @@ class CLWIT(QWidget):
             self.clwit_layout.removeWidget(btn)
             btn.deleteLater()
 
+
 class ToggleBtn(QPushButton):
     def __init__(self, parent=None):
         super(ToggleBtn, self).__init__(parent)

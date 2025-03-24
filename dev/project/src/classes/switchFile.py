@@ -86,3 +86,4 @@ class SwitchFile:
     def universal_read(abs_path: str) -> Any:
         with open(abs_path, "r+", encoding="utf-8") as file:
             return file.read()
+        

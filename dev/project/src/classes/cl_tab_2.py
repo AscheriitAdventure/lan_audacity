@@ -31,6 +31,7 @@ class Tab(QWidget):
         self.tab_type = tab_type
         self.title = title
         self.modified = False
+        self.debug: bool = False
 
     def get_title(self) -> str:
         return f"{'*' if self.modified else ''}{self.title}"
@@ -386,7 +387,7 @@ class NetworkObjectTab(Tab):
 
     def initUI(self):
         # Main layout
-        self.mainLayout = QVBoxLayout(self)
+        self.mainLayout = QGridLayout(self)
         self.setLayout(self.mainLayout)
         self.mainLayout.setContentsMargins(0, 0, 0, 0)
 
@@ -430,39 +431,45 @@ class NetworkObjectTab(Tab):
         else:
             self.domainType = self.DomainType.OTHER
             self._loadStackData(DEFAULT_SIDE_PANEL)
-    
-    def _loadStackData(self, data: Dict):
+
+    def _loadStackData(self, data: dict):
         sdfsp = SDFOT(debug=False, parent=self)
-
         btn_list: List[QPushButton] = []
+        fields: List[dict] = data.get("fields", [])
 
-        for f in data.get("fields", []):
+        for f in fields:
             btn = QPushButton()
             btn.setText(f.get("title", ""))
             btn.setToolTip(f.get("tooltip", ""))
             if icon := f.get("icon"):
-                ico = IconApp.from_dict(icon)
-                btn.setIcon(ico.get_qIcon())
+                    ico = IconApp.from_dict(icon)
+                    btn.setIcon(ico.get_qIcon())
             btn.setFlat(True)
-            # btn.clicked.connect(lambda checked, f=f: self.updateStackedWidget(0, f))
+            btn.clicked.connect(lambda checked, f=f: self.updateStackedWidget(0, f))
             btn_list.append(btn)
 
-            # if "actions" in f and isinstance(f["actions"], list):
-            #     for a in f["actions"]:
-            #         if isinstance(a, dict) and "callback" in a and a["callback"] is not None:
-            #             cbk = a.get("callback")
-            #             if isinstance(cbk, str):
-            #                 if cbk_method := self.get_callback(cbk):
-            #                     a["callback"] = cbk_method
-            #                 else:
-            #                     logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Callback method {cbk} not found")
-            #             elif cbk is not None:
-            #                 logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid callback type: {type(cbk)}")
-        
-            # self._zone2.addWidget(sdfsp)
-            # self.stackedWidgetList.append(sdfsp)
-        
-            # sdfsp.initDisplay(f)
+            f_acts = f.get("actions", None)
+            if f_acts is not None:
+                if isinstance(f_acts, list) and len(f_acts)>0:
+                    for a in f_acts:
+                        if isinstance(a, dict) and a.get("callback", None) is not None:
+                            cbk = a["callback"]
+                            if isinstance(cbk, str):
+                                if cbk_method := self.get_callback(cbk):
+                                    a["callback"] = cbk_method
+                                else:
+                                    logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Callback method {cbk} not found")
+                            elif cbk is not None:
+                                logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid callback type: {type(cbk)}")
+                else:
+                    if self.debug:
+                        logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: actions isntance isn't setted")                
+
+            self._zone2.addWidget(sdfsp)
+            self.stackedWidgetList.append(sdfsp)
+            
+        sdfsp.initDisplay(data)
+        self._zone2.setCurrentIndex(0)
         
         logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Button list: {btn_list}")
         params = {
@@ -476,6 +483,7 @@ class NetworkObjectTab(Tab):
             for b in btn_list:
                 o.add_btn(b)
             self._zone1Layout.addWidget(o)
+            self._zone1Layout.addStretch()
 
     def updateStackedWidget(self, index: int, data: Dict):
         """
@@ -491,17 +499,17 @@ class NetworkObjectTab(Tab):
                 form_type = f.get("form_list")
 
                 if form_type == "fmcg": # Fixed Mosaics Cards Grid
-                    pass
+                    logging.info("Charge all card with data and refresh")
                 elif form_type == "dmcg": # Dynamic Mosaics Cards Grid
-                    pass
+                    logging.info("Charge all card with data and refresh")
                 else: # Default Ressource Form
-                    pass
+                    logging.warning("Problem with form_type")
 
-                if f.get('actions'):
-                    for a in f['actions']:
-                        if isinstance(a, dict) and a.get('callback') is None:
-                            if a.get('tooltip') == 'update':
-                                a['callback'] = self.updateStackedWidget
+                # if f.get('actions'):
+                #     for a in f['actions']:
+                #         if isinstance(a, dict) and a.get('callback') is None:
+                #             if a.get('tooltip') == 'update':
+                #                 a['callback'] = self.updateStackedWidget
                 
             sdfsp.exchangeContext.emit({
                 "action": "stack_updated",
