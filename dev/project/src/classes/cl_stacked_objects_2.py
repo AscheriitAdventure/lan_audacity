@@ -133,13 +133,14 @@ class SDFD(QWidget):
 
     def _loaddBtnContainer(self):
         btnContainer = QWidget()
+        btnLayout = QHBoxLayout(btnContainer)
         self.scrollLayout.addWidget(
             btnContainer, 0, 0, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
 
         for field in self.activeFields:
             if field['enable']:
                 btn = QPushButton("lol")
-                btnContainer.addWidget(btn)
+                btnLayout.addWidget(btn)
 
     def setStackContextMenu(self, context_menu: Any):
         self.stackContextMenu = context_menu
@@ -155,16 +156,18 @@ class SDFD(QWidget):
             visbBtn.clicked.connect(lambda: self._createVisibilityMenu()._exec(
                 visbBtn.mapToGlobal(visbBtn.rect().bottomLeft())))
 
+        tmp_dict: dict = {}
+        tmp_dict["text"]=data.get('stacked_title', 'Untitled')
+        tmp_dict["actions"]=[visbBtn] if visbBtn else None
         # Création du bloc de titre
-        ttlBlk = TitleBlock(text=data.get('stacked_title', 'Untitled'), actions=[
-                            visbBtn] if visbBtn else None)
+        ttlBlk = TitleBlock(**tmp_dict)
 
         if data.get('shortcut'):
             ttlBlk.title_label.setToolTip(
                 f"{data.get('stacked_title', 'Untitled')} ({data['shortcut']})")
 
         self.scrollLayout.addWidget(ttlBlk)
-
+        
         if data.get("separator", False):
             sep = QFrame()
             sep.setFrameShape(QFrame.Shape.HLine)
@@ -182,22 +185,21 @@ class SDFD(QWidget):
             # Création du field
             fieldWidget = self._createFieldWidget(fd)
             fieldsLayout.addWidget(fieldWidget)
-
             # Ajout du field à la liste des fields actifs
-            fds = {
-                "title": fd["title"],
-                "form_list": fd.get("form_list"),
-                "visible": fd.get("visible", True),
-                "collapsed": fd.get("collapsed", False),
-                "stack_title": data.get("stacked_title"),
-                "enabled": data.get("enable", True),
-                "widget": fieldWidget,
-                "actions": fd.get("actions", []),
-                "tooltip": fd.get("tooltip"),
-                "spacer": fd.get("spacer"),
-                "description": fd.get("description"),
-                "slots": fd.get("slots", []),
-            }
+            fds = {}
+            fds["title"] = fd["title"]
+            fds["form_list"] = fd.get("form_list")
+            fds["visible"] = fd.get("visible", True)
+            fds["collapsed"] = fd.get("collapsed", False)
+            fds["stack_title"] = data.get("stacked_title")
+            fds["enabled"] = data.get("enable", True)
+            fds["widget"] = fieldWidget
+            fds["actions"] = fd.get("actions", [])
+            fds["tooltip"] = fd.get("tooltip")
+            fds["spacer"] = fd.get("spacer")
+            fds["description"] = fd.get("description")
+            fds["slots"] = fd.get("slots", [])
+            
             self.activeFields.append(fds)
 
         fieldsContainer.setVisible(data.get('enable', True))
@@ -207,7 +209,7 @@ class SDFD(QWidget):
             shct = QShortcut(QKeySequence(data['shortcut']), self)
             shct.activated.connect(
                 lambda: self._toggleStackVisibility(data['stacked_title']))
-
+            
         self.exchangeContext.emit({
             "action": "stack_loaded",
             "title": data.get("stacked_title", "Untitled"),
@@ -459,7 +461,7 @@ class SDFSP(SDFD):
                 QAbstractItemView.EditTrigger.NoEditTriggers)
             if isinstance(widget_data, list):
                 for item_data in widget_data:
-                    self.add_tree_items(model.invisibleRootItem(), item_data)
+                    self.addTreeItems(model.invisibleRootItem(), item_data)
 
             # Connecter le signal pour double-clic
             widget.doubleClicked.connect(lambda index: self.itemDoubleClicked.emit({
@@ -496,6 +498,52 @@ class SDFOT(SDFD):
 
         self.initUI()
 
+    def initDisplay(self, data):
+        """Charge les données de stack spécifiées"""
+        # Configuration du bouton de visibilité
+        visbBtn = None
+
+        fieldsContainer = QWidget()
+        fieldsLayout = QVBoxLayout(fieldsContainer)
+        fieldsLayout.setContentsMargins(0, 0, 0, 0)
+        fieldsLayout.setSpacing(2)
+        fieldsContainer.setLayout(fieldsLayout)
+
+        for fd in data.get('fields', []):
+            # Création du field
+            fieldWidget = self._createFieldWidget(fd)
+            fieldsLayout.addWidget(fieldWidget)
+            # Ajout du field à la liste des fields actifs
+            fds = {}
+            fds["title"] = fd["title"]
+            fds["form_list"] = fd.get("form_list")
+            fds["visible"] = fd.get("visible", True)
+            fds["collapsed"] = fd.get("collapsed", False)
+            fds["stack_title"] = data.get("stacked_title")
+            fds["enabled"] = data.get("enable", True)
+            fds["widget"] = fieldWidget
+            fds["actions"] = fd.get("actions", [])
+            fds["tooltip"] = fd.get("tooltip")
+            fds["spacer"] = fd.get("spacer")
+            fds["description"] = fd.get("description")
+            fds["slots"] = fd.get("slots", [])
+            
+            self.activeFields.append(fds)
+
+        fieldsContainer.setVisible(data.get('enable', True))
+        self.scrollLayout.addWidget(fieldsContainer)
+
+        if data.get('shortcut'):
+            shct = QShortcut(QKeySequence(data['shortcut']), self)
+            shct.activated.connect(
+                lambda: self._toggleStackVisibility(data['stacked_title']))
+
+        self.exchangeContext.emit({
+            "action": "stack_loaded",
+            "title": data.get("stacked_title", "Untitled"),
+            "enabled": data.get("enable", True),
+        })
+
     def _createSpecificFieldWidget(self, field: Dict[str, Any]) -> QWidget:
         """Crée le widget spécifique selon le form_list"""
         form_type = field.get('form_list', "")
@@ -509,6 +557,58 @@ class SDFOT(SDFD):
             pass
 
         return QWidget()
+
+    def _createFieldWidget(self, field: Dict[str, Any]) -> QWidget:
+        qtc = QWidget()
+        qtl = QVBoxLayout(qtc)
+        qtl.setContentsMargins(0,0,0,0)
+
+        # Récupération des actions pour le titre
+        actions = []
+        if field.get("actions"):
+            for action in field.get("actions", []):
+                if isinstance(action, dict) and action.get('type') != 'callback':
+                    actions.append(action)
+        
+        tmp_dict: dict = {}
+        tmp_dict["text"] = field.get("title", "Non Défini").upper()
+        tmp_dict["actions"] = actions
+
+        # Création du header
+        header = TitleBlock(**tmp_dict)
+
+        # Widget principal du field
+        fieldWidget = self._createSpecificFieldWidget(field)
+        fieldLayout = QVBoxLayout()
+        fieldLayout.setContentsMargins(0,0,0,0)
+        fieldWidget.setLayout(fieldLayout)
+
+        # Gestion de la visibilité
+        isVisible = field.get("visible", True)
+
+        # Ajout des widgets au container
+        qtl.addWidget(header)
+
+        if field.get("separator", False):
+            sep = QFrame()
+            sep.setFrameShape(QFrame.Shape.HLine)
+            sep.setFrameShadow(QFrame.Shadow.Sunken)
+            qtl.addWidget(sep)
+
+        qtl.addWidget(fieldWidget)
+
+        # Application des états de visibilité
+        fieldWidget.setVisible(isVisible)
+        qtc.setVisible(isVisible)
+
+        if field.get("tooltip"):
+            qtc.setToolTip(field["tooltip"])
+        
+        if field.get("spacer"):
+            qtl.addSpacerItem(
+                QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+            )
+        return qtc
 
 
 class CardImage(QWidget):
@@ -1049,6 +1149,17 @@ class Card(QWidget):
             if widget is not None and widget not in [self.topCard, self.leftCard, self.centerCard, self.rightCard, self.bottomCard]:
                 widget.setParent(None)
 
+    def mousePressEvent(self, event: QMouseEvent) -> None:
+        if event.buttons() == Qt.MouseButton.LeftButton:
+            drag = QDrag(self)
+            mime = QMimeData()
+            drag.setMimeData(mime)
+
+            pixmap = QPixmap(self.size())
+            self.render(pixmap)
+            drag.setPixmap(pixmap)
+
+            drag.exec_(Qt.DropAction.MoveAction)
 
 # Extensions
 class TitleWithActions(QWidget):

@@ -11,7 +11,8 @@ from pathlib import Path
 
 from dev.project.src.classes.cl_clicontext import CLIconText, CLWIT
 from dev.project.src.classes.cl_extented import IconApp
-from dev.project.src.classes.cl_stacked_objects_2 import SDFOT, SDFSP
+from dev.project.src.view.components.title_with_actions import TitleWithAction
+from dev.project.src.classes.cl_fields import WidgetField, Card
 from dev.project.src.lib.template_tools_bar import DEVICE_TAB, NETWORK_TAB, DEFAULT_SIDE_PANEL
 from dev.project.src.view.components.cl_codeEditor_2 import CodeEditor
 from dev.project.src.view.components.cl_breadcrumbs_2 import QBreadcrumbs
@@ -403,7 +404,7 @@ class NetworkObjectTab(Tab):
         # Add Object 2 --> Stacked 
         self._zone2 = QStackedWidget(self)
         self._zone2.setMinimumWidth(100)
-        self.scrollLayout.addWidget(self._zone2, 0, 1, 1, 1, Qt.AlignmentFlag.AlignTop)
+        self.scrollLayout.addWidget(self._zone2, 0, 1, 1, 1)
 
     def _loadScrollArea(self):
         self.scrollArea = QScrollArea(self)
@@ -433,42 +434,32 @@ class NetworkObjectTab(Tab):
             self._loadStackData(DEFAULT_SIDE_PANEL)
 
     def _loadStackData(self, data: dict):
-        sdfsp = SDFOT(debug=False, parent=self)
         btn_list: List[QPushButton] = []
         fields: List[dict] = data.get("fields", [])
 
-        for f in fields:
+        for i, f in enumerate(fields):
             btn = QPushButton()
             btn.setText(f.get("title", ""))
             btn.setToolTip(f.get("tooltip", ""))
             if icon := f.get("icon"):
-                    ico = IconApp.from_dict(icon)
-                    btn.setIcon(ico.get_qIcon())
+                ico = IconApp.from_dict(icon)
+                btn.setIcon(ico.get_qIcon())
             btn.setFlat(True)
-            btn.clicked.connect(lambda checked, f=f: self.updateStackedWidget(0, f))
+            btn.clicked.connect(self.showField(i))
             btn_list.append(btn)
-
-            f_acts = f.get("actions", None)
-            if f_acts is not None:
-                if isinstance(f_acts, list) and len(f_acts)>0:
-                    for a in f_acts:
-                        if isinstance(a, dict) and a.get("callback", None) is not None:
-                            cbk = a["callback"]
-                            if isinstance(cbk, str):
-                                if cbk_method := self.get_callback(cbk):
-                                    a["callback"] = cbk_method
-                                else:
-                                    logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Callback method {cbk} not found")
-                            elif cbk is not None:
-                                logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid callback type: {type(cbk)}")
-                else:
-                    if self.debug:
-                        logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: actions isntance isn't setted")                
-
-            self._zone2.addWidget(sdfsp)
-            self.stackedWidgetList.append(sdfsp)
             
-        sdfsp.initDisplay(data)
+            sdfot = WidgetField()
+            sdfot.setGridForm(WidgetField.GridForm.RMosaics, 5)
+        
+            sdfot.setHeaderArea(TitleWithAction(title=f.get("title", ""), parent=sdfot))
+            for i in range(1,51):
+                carte = Card(debug=self.debug)
+                carte.setCenterCard(QLabel(str(i)))
+                sdfot.addCard(carte)
+
+            self._zone2.addWidget(sdfot)
+            self.stackedWidgetList.append(sdfot)
+
         self._zone2.setCurrentIndex(0)
         
         logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Button list: {btn_list}")
@@ -484,59 +475,7 @@ class NetworkObjectTab(Tab):
                 o.add_btn(b)
             self._zone1Layout.addWidget(o)
             self._zone1Layout.addStretch()
-
-    def updateStackedWidget(self, index: int, data: Dict):
-        """
-            Met à jour les données d'un widget et de ses fields
-            Args:
-                index (int): Index du widget à mettre à jour
-                data (dict): Données à mettre à jour
-        """
-        try:
-            sdfsp: SDFOT = self.stackedWidgetList[index]
-
-            for f in sdfsp.activeFields:
-                form_type = f.get("form_list")
-
-                if form_type == "fmcg": # Fixed Mosaics Cards Grid
-                    logging.info("Charge all card with data and refresh")
-                elif form_type == "dmcg": # Dynamic Mosaics Cards Grid
-                    logging.info("Charge all card with data and refresh")
-                else: # Default Ressource Form
-                    logging.warning("Problem with form_type")
-
-                # if f.get('actions'):
-                #     for a in f['actions']:
-                #         if isinstance(a, dict) and a.get('callback') is None:
-                #             if a.get('tooltip') == 'update':
-                #                 a['callback'] = self.updateStackedWidget
-                
-            sdfsp.exchangeContext.emit({
-                "action": "stack_updated",
-                "index": index,
-                "data": data
-            })
-
-        except Exception as e:
-            logging.error(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error updating stack widget: {str(e)}"
-            )
-
-    def get_callback(self, callback_name: str):
-        """
-        Get the method reference for a callback name.
-        
-        Args:
-            callback_name (str): Name of the callback method
             
-        Returns:
-            method: Reference to the method or None if not found
-        """
-        if hasattr(self, callback_name):
-            return getattr(self, callback_name)
-        logging.warning(f"{self.__class__.__name__}::get_callback: Callback {callback_name} not found")
-        return None
-    
     def handleItemSimpleClick(self, data: Dict):
         """
         Gère le clic sur un élément du CLWIT.
@@ -548,7 +487,24 @@ class NetworkObjectTab(Tab):
         """
         pass
 
-
+    def showField(self, index: int):
+        """
+        Renvoie une fonction de rappel qui affichera le widget empilé à l'index spécifié.
+        Cette méthode est utilisée pour connecter aux signaux de clic de bouton.
+    
+        Args:
+            index (int): Index du widget empilé à afficher
+        
+        Returns:
+            function: Fonction de rappel qui affiche le widget empilé spécifié
+        """
+        def callback():
+            if 0 <= index < len(self.stackedWidgetList):
+                self._zone2.setCurrentIndex(index)
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Affichage du champ à l'index {index}")
+    
+        return callback
+    
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""
 

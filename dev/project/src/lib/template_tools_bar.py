@@ -280,7 +280,7 @@ DEVICE_TAB: Dict = {
             "actions": [
                 {
                     'icon': {
-                        "names:": ["mdi6.plus-circle"],
+                        "names": ["mdi6.plus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -294,7 +294,7 @@ DEVICE_TAB: Dict = {
                 },
                 {
                     'icon': {
-                        "names:": ["mdi6.minus-circle"],
+                        "names": ["mdi6.minus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -318,13 +318,15 @@ DEVICE_TAB: Dict = {
             "tooltip": "Affiche les données de l'objet",
             "actions": [
                 {
-                    'icon': {},
+                    'icon': {
+                        "names": ["mdi6.view-split-vertical"]
+                    },
                     'callback': None,
                     'tooltip': "grid X colonne"
                 },
                 {
                     'icon': {
-                        "names:": ["mdi6.plus-circle"],
+                        "names": ["mdi6.plus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -338,7 +340,7 @@ DEVICE_TAB: Dict = {
                 },
                 {
                     'icon': {
-                        "names:": ["mdi6.minus-circle"],
+                        "names": ["mdi6.minus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -380,7 +382,7 @@ NETWORK_TAB: Dict = {
             "actions": [
                 {
                     'icon': {
-                        "names:": ["mdi6.plus-circle"],
+                        "names": ["mdi6.plus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -394,7 +396,7 @@ NETWORK_TAB: Dict = {
                 },
                 {
                     'icon': {
-                        "names:": ["mdi6.minus-circle"],
+                        "names": ["mdi6.minus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -426,13 +428,15 @@ NETWORK_TAB: Dict = {
             "tooltip": "Affiche les données de l'objet",
             "actions": [
                 {
-                    'icon': {},
+                    'icon': {
+                        "names": ["mdi6.view-split-vertical"]
+                    },
                     'callback': None,
                     'tooltip': "grid X colonne"
                 },
                 {
                     'icon': {
-                        "names:": ["mdi6.plus-circle"],
+                        "names": ["mdi6.plus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -446,7 +450,7 @@ NETWORK_TAB: Dict = {
                 },
                 {
                     'icon': {
-                        "names:": ["mdi6.minus-circle"],
+                        "names": ["mdi6.minus-circle"],
                         "options": [
                             {
                                 "scale_factor": 1,
@@ -478,17 +482,37 @@ NETWORK_TAB: Dict = {
             "tooltip": "Affiche les données de l'objet",
             "actions": [
                 {
-                    'icon': {},
+                    'icon': {
+                        "names": ["mdi6.view-split-vertical"]
+                    },
                     'callback': None,
                     'tooltip': "grid X colonne"
                 },
                 {
-                    'icon': {},
+                    'icon': {
+                        "names": ["mdi6.plus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Lime",
+                                "active": "mdi6.plus-circle-outline"
+                            }
+                        ]
+                    },
                     'callback': None,
                     'tooltip': "More"
                 },
                 {
-                    'icon': {},
+                    'icon': {
+                        "names": ["mdi6.minus-circle"],
+                        "options": [
+                            {
+                                "scale_factor": 1,
+                                "color": "Red",
+                                "active": "mdi6.minus-circle-outline"
+                            }
+                        ]
+                    },
                     'callback': None,
                     'tooltip': "Less"
                 },
