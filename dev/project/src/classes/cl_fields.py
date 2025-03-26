@@ -208,7 +208,9 @@ class WidgetField(QWidget):
                 }
             }
         else:
-            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {positions}")
+            if self._debug:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {positions}")
+
             tmp_dict = positions
             
         if widget is None:

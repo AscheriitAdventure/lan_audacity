@@ -8334,3 +8334,640 @@
 2025-03-26 16:59:30,832 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\c153cbf9-e0f0-4ea3-8bb8-98192d5292ee.json', 'name': 'google_test', 'id': 2}
 2025-03-26 16:59:30,836 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
 2025-03-26 16:59:30,887 - DEBUG - NetworkObjectTab::_loadStackData: Button list: [<PyQt6.QtWidgets.QPushButton object at 0x000001B5962539D0>, <PyQt6.QtWidgets.QPushButton object at 0x000001B596261E50>, <PyQt6.QtWidgets.QPushButton object at 0x000001B5962785F0>, <PyQt6.QtWidgets.QPushButton object at 0x000001B596282D50>, <PyQt6.QtWidgets.QPushButton object at 0x000001B5993793B0>]
+2025-03-26 17:07:24,562 - INFO - Application démarrée.
+2025-03-26 17:07:24,563 - DEBUG - Mode débogage activé.
+2025-03-26 17:07:24,565 - WARNING - Attention, ceci est un avertissement.
+2025-03-26 17:07:24,565 - INFO - load_app: Chargement de l'interface graphique.
+2025-03-26 17:07:24,565 - INFO - load_app: Lan Audacity démarrée.
+2025-03-26 17:07:25,132 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-03-26 17:07:25,133 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-03-26 17:07:25,134 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-03-26 17:07:25,139 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-03-26 17:07:25,140 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-03-26 17:07:25,141 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-03-26 17:07:25,656 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:07:25,657 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,658 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:07:25,659 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,659 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:07:25,660 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,661 - DEBUG - MainGUI::initUI_menuBar: <PyQt6.QtWidgets.QMenu object at 0x000002A87D0C0230>
+2025-03-26 17:07:25,661 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:07:25,662 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:07:25,663 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:07:25,664 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,665 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:07:25,665 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:07:25,666 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:07:25,667 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:07:25,668 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:07:25,668 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:07:25,669 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:07:25,670 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:07:25,671 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,671 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:07:25,672 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,673 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,675 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:07:25,676 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:07:25,677 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,677 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:07:25,678 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:07:25,679 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,680 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,680 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:07:25,681 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:07:25,682 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,682 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:07:25,684 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:07:25,685 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:07:25,686 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:07:25,687 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:07:25,687 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:07:25,688 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:07:25,688 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:07:25,690 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:07:30,348 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:07:30,348 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:07:30,365 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:07:30,369 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan3\lan_audacity.json exist.
+2025-03-26 17:07:31,713 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3\\db\\interfaces\\60de67a2-dbf4-4deb-afd2-9d2fdcbda3f6.json', 'name': 'p', 'id': 0}
+2025-03-26 17:07:31,717 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:07:31,721 - DEBUG - WidgetField::addCard: {'colSpan': 2}
+2025-03-26 17:07:31,723 - ERROR - MainGUI::<function currentframe at 0x000002A87832D8A0>: 'layout'
+2025-03-26 17:07:34,720 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3\\db\\interfaces\\0e3a0a25-b50e-4566-90a9-99b4085e321c.json', 'name': 'q', 'id': 1}
+2025-03-26 17:07:34,723 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:07:34,726 - DEBUG - WidgetField::addCard: {'colSpan': 2}
+2025-03-26 17:07:34,727 - ERROR - MainGUI::<function currentframe at 0x000002A87832D8A0>: 'layout'
+2025-03-26 17:07:47,387 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:07:47,388 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:07:47,408 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:07:47,409 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan3\lan_audacity.json exist.
+2025-03-26 17:07:52,110 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:07:52,111 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:07:52,129 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:07:52,130 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan2\lan_audacity.json exist.
+2025-03-26 17:07:52,921 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\c868b786-6b3d-4c44-a505-2eb6fea43d57.json', 'name': 'Terminaux', 'id': 1}
+2025-03-26 17:07:52,922 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:07:52,923 - DEBUG - WidgetField::addCard: {'colSpan': 2}
+2025-03-26 17:07:52,923 - ERROR - MainGUI::<function currentframe at 0x000002A87832D8A0>: 'layout'
+2025-03-26 17:08:32,413 - INFO - Application démarrée.
+2025-03-26 17:08:32,413 - DEBUG - Mode débogage activé.
+2025-03-26 17:08:32,414 - WARNING - Attention, ceci est un avertissement.
+2025-03-26 17:08:32,416 - INFO - load_app: Chargement de l'interface graphique.
+2025-03-26 17:08:32,416 - INFO - load_app: Lan Audacity démarrée.
+2025-03-26 17:08:32,478 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-03-26 17:08:32,478 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-03-26 17:08:32,479 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-03-26 17:08:32,481 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-03-26 17:08:32,481 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-03-26 17:08:32,482 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-03-26 17:08:32,629 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:08:32,629 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,630 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:08:32,630 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,632 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:08:32,633 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,633 - DEBUG - MainGUI::initUI_menuBar: <PyQt6.QtWidgets.QMenu object at 0x00000279B9B40230>
+2025-03-26 17:08:32,634 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:08:32,635 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:08:32,636 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:08:32,636 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,637 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:08:32,638 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:08:32,638 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:08:32,639 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:08:32,639 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:08:32,640 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:08:32,641 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:08:32,641 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:08:32,642 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,643 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:08:32,644 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,645 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,646 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:08:32,647 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:08:32,648 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,649 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:08:32,650 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:08:32,651 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,651 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,652 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:08:32,652 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:08:32,653 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,653 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:08:32,654 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:08:32,654 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:08:32,655 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:08:32,656 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:08:32,656 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:08:32,657 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:08:32,658 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:08:32,660 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:08:36,577 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:08:36,578 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:08:36,790 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:08:36,793 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan3\lan_audacity.json exist.
+2025-03-26 17:08:38,356 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3\\db\\interfaces\\60de67a2-dbf4-4deb-afd2-9d2fdcbda3f6.json', 'name': 'p', 'id': 0}
+2025-03-26 17:08:38,358 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:08:38,359 - DEBUG - WidgetField::addCard: {'layout': {'colSpan': 2}}
+2025-03-26 17:08:38,359 - ERROR - MainGUI::<function currentframe at 0x00000279B4DAD8A0>: 'rowSpan'
+2025-03-26 17:09:37,310 - INFO - Application démarrée.
+2025-03-26 17:09:37,310 - DEBUG - Mode débogage activé.
+2025-03-26 17:09:37,311 - WARNING - Attention, ceci est un avertissement.
+2025-03-26 17:09:37,311 - INFO - load_app: Chargement de l'interface graphique.
+2025-03-26 17:09:37,312 - INFO - load_app: Lan Audacity démarrée.
+2025-03-26 17:09:37,373 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-03-26 17:09:37,374 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-03-26 17:09:37,375 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-03-26 17:09:37,377 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-03-26 17:09:37,377 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-03-26 17:09:37,377 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-03-26 17:09:37,543 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:09:37,544 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,544 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:09:37,545 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,545 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:09:37,546 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,547 - DEBUG - MainGUI::initUI_menuBar: <PyQt6.QtWidgets.QMenu object at 0x00000253AE430230>
+2025-03-26 17:09:37,547 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:09:37,549 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:09:37,550 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:09:37,550 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,551 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:09:37,552 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:09:37,552 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:09:37,553 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:09:37,554 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:09:37,555 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:09:37,555 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:09:37,556 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:09:37,557 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,557 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:09:37,558 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,559 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,560 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:09:37,560 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:09:37,561 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,562 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:09:37,563 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:09:37,564 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,565 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,565 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:09:37,566 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:09:37,566 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,567 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:09:37,567 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:09:37,568 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:09:37,569 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:09:37,569 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:09:37,570 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:09:37,571 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:09:37,572 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:09:37,575 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:09:40,960 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:09:40,961 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:09:40,980 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:09:40,981 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan3\lan_audacity.json exist.
+2025-03-26 17:09:41,965 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3\\db\\interfaces\\60de67a2-dbf4-4deb-afd2-9d2fdcbda3f6.json', 'name': 'p', 'id': 0}
+2025-03-26 17:09:41,967 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:09:41,971 - DEBUG - WidgetField::addCard: {'layout': {'colSpan': 2, 'rowSpan': 1}}
+2025-03-26 17:09:41,972 - ERROR - MainGUI::<function currentframe at 0x00000253A92AD8A0>: 'columnSpan'
+2025-03-26 17:10:02,752 - INFO - Application démarrée.
+2025-03-26 17:10:02,753 - DEBUG - Mode débogage activé.
+2025-03-26 17:10:02,753 - WARNING - Attention, ceci est un avertissement.
+2025-03-26 17:10:02,754 - INFO - load_app: Chargement de l'interface graphique.
+2025-03-26 17:10:02,755 - INFO - load_app: Lan Audacity démarrée.
+2025-03-26 17:10:02,818 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-03-26 17:10:02,818 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-03-26 17:10:02,819 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-03-26 17:10:02,820 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-03-26 17:10:02,820 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-03-26 17:10:02,821 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-03-26 17:10:02,975 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:10:02,976 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,976 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:10:02,976 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,978 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:10:02,979 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,979 - DEBUG - MainGUI::initUI_menuBar: <PyQt6.QtWidgets.QMenu object at 0x00000207ACD60230>
+2025-03-26 17:10:02,980 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:10:02,980 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:10:02,981 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:10:02,982 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,983 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:10:02,983 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:10:02,984 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:10:02,984 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:10:02,985 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:10:02,986 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:10:02,986 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:10:02,987 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:10:02,988 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,989 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:10:02,989 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,991 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,993 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:10:02,993 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:10:02,995 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:02,996 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:10:02,998 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:10:03,000 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:03,000 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:03,001 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:10:03,001 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:10:03,002 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:03,003 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:10:03,003 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:10:03,004 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:10:03,005 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:10:03,007 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:10:03,008 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:10:03,009 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:10:03,011 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:10:03,014 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:10:07,840 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:10:07,841 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:10:07,859 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:10:07,861 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan3\lan_audacity.json exist.
+2025-03-26 17:10:08,765 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3\\db\\interfaces\\60de67a2-dbf4-4deb-afd2-9d2fdcbda3f6.json', 'name': 'p', 'id': 0}
+2025-03-26 17:10:08,768 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:10:08,770 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1}}
+2025-03-26 17:10:08,771 - ERROR - MainGUI::<function currentframe at 0x00000207A7FCD8A0>: 'alignment'
+2025-03-26 17:20:40,365 - INFO - Application démarrée.
+2025-03-26 17:20:40,366 - DEBUG - Mode débogage activé.
+2025-03-26 17:20:40,367 - WARNING - Attention, ceci est un avertissement.
+2025-03-26 17:20:40,367 - INFO - load_app: Chargement de l'interface graphique.
+2025-03-26 17:20:40,368 - INFO - load_app: Lan Audacity démarrée.
+2025-03-26 17:20:40,464 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-03-26 17:20:40,465 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-03-26 17:20:40,465 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-03-26 17:20:40,467 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-03-26 17:20:40,468 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-03-26 17:20:40,468 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-03-26 17:20:40,681 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:20:40,682 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,683 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:20:40,684 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,684 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:20:40,685 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,686 - DEBUG - MainGUI::initUI_menuBar: <PyQt6.QtWidgets.QMenu object at 0x0000029EBC0704B0>
+2025-03-26 17:20:40,687 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:20:40,687 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:20:40,688 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:20:40,689 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,689 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:20:40,690 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:20:40,690 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:20:40,691 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:20:40,692 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:20:40,693 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:20:40,694 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:20:40,694 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:20:40,695 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,696 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:20:40,697 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,697 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,698 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:20:40,699 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:20:40,700 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,701 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:20:40,702 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:20:40,703 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,704 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,704 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:20:40,704 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:20:40,705 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,705 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:20:40,706 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:20:40,706 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:20:40,707 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:20:40,707 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:20:40,708 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:20:40,709 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:20:40,710 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:20:40,714 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:21:03,431 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:21:03,432 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:21:03,452 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:21:03,453 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan3\lan_audacity.json exist.
+2025-03-26 17:21:04,259 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3\\db\\interfaces\\60de67a2-dbf4-4deb-afd2-9d2fdcbda3f6.json', 'name': 'p', 'id': 0}
+2025-03-26 17:21:04,263 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:21:04,268 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,270 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,272 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,274 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,275 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,275 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,276 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,277 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,278 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,279 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,280 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,280 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,281 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,282 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,283 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,284 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,285 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,285 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,286 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,287 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,288 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,288 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,289 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,290 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,291 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,295 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,296 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,297 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,298 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,299 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,300 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,301 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,301 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,302 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,303 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,304 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,305 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,306 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,307 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,308 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,309 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,310 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,311 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,311 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,312 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,313 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,313 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,314 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,315 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,315 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,317 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,318 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,319 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,320 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,321 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,322 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,323 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,323 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,324 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,325 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,325 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,326 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,327 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,327 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,328 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,328 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,329 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,330 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,331 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,331 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,332 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,333 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,334 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,334 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,335 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,336 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,337 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,338 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,339 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,340 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,341 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,342 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,342 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,343 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,344 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,345 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,346 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,346 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,347 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,348 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,348 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,349 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,350 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,350 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,351 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,352 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,353 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,354 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,355 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,356 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,357 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,358 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,358 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,359 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,359 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,360 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,361 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,361 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,362 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,362 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,363 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,363 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,364 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,364 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,365 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,366 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,367 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,368 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,369 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,370 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,371 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,372 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,373 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,374 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,375 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:21:04,376 - DEBUG - NetworkObjectTab::_loadStackData: Button list: [<PyQt6.QtWidgets.QPushButton object at 0x0000029EBC0879D0>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBC08AD50>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBC0923F0>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBC09DA90>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBC0A4FF0>]
+2025-03-26 17:23:39,645 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:23:39,647 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:23:39,873 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:23:39,874 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan2\lan_audacity.json exist.
+2025-03-26 17:23:48,139 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\c868b786-6b3d-4c44-a505-2eb6fea43d57.json', 'name': 'Terminaux', 'id': 1}
+2025-03-26 17:23:48,143 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:23:48,146 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,149 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,151 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,154 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,156 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,157 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,157 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,158 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,159 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,159 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,160 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,162 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,164 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,166 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,167 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,168 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,170 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,172 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,173 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,174 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,175 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,176 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,177 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,178 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,178 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,180 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,181 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,182 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,183 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,183 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,184 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,184 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,185 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,185 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,187 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,190 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,191 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,192 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,193 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,194 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,194 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,195 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,196 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,197 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,197 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,198 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,198 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,199 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,200 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,200 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,202 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,203 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,205 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,206 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,207 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,207 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,208 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,208 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,209 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,209 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,210 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,210 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,211 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,212 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,213 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,213 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,214 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,214 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,215 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,215 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,216 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,217 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,218 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,219 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,221 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,225 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,226 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,226 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,227 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,227 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,228 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,229 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,229 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,230 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,231 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,231 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,232 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,233 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,233 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,234 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,237 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,238 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,240 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,241 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,241 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,243 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,247 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,247 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,248 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,249 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,250 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,250 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,251 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,253 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,254 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,256 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,257 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,258 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,259 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,259 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,260 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,260 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,261 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,262 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,262 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,263 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,263 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,264 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,265 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,265 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,266 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,267 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,267 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,268 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,270 - DEBUG - WidgetField::addCard: {'layout': {'columnSpan': 2, 'rowSpan': 1, 'row': 1, 'column': 1, 'alignment': <AlignmentFlag.AlignAbsolute: 16>}}
+2025-03-26 17:23:48,272 - DEBUG - NetworkObjectTab::_loadStackData: Button list: [<PyQt6.QtWidgets.QPushButton object at 0x0000029EBC0B1810>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBC0BCA50>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBC0BFF70>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBF38B4D0>, <PyQt6.QtWidgets.QPushButton object at 0x0000029EBF396A30>]
+2025-03-26 17:24:51,202 - INFO - Application démarrée.
+2025-03-26 17:24:51,203 - DEBUG - Mode débogage activé.
+2025-03-26 17:24:51,203 - WARNING - Attention, ceci est un avertissement.
+2025-03-26 17:24:51,204 - INFO - load_app: Chargement de l'interface graphique.
+2025-03-26 17:24:51,205 - INFO - load_app: Lan Audacity démarrée.
+2025-03-26 17:24:51,268 - DEBUG - IconsManager::check_file_exist: The file backup/resources/icon_list.json exist.
+2025-03-26 17:24:51,268 - DEBUG - IconsManager::action_file: rw_mode set to READ
+2025-03-26 17:24:51,269 - DEBUG - IconsManager::action_file: Reading file icon_list.json
+2025-03-26 17:24:51,270 - DEBUG - MenuBarManager::check_file_exist: The file dev/servers/mongodb/database/menu_bar_prod.json exist.
+2025-03-26 17:24:51,271 - DEBUG - MenuBarManager::action_file: rw_mode set to READ
+2025-03-26 17:24:51,271 - DEBUG - MenuBarManager::action_file: Reading file menu_bar_prod.json
+2025-03-26 17:24:51,427 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Text File', slot={'name': 'new_text_file'}, shortcut='Ctrl+N', icon=IconApp(names='mdi6.file-document-plus', options=None), tip='Create a new text file', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:24:51,428 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Project', slot={'name': 'new_project'}, shortcut=None, icon=IconApp(names='mdi6.new-box', options=None), tip='Create a new project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,429 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:24:51,429 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Window', slot={'name': 'open_new_window'}, shortcut='Ctrl+Shift+N', icon=IconApp(names='mdi6.tab-plus', options=None), tip='Open a new window', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,430 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Text File', slot={'name': 'open_text_file'}, shortcut='Ctrl+O', icon=IconApp(names='mdi6.file-download', options=None), tip='Open an existing text file', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:24:51,431 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Open Folder Project', slot={'name': 'open_folder_project'}, shortcut='Ctrl+Shift+O', icon=IconApp(names='mdi6.open-in-app', options=None), tip='Open an existing folder project', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,431 - DEBUG - MainGUI::initUI_menuBar: <PyQt6.QtWidgets.QMenu object at 0x0000026E2E4004B0>
+2025-03-26 17:24:51,432 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save', slot={'name': 'action_save'}, shortcut='Ctrl+S', icon=IconApp(names='mdi6.content-save', options=None), tip='Save the document to disk', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:24:51,433 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Save As', slot={'name': 'action_save_as'}, shortcut='Ctrl+Shift+S', icon=IconApp(names='mdi6.content-save-plus', options=None), tip='Save the document to disk with a new name', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:24:51,436 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close Current Window', slot={'name': 'close_current_window'}, shortcut='Ctrl+Alt+W', icon=IconApp(names='mdi6.close-box', options=None), tip='Close the current window', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:24:51,436 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Close All Windows', slot={'name': 'close_all_windows'}, shortcut='Alt+F4', icon=IconApp(names='mdi6.close-box-multiple', options=None), tip='Close all windows', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,437 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Exit', slot={'name': 'end_application'}, shortcut='Ctrl+Q', icon=IconApp(names='mdi6.exit-to-app', options=None), tip='Exit the application', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:24:51,438 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Undo', slot={'name': 'action_undo'}, shortcut='Ctrl+Z', icon=IconApp(names='mdi6.arrow-u-left-top', options=None), tip='Undo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:24:51,438 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Redo', slot={'name': 'action_redo'}, shortcut='Ctrl+Y', icon=IconApp(names='mdi6.arrow-u-right-top', options=None), tip='Redo the last operation', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:24:51,439 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Cut', slot={'name': 'action_cut'}, shortcut='Ctrl+X', icon=IconApp(names='fa5s.cut', options=None), tip='Cut the selection to the clipboard', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:24:51,440 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Copy', slot={'name': 'action_copy'}, shortcut='Ctrl+C', icon=IconApp(names='fa5s.copy', options=None), tip='Copy the selection to the clipboard', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:24:51,441 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Paste', slot={'name': 'action_paste'}, shortcut='Ctrl+V', icon=IconApp(names='fa5s.paste', options=None), tip="Paste the clipboard's content", checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:24:51,442 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Find', slot={'name': 'action_find'}, shortcut='Ctrl+F', icon=IconApp(names='mdi6.file-find', options=None), tip='Find a text in the document', checkable=False, enabled=False, separator=True, type=None)
+2025-03-26 17:24:51,443 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Replace', slot={'name': 'action_replace'}, shortcut='Ctrl+H', icon=IconApp(names='mdi6.find-replace', options=None), tip='Replace a text in the document', checkable=False, enabled=False, separator=False, type=None)
+2025-03-26 17:24:51,444 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Select All', slot={'name': 'action_select_all'}, shortcut='Ctrl+A', icon=None, tip='Select all the text in the document', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,444 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:24:51,445 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&File Explorer', slot={'name': 'file_explorer_show'}, shortcut='Ctrl+Shift+E', icon=IconApp(names=['mdi6.folder', 'mdi6.settings-helper'], options=[{'color': 'Orange', 'active': 'mdi6.folder-open'}, {'color': 'LightSlateGray'}]), tip='Show the file explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,446 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Network Explorer', slot={'name': 'network_explorer_show'}, shortcut='Ctrl+Shift+W', icon=IconApp(names=['mdi6.network', 'mdi6.image-filter-drama'], options=[{'color': 'Blue', 'scale_factor': 0.75}, {'color': 'SkyBlue', 'offset': [0, -0.15]}]), tip='Show the network explorer', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,446 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Extensions', slot={'name': 'extensions_show'}, shortcut=None, icon=IconApp(names=['mdi6.puzzle', 'mdi6.puzzle', 'mdi6.puzzle', 'fa5s.microchip'], options=[{'color': 'Red', 'scale_factor': 0.75, 'offset': [0.2, 0.2]}, {'color': 'Green', 'scale_factor': 0.75, 'offset': [-0.2, 0.2]}, {'color': 'Blue', 'scale_factor': 0.75, 'offset': [-0.2, -0.2]}, {'scale_factor': 0.5, 'color': 'LightGrey'}]), tip='Show the extension library', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:24:51,447 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:24:51,448 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Preferences', slot={'name': 'preferences_open'}, shortcut='Ctrl+,', icon=IconApp(names=['mdi6.cog-outline', 'mdi6.wrench'], options=[{'color': 'Blue'}, {'color': 'SkyBlue', 'scale_factor': 0.75, 'rotated': 345, 'offset': [0.2, 0.2]}]), tip="Show the application's preferences", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,449 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&User Settings', slot={'name': 'user_settings_open'}, shortcut=None, icon=IconApp(names=['mdi6.account-circle', 'mdi6.settings-helper'], options=[{'active': 'mdi6.account-circle', 'offset': [0, -0.05]}, {'color': 'LightSlateGray'}]), tip="Show the user's settings", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:24:51,450 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:24:51,451 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&New Terminal', slot={'name': 'new_terminal'}, shortcut='Ctrl+Shift+ù', icon=IconApp(names='mdi6.console-line', options=None), tip='Open a new terminal', checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,452 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Welcome', slot={'name': 'welcome_open'}, shortcut=None, icon=None, tip="Show the application's welcome box", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,453 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:24:51,454 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:24:51,454 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Documentation', slot={'name': 'documentation_open'}, shortcut=None, icon=None, tip="Show the application's documentation", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,455 - WARNING - Icon None is not a valid type. Must be str or QIcon
+2025-03-26 17:24:51,456 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:24:51,457 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='Show update notes', slot={'name': 'show_update_notes'}, shortcut=None, icon=IconApp(names=['mdi6.newspaper', 'mdi6.circle', 'mdi6.update'], options=[{'color': 'Crimson'}, {'scale_factor': 0.5, 'color': 'White', 'offset': [0.3, 0.2]}, {'scale_factor': 0.5, 'color': 'Lime', 'offset': [0.3, 0.2]}]), tip="Show the application's update notes", checkable=False, enabled=True, separator=False, type=None)
+2025-03-26 17:24:51,457 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:24:51,458 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&Search Updates', slot={'name': 'search_updates'}, shortcut=None, icon=IconApp(names='mdi6.update', options=[{'color': 'Lime'}]), tip='Search for updates', checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:24:51,458 - WARNING - Shortcut None is not a valid type. Must be str or List[str]
+2025-03-26 17:24:51,459 - DEBUG - MainGUI::initUI_menuBar: ActionObject(text='&About', slot={'name': 'about_open'}, shortcut='F1', icon=IconApp(names='mdi6.information-variant', options=None), tip="Show the application's about box", checkable=False, enabled=True, separator=True, type=None)
+2025-03-26 17:24:51,460 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:24:51,462 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:25:01,030 - DEBUG - FactoryConfFile::check_file_exist: The file backup/app/dump/storage.json exist.
+2025-03-26 17:25:01,031 - DEBUG - MainGUI::save_recent_project: [{'name': 'lan2', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2', 'last_opened': 1738657522.184551}, {'name': 'lan3', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan3', 'last_opened': 1738679159.0883105}, {'name': 'Eyrein Network', 'path': 'C:/Users/g.tronche/Documents/test_app/Eyrein Network', 'last_opened': 1738575104.2321165}]
+2025-03-26 17:25:01,060 - DEBUG - MainGUI::update_recent_menu: 3 projets récents
+2025-03-26 17:25:01,062 - DEBUG - FactoryConfFile::check_file_exist: The file C:\Users\g.tronche\Documents\test_app\lan2\lan_audacity.json exist.
+2025-03-26 17:25:03,076 - INFO - MainGUI::handle_item_double_click: {'type': 'network', 'path': 'C:\\Users\\g.tronche\\Documents\\test_app\\lan2\\db\\interfaces\\c868b786-6b3d-4c44-a505-2eb6fea43d57.json', 'name': 'Terminaux', 'id': 1}
+2025-03-26 17:25:03,079 - DEBUG - NetworkObjectTab::_loadData: Domain type: interfaces
+2025-03-26 17:25:03,107 - DEBUG - NetworkObjectTab::_loadStackData: Button list: [<PyQt6.QtWidgets.QPushButton object at 0x0000026E2E417C50>, <PyQt6.QtWidgets.QPushButton object at 0x0000026E2E41AFD0>, <PyQt6.QtWidgets.QPushButton object at 0x0000026E2E422670>, <PyQt6.QtWidgets.QPushButton object at 0x0000026E2E42DD10>, <PyQt6.QtWidgets.QPushButton object at 0x0000026E2E439270>]

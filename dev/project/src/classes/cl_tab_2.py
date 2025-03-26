@@ -448,14 +448,23 @@ class NetworkObjectTab(Tab):
             btn.clicked.connect(self.showField(i))
             btn_list.append(btn)
             
-            sdfot = WidgetField()
-            sdfot.setGridForm(WidgetField.GridForm.RMosaics, 5)
+            sdfot = WidgetField(self.debug)
+            sdfot.setGridForm(WidgetField.GridForm.CMosaics, 5)
         
             sdfot.setHeaderArea(TitleWithAction(title=f.get("title", ""), parent=sdfot))
-            for i in range(1,51):
+            for i in range(1,26):
+                tmp: dict = {
+                    "layout":{
+                        "columnSpan": 2,
+                        "rowSpan": 1,
+                        "row": 1,
+                        "column": 1,
+                        "alignment": Qt.AlignmentFlag.AlignJustify
+                    }
+                }
                 carte = Card(debug=self.debug)
                 carte.setCenterCard(QLabel(str(i)))
-                sdfot.addCard(carte)
+                sdfot.addCard(carte,tmp)
 
             self._zone2.addWidget(sdfot)
             self.stackedWidgetList.append(sdfot)
