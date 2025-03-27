@@ -26,6 +26,7 @@ class NetworkField(QWidget):
         for arg in kwargs:
             pass
 
+
 class WidgetField(QWidget):
     class GridForm(enum.Enum):
         GList = 1      # une colonne, 1 ligne

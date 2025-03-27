@@ -513,6 +513,7 @@ class NetworkObjectTab(Tab):
                 logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Affichage du champ à l'index {index}")
     
         return callback
+
     
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""

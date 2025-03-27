@@ -5,7 +5,11 @@ from dev.project.src.classes.cl_extented import IconApp
 
 class TitleBlock(QWidget):
     """Widget pour le bloc de titre avec actions optionnelles"""
-    def __init__(self, text: Union[str, QLabel], collapse_btn: Optional[QPushButton] = None, actions: Optional[List[Union[QPushButton, Dict[str, Any]]]] = None):
+    def __init__(
+            self, 
+            text: Union[str, QLabel], 
+            collapse_btn: Optional[QPushButton] = None, 
+            actions: Optional[List[Union[QPushButton, Dict[str, Any]]]] = None):
         super().__init__()
         self.mainLayout = QHBoxLayout(self)
         self.setLayout(self.mainLayout)
