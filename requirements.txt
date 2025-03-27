@@ -1,0 +1,30 @@
+# Requirements pour l'application desktop
+# Généré à partir du fichier pip.yaml
+
+# Environnement et configuration
+pip>=25.0.0
+python-dotenv>=0.19.0
+PyYAML>=6.0.2
+setuptools>=76.0.0
+
+# Base de données
+mysql-connector-python>=9.2.0
+
+# Parsing
+xmltodict>=0.14.2
+
+# Interface graphique
+QtPy>=2.4.3
+PyQt6>=6.8.1
+PySide6>=6.8.2.1
+PyQt6-WebEngine>=6.8.0
+QtAwesome>=1.3.1
+
+# Réseau et communication
+requests>=2.32.0
+pyvis>=0.3.2
+pyasyncore>=1.0.0
+python-nmap>=0.7.1
+pysnmp>=7.1.16
+asyncio>=3.4.3
+ipaddress>=1.0.23

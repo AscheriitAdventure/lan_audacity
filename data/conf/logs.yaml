@@ -1,0 +1,66 @@
+version: 1
+
+formatters:
+  simple:
+    format: '%(levelname)s - %(message)s'
+  custom:
+    format: '%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+  detailed:
+    format: '%(asctime)s - %(levelname)s - %(name)s - [%(filename)s:%(lineno)d] - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: WARNING
+    formatter: simple
+    stream: ext://sys.stdout
+  
+  file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: ${LOG_LEVEL}
+    formatter: custom
+    filename: ${APP_LOG}
+    encoding: utf-8
+    maxBytes: 2621440  # Taille max en bytes (2,56 MB)
+    backupCount: 5
+  
+  error_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: detailed
+    filename: ${ERROR_LOG}
+    encoding: utf-8
+    maxBytes: 1048576  # 1 MB
+    backupCount: 3
+
+loggers:
+  # Logger racine (par défaut)
+  root:
+    level: INFO
+    handlers: [console, file_handler]
+    propagate: no
+  
+  # Logger spécifique pour l'application
+  app:
+    level: DEBUG
+    handlers: [console, file_handler, error_file_handler]
+    propagate: no
+  
+  # Logger pour les modèles
+  src.models:
+    level: INFO
+    handlers: [file_handler]
+    propagate: yes
+  
+  # Logger pour les vues
+  src.views:
+    level: INFO
+    handlers: [file_handler]
+    propagate: yes
+  
+  # Logger pour les contrôleurs
+  src.controllers:
+    level: DEBUG
+    handlers: [file_handler, error_file_handler]
+    propagate: yes
