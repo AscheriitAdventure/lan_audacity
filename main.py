@@ -1,10 +1,7 @@
-from src.utils import *
+from src.utils import ScanApp
 import os
 
-if __name__ == '__main__':
-    tmpd: dict = {
-        "app_path": os.getcwd(),
-        "debug": False
-    }
+if __name__ == "__main__":
+    tmpd: dict = {"app_path": os.getcwd(), "debug": False}
     scan_app = ScanApp(**tmpd)
     scan_app.generateEnvironment()
