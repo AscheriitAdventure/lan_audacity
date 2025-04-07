@@ -44,17 +44,28 @@ class WidgetField(QWidget):
 
         self.initUI()
     
-    def setHeaderArea(self, widget: QWidget) -> None:
+    def setHeaderArea(self, widget: QWidget, frame: Optional[QFrame] = None) -> None:
         # Supprimer l'ancien widget du layout s'il existe
         if hasattr(self, 'headerArea') and self.headerArea is not None:
             self.mainLayout.removeWidget(self.headerArea)
             self.headerArea.setParent(None)
+        
+        # Si on avait une frame précédente, la supprimer aussi
+        if hasattr(self, 'headerFrame') and self.headerFrame is not None:
+            self.mainLayout.removeWidget(self.headerFrame)
+            self.headerFrame.setParent(None)
     
         # Assigner et ajouter le nouveau widget
         self.headerArea = widget
         if widget is not None:
             # Insérer le widget en première position (index 0)
             self.mainLayout.insertWidget(0, widget)
+        
+        # Gestion de la frame
+        self.headerFrame = frame
+        if frame is not None:
+            # Insérer la frame juste après le headerArea (index 1)
+            self.mainLayout.insertWidget(1, frame)
     
         # Forcer une mise à jour visuelle
         self.mainLayout.update()
@@ -506,9 +517,8 @@ class CardHeader(QWidget):
 
         self.mainLayout.addStretch(1)
 
-
-class Card(QWidget):
-    def __init__(self, css_params: Optional[dict] = VAR_CardCSS, debug: Optional[bool] = False, parent=None):
+class Card(QFrame):
+    def __init__(self, debug: Optional[bool] = False, parent=None):
         super(Card, self).__init__(parent)
 
         self.debug = debug
@@ -523,7 +533,9 @@ class Card(QWidget):
             "right": False, 
             "bottom": False
         }
-        self.cssParameters(css_params)
+        
+        self.setFrameShape(QFrame.Shape.StyledPanel)
+        self.setFrameShadow(QFrame.Shadow.Raised)
 
         self.topCard: Optional[QWidget] = None
         self.leftCard: Optional[QWidget] = None
@@ -548,18 +560,6 @@ class Card(QWidget):
         
         self._arrangeWidgets(0, 0, 3)
         self.markAllDirty()
-
-    def cssParameters(self, css_params: Optional[dict] = None):
-        """Sets the CSS parameters for the CardUI widget."""
-        old_props = self.paintProperties
-        self.paintProperties = css_params
-        
-        # Marquer les sections modifiées
-        for section in css_params:
-            if section not in old_props or css_params[section] != old_props.get(section):
-                self.dirtyRects[section] = True
-        
-        self.update()
 
     def setTopCard(self, top_card: Optional[QWidget] = None):
         """Sets the top card widget."""
@@ -900,3 +900,4 @@ class Card(QWidget):
             drag.setPixmap(pixmap)
 
             drag.exec_(Qt.DropAction.MoveAction)
+

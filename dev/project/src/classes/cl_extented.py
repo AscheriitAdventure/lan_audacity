@@ -1,7 +1,8 @@
-from typing import Optional, List, Union
+from typing import Optional, List, Union, Tuple
 from dataclasses import dataclass, field
 import qtawesome as qta
-from qtpy.QtGui import QIcon
+from qtpy.QtGui import QIcon, QPixmap
+from qtpy.QtCore import QSize
 import time
 
 
@@ -9,6 +10,10 @@ import time
 class IconApp:
     names: Union[str, List[str], tuple[str]]
     options: Optional[List[dict]] = None
+
+    @staticmethod
+    def from_dict(data: dict) -> "IconApp":
+        return IconApp(names=data["names"], options=data.get("options"))
 
     def get_qIcon(self) -> QIcon:
         if self.options is None:
@@ -22,10 +27,7 @@ class IconApp:
             elif isinstance(self.names, (list, tuple)):
                 return qta.icon(*self.names, options=self.options)
 
-    @staticmethod
-    def from_dict(data: dict) -> "IconApp":
-        return IconApp(names=data["names"], options=data.get("options"))
-
+        
 
 @dataclass
 class ActionObject:

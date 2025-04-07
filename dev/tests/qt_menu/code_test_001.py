@@ -94,8 +94,7 @@ class MainWindow(QMainWindow):
         if not self.text_edit.document().isModified():
             return True
 
-        message = f"Do you want to save changes to {
-            self.path if self.path else 'Untitled'}?"
+        message = f"Do you want to save changes to {self.path if self.path else 'Untitled'}?"
         MsgBoxBtn = QMessageBox.StandardButton
         MsgBoxBtn = MsgBoxBtn.Save | MsgBoxBtn.Discard | MsgBoxBtn.Cancel
 

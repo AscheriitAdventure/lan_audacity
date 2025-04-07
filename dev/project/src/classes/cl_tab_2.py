@@ -1,5 +1,5 @@
 from enum import Enum, auto
-from typing import Union, List, Dict, ClassVar, Optional
+from typing import Union, List, Dict, ClassVar, Optional, Any
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -449,9 +449,35 @@ class NetworkObjectTab(Tab):
             btn_list.append(btn)
             
             sdfot = WidgetField(self.debug)
-            sdfot.setGridForm(WidgetField.GridForm.CMosaics, 5)
-        
-            sdfot.setHeaderArea(TitleWithAction(title=f.get("title", ""), parent=sdfot))
+            sdfot.setGridForm(form=WidgetField.GridForm.CMosaics, grid_number=4)
+
+            ttl = QLabel(text=f.get("title", "No Title"), parent=sdfot)
+            # if icon := f.get("icon"):
+            #     ico = IconApp().from_dict(icon)
+            #     ttl.setPixmap(ico.get_qIcon().pixmap(24,24))
+            
+            twa = TitleWithAction(title=ttl, parent=sdfot)
+            if f.get("actions") and len(f["actions"]) > 0:
+                for a in f["actions"]:
+                    b = QPushButton(self)
+                    if icon := a.get("icon"):
+                        ico = IconApp.from_dict(icon)
+                        b.setIcon(ico.get_qIcon())
+                    b.setFlat(True)
+                    b.setToolTip(a.get("tooltip", ""))
+                    if slot := a.get("callback"):
+                        continue
+                        # b.connect(lambda parent: print(a["tooltip"]))
+                    
+                    twa.addBtnAction(b)
+
+            sep: Optional[QFrame] = None    
+            if f.get("separator", "False"):
+                sep = QFrame()
+                sep.setFrameShape(QFrame.Shape.HLine)
+                sep.setFrameShadow(QFrame.Shadow.Sunken)
+                
+            sdfot.setHeaderArea(twa, sep)
             for i in range(1,26):
                 tmp: dict = {
                     "layout":{
@@ -514,6 +540,9 @@ class NetworkObjectTab(Tab):
     
         return callback
 
+    def _generateCards(self, data: Dict[str, Any]) -> List[Card]:
+        """Génère les templates (cartes) qui vont acueillir des données"""
+        return []
     
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""
