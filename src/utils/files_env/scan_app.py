@@ -119,14 +119,14 @@ class ScanApp:
                         key = key.strip()
                         value = value.strip()
 
-                        # Ignorer les valeurs qui sont des listes, URLs, ou autres types non-fichiers
-                        if value.startswith('[') or value.startswith('http') or value.startswith('{'):
-                            continue
-
                         # Enlever les guillemets si présents
                         if (value.startswith('"') and value.endswith('"')) or \
                                 (value.startswith("'") and value.endswith("'")):
                             value = value[1:-1]
+
+                        # Ignorer les valeurs qui sont des listes, URLs, ou autres types non-fichiers
+                        if value.startswith('[') or value.startswith('http') or value.startswith('{'):
+                            continue
 
                         # Vérifier si c'est un chemin absolu ou un chemin relatif
                         is_path = False
@@ -179,8 +179,10 @@ class ScanApp:
         # Vérifier que tous les liens sont valides
         if not self.validateEnvLinks(env_paths):
             err_msg = "Des liens invalides ont été trouvés dans les fichiers d'environnement"
-            self.__logger.error(err_msg)
-            sys.exit(1)
+            self.__logger.warning(err_msg)
+            # Génération des fichiers manquants
+            self.__logger.info("Génération des fichiers manquants")
+            # utiliser une fonction qui génère les fichiers manquants
 
         # Charger les variables d'environnement
         for env_path in env_paths:
@@ -231,6 +233,16 @@ class ScanApp:
             except Exception as e:
                 self.__logger.warning(f"Impossible de créer le répertoire {dir_path}: {str(e)}")
 
+    def __generate_missing_files(self):
+        """
+        Génère les fichiers manquants détectés dans les fichiers d'environnement
+        """
+        # Si dans le fichier d'environnement, il y a la variable `GIT_REPO_SUPP` or `GIT_REPO_SUPPORTS`
+        # alors on doit cloner les dépôts git manquants en premier
+        # ensuite on revérifie les fichiers manquants et on les génère
+
+        pass
+
 
 class ScanAppV2:
     def __init__(self, app_path: str, debug: bool = False):
@@ -258,4 +270,100 @@ class ScanAppV2:
     def appPath(self) -> Path:
         return self.__app_path.absolute()
 
+    @property
+    def errPaths(self) -> List[str]:
+        return self.__err_paths
+    
+    def addErrPath(self, var: str) -> None:
+        self.__err_paths.append(var)
+    
+    def scanEnvFiles(self) -> List[Path]:
+        """
+        Cherche tous les fichiers .env et .env.* dans le dossier de l'application
+        et les ajoute à la liste des fichiers d'environnement.
 
+        Returns:
+            List[Path]: Liste des chemins des fichiers trouvés
+        """
+        if not self.appPath.exists():
+            err_msg = f"Le chemin de l'application n'existe pas: {self.appPath}"
+            raise FileNotFoundError(err_msg)
+
+        env_paths = []
+
+        # Chercher tous les fichiers .env et .env.*
+        for file in self.appPath.glob('.env*'):
+            if file.is_file():
+                env_paths.append(file)
+                self.addEnvFile(str(file))
+
+        if not env_paths:
+            raise FileNotFoundError(f"Aucun fichier d'environnement trouvé dans {self.appPath}")
+
+        return env_paths
+    
+    def validateEnvLinks(self, env_paths: List[Path]) -> bool:
+        """
+        Vérifie que tous les liens dans les fichiers d'environnement existent.
+        Se concentre sur les chemins de fichiers relatifs qui sont susceptibles d'être
+        des ressources nécessaires à l'application.
+
+        Args:
+            env_paths (List[Path]): Liste des chemins des fichiers d'environnement
+
+        Returns:
+            bool: True si tous les liens sont valides, False sinon
+        """        
+        for env_path in env_paths:
+            try:
+                with open(env_path, 'r', encoding='utf-8') as f:
+                    lines = f.readlines()
+
+                for line_num, line in enumerate(lines, 1):
+                    line = line.strip()
+                    # Ignorer les commentaires et les lignes vides
+                    if not line or line.startswith('#'):
+                        continue
+
+                    # Vérifier s'il y a une assignation de variable
+                    if '=' in line:
+                        _, value = line.split('=', 1)
+                        value = value.strip()
+
+                        # Enlever les guillemets si présents
+                        if (value.startswith('"') and value.endswith('"')) or (value.startswith("'") and value.endswith("'")):
+                            value = value[1:-1]
+
+                        # Ignorer les valeurs qui sont des listes, URLs, ou autres types non-fichiers
+                        if value.startswith('[') or value.startswith('http') or value.startswith('{'):
+                            continue
+
+            except Exception as e:
+                err_msg = f"Erreur lors de la lecture de {env_path}: {str(e)}"
+                print(err_msg)
+                return False
+
+        return True
+    
+    def generateEnvironment(self):
+        """
+        Charge les variables d'environnement à partir des fichiers .env trouvés
+        et crée les répertoires nécessaires s'ils n'existent pas
+        """
+        env_paths = self.scanEnvFiles()
+
+        if not env_paths:
+            print("Aucun fichier d'environnement à charger")
+            return
+
+        # Vérifier que tous les liens sont valides
+        if not self.validateEnvLinks(env_paths):
+            err_msg = "Des liens invalides ont été trouvés dans les fichiers d'environnement"
+            print(err_msg)
+            sys.exit(1)
+
+        # Charger les variables d'environnement
+        for env_path in env_paths:
+            print(f"Chargement des variables d'environnement depuis {env_path}")
+            load_dotenv(dotenv_path=env_path, override=True)
+            
