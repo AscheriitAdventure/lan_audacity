@@ -410,13 +410,7 @@ NETWORK_TAB: Dict = {
                 },
             ],
             "description": "Affiche le tableau de bord et les informations de l'objet",
-            "visible": True,
-            "cards": [
-                {
-                    "widget_name": "QTableWidget",
-                    "params": ""
-                }
-            ]
+            "visible": True
         },
         {
             "title": "Interfaces",

@@ -7,12 +7,13 @@ import logging
 import os
 import sys
 import inspect
+import json
 from pathlib import Path
 
 from dev.project.src.classes.cl_clicontext import CLIconText, CLWIT
 from dev.project.src.classes.cl_extented import IconApp
 from dev.project.src.view.components.title_with_actions import TitleWithAction
-from dev.project.src.classes.cl_fields import WidgetField, Card
+from dev.project.src.classes.cl_fields import WidgetField, Card, obj_to_crdfrm
 from dev.project.src.lib.template_tools_bar import DEVICE_TAB, NETWORK_TAB, DEFAULT_SIDE_PANEL
 from dev.project.src.view.components.cl_codeEditor_2 import CodeEditor
 from dev.project.src.view.components.cl_breadcrumbs_2 import QBreadcrumbs
@@ -452,9 +453,6 @@ class NetworkObjectTab(Tab):
             sdfot.setGridForm(form=WidgetField.GridForm.CMosaics, grid_number=4)
 
             ttl = QLabel(text=f.get("title", "No Title"), parent=sdfot)
-            # if icon := f.get("icon"):
-            #     ico = IconApp().from_dict(icon)
-            #     ttl.setPixmap(ico.get_qIcon().pixmap(24,24))
             
             twa = TitleWithAction(title=ttl, parent=sdfot)
             if f.get("actions") and len(f["actions"]) > 0:
@@ -478,19 +476,11 @@ class NetworkObjectTab(Tab):
                 sep.setFrameShadow(QFrame.Shadow.Sunken)
                 
             sdfot.setHeaderArea(twa, sep)
-            for i in range(1,26):
-                tmp: dict = {
-                    "layout":{
-                        "columnSpan": 2,
-                        "rowSpan": 1,
-                        "row": 1,
-                        "column": 1,
-                        "alignment": Qt.AlignmentFlag.AlignJustify
-                    }
-                }
-                carte = Card(debug=self.debug)
-                carte.setCenterCard(QLabel(str(i)))
-                sdfot.addCard(carte,tmp)
+            root_path_data = self.rootData.get("path", {})
+            with open(root_path_data, 'r') as f:
+                root_cards = obj_to_crdfrm(obj=json.load(f), titre=self.rootData.get("name"))
+            for card in root_cards:
+                sdfot.addCard(card)
 
             self._zone2.addWidget(sdfot)
             self.stackedWidgetList.append(sdfot)
@@ -543,7 +533,8 @@ class NetworkObjectTab(Tab):
     def _generateCards(self, data: Dict[str, Any]) -> List[Card]:
         """Génère les templates (cartes) qui vont acueillir des données"""
         return []
-    
+
+
 class ExtensionTab(Tab):
     """Tab for extensions/plugins"""
 
