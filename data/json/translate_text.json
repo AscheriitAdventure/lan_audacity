@@ -1,0 +1,292 @@
+[
+    {
+      "string": "&File",
+      "english": "&File",
+      "français": "&Fichier"
+    },
+    {
+      "string": "&Edit",
+      "english": "&Edit",
+      "français": "&Édition"
+    },
+    {
+      "string": "&Select",
+      "english": "&Select",
+      "français": "&Sélection"
+    },
+    {
+      "string": "&View",
+      "english": "&View",
+      "français": "&Affichage"
+    },
+    {
+      "string": "&Terminal",
+      "english": "&Terminal",
+      "français": "&Terminal"
+    },
+    {
+      "string": "&Window",
+      "english": "&Window",
+      "français": "&Fenêtre"
+    },
+    {
+      "string": "&Preferences",
+      "english": "&Preferences",
+      "français": "&Parmètres"
+    },
+    {
+      "string": "&Help",
+      "english": "&Help",
+      "français": "&Aide"
+    },
+    {
+      "string": "Log In",
+      "english": "Log In",
+      "français": "Connexion"
+    },
+    {
+      "string": "Log Out",
+      "english": "Log Out",
+      "français": "Déconnexion"
+    },
+    {
+      "string": "New Project",
+      "english": "New Project",
+      "français": "Nouveau Projet"
+    },
+    {
+      "string": "Projects",
+      "english": "Projects",
+      "français": "Projets"
+    },
+    {
+      "string": "New Network",
+      "english": "New Network",
+      "français": "Nouveau Réseau"
+    },
+    {
+      "string": "New Window",
+      "english": "New Window",
+      "français": "Nouvelle Fenêtre"
+    },
+    {
+      "string": "Save",
+      "english": "Save",
+      "français": "Enregistrer"
+    },
+    {
+      "string": "Save as...",
+      "english": "Save as...",
+      "français": "Enregistrer sous..."
+    },
+    {
+      "string": "Export",
+      "english": "Export",
+      "français": "Exporter"
+    },
+    {
+      "string": "Export as...",
+      "english": "Export as...",
+      "français": "Exporter sous..."
+    },
+    {
+      "string": "New Terminal",
+      "english": "New Terminal",
+      "français": "Nouveau Terminal"
+    },
+    {
+      "string": "&Exit",
+      "english": "&Exit",
+      "français": "Quitter Lan Audacity"
+    },
+    {
+      "string": "&Home",
+      "english": "&Home",
+      "français": "Accueil"
+    },
+    {
+      "string": "Show/Hide Terminal",
+      "english": "Show/Hide Terminal",
+      "français": "Afficher/Cacher Terminal"
+    },
+    {
+      "string": "Show/Hide Toolbar",
+      "english": "Show/Hide Toolbar",
+      "français": "Afficher/Cacher Toolbar"
+    },
+    {
+      "string": "DLC",
+      "english": "DLC",
+      "français": "Extensions..."
+    },
+    {
+      "string": "License",
+      "english": "License",
+      "français": "Licence"
+    },
+    {
+      "string": "open",
+      "english": "open",
+      "français": "ouvert"
+    },
+    {
+      "string": "close",
+      "english": "close",
+      "français": "fermé"
+    },
+    {
+      "string": "filtered",
+      "english": "filtered",
+      "français": "filtré"
+    },
+    {
+      "string": "unfiltered",
+      "english": "unfiltered",
+      "français": "non-filtré"
+    },
+    {
+      "string": "open|filtered",
+      "english": "open|filtered",
+      "français": "ouvert|filtré"
+    },
+    {
+      "string": "closed|filtered",
+      "english": "closed|filtered",
+      "français": "fermé|filtré"
+    },
+    {
+      "string": "Full Screen",
+      "english": "Full Screen",
+      "français": "Plein Écran"
+    },
+    {
+      "string": "Show Toolbar",
+      "english": "Show Toolbar",
+      "français": "Afficher Barre d'Outils"
+    },
+    {
+      "string": "Open Project",
+      "english": "Open Project",
+      "français": "Ouvrir Projet"
+    },
+    {
+      "string": "Open Network",
+      "english": "Open Network",
+      "français": "Ouvrir Réseau"
+    },
+    {
+      "string": "Search...",
+      "english": "Search...",
+      "français": "Rechercher..."
+    },
+    {
+      "string": "DLC",
+      "english": "Extensions...",
+      "français": "Extensions..."
+    },
+    {
+      "string": "Language",
+      "english": "Language",
+      "français": "Langue"
+    },
+    {
+      "string": "General",
+      "english": "General",
+      "français": "Général"
+    },
+    {
+      "string": "Palette Shortcut",
+      "english": "Palette Shortcut",
+      "français": "Raccourci Palette"
+    },
+    {
+      "string": "License",
+      "english": "License",
+      "français": "Licence"
+    },
+    {
+      "string": "Theme",
+      "english": "Theme",
+      "français": "Thème"
+    },
+    {
+      "string": "Update",
+      "english": "Update",
+      "français": "Mise à Jour"
+    },
+    {
+      "string": "Extends",
+      "english": "Extends",
+      "français": "Etendre"
+    },
+    {
+      "string": "News",
+      "english": "News",
+      "français": "Informations"
+    },
+    {
+      "string": "Edit Network Map",
+      "english": "Edit Network Map",
+      "français": "Modifier Carte Réseau"
+    },
+    {
+      "string": "Device List",
+      "english": "Device List",
+      "français": "Liste des Unités de Réseau"
+    },
+    {
+      "string": "Map Network Drive",
+      "english": "Map Network Drive",
+      "français": "Carte Réseau"
+    },
+    {
+      "string": "Edit Device",
+      "english": "Edit Device",
+      "français": "Modifier Unité Centrale"
+    },
+    {
+      "string": "Network Name",
+      "english": "Network Name",
+      "français": "Nom du Réseau"
+    },
+    {
+      "string": "IPv4",
+      "english": "IPv4",
+      "français": "IPv4"
+    },
+    {
+      "string": "Mask",
+      "english": "Mask",
+      "français": "Masque"
+    },
+    {
+      "string": "Number of devices",
+      "english": "Number of devices",
+      "français": "Nombre d'unités centrales"
+    },
+    {
+      "string": "Number of addresses",
+      "english": "Number of addresses",
+      "français": "Nombre d'adresses"
+    },
+    {
+      "string": "Number of usable addresses",
+      "english": "Number of usable addresses",
+      "français": "Nombre d'adresses utilisables"
+    },
+    {
+      "string": "Number of occupied addresses",
+      "english": "Number of occupied addresses",
+      "français": "Nombre d'adresses occupées"
+    },
+    {
+      "string": "Number of free addresses",
+      "english": "Number of free addresses",
+      "français": "Nombre d'adresses libres"
+    },
+    {
+      "string": "CIDR",
+      "english": "CIDR",
+      "français": "CIDR"
+    }
+  ]

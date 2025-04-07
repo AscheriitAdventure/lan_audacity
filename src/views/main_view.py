@@ -259,6 +259,7 @@ class MainGUI(QMainWindow):
                         logging.debug(
                             f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}"
                         )
+                        d.pop("separator")
                         e = newAction(**d)
                         if a.title in names:
                             toolsBar.addAction(e)

@@ -4,7 +4,17 @@ from qtpy.QtCore import *
 from typing import *
 from enum import Enum
 
-from .line_number_area import LineNumberArea
+
+class LineNumberArea(QWidget):
+    def __init__(self, editor: 'CodeEditor'):
+        super().__init__(editor)
+        self.editor = editor
+
+    def sizeHint(self):
+        return QSize(self.editor.lineNumberAreaWidth(), 0)
+
+    def paintEvent(self, event):
+        self.editor.lineNumberAreaPaintEvent(event)
 
 
 class CodeEditor(QPlainTextEdit):
