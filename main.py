@@ -9,7 +9,8 @@ if __name__ == "__main__":
     scan_app = ScanApp(**tmpd)
 
     load_env_vars()
-    configure_logs()
+    log_path = os.path.join(os.getcwd(), os.getenv("APP_CONF_LOG"))
+    configure_logs(log_path)
 
     logger = get_logger(__name__)
     logger.info("Application en cours de démarrage...")

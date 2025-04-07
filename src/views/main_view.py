@@ -17,9 +17,6 @@ from .widgets.tab import *
 
 
 class MainGUI(QMainWindow):
-
-    processRunList: ClassVar[Signal] = Signal(list)
-
     def __init__(self, parent=None):
         super(MainGUI, self).__init__(parent)
 
