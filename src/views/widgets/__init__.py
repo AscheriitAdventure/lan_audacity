@@ -1,5 +1,5 @@
 from .card.widget_field import WidgetField
-from .card.card import Card
+from .card.card import CardFrame as Card
 from .card.card_image import CardImage
 from .card.card_hearder import CardHeader
 from .card.card_footer import CardFooter

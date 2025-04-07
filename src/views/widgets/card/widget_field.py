@@ -6,7 +6,7 @@ import enum
 import logging
 import inspect
 
-from .card import Card
+from .card import CardFrame as Card
 
 
 class WidgetField(QWidget):

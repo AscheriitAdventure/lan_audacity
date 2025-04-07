@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/assets/affinity" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/assets/snmp-mibs" vcs="Git" />
   </component>
 </project>
