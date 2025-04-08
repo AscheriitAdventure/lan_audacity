@@ -22,14 +22,14 @@ class PysnmpForm:
         if 0 <= var <= 65535:
             self.__port = var
         else:
-            logging.error("Port number must be between 0 and 65535")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Port number must be between 0 and 65535")
 
     @communityPwd.setter
     def communityPwd(self, var: str) -> None:
         if var:
             self.__community = var
         else:
-            logging.error("Community password must not be empty")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Community password must not be empty")
 
     def snmp_publicWalk(self, ipv4: str) -> None:
         data: dict = {}
@@ -71,7 +71,7 @@ class PysnmpForm:
         # Cette fonction a pour objectif de récupérer les informations SNMP spécifiques de l'agent
 
         if not sysObjectID:
-            logging.error("sysObjectID must be provided to walk the private SNMP MIB.")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: sysObjectID must be provided to walk the private SNMP MIB.")
             return
 
         # Création d'un dictionnaire pour stocker les résultats
@@ -91,7 +91,7 @@ class PysnmpForm:
 
             # Vérification des erreurs SNMP
             if errorIndication:
-                logging.error(f"SNMP error: {errorIndication}")
+                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: SNMP error: {errorIndication}")
             elif errorStatus:
                 logging.error(
                     f"SNMP error: {errorStatus.prettyPrint()} at {errorIndex and varBinds[int(errorIndex) - 1][0] or '?'}"
@@ -106,7 +106,7 @@ class PysnmpForm:
             self.privateData = data
 
         except Exception as e:
-            logging.error(f"An exception occurred during SNMP private walk: {str(e)}")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: An exception occurred during SNMP private walk: {str(e)}")
 
     def jsonData(self) -> dict:
         return {

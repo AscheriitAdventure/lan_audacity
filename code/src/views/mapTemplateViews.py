@@ -63,7 +63,7 @@ class LANMap(QWidget):
             self.netMap.load_file(path)
             self.net_widget.setHtml(self.netMap.get_html())
         else:
-            logging.error("No path provided to load the map")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: No path provided to load the map")
     
     def setNetMap(self):
         self.netMap.set_options("""

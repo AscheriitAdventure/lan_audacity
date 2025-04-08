@@ -165,11 +165,11 @@ class LanAudacity(FileManagement):
         if os.path.exists(os.path.join(self.absPath, self.path)):
             try:
                 shutil.rmtree(os.path.join(self.absPath, self.path))
-                logging.info(f"{self.path} is deleted")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.path} is deleted")
             except OSError as e:
-                logging.error(f"Error remove {self.path} : {e}")
+                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error remove {self.path} : {e}")
         else:
-            logging.info(f"{self.path} doesn't exist")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.path} doesn't exist")
     
     def update_project(self, old_path: str = os.getcwd()) -> None:
         # Search "lan_audacity.json" in the old path
@@ -189,9 +189,9 @@ class LanAudacity(FileManagement):
                 print(f"networks: {old_data['networks']}")
                 print(f"pixmap: {old_data['pixmap']}")
             else:
-                logging.info(f"{self.path} is already up to date")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.path} is already up to date")
         else:
-            logging.error(f"File 'lan_audacity.json' not found in {old_path}")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: File 'lan_audacity.json' not found in {old_path}")
     
     def add_network(self, network: dict | Network) -> None:
         if self.networks is None:
@@ -212,12 +212,12 @@ class LanAudacity(FileManagement):
                 chemin = os.path.join(self.absPath, self.path, "lan_audacity.json")
             with open(chemin, "w") as f:
                 json.dump(self.dict_return(), f, indent=4)
-            logging.info(f"{network.name} is added to {self.path}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network.name} is added to {self.path}")
         elif isinstance(network, dict):
             # Vérifie si la variable "network" est bien un objet Network
             print(network)
         else:
-            logging.error("The network object is not a Network object or a dictionary.")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The network object is not a Network object or a dictionary.")
     
     def remove_network(self, network: str | Network) -> None:
         if isinstance(network, Network):
@@ -228,9 +228,9 @@ class LanAudacity(FileManagement):
                         f"{self.absPath}/lan_audacity.json", "w"
                 ) as f:
                     json.dump(self.__dict__, f, indent=4)
-                logging.info(f"{network.name} is removed from {self.path}")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network.name} is removed from {self.path}")
             else:
-                logging.info(f"{network.name} doesn't exist in {self.path}")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network.name} doesn't exist in {self.path}")
         elif isinstance(network, str):
             # the network variable is  the uuid of the network
             if self.networks is not None:
@@ -240,9 +240,9 @@ class LanAudacity(FileManagement):
                         f"{self.absPath}/lan_audacity.json", "w"
                 ) as f:
                     json.dump(self.__dict__, f, indent=4)
-                logging.info(f"{network} is removed from {self.path}")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network} is removed from {self.path}")
             else:
-                logging.info(f"{network} doesn't exist in {self.path}")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network} doesn't exist in {self.path}")
         else:  
             logging.warning("The network object is not a Network object or a string.")
 

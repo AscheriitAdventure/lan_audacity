@@ -53,7 +53,7 @@ class CEVU1(QPlainTextEdit):
 
         # Verrouillage
         self.setReadOnly(locked)
-        logging.debug(f"CodeEditorView: locked={locked}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: CodeEditorView: locked={locked}")
     
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Tab:
@@ -149,7 +149,7 @@ class CEVU1(QPlainTextEdit):
 
         # Verrouillage
         self.setReadOnly(locked)
-        logging.debug(f"CodeEditorView: locked={locked}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: CodeEditorView: locked={locked}")
 
         # Vue de la marge à gauche
         self.marginArea = MOTE(editor=self, parent=self)

@@ -195,7 +195,7 @@ class PreferencesTabView(GeneralTabsView):
         self.theme_menu = QWidget(self)
         self.stackedFields.addWidget(self.theme_menu)
 
-        logging.debug(f"Update News Note: chercher une solution autre que refaire la classe PreferencesTabView")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Update News Note: chercher une solution autre que refaire la classe PreferencesTabView")
         # self.update_menu = UpdatesNewsDMC(
         #     obj_title="Update News",
         #     obj_lang=self.langManager,

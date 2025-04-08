@@ -293,7 +293,7 @@ class LanDashboard(DashboardCardTemplate):
         """
         Méthode appelée lorsque le scan est terminé.
         """
-        # logging.debug(f"303: {result}")
+        # logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: 303: {result}")
         self.updateUcListTable(result)
         self.scan_btn.setEnabled(True)
         self.pause_btn.setEnabled(False)

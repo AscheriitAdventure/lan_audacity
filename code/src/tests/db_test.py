@@ -6,7 +6,7 @@ import logging
 def findQuery(name: str, data: Any) -> dict | None:
     for query in data:
         if query["name"] == name:
-            logging.debug(f"Query found: {name}")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Query found: {name}")
             return query
     return None
 
@@ -16,7 +16,7 @@ def queryForm(command: str, values: tuple | list) -> str:
         f"'{value}'" if not isinstance(value, (int, float)) else str(value)
         for value in values
     )
-    logging.debug(f"Query form: {command}({placeholders});")
+    logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Query form: {command}({placeholders});")
     return f"{command}({placeholders});"
 
 import time

@@ -200,7 +200,7 @@ class Card(QWidget):
         # Peindre uniquement les sections actives
         for section in sections:
             rect = sections[section]
-            # logging.info(f"{section}: {rect}")
+            # logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {section}: {rect}")
             styles = self.paintProperties.get(section, {})
             if styles != {}:
                 self.paintSection(painter, rect, styles)

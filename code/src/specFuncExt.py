@@ -18,7 +18,7 @@ def networkDevicesList(net_class: Network) -> list[Device]:
                     "desktop", f"{uc_unit}.json")
             
             if os.path.exists(var_path):
-                logging.debug(f"Loading device {uc_unit} from {var_path}")
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Loading device {uc_unit} from {var_path}")
 
                 device_data = SwitchFile.json_read(var_path)
                         
@@ -69,7 +69,7 @@ def networkList(file_path: str) -> list[Network]:
             logging.info("No network found")
             return netList
         else:
-            logging.info(f"{len(interfaces_linkList)} network(s) found")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(interfaces_linkList)} network(s) found")
             for interface in interfaces_linkList:
                 if os.path.exists(interface.get("path")):
                     net_data = SwitchFile.json_read(interface.get("path"))
@@ -92,6 +92,6 @@ def networkList(file_path: str) -> list[Network]:
             
             return netList                    
     else:
-        logging.error(f"File {file_path} not found")
+        logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: File {file_path} not found")
         return netList
             

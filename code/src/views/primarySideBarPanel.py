@@ -1,5 +1,6 @@
 import os
 import logging
+import inspect
 
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -110,7 +111,7 @@ class GeneralSidePanel(QWidget):
         logging.info("Open Tab for Obj in Tree")
         item = self.treeView.model().itemFromIndex(index)
         if item is not None:
-            logging.info(f"Item: {item.text()}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Item: {item.text()}")
     
     def getSelectedItem(self, index):
         model = self.treeView.model()
@@ -182,9 +183,9 @@ class FlsExpl(GeneralSidePanel):
             file = QFile(file_path)
             if file.open(QIODevice.WriteOnly):
                 file.close()
-                logging.info(f"File '{file_path}' created successfully.")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: File '{file_path}' created successfully.")
             else:
-                logging.error(f"Failed to create file '{file_path}'.")
+                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Failed to create file '{file_path}'.")
 
     def addFolder(self):
         if self.extObj is None:
@@ -196,9 +197,9 @@ class FlsExpl(GeneralSidePanel):
         if folder_path:
             # Créer le dossier
             if QDir().mkdir(folder_path):
-                logging.info(f"Folder '{folder_path}' created successfully.")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Folder '{folder_path}' created successfully.")
             else:
-                logging.error(f"Failed to create folder '{folder_path}'.")
+                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Failed to create folder '{folder_path}'.")
 
 
 # Network Explorer Primary Side Panel
@@ -243,7 +244,7 @@ class NetExpl(GeneralSidePanel):
 
                     net_data_file = SwitchFile.json_read(network.get('path'))
                     if net_data_file["devices_list"]:
-                        logging.info(f"Devices list: {len(net_data_file['devices_list'])}")
+                        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Devices list: {len(net_data_file['devices_list'])}")
                         for device in net_data_file["devices_list"]:
                             fileName = device+".json"
                             filePath = os.path.join(self.extObj.absPath, "db", "desktop", fileName)
@@ -320,7 +321,7 @@ class NetExpl(GeneralSidePanel):
                 break
 
         if network_item is None:
-            logging.error(f"Network {selected_network} not found in tree")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Network {selected_network} not found in tree")
             return
 
         if isinstance(device, Device):
@@ -332,7 +333,7 @@ class NetExpl(GeneralSidePanel):
             item.setIcon(self.iconManager.get_icon("networkDefaultIcon"))
             network_item.appendRow(item)
         else:
-            logging.error("Device is not a Device object or a string")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Device is not a Device object or a string")
     
     def getSelectedItem(self, index):
         model = self.treeView.model()

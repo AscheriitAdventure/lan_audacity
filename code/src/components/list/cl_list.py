@@ -89,7 +89,7 @@ class CLWIconText(QWidget):
                 for i in range(len(self.listObj)):
                     self.listObj[i].setText("")
         else:
-            logging.error("ListObj and StoredText are not synchronized!")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: ListObj and StoredText are not synchronized!")
 
 
 
@@ -169,7 +169,7 @@ class CLIconTextU1(QWidget):
             self.listObj.append(btn)
             self.storedText.append(btn.text())  # Synchronisez les deux listes
         else:
-            logging.error("Button must have text")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Button must have text")
 
     def set_toggleIcon(self):
         btn = QPushButton()
@@ -207,7 +207,7 @@ class CLIconTextU1(QWidget):
                 for i in range(len(self.listObj)):
                     self.listObj[i].setText("")
         else:
-            logging.error("ListObj and StoredText are not synchronized!")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: ListObj and StoredText are not synchronized!")
 
     def search(self, text: str):
         for i in range(len(self.listObj)):

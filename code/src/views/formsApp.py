@@ -90,7 +90,7 @@ class FormDialog(QDialog):
         data = {}
         for key, field in self.fields.items():
             if not isinstance(field, QLineEdit):
-                logging.error(f"Field {key} is not a QLineEdit instance but a {type(field).__name__}")
+                logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Field {key} is not a QLineEdit instance but a {type(field).__name__}")
                 continue
             data[key] = field.text()
         return data

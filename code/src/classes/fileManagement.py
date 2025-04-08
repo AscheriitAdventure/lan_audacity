@@ -53,7 +53,7 @@ class FileManagement:
 
             self.add_folder(folder_name)
         else:
-            logging.error(f"The path {project_path} does not exist or is not a directory.")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The path {project_path} does not exist or is not a directory.")
     
     def generate_file(self, file_name: str, file_type: str, abs_path: str = os.getcwd()) -> None:
         part2 = os.path.join(abs_path, self.path)
@@ -75,7 +75,7 @@ class FileManagement:
                     self.add_file((file_name, file_type))
 
         else:
-            logging.error(f"The path {abs_path} does not exist or is not a directory.")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: The path {abs_path} does not exist or is not a directory.")
     
     def add_folder(self, folder_name: str) -> None:
         self.__folders.append(folder_name)

@@ -73,7 +73,7 @@ class Files2TV(QWidget):
             self.file_path = os.path.normpath(file_path)
         else:
             self.file_path = ""
-            logging.error("Le fichier n'existe pas")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier n'existe pas")
     
     def breadcrumbsList(self) -> List[QPushButton]:
         listBtn = []
@@ -135,7 +135,7 @@ class Files2TVU1(QWidget):
             self.file_path = Path(os.path.normpath(file_path))
         else:
             self.file_path = ""
-            logging.error("Le fichier n'existe pas")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier n'existe pas")
     
     def setAbsolutePathWidget(self):
         # Barre d'informations (en-tête) -> Chemin Absolu
@@ -201,7 +201,7 @@ class Files2TVU2(QWidget):
             self.file_path = Path(os.path.normpath(file_path))
         else:
             self.file_path = ""
-            logging.error("Le fichier n'existe pas")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier n'existe pas")
     
     def setAbsolutePathWidget(self):
         # Barre d'informations (en-tête) -> Chemin Absolu
@@ -268,7 +268,7 @@ class Files2TVU3(QWidget):
             self.file_path = Path(os.path.normpath(file_path))
         else:
             self.file_path = ""
-            logging.error("Le fichier n'existe pas")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier n'existe pas")
     
     def setAbsolutePathWidget(self):
         # Barre d'informations (en-tête) -> Chemin Absolu

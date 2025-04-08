@@ -19,25 +19,25 @@ class UpdatesNewsDMC(DMC):
     
     def generateCard(self):
         data = self.objManager.data["news_update"]
-        logging.debug(f"Lenght of data: {len(data)}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Lenght of data: {len(data)}")
         for obj in data:
             leftCard = None
             rightCard = None
             centerCard = None
             bottomCard = None
-            logging.debug(f"Object: {obj}")
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Object: {obj}")
             topCard = QLabel(f"Version {obj['version']} - Date {obj['date']}")
             if obj.get("sources"):
                 # Créer un lien qui permet d'ouvrir un onglet qui affiche le contenu du fichier en read-only
-                logging.debug(f"Sources: {obj['sources']}")
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Sources: {obj['sources']}")
                 centerCard = QLabel(f"{obj['sources']}")
 
             if obj.get("authors"):
-                logging.debug(f"Authors: {obj['authors']}")
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Authors: {obj['authors']}")
                 bottomCard = QLabel(f"{obj['authors']}")
             
             if obj.get("description"):
-                logging.debug(f"Description: {obj['description']}")
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Description: {obj['description']}")
                 if centerCard is None:
                     centerCard = QLabel(f"{obj['description']}")
                 else:

@@ -48,7 +48,7 @@ class QBreadcrumbsTVU1(QWidget):
         # Possibilité 2: Liste de Strings
         self.listObj2 = ["Accueil", "Produits", "Frais", "Fruits", "Pomme", "Golden"]
 
-        logging.info(f"Choix 1: {len(self.listObj1)}, Choix 2: {len(self.listObj2)}")
+        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Choix 1: {len(self.listObj1)}, Choix 2: {len(self.listObj2)}")
 
         # Possibilité 3: Liste de QPushButton
         self.listObj3 = []
@@ -61,7 +61,7 @@ class QBreadcrumbsTVU1(QWidget):
             btn.setToolTip(chaine_aleatoire)
             self.listObj3.append(btn)
         
-        logging.info(f"Choix 3: {len(self.listObj3)}")
+        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Choix 3: {len(self.listObj3)}")
 
         self.setLayoutObjects(self.listObj1)
     

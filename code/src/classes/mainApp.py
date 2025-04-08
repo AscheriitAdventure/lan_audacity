@@ -426,7 +426,7 @@ class MainApp(QMainWindow):
                 msg_box.exec()
 
     def saveProjectAction(self) -> None:
-        logging.debug("Save Action...")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Save Action...")
         if self.prj_ls != []:
             for prj in self.prj_ls:
                 prj.updateLanAudacity()
@@ -440,11 +440,11 @@ class MainApp(QMainWindow):
         # Save the project
 
     def saveAsProjectAction(self) -> None:
-        logging.debug("Save As Action...")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Save As Action...")
         # Save the project as
 
     def closeProjectAction(self) -> None:
-        logging.debug("Close Project Action...")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Close Project Action...")
         # Close the project
 
     def fileExplorerAction(self) -> None:
@@ -500,7 +500,7 @@ class MainApp(QMainWindow):
         # Open the preferences window
 
     def userAction(self) -> None:
-        logging.debug("User Action...")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: User Action...")
         self.primary_center.add_tab(
             tab= LanAudacityViewGeneral("User", None, self.langManager, self.iconsManager, self),
             title="User")

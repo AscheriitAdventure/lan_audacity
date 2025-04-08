@@ -141,7 +141,7 @@ class Device:
             if not os.path.exists(new_path):
                 raise ValueError("The path does not exist.")
         except (ValueError, FileNotFoundError) as e:
-            logging.error(f"Invalid path: {new_path}. Error: {e}")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Invalid path: {new_path}. Error: {e}")
         self.__abs_path = new_path
 
     @property
@@ -152,16 +152,16 @@ class Device:
         if not os.path.exists(self.absPath):
             with open(self.absPath, "w+") as f:
                 json.dump(self.dict_return(), f, indent=4, default=str)
-            logging.info(f"{self.uuid} file is created")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.uuid} file is created")
         else:
-            logging.info(f"{self.uuid} file already exists")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.uuid} file already exists")
 
     def open_file(self) -> Any:
         if os.path.exists(self.absPath):
             with open(self.absPath, "r") as f:
                 return json.load(f)
         else:
-            logging.info(f"{self.nameObj} doesn't exist")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.nameObj} doesn't exist")
             return {}
 
     def save_file(self) -> None:
@@ -169,9 +169,9 @@ class Device:
             self.clockManager.add_clock()
             with open(self.absPath, "w") as f:
                 json.dump(self.dict_return(), f, indent=4, default=str)
-            logging.info(f"{self.nameObj} is saved")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.nameObj} is saved")
         else:
-            logging.info(f"{self.nameObj} doesn't exist")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.nameObj} doesn't exist")
 
     def dict_return(self) -> dict:
         return {

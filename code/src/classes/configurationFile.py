@@ -40,7 +40,7 @@ class ConfigurationFile:
                 switch_file.txt_read,
             )(self.abs_path)
         else:
-            logging.error(f"Le fichier de configuration {self.file} n'existe pas.")
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Le fichier de configuration {self.file} n'existe pas.")
             return None
 
     def get_value(self, key: str) -> str | None:

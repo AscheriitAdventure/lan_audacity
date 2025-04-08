@@ -53,8 +53,8 @@ class CodeEditorView(QTextEdit):
 
         # Verrouillage
         self.setReadOnly(locked)
-        logging.debug(f"CodeEditorView: locked={locked}")
-        logging.debug(f"LineIntArea Width: {self.lineIntAreaWidth()}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: CodeEditorView: locked={locked}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: LineIntArea Width: {self.lineIntAreaWidth()}")
    
     def lineIntAreaWidth(self) -> int:
         digits = len(str(max(1, self.document().blockCount())))
@@ -190,7 +190,7 @@ class CEVU1(QPlainTextEdit):
 
         # Verrouillage
         self.setReadOnly(locked)
-        logging.debug(f"CodeEditorView: locked={locked}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: CodeEditorView: locked={locked}")
 
         # Vue de la marge à gauche
         self.marginArea = MarginObjectTextEdit(editor=self, parent=self)
