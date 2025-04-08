@@ -10,7 +10,7 @@
     ✅- "Card" est un composant générique qui peut être utilisé dans plusieurs contextes.
 """
 
-import logging
+import logging, inspect
 from typing import Optional
 from qtpy.QtWidgets import QWidget, QGridLayout, QHBoxLayout, QLabel, QFrame
 from qtpy.QtGui import *

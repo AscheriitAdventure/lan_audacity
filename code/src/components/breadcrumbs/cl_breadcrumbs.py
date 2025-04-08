@@ -1,7 +1,7 @@
 from qtpy.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton
 from qtpy.QtCore import Qt
 from qtpy.QtGui import QCursor
-import logging
+import logging, inspect
 from typing import List, Optional
 
 

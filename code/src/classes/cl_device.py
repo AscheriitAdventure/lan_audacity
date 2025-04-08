@@ -1,7 +1,7 @@
 from typing import Any, Optional
 import platform
 import json
-import logging
+import logging, inspect
 import os
 import subprocess
 import uuid
@@ -237,12 +237,15 @@ class Device:
                 self.__mac = VAR_STR_DEFAULT
 
             if "vendor" in nm[self.ipv4] and self.macAddress != VAR_STR_DEFAULT:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: MAC Address: {self.macAddress}, nmap result: {nm[self.ipv4]['addresses']['mac']}")
                 self.__vendor = nm[self.ipv4]["vendor"][self.macAddress]
             else:
                 logging.warning("Impossible de trouver le constructeur de la machine.")
                 self.__vendor = VAR_STR_DEFAULT
         else:
             logging.warning("Impossible de trouver les informations de la machine.")
+
+    
 
     def set_nmap_hostname(self) -> None:
         nm = nmap.PortScanner()

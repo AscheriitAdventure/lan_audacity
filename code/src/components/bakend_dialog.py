@@ -3,7 +3,7 @@ import os
 from qtpy.QtCore import QObject, Signal, QRunnable, QThread
 from qtpy.QtWidgets import QDialog, QProgressBar, QLabel, QVBoxLayout
 from typing import Any
-import logging
+import logging, inspect
 
 from src.classes.cl_network import Network
 from src.classes.cl_device import Device

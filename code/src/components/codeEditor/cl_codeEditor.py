@@ -22,7 +22,7 @@
 from qtpy.QtWidgets import * # PyQt6
 from qtpy.QtGui import * # PyQt6
 from qtpy.QtCore import * # PyQt6
-import logging
+import logging, inspect
 from typing import Optional
 from src.components.codeEditor.cl_line_int_area import LineIntArea, MarginObjectTextEdit
 

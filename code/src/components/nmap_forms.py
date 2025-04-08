@@ -1,5 +1,5 @@
 import nmap
-import logging
+import logging, inspect
 
 
 class NmapPort:

@@ -2,7 +2,7 @@ from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 from qtpy.QtCore import *
 from typing import *
-import logging
+import logging, inspect
 
 
 class LineIntArea(QWidget):

@@ -3,7 +3,7 @@ from qtpy.QtWidgets import QWidget, QGridLayout, QVBoxLayout
 from qtpy.QtCore import Qt, QRectF, QPointF, QSizeF, QRect
 from qtpy.QtGui import *
 import sys
-import logging
+import logging, inspect
 from typing import Optional
 
 """

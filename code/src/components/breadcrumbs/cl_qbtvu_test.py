@@ -3,7 +3,7 @@ from qtpy.QtCore import *
 from qtpy.QtGui import *
 import os
 import random
-import logging
+import logging, inspect
 import string
 from typing import List, Optional
 

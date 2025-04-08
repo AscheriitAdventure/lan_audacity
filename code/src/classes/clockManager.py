@@ -1,18 +1,15 @@
 import time
-from typing import Optional
+from typing import Optional, List
 
 
 class ClockManager:
     def __init__(
             self, 
             time_start: float = time.time(),
-            time_list: Optional[list[float]] = None
+            time_list: Optional[List[float]] = []
     ) -> None:
         self.__clock_created: float = time_start
-        if time_list is None:
-            self.__clock_list: list[float] = []
-        else:
-            self.__clock_list = time_list
+        self.__clock_list: List[float] = time_list
         if time_list == [float]:
             self.__clock_list.append(self.clockCreated)
         self.type_time = "Unix Timestamp Format"
@@ -26,23 +23,27 @@ class ClockManager:
         self.__clock_created = value
 
     @property
-    def clockList(self) -> list[float]:
+    def clockList(self) -> List[float]:
         return self.__clock_list
     
     @clockList.setter
-    def clockList(self, value: list[float]) -> None:
+    def clockList(self, value: List[float]) -> None:
         self.__clock_list = value
 
     def add_clock(self) -> None:
+        """Adds the current time to the clock list, ensuring a maximum of 20 entries."""
+        if len(self.clockList) >= 20:
+            self.clockList.pop(0)
         self.clockList.append(time.time())
     
     def get_clock_last(self) -> float:
-        if not self.clockList:
-            return self.clockCreated
-        else:
-            return self.clockList.pop()
+        """Returns the last recorded time or the creation time if the list is empty."""
+        return self.clockList[-1] if self.clockList else self.clockCreated
 
-    def get_clock_diff(self) -> float:
+    def get_diff_clock(self) -> float:
+        """Returns the time difference between the last two recorded timestamps."""
+        if len(self.clockList) < 2:
+            return 0.0
         return self.clockList[-1] - self.clockList[-2]
     
     def dict_return(self) -> dict:

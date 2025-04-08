@@ -3,7 +3,7 @@ from qtpy.QtWidgets import *
 from qtpy.QtCore import *
 from qtpy.QtGui import *
 import sys
-import logging
+import logging, inspect
 
 
 # Configuration de logging

@@ -1,6 +1,6 @@
 from typing import Optional, Union
 import json
-import logging
+import logging, inspect
 import os
 import uuid
 
@@ -23,16 +23,13 @@ class Network:
             uuid_str: Optional[str] = None,
     ):
         self.setUUIDObj(uuid_str)
-        if network_name is None:
-            self.__name: str = ip_to_cidr(network_ipv4, network_mask_ipv4)
-        else:
-            self.__name: str = network_name
-
         self.__ipv4: str = network_ipv4
         self.__mask_ipv4: str = network_mask_ipv4
-        self.__ipv6: Optional[str] = network_ipv6
-        self.__gateway: Optional[str] = network_gateway
-        self.__dns: Optional[str] = network_dns
+
+        self.__name: str = network_name if network_name is not None else ip_to_cidr(network_ipv4, network_mask_ipv4)
+        self.__ipv6: str = network_ipv6 if network_ipv6 is not None else "fe80::1"
+        self.__gateway: str = network_gateway if network_gateway is not None else ""
+        self.__dns: str = network_dns if network_dns is not None else ""
         self.__clockManager = ClockManager()
         self.__abs_path: str = ""
 
@@ -40,7 +37,7 @@ class Network:
         self.__isConnected: bool = False
 
         if uuid_str is None:
-            self.absPath = f"{save_path}/{self.uuid}.json"
+            self.absPath = os.path.join(save_path, f"{self.uuid}.json")
             self.create_network()
         else:
             self.absPath = save_path

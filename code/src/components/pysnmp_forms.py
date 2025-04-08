@@ -1,5 +1,5 @@
 from pysnmp.hlapi.v3arch.asyncio import *
-import logging
+import logging, inspect
 
 
 class PysnmpForm:
