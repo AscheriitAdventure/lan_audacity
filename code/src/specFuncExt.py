@@ -49,8 +49,6 @@ def networkDevicesList(net_class: Network) -> List[Device]:
                 logging.warning(f"Device {uc} not found")
                 continue
         
-        net_class.save_network()
-        
     return devices
 
 def networkList(file_path: str) -> list[Network]:

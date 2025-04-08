@@ -34,6 +34,7 @@ class LanDashboardFMC(FMC):
         :param parent: Widget parent, facultatif.
         """
         super().__init__(obj_title, obj_lang, obj_view, obj_icon, parent)
+        self.objManager: Network
         self.setCardsList()  # Crée les cartes de l'interface
         self.setUCList()  # Crée la liste des périphériques
         self.setUCNetworkList()  # Crée la liste du réseau
@@ -53,18 +54,18 @@ class LanDashboardFMC(FMC):
 
         domainProjectNameTtl = "Project Name"
         domainProjectNameEdit = QLineEdit(self.objManager.name)
-        domainProjectNameEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        domainProjectNameEdit.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         wanLayout.addWidget(LineUpdate(domainProjectNameTtl, domainProjectNameEdit))
 
         domainNameTtl = "Domain Name"
         domainNameEdit = QLineEdit(self.objManager.dns)
-        domainNameEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        domainNameEdit.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         wanLayout.addWidget(LineUpdate(domainNameTtl, domainNameEdit))
 
         cidrTtl = "CIDR"
         cidrText = ip_to_cidr(self.objManager.ipv4, self.objManager.maskIpv4)
         cidrEdit = QLineEdit(cidrText)
-        cidrEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        cidrEdit.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         cidrEdit.setPlaceholderText("CIDR")
 
         if self.objManager.ipv6:
@@ -75,17 +76,17 @@ class LanDashboardFMC(FMC):
         wanLayout.addWidget(LineUpdate(cidrTtl, cidrEdit))
         gateTtl = "Gateway"
         gateEdit = QLineEdit(self.objManager.gateway)
-        gateEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        gateEdit.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         wanLayout.addWidget(LineUpdate(gateTtl, gateEdit))
 
         startDateTtl = "Start Date"
         startDateEdit = QLineEdit(conv_unix_to_datetime(self.objManager.clockManager.clockCreated))
-        startDateEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        startDateEdit.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         wanLayout.addWidget(LineUpdate(startDateTtl, startDateEdit))
 
         lastUpdateTtl = "Last Update"
         lastUpdateEdit = QLineEdit(conv_unix_to_datetime(self.objManager.clockManager.get_clock_last()))
-        lastUpdateEdit.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        lastUpdateEdit.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         wanLayout.addWidget(LineUpdate(lastUpdateTtl, lastUpdateEdit))
 
         wanLayout.addStretch()
@@ -115,7 +116,7 @@ class LanDashboardFMC(FMC):
         self.uc_listBody = QTableWidget(self)
         self.uc_listBody.setColumnCount(len(uc_listHeadband))
         self.uc_listBody.setHorizontalHeaderLabels(uc_listHeadband)
-        self.uc_listBody.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.uc_listBody.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.uc_listBody.setSortingEnabled(True)
         
         self.scan_btn = QPushButton(self)

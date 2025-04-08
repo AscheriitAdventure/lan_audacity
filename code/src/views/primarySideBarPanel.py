@@ -1,6 +1,7 @@
 import os
 import logging
 import inspect
+from typing import List, Dict
 
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -237,21 +238,23 @@ class NetExpl(GeneralSidePanel):
         model = QStandardItemModel(self)
         self.treeView.setModel(model)
         if self.extObj is not None and isinstance(self.extObj, LanAudacity):
-            if self.extObj.networks:
-                for network in self.extObj.networks.get('obj_ls', []):
-                    networkName = network.get('name')
-                    self.add_network_to_tree(network=networkName)
 
+            if self.extObj.networks and len(self.extObj.networks.get("obj_ls")) > 0:
+                obj_ls: List[Dict[str, str]] = self.extObj.networks.get("obj_ls")
+                
+                for network in obj_ls:
+                    self.add_network_to_tree(network.get('name'))
                     net_data_file = SwitchFile.json_read(network.get('path'))
-                    if net_data_file["devices_list"]:
+                    
+                    if net_data_file.get("devices_list") and len(net_data_file["devices_list"]) > 0:
                         logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Devices list: {len(net_data_file['devices_list'])}")
+                        
                         for device in net_data_file["devices_list"]:
-                            fileName = device+".json"
-                            filePath = os.path.join(self.extObj.absPath, "db", "desktop", fileName)
-                            if not os.path.exists(filePath):                                
+                            filePath = os.path.join(self.extObj.absPath, "db", "desktop", device+".json")
+                            
+                            if os.path.exists(filePath):
                                 device_data = SwitchFile.json_read(filePath)
-                                deviceName = device_data.get('name') if device_data.get('name') else device_data.get('device_ipv4')
-                                self.add_device_to_tree(networkName, deviceName)
+                                self.add_device_to_tree(network.get('name'), device_data.get('name') if device_data.get('name') else device_data.get('device_ipv4'))
 
     def addDeviceObj(self, network: Network = None):
         logging.info("Add device")

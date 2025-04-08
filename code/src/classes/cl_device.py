@@ -238,7 +238,7 @@ class Device:
 
             if "vendor" in nm[self.ipv4] and self.macAddress != VAR_STR_DEFAULT:
                 logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: MAC Address: {self.macAddress}, nmap result: {nm[self.ipv4]['addresses']['mac']}")
-                self.__vendor = nm[self.ipv4]["vendor"][self.macAddress]
+                self.__vendor = nm[self.ipv4]["vendor"][str(self.macAddress)]
             else:
                 logging.warning("Impossible de trouver le constructeur de la machine.")
                 self.__vendor = VAR_STR_DEFAULT
