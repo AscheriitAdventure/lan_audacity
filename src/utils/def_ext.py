@@ -57,27 +57,30 @@ def newAction(
         )
     a = QAction(text, parent)
 
-    if isinstance(icon, str):
-        """si le retour est une string alors on a deux solutions soit on a un chemin absolu soit on a un chemin relatif
-        si on a un chemin absolu alors on peut utiliser QIcon(icon) sinon on doit utiliser QIcon(os.path.join(os.path.dirname(__file__), icon))
-        """
-        if os.path.isabs(icon):
-            a.setIcon(QIcon(icon))
-        else:
-            a.setIcon(QIcon(os.path.join(os.path.dirname(__file__), icon)))
-    elif isinstance(icon, QIcon):
-        a.setIcon(icon)
-    else:
-        logging.warning(f"Icon {icon} is not a valid type. Must be str or QIcon")
+    if icon is not None:
+        if isinstance(icon, str):
+            """si le retour est une string alors on a deux solutions soit on a un chemin absolu soit on a un chemin relatif
+            si on a un chemin absolu alors on peut utiliser QIcon(icon) sinon on doit utiliser QIcon(os.path.join(os.path.dirname(__file__), icon))
+            """
+            if os.path.isabs(icon):
+                a.setIcon(QIcon(icon))
+            else:
+                a.setIcon(QIcon(os.path.join(os.path.dirname(__file__), icon)))
 
-    if isinstance(shortcut, str):
-        a.setShortcut(shortcut)
-    elif isinstance(shortcut, (list, tuple)):
-        a.setShortcuts(shortcut)
-    else:
-        logging.warning(
-            f"Shortcut {shortcut} is not a valid type. Must be str or List[str]"
-        )
+        elif isinstance(icon, QIcon):
+            a.setIcon(icon)
+        else:
+            logging.warning(f"Icon {icon} is not a valid type. Must be str or QIcon")
+
+    if shortcut is not None:
+        if isinstance(shortcut, str):
+            a.setShortcut(shortcut)
+        elif isinstance(shortcut, (list, tuple)):
+            a.setShortcuts(shortcut)
+        else:
+            logging.warning(
+                f"Shortcut {shortcut} is not a valid type. Must be str or List[str]"
+            )
 
     if tip is not None:
         a.setToolTip(tip)

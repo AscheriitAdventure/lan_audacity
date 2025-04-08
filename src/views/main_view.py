@@ -32,7 +32,7 @@ class MainGUI(QMainWindow):
 
         self.initUI_menuBar()
         self.load_recent_project()
-        # imposer un dialog pour ouvrir un projet sinon il y aura des problème de chargements
+        # imposer un dialog pour ouvrir un projet sinon il y aura des problèmes de chargements
         self.init_stackedWidget()
 
     def loadUI(self):
@@ -257,6 +257,8 @@ class MainGUI(QMainWindow):
                             f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}"
                         )
                         d.pop("separator")
+                        d["icon"] = c.icon.get_qIcon() if c.icon else None
+                        d = {k: v for k, v in d.items() if v is not None} # Supprimer toutes les clés vides
                         e = newAction(**d)
                         if a.title in names:
                             toolsBar.addAction(e)
