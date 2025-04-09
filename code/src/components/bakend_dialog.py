@@ -2,7 +2,7 @@ import nmap
 import os
 from qtpy.QtCore import QObject, Signal, QRunnable, QThread
 from qtpy.QtWidgets import QDialog, QProgressBar, QLabel, QVBoxLayout
-from typing import Any
+from typing import Any, List, Dict
 import logging, inspect
 
 from src.classes.cl_network import Network
@@ -185,7 +185,7 @@ class WorkerGetUcList(Worker):
         Appelle la méthode `getUcList` de manière asynchrone pour éviter de geler l'interface.
         :return: Liste des UC en format dictionnaire.
         """
-        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: 188: {self.objData}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.objData}")
         uc_objClassList = networkDevicesList(self.objData)
         uc_objDict = []
 
@@ -248,3 +248,38 @@ class SyncWorker(Worker):
             self.signals.progress.emit(progress)
         
         return nm.all_hosts()
+
+
+class WorkerNetworkTool(Worker):
+    def __init__(self, obj_data: Network, parent=None):
+        super(WorkerNetworkTool, self).__init__(obj_data, parent)
+    
+    def work(self) -> List[Dict[str, Any]]:
+        d = self.get_networkTools()
+        return d
+
+    def get_networkTools(self) -> list:
+        tmp_words: List[str] = ["Server", "srv", "iLO", "Router", "hub", "Squid", "Switch", "Telnet"]
+        tmp_ls: List[dict] = []
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.objData}")
+        uc_ls = networkDevicesList(self.objData)
+
+        if len(uc_ls) > 0:
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(uc_ls)}")
+            for uc in uc_ls:
+                tmp_d: dict = {}
+                tmp_d["name"] = f"{uc.nameObj}({uc.ipv4})"
+                tmp_d["vendor"] = uc.vendor
+                uc.nmapInfos.scanPort()
+                uc.nmapInfos.scanOs()
+
+                p_ls = uc.nmapInfos.portsList
+                for p in p_ls:
+                    for w in tmp_words:
+                        if w.lower() in (p.service.lower() or p.version.lower()):
+                            tmp_d["port"] = p.port
+                            tmp_d["services"] = f"{p.service} ({p.version})"
+                            tmp_ls.append(tmp_d)
+                            break
+                        
+        return tmp_ls

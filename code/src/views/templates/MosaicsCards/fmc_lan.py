@@ -3,7 +3,7 @@ from src.views.templates.MosaicsCards.cl_fmc import FixedMosaicsCards as FMC
 from qtpy.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QTableWidget, QAbstractItemView, QTableWidgetItem, QSizePolicy, QLabel, QPushButton
 from qtpy.QtCore import QThreadPool
 import qtawesome as qta
-import logging
+import logging, inspect
 
 from src.classes.languageApp import LanguageApp
 from src.classes.iconsApp import IconsApp
@@ -13,7 +13,7 @@ from src.views.templatesViews import LineUpdate, TitleWithAction
 
 from src.functionsExt import ip_to_cidr, conv_unix_to_datetime
 from src.components.card.cl_card import CardHeader
-from src.components.bakend_dialog import WorkerGetUcList, WDialogs
+from src.components.bakend_dialog import WorkerGetUcList, WDialogs, WorkerNetworkTool
 
 """
     Nom complet: Lan Dashboard Fixed Mosaics Cards
@@ -199,7 +199,7 @@ class LanDashboardFMC(FMC):
         """
         Méthode appelée lorsque le scan est terminé.
         """
-        # logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: 303: {result}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {result}")
         self.updateUcListTable(result)
         self.scan_btn.setEnabled(True)
         self.pause_btn.setEnabled(False)
@@ -227,14 +227,14 @@ class LanDashboardFMC(FMC):
             self.pause_btn.setToolTip("Pause the scan")
     
     def setUCNetworkList(self):
-        ucNetwork_listHeadband: list = ["Name/IPv4", "Emit", "Send"]
+        ucNetwork_listHeadband: list = ["Name(IPv4)", "Port", "Services", "Vendor"] 
         self.ucNetwork_listBody = QTableWidget(self)
         self.ucNetwork_listBody.setColumnCount(len(ucNetwork_listHeadband))
         self.ucNetwork_listBody.setHorizontalHeaderLabels(ucNetwork_listHeadband)
         
         btn_filter = QPushButton(self)
         btn_filter.setIcon(self.iconsManager.get_icon("runIcon"))
-        # btn_filter.connect(self.updateUcNetworkListTable)
+        btn_filter.clicked.connect(self.run_networkTools)
         
         ttls_btn = [btn_filter]
         twa = TitleWithAction("List of network equipment", ttls_btn)
@@ -256,19 +256,29 @@ class LanDashboardFMC(FMC):
             "bottom_card": None
         }
         self.cardList.append(ucNetwork_list_settings)
+    
+    def run_networkTools(self):
+        self.progress_dialog2 = WDialogs()
+        self.progress_dialog2.set_maximum(len(self.objManager.devicesList))
+        self.progress_dialog2.set_message("Fetching the list of network tools...")
+
+        self.worker2 = WorkerNetworkTool(self.objManager)
+
+        self.worker2.signals.progress.connect(self.progress_dialog2.update_progress)
+        self.worker2.signals.started.connect(lambda: self.progress_dialog2.show())
+        self.worker2.signals.result.connect(self.on_workNetworkToolFinished)
+        self.worker2.signals.finished.connect(self.progress_dialog2.close)
 
     def updateUcNetworkListTable(self, ucNetwork_list: list):
         self.ucNetwork_listBody.setRowCount(len(ucNetwork_list))
         for i, uc in enumerate(ucNetwork_list):
-            self.ucNetwork_listBody.setItem(
-                i, 0, QTableWidgetItem(uc["name"] or uc["ipv4"]))
-            self.ucNetwork_listBody.setItem(i, 1, QTableWidgetItem(uc["emit"]))
-            self.ucNetwork_listBody.setItem(i, 2, QTableWidgetItem(uc["send"]))
+            self.ucNetwork_listBody.setItem(i, 0, QTableWidgetItem(uc["name"]))
+            self.ucNetwork_listBody.setItem(i, 1, QTableWidgetItem(uc["port"]))
+            self.ucNetwork_listBody.setItem(i, 3, QTableWidgetItem(uc["services"]))
+            self.ucNetwork_listBody.setItem(i, 4, QTableWidgetItem(uc["vendor"]))
 
-    # Asynchrone function return a list of dict
-    async def getUcNetworkList(self):
-        # return await self.objManager.get_lan_uc_network_list()
-        return []
+    def on_workNetworkToolFinished(self, result):
+        self.updateUcNetworkListTable(result)
 
     def setInfoTableList(self):
         infoTable_listHeadband: list = ["Time", "Hostname/IPv4", "Message"]
