@@ -253,6 +253,7 @@ class SyncWorker(Worker):
 class WorkerNetworkTool(Worker):
     def __init__(self, obj_data: Network, parent=None):
         super(WorkerNetworkTool, self).__init__(obj_data, parent)
+        self.objData: Network
     
     def work(self) -> List[Dict[str, Any]]:
         d = self.get_networkTools()
