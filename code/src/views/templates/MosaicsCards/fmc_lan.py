@@ -268,6 +268,8 @@ class LanDashboardFMC(FMC):
         self.worker2.signals.started.connect(lambda: self.progress_dialog2.show())
         self.worker2.signals.result.connect(self.on_workNetworkToolFinished)
         self.worker2.signals.finished.connect(self.progress_dialog2.close)
+        
+        QThreadPool.globalInstance().start(self.worker2)
 
     def updateUcNetworkListTable(self, ucNetwork_list: list):
         self.ucNetwork_listBody.setRowCount(len(ucNetwork_list))
