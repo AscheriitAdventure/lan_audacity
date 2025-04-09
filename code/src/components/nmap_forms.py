@@ -71,10 +71,18 @@ class NmapForm:
     @property
     def portsList(self):
         return self.__ports
+    
+    @portsList.setter
+    def portsList(self, var: list) -> None:
+        self.__ports = var
 
     @property
     def osList(self):
         return self.__os
+    
+    @osList.setter
+    def osList(self, var: list) -> None:
+        self.__os = var   
 
     def scanPort(self):
         host = self.__target

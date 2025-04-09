@@ -3,8 +3,7 @@ from src.views.templates.MosaicsCards.cl_dmc import DynamicsMosaicsCards as DMC
 from qtpy.QtWidgets import QLabel
 from qtpy.QtGui import QImage
 from qtpy.QtCore import Qt
-import json
-import os
+import logging, inspect
 
 from src.classes.languageApp import LanguageApp
 from src.classes.cl_network import Network
@@ -29,38 +28,22 @@ class DevicesDMC(DMC):
         parent=None,
     ):
         super().__init__(obj_title, obj_lang, obj_view, parent)
+        self.objManager: Network
 
     def setCardList(self):
         self.card_list = []
         img_default = QImage(
             "C:\\Users\\g.tronche\\Documents\\GitHub\\affinity\\svg\\circle\\gray\\c_client.svg"
         )
-
-        if self.objManager.devicesList is not []:
-            for device in self.objManager.devicesList:
-                var_path = os.path.join(
-                    os.path.dirname(os.path.dirname(self.objManager.absPath)),
-                    "desktop",
-                    f"{device}.json",
-                )
-                if os.path.exists(var_path):
-                    with open(var_path, "r") as f:
-                        device_data = json.load(f)
-                        ipv4 = (
-                            device_data.get("ipv4", "value unknown") or "value unknown"
-                        )
-                        name = (
-                            device_data.get("name", "value unknown") or "value unknown"
-                        )
-                        self.card_list.append(
-                            {
-                                "top_card": QLabel(f"{name}({ipv4})"),
-                                "left_card": CardImage(img_default.scaled(50, 50, Qt.KeepAspectRatio)),
-                                "center_card": QLabel(
-                                    f"Mac Address: {device_data.get('mac', 'value unknown') or 'value unknown'}"
-                                ),
-                            }
-                        )
+        devices = self.objManager.get_devices()
+        logging.debug(f"{__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(devices)}, {len(self.objManager.devicesList)}")
+        if len(self.objManager.devicesList) > 0:
+            for uc in devices:
+                tmp:dict = {}
+                tmp["top_card"] = QLabel(f"{uc.nameObj}({uc.ipv4})")
+                tmp["left_card"] = CardImage(img_default.scaled(50, 50, Qt.AspectRatioMode.KeepAspectRatio))
+                tmp["center_card"] = QLabel(f"Mac Address: {uc.macAddress}")
+                self.card_list.append(tmp)
         else:
             self.card_list.append(
                 {

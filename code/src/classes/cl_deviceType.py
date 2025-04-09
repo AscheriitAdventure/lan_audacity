@@ -87,3 +87,4 @@ class DeviceType:
         if self.__sub_devices is None:
             self.__sub_devices = []
         self.__sub_devices.append(device)
+        

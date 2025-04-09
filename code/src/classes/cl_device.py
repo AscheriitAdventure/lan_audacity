@@ -6,6 +6,7 @@ import os
 import subprocess
 import uuid
 import nmap
+import re
 
 from src.classes.clockManager import ClockManager
 from src.classes.cl_deviceType import DeviceType
@@ -48,7 +49,6 @@ class Device:
         else:
             self.absPath = save_path
             self.open_file()
-
 
     @property
     def nameObj(self) -> str:
@@ -215,6 +215,8 @@ class Device:
     
     def update_auto(self):
         self.set_nmap_macVendor()
+        if self.__vendor == VAR_STR_DEFAULT:
+            self.set_socket_macVendor()
         self.set_nmap_hostname()
         self.set_isConnected()
         self.save_file()
@@ -236,27 +238,89 @@ class Device:
                 logging.warning("Impossible de trouver l'adresse MAC de la machine.")
                 self.__mac = VAR_STR_DEFAULT
 
-            if "vendor" in nm[self.ipv4] and self.macAddress != VAR_STR_DEFAULT:
-                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: MAC Address: {self.macAddress}, nmap result: {nm[self.ipv4]['addresses']['mac']}")
-                self.__vendor = nm[self.ipv4]["vendor"][str(self.macAddress)]
+            if "vendor" in nm[self.ipv4] and self.macAddress != VAR_STR_DEFAULT and nm[self.ipv4]["vendor"] != {}:
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: MAC Address: {self.macAddress}, nmap result: {nm[self.ipv4]['vendor']}")
+                self.__vendor = nm[self.ipv4]["vendor"][self.macAddress]
             else:
                 logging.warning("Impossible de trouver le constructeur de la machine.")
                 self.__vendor = VAR_STR_DEFAULT
         else:
             logging.warning("Impossible de trouver les informations de la machine.")
 
-    
-
     def set_nmap_hostname(self) -> None:
         nm = nmap.PortScanner()
         nm.scan(hosts=self.ipv4, arguments="-sL")
         logging.info(nm.command_line())
         if self.ipv4 in nm.all_hosts():
-            if "hostnames" in nm[self.ipv4]:
+            if "hostnames" in nm[self.ipv4] and nm[self.ipv4]["hostnames"][0]["name"] != "":
                 self.__name = nm[self.ipv4]["hostnames"][0]["name"]
             else:
                 self.__name = VAR_STR_DEFAULT
     
+    def set_socket_macVendor(self) -> None:
+        try:
+            # Ping l'adresse IP pour s'assurer qu'elle est dans la table ARP
+            os_type = platform.system().lower()
+            ping_cmd = []
+        
+            if os_type == "windows":
+                ping_cmd = ["ping", "-n", "1", "-w", "1000", self.ipv4]
+            else:  # Linux, macOS, etc.
+                ping_cmd = ["ping", "-c", "1", "-W", "1", self.ipv4]
+            
+            subprocess.run(ping_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+            # Récupération de l'adresse MAC selon le système d'exploitation
+            if os_type == "windows":
+                # Pour IPv4
+                if ":" not in self.ipv4:
+                    output = subprocess.check_output(["arp", "-a", self.ipv4], universal_newlines=True)
+                    matches = re.search(r"([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})", output)
+                    if matches:
+                        return matches.group(0)
+                # Pour IPv6
+                else:
+                    output = subprocess.check_output(["netsh", "interface", "ipv6", "show", "neighbors"], universal_newlines=True)
+                    for line in output.splitlines():
+                        if self.ipv6 in line:
+                            matches = re.search(r"([0-9A-Fa-f]{2}-){5}([0-9A-Fa-f]{2})", line)
+                            if matches:
+                                return matches.group(0)
+        
+            elif os_type == "linux":
+                # Pour IPv4
+                if ":" not in self.ipv4:
+                    output = subprocess.check_output(["arp", "-n", self.ipv4], universal_newlines=True)
+                    matches = re.search(r"([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})", output)
+                    if matches:
+                        return matches.group(0)
+                # Pour IPv6
+                else:
+                    output = subprocess.check_output(["ip", "-6", "neigh", "show", self.ipv6], universal_newlines=True)
+                    matches = re.search(r"([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})", output)
+                    if matches:
+                        return matches.group(0)
+        
+            elif os_type == "darwin":  # macOS
+                # Pour IPv4
+                if ":" not in self.ipv4:
+                    output = subprocess.check_output(["arp", "-n", self.ipv4], universal_newlines=True)
+                    matches = re.search(r"([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})", output)
+                    if matches:
+                        return matches.group(0)
+                # Pour IPv6
+                else:
+                    output = subprocess.check_output(["ndp", "-an"], universal_newlines=True)
+                    for line in output.splitlines():
+                        if self.ipv6 in line:
+                            matches = re.search(r"([0-9A-Fa-f]{2}:){5}([0-9A-Fa-f]{2})", line)
+                            if matches:
+                                return matches.group(0)
+            return None
+
+        except Exception as e:
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: ERROR Search MAC Address with: {e}")
+
     @property
     def vendor(self) -> str:
         return self.__vendor
@@ -264,3 +328,36 @@ class Device:
     @vendor.setter
     def vendor(self, new_vendor: str) -> None:
         self.__vendor = new_vendor
+
+    @staticmethod
+    def from_dict(data: dict) -> 'Device':
+        uc: Device = Device(data["ipv4"],data["mask_ipv4"], data["abs_path"], data["name"], data["uuid"])
+
+        uc.linksList = data.get("links_list", [])
+
+        uc.clockManager.clockCreated = data["clock_manager"]["clock_created"]
+        uc.clockManager.clockList = data["clock_manager"]["clock_list"]
+
+        uc.ipv6 = data.get("ipv6", None)
+        uc.vendor = data.get("vendor", VAR_STR_DEFAULT)
+        uc.macAddress = data.get("mac", VAR_STR_DEFAULT)
+
+        uc.__snmp.portListened = data["snmp"].get("port", 161)
+        uc.__snmp.communityPwd = data["snmp"].get("community", "public")
+        uc.__snmp.publicData = data["snmp"].get("public", {})
+        uc.__snmp.privateData = data["snmp"].get("private", {})
+
+        uc.nmapInfos.portsList = data["nmap"].get("ports", [])
+        uc.nmapInfos.osList = data["nmap"].get("os", [])
+
+        uc.type.image = data["type"].get("image", None)
+        uc.type.categoryName = data["type"].get("ctg_nme", "general")
+        uc.type.osiLayer = data["type"].get("osi_layer", "APPLICATION")
+        uc.type.categoryDescription = data["type"].get("ctg_dsc", None)
+        uc.type.subDevices =  data["type"].get("sub_devices", [])
+
+        return uc
+
+    @linksList.setter
+    def linksList(self, var: list) -> None:
+        self.__links = var

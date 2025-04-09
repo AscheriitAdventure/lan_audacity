@@ -1,9 +1,10 @@
-from typing import Optional, Union
+from typing import Optional, Union, List
 import json
 import logging, inspect
 import os
 import uuid
 
+from src.classes.switchFile import SwitchFile
 from src.classes.clockManager import ClockManager
 from src.classes.cl_device import Device
 
@@ -184,3 +185,20 @@ class Network:
 
     def __str__(self) -> str:
         return f"{self.name} - {self.ipv4} - {self.maskIpv4}"
+    
+    def get_devices(self) -> List[Device]:
+        d_p: str = os.path.join(os.path.dirname(os.path.dirname(self.absPath)), "desktop")
+        ls_d: list = []
+
+        for a in self.devicesList:
+            uc = Device.from_dict(SwitchFile().json_read(os.path.join(d_p, a+".json")))
+            ls_d.append(uc)
+
+        return ls_d
+
+    def get_device(self, ipv4: str) -> Device | None:
+        for a in self.get_devices():
+            if ipv4 == a.ipv4:
+                return a
+        
+        return None

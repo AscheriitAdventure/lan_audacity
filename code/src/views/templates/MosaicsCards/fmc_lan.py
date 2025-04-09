@@ -132,7 +132,7 @@ class LanDashboardFMC(FMC):
         self.pause_btn.setEnabled(False)
 
         ttls_btn = [self.scan_btn, self.pause_btn]
-        uc_listTtl = TitleWithAction(f'LAN {self.objManager.dns}', 4, ttls_btn)
+        uc_listTtl = TitleWithAction(f'LAN {self.objManager.dns}', ttls_btn)
 
         uc_list_settings: dict = {
             "layout": {
@@ -230,8 +230,14 @@ class LanDashboardFMC(FMC):
         ucNetwork_listHeadband: list = ["Name/IPv4", "Emit", "Send"]
         self.ucNetwork_listBody = QTableWidget(self)
         self.ucNetwork_listBody.setColumnCount(len(ucNetwork_listHeadband))
-        self.ucNetwork_listBody.setHorizontalHeaderLabels(
-            ucNetwork_listHeadband)
+        self.ucNetwork_listBody.setHorizontalHeaderLabels(ucNetwork_listHeadband)
+        
+        btn_filter = QPushButton(self)
+        btn_filter.setIcon(self.iconsManager.get_icon("runIcon"))
+        # btn_filter.connect(self.updateUcNetworkListTable)
+        
+        ttls_btn = [btn_filter]
+        twa = TitleWithAction("List of network equipment", ttls_btn)
 
         ucNetwork_list_settings: dict = {
             "layout": {
@@ -242,7 +248,7 @@ class LanDashboardFMC(FMC):
                 "alignement": None
             },
             "top_card": CardHeader(
-                title_card=QLabel("List of network equipment"),
+                title_card=twa,
                 icon_card=qta.icon('mdi6.clipboard-text-multiple')),
             "center_card": self.ucNetwork_listBody,
             "left_card": None,
@@ -303,4 +309,3 @@ class LanDashboardFMC(FMC):
     async def getInfoTableList(self):
         # return await self.objManager.get_lan_info_table_list()
         return []
-

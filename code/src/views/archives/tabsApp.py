@@ -1,15 +1,8 @@
 from typing import Any, Optional
-import logging
+import logging, inspect
 
-from qtpy.QtCore import Qt, QThreadPool
-from qtpy.QtWidgets import (
-    QWidget,
-    QGridLayout,
-    QVBoxLayout,
-    QPushButton,
-    QStackedLayout,
-    QTabWidget,
-)
+from qtpy.QtCore import *
+from qtpy.QtWidgets import *
 
 from src.classes.classesExport import Network, ConfigurationFile, LanguageApp, IconsApp
 

@@ -186,7 +186,6 @@ class WorkerGetUcList(Worker):
         :return: Liste des UC en format dictionnaire.
         """
         logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: 188: {self.objData}")
-        # self.objData contient ici les données de l'objet Manager
         uc_objClassList = networkDevicesList(self.objData)
         uc_objDict = []
 
@@ -212,34 +211,40 @@ class SyncWorker(Worker):
         """
         # Appelle le constructeur de la classe de base (Worker) avec les paramètres appropriés
         super(SyncWorker, self).__init__(obj_data, parent)
+        self.objData: Network
 
     def work(self) -> None:
         """
         Effectue le travail réel, ici un scan de périphériques.
         """
-        lan = ip_to_cidr(self.objData.ipv4, self.objData.maskIpv4)
-        path_device = os.path.join(
-            os.path.dirname(
-                os.path.dirname(self.objData.absPath)),
-            "desktop")
+        tmp: dict = {
+            "cidr": ip_to_cidr(self.objData.ipv4, self.objData.maskIpv4),
+            "path_dkp": os.path.join(os.path.dirname(os.path.dirname(self.objData.absPath)), "desktop"),
+            "ls_host": [],
+            "nb_host": 0
+        }
 
         nm = nmap.PortScanner()
-        nm.scan(hosts=lan, arguments='-sn')
-        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: abspath: {path_device}, list_host: {nm.all_hosts()}, lan: {lan}")
+        nm.scan(hosts=tmp["cidr"], arguments='-sn')
+        tmp["ls_host"] = nm.all_hosts()
+        tmp["nb_host"] = len(nm.all_hosts())
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {tmp}")
 
-        total_hosts = len(nm.all_hosts())
-        for index, host in enumerate(nm.all_hosts()):
-            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: SyncWorker for %s", lan)
-            new_device = Device(host, self.objData.maskIpv4, path_device)
-            new_device.update_auto()
-            new_device.save_file()
-
-            # Ajout de l'appareil au réseau
-            self.objData.add_device(new_device)
+        for index, host in enumerate(tmp["ls_host"]):
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: SyncWorker for {tmp['cidr']}")
+            # Vérification dans Network si le Device existe, si il existe mettre à jour le fichier, sinon créer un autre fichier
+            uc: Device | None = self.objData.get_device(host)
+            if uc is None:
+                uc = Device(host, self.objData.maskIpv4, tmp["path_dkp"])
+                uc.update_auto()
+                # Ajout de l'appareil au réseau
+                self.objData.add_device(uc)
+            
+            uc.save_file()
             self.objData.save_network()
 
             # Mise à jour de la progression
-            progress = int((index + 1) / total_hosts * 100)
+            progress = int((index + 1) / tmp["nb_host"] * 100)
             self.signals.progress.emit(progress)
         
         return nm.all_hosts()

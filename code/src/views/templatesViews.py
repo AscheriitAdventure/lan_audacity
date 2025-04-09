@@ -280,7 +280,6 @@ class TitleWithAction(QWidget):
     def __init__(
         self,
         title: str,
-        stretch_ttl: int = 1,
         action: Optional[list[QPushButton]] = None,
         parent=None,
     ):
@@ -297,7 +296,8 @@ class TitleWithAction(QWidget):
 
         # Ajoute le titre
         self.main_layout.addWidget(self.title_label)
-        self.main_layout.addStretch(stretch_ttl)
+        self.main_layout.addStretch()
+        
 
         # Ajoute les boutons d'action (s'il y en a)
         if self.action_buttons:

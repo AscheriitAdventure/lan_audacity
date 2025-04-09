@@ -1,4 +1,4 @@
-import logging
+import logging, inspect
 from mysql.connector import Error
 import mysql.connector
 
