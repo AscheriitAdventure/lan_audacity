@@ -40,9 +40,9 @@ class DevicesDMC(DMC):
         if len(self.objManager.devicesList) > 0:
             for uc in devices:
                 tmp:dict = {}
-                tmp["top_card"] = QLabel(f"{uc.nameObj}({uc.ipv4})")
-                tmp["left_card"] = CardImage(img_default.scaled(50, 50, Qt.AspectRatioMode.KeepAspectRatio))
-                tmp["center_card"] = QLabel(f"Mac Address: {uc.macAddress}")
+                tmp["top_card"] = QLabel(f"{uc.nameObj}({uc.ipv4})", self)
+                tmp["left_card"] = CardImage(img_default.scaled(50, 50, Qt.AspectRatioMode.KeepAspectRatio), self)
+                tmp["center_card"] = QLabel(f"Mac Address: {uc.macAddress}", self)
                 self.card_list.append(tmp)
         else:
             self.card_list.append(

@@ -432,7 +432,7 @@ class MainApp(QMainWindow):
                 prj.updateLanAudacity()
         else:
             msg_box = QMessageBox(self)
-            msg_box.setIcon(QMessageBox.Warning)
+            msg_box.setIcon(QMessageBox.Icon.Warning)
             msg_box.setWindowTitle("ERROR")
             msg_box.setInformativeText("No project to save.")
             msg_box.setDefaultButton(QMessageBox.StandardButton.Ok)
@@ -459,21 +459,14 @@ class MainApp(QMainWindow):
     
     def netExplorerPanelAction(self, index) -> None:
         net_selected_object = self.network_explorer.getSelectedItem(index)
-
-        if net_selected_object is not None:
-            panel_title = net_selected_object.name
-            self.primary_center.add_tab(
-                tab=LanViewGeneral(
-                    title_panel=panel_title, 
-                    external_object=net_selected_object, 
-                    language_manager=self.langManager, 
-                    icons_manager=self.iconsManager, 
-                    parent=self),
-                title=panel_title)
-        else:
-            self.primary_center.add_tab(
-                tab=LanAudacityViewGeneral("Networks", None, self.langManager, self.iconsManager, self),
-                title="Networks")
+        tmp_d: dict = {}
+        tmp_d["title_panel"] = net_selected_object.name if net_selected_object is not None else "Network"
+        tmp_d["external_object"] = net_selected_object if net_selected_object is not None else None
+        tmp_d["language_manager"] = self.langManager
+        tmp_d["icons_manager"] = self.iconsManager
+        tmp_d["parent"] = self
+        
+        self.primary_center.add_tab(tab=LanViewGeneral(**tmp_d), title=tmp_d["title_panel"])
     
     def fileExplorerPanelAction(self, index) -> None:
         model = self.file_explorer.treeView.model()

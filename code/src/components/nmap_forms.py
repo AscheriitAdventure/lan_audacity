@@ -101,17 +101,25 @@ class NmapForm:
 
     def scanOs(self):
         host = self.__target
+        tmp_d: dict = {
+            "os_name": None,
+            "os_accuracy": None,
+            "os_type": None,
+            "os_vendor": None,
+            "os_family": None,
+        }
         nm = nmap.PortScanner()
         nm.scan(hosts=host, arguments="-O -A -v")
         logging.info(nm.command_line())
         for host in nm.all_hosts():
             for osmatch in nm[host]["osmatch"]:
-                os_name = osmatch["name"]
-                os_accuracy = osmatch["accuracy"]
-                os_type = osmatch["osclass"]["type"]
-                os_vendor = osmatch["osclass"]["vendor"]
-                os_family = osmatch["osclass"]["osfamily"]
-                new_os = NmapOs(os_name, os_accuracy, os_type, os_vendor, os_family)
+                tmp_d["os_name"] = osmatch.get("name", "")
+                tmp_d["os_accuracy"] = osmatch.get("accuracy", 0)
+                tmp_d["os_type"] = osmatch.get("osclass", "").get("type", "")
+                tmp_d["os_vendor"] = osmatch.get("osclass", "").get("vendor", "")
+                tmp_d["os_family"] = osmatch.get("osclass", "").get("osfamily", "")
+
+                new_os = NmapOs(**tmp_d)
                 self.__os.append(new_os)
 
     def ports_remove(self, port: int):

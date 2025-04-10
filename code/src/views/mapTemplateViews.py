@@ -1,4 +1,4 @@
-import logging
+import logging, inspect
 from qtpy.QtWidgets import *
 from qtpy.QtCore import *
 from qtpy.QtGui import *

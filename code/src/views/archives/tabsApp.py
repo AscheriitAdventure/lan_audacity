@@ -239,6 +239,7 @@ class LanTabView(GeneralTabsView):
         parent=None,
     ) -> None:
         super().__init__(title_panel, ext_obj, lang_manager, icons_manager, parent)
+        self.extObj: Network
 
     def setListBtn(self) -> list:
         data = [

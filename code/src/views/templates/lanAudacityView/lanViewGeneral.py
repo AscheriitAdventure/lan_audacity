@@ -28,6 +28,7 @@ class LanViewGeneral(LanAudacityViewGeneral):
             parent = None
             ) -> None:
         super(LanViewGeneral, self).__init__(title_panel, external_object, language_manager, icons_manager, parent)
+        self.externalObject: ConfigurationFile
 
     def setListBtn(self):
         data = [

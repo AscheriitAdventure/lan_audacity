@@ -2,7 +2,7 @@ import os
 import logging, inspect
 import json
 import shutil
-from typing import Optional
+from typing import *
 
 from src.classes.fileManagement import FileManagement
 from src.classes.clockManager import ClockManager
@@ -245,20 +245,38 @@ class LanAudacity(FileManagement):
                 logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network} doesn't exist in {self.path}")
         else:  
             logging.warning("The network object is not a Network object or a string.")
+    
+    def getObjNetwork(self, name: str) -> Optional[Network]:
+        a_ls = self.networks.get("obj_ls", [])
+        p: str = ""
+        tmp_d: dict = {}
+        res_obj = None
+        if len(a_ls) > 0:
+            for n in a_ls:
+                if n["name"] == name:
+                    p = n["path"]
+                    break
 
-    def getObjNetwork(self, network_name):
-        for network in self.networks.get('obj_ls', []):
-            if network.get('name') == network_name:
-                net_data = SwitchFile.json_read(network['path'])
-                network_object = Network(
-                    network_ipv4=net_data['ipv4'], network_mask_ipv4=net_data['mask_ipv4'], save_path=net_data['abs_path'],
-                    network_name=net_data['name'], network_ipv6=net_data['ipv6'], network_gateway=net_data['gateway'],
-                    network_dns=net_data['dns'], uuid_str=net_data['uuid']
-                )
-                network_object.clockManager = ClockManager(net_data['clock_manager']['clock_created'], net_data['clock_manager']['clock_list'])
+            n_data = SwitchFile.json_read(p)
+            tmp_d["network_ipv4"] = n_data["ipv4"]
+            tmp_d["network_mask_ipv4"] = n_data["mask_ipv4"]
+            tmp_d["save_path"] = n_data["abs_path"]
+            tmp_d["network_name"] = n_data["name"]
+            tmp_d["network_ipv6"] = n_data["ipv6"]
+            tmp_d["network_gateway"] = n_data["gateway"]
+            tmp_d["network_dns"] = n_data["dns"]
+            tmp_d["uuid_str"] = n_data["uuid"]
 
-                return network_object
-        return None
+            res_obj = Network(**tmp_d)
+
+            res_obj.devicesList = n_data["devices_list"]
+
+            tmp_d2 = n_data["clock_manager"]
+            res_obj.clockManager = ClockManager(tmp_d2["clock_created"], tmp_d2["clock_list"])
+
+
+                    
+        return res_obj
     
     @property
     def pixmap(self) -> list[dict]:

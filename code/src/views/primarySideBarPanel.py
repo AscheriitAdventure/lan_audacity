@@ -1,7 +1,7 @@
 import os
 import logging
 import inspect
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -340,13 +340,10 @@ class NetExpl(GeneralSidePanel):
             else:
                 logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {device} is not a Device object or a string")
     
-    def getSelectedItem(self, index):
-        model = self.treeView.model()
-        item = model.itemFromIndex(index)
+    def getSelectedItem(self, index) -> Optional[Network]:
+        item = self.treeView.model().itemFromIndex(index)
 
         if item is not None:
-            network_name = item.text()
-            network = self.extObj.getObjNetwork(network_name)
-            return network
+            return self.extObj.getObjNetwork(item.text())
 
         return None

@@ -99,6 +99,7 @@ class DynamicsMosaicsCards(QWidget):
     def setCard(self, nb_column: int = 3):
         self.clearCardLayout()
         for i, card in enumerate(self.card_list):
+            card["parent"] = self
             self.card_layout.addWidget(Card(**card), i // nb_column, i % nb_column)
             self.card_layout.rowStretch(1)
 
