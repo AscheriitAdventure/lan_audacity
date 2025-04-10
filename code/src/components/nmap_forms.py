@@ -115,9 +115,9 @@ class NmapForm:
             for osmatch in nm[host]["osmatch"]:
                 tmp_d["os_name"] = osmatch.get("name", "")
                 tmp_d["os_accuracy"] = osmatch.get("accuracy", 0)
-                tmp_d["os_type"] = osmatch.get("osclass", "").get("type", "")
-                tmp_d["os_vendor"] = osmatch.get("osclass", "").get("vendor", "")
-                tmp_d["os_family"] = osmatch.get("osclass", "").get("osfamily", "")
+                tmp_d["os_type"] = str(osmatch.get("osclass", "").get("type", ""))
+                tmp_d["os_vendor"] = str(osmatch.get("osclass", "").get("vendor", ""))
+                tmp_d["os_family"] = str(osmatch.get("osclass", "").get("osfamily", ""))
 
                 new_os = NmapOs(**tmp_d)
                 self.__os.append(new_os)
