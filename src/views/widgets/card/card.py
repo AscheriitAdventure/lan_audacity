@@ -454,13 +454,13 @@ class CardFrame(QFrame):
             "bottom": False
         }
         
-        self.setFrameShape(QFrame.Shape.StyledPanel)
-        self.setFrameShadow(QFrame.Shadow.Raised)
-        self.setLineWidth(1)
+        self.setFrameStyle(QFrame.Shape.StyledPanel | QFrame.Shadow.Raised)
+        self.setLineWidth(10)
+        self.setMidLineWidth(5)
 
         self.topCard: Optional[QWidget] = None
         self.leftCard: Optional[QWidget] = None
-        self.centerCard: Optional[QWidget] = None
+        self.centerCard: Optional[QWidget] = QWidget(self)
         self.rightCard: Optional[QWidget] = None
         self.bottomCard: Optional[QWidget] = None
 
@@ -822,3 +822,103 @@ class CardFrame(QFrame):
 
             drag.exec_(Qt.DropAction.MoveAction)
 
+SEC_PARAMS: List[Dict[str: Any]] = [
+    {
+        "section": "global",
+        "dirty_rect": True,
+    },
+    {
+        "section": "top",
+        "dirty_rect": False,
+        "frame": "bottom"
+    },
+    {
+        "section": "left",
+        "dirty_rect": False,
+    },
+    {
+        "section": "center",
+        "dirty_rect": False,
+    },
+    {
+        "section": "right",
+        "dirty_rect": False,
+    },
+    {
+        "section": "bottom",
+        "dirty_rect": False,
+        "frame": "top"
+    }
+] 
+
+class Card_2(QFrame):
+    def __init__(self, debug: Optional[bool] = False, parent=None):
+        super(Card_2, self).__init__(parent)
+
+        self.setFrameStyle(QFrame.Shape.StyledPanel | QFrame.Shadow.Raised)
+        self.setLineWidth(10)
+        self.setMidLineWidth(5)
+
+        self.debug = debug
+        self.activeSections:Dict[str, QWidget] = {}
+        self.sections: list = SEC_PARAMS
+    
+    def initUI(self, rebuild: Optional[bool] = False) -> None:
+        if rebuild and self.mainLayout is not None:
+            self._clearLayout()
+        else:
+            self.mainLayout = QGridLayout(self)
+            self.setLayout(self.mainLayout)
+        
+        self._arrangeWidgets(0, 0, 3)
+        self.markAllDirty()
+
+    def setPositionCard(self, pos: str, new_obj: Optional[QWidget] = None) -> None:
+        """Sets the position card widget."""
+        o_c = self.activeSections.get(pos, None)
+        if o_c is not None and o_c != new_obj:
+            o_c.setParent(None)
+        else:
+            self.activeSections[pos] = new_obj
+            self.sections[self._findSectionIndex(pos)]["dirty_rect"] = True
+    
+    def _findSectionIndex(self, section: str) -> int:
+        """Find the index of a section in the sections list."""
+        for i, sec in enumerate(self.sections):
+            if sec["section"] == section:
+                return i
+        return -1     
+    
+    def _arrangeWidgets(self, rowStart=0, colStart=0, colSpan=3):
+        """
+        Arrange les widgets dans le layout
+    
+        Args:
+            rowStart (int): Ligne de départ
+            colStart (int): Colonne de départ
+            colSpan (int): Nombre de colonnes à occuper
+        """
+        for section in self.sections:
+            if section["dirty_rect"]:
+                self.mainLayout.addWidget(self, rowStart, colStart, 1, colSpan)
+                rowStart += 1
+
+    def getTruePosition(self, widget: QWidget, top_bottom:Optional[str] = None) -> QRectF:
+        """Récupère la position absolue du widget dans la fenêtre."""
+        vqo = widget.rect() # Variable QRectF Object
+        wdt = vqo.width()   # width
+        hgt = vqo.height()  # height
+        vpo = widget.pos()  # Variable Position Object
+        x = vpo.x()         # x
+        y = vpo.y()         # y
+
+        lm, tm, rm, bm = self.mainLayout.getContentsMargins()
+        tbm = bm * 0.75 + tm * 0.75 # Top/Bottom Margin
+        tbw = self.rect().width()   # Top/Bottom Width
+        
+        if top_bottom == "Bottom":
+            return QRectF(x-lm, y-0.25*tm, tbw, hgt+tbm)
+        elif top_bottom == "Top":
+            return QRectF(x-lm, y-tm, tbw, hgt+tbm)
+        else:
+            return QRectF(x, y, wdt, hgt) 
