@@ -5,9 +5,9 @@ import PIL
 
 # Image URLs for graph nodes
 icons = {
-    "router": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/icons/router.png",
-    "switch": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/icons/switch.png",
-    "PC": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/icons/computer.png",
+    "router": "assets/icons/router.png",
+    "switch": "assets/icons/switch.png",
+    "PC": "assets/icons/computer.png",
 }
 
 # Load images
