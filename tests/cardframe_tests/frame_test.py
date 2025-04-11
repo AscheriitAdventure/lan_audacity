@@ -5,7 +5,7 @@ from qtpy.QtGui import *
 import logging
 import inspect
 
-from tests.cardframe_tests import CardFrame
+from tests.cardframe_tests import *
 
 tmp_d: dict = {
     "style_sheet": "border: 3px solid #E7E9EB; border-radius: 10px;"
@@ -37,9 +37,22 @@ class DemoApp(QMainWindow):
         # Créer quelques objets de test
         test_frame1 = TestFrame(debug=True)
         c_layout.addWidget(test_frame1, 0, 0)
-        test_frame2 = TestFrame(debug=False)
+        test_frame2 = Card_2(debug=False)
+
+        # Ajouter des labels de test avec des couleurs distinctes
+        top = QLabel("TOP")
+        top.setStyleSheet("background-color: red; color: white;")
+        top.setMinimumHeight(40)
+
+        left = QLabel("LEFT")
+        left.setStyleSheet("background-color: green; color: white;")
+        left.setMinimumWidth(60)
+
+        test_frame2.setAllParts(top, left, QLabel("center"), QLabel("right"), QLabel("bottom"))
         c_layout.addWidget(test_frame2, 1, 0)
         test_frame3 = CardFrame(debug=True)
+        test_frame3.setStyleSheet("border: 3px solid red; border-radius: 10px;")
+        test_frame3.setAllCards(top, left, QLabel("center"), QLabel("right"), QLabel("bottom"))
         c_layout.addWidget(test_frame3, 0, 1)
 
 

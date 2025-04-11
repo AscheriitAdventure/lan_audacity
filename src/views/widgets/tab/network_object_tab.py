@@ -10,7 +10,7 @@ import inspect
 from .tab import Tab
 from src.utils.py_to_json import *
 from src.models import IconApp
-from src.views.widgets import *
+from src.views.widgets import WidgetField, TitleWithActions, Card, CLWIT
 
 
 class NetworkObjectTab(Tab):
@@ -108,7 +108,7 @@ class NetworkObjectTab(Tab):
                     }
                 }
                 carte = Card(debug=self.debug)
-                carte.setCenterCard(QLabel(str(i)))
+                carte.setPositionCard("center",QLabel(str(i)))
                 sdfot.addCard(carte,tmp)
 
             self._zone2.addWidget(sdfot)

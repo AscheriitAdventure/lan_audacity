@@ -11,18 +11,18 @@ def obj_to_crdfrm(obj:Any, parent=None, titre:Optional[str]=None) -> List[QWidge
 
     if isinstance(obj, str):
         cf = Card(parent=parent)
-        cf.setCenterCard(QLabel(obj))
+        cf.setPositionCard("center",QLabel(obj))
         lsqd.append(cf)
     
     elif isinstance(obj, (int, float)):
         cf = Card(parent=parent)
-        cf.setCenterCard(QLabel(str(obj)))
+        cf.setPositionCard("center",QLabel(str(obj)))
         lsqd.append(cf)
     
     elif isinstance(obj, (list, tuple)):
         cf = Card(parent=parent)
         if len(obj) == 0:
-            cf.setCenterCard(QLabel("Liste vide"))
+            cf.setPositionCard("center",QLabel("Liste vide"))
             lsqd.append(cf)
         # Si tous les éléments sont de type scalaire, on crée un tableau
         if all(isinstance(item, (str, int, float)) for item in obj):
@@ -30,7 +30,7 @@ def obj_to_crdfrm(obj:Any, parent=None, titre:Optional[str]=None) -> List[QWidge
             tbl.setHorizontalHeaderLabels(["Valeurs"])
             for i, item in enumerate(obj):
                 tbl.setItem(i, 0, QTableWidgetItem(str(item)))
-            cf.setCenterCard(tbl)
+            cf.setPositionCard("center",tbl)
             lsqd.append(cf)
         else:
             for i, item in enumerate(obj):
@@ -49,7 +49,7 @@ def obj_to_crdfrm(obj:Any, parent=None, titre:Optional[str]=None) -> List[QWidge
             attributes = {k: v for k, v in obj.__dict__.items() if not k.startswith('_')}
             class_name = obj.__class__.__name__
         
-        cf.setTopCard(TitleBlock(text=class_name))
+        cf.setPositionCard("top",TitleBlock(text=class_name))
 
         c_wdt = QWidget()
         c_lyt = QVBoxLayout()
@@ -64,7 +64,7 @@ def obj_to_crdfrm(obj:Any, parent=None, titre:Optional[str]=None) -> List[QWidge
             elif isinstance(v, dict) or hasattr(v, "__dict__"):
                 n_c = obj_to_crdfrm(v, parent, k)
                 lsqd.append(n_c[0]) # On suppose qu'il n'y a qu'une seule carte pour les objets imbriqués
-        cf.setCenterCard(c_wdt)
+        cf.setPositionCard("center",c_wdt)
         lsqd.append(cf)
         
     else:   
