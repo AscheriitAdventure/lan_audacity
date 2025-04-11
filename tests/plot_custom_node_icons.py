@@ -1,14 +1,13 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 import PIL
-import pyvis
 
 
 # Image URLs for graph nodes
 icons = {
-    "router": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/affinity/svg/naked/router.svg",  # icons/router_black_144x144.png
-    "switch": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/affinity/svg/naked/switch.svg",  # icons/switch_black_144x144.png
-    "PC": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/affinity/svg/naked/computer.svg"     # icons/computer_black_144x144.png
+    "router": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/icons/router.png",
+    "switch": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/icons/switch.png",
+    "PC": "C:/Users/g.tronche/Documents/Python/lan_audacity/assets/icons/computer.png",
 }
 
 # Load images
