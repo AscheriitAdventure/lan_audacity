@@ -36,6 +36,7 @@ class GeneralSidePanel(QWidget):
 
         self.glbLayout = QVBoxLayout(self)
         self.setLayout(self.glbLayout)
+        self.setContentsMargins(0, 0, 0, 0)
 
         self.initUI()
         self.initDisplayObj()
