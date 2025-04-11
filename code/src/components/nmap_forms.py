@@ -87,7 +87,7 @@ class NmapForm:
     def scanPort(self):
         host = self.__target
         nm = nmap.PortScanner()
-        nm.scan(hosts=host, arguments="-sV -p 1-65535 -v")
+        nm.scan(hosts=host, arguments="-sV -p 1-65535 -v --max-retries 0 --host-timeout 3m")
         logging.info(nm.command_line())
         for host in nm.all_hosts():
             for proto in nm[host].all_protocols():
@@ -109,7 +109,7 @@ class NmapForm:
             "os_family": None,
         }
         nm = nmap.PortScanner()
-        nm.scan(hosts=host, arguments="-O -A -v")
+        nm.scan(hosts=host, arguments="-O -A -v --max-retries 0 --host-timeout 1m")
         logging.info(nm.command_line())
         for host in nm.all_hosts():
             for osmatch in nm[host]["osmatch"]:

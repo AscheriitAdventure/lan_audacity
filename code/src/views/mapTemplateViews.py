@@ -74,7 +74,7 @@ class LANMap(QWidget):
                     "solver": "forceAtlas2Based"
                 }
             }""")
-        # self.netMap.show_buttons(filter_=['edges', 'nodes', 'physics'])
+        self.netMap.show_buttons(filter_=['edges', 'nodes', 'physics'])
         self.netMap.filter_menu = True
         self.netMap.select_menu = True
 
