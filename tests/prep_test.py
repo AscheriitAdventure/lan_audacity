@@ -10,7 +10,7 @@ icons = {
 
 size: int = 144
 for k, p in icons.items():
-    c_f = pyvis.Image.thumbnail(p, size, height=size)
+    c_f = pyvips.Image.thumbnail(p, size, height=size)
     n_f = f"{k}_{size}x{size}.png"
     o_p_j = os.path.join("C:","Users","g.tronche","Documents","Python","lan_audacity","assets","icons", n_f)
     c_f.write_to_file(o_p_j)
