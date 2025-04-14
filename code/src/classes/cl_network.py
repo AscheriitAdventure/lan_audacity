@@ -33,6 +33,7 @@ class Network:
         self.__dns: str = network_dns if network_dns is not None else ""
         self.__clockManager = ClockManager()
         self.__abs_path: str = ""
+        self.__pixmaps: List[str] = []
 
         self.__devices = []
         self.__isConnected: bool = False
@@ -43,6 +44,14 @@ class Network:
         else:
             self.absPath = save_path
             self.open_network()
+
+    @property
+    def pixmaps(self) -> List[str]:
+        return self.__pixmaps
+    
+    @pixmaps.setter
+    def pixmaps(self, pixmaps: List[str]) -> None:
+        self.__pixmaps = pixmaps
 
     @property
     def isConnected(self):
@@ -177,11 +186,12 @@ class Network:
             "ipv6": self.ipv6,
             "gateway": self.gateway,
             "dns": self.dns,
-            "devices_list": self.__devices
+            "devices_list": self.__devices,
+            "pixmap": self.pixmaps,
         }
 
     def keys(self) -> list:
-        return ["Name", "IPv4", "Mask IPv4", "IPv6", "Gateway", "Nom de Domaine"]
+        return ["Name", "IPv4", "Mask IPv4", "IPv6", "Gateway", "Nom de Domaine", "Devices", "Graphs"]
 
     def __str__(self) -> str:
         return f"{self.name} - {self.ipv4} - {self.maskIpv4}"

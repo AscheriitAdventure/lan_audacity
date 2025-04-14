@@ -1,5 +1,5 @@
 from qtpy.QtCore import Signal, Slot
-
+import time
 
 class Window1:
     def __init__(self):

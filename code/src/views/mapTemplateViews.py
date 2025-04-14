@@ -7,6 +7,8 @@ from typing import Optional
 from pyvis.network import Network
 
 from src.classes.languageApp import LanguageApp
+from src.classes.cl_network import Network as Net
+import time, os
 
 
 class LANMap(QWidget):
@@ -14,20 +16,21 @@ class LANMap(QWidget):
             self, 
             obj_title: str,
             obj_lang: Optional[LanguageApp] = None,
-            obj_view: Optional[list] = None,
+            obj_view: Optional[Network] = None,
             parent=None) -> None:
         super().__init__(parent)
         self.net_widget = QWebEngineView()
         self.mainLayout = QVBoxLayout()
         self.stackTitle = obj_title
         self.langManager = obj_lang
-        self.objManager = obj_view
-        self.netMap = Network()
+        self.objManager: Net = obj_view
+        self.netMap: Network = Network()
 
         # init User Interface
         self.initUI()
         self.netMap = Network()
         self.setNetMap()
+        self.editMap()
 
     def initUI(self):
         # Set the general layout
@@ -69,6 +72,7 @@ class LANMap(QWidget):
             logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading the map: {e}")
 
     def setNetMap(self):
+        self.netMap.show_buttons(filter_=['edges', 'nodes', 'physics'])
         self.netMap.set_options("""
             var options = {
                 "physics": {
@@ -77,22 +81,36 @@ class LANMap(QWidget):
                     "solver": "forceAtlas2Based"
                 }
             }""")
-        self.netMap.show_buttons(filter_=['edges', 'nodes', 'physics'])
-        self.netMap.filter_menu = True
-        self.netMap.select_menu = True
+        self.netMap.filter_menu = False
+        self.netMap.select_menu = False
     
     def editMap(self):
         # Add nodes and edges
-        for item in self.objManager:
-            # node = (id, label, image)
-            self.netMap.add_node(item["uuid"], label=item["name"], shape='image', image=item["image"])
+        devices = self.objManager.get_devices()
+        if len(devices) > 0:
+            for item in devices:
+                # node = (id, label, image)
+                tmp: dict = {}
+                tmp["n_id"] = item.uuid
+                tmp["label"] = item.nameObj
+                tmp["shape"] = "image"
+                tmp["image"] = item.type.image
+                # node = (id, label, image)
+                self.netMap.add_node(**tmp)
 
-            # edge = (id1, id2)
-            for link in item["links"]:
-                self.netMap.add_edge(item["uuid"], link)
+                if len(item.linksList) > 0:
+                # edge = (id1, id2)
+                    for link in item["links"]:
+                        self.netMap.add_edge(tmp["n_id"], link)
         
-        # Show the map
-        # retrieve the local path before showing the map
-        self.netMap.show("net_map.html", open_browser=False, notebook=False)
+        # Write the map to the local file
+        f_name = f"{time.time()}_graph_{self.objManager.uuid}.html"
+        self.objManager.pixmaps.append(f_name)
+        self.objManager.save_network()
+        f_path = os.path.join(self.objManager.absPath.split(os.path.join("", "db", ""))[0], "pixmap", f_name)
+        
+        self.netMap.write_html(f_path)
+
+        self.net_widget.load(QUrl.fromLocalFile(f_path))
 
         
