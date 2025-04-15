@@ -21,6 +21,11 @@ class CustomCardTable(Card):
 
         self.refreshBtn = QPushButton("RT")
         self.refreshBtn.setToolTip("Refresh the table")
+        self.refreshBtn.setFlat(True)
+
+        self.stopRefreshBtn = QPushButton("SR")
+        self.stopRefreshBtn.setToolTip("Stop the refresh")
+        self.stopRefreshBtn.setFlat(True)
 
         # Initialize the title of the card
         self.initTitle(title)
@@ -40,6 +45,10 @@ class CustomCardTable(Card):
         """Initialize the table."""
         self.cct = QTableWidget(self.parent())
         self.cct.setColumnCount(len(key_table))
+
+        for i in enumerate(key_table):
+            self.cct.setColumnWidth(i, 50)
+
         self.cct.setRowCount(0)
         self.cct.setHorizontalHeaderLabels(key_table)
         self.cct.setVerticalHeaderLabels([])
@@ -49,6 +58,8 @@ class CustomCardTable(Card):
         self.cct.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.cct.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.cct.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
+
+        self.setPositionCard("center", self.cct)
 
     def loadData(self, data_table: Any) -> None:
         """Load the data into the table."""
@@ -60,4 +71,7 @@ class CustomCardTable(Card):
             self.cct.insertRow(i)
             for j, item in enumerate(row):
                 self.cct.setItem(i, j, QTableWidgetItem(str(item)))
-                
+    
+    # reloadData: permet de recharger les données dans le tableau
+    # stopRefresh: permet d'arrêter le rafraîchissement du tableau
+    

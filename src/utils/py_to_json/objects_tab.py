@@ -147,7 +147,7 @@ NETWORK_TAB: Dict[str, Any] = {
                 },
             ],
             "description": "Affiche le tableau de bord et les informations de l'objet",
-            "visible": True
+            "visible": True,
         },
         {
             "title": "Interfaces",

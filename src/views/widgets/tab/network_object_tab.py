@@ -7,11 +7,12 @@ import logging
 import os
 import inspect
 
+from src.views.widgets.custom import *
 from .tab import Tab
 from src.utils.py_to_json import *
-from src.models import IconApp
+from src.models import IconApp, Network, SwitchFile
 from src.views.widgets import WidgetField, TitleWithActions, Card, CLWIT
-
+from src.utils import prettyKeysList
 
 class NetworkObjectTab(Tab):
     class DomainType(Enum):
@@ -95,9 +96,16 @@ class NetworkObjectTab(Tab):
             
             sdfot = WidgetField(self.debug)
             sdfot.setGridForm(WidgetField.GridForm.CMosaics, 5)
-        
-            sdfot.setHeaderArea(TitleWithActions(title=f.get("title", ""), parent=sdfot))
-            for i in range(1,26):
+            ttl_d = TitleWithActions(title=f.get("title", ""), parent=sdfot)
+            # if icon := f.get("icon"):
+            #     ico = IconApp.from_dict(icon)
+            #     ttl_d.mainLayout.insertWidget(0, QLabel().setPixmap(ico.get_qIcon().pixmap(24, 24)))
+                
+            sdfot.setHeaderArea(ttl_d)
+            ## Ajout des cartes
+            m = self.__loadCardObject(f)
+            
+            for i in m:
                 tmp: dict = {
                     "layout":{
                         "columnSpan": 2,
@@ -107,9 +115,8 @@ class NetworkObjectTab(Tab):
                         "alignment": Qt.AlignmentFlag.AlignJustify
                     }
                 }
-                carte = Card(debug=self.debug)
-                carte.setPositionCard("center",QLabel(str(i)))
-                sdfot.addCard(carte,tmp)
+
+                sdfot.addCard(i,tmp)
 
             self._zone2.addWidget(sdfot)
             self.stackedWidgetList.append(sdfot)
@@ -158,4 +165,57 @@ class NetworkObjectTab(Tab):
                 logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Affichage du champ à l'index {index}")
     
         return callback
+    
+    def __loadCardObject(self, obj: dict) -> list[Card]:
+        ls_c = []
+        
+        stack_name: str = obj.get('title')
+        tmp_d = dict()
+        tmp_d["alias"] = self.rootData.get("name")
+        tmp_d["path"] = self.rootData.get("path")
+        tmp_d["name_file"] = self.rootData.get("uuid")
+        # obj_class: Network = Network(tmp_d)
+
+        if "dashboard" in stack_name.lower():
+            c0 = Card(debug=self.debug)
+            c0.setPositionCard("top", QLabel("Network Status"))
+
+            c1 = CCT(
+                title="Local Area Network (LAN)", 
+                key_table=prettyKeysList(Network),
+                debug=self.debug,
+                parent=self)
+
+            c2 = CCT(
+                title="List of network equipments", 
+                key_table=[],
+                debug=self.debug,
+                parent=self)
+
+            c3 = CCT(
+                title="Current Problems", 
+                key_table=[],
+                debug=self.debug,
+                parent=self)
+
+            ls_c.append(c0)
+            ls_c.append(c1)
+            ls_c.append(c2)
+            ls_c.append(c3)
+
+        elif "interfaces" in stack_name.lower():
+            logging.info(f"366:: {self.rootData}")
+
+        elif "devices" in stack_name.lower():
+            logging.info(f"366:: {self.rootData}")
+        
+
+        elif "vlans" in stack_name.lower():
+            logging.info(f"366:: {self.rootData}")
+        
+
+        elif "network map" in stack_name.lower():
+            logging.info(f"366:: {self.rootData}")
+        
+        return ls_c
     

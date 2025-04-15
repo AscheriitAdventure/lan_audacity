@@ -35,7 +35,7 @@ class LoggerSetup:
         if yaml_path is None:
             # Chemin relatif au dossier du projet
             base_dir = Path(__file__).resolve().parent.parent.parent
-            self.yaml_path = os.path.join(base_dir, "config", "logs.yaml")
+            self.yaml_path = os.path.join(base_dir, "data", "conf", "logs.yaml")
         else:
             self.yaml_path = yaml_path
             

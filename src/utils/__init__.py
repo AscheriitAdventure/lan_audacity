@@ -1,5 +1,5 @@
 from .logger import LoggerSetup, get_logger, app_logger, configure_logs
-from .config import load_env_vars, load_resources, verify_resources, get_resource_path
+from .config import *
 from .helpers import *
 from .def_ext import newAction
 from .files_env.scan_app import ScanApp
@@ -18,6 +18,8 @@ __all__ = [
     'get_app_version',
     'get_app_organization',
     'log_function_call',
+    'prettyKeys',
+    'prettyKeysList',
     'load_resources',
     'newAction',
     'ScanApp'
