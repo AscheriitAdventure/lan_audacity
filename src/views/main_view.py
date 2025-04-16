@@ -829,6 +829,7 @@ class MainGUI(QMainWindow):
             
         # Create new network object tab
         network_tab = NetworkObjectTab(object_data=object_data, parent=self.primary_center)
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network_tab}")
         index = self.primary_center.add_tab(network_tab)
         self.primary_center.setCurrentIndex(index)
 

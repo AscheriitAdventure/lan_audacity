@@ -14,7 +14,7 @@ class MenuBarObject:
 
     @staticmethod
     def from_dict(data: dict) -> "MenuBarObject":
-        tmp_dict: dict = {}
+        tmp_dict: dict = dict()
         tmp_dict["title"] = data["title"]
         tmp_dict["icon"] = IconApp.from_dict(data["icon"]) if isinstance(data.get("icon"), dict) else data.get("icon")
         tmp_dict["actions"] = [ActionObject.from_dict(action) for action in data.get("actions", [])]

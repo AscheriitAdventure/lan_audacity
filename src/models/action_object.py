@@ -18,7 +18,7 @@ class ActionObject:
 
     @staticmethod
     def from_dict(data: dict) -> "ActionObject":
-        tmp_dict: dict = {}
+        tmp_dict: dict = dict()
         tmp_dict["text"] = data["text"]
         tmp_dict["slot"] = data.get("slot", None)
         tmp_dict["shortcut"] = data.get("shortcut", None)

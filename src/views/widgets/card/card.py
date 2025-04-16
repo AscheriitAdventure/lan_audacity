@@ -50,7 +50,7 @@ class Card(QWidget):
         self.debug = debug
         self.activeSections: list = ["global"]
 
-        self.paintProperties: dict = {}
+        self.paintProperties: dict = dict()
         self.dirtyRects: Dict[str, bool] = {
             "global": True,
             "top": False,
@@ -456,7 +456,7 @@ class CardFrame(QFrame):
         self.debug = debug
         self.activeSections: list = ["global"]
 
-        self.paintProperties: dict = {}
+        self.paintProperties: dict = dict()
         self.dirtyRects: Dict[str, bool] = {
             "global": True,
             "top": False,

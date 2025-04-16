@@ -131,7 +131,7 @@ def prettyKeys(obj: object) -> dict:
         sortie {'attribut1': 'Attribut 1', '_HW__attribut2': 'Attribut 2', '_HW__attr33ibut': 'Attr 33 Ibut'}
     """
     origin_d = obj.__dict__
-    tmp_d: dict = {}
+    tmp_d: dict = dict()
 
     for k, v in origin_d.items():
         original_key = k

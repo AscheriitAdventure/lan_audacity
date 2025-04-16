@@ -121,7 +121,7 @@ class SDFD(QWidget):
             visbBtn.clicked.connect(lambda: self._createVisibilityMenu()._exec(
                 visbBtn.mapToGlobal(visbBtn.rect().bottomLeft())))
 
-        tmp_dict: dict = {}
+        tmp_dict: dict = dict()
         tmp_dict["text"]=data.get('stacked_title', 'Untitled')
         tmp_dict["actions"]=[visbBtn] if visbBtn else None
         # Création du bloc de titre

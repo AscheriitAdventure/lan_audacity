@@ -22,7 +22,7 @@ class WidgetField(QWidget):
         self._gridObjects: List[QWidget] = []
         self._gridForm: WidgetField.GridForm = WidgetField.GridForm.CMosaics
         self._grid_number: int = 3  # Par défaut : 3 colonnes ou 3 lignes
-        self.items: dict = {}
+        self.items: dict = dict()
 
         self.initUI()
     

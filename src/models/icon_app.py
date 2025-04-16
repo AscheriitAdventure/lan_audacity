@@ -26,7 +26,7 @@ class IconApp:
         return IconApp(names=data["names"], options=data.get("options"))
     
     def get_dict(self) -> dict:
-        res: dict = {}
+        res: dict = dict()
         res["names"] = self.names
         
         if self.options is not None:

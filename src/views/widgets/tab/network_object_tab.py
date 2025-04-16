@@ -91,7 +91,7 @@ class NetworkObjectTab(Tab):
                 ico = IconApp.from_dict(icon)
                 btn.setIcon(ico.get_qIcon())
             btn.setFlat(True)
-            btn.clicked.connect(self.showField(i))
+            btn.clicked.connect(lambda checked=False, index=i: self.showField(index)())
             btn_list.append(btn)
             
             sdfot = WidgetField(self.debug)
@@ -181,20 +181,18 @@ class NetworkObjectTab(Tab):
             c0.setPositionCard("top", QLabel("Network Status"))
 
             c1 = CCT(
-                title="Local Area Network (LAN)", 
-                key_table=prettyKeysList(Network),
+                title="Local Area Network (LAN)",
+                #prettyKeysList(Network),
                 debug=self.debug,
                 parent=self)
 
             c2 = CCT(
-                title="List of network equipments", 
-                key_table=[],
+                title="List of network equipments",
                 debug=self.debug,
                 parent=self)
 
             c3 = CCT(
-                title="Current Problems", 
-                key_table=[],
+                title="Current Problems",
                 debug=self.debug,
                 parent=self)
 

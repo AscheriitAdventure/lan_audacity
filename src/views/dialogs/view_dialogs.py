@@ -76,7 +76,7 @@ class DynFormDialog(QDialog):
     def __init__(self, parent=None, debug: bool = False):
         super().__init__(parent)
 
-        self.active_fields: List = []
+        self.active_fields: list = list()
         self.fields = {}
         self.title_form: str = ""
         self.title_window: str = "Setup"
