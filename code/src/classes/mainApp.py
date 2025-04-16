@@ -25,16 +25,16 @@ class MainApp(QMainWindow):
         self.softwareManager = software_manager
         soft_data = self.softwareManager.data['software']['conf']
         # Data Language Manager
-        path_data_lang = str(os.path.join(current_dir(), "code", soft_data['translate_app']['path']))
+        path_data_lang = str(os.path.join(current_dir(), soft_data['translate_app']['path']))
         self.langManager = LanguageApp(ConfigurationFile(path_data_lang))
         # Data Shortcut Manager
-        path_short_key = str(os.path.join(current_dir(), "code", soft_data['shortcuts_app']['path']))
+        path_short_key = str(os.path.join(current_dir(), soft_data['shortcuts_app']['path']))
         self.shortcutManager = ShortcutApp(ConfigurationFile(path_short_key))
         # Data Icon Manager
-        path_data_ico = str(os.path.join(current_dir(), "code", soft_data['icons_app']['path']))
+        path_data_ico = str(os.path.join(current_dir(), soft_data['icons_app']['path']))
         self.iconsManager = IconsApp(ConfigurationFile(path_data_ico))
         # Data MenuBar Manager
-        path_data_menubar = str(os.path.join(current_dir(), "code", soft_data['navBar_app']['path']))
+        path_data_menubar = str(os.path.join(current_dir(), soft_data['navBar_app']['path']))
         self.menuBarManager = MenuBarApp(ConfigurationFile(path_data_menubar))
 
         # Set the Window title
@@ -459,7 +459,7 @@ class MainApp(QMainWindow):
     
     def netExplorerPanelAction(self, index) -> None:
         net_selected_object = self.network_explorer.getSelectedItem(index)
-        tmp_d: dict = {}
+        tmp_d: dict = dict()
         tmp_d["title_panel"] = net_selected_object.name if net_selected_object is not None else "Network"
         tmp_d["external_object"] = net_selected_object if net_selected_object is not None else None
         tmp_d["language_manager"] = self.langManager

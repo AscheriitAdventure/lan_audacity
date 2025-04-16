@@ -90,7 +90,7 @@ class LANMap(QWidget):
         if len(devices) > 0:
             for item in devices:
                 # node = (id, label, image)
-                tmp: dict = {}
+                tmp: dict = dict()
                 tmp["n_id"] = item.uuid
                 tmp["label"] = item.nameObj
                 tmp["shape"] = "image"

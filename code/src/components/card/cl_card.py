@@ -42,7 +42,7 @@ class Card(QWidget):
 
         self.activeSections: list = ["global"]
 
-        self.paintProperties: dict = {}
+        self.paintProperties: dict = dict()
         self.cssParameters(css_params)
 
         self.topCard: Optional[QWidget] = None

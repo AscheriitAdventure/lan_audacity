@@ -8,13 +8,13 @@ from src.classes.configurationFile import ConfigurationFile
 
 if __name__ == "__main__":
     softwareManager = ConfigurationFile(
-        os.path.join(current_dir(), "code", "conf", "config_app.yaml")
+        os.path.join(current_dir(), "conf", "config_app.yaml")
     )
-
+    print(softwareManager.abs_path)
     logs_manager = ConfigurationFile(
         str(
             os.path.join(
-                current_dir(), "code", 
+                current_dir(),
                 softwareManager.data["software"]["conf"]["log_app"]["path"],
             )
         )

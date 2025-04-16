@@ -16,7 +16,7 @@ def networkDevicesList(net_class: Network) -> List[Device]:
         for uc in net_list:
             var_path = os.path.join(os.path.dirname(os.path.dirname(net_class.absPath)),"desktop", f"{uc}.json")
 
-            tmp_dict: dict = {}
+            tmp_dict: dict = dict()
 
             if os.path.exists(var_path):
                 logging.debug(f"{inspect.currentframe().f_code.co_name}: Loading device {uc} from {var_path}")

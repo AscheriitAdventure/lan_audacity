@@ -112,15 +112,24 @@ class NmapForm:
         nm.scan(hosts=host, arguments="-O -A -v --max-retries 0 --host-timeout 1m")
         logging.info(nm.command_line())
         for host in nm.all_hosts():
-            for osmatch in nm[host]["osmatch"]:
-                tmp_d["os_name"] = osmatch.get("name", "")
-                tmp_d["os_accuracy"] = osmatch.get("accuracy", 0)
-                tmp_d["os_type"] = str(osmatch.get("osclass", "").get("type", ""))
-                tmp_d["os_vendor"] = str(osmatch.get("osclass", "").get("vendor", ""))
-                tmp_d["os_family"] = str(osmatch.get("osclass", "").get("osfamily", ""))
+            if "osmatch" in nm[host] and len(nm[host]["osmatch"]) > 0:
+                for osmatch in nm[host]["osmatch"]:
+                    tmp_d["os_name"] = osmatch.get("name", "")
+                    tmp_d["os_accuracy"] = osmatch.get("accuracy", 0)
+                    if "osclass" in osmatch and isinstance(osmatch["osclass"], list):
+                        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {osmatch}")
+                        tmp_d["os_type"] = osmatch["osclass"][0]["type"]
+                        tmp_d["os_vendor"] = osmatch["osclass"][0]["vendor"]
+                        tmp_d["os_family"] = osmatch["osclass"][0]["osfamily"]
 
-                new_os = NmapOs(**tmp_d)
-                self.__os.append(new_os)
+                    elif "osclass" in osmatch and isinstance(osmatch["osclass"], dict):
+                        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {osmatch}")
+                        tmp_d["os_type"] = osmatch["osclass"].get("type", "")
+                        tmp_d["os_vendor"] = osmatch["osclass"].get("vendor", "")
+                        tmp_d["os_family"] = osmatch["osclass"].get("osfamily", "")
+
+                    new_os = NmapOs(**tmp_d)
+                    self.__os.append(new_os)
 
     def ports_remove(self, port: int):
         for i in self.__ports:
@@ -150,3 +159,4 @@ class NmapForm:
             "ports": [i.__dict__ for i in self.__ports],
             "os": [i.__dict__ for i in self.__os],
         }
+

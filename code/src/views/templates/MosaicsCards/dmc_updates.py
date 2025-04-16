@@ -1,6 +1,6 @@
 from src.views.templates.MosaicsCards.cl_dmc import DynamicsMosaicsCards as DMC
 
-import logging
+import logging, inspect
 from qtpy.QtWidgets import QLabel
 
 from src.classes.languageApp import LanguageApp

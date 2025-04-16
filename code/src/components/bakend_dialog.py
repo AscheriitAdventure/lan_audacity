@@ -268,7 +268,7 @@ class WorkerNetworkTool(Worker):
         if len(uc_ls) > 0:
             logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(uc_ls)}")
             for uc in uc_ls:
-                tmp_d: dict = {}
+                tmp_d: dict = dict()
                 tmp_d["name"] = f"{uc.nameObj}({uc.ipv4})"
                 tmp_d["vendor"] = uc.vendor
                 uc.nmapInfos.scanPort()

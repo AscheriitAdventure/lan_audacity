@@ -256,6 +256,27 @@ class LanDashboardFMC(FMC):
             "bottom_card": None
         }
         self.cardList.append(ucNetwork_list_settings)
+        
+        if len(self.objManager.devicesList) > 0:
+            ls_obj = self.objManager.get_devices()
+            ls_d_obj = list()
+            for item in ls_obj:
+                # node = (id, label, image)
+                tmp: dict = dict()
+                tmp["name"] = f"{item.nameObj}({item.ipv4})"
+                # Recense tous les ports en rapport avec un service qui possède les mots clefs "http", "ssh", "ftp", "switch", "router", "telnet"
+                tmp["port"] = [a for a in item.nmapInfos.portsList if a.service and any(x in a.service for x in ["http", "ssh", "ftp", "switch", "router", "telnet"])]
+                # Recense tous les services en rapport avec un port qui possède les mots clefs "http", "ssh", "ftp", "switch", "router", "telnet"
+                tmp["services"] = [a for a in item.nmapInfos.portsList if a.service and any(x in a.service for x in ["http", "ssh", "ftp", "switch", "router", "telnet"])]
+                tmp["vendor"] = item.vendor
+                if len(tmp["port"]) > 0 and len(tmp["services"]) > 0:
+                    ls_d_obj.append(tmp)
+
+            for i, uc in enumerate(ls_d_obj):
+                self.ucNetwork_listBody.setItem(i, 0, QTableWidgetItem(uc["name"]))
+                self.ucNetwork_listBody.setItem(i, 1, QTableWidgetItem(uc["port"]))
+                self.ucNetwork_listBody.setItem(i, 3, QTableWidgetItem(uc["services"]))
+                self.ucNetwork_listBody.setItem(i, 4, QTableWidgetItem(uc["vendor"]))        
     
     def run_networkTools(self):
         self.progress_dialog2 = WDialogs()

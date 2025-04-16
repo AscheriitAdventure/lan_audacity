@@ -249,7 +249,7 @@ class LanAudacity(FileManagement):
     def getObjNetwork(self, name: str) -> Optional[Network]:
         a_ls = self.networks.get("obj_ls", [])
         p: str = ""
-        tmp_d: dict = {}
+        tmp_d: dict = dict()
         res_obj = None
         if len(a_ls) > 0:
             for n in a_ls:

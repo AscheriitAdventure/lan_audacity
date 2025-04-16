@@ -1,6 +1,6 @@
 from src.views.templates.MosaicsCards.cl_dmc import DynamicsMosaicsCards as DMC
 
-from qtpy.QtWidgets import QLabel
+from qtpy.QtWidgets import *
 from qtpy.QtGui import QImage
 from qtpy.QtCore import Qt
 import logging, inspect
@@ -39,10 +39,29 @@ class DevicesDMC(DMC):
         logging.debug(f"{__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(devices)}, {len(self.objManager.devicesList)}")
         if len(self.objManager.devicesList) > 0:
             for uc in devices:
-                tmp:dict = {}
+                tmp:dict = dict()
                 tmp["top_card"] = QLabel(f"{uc.nameObj}({uc.ipv4})", self)
                 tmp["left_card"] = CardImage(img_default.scaled(50, 50, Qt.AspectRatioMode.KeepAspectRatio), self)
-                tmp["center_card"] = QLabel(f"Mac Address: {uc.macAddress}", self)
+                qw_c = QWidget(self)
+                c_card = QFormLayout(self)
+                c_card.setContentsMargins(0, 0, 0, 0)
+                c_card.setSpacing(0)
+                c_card.addRow(QLabel("Name: "), QLabel(uc.nameObj))
+                c_card.addRow(QLabel("IP Address: "), QLabel(uc.ipv4))
+                c_card.addRow(QLabel("Mac Address: "), QLabel(uc.macAddress))
+                c_card.addRow(QLabel("Vendor: "), QLabel(uc.vendor))
+                c_card.addRow(QLabel("Type Name: "), QLabel(uc.type.categoryName))
+                
+                logging.info(f"{__class__.__name__}::{inspect.currentframe().f_code.co_name}: Os List: {len(uc.nmapInfos.osList)}")
+                if len(uc.nmapInfos.osList) > 0:
+                    # affiche l'os le plus proche de 100 si disponible
+                    os_list = uc.nmapInfos.osList
+                    os_list.sort(key=lambda x: x.osAccuracy, reverse=True)
+                    os_list = os_list[0]
+                    os_list = os_list.osName
+                    
+                qw_c.setLayout(c_card)
+                tmp["center_card"] = qw_c
                 self.card_list.append(tmp)
         else:
             self.card_list.append(

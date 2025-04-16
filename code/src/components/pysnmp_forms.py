@@ -6,8 +6,8 @@ class PysnmpForm:
     def __init__(self, port: int = 161, community: str = "public"):
         self.__port = port
         self.__community = community
-        self.publicData: dict = {}
-        self.privateData: dict = {}
+        self.publicData: dict = dict()
+        self.privateData: dict = dict()
 
     @property
     def portListened(self) -> int:
@@ -32,7 +32,7 @@ class PysnmpForm:
             logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Community password must not be empty")
 
     def snmp_publicWalk(self, ipv4: str) -> None:
-        data: dict = {}
+        data: dict = dict()
         errorIndication, errorStatus, errorIndex, varBinds = next(
             get_cmd(
                 SnmpEngine(),
@@ -75,7 +75,7 @@ class PysnmpForm:
             return
 
         # Création d'un dictionnaire pour stocker les résultats
-        data: dict = {}
+        data: dict = dict()
 
         try:
             # Interroger l'agent SNMP en utilisant l'OID sysObjectID

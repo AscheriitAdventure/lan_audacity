@@ -3,7 +3,7 @@ from src.views.templates.MosaicsCards.cl_dmc import DynamicsMosaicsCards as DMC
 from qtpy.QtWidgets import QLabel, QLineEdit, QWidget, QVBoxLayout, QPushButton
 from qtpy.QtGui import QImage
 from typing import Optional
-import logging
+import logging, inspect
 import qtawesome as qta
 
 from src.classes.classesExport import ConfigurationFile, LanguageApp, IconsApp
