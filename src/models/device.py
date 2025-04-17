@@ -15,7 +15,7 @@ from .switch_file import SwitchFile
 
 # Classe pour la table Device
 @dataclass
-class Device:
+class Device(object):
     uuid: UUID
     name_object: str = "Unknown Device"
     web_address: Optional[WebAddress] = None

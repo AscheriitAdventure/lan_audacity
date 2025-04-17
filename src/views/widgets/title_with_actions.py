@@ -87,15 +87,17 @@ class TitleWithActions(QWidget):
         Args:
             btn: Bouton à ajouter
         """
-        if not isinstance(btn, QPushButton):
-            if self.debug:
-                logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: "
-                              f"Type non supporté: {type(btn)}")
-            return
+        try:
+            if not isinstance(btn, QPushButton):
+                if self.debug:
+                    logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Type non supporté: {type(btn)}")
+                return
             
-        self._list_btn_action.append(btn)
-        self.mainLayout.addWidget(btn)
-
+            self._list_btn_action.append(btn)
+            self.mainLayout.addWidget(btn)
+        except Exception as e:
+            logging.error(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {str(e)}")
+            
     def addListBtnAction(self, list_btn: List[QPushButton]) -> None:
         """
         Ajoute une liste de boutons d'action.
@@ -103,7 +105,9 @@ class TitleWithActions(QWidget):
         Args:
             list_btn: Liste des boutons à ajouter
         """
-        if not list_btn:
+        if isinstance(list_btn, list) and len(list_btn) == 0:
+            if self.debug:
+                logging.warning(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Liste vide fournie.")
             return
             
         for btn in list_btn:
@@ -117,3 +121,6 @@ class TitleWithActions(QWidget):
         
         self._list_btn_action.clear()
 
+    def getTitle(self) -> str:
+        """Retourne le texte du titre."""
+        return self._title.text() if isinstance(self._title, QLabel) else ""

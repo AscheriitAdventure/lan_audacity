@@ -10,7 +10,7 @@ import inspect
 from src.views.widgets.custom import *
 from .tab import Tab
 from src.utils.py_to_json import *
-from src.models import IconApp, Network, SwitchFile
+from src.models import IconApp, Network, Device
 from src.views.widgets import WidgetField, TitleWithActions, Card, CLWIT
 from src.utils import prettyKeysList
 
@@ -26,7 +26,7 @@ class NetworkObjectTab(Tab):
     def __init__(self, object_data: Optional[Dict] = None, parent=None):
         super().__init__(parent, Tab.TabType.NETWORK, object_data.get('name', 'Network Object'))
         self.rootData = object_data
-        self.stackedWidgetList: List[QWidget] = []
+        self.stackedWidgetList: List[QWidget] = list()
         self.domainType: NetworkObjectTab.DomainType = self.DomainType.OTHER
 
         self.initUI()
@@ -80,7 +80,7 @@ class NetworkObjectTab(Tab):
             self._loadStackData(DEFAULT_SIDE_PANEL)
 
     def _loadStackData(self, data: dict):
-        btn_list: List[QPushButton] = []
+        btn_list: List[QPushButton] = list()
         fields: List[dict] = data.get("fields", [])
 
         for i, f in enumerate(fields):
@@ -97,9 +97,6 @@ class NetworkObjectTab(Tab):
             sdfot = WidgetField(self.debug)
             sdfot.setGridForm(WidgetField.GridForm.CMosaics, 5)
             ttl_d = TitleWithActions(title=f.get("title", ""), parent=sdfot)
-            # if icon := f.get("icon"):
-            #     ico = IconApp.from_dict(icon)
-            #     ttl_d.mainLayout.insertWidget(0, QLabel().setPixmap(ico.get_qIcon().pixmap(24, 24)))
                 
             sdfot.setHeaderArea(ttl_d)
             ## Ajout des cartes
@@ -108,13 +105,18 @@ class NetworkObjectTab(Tab):
             for i in m:
                 tmp: dict = {
                     "layout":{
-                        "columnSpan": 2,
+                        "columnSpan": 1,
                         "rowSpan": 1,
                         "row": 1,
                         "column": 1,
                         "alignment": Qt.AlignmentFlag.AlignJustify
                     }
                 }
+                if isinstance(i, CCT):
+                    tmp["layout"]["rowSpan"] = 2
+                    tmp["layout"]["columnSpan"] = 2
+                elif isinstance(i, CCF):
+                    tmp["layout"]["rowSpan"] = 2
 
                 sdfot.addCard(i,tmp)
 
@@ -167,34 +169,41 @@ class NetworkObjectTab(Tab):
         return callback
     
     def __loadCardObject(self, obj: dict) -> list[Card]:
-        ls_c = []
+        ls_c: list = list()
         
         stack_name: str = obj.get('title')
         tmp_d = dict()
         tmp_d["alias"] = self.rootData.get("name")
         tmp_d["path"] = self.rootData.get("path")
         tmp_d["name_file"] = self.rootData.get("uuid")
-        # obj_class: Network = Network(tmp_d)
-
+        obj_class: Network = Network(tmp_d)
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {obj}")
         if "dashboard" in stack_name.lower():
             c0 = Card(debug=self.debug)
             c0.setPositionCard("top", QLabel("Network Status"))
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c0}")
 
             c1 = CCT(
-                title="Local Area Network (LAN)",
-                #prettyKeysList(Network),
+                title="Local Area Network",
+                key_table=prettyKeysList(Device()),
                 debug=self.debug,
                 parent=self)
-
+            c1.setFilterPanel(True)
+            c1.setExportBtn(True)
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c1}")
+            c1.loadData([data.get_dict() for data in obj_class.get_devices()])
+            
             c2 = CCT(
                 title="List of network equipments",
                 debug=self.debug,
                 parent=self)
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c2}")
 
             c3 = CCT(
                 title="Current Problems",
                 debug=self.debug,
                 parent=self)
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c3}")
 
             ls_c.append(c0)
             ls_c.append(c1)
@@ -202,18 +211,18 @@ class NetworkObjectTab(Tab):
             ls_c.append(c3)
 
         elif "interfaces" in stack_name.lower():
-            logging.info(f"366:: {self.rootData}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:366: {self.rootData}")
 
         elif "devices" in stack_name.lower():
-            logging.info(f"366:: {self.rootData}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:367: {self.rootData}")
         
 
         elif "vlans" in stack_name.lower():
-            logging.info(f"366:: {self.rootData}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:368: {self.rootData}")
         
 
         elif "network map" in stack_name.lower():
-            logging.info(f"366:: {self.rootData}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:369: {self.rootData}")
         
         return ls_c
     

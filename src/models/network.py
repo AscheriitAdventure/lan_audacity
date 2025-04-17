@@ -10,6 +10,7 @@ from .web_address import WebAddress
 from .clock_manager import ClockManager
 from .interfaces import Interfaces
 from .switch_file import SwitchFile
+from .device import Device
 
 
 # Classe pour la table Network
@@ -87,10 +88,16 @@ class Network:
                 network.clock_manager = ClockManager.from_dict(network_data["clock_manager"])
                 network.dns_object = network_data["dns_object"]
                 # Charger les périphériques (StandBy)
+                network.devices = [Interfaces.from_dict(device) for device in network_data["devices"]]
 
         except Exception as e:
             logging.error(
                 f"{network.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading network - {str(e)}")
 
         return network
+
+    def get_devices(self) -> List[Device]:
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(self.devices)}")
+        ls_d: List[Device] = [Device.from_dict(device.get_dict()) for device in self.devices]
+        return ls_d
 

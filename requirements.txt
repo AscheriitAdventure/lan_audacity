@@ -12,6 +12,8 @@ mysql-connector-python>=9.2.0
 
 # Parsing
 xmltodict>=0.14.2
+pandas>=2.2.3
+XlsxWriter>=3.2.3
 
 # Interface graphique
 QtPy>=2.4.3

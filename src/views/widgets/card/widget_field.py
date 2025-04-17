@@ -187,7 +187,7 @@ class WidgetField(QWidget):
                     "column": 0,
                     "rowSpan": 1,
                     "columnSpan": 1,
-                    "alignment": Qt.AlignmentFlag.AlignCenter
+                    # "alignment": Qt.AlignmentFlag.AlignCenter
                 }
             }
         else:
