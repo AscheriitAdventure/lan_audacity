@@ -1,5 +1,5 @@
 from enum import Enum, auto
-from typing import List, Dict, Optional, Any
+from typing import *
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
@@ -13,6 +13,49 @@ from src.utils.py_to_json import *
 from src.models import IconApp, Network, Device
 from src.views.widgets import WidgetField, TitleWithActions, Card, CLWIT
 from src.utils import prettyKeysList
+
+FIXED_CARDS: List[Dict[str, Any]] = [
+    {
+        "stack_name": "Dashboard",
+        "format": "cct",
+        "title": "Local Area Network",
+        "icon": {
+            "names": [],
+            "options": []
+        },
+        "filter_panel": True,
+        "export_btn": True,
+        "key_table": prettyKeysList(Device()),
+        "data_table": None,
+    },
+    {
+        "stack_name": "Dashboard",
+        "format": "cct",
+        "title": "List of network equipments",
+        "icon": {
+            "names": [],
+            "options": []
+        },
+        "filter_panel": True,
+        "export_btn": True,
+        "key_table": ["column 0"],
+        "data_table": None,
+    },
+    {
+        "stack_name": "Dashboard",
+        "format": "cct",
+        "title": "Current Problems",
+        "icon": {
+            "names": [],
+            "options": []
+        },
+        "filter_panel": True,
+        "export_btn": True,
+        "key_table": ["column 0"],
+        "data_table": None,
+    },
+]
+
 
 class NetworkObjectTab(Tab):
     class DomainType(Enum):
@@ -179,50 +222,84 @@ class NetworkObjectTab(Tab):
         obj_class: Network = Network(tmp_d)
         logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {obj}")
         if "dashboard" in stack_name.lower():
-            c0 = Card(debug=self.debug)
-            c0.setPositionCard("top", QLabel("Network Status"))
+            c0 = CCF(
+                title=self.rootData.get("name"),
+                data_form=obj_class,
+                debug=self.debug,
+                parent=self)
             logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c0}")
-
-            c1 = CCT(
-                title="Local Area Network",
-                key_table=prettyKeysList(Device()),
-                debug=self.debug,
-                parent=self)
-            c1.setFilterPanel(True)
-            c1.setExportBtn(True)
-            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c1}")
-            c1.loadData([data.get_dict() for data in obj_class.get_devices()])
-            
-            c2 = CCT(
-                title="List of network equipments",
-                debug=self.debug,
-                parent=self)
-            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c2}")
-
-            c3 = CCT(
-                title="Current Problems",
-                debug=self.debug,
-                parent=self)
-            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c3}")
-
             ls_c.append(c0)
-            ls_c.append(c1)
-            ls_c.append(c2)
-            ls_c.append(c3)
 
+            for k, v in obj_class.__dict__.items():
+                if isinstance(v, dict) or inspect.isclass(v):
+                    logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {k} - {v}")                  
+                    c_obj = CCF(
+                        title=k,
+                        data_form=v,
+                        debug=self.debug,
+                        parent=self)
+                    logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c_obj}")
+                    ls_c.append(c_obj)
+
+                elif isinstance(v, Union[list, tuple]):
+                    c_obj = CCT(
+                        title=k,
+                        key_table=["column 0"],
+                        data_table=v,
+                        debug=self.debug,
+                        parent=self)
+                    logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c_obj}")
+                    c_obj.setFilterPanel(True)
+                    c_obj.setExportBtn(True)
+                    ls_c.append(c_obj)
+                
+                else:
+                    logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {k} - {v}")
+
+            # c1 = CCT(
+            #     title="Local Area Network",
+            #     key_table=prettyKeysList(Device()),
+            #     data_table=[data.get_dict() for data in obj_class.get_devices()],
+            #     debug=self.debug,
+            #     parent=self)
+            # c1.setFilterPanel(True)
+            # c1.setExportBtn(True)
+            # logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c1}")
+            
         elif "interfaces" in stack_name.lower():
             logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:366: {self.rootData}")
 
         elif "devices" in stack_name.lower():
             logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:367: {self.rootData}")
         
-
         elif "vlans" in stack_name.lower():
             logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:368: {self.rootData}")
         
-
         elif "network map" in stack_name.lower():
             logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:369: {self.rootData}")
         
+        for f_c in FIXED_CARDS:
+            if f_c.get("stack_name").lower() == stack_name.lower() and f_c.get("format") == "cct":
+                c = CCT(
+                    title=f_c.get("title"),
+                    key_table=f_c.get("key_table"),
+                    data_table=f_c.get("data_table"),
+                    debug=self.debug,
+                    parent=self)
+                c.setFilterPanel(f_c.get("filter_panel", False))
+                c.setExportBtn(f_c.get("export_btn", False))
+                ls_c.append(c)
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}")
+            
+            elif f_c.get("stack_name") == stack_name and f_c.get("format") == "ccf":
+                c = CCF(
+                    title=f_c.get("title"),
+                    data_form=None,
+                    debug=self.debug,
+                    parent=self)
+                ls_c.append(c)
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}")
+
         return ls_c
     
+

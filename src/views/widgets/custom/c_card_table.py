@@ -193,7 +193,6 @@ class CustomCardTable(Card):
         self.headerPanel.addBtnAction(self.exportBtn)
         
     #### Export File Methods  (CSV, XLS, JSON, XML, etc...) ####
-
     def exportToCsv(self) -> None:
         """Exporter les données du tableau au format CSV."""
         dfl_n = self.generateExportFilename("csv")
