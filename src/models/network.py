@@ -41,13 +41,19 @@ class Network:
         self.dns_object: Optional[str] = None
         self.path: Optional[str] = None
         
-        if ospath is not None:
-            if os.path.isdir(ospath):
-                self.path = os.path.join(ospath, f"{self.uuid}.json")
-            else:
-                self.path = ospath
-            self.update_network()
+        self.setPath(ospath)
+        self.uuid = UUID(self._getUuidFile())
+        self.update_network()
 
+    def setPath(self, value: str) -> None:
+        """Setter for the path attribute."""
+        if os.path.isdir(value):
+            self.path = os.path.join(value, f"{self.uuid}.json")
+        elif os.path.exists(value):
+            self.path = value
+        else:
+            self.path = None
+    
     def get_dict(self) -> dict:
         """Returns a dictionary representation of the instance."""
         return {
@@ -80,7 +86,6 @@ class Network:
             name_object=data.get("alias", "Unknown Network"),
             ospath=data.get("path"),
         )
-        network.uuid = UUID(data["name_file"] if "name_file" in data)
 
         try:
             # si le chemin fourni est vrai alors chareger les données
@@ -106,3 +111,9 @@ class Network:
         ls_d: List[Device] = [Device.from_dict(device.get_dict()) for device in self.devices]
         return ls_d
 
+    def _getUuidFile(self) -> str:
+        """Returns the UUID of the network file."""
+        if self.path is not None:
+            return (os.path.basename(self.path)).split(".")[0]
+        else:
+            return str(self.uuid)
