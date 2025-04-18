@@ -46,7 +46,7 @@ class WidgetField(QWidget):
         # Main layout
         self.mainLayout = QVBoxLayout(self)
         self.setLayout(self.mainLayout)
-        self.mainLayout.setContentsMargins(0, 0, 0, 0)
+        self.mainLayout.setContentsMargins(1, 1, 1, 1)
 
         self.headerArea = QWidget()
         self.mainLayout.addWidget(self.headerArea)
@@ -64,7 +64,7 @@ class WidgetField(QWidget):
         self.scrollContainer.setAcceptDrops(True)
         self.scrollArea.setWidget(self.scrollContainer)
         self.scrollLayout = QGridLayout(self.scrollContainer)
-        self.scrollLayout.setContentsMargins(0, 0, 0, 0)
+        self.scrollLayout.setContentsMargins(3, 3, 3, 3)
 
     def dragEnterEvent(self, event: QDragEnterEvent) -> None:
         event.acceptProposedAction()

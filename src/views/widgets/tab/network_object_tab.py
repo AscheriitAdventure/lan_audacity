@@ -222,49 +222,25 @@ class NetworkObjectTab(Tab):
         obj_class: Network = Network(tmp_d)
         logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {obj}")
         if "dashboard" in stack_name.lower():
-            c0 = CCF(
-                title=self.rootData.get("name"),
-                data_form=obj_class,
-                debug=self.debug,
-                parent=self)
-            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c0}")
-            ls_c.append(c0)
+            # Création de la carte principale pour l'objet réseau
+            tmp_d = dict()
+            tmp_d["stack_name"] = stack_name
+            tmp_d["title"] = self.rootData.get("name")
+            tmp_d["debug"] = self.debug
+            tmp_d["parent"] = self
+            tmp_d["data_form"] = obj_class
 
-            for k, v in obj_class.__dict__.items():
-                if isinstance(v, dict) or inspect.isclass(v):
-                    logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {k} - {v}")                  
-                    c_obj = CCF(
-                        title=k,
-                        data_form=v,
-                        debug=self.debug,
-                        parent=self)
-                    logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c_obj}")
-                    ls_c.append(c_obj)
+            FIXED_CARDS.append(tmp_d)
 
-                elif isinstance(v, Union[list, tuple]):
-                    c_obj = CCT(
-                        title=k,
-                        key_table=["column 0"],
-                        data_table=v,
-                        debug=self.debug,
-                        parent=self)
-                    logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c_obj}")
-                    c_obj.setFilterPanel(True)
-                    c_obj.setExportBtn(True)
-                    ls_c.append(c_obj)
-                
-                else:
-                    logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {k} - {v}")
-
-            # c1 = CCT(
-            #     title="Local Area Network",
-            #     key_table=prettyKeysList(Device()),
-            #     data_table=[data.get_dict() for data in obj_class.get_devices()],
-            #     debug=self.debug,
-            #     parent=self)
-            # c1.setFilterPanel(True)
-            # c1.setExportBtn(True)
-            # logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c1}")
+            for obj in FIXED_CARDS:
+                if obj.get("stack_name").lower() == stack_name.lower() and obj.get("format") == "cct":
+                    if obj.get("title") == "Local Area Network":
+                        obj["data_table"] = [data.get_dict() for data in obj_class.get_devices()]
+                        break
+            
+            # Utilisation de la nouvelle fonction pour créer des cartes à partir des attributs
+            ls_c.extend(self._generateCardFromObject(obj_class))
+            
             
         elif "interfaces" in stack_name.lower():
             logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:366: {self.rootData}")
@@ -302,4 +278,57 @@ class NetworkObjectTab(Tab):
 
         return ls_c
     
+    def _generateCardFromObject(self, obj: object, title_prefix: Optional[str] = "", parent=None) -> List[Card]:
+        """
+        Crée des cartes CCF ou CCT à partir des attributs d'un objet.
+
+        Args:
+            obj: L'objet à partir duquel créer les cartes
+            title_prefix (str): Préfixe à ajouter aux titres des cartes (optionnel)
+            parent: Le widget parent des cartes (par défaut self)
+    
+        Returns:
+            List[Card]: Liste des cartes créées
+        """
+        cards: List[Card] = list()
+        parent = parent or self
+
+        # Parcours des attributs de l'objet
+        for attr_name, attr_value in obj.__dict__.items():
+            # Construit le titre avec le préfixe si fourni
+            tmp_d = dict()
+            tmp_d["title"] = f"{title_prefix} {attr_name}" if title_prefix else attr_name
+            tmp_d["debug"] = self.debug
+            tmp_d["parent"] = parent
+
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:{inspect.currentframe().f_code.co_lines()} {attr_name} - {attr_value}")
+
+            # Traitement selon le type d'attribut
+            if isinstance(attr_value, dict) or inspect.isclass(attr_value):
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {attr_name} - {attr_value}")
+                # Création d'une carte de type formulaire pour les dictionnaires ou classes
+                tmp_d["data_form"] = attr_value
+                card = CCF(**tmp_d)
+                cards.append(card)
+            
+            elif isinstance(attr_value, (list, tuple)):
+                # Création d'une carte de type tableau pour les listes ou tuples
+                tmp_d["key_table"] = ["column 0"]
+                tmp_d["data_table"] = attr_value
+                card = CCT(**tmp_d)
+                card.setFilterPanel(True)
+                card.setExportBtn(True)
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {attr_name} - {attr_value}")
+                cards.append(card)
+
+            else:
+                # Pour les autres types, vous pouvez choisir de créer une carte ou de l'ignorer
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Ignoring attribute {attr_name} of type {type(attr_value)}")
+        
+        return cards
+
+
+
+
+
 

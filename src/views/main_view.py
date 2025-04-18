@@ -1,4 +1,4 @@
-from typing import Optional, ClassVar, Any, List
+from typing import *
 from qtpy.QtCore import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *

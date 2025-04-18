@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Optional, ClassVar, Union
+from typing import *
 from qtpy.QtWidgets import *
 from qtpy.QtGui import *
 from qtpy.QtCore import *
@@ -35,12 +35,12 @@ class SDFD(QWidget):
         self.stackFields: QStackedLayout = QStackedLayout()
 
         self.visibilityBtnEnabled: bool = False
-
-    def initUI(self):
-        # Main layout
-        self.mainLayout = QVBoxLayout(self)
+        
+        # Initialize the UI in the constructor
+        self.mainLayout = QVBoxLayout()
         self.setLayout(self.mainLayout)
 
+    def initUI(self):
         # Add Scroll Area
         self._updateFieldArea()
 
@@ -77,15 +77,15 @@ class SDFD(QWidget):
 
         # Initialiser le layout selon le type choisi
         if self.stackLayout == SDFD.StackLayout.VERTICAL:
-            self.scrollLayout = QVBoxLayout(self.scrollContainer)
+            self.scrollLayout = QVBoxLayout()
         elif self.stackLayout == SDFD.StackLayout.HORIZONTAL:
-            self.scrollLayout = QHBoxLayout(self.scrollContainer)
+            self.scrollLayout = QHBoxLayout()
         elif self.stackLayout == SDFD.StackLayout.GRID:
-            self.scrollLayout = QGridLayout(self.scrollContainer)
+            self.scrollLayout = QGridLayout()
         else:
             logging.warning(
                 f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: StackLayout {self.stackLayout} not found")
-            self.scrollLayout = QVBoxLayout(self.scrollContainer)
+            self.scrollLayout = QVBoxLayout()
 
         # Définir les marges du layout
         self.scrollLayout.setContentsMargins(0, 0, 0, 0)
@@ -98,7 +98,8 @@ class SDFD(QWidget):
 
     def _loaddBtnContainer(self):
         btnContainer = QWidget()
-        btnLayout = QHBoxLayout(btnContainer)
+        btnLayout = QHBoxLayout()
+        btnContainer.setLayout(btnLayout)
         self.scrollLayout.addWidget(
             btnContainer, 0, 0, Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
 
@@ -141,7 +142,7 @@ class SDFD(QWidget):
 
         # Création du conteneur de fields
         fieldsContainer = QWidget()
-        fieldsLayout = QVBoxLayout(fieldsContainer)
+        fieldsLayout = QVBoxLayout()
         fieldsLayout.setContentsMargins(0, 0, 0, 0)
         fieldsLayout.setSpacing(2)
         fieldsContainer.setLayout(fieldsLayout)
@@ -233,7 +234,7 @@ class SDFD(QWidget):
     def _createFieldWidget(self, field: Dict[str, Any]) -> QWidget:
         """Crée un widget basé sur le type de champ spécifié"""
         qtc = QWidget()
-        qtl = QVBoxLayout(qtc)
+        qtl = QVBoxLayout()
         qtl.setContentsMargins(4, 0, 4, 0)
         qtl.setSpacing(1)
         qtc.setLayout(qtl)
@@ -257,10 +258,10 @@ class SDFD(QWidget):
 
         # Widget principal du field
         fieldWidget = self._createSpecificFieldWidget(field)
-        fieldLayout = QVBoxLayout()
-        fieldLayout.setContentsMargins(4, 4, 4, 4)
-        fieldWidget.setLayout(fieldLayout)
-
+        
+        # Don't set a new layout on fieldWidget if it already has one
+        # Only add fieldWidget to the container's layout
+        
         # Gestion de la visibilité
         isCollapsed = field.get("collapsed", False)
         isVisible = field.get("visible", True)
@@ -288,11 +289,11 @@ class SDFD(QWidget):
             for a in field.get("actions", []):
                 if isinstance(a, dict) and a.get('type') == 'callback':
                     if isinstance(fieldWidget, QTreeWidget):
-                        fieldWidget.itemClicked.connect(action['callback'])
+                        fieldWidget.itemClicked.connect(a['callback'])  # Fixed to use 'a' instead of 'action'
                     elif isinstance(fieldWidget, QListWidget):
-                        fieldWidget.itemClicked.connect(action['callback'])
+                        fieldWidget.itemClicked.connect(a['callback'])  # Fixed to use 'a' instead of 'action'
                     elif isinstance(fieldWidget, QTreeView):
-                        fieldWidget.clicked.connect(action['callback'])
+                        fieldWidget.clicked.connect(a['callback'])  # Fixed to use 'a' instead of 'action'
 
         # Gestion du collapse
         def toggle_collapse():
@@ -337,5 +338,9 @@ class SDFD(QWidget):
 
     def _createSpecificFieldWidget(self, field: Dict[str, Any]) -> QWidget:
         """Crée le widget spécifique selon le form_list"""
-        return QWidget()
-
+        widget = QWidget()
+        # Create layout here if needed, otherwise return the widget without a layout
+        layout = QVBoxLayout()
+        layout.setContentsMargins(4, 4, 4, 4)
+        widget.setLayout(layout)
+        return widget

@@ -93,7 +93,10 @@ class Network:
         except Exception as e:
             logging.error(
                 f"{network.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading network - {str(e)}")
-
+        
+        network.clock_manager.add_clock()
+        network.update_network()
+        
         return network
 
     def get_devices(self) -> List[Device]:
