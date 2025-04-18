@@ -37,14 +37,16 @@ class Network:
         self.uuid = uuid.uuid4()
         self.web_address = WebAddress()
         self.clock_manager = ClockManager()
-        self.devices = []
-        self.dns_object = None
-
+        self.devices: list = list()
+        self.dns_object: Optional[str] = None
+        self.path: Optional[str] = None
+        
         if ospath is not None:
-            self.path = os.path.join(ospath, f"{self.uuid}.json")
+            if os.path.isdir(ospath):
+                self.path = os.path.join(ospath, f"{self.uuid}.json")
+            else:
+                self.path = ospath
             self.update_network()
-        else:
-            self.path = None
 
     def get_dict(self) -> dict:
         """Returns a dictionary representation of the instance."""
@@ -78,7 +80,7 @@ class Network:
             name_object=data.get("alias", "Unknown Network"),
             ospath=data.get("path"),
         )
-        network.uuid = UUID(data["name_file"])
+        network.uuid = UUID(data["name_file"] if "name_file" in data)
 
         try:
             # si le chemin fourni est vrai alors chareger les données
