@@ -40,9 +40,28 @@ class Network:
         self.devices: list = list()
         self.dns_object: Optional[str] = None
         self.path: Optional[str] = None
-        
+
         self.setPath(ospath)
         self.uuid = UUID(self._getUuidFile())
+        if self.path is not None and os.path.exists(self.path):
+            try:
+                network_data = SwitchFile.json_read(abs_path=self.path)
+                if "web_address" in network_data:
+                    self.web_address = WebAddress(
+                        **network_data["web_address"])
+                if "clock_manager" in network_data:
+                    self.clock_manager = ClockManager.from_dict(
+                        network_data["clock_manager"])
+                if "dns_object" in network_data:
+                    self.dns_object = network_data["dns_object"]
+                if "devices" in network_data:
+                    self.devices = [Interfaces.from_dict(
+                        device) for device in network_data["devices"]]
+            except Exception as e:
+                logging.error(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading network - {str(e)}")
+
+        # Maintenant faire update_network
         self.update_network()
 
     def setPath(self, value: str) -> None:
@@ -53,13 +72,15 @@ class Network:
             self.path = value
         else:
             self.path = None
-    
+
     def get_dict(self) -> dict:
         """Returns a dictionary representation of the instance."""
         return {
-            "uuid": str(self.uuid),  # Convert UUID to string for JSON serialization
+            # Convert UUID to string for JSON serialization
+            "uuid": str(self.uuid),
             "name_object": self.name_object,
-            "web_address": self.web_address.get_dict() if self.web_address else None,
+            # Problem dans la récupération des données
+            "web_address": self.web_address.get_dict(),
             "clock_manager": self.clock_manager.get_dict(),
             "dns_object": self.dns_object,
             "devices": [device.get_dict() for device in self.devices],
@@ -77,7 +98,36 @@ class Network:
     def update_network(self) -> None:
         """Updates the network file with the current data."""
         if self.path is not None:
-            SwitchFile.json_write(abs_path=self.path, data=self.get_dict())
+            # Charger d'abord les données existantes
+            if os.path.exists(self.path):
+                try:
+                    existing_data = SwitchFile.json_read(abs_path=self.path)
+                    new_data = self.get_dict()
+
+                    # Ne pas écraser les données web_address si elles sont None
+                    if all(value is None for value in new_data["web_address"].values()):
+                        new_data["web_address"] = existing_data.get(
+                            "web_address", new_data["web_address"])
+
+                    # Préserver d'autres valeurs importantes si nécessaire
+                    if new_data["dns_object"] is None and "dns_object" in existing_data:
+                        new_data["dns_object"] = existing_data["dns_object"]
+
+                    logging.debug(
+                        f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {new_data}")
+                    SwitchFile.json_write(abs_path=self.path, data=new_data)
+                except Exception as e:
+                    logging.error(f"Error updating network: {str(e)}")
+                    # Écrire quand même les données actuelles
+                    logging.debug(
+                        f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.get_dict()}")
+                    SwitchFile.json_write(
+                        abs_path=self.path, data=self.get_dict())
+            else:
+                # Fichier n'existe pas encore
+                logging.debug(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.get_dict()}")
+                SwitchFile.json_write(abs_path=self.path, data=self.get_dict())
 
     @staticmethod
     def from_dict(data: dict) -> "Network":
@@ -92,23 +142,27 @@ class Network:
             if network.path is not None and os.path.exists(network.path):
                 network_data = SwitchFile.json_read(abs_path=network.path)
                 network.web_address = WebAddress(**network_data["web_address"])
-                network.clock_manager = ClockManager.from_dict(network_data["clock_manager"])
+                network.clock_manager = ClockManager.from_dict(
+                    network_data["clock_manager"])
                 network.dns_object = network_data["dns_object"]
                 # Charger les périphériques (StandBy)
-                network.devices = [Interfaces.from_dict(device) for device in network_data["devices"]]
+                network.devices = [Interfaces.from_dict(
+                    device) for device in network_data["devices"]]
 
         except Exception as e:
             logging.error(
                 f"{network.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Error loading network - {str(e)}")
-        
+
         network.clock_manager.add_clock()
         network.update_network()
-        
+
         return network
 
     def get_devices(self) -> List[Device]:
-        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(self.devices)}")
-        ls_d: List[Device] = [Device.from_dict(device.get_dict()) for device in self.devices]
+        logging.debug(
+            f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(self.devices)}")
+        ls_d: List[Device] = [Device.from_dict(
+            device.get_dict()) for device in self.devices]
         return ls_d
 
     def _getUuidFile(self) -> str:

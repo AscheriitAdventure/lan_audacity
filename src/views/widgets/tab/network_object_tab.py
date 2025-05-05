@@ -6,13 +6,14 @@ from qtpy.QtGui import *
 import logging
 import os
 import inspect
+from dataclasses import asdict
 
 from src.views.widgets.custom import *
 from .tab import Tab
 from src.utils.py_to_json import *
 from src.models import IconApp, Network, Device
 from src.views.widgets import WidgetField, TitleWithActions, Card, CLWIT
-from src.utils import prettyKeysList
+from src.utils import prettyKeysList, prettyKeys
 
 FIXED_CARDS: List[Dict[str, Any]] = [
     {
@@ -226,8 +227,7 @@ class NetworkObjectTab(Tab):
         tmp_d["path"] = self.rootData.get("path")
         tmp_d["name_file"] = self.rootData.get("uuid")
         obj_class: Network = Network.from_dict(tmp_d)
-        logging.debug(
-            f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {obj}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {obj}")
         if "dashboard" in stack_name.lower():
             # Création de la carte principale pour l'objet réseau
             tmp_d = dict()
@@ -250,19 +250,19 @@ class NetworkObjectTab(Tab):
 
         elif "interfaces" in stack_name.lower():
             logging.info(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:366: {self.rootData}")
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {self.rootData}")
 
         elif "devices" in stack_name.lower():
             logging.info(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:367: {self.rootData}")
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {self.rootData}")
 
         elif "vlans" in stack_name.lower():
             logging.info(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:368: {self.rootData}")
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {self.rootData}")
 
         elif "network map" in stack_name.lower():
             logging.info(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:369: {self.rootData}")
+                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {self.rootData}")
 
         for f_c in FIXED_CARDS:
             if f_c.get("stack_name").lower() == stack_name.lower() and f_c.get("format") == "cct":
@@ -305,19 +305,24 @@ class NetworkObjectTab(Tab):
         cards: List[Card] = list()
         parent = parent or self
 
+        origin_d: dict = dict()
+        origin_d["title"] = obj.__class__.__name__
+        origin_d["debug"] = self.debug
+        origin_d["parent"] = self.parent()
+        origin_d["data_form"] = asdict(obj) if hasattr(obj, '__dataclass_fields__') else obj.__dict__.copy()
         # Parcours des attributs de l'objet
         for attr_name, attr_value in obj.__dict__.items():
             # Construit le titre avec le préfixe si fourni
             tmp_d = dict()
-            tmp_d["title"] = f"{title_prefix} {attr_name}" if title_prefix else attr_name
+            tmp_d["title"] = f"{title_prefix} {attr_name}" if title_prefix else prettyKeys(origin_d["data_form"])[attr_name]
             tmp_d["debug"] = self.debug
             tmp_d["parent"] = parent
 
-            logging.info(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}:{inspect.currentframe().f_code.co_lines()} {attr_name} - {attr_value}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {attr_name} - {attr_value}")
 
             # Traitement selon le type d'attribut
-            if isinstance(attr_value, dict) or inspect.isclass(attr_value):
+            if isinstance(attr_value, dict) or inspect.isclass(attr_value) or hasattr(attr_value, '__dataclass_fields__'):
+                origin_d["data_form"].pop(attr_name)
                 logging.info(
                     f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {attr_name} - {attr_value}")
                 # Création d'une carte de type formulaire pour les dictionnaires ou classes
@@ -326,6 +331,7 @@ class NetworkObjectTab(Tab):
                 cards.append(card)
 
             elif isinstance(attr_value, (list, tuple)):
+                origin_d["data_form"].pop(attr_name)
                 # Création d'une carte de type tableau pour les listes ou tuples
                 tmp_d["key_table"] = ["column 0"]
                 tmp_d["data_table"] = attr_value
@@ -338,7 +344,9 @@ class NetworkObjectTab(Tab):
 
             else:
                 # Pour les autres types, vous pouvez choisir de créer une carte ou de l'ignorer
-                logging.debug(
-                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Ignoring attribute {attr_name} of type {type(attr_value)}")
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Ignoring attribute {attr_name} of type {type(attr_value)}")
+                
+        card = CCF(**origin_d)
+        cards.append(card)
 
         return cards

@@ -740,11 +740,15 @@ class MainGUI(QMainWindow):
                 project.add_network(new_lan.get_interface())
                 project.update_lan_audacity()
                 new_lan.dns_object = data.get('dns', None)
-                new_lan.web_address.ipv4 = data.get('ipv4', None)
-                new_lan.web_address.mask_ipv4 = data.get('mask_ipv4', None)
+                new_lan.web_address.ipv4 = data.get('ipv4')
+                new_lan.web_address.mask_ipv4 = data.get('mask_ipv4')
                 new_lan.web_address.ipv6_local = data.get('ipv6', None)
                 new_lan.web_address.check_data()
-
+                new_lan.web_address.generate_cidr()
+                logging.debug(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {new_lan.get_dict()}"
+                )
+                new_lan.update_network()
                 self.update_stackedWidget(1, project.get_dict())
 
         except Exception as e:

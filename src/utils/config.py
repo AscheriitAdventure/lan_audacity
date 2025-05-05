@@ -132,10 +132,28 @@ def prettyKeys(obj: object) -> dict:
         sortie {'attribut1': 'Attribut 1', '_HW__attribut2': 'Attribut 2', '_HW__attr33ibut': 'Attr 33 Ibut'}
     """
     pretty_keys: dict = dict()
+
+    if hasattr(obj, '__dataclass_fields__'):
+        from dataclasses import asdict
+        keys_dict = asdict(obj)
+    elif hasattr(obj, '__dict__'):
+        keys_dict = obj.__dict__
+    elif isinstance(obj, dict):
+        keys_dict = obj
+    else:
+        raise TypeError("L'objet fourni doit être une classe, une dataclass ou un dictionnaire")
     
-    for key in obj.__dict__.keys():
+    for key in keys_dict.keys():
         # Nettoyer le nom (enlever préfixes de classe, underscores)
-        clean_key = key.replace(f"_{obj.__class__.__name__}", "").lstrip('_').replace('_', ' ')
+        if isinstance(obj, dict):
+            # Pour les dictionnaires, nous ne pouvons pas utiliser obj.__class__.__name__
+            clean_key = key.lstrip('_').replace('_', ' ')
+        else:
+            if '__' in key and key.startswith('_'):
+                # Format pour attributs privés: '_ClassName__attributName'
+                clean_key = key.split('__')[1].replace('_', ' ')
+            else:
+                clean_key = key.replace(f"_{obj.__class__.__name__}__", "").lstrip('_').replace('_', ' ')
         
         # Ajouter espaces avant majuscules et entre chiffres/lettres
         clean_key = re.sub(r'([A-Z])', r' \1', clean_key)
