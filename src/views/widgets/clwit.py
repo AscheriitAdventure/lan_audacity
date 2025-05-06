@@ -55,6 +55,8 @@ class CLWIT(QWidget):
 
     def _loadUI(self):
         self.clwit_layout = QVBoxLayout(self)
+        self.clwit_layout.setContentsMargins(1, 1, 1, 1)
+        self.clwit_layout.setSpacing(0)
         self.setLayout(self.clwit_layout)
 
         if self.search_panel:

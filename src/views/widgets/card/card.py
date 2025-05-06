@@ -41,7 +41,7 @@ SEC_PARAMS: list = [
 
 class Card_2(QFrame):
     def __init__(self, debug: Optional[bool] = False, parent=None):
-        super(Card_2, self).__init__(parent)
+        super().__init__(parent)
 
         self.setFrameStyle(QFrame.Shape.StyledPanel | QFrame.Shadow.Raised)
         self.setLineWidth(10)

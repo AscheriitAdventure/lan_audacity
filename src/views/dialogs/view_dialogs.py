@@ -307,7 +307,7 @@ class DynFormDialog(QDialog):
             label = QLabel(label_text)
             if field.get('required', False):
                 label.setText(f"{label_text} *")
-            self.layout.addWidget(label, current_row, 0)
+            self.main_layout.addWidget(label, current_row, 0)
 
         # Création du widget d'entrée
         if input_config := field.get('input'):
@@ -316,10 +316,10 @@ class DynFormDialog(QDialog):
                 # Positionnement selon la grille spécifiée ou par défaut
                 grid = field.get('grid', [current_row, 1])
                 if isinstance(grid, (list, tuple)) and len(grid) >= 2:
-                    self.layout.addWidget(widget, grid[0], grid[1])
+                    self.main_layout.addWidget(widget, grid[0], grid[1])
                     current_row = max(next_row, grid[0] + 1)
                 else:
-                    self.layout.addWidget(widget, current_row, 1)
+                    self.main_layout.addWidget(widget, current_row, 1)
                     current_row = next_row
 
         return current_row

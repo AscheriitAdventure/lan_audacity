@@ -125,7 +125,7 @@ class LanAudacity(FileManagement):
                 },
                 {
                     "name": "db",
-                    "folders": ["interfaces", "desktop"]
+                    "folders": ["interfaces", "desktop", "tmp"]
                 },
                 {
                     "name": "logs",
@@ -133,6 +133,9 @@ class LanAudacity(FileManagement):
                 },
                 {
                     "name": "pixmap"
+                },
+                {
+                    "name": "exports"
                 }
             ]
 

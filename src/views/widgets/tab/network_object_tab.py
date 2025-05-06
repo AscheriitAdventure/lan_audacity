@@ -55,6 +55,34 @@ FIXED_CARDS: List[Dict[str, Any]] = [
         "key_table": ["column 0"],
         "data_table": None,
     },
+    {
+        "stack_name": "Interfaces",
+        "format": "ccfb",
+        "title": "Operating System Action List",
+        "comment": "Liste des actions à impléménter sur 'Interfaces'",
+        "data_form": {
+            "runnable_all": None,
+            "runnable_nmap": None,
+            "runnable_icmp": None,
+            "runnable_snmp": None,
+            "runnable_wireshark": None,
+            "runnable_generate_map": None,
+        },
+    },
+    {
+        "stack_name": "Interfaces",
+        "format": "ccf",
+        "title": "Status of the Runnable Actions",
+        "comment": "Status des actions à impléménter sur 'Interfaces'",
+        "data_form": {
+            "status_nmap": None,
+            "status_icmp": None,
+            "status_snmp": None,
+            "status_oid": None,
+            "status_wireshark": None,
+            "status_generate_map": None,
+        },
+    }
 ]
 
 
@@ -68,8 +96,7 @@ class NetworkObjectTab(Tab):
     """Tab for network objects like devices, interfaces etc."""
 
     def __init__(self, object_data: Optional[Dict] = None, parent=None):
-        super().__init__(parent, Tab.TabType.NETWORK,
-                         object_data.get('name', 'Network Object'))
+        super().__init__(parent, Tab.TabType.NETWORK, object_data.get('name', 'Network Object'))
         self.rootData = object_data
         self.stackedWidgetList: List[QWidget] = list()
         self.domainType: NetworkObjectTab.DomainType = self.DomainType.OTHER
@@ -81,7 +108,7 @@ class NetworkObjectTab(Tab):
         # Main layout
         self.mainLayout = QGridLayout(self)
         self.setLayout(self.mainLayout)
-        self.mainLayout.setContentsMargins(0, 0, 0, 0)
+        self.mainLayout.setContentsMargins(0, 5, 0, 0)
 
         # Add Scroll Area
         self._loadScrollArea()
@@ -95,13 +122,13 @@ class NetworkObjectTab(Tab):
         # Add Object 2 --> Stacked
         self._zone2 = QStackedWidget(self)
         self._zone2.setMinimumWidth(100)
+        self._zone2.setContentsMargins(0, 5, 0, 0)
         self.scrollLayout.addWidget(self._zone2, 0, 1, 1, 1)
 
     def _loadScrollArea(self):
         self.scrollArea = QScrollArea(self)
         self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setHorizontalScrollBarPolicy(
-            Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.mainLayout.addWidget(self.scrollArea)
 
         # Create container widget for scroll area
@@ -138,8 +165,7 @@ class NetworkObjectTab(Tab):
                 ico = IconApp.from_dict(icon)
                 btn.setIcon(ico.get_qIcon())
             btn.setFlat(True)
-            btn.clicked.connect(lambda checked=False,
-                                index=i: self.showField(index)())
+            btn.clicked.connect(lambda checked=False, index=i: self.showField(index)())
             btn_list.append(btn)
 
             sdfot = WidgetField(self.debug)
@@ -157,14 +183,14 @@ class NetworkObjectTab(Tab):
                         "rowSpan": 1,
                         "row": 1,
                         "column": 1,
-                        "alignment": Qt.AlignmentFlag.AlignJustify
+                        "alignment": Qt.AlignmentFlag.AlignLeft
                     }
                 }
                 if isinstance(i, CCT):
                     tmp["layout"]["rowSpan"] = 2
                     tmp["layout"]["columnSpan"] = 2
-                elif isinstance(i, CCF):
-                    tmp["layout"]["rowSpan"] = 2
+                # elif isinstance(i, CCF):
+                #     tmp["layout"]["rowSpan"] = 2
 
                 sdfot.addCard(i, tmp)
 
@@ -173,8 +199,7 @@ class NetworkObjectTab(Tab):
 
         self._zone2.setCurrentIndex(0)
 
-        logging.debug(
-            f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Button list: {btn_list}")
+        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: Button list: {btn_list}")
         params = {
             "toggle": True,
             "search": False,
@@ -228,6 +253,7 @@ class NetworkObjectTab(Tab):
         tmp_d["name_file"] = self.rootData.get("uuid")
         obj_class: Network = Network.from_dict(tmp_d)
         logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {obj}")
+
         if "dashboard" in stack_name.lower():
             # Création de la carte principale pour l'objet réseau
             tmp_d = dict()
@@ -249,8 +275,24 @@ class NetworkObjectTab(Tab):
             ls_c.extend(self._generateCardFromObject(obj_class))
 
         elif "interfaces" in stack_name.lower():
-            logging.info(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {self.rootData}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {self.rootData}")
+
+            btn_runnable_all = QPushButton("All")
+            btn_runnable_nmap = QPushButton("Runnable Nmap")
+            btn_runnable_icmp = QPushButton("ICMP")
+            btn_runnable_snmp = QPushButton("SNMP")
+            btn_runnable_wireshark = QPushButton("Wireshark")
+            btn_runnable_generate_map = QPushButton("Generate Map")
+            # Recherche de l'index de la carte "Operating System Action List" et mise à jour de son data_form
+            for i, card in enumerate(FIXED_CARDS):
+                if (card.get("stack_name", "").lower() == stack_name.lower() and card.get("format") == "ccfb" and card.get("title") == "Operating System Action List"):
+                    FIXED_CARDS[i]["data_form"]["runnable_all"] = btn_runnable_all
+                    FIXED_CARDS[i]["data_form"]["runnable_nmap"] = btn_runnable_nmap
+                    FIXED_CARDS[i]["data_form"]["runnable_icmp"] = btn_runnable_icmp
+                    FIXED_CARDS[i]["data_form"]["runnable_snmp"] = btn_runnable_snmp
+                    FIXED_CARDS[i]["data_form"]["runnable_wireshark"] = btn_runnable_wireshark
+                    FIXED_CARDS[i]["data_form"]["runnable_generate_map"] = btn_runnable_generate_map
+                    break
 
         elif "devices" in stack_name.lower():
             logging.info(
@@ -281,7 +323,17 @@ class NetworkObjectTab(Tab):
             elif f_c.get("stack_name") == stack_name and f_c.get("format") == "ccf":
                 c = CCF(
                     title=f_c.get("title"),
-                    data_form=None,
+                    data_form=f_c.get("data_form", None),
+                    debug=self.debug,
+                    parent=self)
+                ls_c.append(c)
+                logging.info(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}")
+            
+            elif f_c.get("stack_name") == stack_name and f_c.get("format") == "ccfb":
+                c = CCFB(
+                    title=f_c.get("title"),
+                    data_form=f_c.get("data_form", None),
                     debug=self.debug,
                     parent=self)
                 ls_c.append(c)
@@ -328,6 +380,7 @@ class NetworkObjectTab(Tab):
                 # Création d'une carte de type formulaire pour les dictionnaires ou classes
                 tmp_d["data_form"] = attr_value
                 card = CCF(**tmp_d)
+                card.setUpdateBtn(True)
                 cards.append(card)
 
             elif isinstance(attr_value, (list, tuple)):
@@ -350,3 +403,26 @@ class NetworkObjectTab(Tab):
         cards.append(card)
 
         return cards
+
+    def run_nmap(self):
+        # Ouvre une boite de dialogue qui ouvre un travailleur et lance une liste de tâches
+        # Récupère de manière asynchrone les résultats de l'exécution de nmap
+        # et met à jour les différentes cartes "Devices", "Local Area Network", "Current Problems", "List of network equipments"
+        # et "Status of the Runnable Actions"
+        pass
+
+    def run_icmp(self):
+        pass
+
+    def run_snmp(self):
+        pass
+
+    def run_wireshark(self):
+        pass
+
+    def run_generate_map(self):
+        pass
+
+    def run_all(self):
+        pass
+    

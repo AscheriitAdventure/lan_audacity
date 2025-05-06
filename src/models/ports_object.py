@@ -26,3 +26,18 @@ class PortsObject:
         """
         return 0 <= port_number <= 65535
 
+    def get_dict(self) -> dict:
+        """
+        Returns a dictionary representation of the PortsObject instance.
+
+        Returns:
+            dict: Dictionary representation of the PortsObject instance.
+        """
+        return {
+            "port_number": self.port_number,
+            "device": self.device.get_interface().get_dict(),
+            "protocol": self.protocol,
+            "port_status": self.port_status,
+            "port_service": self.port_service,
+            "port_version": self.port_version,
+        }

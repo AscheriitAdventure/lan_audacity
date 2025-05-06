@@ -74,7 +74,5 @@ class WebAddress:
         if self.ipv4 is not None and self.mask_ipv4 is not None:
             maskToInt = sum(bin(int(x)).count('1') for x in self.mask_ipv4.split('.'))
             self.cidr = f"{self.ipv4}/{maskToInt}"
-        else:
-            pass
     
 
