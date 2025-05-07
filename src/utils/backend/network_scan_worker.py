@@ -31,7 +31,8 @@ class NetworkScanWorker(Worker):
         scan_type = self.request_d.get("type", "nmap")
 
         if scan_type == "nmap":
-            nb_host = SwitchFunctions.speedScan(self.objData.web_address.cidr)
+            logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {self.objData.web_address.cidr}")
+            nb_host = SwitchFunctions.speedScan(SwitchFunctions(), self.objData.web_address.cidr)
             uc_ls = self.objData.get_devices()
             
             logging.info(
@@ -55,7 +56,7 @@ class NetworkScanWorker(Worker):
                     new_device.web_address.generate_cidr()
                     new_device.update_device()
 
-                    self.objData.devices.append(new_device)
+                    self.objData.devices.append(new_device.get_interface())
                 
                 self.objData.update_network()
 

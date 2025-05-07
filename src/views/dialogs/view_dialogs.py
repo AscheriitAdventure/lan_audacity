@@ -92,7 +92,7 @@ class DynFormDialog(QDialog):
 
         # Layout pour le formulaire
         self.form_widget = QWidget()
-        self.layout = QGridLayout(self.form_widget)
+        self.gridFormLayout = QGridLayout(self.form_widget)
         self.main_layout.addWidget(self.form_widget)
 
         # Layout pour les boutons
@@ -137,15 +137,15 @@ class DynFormDialog(QDialog):
         if title := form_data.get('title'):
             title_label = QLabel(title)
             title_label.setStyleSheet("font-weight: bold; font-size: 14px;")
-            self.layout.addWidget(title_label, current_row, 0, 1, -1)
+            self.gridFormLayout.addWidget(title_label, current_row, 0, 1, -1)
             current_row += 1
 
         # Séparateur si demandé
         if form_data.get('separator', False):
             separator = QFrame()
-            separator.setFrameShape(QFrame.HLine)
-            separator.setFrameShadow(QFrame.Sunken)
-            self.layout.addWidget(separator, current_row, 0, 1, -1)
+            separator.setFrameShape(QFrame.Shape.HLine)
+            separator.setFrameShadow(QFrame.Shadow.Sunken)
+            self.gridFormLayout.addWidget(separator, current_row, 0, 1, -1)
             current_row += 1
 
         # Chargement des champs
@@ -307,7 +307,7 @@ class DynFormDialog(QDialog):
             label = QLabel(label_text)
             if field.get('required', False):
                 label.setText(f"{label_text} *")
-            self.main_layout.addWidget(label, current_row, 0)
+            self.gridFormLayout.addWidget(label, current_row, 0)
 
         # Création du widget d'entrée
         if input_config := field.get('input'):
@@ -316,10 +316,10 @@ class DynFormDialog(QDialog):
                 # Positionnement selon la grille spécifiée ou par défaut
                 grid = field.get('grid', [current_row, 1])
                 if isinstance(grid, (list, tuple)) and len(grid) >= 2:
-                    self.main_layout.addWidget(widget, grid[0], grid[1])
+                    self.gridFormLayout.addWidget(widget, grid[0], grid[1])
                     current_row = max(next_row, grid[0] + 1)
                 else:
-                    self.main_layout.addWidget(widget, current_row, 1)
+                    self.gridFormLayout.addWidget(widget, current_row, 1)
                     current_row = next_row
 
         return current_row

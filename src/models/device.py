@@ -51,7 +51,7 @@ class Device(object):
     def get_dict(self) -> dict:
         """Returns a dictionary representation of the instance."""
         return {
-            "uuid": self.uuid,
+            "uuid": str(self.uuid),
             "name_object": self.name_object,
             "web_address": self.web_address.get_dict(),
             "clock_manager": self.clock_manager.get_dict(),

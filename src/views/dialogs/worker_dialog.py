@@ -2,27 +2,6 @@ from qtpy.QtWidgets import *
 from qtpy.QtCore import *
 
 
-class WDialogs(QDialog):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Loading...")
-        self.setLayout(QVBoxLayout())
-        self.progress_bar = QProgressBar(self)
-        self.progress_label = QLabel("Synchronisation en cours...", self)
-
-        self.layout().addWidget(self.progress_label)
-        self.layout().addWidget(self.progress_bar)
-        self.progress_bar.setValue(0)
-
-    def update_progress(self, value):
-        self.progress_bar.setValue(value)
-
-    def set_message(self, message: str):
-        self.progress_label.setText(message)
-
-    def set_maximum(self, max_value: int):
-        self.progress_bar.setMaximum(max_value)
-
 class WorkerTemplateDialog(QDialog):
     def __init__(self, parent=None, debug: bool = False):
         super().__init__(parent)
