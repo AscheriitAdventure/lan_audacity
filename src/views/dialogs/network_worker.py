@@ -27,11 +27,7 @@ class NetworkWorkerDialog(WorkerTemplateDialog):
         self.cancel_button.clicked.connect(self.cancel_scan)
         self.main_layout.addWidget(self.cancel_button)
 
-    def start_scan(self):
-        # Créer un objet de données pour le worker
-        scan_data = {
-            "type": "nmap",
-        }
+    def start_scan(self, scan_data:dict = {"type": "nmap",}):
 
         # Créer le worker
         self.worker = NetworkScanWorker(self.network_obj, scan_data)
@@ -43,7 +39,7 @@ class NetworkWorkerDialog(WorkerTemplateDialog):
         self.worker.signals.finished.connect(self.on_finished)
 
         # Démarrer le worker dans un thread séparé
-        self.thread_pool.start(self.worker)
+        self.thread_pool.globalInstance().start(self.worker)
 
     def cancel_scan(self):
         if self.worker:

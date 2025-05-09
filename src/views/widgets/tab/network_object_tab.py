@@ -98,8 +98,7 @@ class NetworkObjectTab(Tab):
     """Tab for network objects like devices, interfaces etc."""
 
     def __init__(self, object_data: Optional[Dict] = None, parent=None):
-        super().__init__(parent, Tab.TabType.NETWORK,
-                         object_data.get('name', 'Network Object'))
+        super().__init__(parent, Tab.TabType.NETWORK,object_data.get('name', 'Network Object'))
         self.rootData = object_data
         self.stackedWidgetList: List[QWidget] = list()
         self.domainType: NetworkObjectTab.DomainType = self.DomainType.OTHER
@@ -474,7 +473,7 @@ class NetworkObjectTab(Tab):
         # Lancement du scan
         dialog.start_scan()
 
-        # Affichage modal (bloque jusqu'à ce que le scan soit terminé ou annulé)
+        # Affichage modal (bloque jusqu'à ce que le scan soit terminé ou annulé) je souhaite l'inverse
         result = dialog.exec_()
 
         if result == QDialog.DialogCode.Accepted:
@@ -522,6 +521,12 @@ class NetworkObjectTab(Tab):
         pass
 
     def run_generate_map(self):
+        # Ici on donne un type de device pour chaque device enregistré
+        # 1 - scan de ports, os, hop, etc...
+            # nmap -sS -sU -T4 -A -v -PE -PP -PS80,443 -PA3389 -PU40125 -PY -g 53 --script "default or (discovery and safe)" <ip/cidr>
+        # 2 - on cherche un ou plusieurs mots clés puis on distribue les devices dans les couches OSI
+        # 3 - on supprime nativement tous les devices qui ne sont pas dans les couches OSI 1-3
+        # 4 - on alimente un fihier de données qui sera ensuite utilisé pour générer la carte 
         pass
 
     def run_all(self):
