@@ -1,0 +1,22 @@
+database:
+  driver: mysql
+  host: localhost
+  port: 3306
+  username: root
+  password: root
+  dbname: map_network
+
+network:
+  sites:
+    - 192.168.2.0/24    # 40 ZAC Expeditions  33/41
+    - 192.168.90.0/24   # 98 ZAC Bureaux      95/98
+    - 192.168.100.0/24  # 66 ZI               27/76
+    - 192.168.253.0/24  # 16 CHALLENGER       XX/16
+    - 192.168.70.0/24   # 256 PARIS           XX/256
+    - 192.168.110.0/24  # 8 TAZO              XX/10
+  community:
+    - ArteEyrein
+    - EyrPub
+    - publicEyrChal
+    - CIT_:ezZ.G77
+    - public
