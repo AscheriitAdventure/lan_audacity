@@ -210,7 +210,7 @@ class SyncWorker(Worker):
         :param parent: L'objet parent Qt (facultatif).
         """
         # Appelle le constructeur de la classe de base (Worker) avec les paramètres appropriés
-        super(SyncWorker, self).__init__(obj_data, parent)
+        super().__init__(obj_data, parent)
         self.objData: Network
 
     def work(self) -> None:
@@ -252,7 +252,7 @@ class SyncWorker(Worker):
 
 class WorkerNetworkTool(Worker):
     def __init__(self, obj_data: Network, parent=None):
-        super(WorkerNetworkTool, self).__init__(obj_data, parent)
+        super().__init__(obj_data, parent)
         self.objData: Network
     
     def work(self) -> List[Dict[str, Any]]:

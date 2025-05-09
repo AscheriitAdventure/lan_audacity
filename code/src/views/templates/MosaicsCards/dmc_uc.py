@@ -43,7 +43,7 @@ class DevicesDMC(DMC):
                 tmp["top_card"] = QLabel(f"{uc.nameObj}({uc.ipv4})", self)
                 tmp["left_card"] = CardImage(img_default.scaled(50, 50, Qt.AspectRatioMode.KeepAspectRatio), self)
                 qw_c = QWidget(self)
-                c_card = QFormLayout(self)
+                c_card = QFormLayout()
                 c_card.setContentsMargins(0, 0, 0, 0)
                 c_card.setSpacing(0)
                 c_card.addRow(QLabel("Name: "), QLabel(uc.nameObj))

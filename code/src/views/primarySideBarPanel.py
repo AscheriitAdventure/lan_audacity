@@ -248,12 +248,13 @@ class NetExpl(GeneralSidePanel):
                     net_data_file = SwitchFile.json_read(network.get('path'))
                     
                     if net_data_file.get("devices_list") and len(net_data_file["devices_list"]) > 0:
-                        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network["name"]} Devices list: {len(net_data_file['devices_list'])}")
+                        logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {network["name"]} Devices list: {len(net_data_file['devices_list'])}")
                         
                         for device in net_data_file["devices_list"]:
                             filePath = os.path.join(self.extObj.absPath, "db", "desktop", device+".json")
                             
                             if os.path.exists(filePath):
+                                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: Device file found: {filePath}")
                                 device_data = SwitchFile.json_read(filePath)
                                 self.add_device_to_tree(network.get('name'), device_data.get('name') if device_data.get('name') else device_data.get('device_ipv4'))
 
