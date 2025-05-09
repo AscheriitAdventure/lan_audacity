@@ -10,6 +10,7 @@ import json
 import pandas as pd
 import xml.dom.minidom as md
 from xml.etree import ElementTree as ET
+import sys
 
 from src.views.widgets import *
 from .c_table_filter import CustomTableFilter as CTF
@@ -128,10 +129,19 @@ class CustomCardTable(Card):
         self.cct.setRowCount(0)
     
         for i, row in enumerate(data_table):
-            self.cct.insertRow(i)
-            for j, item in enumerate(row):
-                self.cct.setItem(i, j, QTableWidgetItem(str(item)))
-    
+            if isinstance(row, dict):
+                self.cct.insertRow(i)
+                for j, (key, value) in enumerate(row.items()):
+                    self.cct.setItem(i, j, QTableWidgetItem(str(value)))
+            elif hasattr(row, 'get_dict'):
+                self.cct.insertRow(i)
+                tmp_row = row.get_dict()
+                for j, key in enumerate(tmp_row.keys()):
+                    logging.debug(f"{__class__.__name__}::{inspect.currentframe().f_code.co_name}: {key}")
+                    self.cct.setItem(i, j, QTableWidgetItem(str(tmp_row[key])))
+            else:
+                logging.warning(f"{__class__.__name__}::{inspect.currentframe().f_code.co_name}:: {row}") # Interfaces(name_file='6f71d5ca-5f30-4938-a576-204f3fa96ec3', alias='Unknown Device', path='C:\\Users\\g.tronche\\Documents\\test_app\\test_20250507\\db\\desktop\\6f71d5ca-5f30-4938-a576-204f3fa96ec3.json')
+            
         # Mettre à jour les widgets de filtrage s'ils existent
         if hasattr(self, 'filter') and self.filter is not None:
             self.filter.updateFilterWidgets()

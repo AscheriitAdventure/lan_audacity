@@ -1,4 +1,5 @@
 import re
+from src.models import Device
 
 def prettyKeys(obj: object) -> dict:
     """
@@ -70,8 +71,8 @@ class HW(object):
 
 
 if __name__ == '__main__':
-    print(f"Pretty list: {prettyKeysList(HW())}")
-    s = HW()
+    print(f"Pretty list: {prettyKeysList(Device())}")
+    s = Device()
     print(f"class name: {s.__class__.__name__}\n")  # class name: HW
     print(f"class dict: {s.__dict__}\n")
 

@@ -275,8 +275,7 @@ class NetworkObjectTab(Tab):
             # Rechercher l'index de la carte "Local Area Network" et mettre à jour son data_table
             for i, card in enumerate(FIXED_CARDS):
                 if (card.get("stack_name", "").lower() == stack_name.lower() and card.get("format") == "cct" and card.get("title") == "Local Area Network"):
-                    FIXED_CARDS[i]["data_table"] = [data.get_dict()
-                                                    for data in obj_class.get_devices()]
+                    FIXED_CARDS[i]["data_table"] = [data.get_dict() for data in obj_class.get_devices()]
                     break
 
             # Utilisation de la nouvelle fonction pour créer des cartes à partir des attributs
@@ -422,8 +421,7 @@ class NetworkObjectTab(Tab):
             tmp_d["debug"] = self.debug
             tmp_d["parent"] = parent
 
-            logging.info(
-                f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {attr_name} - {attr_value}")
+            logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {attr_name} - {attr_value}")
 
             # Traitement selon le type d'attribut
             if isinstance(attr_value, dict) or inspect.isclass(attr_value) or hasattr(attr_value, '__dataclass_fields__'):
@@ -439,13 +437,12 @@ class NetworkObjectTab(Tab):
             elif isinstance(attr_value, (list, tuple)):
                 origin_d["data_form"].pop(attr_name)
                 # Création d'une carte de type tableau pour les listes ou tuples
-                tmp_d["key_table"] = ["column 0"]
-                tmp_d["data_table"] = attr_value
+                tmp_d["key_table"] = prettyKeysList(attr_value[0]) if len(attr_value) > 0 else ['column 0']
+                tmp_d["data_table"] = attr_value if len(attr_value) > 0 else None
                 card = CCT(**tmp_d)
                 card.setFilterPanel(True)
                 card.setExportBtn(True)
-                logging.info(
-                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {attr_name} - {attr_value}")
+                logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {attr_name} - {attr_value}")
                 cards.append(card)
 
             else:

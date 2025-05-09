@@ -161,8 +161,7 @@ class Network:
     def get_devices(self) -> List[Device]:
         logging.debug(
             f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {len(self.devices)}")
-        ls_d: List[Device] = [Device.from_dict(
-            device.get_dict()) for device in self.devices]
+        ls_d: List[Device] = [Device.from_dict(device.get_dict()) for device in self.devices]
         return ls_d
 
     def _getUuidFile(self) -> str:

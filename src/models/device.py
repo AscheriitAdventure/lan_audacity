@@ -43,21 +43,34 @@ class Device(object):
         self.mac_address = None
 
         if ospath is not None:
-            self.path = os.path.join(ospath, f"{self.uuid}.json")
-            self.update_device()
+            # Check if ospath is a directory or a file
+            if not os.path.isdir(ospath):
+                data = SwitchFile.json_read(abs_path=ospath)
+                self.path = ospath
+                self.uuid = UUID(data["uuid"])
+                self.name_object = data["name_object"]
+                self.web_address = WebAddress(**data["web_address"])
+                self.clock_manager = ClockManager.from_dict(data["clock_manager"])
+                self.type_device = data["type_device"]
+                self.vendor = data["vendor"]
+                self.mac_address = data["mac_address"]
+            else:
+                self.path = os.path.join(ospath, f"{self.uuid}.json")
+                self.update_device()
         else:
             self.path = None
 
     def get_dict(self) -> dict:
         """Returns a dictionary representation of the instance."""
         return {
-            "uuid": str(self.uuid),
             "name_object": self.name_object,
+            "uuid": str(self.uuid),
             "web_address": self.web_address.get_dict(),
             "clock_manager": self.clock_manager.get_dict(),
             "type_device": self.type_device,
             "vendor": self.vendor,
             "mac_address": self.mac_address,
+            "path": self.path
         }
 
     def get_interface(self) -> Interfaces:
