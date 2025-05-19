@@ -1,5 +1,7 @@
 from enum import Enum, auto
 from qtpy.QtWidgets import QWidget
+from typing import Optional
+
 
 class Tab(QWidget):
     class TabType(Enum):
@@ -16,6 +18,7 @@ class Tab(QWidget):
         self.title = title
         self.modified = False
         self.debug: bool = False
+        self.templateTabManager: Optional[dict] = {}
 
     def get_title(self) -> str:
         return f"{'*' if self.modified else ''}{self.title}"

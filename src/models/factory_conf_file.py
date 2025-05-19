@@ -162,3 +162,18 @@ class FactoryConfFile:
     # def update_file(self) -> None:
     #     pass
 
+    def getOneDict(self, key: str, value: str) -> Optional[dict]:
+        """
+        Get one dict from the file data.
+
+        Args:
+            key (str): The key to search for.
+            value (str): The value to search for.
+
+        Returns:
+            Optional[dict]: The dict if found, None otherwise.
+        """
+        for data in self.file_data:
+            if data[key] == value:
+                return data
+        return None

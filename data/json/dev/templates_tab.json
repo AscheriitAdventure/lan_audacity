@@ -1,0 +1,419 @@
+[
+  {
+    "stacked_title": "Network Tab",
+    "separator": true,
+    "shortcut": null,
+    "enable": true,
+    "fields": [
+      {
+        "title": "Dashboard",
+        "icon": {
+          "names": ["mdi6.view-dashboard"],
+          "options": [
+            {
+              "color": "PaleTurquoise"
+            }
+          ]
+        },
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche le tableau de bord",
+        "actions": [
+          {
+            "icon": {
+              "names": ["mdi6.plus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Lime",
+                  "active": "mdi6.plus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "More"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.minus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Red",
+                  "active": "mdi6.minus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "Less"
+          }
+        ],
+        "description": "Affiche le tableau de bord et les informations de l'objet",
+        "visible": true,
+        "fields": [
+          {
+            "format": "cct",
+            "title": "Local Area Network",
+            "icon": {
+              "names": [],
+              "options": []
+            },
+            "filter_panel": true,
+            "export_btn": true,
+            "key_table": ["column 0"],
+            "data_table": null
+          },
+          {
+            "format": "cct",
+            "title": "List of network equipments",
+            "icon": {
+              "names": [],
+              "options": []
+            },
+            "filter_panel": true,
+            "export_btn": true,
+            "key_table": ["column 0"],
+            "data_table": null
+          },
+          {
+            "title": "Current Problems",
+            "icon": {
+              "names": [],
+              "options": []
+            },
+            "filter_panel": true,
+            "export_btn": true,
+            "key_table": ["column 0"],
+            "data_table": null
+          }
+        ]
+      },
+      {
+        "title": "Interfaces",
+        "icon": {
+          "names": ["mdi6.cogs"],
+          "options": [
+            {
+              "color": "LightSlateGray"
+            }
+          ]
+        },
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche les données de l'objet",
+        "actions": [
+          {
+            "icon": {
+              "names": ["mdi6.view-split-vertical"]
+            },
+            "callback": null,
+            "tooltip": "grid X colonne"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.plus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Lime",
+                  "active": "mdi6.plus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "More"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.minus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Red",
+                  "active": "mdi6.minus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "Less"
+          }
+        ],
+        "description": "Affiche les interfaces de l'objet",
+        "visible": true,
+        "fields": [
+          {
+            "format": "ccfb",
+            "title": "Operating System Action List",
+            "comment": "Liste des actions à impléménter sur 'Interfaces'",
+            "data_form": {
+              "runnable_all": null,
+              "runnable_nmap": null,
+              "runnable_icmp": null,
+              "runnable_snmp": null,
+              "runnable_wireshark": null,
+              "runnable_generate_map": null
+            }
+          },
+          {
+            "format": "ccf",
+            "title": "Status of the Runnable Actions",
+            "comment": "Status des actions à impléménter sur 'Interfaces'",
+            "data_form": {
+              "status_nmap": null,
+              "status_icmp": null,
+              "status_snmp": null,
+              "status_oid": null,
+              "status_wireshark": null,
+              "status_generate_map": null
+            }
+          }
+        ]
+      },
+      {
+        "title": "Devices",
+        "icon": {
+          "names": ["mdi6.desktop-tower"],
+          "options": [
+            {
+              "color": "LightSlateGray"
+            }
+          ]
+        },
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche les données de l'objet",
+        "actions": [
+          {
+            "icon": {
+              "names": ["mdi6.view-split-vertical"]
+            },
+            "callback": null,
+            "tooltip": "grid X colonne"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.plus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Lime",
+                  "active": "mdi6.plus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "More"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.minus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Red",
+                  "active": "mdi6.minus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "Less"
+          }
+        ],
+        "description": "Affiche les interfaces de l'objet",
+        "visible": true,
+        "fields": []
+      },
+      {
+        "title": "VLANs",
+        "icon": {
+          "names": ["mdi6.lan", "mdi6.scan-helper"],
+          "options": [
+            {
+              "scale_factor": 0.75
+            },
+            {
+              "color": "Black"
+            }
+          ]
+        },
+        "form_list": "map",
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche les VLAN sur réseau",
+        "actions": [],
+        "description": "Affiche les VLAN du réseau",
+        "visible": true,
+        "fields": []
+      },
+      {
+        "title": "Network Map",
+        "icon": {
+          "names": ["mdi6.map-legend", "mdi6.routes"],
+          "options": [
+            {
+              "scale_factor": 1,
+              "color": "Silver"
+            },
+            {
+              "scale_factor": 0.75,
+              "color": "ForestGreen"
+            }
+          ]
+        },
+        "form_list": "map",
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche la carte du réseau",
+        "actions": [],
+        "description": "Affiche la carte du réseau",
+        "visible": true,
+        "fields": []
+      }
+    ]
+  },
+  {
+    "stacked_title": "Device Tab",
+    "separator": true,
+    "shortcut": null,
+    "enable": true,
+    "fields": [
+      {
+        "title": "Dashboard",
+        "icon": {
+          "names": ["mdi6.view-dashboard"],
+          "options": [
+            {
+              "color": "PaleTurquoise"
+            }
+          ]
+        },
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche le tableau de bord",
+        "actions": [
+          {
+            "icon": {
+              "names": ["mdi6.plus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Lime",
+                  "active": "mdi6.plus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "More"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.minus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Red",
+                  "active": "mdi6.minus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "Less"
+          }
+        ],
+        "description": "Affiche le tableau de bord et les informations de l'objet",
+        "visible": true
+      },
+      {
+        "title": "Interfaces",
+        "icon": {
+          "names": ["mdi6.cogs"],
+          "options": [
+            {
+              "color": "LightSlateGray"
+            }
+          ]
+        },
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche les données de l'objet",
+        "actions": [
+          {
+            "icon": {
+              "names": ["mdi6.view-split-vertical"]
+            },
+            "callback": null,
+            "tooltip": "grid X colonne"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.plus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Lime",
+                  "active": "mdi6.plus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "More"
+          },
+          {
+            "icon": {
+              "names": ["mdi6.minus-circle"],
+              "options": [
+                {
+                  "scale_factor": 1,
+                  "color": "Red",
+                  "active": "mdi6.minus-circle-outline"
+                }
+              ]
+            },
+            "callback": null,
+            "tooltip": "Less"
+          }
+        ],
+        "description": "Affiche les interfaces de l'objet",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "stacked_title": "Default Tab",
+    "separator": true,
+    "shortcut": null,
+    "enable": true,
+    "fields": [
+      {
+        "title": "Work in Progress",
+        "icon": {
+          "names": ["mdi6.folder-open", "mdi6.sign-yield", "mdi6.walk"],
+          "options": [
+            {
+              "color": "Peru"
+            },
+            {
+              "vflip": true,
+              "color": "Orange",
+              "scale_factor": 0.75,
+              "offset": [0.2, -0.2]
+            },
+            {
+              "color": "Black",
+              "scale_factor": 0.35,
+              "hflip": true,
+              "offset": [-0.2, 0.225]
+            }
+          ]
+        },
+        "separator": true,
+        "collapsed": false,
+        "tooltip": "Affiche le template 404",
+        "actions": null,
+        "description": "Affiche le template 404",
+        "visible": true,
+        "fields": []
+      }
+    ]
+  }
+]

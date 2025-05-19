@@ -104,7 +104,6 @@ NETWORK_TAB: Dict[str, Any] = {
     "fields": [
         {
             "title": "Dashboard",
-            "form_list": "fmcg",  # Fixed Mosaics Cards Grid
             "icon": {
                 "names": ["mdi6.view-dashboard"],
                 "options": [
@@ -151,7 +150,6 @@ NETWORK_TAB: Dict[str, Any] = {
         },
         {
             "title": "Interfaces",
-            "form_list": "dmcg",  # Dynamic Mosaics Cards Grid
             "icon": {
                 "names": ["mdi6.cogs"],
                 "options": [
@@ -205,7 +203,6 @@ NETWORK_TAB: Dict[str, Any] = {
         },
         {
             "title": "Devices",
-            "form_list": "dmcg",  # Dynamic Mosaics Cards Grid
             "icon": {
                 "names": ["mdi6.desktop-tower"],
                 "options": [
