@@ -198,7 +198,6 @@ class NetworkObjectTab(Tab):
         tmp_d["alias"] = self.rootData.get("name")
         tmp_d["path"] = self.rootData.get("path")
         tmp_d["name_file"] = self.rootData.get("uuid")
-        obj_class: Any = None
 
         if self.domainType == self.DomainType.INTERFACE:
             obj_class: Network = Network.from_dict(tmp_d)
@@ -266,12 +265,19 @@ class NetworkObjectTab(Tab):
                         obj["fields"][i]["data_form"]["status_oid"] = status_oid
                         obj["fields"][i]["data_form"]["status_wireshark"] = status_wireshark
                         obj["fields"][i]["data_form"]["status_generate_map"] = status_generate_map
-    
             else:
-                logging.debug(
-                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {obj.get('fields')}")
+                logging.debug(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}::{inspect.currentframe().f_lineno}: {obj.get('fields')}")
+                if stack_name.lower() == "devices":
+                    obj["fields"] = list()
 
-        
+                    for i in obj_class.get_devices():
+                        tmp_d3 = dict()
+                        tmp_d3["format"] = "ccdw"
+                        tmp_d3["debug"] = self.debug
+                        tmp_d3["parent"] = self
+                        tmp_d3["data_form"] = i
+                        obj["fields"].append(tmp_d3)
+
         elif self.domainType == self.DomainType.DEVICE:
             obj_class: Device = Device.from_dict(tmp_d)
             tmp_d2["data_form"] = obj_class
@@ -316,6 +322,14 @@ class NetworkObjectTab(Tab):
                     data_form=f_c.get("data_form", None),
                     debug=self.debug,
                     parent=self)
+                ls_c.append(c)
+                logging.info(
+                    f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}")
+            
+            elif f_c.get("format") == "ccdw":
+                f_c.pop("format")
+
+                c = CCDW(**f_c)
                 ls_c.append(c)
                 logging.info(
                     f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {c}")
