@@ -1,0 +1,162 @@
+import nmap
+import logging, inspect
+
+
+class NmapPort:
+    def __init__(self, port: int, state: str, service: str, version: str):
+        self.__port = port
+        self.__state = state
+        self.__service = service
+        self.__version = version
+
+    @property
+    def port(self):
+        return self.__port
+
+    @property
+    def state(self):
+        return self.__state
+
+    @property
+    def service(self):
+        return self.__service
+
+    @property
+    def version(self):
+        return self.__version
+
+
+class NmapOs:
+    def __init__(
+        self,
+        os_name: str,
+        os_accuracy: int,
+        os_type: str,
+        os_vendor: str,
+        os_family: str,
+    ) -> None:
+        self.__os_name = os_name
+        self.__os_accuracy = os_accuracy
+        self.__os_type = os_type
+        self.__os_vendor = os_vendor
+        self.__os_family = os_family
+
+    @property
+    def osName(self):
+        return self.__os_name
+
+    @property
+    def osAccuracy(self):
+        return self.__os_accuracy
+
+    @property
+    def osType(self):
+        return self.__os_type
+
+    @property
+    def osVendor(self):
+        return self.__os_vendor
+
+    @property
+    def osFamily(self):
+        return self.__os_family
+
+
+class NmapForm:
+    def __init__(self, target: str):
+        self.__target = target
+        self.__ports: list[NmapPort] = []
+        self.__os: list[NmapOs] = []
+
+    @property
+    def portsList(self):
+        return self.__ports
+    
+    @portsList.setter
+    def portsList(self, var: list) -> None:
+        self.__ports = var
+
+    @property
+    def osList(self):
+        return self.__os
+    
+    @osList.setter
+    def osList(self, var: list) -> None:
+        self.__os = var   
+
+    def scanPort(self):
+        host = self.__target
+        nm = nmap.PortScanner()
+        nm.scan(hosts=host, arguments="-sV -p 1-65535 -v --max-retries 0 --host-timeout 3m")
+        logging.info(nm.command_line())
+        for host in nm.all_hosts():
+            for proto in nm[host].all_protocols():
+                l_port = nm[host][proto].keys()
+                for port in l_port:
+                    state = nm[host][proto][port]["state"]
+                    service = nm[host][proto][port]["name"]
+                    version = nm[host][proto][port]["version"]
+                    new_port = NmapPort(port, state, service, version)
+                    self.__ports.append(new_port)
+
+    def scanOs(self):
+        host = self.__target
+        tmp_d: dict = {
+            "os_name": None,
+            "os_accuracy": None,
+            "os_type": None,
+            "os_vendor": None,
+            "os_family": None,
+        }
+        nm = nmap.PortScanner()
+        nm.scan(hosts=host, arguments="-O -A -v --max-retries 0 --host-timeout 1m")
+        logging.info(nm.command_line())
+        for host in nm.all_hosts():
+            if "osmatch" in nm[host] and len(nm[host]["osmatch"]) > 0:
+                for osmatch in nm[host]["osmatch"]:
+                    tmp_d["os_name"] = osmatch.get("name", "")
+                    tmp_d["os_accuracy"] = osmatch.get("accuracy", 0)
+                    if "osclass" in osmatch and isinstance(osmatch["osclass"], list):
+                        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {osmatch}")
+                        tmp_d["os_type"] = osmatch["osclass"][0]["type"]
+                        tmp_d["os_vendor"] = osmatch["osclass"][0]["vendor"]
+                        tmp_d["os_family"] = osmatch["osclass"][0]["osfamily"]
+
+                    elif "osclass" in osmatch and isinstance(osmatch["osclass"], dict):
+                        logging.info(f"{self.__class__.__name__}::{inspect.currentframe().f_code.co_name}: {osmatch}")
+                        tmp_d["os_type"] = osmatch["osclass"].get("type", "")
+                        tmp_d["os_vendor"] = osmatch["osclass"].get("vendor", "")
+                        tmp_d["os_family"] = osmatch["osclass"].get("osfamily", "")
+
+                    new_os = NmapOs(**tmp_d)
+                    self.__os.append(new_os)
+
+    def ports_remove(self, port: int):
+        for i in self.__ports:
+            if i.port == port:
+                self.__ports.remove(i)
+                break
+
+    def os_remove(self, os_name: str):
+        for i in self.__os:
+            if i.osName == os_name:
+                self.__os.remove(i)
+                break
+
+    def ports_clear(self):
+        self.__ports.clear()
+
+    def os_clear(self):
+        self.__os.clear()
+
+    def ports_add(self, port: int, state: str, service: str, version: str):
+        new_port = NmapPort(port, state, service, version)
+        self.__ports.append(new_port)
+
+    def jsonData(self):
+        return {
+            "target": self.__target,
+            "ports": [i.__dict__ for i in self.__ports],
+            "os": [i.__dict__ for i in self.__os],
+        }
+
